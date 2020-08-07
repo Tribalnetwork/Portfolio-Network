@@ -112,7 +112,7 @@ npm start
 ```
 
 
-4. Make your edits, fix a bug, implement a feature, etc. If you're looking for something to work on, check out our [Issues](https://github.com/Tribalnetwork/TNWeb/issues) page.
+4. Make your edits, fix a bug, implement a feature, etc. If you're looking for something to work on, check out our [Issues](https://github.com/Tribalnetwork/TNWeb/issues) page. The [additional guides](https://github.com/Tribalnetwork/TNWeb/Additional-Guides) page should help you.
 
 5. Add, commit, and push your feature branch to your Github:
 
