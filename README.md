@@ -1,4 +1,4 @@
-# Tribal Network - React Native
+# Tribal Network - React Web App
 
 A [Tribal Studio](https://www.tribaliii.com/) app for filmmakers. Deployed [here](https://www.tribalnetwork.org/).
 
