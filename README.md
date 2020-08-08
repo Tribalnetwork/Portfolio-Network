@@ -6,7 +6,7 @@ A [Tribal Studio](https://www.tribaliii.com/) app for filmmakers. Deployed [here
 
 This repo serves as the entire Tribal Network web app codebase.
 
-If you're looking for the repo for the web app, head on over to the [mobile repo](https://github.com/Tribalnetwork/TribalNetworkRN).
+If you're looking for the repo for the mobile app, head on over to the [mobile repo](https://github.com/Tribalnetwork/TribalNetworkRN).
 
 **NOTE BEFORE YOU GO FURTHER:** This README is still a work in progress. If there is anything that's missing, doesn't make sense, or doesn't work, let us know! Or better yet, make a pull request with updated information. We want to make this README as robust as possible.
 Here's how to get started:
