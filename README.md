@@ -124,6 +124,6 @@ git push origin my_feature_branch_name_here
 
 6.  Use your GitHub page to create a pull request from your feature branch to master.
 
-7.  One of the admins will then merge your changes into the main branch. The people with write access currently are Leo (LeoXu1).
+7.  One of the admins will then merge your changes into the main branch. The people with write access currently are Leo, Ty, and Justin.
 
 8.  Return to step 1 and repeat: fetch, merge, branch, edit, commit, push!
