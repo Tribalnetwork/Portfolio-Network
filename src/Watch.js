@@ -1,5 +1,6 @@
 import React from 'react'
 import queryString from 'query-string'
+import { Helmet } from 'react-helmet'
 import ReactPlayer from 'react-player'
 import { withRouter } from "react-router-dom";
 import { API, graphqlOperation } from 'aws-amplify'
@@ -82,6 +83,10 @@ class WatchPage extends React.Component {
 
     return (
       <div>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>{`${this.state.title} - Tribal Network`}</title>
+        </Helmet>
         <section className="section">
           <div className="player-wrapper">
             <ReactPlayer

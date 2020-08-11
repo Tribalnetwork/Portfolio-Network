@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react'
 import { API, graphqlOperation } from 'aws-amplify'
 import { getUser } from './graphql/queries'
 import UserContext from './UserContext'
+import { Helmet } from 'react-helmet'
 
 const initialState = { target: '', targetStreamKey: '' }
 
@@ -53,29 +54,31 @@ export const MyLive = () => {
       targetUrl = 'rtmp://a.rtmp.youtube.com/live2'
     }
     var params = {
+      "id": id,
       "url": targetUrl,
       "stream_key": formState.targetStreamKey,
       "passthrough": formState.target
     }
     var request = new XMLHttpRequest();
     request.onreadystatechange = async function() {
-      if (this.readyState == 4 && this.status == 201) {
+      if (this.readyState == 4 && this.status == 200) {
         var responseJSON = JSON.parse(request.responseText)
-        setTargets(responseJSON.data.simulcast_targets)
+        setTargets([...targets, responseJSON.passthrough])
       }
     };
-    request.open("POST", "https://cors-anywhere.herokuapp.com/https://api.mux.com/video/v1/live-streams/"+id+"/simulcast-targets");
-    request.setRequestHeader("Authorization", "Basic "+btoa("58622fd8-5911-44c2-8696-3ac63c8ea1d5:Fr1el5KCOkIM0CRrejK2Z88522WaFRTEu/zIO4wRSTVIORt1If3U6na2TMGqotZngrVaRup28Va"));
-    request.setRequestHeader("Content-Type", "application/json")
+    request.open("POST", "https://7svcjtc33h.execute-api.us-east-1.amazonaws.com/test");
     request.send(JSON.stringify(params))
   }
 
   return (
     <div>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>My Live Channel</title>
+      </Helmet>
       <h1>My Live Channel</h1>
       <div style={styles.container}>
         <h2>Stream to other social media platforms:</h2>
-        <p>(Doesn't work yet)</p>
         <label>
           Select social media platform:
           <select

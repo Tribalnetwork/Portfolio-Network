@@ -2,6 +2,7 @@ import React from 'react'
 import { css } from 'glamor'
 import { Auth } from 'aws-amplify'
 import UserContext from './UserContext'
+import { Helmet } from 'react-helmet'
 
 class SignIn extends React.Component {
   state = {
@@ -28,7 +29,7 @@ class SignIn extends React.Component {
         } else {
           updateCurrentUser(user)
           history.push('/profile')
-        }        
+        }
       })
       .catch(err => {
         console.log('error signing in...: ', err)
@@ -46,6 +47,10 @@ class SignIn extends React.Component {
   render() {
     return (
       <div {...css(styles.container)}>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>Sign In</title>
+        </Helmet>
         {
           !this.state.showConfirmation && (
             <div {...css(styles.formContainer)}>
@@ -54,7 +59,7 @@ class SignIn extends React.Component {
                 onChange={evt => this.onChange('username', evt.target.value)}
                 {...css(styles.input)}
                 placeholder='username'
-                
+
               />
               <input
                 type='password'

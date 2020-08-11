@@ -5,6 +5,7 @@ import Container from './Container'
 import UserContext from './UserContext'
 import Button from './Button'
 import { Redirect, Link } from "react-router-dom";
+import { Helmet } from 'react-helmet'
 
 
 export default class GetAccess extends React.Component{
@@ -27,36 +28,42 @@ export default class GetAccess extends React.Component{
   }
   render() {
     return (
-      <Container>
-      {
-        this.state.access ? (
-          <>
-            <h1>You have full access.</h1>
-            <Link to='/' style={styles.link}>
+      <div>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>Get Full Access</title>
+        </Helmet>
+        <Container>
+        {
+          this.state.access ? (
+            <>
+              <h1>You have full access.</h1>
+              <Link to='/' style={styles.link}>
+                <Button
+                  title="Go Home"
+                />
+              </Link>
+            </>
+          ) : (
+            <>
+              <h1>Get Full Access</h1>
+              <h2>(Payment has not been implemented yet.)</h2>
               <Button
-                title="Go Home"
-              />
-            </Link>
-          </>
-        ) : (
-          <>
-            <h1>Get Full Access</h1>
-            <h2>(Payment has not been implemented yet.)</h2>
-            <Button
-              title="Get Access"
-              onClick={this.updateAccess.bind(this)}
-              />
-            <h2>An approved submission will also grant full access</h2>
-            <Link to='/upload' style={styles.link}>
-              <Button
-                title="Go to Submit page"
-              />
-            </Link>
-          </>
-        )
-      }
+                title="Get Access"
+                onClick={this.updateAccess.bind(this)}
+                />
+              <h2>An approved submission will also grant full access</h2>
+              <Link to='/upload' style={styles.link}>
+                <Button
+                  title="Go to Submit page"
+                />
+              </Link>
+            </>
+          )
+        }
 
-      </Container>
+        </Container>
+      </div>
     )
   }
 }

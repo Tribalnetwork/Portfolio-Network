@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import Container from './Container'
 import UserContext from './UserContext'
 import Button from './Button'
+import { Helmet } from 'react-helmet'
 
 export const Stream = () => {
   const [liveStreams, setLiveStreams] = useState([])
@@ -63,7 +64,11 @@ export const Stream = () => {
   return (
 
     <Container>
-    <div className="home">
+    <div>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Live Streams</title>
+      </Helmet>
       <h1>Live Streams</h1>
       {
         context.hasChannel ? (

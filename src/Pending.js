@@ -7,6 +7,7 @@ import '@aws-amplify/ui/dist/style.css';
 import { Link, Redirect } from "react-router-dom";
 import UserContext from './UserContext'
 import Container from './Container'
+import { Helmet } from 'react-helmet'
 
 Amplify.configure(awsconfig);
 
@@ -41,45 +42,50 @@ export default class Pending extends React.Component {
     const isLoaded = this.context.isLoaded
     const isAdmin = this.context.admin
     return (
-      <Container>
-      {
-          isLoaded ? isAdmin ? (
-            <>
-              <div className="home">
-                <h1>Pending Films</h1>
-                <div style={styles.container}>
+      <div>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>Pending Films</title>
+        </Helmet>
+        <Container>
+        {
+            isLoaded ? isAdmin ? (
+              <>
+                <div className="home">
+                  <h1>Pending Films</h1>
+                  <div style={styles.container}>
 
-                  {
-                    this.state.films.map((film, index) => (
+                    {
+                      this.state.films.map((film, index) => (
 
-                      <div key={film.id ? film.id : index} style={styles.film}>
-                        <Link to={`/watch?id=${film.id}`} style={styles.link}>
-                          <img src={film.thumbNailsUrls[0]} height='100px' alt="thumb"/>
-                          <p style={styles.filmTitle}>{film.title}</p>
-                          <p /*style={styles.filmDescription}*/>{(film.duration > 3600) ?
-                            new Date(film.duration * 1000).toISOString().substr(11, 8) :
-                            new Date(film.duration * 1000).toISOString().substr(14, 5) }</p>
-                        </Link>
-                      </div>
+                        <div key={film.id ? film.id : index} style={styles.film}>
+                          <Link to={`/watch?id=${film.id}`} style={styles.link}>
+                            <img src={film.thumbNailsUrls[0]} height='100px' alt="thumb"/>
+                            <p style={styles.filmTitle}>{film.title}</p>
+                            <p /*style={styles.filmDescription}*/>{(film.duration > 3600) ?
+                              new Date(film.duration * 1000).toISOString().substr(11, 8) :
+                              new Date(film.duration * 1000).toISOString().substr(14, 5) }</p>
+                          </Link>
+                        </div>
 
-                    ))
-                  }
+                      ))
+                    }
+                  </div>
                 </div>
-              </div>
-            </>
-          ) : (
-            <>
-              <h1>This page requires admin access.</h1>
-              <h2>For testing purposes, you can go to DynamoDB user table
-              (called User-26gp...) and change the value of admin to true for
-              your user.</h2>
-            </>
-          ) : (
-            null
-          )
-        }
-      </Container>
-
+              </>
+            ) : (
+              <>
+                <h1>This page requires admin access.</h1>
+                <h2>For testing purposes, you can go to DynamoDB user table
+                (called User-26gp...) and change the value of admin to true for
+                your user.</h2>
+              </>
+            ) : (
+              null
+            )
+          }
+        </Container>
+      </div>
 
     )
   }

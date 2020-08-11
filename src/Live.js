@@ -6,6 +6,7 @@ import { API, graphqlOperation } from 'aws-amplify'
 import { getLiveStream } from './graphql/queries'
 import { updateUser } from './graphql/mutations'
 import UserContext from './UserContext'
+import { Helmet } from 'react-helmet'
 
 
 class WatchStreamPage extends React.Component {
@@ -57,6 +58,10 @@ class WatchStreamPage extends React.Component {
   render () {
     return (
       <div>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>{`${this.state.streamerName} on Tribal Live`}</title>
+        </Helmet>
         <section className="section">
           <h2>Live Stream</h2>
           {

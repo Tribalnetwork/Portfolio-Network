@@ -1,5 +1,6 @@
 import React from 'react'
 import { css } from 'glamor'
+import { Helmet } from 'react-helmet'
 
 import { Auth } from 'aws-amplify'
 
@@ -44,6 +45,10 @@ class SignUp extends React.Component {
     const { showConfirmation } = this.state
     return (
       <div {...css(styles.container)}>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>Sign Up</title>
+        </Helmet>
         {
           !showConfirmation && (
             <div {...css(styles.formContainer)}>

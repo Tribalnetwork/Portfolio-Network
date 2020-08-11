@@ -5,6 +5,7 @@ import '@aws-amplify/ui/dist/style.css';
 import { ProgressBar } from 'react-bootstrap'
 import './App.css';
 import UserContext from './UserContext'
+import { Helmet } from 'react-helmet'
 
 Amplify.configure(awsconfig);
 
@@ -39,6 +40,11 @@ export const Upload = () => {
 
   return (
     <div className="upload-container">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <meta description="An approved film will grant you free full access to Tribal Network." />
+        <title>Submit Film</title>
+      </Helmet>
       <div style={styles.container}>
         <h1>Submit Film</h1>
         <input

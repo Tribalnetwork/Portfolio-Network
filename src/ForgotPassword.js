@@ -2,6 +2,7 @@ import React from 'react'
 import { css } from 'glamor'
 import { Auth } from 'aws-amplify'
 import UserContext from './UserContext'
+import { Helmet } from 'react-helmet'
 
 class ForgotPassword extends React.Component {
   state = {
@@ -36,6 +37,10 @@ class ForgotPassword extends React.Component {
   render() {
     return (
       <div {...css(styles.container)}>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>Forgot Password</title>
+        </Helmet>
         {
           !this.state.showConfirmation && (
             <div {...css(styles.formContainer)}>
@@ -44,7 +49,7 @@ class ForgotPassword extends React.Component {
                 onChange={evt => this.onChange('username', evt.target.value)}
                 {...css(styles.input)}
                 placeholder='username'
-                
+
               />
               <div {...css(styles.button)} onClick={this.forgotPassword}>
                 <p {...css(styles.buttonText)}>Get Authentication Code</p>

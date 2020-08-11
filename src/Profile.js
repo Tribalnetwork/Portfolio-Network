@@ -4,6 +4,7 @@ import { Auth } from 'aws-amplify'
 import Container from './Container'
 import Button from './Button'
 import UserContext from './UserContext'
+import { Helmet } from 'react-helmet'
 
 class Profile extends React.Component {
   static contextType = UserContext
@@ -19,25 +20,31 @@ class Profile extends React.Component {
   render() {
     const hasAccess = this.context.hasAccess
     return (
-      <Container>
-        <h1>Profile</h1>
-        <h2>Welcome {this.context.user.attributes.given_name}</h2>
-        {
-          hasAccess ? (
-            null
-          ) : (
-            <>
-              <h2>Remaining Film Watch Time: {this.context.remainingVODTime} minutes</h2>
-              <h2>Remaining Live Watch Time: {this.context.remainingLiveTime} minutes</h2>
-            </>
-          )
-        }
+      <div>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>Profile</title>
+        </Helmet>
+        <Container>
+          <h1>Profile</h1>
+          <h2>Welcome {this.context.user.attributes.given_name}</h2>
+          {
+            hasAccess ? (
+              null
+            ) : (
+              <>
+                <h2>Remaining Film Watch Time: {this.context.remainingVODTime} minutes</h2>
+                <h2>Remaining Live Watch Time: {this.context.remainingLiveTime} minutes</h2>
+              </>
+            )
+          }
 
-        <Button
-          title="Sign Out"
-          onClick={this.signOut.bind(this)}
-        />
-      </Container>
+          <Button
+            title="Sign Out"
+            onClick={this.signOut.bind(this)}
+          />
+        </Container>
+      </div>
     )
   }
 }

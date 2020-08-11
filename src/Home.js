@@ -8,6 +8,7 @@ import { Link, Redirect } from "react-router-dom";
 import UserContext from './UserContext'
 import Container from './Container'
 import Button from './Button'
+import { Helmet } from 'react-helmet'
 
 
 Amplify.configure(awsconfig);
@@ -44,52 +45,58 @@ export default class Home extends React.Component {
     const isLoaded = this.context.isLoaded
     const hasAccess = this.context.hasAccess || this.context.remainingVODTime > 0
     return (
-      <Container>
-      {
-          isLoaded ? isAuthenticated ? hasAccess ? (
-            <>
-              <div className="home">
-                <h1>Films</h1>
-                <div style={styles.container}>
+      <div>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>Home - Tribal Network</title>
+        </Helmet>
+        <Container>
+        {
+            isLoaded ? isAuthenticated ? hasAccess ? (
+              <>
+                <div className="home">
+                  <h1>Films</h1>
+                  <div style={styles.container}>
 
-                  {
-                    this.state.films.map((film, index) => (
+                    {
+                      this.state.films.map((film, index) => (
 
-                      <div key={film.id ? film.id : index} style={styles.film}>
-                        <Link to={`/watch?id=${film.id}`} style={styles.link}>
-                          <img src={film.thumbNailsUrls[0]} height='100px' alt="thumb"/>
-                          <p style={styles.filmTitle}>{film.title}</p>
-                          <p /*style={styles.filmDescription}*/>{(film.duration > 3600) ?
-                            new Date(film.duration * 1000).toISOString().substr(11, 8) :
-                            new Date(film.duration * 1000).toISOString().substr(14, 5) }</p>
-                        </Link>
-                      </div>
+                        <div key={film.id ? film.id : index} style={styles.film}>
+                          <Link to={`/watch?id=${film.id}`} style={styles.link}>
+                            <img src={film.thumbNailsUrls[0]} height='100px' alt="thumb"/>
+                            <p style={styles.filmTitle}>{film.title}</p>
+                            <p /*style={styles.filmDescription}*/>{(film.duration > 3600) ?
+                              new Date(film.duration * 1000).toISOString().substr(11, 8) :
+                              new Date(film.duration * 1000).toISOString().substr(14, 5) }</p>
+                          </Link>
+                        </div>
 
-                    ))
-                  }
+                      ))
+                    }
+                  </div>
                 </div>
-              </div>
-            </>
-          ) : (
-            <>
-              <h1>Free Trial Ended</h1>
-              <p>Your 5 hour free trial has ended.</p>
-              <Link to="/getaccess" style={styles.link}>
-                <Button
-                  title="Get Full Access"
-                />
-              </Link>
-            </>
-          ) : (
-            <>
-              <h1>Welcome to Tribal</h1>
-              <p>Create a free account to get started.</p>
-            </>
-          ) : (
-            null
-          )
-        }
-      </Container>
+              </>
+            ) : (
+              <>
+                <h1>Free Trial Ended</h1>
+                <p>Your 5 hour free trial has ended.</p>
+                <Link to="/getaccess" style={styles.link}>
+                  <Button
+                    title="Get Full Access"
+                  />
+                </Link>
+              </>
+            ) : (
+              <>
+                <h1>Welcome to Tribal</h1>
+                <p>Create a free account to get started.</p>
+              </>
+            ) : (
+              null
+            )
+          }
+        </Container>
+      </div>
 
 
     )
