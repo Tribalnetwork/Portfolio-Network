@@ -14,7 +14,8 @@ const useStyles = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
     textAlign: 'left',
-    color: '#d4af37'
+    color: '#d4af37',
+    textDecoration: 'none'
   },
 }));
 
@@ -31,12 +32,12 @@ export const NavigationBar = () => {
           <Typography variant="h6" style={{ color: '#d4af37', marginRight: 20 }}>
             Tribal
           </Typography>
-          <Link to="/">
+          <Link to="/" style={{ textDecoration: 'none' }}>
             <Button color="inherit" style={{ color: '#d4af37' }}>
               Home
             </Button>
           </Link>
-          <Link to="/upload">
+          <Link to="/upload" style={{ textDecoration: 'none' }}>
             <Button color="inherit" style={{ color: '#d4af37' }}>
               Upload
             </Button>
@@ -48,13 +49,13 @@ export const NavigationBar = () => {
           </Link>
           {
             isLoaded ? isAuthenticated ? (
-              <Link to='/profile'>
+              <Link to='/profile' style={{ textDecoration: 'none' }}>
                 <Button color="inherit" style={{ color: '#d4af37' }}>
                   Profile
                 </Button>
               </Link>
             ) : (
-              <Link to='/auth'>
+              <Link to='/auth' style={{ textDecoration: 'none' }}>
                 <Button color="inherit" style={{ color: '#d4af37' }}>
                   Login/Register
                 </Button>
