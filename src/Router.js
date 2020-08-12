@@ -7,7 +7,7 @@ import {
   BrowserRouter as Router
 } from 'react-router-dom'
 import UserContext from './UserContext'
-import NavigationBar from './components/NavigationBar'
+import { NavigationBar } from './components/NavigationBar'
 
 import Authenticator from './Authenticator'
 import Home from './Home'
