@@ -51,7 +51,7 @@ export const NavigationBar = () => {
 
   return (
     <div>
-      <AppBar position="static" style={{ background: 'black' }}>
+      <AppBar position="sticky" style={{ background: 'black' }}>
         <Toolbar>
           <IconButton
             edge="start"
@@ -68,8 +68,8 @@ export const NavigationBar = () => {
           {
             isLoaded ? isAuthenticated ? (
               <Link to='/profile' style={{ textDecoration: 'none' }}>
-                <Button color="inherit" style={{ color: '#d4af37' }}>
-                  Profile
+                <Button variant='contained' style={{ background: '#d4af37', textTransform: 'none' }}>
+                  {context.user.username}
                 </Button>
               </Link>
             ) : (

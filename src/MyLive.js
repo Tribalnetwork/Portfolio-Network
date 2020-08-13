@@ -76,8 +76,9 @@ export const MyLive = () => {
         <meta charSet="utf-8" />
         <title>My Live Channel</title>
       </Helmet>
-      <h1>My Live Channel</h1>
+
       <div style={styles.container}>
+        <h1>My Live Channel</h1>
         <h2>Stream to other social media platforms:</h2>
         <label>
           Select social media platform:

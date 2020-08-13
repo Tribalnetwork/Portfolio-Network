@@ -8,6 +8,13 @@ import Container from './Container'
 import UserContext from './UserContext'
 import Button from './Button'
 import { Helmet } from 'react-helmet'
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
 
 export const Stream = () => {
   const [liveStreams, setLiveStreams] = useState([])
@@ -63,49 +70,67 @@ export const Stream = () => {
 
   return (
 
-    <Container>
     <div>
       <Helmet>
         <meta charSet="utf-8" />
         <title>Live Streams</title>
       </Helmet>
-      <h1>Live Streams</h1>
-      {
-        context.hasChannel ? (
-          <div>
-            <p>You created a live channel.</p>
-            <Link to="/mylive">
-              <button style={styles.button} >My Channel</button>
-            </Link>
-          </div>
-        ) : (
-          <button style={styles.button} onClick={generateUrl}>Create Channel</button>
-        )
-      }
-
-      <div style={styles.container}>
-
+      <div>
         {
-          liveStreams.map((liveStream, index) => (
-
-            <div key={liveStream.id ? liveStream.id : index} style={styles.stream} >
-              <Link to={`/live?id=${liveStream.id}`} style={styles.link}>
-                <img src={`https://image.mux.com/${liveStream.IDforThumbnail}/thumbnail.png?width=314&height=178`} alt="Thumbnail not available"/>
-                <p style={styles.streamText}>{liveStream.streamerName}</p>
-                <p style={styles.streamText}>{liveStream.status}</p>
-
+          context.hasChannel ? (
+            <div>
+              <p style={{textAlign: 'center'}}>You created a live channel.</p>
+              <Link to="/mylive">
+                <button style={styles.button} >My Channel</button>
               </Link>
             </div>
-
-          ))
+          ) : (
+            <button style={styles.button} onClick={generateUrl}>Create Channel</button>
+          )
         }
       </div>
+
+      <div style={styles.container}>
+        <h1>Live Streams</h1>
+        <Grid container justify="center" spacing={5}>
+          {
+            liveStreams.map((stream, index) => (
+              <Grid key={stream.id ? stream.id : index} item>
+                <Card style={styles.root}>
+                  <Link to={`/live?id=${stream.id}`} style={styles.link}>
+                    <CardActionArea>
+                      <CardMedia
+                        style={styles.media}
+                        image={`https://image.mux.com/${stream.IDforThumbnail}/thumbnail.png?width=314&height=178`}
+                        title={stream.streamerName}
+                      />
+                      <CardContent>
+                        <Typography gutterBottom variant="h5" component="h2">
+                          {stream.streamerName}
+                        </Typography>
+                        <Typography variant="body2" color="textSecondary" component="p">
+                          {stream.status}
+                        </Typography>
+                      </CardContent>
+                    </CardActionArea>
+                  </Link>
+                </Card>
+              </Grid>
+            ))
+          }
+        </Grid>
+      </div>
     </div>
-    </Container>
   )
 }
 
 const styles = {
+  root: {
+    width: 237,
+  },
+  media: {
+    height: 178,
+  },
   header: { margin: '0 auto', display: 'flex', flex: 1, flexDirection: 'column', justifyContent: 'center', padding: 20 },
   container: { width: 1000, margin: '0 auto', display: 'flex', flex: 1, flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'left', padding: 20 },
   link: { textDecoration: 'none' },

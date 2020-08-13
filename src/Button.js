@@ -24,7 +24,8 @@ const styles = {
   },
   buttonText: {
     margin: 0,
-    color: 'white'
+    color: 'white',
+    textAlign: 'center'
   }
 }
 
