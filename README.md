@@ -20,7 +20,7 @@ Here's how to get started:
 3.  Add an upstream to the shared repo:
 
 ```
-cd TribalNetworkRN
+cd TNWeb
 git remote add upstream https://github.com/Tribalnetwork/TNWeb.git
 ```
 
