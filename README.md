@@ -114,7 +114,7 @@ npm start
 ```
 
 
-4. Make your edits, fix a bug, implement a feature, etc. If you're looking for something to work on, check out our [Issues](https://github.com/Tribalnetwork/TNWeb/issues) page. If you have changed the GraphQL Schema, you must run `amplify push` to apply changes.
+4. Make your edits, fix a bug, implement a feature, etc. If you're looking for something to work on, check out our [Issues](https://github.com/Tribalnetwork/TNWeb/issues) page. Check out [Additional Guides](https://github.com/Tribalnetwork/Additional-Guides#how-to-use-the-api-within-the-app) if you haven't already. If you have changed the GraphQL Schema, you must run `amplify push` to apply changes.
 
 5. Add, commit, and push your feature branch to your Github:
 
