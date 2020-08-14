@@ -67,11 +67,11 @@ npm install -g @aws-amplify/cli
 
 ### Prerequisites
 
-(You only have to do this when you are running the app for the first time.)
+(You only have to do these when you are running the app for the first time.)
 
 1. [Set up Amplify](https://github.com/Tribalnetwork/TNWeb#set-up-amplify-on-your-machine)
 
-2. Install dependencies: `npm install`. (You only have to do this once.)
+2. Install dependencies: `npm install`.
 
 ### Start
 
@@ -112,7 +112,7 @@ npm start
 ```
 
 
-4. Make your edits, fix a bug, implement a feature, etc. If you're looking for something to work on, check out our [Issues](https://github.com/Tribalnetwork/TNWeb/issues) page. The [additional guides](https://github.com/Tribalnetwork/Additional-Guides) page should help you.
+4. Make your edits, fix a bug, implement a feature, etc. If you're looking for something to work on, check out our [Issues](https://github.com/Tribalnetwork/TNWeb/issues) page. The [additional guides](https://github.com/Tribalnetwork/Additional-Guides) page should help you. If you have changed the GraphQL Schema, you must run `amplify push` to apply changes.
 
 5. Add, commit, and push your feature branch to your Github:
 
@@ -125,5 +125,7 @@ git push origin my_feature_branch_name_here
 6.  Use your GitHub page to create a pull request from your feature branch to master.
 
 7.  One of the admins will then merge your changes into the main branch.
+
+8.  To publish changes to [tribalnetwork.org](https://www.tribalnetwork.org), run `amplify publish`.
 
 8.  Return to step 1 and repeat: fetch, merge, branch, edit, commit, push!
