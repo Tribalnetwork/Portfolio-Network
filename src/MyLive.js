@@ -34,7 +34,7 @@ export const MyLive = () => {
 
     var request = new XMLHttpRequest();
     request.onreadystatechange = async function() {
-      if (this.readyState == 4 && this.status == 200) {
+      if (this.readyState === 4 && this.status === 200) {
         var responseJSON = JSON.parse(request.responseText)
         setStreamKey(responseJSON.data.stream_key)
         if (responseJSON.data.simulcast_targets != null) {
@@ -50,7 +50,7 @@ export const MyLive = () => {
 
   async function addTarget() {
     let targetUrl = '';
-    if (formState.target == 'Youtube') {
+    if (formState.target === 'Youtube') {
       targetUrl = 'rtmp://a.rtmp.youtube.com/live2'
     }
     var params = {
@@ -61,7 +61,7 @@ export const MyLive = () => {
     }
     var request = new XMLHttpRequest();
     request.onreadystatechange = async function() {
-      if (this.readyState == 4 && this.status == 200) {
+      if (this.readyState === 4 && this.status === 200) {
         var responseJSON = JSON.parse(request.responseText)
         setTargets([...targets, responseJSON.passthrough])
       }
@@ -108,7 +108,7 @@ export const MyLive = () => {
 
           ))
         }
-        <a href={`https://icy-silence-3450.fly.dev/?id=${streamKey}`} target="_blank">
+        <a href={`https://icy-silence-3450.fly.dev/?id=${streamKey}`} target="_blank" rel="noopener noreferrer">
           <button style={styles.button}>Go Live</button>
         </a>
       </div>

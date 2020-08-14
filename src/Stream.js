@@ -1,16 +1,13 @@
 import React, {useState, useEffect, useContext} from 'react'
 import { API, graphqlOperation } from 'aws-amplify'
-import { updateLiveStream, createLiveStream, updateUser } from './graphql/mutations'
-import { listLiveStreams, getUser } from './graphql/queries'
+import { createLiveStream, updateUser } from './graphql/mutations'
+import { listLiveStreams } from './graphql/queries'
 import '@aws-amplify/ui/dist/style.css';
 import { Link } from "react-router-dom";
-import Container from './Container'
 import UserContext from './UserContext'
-import Button from './Button'
 import { Helmet } from 'react-helmet'
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
@@ -18,7 +15,6 @@ import Grid from '@material-ui/core/Grid';
 
 export const Stream = () => {
   const [liveStreams, setLiveStreams] = useState([])
-  const [streamKey, setStreamKey] = useState(null)
   const context = useContext(UserContext)
   const [streamCreated, setStreamCreated] = useState(context.user.hasChannel)
 
@@ -39,7 +35,7 @@ export const Stream = () => {
     try {
       var request = new XMLHttpRequest();
       request.onreadystatechange = async function() {
-        if (this.readyState == 4 && this.status == 200) {
+        if (this.readyState === 4 && this.status === 200) {
           var responseJSON = JSON.parse(request.responseText)
           const streamData = {
             id: responseJSON.id,

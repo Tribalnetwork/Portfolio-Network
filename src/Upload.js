@@ -2,14 +2,28 @@ import React, { useState, useContext } from 'react'
 import Amplify, { Storage } from 'aws-amplify';
 import awsconfig from './aws-exports';
 import '@aws-amplify/ui/dist/style.css';
-import { ProgressBar } from 'react-bootstrap'
-import './App.css';
+import { withStyles } from '@material-ui/core/styles';
+import LinearProgress from '@material-ui/core/LinearProgress';
 import UserContext from './UserContext'
 import { Helmet } from 'react-helmet'
 
 Amplify.configure(awsconfig);
 
 const initialState = { title: '', genre: '' }
+
+const BorderLinearProgress = withStyles((theme) => ({
+  root: {
+    height: 20,
+    borderRadius: 5,
+  },
+  colorPrimary: {
+    backgroundColor: theme.palette.grey[theme.palette.type === 'light' ? 200 : 700],
+  },
+  bar: {
+    borderRadius: 5,
+    backgroundColor: '#1a90ff',
+  },
+}))(LinearProgress);
 
 export const Upload = () => {
 
@@ -65,7 +79,7 @@ export const Upload = () => {
           onChange={event => setInput('video', event.target.files[0])}
         />
         <button style={styles.button} onClick={addFilm}>Upload Film</button>
-        <ProgressBar now={prog} />
+        <BorderLinearProgress variant="determinate" value={prog} />
       </div>
     </div>
   )

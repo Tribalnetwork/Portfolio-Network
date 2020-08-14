@@ -27,7 +27,7 @@ class WatchStreamPage extends React.Component {
 
   componentDidMount() {
     this.getInfo()
-    if (this.state.status == 'active') {
+    if (this.state.status === 'active') {
       this.interval = setInterval(() => {
         this.setState({ watchTime: this.state.watchTime + 1});
       }, 1000)
@@ -36,7 +36,7 @@ class WatchStreamPage extends React.Component {
 
   async componentWillUnmount() {
     clearInterval(this.interval)
-    if (this.state.status == 'active') {
+    if (this.state.status === 'active') {
       const data = {
         id: this.context.user.attributes.sub,
         remainingVODTime: this.context.remainingVODTime - parseInt(this.state.watchTime/60, 10)
@@ -65,7 +65,7 @@ class WatchStreamPage extends React.Component {
         <section className="section">
           <h2>Live Stream</h2>
           {
-            this.state.status == 'idle' ? (
+            this.state.status === 'idle' ? (
               <>
                 <p>{this.state.streamerName} is currently offline. Check back later.</p>
               </>

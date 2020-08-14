@@ -136,16 +136,3 @@ export default class Watch extends React.Component {
     );
   }
 }
-
-const styles = {
-  header: { width: 1000, margin: '0 auto', display: 'flex', flex: 1, flexDirection: 'column', justifyContent: 'center', padding: 20 },
-  container: { width: 1000, margin: '0 auto', display: 'flex', flex: 1, flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'left', padding: 20 },
-  link: { textDecoration: 'none' },
-  film: { width: 200, marginBottom: 15, marginRight: 10 },
-  stream: { width: 400 },
-  input: { border: 'none', backgroundColor: '#ddd', marginBottom: 10, padding: 8, fontSize: 18 },
-  filmTitle: { fontSize: 20, fontWeight: 'bold', marginBottom: 0 },
-  streamText: { fontSize: 14, marginBottom: 0},
-  filmDescription: { marginBottom: 0 },
-  button: { backgroundColor: 'black', color: 'white', outline: 'none', fontSize: 18, padding: '12px 0px' }
-}

@@ -4,7 +4,7 @@ import { updateUser } from './graphql/mutations'
 import Container from './Container'
 import UserContext from './UserContext'
 import Button from './Button'
-import { Redirect, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Helmet } from 'react-helmet'
 
 

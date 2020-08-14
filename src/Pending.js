@@ -4,7 +4,7 @@ import { API, graphqlOperation } from 'aws-amplify'
 import { listFilms } from './graphql/queries'
 import awsconfig from './aws-exports';
 import '@aws-amplify/ui/dist/style.css';
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import UserContext from './UserContext'
 import Container from './Container'
 import { Helmet } from 'react-helmet'

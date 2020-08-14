@@ -1,5 +1,4 @@
 import React, { useState, useContext } from 'react'
-import { css } from 'glamor'
 import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import UserContext from '../UserContext'
@@ -11,12 +10,8 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
 
 const useStyles = makeStyles((theme) => ({
   menuButton: {
@@ -39,7 +34,6 @@ export const NavigationBar = () => {
   const [open, setOpen] = useState(false);
   const isAuthenticated = context.user && context.user.username ? true : false
   const isLoaded = context.isLoaded
-  const isAdmin = context.admin
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -62,9 +56,11 @@ export const NavigationBar = () => {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" className={classes.title}>
-            Tribal
-          </Typography>
+          <Link to='/' className={classes.title}>
+            <Typography variant="h6" >
+              Tribal
+            </Typography>
+          </Link>
           {
             isLoaded ? isAuthenticated ? (
               <Link to='/profile' style={{ textDecoration: 'none' }}>
