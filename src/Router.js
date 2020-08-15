@@ -20,7 +20,7 @@ import GetAccess from './GetAccess'
 import Pending from './Pending'
 import { MyLive } from './MyLive'
 
-class PrivateRoute extends React.Component {
+class PrivateRoute extends React.Component { // PrivateRoutes require authentication to access
   state = {
     loaded: false,
     isAuthenticated: false
