@@ -1,0 +1,26 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-tnweb-dev-144732-authRole",
+      "UnauthRoleArn": "arn:aws:iam::427025378311:role/amplify-tnweb-dev-144732-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::427025378311:role/amplify-tnweb-dev-144732-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-tnweb-dev-144732-deployment",
+      "UnauthRoleName": "amplify-tnweb-dev-144732-unauthRole",
+      "StackName": "amplify-tnweb-dev-144732",
+      "StackId": "arn:aws:cloudformation:us-east-1:427025378311:stack/amplify-tnweb-dev-144732/4fbf90f0-c9f0-11ea-addb-0eb21ddd4aff",
+      "AmplifyAppId": "d3kfibs0i2ct6m"
+    },
+    "categories": {
+      "auth": {
+        "tnweb2cdf60ba": {}
+      },
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d3kfibs0i2ct6m",
+          "type": "manual"
+        }
+      }
+    }
+  }
+}
