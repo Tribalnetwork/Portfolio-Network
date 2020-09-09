@@ -201,7 +201,6 @@ export default class SearchQueries extends React.Component {
          }
 
         render(){
-            //this.getUserNames();
             return (
                 <div style={this.mainDivStyle}>
                     <input style={this.inputStyle} onChange={this.getGlobal.bind(this)}/>
