@@ -118,7 +118,6 @@ import GetAccess from './GetAccess'
 import Pending from './Pending'
 import { MyLive } from './MyLive'
 import BotNavBar from './bottomNavBar'
-//import Search from "./Search";
 import SearchQueries from "./searchQueries"
 
 class PrivateRoute extends React.Component { // PrivateRoutes require authentication to access
