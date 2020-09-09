@@ -116,6 +116,7 @@ export default class SearchQueries extends React.Component {
         this.state = {
             users: [],
             films: [],
+            liveStreams: [],
             global: []
             }
         }
@@ -127,10 +128,13 @@ export default class SearchQueries extends React.Component {
             .then((result) => { 
                 let list = [];
                 result.forEach((user) =>{
-                    let name = user.name.toUpperCase();
-                    list.push(name);
+                    let userObj = {
+                        name: user.name.toUpperCase(),
+                        id: user.id,
+                        type: "user"
+                    }
+                    list.push(userObj);
                 })
-                console.log("is running queires")
                 this.setState({users: list})
             })
             }
@@ -143,20 +147,44 @@ export default class SearchQueries extends React.Component {
         .then((result) => { 
             let list = [];
             result.forEach((film) =>{
-                let title = film.title.toUpperCase();
-                list.push(title);
+                let titleObj = {
+                   name:  film.title.toUpperCase(),
+                   id: film.id,
+                   type: "film"
+                }
+                list.push(titleObj);
             })
             this.setState({films: list})
+      })
+        }
+
+        getLiveStreams = () => {
+            API.graphql(graphqlOperation(queries.listLiveStreams))
+        .then((result) => { return result.data.listLiveStreams.items})
+        .then((result) => { 
+            let list = [];
+            result.forEach((liveStream) =>{
+                let namesObj = {
+                    name: liveStream.streamerName.toUpperCase(),
+                    id: liveStream.id,
+                    type: "liveStream"
+                }
+                list.push(namesObj);
+            })
+            this.setState({liveStreams: list})
       })
         }
 
         search = (input, global) => {
             console.log("is running search")
             const rawMatches = global.filter((search) => {
-                search.toUpperCase();
-                return search.includes(input.toUpperCase())
+                //search.toUpperCase();
+                if(search.name.includes(input.toUpperCase())){
+                    return search;
+                }
+                
             });
-           const styledMatches = rawMatches.map((item) => <li style={this.liStyle}>{item}</li>)
+           const styledMatches = rawMatches.map((item) => <li key={item.id} style={this.liStyle}>{item.name}  This is a {item.type}</li>)
                this.setState({global: styledMatches})
         }
 
@@ -164,9 +192,12 @@ export default class SearchQueries extends React.Component {
             let input = e.target.value;
             this.getUserNames();
             this.getFilmTitles();
+            this.getLiveStreams();
             const users = this.state.users;
             const films = this.state.films;
-            const global = users.concat(films);
+            const liveStreamers = this.state.liveStreams;
+            const hold = users.concat(films)
+            const global = hold.concat(liveStreamers);
             this.search(input, global)
         }
 
