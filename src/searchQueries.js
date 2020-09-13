@@ -108,6 +108,7 @@ export default class SearchQueries extends React.Component {
 import React from 'react';
 import { API, graphqlOperation } from 'aws-amplify';
 import * as queries from './graphql/queries';
+import { Link } from "react-router-dom";
 
 
 export default class SearchQueries extends React.Component {
@@ -131,7 +132,8 @@ export default class SearchQueries extends React.Component {
                     let userObj = {
                         name: user.name.toUpperCase(),
                         id: user.id,
-                        type: "user"
+                        location: user.location,
+                        type: "User"
                     }
                     list.push(userObj);
                 })
@@ -150,7 +152,7 @@ export default class SearchQueries extends React.Component {
                 let titleObj = {
                    name:  film.title.toUpperCase(),
                    id: film.id,
-                   type: "film"
+                   type: "Film"
                 }
                 list.push(titleObj);
             })
@@ -167,7 +169,7 @@ export default class SearchQueries extends React.Component {
                 let namesObj = {
                     name: liveStream.streamerName.toUpperCase(),
                     id: liveStream.id,
-                    type: "liveStream"
+                    type: "Live Stream"
                 }
                 list.push(namesObj);
             })
@@ -184,7 +186,19 @@ export default class SearchQueries extends React.Component {
                 }
                 
             });
-           const styledMatches = rawMatches.map((item) => <li key={item.id} style={this.liStyle}>{item.name}  This is a {item.type}</li>)
+           const styledMatches = rawMatches.map((item) =>{ 
+           switch(item.type){
+               case "User":
+                    return <Link style={{textDecoration: "none"}} to={`/viewProfile?name=${item.name}&location=${item.location}`}><li key={item.id} style={this.liStyle}>{item.name}  <p>{item.type}</p></li></Link>
+               case "Film":
+                   return <Link style={{textDecoration: "none"}} to={`/watch?id=${item.id}`}><li key={item.id} style={this.liStyle}>{item.name}  <p>{item.type}</p></li> </Link>
+                   break;
+               case "Live Stream":
+                   return <Link style={{textDecoration: "none"}} to={`/live?id=${item.id}`}><li key={item.id} style={this.liStyle}>{item.name}  <p>{item.type}</p></li> </Link>
+                   break;
+           }
+           
+        })
                this.setState({global: styledMatches})
         }
 
@@ -208,27 +222,31 @@ export default class SearchQueries extends React.Component {
             marginTop: "10px",
             justifyContent: "center",
             gridColumn: "2",
-            gridRow: "1",
-            fontSize: "3vw"
+            fontSize: "3vw",
+            postion: "fixed"
          }
 
          mainDivStyle = {
             display: "grid",
-            gridTemplateColumns: "2fr 2fr 2fr",
-            gridTemplateRows: "5vh 90%",  
+            width: "100%",
+            gridTemplateColumns: "1fr 3fr 1fr",
+            gridTemplateRows: "10vh 80vh"
         }
         
          ulStyle = {
             listStyleType: "none",
             justifyContent: "center",
             gridColumn: "2",
-            gridRow: "2"
+            gridRow: "2",
+            overflow: "auto",
          }
         
          liStyle = {
+            borderTop: "1px solid black",
             margin: "1vh",
             justifyContent: "center",
-            fontSize: "3vw"
+            fontSize: "3vw",
+            color: "black",
          }
 
         render(){
