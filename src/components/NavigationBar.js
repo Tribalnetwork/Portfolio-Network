@@ -55,6 +55,7 @@ export const NavigationBar = () => {
             onClick={handleDrawerOpen}
           >
             <MenuIcon />
+
           </IconButton>
           <Link to='/' className={classes.title}>
             <Typography variant="h6" >
@@ -91,7 +92,7 @@ export const NavigationBar = () => {
         >
         <List>
             {['Home', 'Upload', 'Streams'].map((text, index) => (
-              <ListItem button component={Link} to={`/${text}`} key={text}>
+                <ListItem button component={Link} to={`/${text}`} key={text}>
                 <ListItemText primary={text} />
               </ListItem>
             ))}

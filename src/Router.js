@@ -19,6 +19,9 @@ import Profile from './Profile'
 import GetAccess from './GetAccess'
 import Pending from './Pending'
 import { MyLive } from './MyLive'
+import BotNavBar from './bottomNavBar'
+import SearchQueries from "./searchQueries"
+import ViewProfile from "./ViewProfile"
 
 class PrivateRoute extends React.Component { // PrivateRoutes require authentication to access
   state = {
@@ -75,6 +78,8 @@ const Routes = () => (
         <Route path='/auth' exact component={Authenticator} />
         <Route path='/' exact component={Home} />
         <Route path='/home' exact component={Home} />
+        <Route path='/search' exact component={SearchQueries} />
+        <Route path='/viewProfile' exact component={ViewProfile} />
         <PrivateRoute path='/upload' exact component={Upload} />
         <PrivateRoute path='/streams'  component={Stream} />
         <PrivateRoute path='/watch'  component={Watch} />
@@ -85,6 +90,7 @@ const Routes = () => (
         <PrivateRoute path='/mylive'  component={MyLive} />
         <Route component={NoMatch} />
       </Switch>
+      <BotNavBar />
     </div>
   </Router>
 )
