@@ -53,12 +53,6 @@ type User @model {
 type Connect @model {
   id: ID!
   name: String
-  location: String
-  fullAccess: Boolean
-  admin: Boolean
-  liveStreamID: String
-  liveChannelCreated: Boolean
-  remainingVODTime: Int
-  remainingLiveTime: Int
-  myList:PlayList@connection(name: "UsermyList")
+  userId: String
+  connects: []
 }
