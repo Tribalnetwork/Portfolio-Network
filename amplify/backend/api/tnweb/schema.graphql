@@ -48,11 +48,4 @@ type User @model {
   remainingVODTime: Int
   remainingLiveTime: Int
   myList:PlayList@connection(name: "UsermyList")
-}
-
-type Connect @model {
-  id: ID!
-  name: String
-  userId: String
-  connects: []
-}
+}6
