@@ -4,11 +4,18 @@ import { Helmet } from 'react-helmet'
 import ReactPlayer from 'react-player'
 import { withRouter } from "react-router-dom";
 import { API, graphqlOperation } from 'aws-amplify'
-import { getFilm, getUser } from './graphql/queries'
-import { updateFilm, updateUser } from './graphql/mutations'
+import { getFilm, getUser,getPlayList,filmInListByListByFilm} from './graphql/queries'
+import { updateFilm, updateUser,createPlayList,updatePlayList,createFilmInList,deleteFilmInList } from './graphql/mutations'
 import UserContext from './UserContext'
 import Button from './Button'
 import './Watch.css'
+import Grid from '@material-ui/core/Grid';
+import {ReactComponent as Ratelogo} from './icons/Rate.svg';
+import {ReactComponent as Donatelogo} from './icons/Donate.svg';
+import {ReactComponent as Downloadlogo} from './icons/Download.svg';
+import {ReactComponent as Sharelogo} from './icons/Share.svg';
+import {ReactComponent as AddToListlogo} from './icons/AddtoList.svg';
+import { StylesProvider } from '@material-ui/core';
 
 
 class WatchPage extends React.Component {
@@ -68,6 +75,54 @@ class WatchPage extends React.Component {
     const updatedUser = await API.graphql(graphqlOperation(updateUser, { input: userUpdate }))
     this.context.updateCurrentUser()
   }
+  async addToList() {
+    //get the user
+    const user1=await API.graphql(graphqlOperation(getUser, { id: this.context.user.attributes.sub}))
+    let list1=user1.data.getUser.myList;
+    const uuidv4 = require("uuid/v4");
+    //check to see if he has a my list->create a mylist
+    if(list1===null){
+      const newId=uuidv4();
+      const listCreate={
+        id:newId,
+        name:user1.data.getUser.name+"'s list",
+        playListUserId: user1.data.getUser.id
+
+      };
+      const newlist=await API.graphql(graphqlOperation(createPlayList,{input:listCreate}));
+      console.log("new list created!");
+      const userUpdate = {
+        id: user1.data.getUser.id,
+        userMyListId: newId
+      }
+      //console.log(await API.graphql(graphqlOperation(updateUser, { input: userUpdate })));
+      list1=newlist.data.createPlayList;
+    }
+
+    //check if myList has the film already
+    const filmIdInput={
+      eq:this.id
+    }
+    const filmInList1=await API.graphql(graphqlOperation(filmInListByListByFilm, { listId: list1.id,filmId:filmIdInput}));
+    const items=filmInList1.data.FilmInListByListByFilm.items;
+    //if haven't
+     if(items.length===0){
+      const uuidv4 = require("uuid/v4");
+      const newFilmInListId=uuidv4();
+      const newFilmInListCreate={
+        id:newFilmInListId,
+        filmId:this.id,
+        listId:list1.id
+      }
+      const filmInListCreated=await API.graphql(graphqlOperation(createFilmInList,{input:newFilmInListCreate}));
+      console.log("item added to the list!") 
+    }
+    else{
+      console.log("item is already in the list");
+    }
+    
+  }
+  
 
   async reject() {
     const updateData = {
@@ -82,7 +137,7 @@ class WatchPage extends React.Component {
     const isAdmin = this.context.admin
 
     return (
-      <div>
+      <div style={styles.container}>
         <Helmet>
           <meta charSet="utf-8" />
           <title>{`${this.state.title} - Tribal Network`}</title>
@@ -90,11 +145,14 @@ class WatchPage extends React.Component {
         <section className="section">
           <div className="player-wrapper">
             <ReactPlayer
+            className="react-player"
               ref={p => { this.p = p }}
               url={this.state.url}
               controls
               playing
               onEnded={() => this.p.showPreview()}
+              width="100%"
+              height="100%"
             />
           </div>
 
@@ -115,9 +173,17 @@ class WatchPage extends React.Component {
                 null
               )
             }
+          </div>          
+          <div className="functionTabs">
+            <Grid container>
+              <Grid item><Ratelogo></Ratelogo></Grid>
+              <Grid item><Donatelogo></Donatelogo></Grid>
+              <Grid item><Sharelogo></Sharelogo></Grid>
+              <Grid item><Downloadlogo></Downloadlogo></Grid>
+              <Grid item><AddToListlogo onClick={this.addToList.bind(this)}></AddToListlogo></Grid>
+            </Grid>
           </div>
           <h3>{this.state.artist.name}</h3>
-
 
         </section>
       </div>
@@ -136,3 +202,9 @@ export default class Watch extends React.Component {
     );
   }
 }
+const styles={
+  container:{
+    width:"100%"
+  }
+}
+

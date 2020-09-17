@@ -19,6 +19,7 @@ import Profile from './Profile'
 import GetAccess from './GetAccess'
 import Pending from './Pending'
 import { MyLive } from './MyLive'
+import MyList from "./MyList"
 
 class PrivateRoute extends React.Component {
   state = {
@@ -83,6 +84,7 @@ const Routes = () => (
         <PrivateRoute path='/getaccess'  component={GetAccess} />
         <PrivateRoute path='/pending'  component={Pending} />
         <PrivateRoute path='/mylive'  component={MyLive} />
+        <PrivateRoute path='/mylist' component={MyList} />
         <Route component={NoMatch} />
       </Switch>
     </div>

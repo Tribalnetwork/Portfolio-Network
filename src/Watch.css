@@ -1,6 +1,5 @@
 .section {
   margin: 20px;
-  width: 640px;
 }
 
 h2 {
@@ -14,4 +13,14 @@ h3 {
 .buttons {
   display: flex;
   flex-direction: row;
+}
+.player-wrapper {
+  position: relative;
+  padding-top: 56.25% /* Player ratio: 100 / (1280 / 720) */
+}
+ 
+.react-player {
+  position: absolute;
+  top: 0;
+  left: 0;
 }

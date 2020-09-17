@@ -7,8 +7,8 @@ type Film @model {
   duration: Int
   available: Boolean
   sub: String
+  lists:[FilmInList!]@connection(keyName: "byFilm", fields: ["id"])
 }
-
 type LiveStream @model {
   id: ID!
   playbackID: String
@@ -17,6 +17,24 @@ type LiveStream @model {
   IDforThumbnail: String
   status: String
   streamerName: String
+}
+
+type PlayList @model{
+id:ID!
+name:String
+User:User@connection(name: "UsermyList")
+films:[FilmInList!]@connection(keyName: "byPlayList", fields: ["id"])
+}
+
+type FilmInList@model
+@key(name: "byPlayList", fields: ["listId","filmId"],queryField: "FilmInListByListByFilm")
+@key(name: "byFilm", fields: ["filmId","listId"])
+ {
+  id: ID!
+  film:Film!@connection(fields: ["filmId"])
+  filmId:ID!
+  listId:ID!
+  list:PlayList@connection(fields: ["listId"])
 }
 
 type User @model {
@@ -29,4 +47,6 @@ type User @model {
   liveChannelCreated: Boolean
   remainingVODTime: Int
   remainingLiveTime: Int
+  myList:PlayList@connection(name: "UsermyList")
 }
+
