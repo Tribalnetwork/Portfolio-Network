@@ -8,6 +8,8 @@ This repo serves as the entire Tribal Network web app codebase.
 
 If you're looking for the repo for the mobile app, head on over to the [mobile repo](https://github.com/Tribalnetwork/TribalNetworkRN).
 
+If you would like to work on the backend, visit [additional guides](https://github.com/Tribalnetwork/Additional-Guides#summary-of-not-yet-implemented-features-that-need-backend-work).
+
 **NOTE BEFORE YOU GO FURTHER:** This README is still a work in progress. If there is anything that's missing, doesn't make sense, or doesn't work, let us know! Or better yet, make a pull request with updated information. We want to make this README as robust as possible.
 Here's how to get started:
 
@@ -112,7 +114,7 @@ npm start
 ```
 
 
-4. Make your edits, fix a bug, implement a feature, etc. If you're looking for something to work on, check out our [Issues](https://github.com/Tribalnetwork/TNWeb/issues) page. The [additional guides](https://github.com/Tribalnetwork/Additional-Guides) page should help you. If you have changed the GraphQL Schema, you must run `amplify push` to apply changes.
+4. Make your edits, fix a bug, implement a feature, etc. If you're looking for something to work on, check out our [Issues](https://github.com/Tribalnetwork/TNWeb/issues) page. Check out [Additional Guides](https://github.com/Tribalnetwork/Additional-Guides#how-to-use-the-api-within-the-app) if you haven't already. If you have changed the GraphQL Schema, you must run `amplify push` to apply changes.
 
 5. Add, commit, and push your feature branch to your Github:
 

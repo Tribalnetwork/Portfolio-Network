@@ -10,12 +10,12 @@ import UserContext from './UserContext'
 class App extends Component {
   state = {
     currentUser: {},
-    isLoaded: false,
-    hasAccess: false,
-    admin: false,
-    hasChannel: false,
-    remainingVODTime: 500,
-    remainingLiveTime: 60
+    isLoaded: false,  // whether everything has finished loading
+    hasAccess: false, // whether the user has unlimited full access
+    admin: false, // whether the user can access the pending page at tribalnetwork.org/pending.
+    hasChannel: false, // whether the user has created a live stream channel
+    remainingVODTime: 500, // remaining free trial film watch time
+    remainingLiveTime: 60 // remaining free trial live watch time
   }
   componentDidMount() {
     this.updateCurrentUser()
