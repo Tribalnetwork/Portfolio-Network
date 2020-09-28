@@ -48,4 +48,4 @@ type User @model {
   remainingVODTime: Int
   remainingLiveTime: Int
   myList:PlayList@connection(name: "UsermyList")
-}6
+}
