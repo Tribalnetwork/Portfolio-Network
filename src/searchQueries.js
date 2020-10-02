@@ -3,8 +3,6 @@ import { API, graphqlOperation } from 'aws-amplify';
 import * as queries from './graphql/queries';
 import { Link } from "react-router-dom";
 
-
-
 export default class SearchQueries extends React.Component {
     constructor(){
         super()
@@ -15,7 +13,6 @@ export default class SearchQueries extends React.Component {
             global: []
             }
         }
-         
 
        getUserNames = () => {
             API.graphql(graphqlOperation(queries.listUsers))
@@ -31,10 +28,6 @@ export default class SearchQueries extends React.Component {
                     }
                     list.push(userObj);
                 })
-                    let name = user.name.toUpperCase();
-                    list.push(name);
-                })
-                console.log("is running queires")
                 this.setState({users: list})
             })
             }
@@ -53,8 +46,6 @@ export default class SearchQueries extends React.Component {
                    type: "Film"
                 }
                 list.push(titleObj);
-                let title = film.title.toUpperCase();
-                list.push(title);
             })
             this.setState({films: list})
       })
@@ -99,15 +90,6 @@ export default class SearchQueries extends React.Component {
            }
            
         })
-        search = (input, global) => {
-            console.log("is running search")
-            const rawMatches = global.filter((search) => {
-                search.toUpperCase();
-                return search.includes(input.toUpperCase())
-            });
-           const styledMatches = rawMatches.map((item) => <li style={this.liStyle}>{item}</li>)
-               this.setState({global: styledMatches})
-        }
 
         getGlobal = (e) => {
             let input = e.target.value;
@@ -179,5 +161,4 @@ export default class SearchQueries extends React.Component {
                 
             )
         }
-
 }

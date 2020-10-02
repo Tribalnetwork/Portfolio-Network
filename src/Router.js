@@ -23,7 +23,6 @@ import BotNavBar from './bottomNavBar'
 import SearchQueries from "./searchQueries"
 import ViewProfile from "./ViewProfile"
 
-
 class PrivateRoute extends React.Component { // PrivateRoutes require authentication to access
   state = {
     loaded: false,

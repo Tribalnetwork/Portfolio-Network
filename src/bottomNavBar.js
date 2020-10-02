@@ -12,7 +12,6 @@ export default class BottomNavBar extends React.Component{
     }
 
     ulStyle = {
-
         margin: "0",
         padding: "0",
         display: "grid",
@@ -37,8 +36,7 @@ export default class BottomNavBar extends React.Component{
         minWidth: "3vw",
         maxWidth: "6vw",
         minHeight: "3vw",
-        maxHeight: "6vh"
-
+        maxHeight: "6vh",
         position: "fixed",
         bottom: "1vh",
         width: "80%",
@@ -63,15 +61,6 @@ export default class BottomNavBar extends React.Component{
                     <li style={this.liStyle}><Link to={"/profile"}><img style={this.imgStyle} src={Social}/></Link></li>
                     <li style={this.liStyle}><Link to={"/settings"}><img style={this.imgStyle} src={Settings}/></Link></li>
             </ul>
-
-            <div>
-                <ul style={this.ulStyle}>
-                    <li style={this.liStyle}><Link to={"/search"}>Search</Link></li>
-                    <li style={this.liStyle}><button>{"clickMe"}</button></li>
-                    <li style={this.liStyle}><button>{"clickMe"}</button></li>
-                    <li style={this.liStyle}><button>{"clickMe"}</button></li>
-                </ul>
-            </div>
         )
     }
 }
