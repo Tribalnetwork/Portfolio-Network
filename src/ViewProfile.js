@@ -20,6 +20,7 @@ export default class ViewProfile extends React.Component{
         <div>
             <h1>Hi my name is {this.name}</h1>
             <h2>Location: {this.location}</h2>
+            <Connect/>
         </div>
     )
 }
