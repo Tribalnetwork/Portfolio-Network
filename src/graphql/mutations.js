@@ -15,6 +15,16 @@ export const createFilm = /* GraphQL */ `
       duration
       available
       sub
+      lists {
+        items {
+          id
+          filmId
+          listId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       createdAt
       updatedAt
     }
@@ -34,6 +44,16 @@ export const updateFilm = /* GraphQL */ `
       duration
       available
       sub
+      lists {
+        items {
+          id
+          filmId
+          listId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       createdAt
       updatedAt
     }
@@ -53,6 +73,16 @@ export const deleteFilm = /* GraphQL */ `
       duration
       available
       sub
+      lists {
+        items {
+          id
+          filmId
+          listId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       createdAt
       updatedAt
     }
@@ -112,6 +142,285 @@ export const deleteLiveStream = /* GraphQL */ `
     }
   }
 `;
+export const createPlayList = /* GraphQL */ `
+  mutation CreatePlayList(
+    $input: CreatePlayListInput!
+    $condition: ModelPlayListConditionInput
+  ) {
+    createPlayList(input: $input, condition: $condition) {
+      id
+      name
+      User {
+        id
+        name
+        location
+        fullAccess
+        admin
+        liveStreamID
+        liveChannelCreated
+        remainingVODTime
+        remainingLiveTime
+        myList {
+          id
+          name
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
+      }
+      films {
+        items {
+          id
+          filmId
+          listId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updatePlayList = /* GraphQL */ `
+  mutation UpdatePlayList(
+    $input: UpdatePlayListInput!
+    $condition: ModelPlayListConditionInput
+  ) {
+    updatePlayList(input: $input, condition: $condition) {
+      id
+      name
+      User {
+        id
+        name
+        location
+        fullAccess
+        admin
+        liveStreamID
+        liveChannelCreated
+        remainingVODTime
+        remainingLiveTime
+        myList {
+          id
+          name
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
+      }
+      films {
+        items {
+          id
+          filmId
+          listId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deletePlayList = /* GraphQL */ `
+  mutation DeletePlayList(
+    $input: DeletePlayListInput!
+    $condition: ModelPlayListConditionInput
+  ) {
+    deletePlayList(input: $input, condition: $condition) {
+      id
+      name
+      User {
+        id
+        name
+        location
+        fullAccess
+        admin
+        liveStreamID
+        liveChannelCreated
+        remainingVODTime
+        remainingLiveTime
+        myList {
+          id
+          name
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
+      }
+      films {
+        items {
+          id
+          filmId
+          listId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const createFilmInList = /* GraphQL */ `
+  mutation CreateFilmInList(
+    $input: CreateFilmInListInput!
+    $condition: ModelFilmInListConditionInput
+  ) {
+    createFilmInList(input: $input, condition: $condition) {
+      id
+      film {
+        id
+        title
+        genre
+        hlsUrl
+        thumbNailsUrls
+        duration
+        available
+        sub
+        lists {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      filmId
+      listId
+      list {
+        id
+        name
+        User {
+          id
+          name
+          location
+          fullAccess
+          admin
+          liveStreamID
+          liveChannelCreated
+          remainingVODTime
+          remainingLiveTime
+          createdAt
+          updatedAt
+        }
+        films {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateFilmInList = /* GraphQL */ `
+  mutation UpdateFilmInList(
+    $input: UpdateFilmInListInput!
+    $condition: ModelFilmInListConditionInput
+  ) {
+    updateFilmInList(input: $input, condition: $condition) {
+      id
+      film {
+        id
+        title
+        genre
+        hlsUrl
+        thumbNailsUrls
+        duration
+        available
+        sub
+        lists {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      filmId
+      listId
+      list {
+        id
+        name
+        User {
+          id
+          name
+          location
+          fullAccess
+          admin
+          liveStreamID
+          liveChannelCreated
+          remainingVODTime
+          remainingLiveTime
+          createdAt
+          updatedAt
+        }
+        films {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteFilmInList = /* GraphQL */ `
+  mutation DeleteFilmInList(
+    $input: DeleteFilmInListInput!
+    $condition: ModelFilmInListConditionInput
+  ) {
+    deleteFilmInList(input: $input, condition: $condition) {
+      id
+      film {
+        id
+        title
+        genre
+        hlsUrl
+        thumbNailsUrls
+        duration
+        available
+        sub
+        lists {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      filmId
+      listId
+      list {
+        id
+        name
+        User {
+          id
+          name
+          location
+          fullAccess
+          admin
+          liveStreamID
+          liveChannelCreated
+          remainingVODTime
+          remainingLiveTime
+          createdAt
+          updatedAt
+        }
+        films {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
 export const createUser = /* GraphQL */ `
   mutation CreateUser(
     $input: CreateUserInput!
@@ -127,6 +436,28 @@ export const createUser = /* GraphQL */ `
       liveChannelCreated
       remainingVODTime
       remainingLiveTime
+      myList {
+        id
+        name
+        User {
+          id
+          name
+          location
+          fullAccess
+          admin
+          liveStreamID
+          liveChannelCreated
+          remainingVODTime
+          remainingLiveTime
+          createdAt
+          updatedAt
+        }
+        films {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
       createdAt
       updatedAt
     }
@@ -147,6 +478,28 @@ export const updateUser = /* GraphQL */ `
       liveChannelCreated
       remainingVODTime
       remainingLiveTime
+      myList {
+        id
+        name
+        User {
+          id
+          name
+          location
+          fullAccess
+          admin
+          liveStreamID
+          liveChannelCreated
+          remainingVODTime
+          remainingLiveTime
+          createdAt
+          updatedAt
+        }
+        films {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
       createdAt
       updatedAt
     }
@@ -167,6 +520,73 @@ export const deleteUser = /* GraphQL */ `
       liveChannelCreated
       remainingVODTime
       remainingLiveTime
+      myList {
+        id
+        name
+        User {
+          id
+          name
+          location
+          fullAccess
+          admin
+          liveStreamID
+          liveChannelCreated
+          remainingVODTime
+          remainingLiveTime
+          createdAt
+          updatedAt
+        }
+        films {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const createConnect = /* GraphQL */ `
+  mutation CreateConnect(
+    $input: CreateConnectInput!
+    $condition: ModelConnectConditionInput
+  ) {
+    createConnect(input: $input, condition: $condition) {
+      id
+      userId
+      status
+      connectsId
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateConnect = /* GraphQL */ `
+  mutation UpdateConnect(
+    $input: UpdateConnectInput!
+    $condition: ModelConnectConditionInput
+  ) {
+    updateConnect(input: $input, condition: $condition) {
+      id
+      userId
+      status
+      connectsId
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteConnect = /* GraphQL */ `
+  mutation DeleteConnect(
+    $input: DeleteConnectInput!
+    $condition: ModelConnectConditionInput
+  ) {
+    deleteConnect(input: $input, condition: $condition) {
+      id
+      userId
+      status
+      connectsId
       createdAt
       updatedAt
     }

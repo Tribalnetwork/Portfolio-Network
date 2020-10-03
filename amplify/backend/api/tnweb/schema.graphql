@@ -49,3 +49,9 @@ type User @model {
   remainingLiveTime: Int
   myList:PlayList@connection(name: "UsermyList")
 }
+
+type Connect @model {
+  userId: String
+  status: String
+  connectsId: [String]
+}
