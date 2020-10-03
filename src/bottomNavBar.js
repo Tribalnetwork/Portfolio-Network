@@ -36,24 +36,12 @@ export default class BottomNavBar extends React.Component{
         minWidth: "3vw",
         maxWidth: "6vw",
         minHeight: "3vw",
-        maxHeight: "6vh",
-        position: "fixed",
-        bottom: "1vh",
-        width: "80%",
-        margin: "auto",
-        listStyleType: "none"
-   }
-
-   liStyle = {
-       float: "left",
-       width: "25%",
-       margin: "auto"
+        maxHeight: "6vh"
    }
 
     render(){
 
         return(
-
             <ul style={this.ulStyle}>
                     <li style={this.liStyle}><Link to={"/home"}><img style={this.imgStyle} src={Home}/></Link></li>
                     <li style={this.liStyle}><Link to={"/search"}><img style={this.imgStyle} src={Search}/></Link></li>
