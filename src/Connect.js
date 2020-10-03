@@ -2,12 +2,10 @@ import React from 'react';
 import { API, graphqlOperation } from 'aws-amplify';
 import * as queries from './graphql/queries';
 import * as mutations from './graphql/mutations';
-import UserContext from "./UserContext";
 
 export default class Connect extends React.Component{
     constructor(){
         super()
-        static contextType = UserContext;
     }
     
 
@@ -36,8 +34,7 @@ export default class Connect extends React.Component{
     } */
 
      requestConnect = () => {
-         API.graphql(graphqlOperation(queries.getConnect, {id: this.context.user.attributes}))
-        //API.graphql(graphqlOperation(queries.getConnect, {id: '0a29a421-d0da-4522-9864-2c6f987bfe51'}))
+        API.graphql(graphqlOperation(queries.getConnect, {id: '0a29a421-d0da-4522-9864-2c6f987bfe51'}))
         .then((result) => { 
             console.log("result is: " + JSON.stringify(result.data.getConnect));
            /* if (result.data.getConnect == null){

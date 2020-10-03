@@ -2,6 +2,7 @@ import React from 'react';
 import { API, graphqlOperation } from 'aws-amplify';
 import * as queries from './graphql/queries';
 import { Link } from "react-router-dom";
+import Connect from "./Connect";
 
 
 export default class ViewProfile extends React.Component{
