@@ -4,7 +4,6 @@ import * as queries from './graphql/queries';
 import { Link } from "react-router-dom";
 
 
-
 export default class SearchQueries extends React.Component {
     constructor(){
         super()
@@ -31,10 +30,6 @@ export default class SearchQueries extends React.Component {
                     }
                     list.push(userObj);
                 })
-                    let name = user.name.toUpperCase();
-                    list.push(name);
-                })
-                console.log("is running queires")
                 this.setState({users: list})
             })
             }
@@ -53,8 +48,6 @@ export default class SearchQueries extends React.Component {
                    type: "Film"
                 }
                 list.push(titleObj);
-                let title = film.title.toUpperCase();
-                list.push(title);
             })
             this.setState({films: list})
       })
@@ -90,6 +83,7 @@ export default class SearchQueries extends React.Component {
            switch(item.type){
                case "User":
                     return <Link style={{textDecoration: "none"}} to={`/viewProfile?name=${item.name}&location=${item.location}`}><li key={item.id} style={this.liStyle}>{item.name}  <p>{item.type}</p></li></Link>
+                    break;
                case "Film":
                    return <Link style={{textDecoration: "none"}} to={`/watch?id=${item.id}`}><li key={item.id} style={this.liStyle}>{item.name}  <p>{item.type}</p></li> </Link>
                    break;
@@ -99,13 +93,6 @@ export default class SearchQueries extends React.Component {
            }
            
         })
-        search = (input, global) => {
-            console.log("is running search")
-            const rawMatches = global.filter((search) => {
-                search.toUpperCase();
-                return search.includes(input.toUpperCase())
-            });
-           const styledMatches = rawMatches.map((item) => <li style={this.liStyle}>{item}</li>)
                this.setState({global: styledMatches})
         }
 
@@ -119,9 +106,6 @@ export default class SearchQueries extends React.Component {
             const liveStreamers = this.state.liveStreams;
             const hold = users.concat(films)
             const global = hold.concat(liveStreamers);
-            const users = this.state.users;
-            const films = this.state.films;
-            const global = users.concat(films);
             this.search(input, global)
         }
 
@@ -134,8 +118,6 @@ export default class SearchQueries extends React.Component {
             gridColumn: "2",
             fontSize: "3vw",
             postion: "fixed"
-            gridRow: "1",
-            fontSize: "3vw"
          }
 
          mainDivStyle = {
@@ -143,8 +125,6 @@ export default class SearchQueries extends React.Component {
             width: "100%",
             gridTemplateColumns: "1fr 3fr 1fr",
             gridTemplateRows: "10vh 80vh"
-            gridTemplateColumns: "2fr 2fr 2fr",
-            gridTemplateRows: "5vh 90%",  
         }
         
          ulStyle = {
@@ -161,13 +141,6 @@ export default class SearchQueries extends React.Component {
             justifyContent: "center",
             fontSize: "3vw",
             color: "black",
-            gridRow: "2"
-         }
-        
-         liStyle = {
-            margin: "1vh",
-            justifyContent: "center",
-            fontSize: "3vw"
          }
 
         render(){
