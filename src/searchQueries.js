@@ -83,6 +83,7 @@ export default class SearchQueries extends React.Component {
            switch(item.type){
                case "User":
                     return <Link style={{textDecoration: "none"}} to={`/viewProfile?name=${item.name}&location=${item.location}`}><li key={item.id} style={this.liStyle}>{item.name}  <p>{item.type}</p></li></Link>
+                    break;
                case "Film":
                    return <Link style={{textDecoration: "none"}} to={`/watch?id=${item.id}`}><li key={item.id} style={this.liStyle}>{item.name}  <p>{item.type}</p></li> </Link>
                    break;
