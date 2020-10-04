@@ -320,8 +320,10 @@ export const getConnect = /* GraphQL */ `
     getConnect(id: $id) {
       id
       userId
-      status
-      connectsId
+      connectsId {
+        userId
+        status
+      }
       createdAt
       updatedAt
     }
@@ -337,8 +339,10 @@ export const listConnects = /* GraphQL */ `
       items {
         id
         userId
-        status
-        connectsId
+        connectsId {
+          userId
+          status
+        }
         createdAt
         updatedAt
       }

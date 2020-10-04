@@ -50,8 +50,13 @@ type User @model {
   myList:PlayList@connection(name: "UsermyList")
 }
 
-type Connect @model {
+type ConnectItem {
   userId: String
   status: String
-  connectsId: [String]
+  }
+
+type Connect @model {
+  id: ID!
+  userId: String
+  connectsId: [ConnectItem]
 }

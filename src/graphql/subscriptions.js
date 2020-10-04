@@ -507,8 +507,10 @@ export const onCreateConnect = /* GraphQL */ `
     onCreateConnect {
       id
       userId
-      status
-      connectsId
+      connectsId {
+        userId
+        status
+      }
       createdAt
       updatedAt
     }
@@ -519,8 +521,10 @@ export const onUpdateConnect = /* GraphQL */ `
     onUpdateConnect {
       id
       userId
-      status
-      connectsId
+      connectsId {
+        userId
+        status
+      }
       createdAt
       updatedAt
     }
@@ -531,8 +535,10 @@ export const onDeleteConnect = /* GraphQL */ `
     onDeleteConnect {
       id
       userId
-      status
-      connectsId
+      connectsId {
+        userId
+        status
+      }
       createdAt
       updatedAt
     }
