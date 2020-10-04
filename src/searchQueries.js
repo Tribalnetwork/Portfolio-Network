@@ -1,7 +1,7 @@
 import React from 'react';
 import { API, graphqlOperation } from 'aws-amplify';
 import * as queries from './graphql/queries';
-
+import { Link } from "react-router-dom";
 
 export default class SearchQueries extends React.Component {
     constructor(){
@@ -9,10 +9,10 @@ export default class SearchQueries extends React.Component {
         this.state = {
             users: [],
             films: [],
+            liveStreams: [],
             global: []
             }
         }
-         
 
        getUserNames = () => {
             API.graphql(graphqlOperation(queries.listUsers))
@@ -20,10 +20,14 @@ export default class SearchQueries extends React.Component {
             .then((result) => { 
                 let list = [];
                 result.forEach((user) =>{
-                    let name = user.name.toUpperCase();
-                    list.push(name);
+                    let userObj = {
+                        name: user.name.toUpperCase(),
+                        id: user.id,
+                        location: user.location,
+                        type: "User"
+                    }
+                    list.push(userObj);
                 })
-                console.log("is running queires")
                 this.setState({users: list})
             })
             }
@@ -36,30 +40,67 @@ export default class SearchQueries extends React.Component {
         .then((result) => { 
             let list = [];
             result.forEach((film) =>{
-                let title = film.title.toUpperCase();
-                list.push(title);
+                let titleObj = {
+                   name:  film.title.toUpperCase(),
+                   id: film.id,
+                   type: "Film"
+                }
+                list.push(titleObj);
             })
             this.setState({films: list})
+      })
+        }
+
+        getLiveStreams = () => {
+            API.graphql(graphqlOperation(queries.listLiveStreams))
+        .then((result) => { return result.data.listLiveStreams.items})
+        .then((result) => { 
+            let list = [];
+            result.forEach((liveStream) =>{
+                let namesObj = {
+                    name: liveStream.streamerName.toUpperCase(),
+                    id: liveStream.id,
+                    type: "Live Stream"
+                }
+                list.push(namesObj);
+            })
+            this.setState({liveStreams: list})
       })
         }
 
         search = (input, global) => {
             console.log("is running search")
             const rawMatches = global.filter((search) => {
-                search.toUpperCase();
-                return search.includes(input.toUpperCase())
+                //search.toUpperCase();
+                if(search.name.includes(input.toUpperCase())){
+                    return search;
+                }
+                
             });
-           const styledMatches = rawMatches.map((item) => <li style={this.liStyle}>{item}</li>)
-               this.setState({global: styledMatches})
-        }
-
+           const styledMatches = rawMatches.map((item) =>{ 
+           switch(item.type){
+               case "User":
+                    return <Link style={{textDecoration: "none"}} to={`/viewProfile?name=${item.name}&location=${item.location}`}><li key={item.id} style={this.liStyle}>{item.name}  <p>{item.type}</p></li></Link>
+               case "Film":
+                   return <Link style={{textDecoration: "none"}} to={`/watch?id=${item.id}`}><li key={item.id} style={this.liStyle}>{item.name}  <p>{item.type}</p></li> </Link>
+                   break;
+               case "Live Stream":
+                   return <Link style={{textDecoration: "none"}} to={`/live?id=${item.id}`}><li key={item.id} style={this.liStyle}>{item.name}  <p>{item.type}</p></li> </Link>
+                   break;
+           }
+           
+        })
+    }
         getGlobal = (e) => {
             let input = e.target.value;
             this.getUserNames();
             this.getFilmTitles();
+            this.getLiveStreams();
             const users = this.state.users;
             const films = this.state.films;
-            const global = users.concat(films);
+            const liveStreamers = this.state.liveStreams;
+            const hold = users.concat(films)
+            const global = hold.concat(liveStreamers);
             this.search(input, global)
         }
 
@@ -70,12 +111,17 @@ export default class SearchQueries extends React.Component {
             marginTop: "10px",
             justifyContent: "center",
             gridColumn: "2",
+            fontSize: "3vw",
+            postion: "fixed",
             gridRow: "1",
             fontSize: "3vw"
          }
 
          mainDivStyle = {
             display: "grid",
+            width: "100%",
+            gridTemplateColumns: "1fr 3fr 1fr",
+            gridTemplateRows: "10vh 80vh",
             gridTemplateColumns: "2fr 2fr 2fr",
             gridTemplateRows: "5vh 90%",  
         }
@@ -84,6 +130,16 @@ export default class SearchQueries extends React.Component {
             listStyleType: "none",
             justifyContent: "center",
             gridColumn: "2",
+            gridRow: "2",
+            overflow: "auto",
+         }
+        
+         liStyle = {
+            borderTop: "1px solid black",
+            margin: "1vh",
+            justifyContent: "center",
+            fontSize: "3vw",
+            color: "black",
             gridRow: "2"
          }
         
@@ -102,5 +158,4 @@ export default class SearchQueries extends React.Component {
                 
             )
         }
-
 }

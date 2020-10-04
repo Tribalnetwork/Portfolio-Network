@@ -49,4 +49,3 @@ type User @model {
   remainingLiveTime: Int
   myList:PlayList@connection(name: "UsermyList")
 }
-
