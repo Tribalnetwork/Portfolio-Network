@@ -15,8 +15,30 @@ import {ReactComponent as Donatelogo} from './icons/Donate.svg';
 import {ReactComponent as Downloadlogo} from './icons/Download.svg';
 import {ReactComponent as Sharelogo} from './icons/Share.svg';
 import {ReactComponent as AddToListlogo} from './icons/AddtoList.svg';
+import {ReactComponent as AuthorPhotoLogo} from './icons/Ellipse.svg';
+import {ReactComponent as SubscribeLogo} from './icons/subscribe.svg';
 import { StylesProvider } from '@material-ui/core';
 
+const AuthorSection=({author})=>{
+  console.log(author);
+  return(
+      <div>
+        <hr></hr>
+        <Grid container spacing={3} alignItems="center">
+        <Grid item xs={2}>
+          <AuthorPhotoLogo></AuthorPhotoLogo>
+        </Grid>
+        <Grid item xs={6}>
+          <p>{author.name}</p>
+        </Grid>
+        <Grid item xs={4}>
+          <SubscribeLogo></SubscribeLogo>
+        </Grid>
+      </Grid>
+        <hr></hr>
+      </div>
+  )
+}
 
 class WatchPage extends React.Component {
 
@@ -175,7 +197,7 @@ class WatchPage extends React.Component {
             }
           </div>          
           <div className="functionTabs">
-            <Grid container>
+            <Grid container justify="space-between">
               <Grid item><Ratelogo></Ratelogo></Grid>
               <Grid item><Donatelogo></Donatelogo></Grid>
               <Grid item><Sharelogo></Sharelogo></Grid>
@@ -183,8 +205,7 @@ class WatchPage extends React.Component {
               <Grid item><AddToListlogo onClick={this.addToList.bind(this)}></AddToListlogo></Grid>
             </Grid>
           </div>
-          <h3>{this.state.artist.name}</h3>
-
+          <AuthorSection author={this.state.artist}></AuthorSection>
         </section>
       </div>
     )

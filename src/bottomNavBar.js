@@ -1,5 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
+import {ReactComponent as Homelogo} from './icons/home.svg';
+import {ReactComponent as SearchLogo} from './icons/Search.svg';
+import {ReactComponent as TribalLogo} from './icons/Tribal.svg';
+import {ReactComponent as SocialLogo} from './icons/Social.svg';
+import {ReactComponent as SettingsLogo} from './icons/Settings.svg';
 
 export default class BottomNavBar extends React.Component{
     constructor(){
@@ -16,7 +21,7 @@ export default class BottomNavBar extends React.Component{
 
    liStyle = {
        float: "left",
-       width: "25%",
+       width: "20%",
        margin: "auto"
    }
 
@@ -24,13 +29,14 @@ export default class BottomNavBar extends React.Component{
 
         return(
             <div>
-                <ul style={this.ulStyle}>
-                    <li style={this.liStyle}><Link to={"/search"}>Search</Link></li>
-                    <li style={this.liStyle}><button>{"clickMe"}</button></li>
-                    <li style={this.liStyle}><button>{"clickMe"}</button></li>
-                    <li style={this.liStyle}><button>{"clickMe"}</button></li>
-                </ul>
-            </div>
+            <ul style={this.ulStyle}>
+                <li style={this.liStyle}><Homelogo></Homelogo></li>
+                <li style={this.liStyle}><SearchLogo><Link to={"/search"}>Search</Link></SearchLogo></li>
+                <li style={this.liStyle}><TribalLogo></TribalLogo></li>
+                <li style={this.liStyle}><SocialLogo></SocialLogo></li>
+                <li style={this.liStyle}><SettingsLogo></SettingsLogo></li>
+            </ul>
+        </div>
         )
     }
 }
