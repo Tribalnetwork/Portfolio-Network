@@ -1,6 +1,6 @@
 import React from 'react';
 import { API, graphqlOperation } from 'aws-amplify';
-import * as queries from './graphql/queries';
+import * as queries from '../graphql/queries';
 import { Link } from "react-router-dom";
 
 export default class SearchQueries extends React.Component {
@@ -16,7 +16,7 @@ export default class SearchQueries extends React.Component {
 
        getUserNames = () => {
             API.graphql(graphqlOperation(queries.listUsers))
-            .then((result) => { return result.data.listUsers.items})
+            .then((result) => {return result.data.listUsers.items})
             .then((result) => { 
                 let list = [];
                 result.forEach((user) =>{
@@ -69,9 +69,7 @@ export default class SearchQueries extends React.Component {
         }
 
         search = (input, global) => {
-            console.log("is running search")
             const rawMatches = global.filter((search) => {
-                //search.toUpperCase();
                 if(search.name.includes(input.toUpperCase())){
                     return search;
                 }
@@ -90,13 +88,15 @@ export default class SearchQueries extends React.Component {
                    break;
            }
            
-        })}
+        })
+            this.setState({global: styledMatches})
+    }
 
-        getGlobal = (e) => {
+        getGlobal = async (e) => {
             let input = e.target.value;
-            this.getUserNames();
-            this.getFilmTitles();
-            this.getLiveStreams();
+            await this.getUserNames();
+            await this.getFilmTitles();
+            await this.getLiveStreams();
             const users = this.state.users;
             const films = this.state.films;
             const liveStreamers = this.state.liveStreams;

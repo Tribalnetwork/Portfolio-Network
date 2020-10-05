@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
-import Home from "./bottomNavBarImg/home.jpg"
-import Tribal from "./bottomNavBarImg/tribal.jpg"
-import Settings from "./bottomNavBarImg/settings.jpg"
-import Social from "./bottomNavBarImg/social.jpg"
-import Search from "./bottomNavBarImg/search.jpg"
+import Home from "../bottomNavBarImg/home.jpg"
+import Tribal from "../bottomNavBarImg/tribal.jpg"
+import Settings from "../bottomNavBarImg/settings.jpg"
+import Social from "../bottomNavBarImg/social.jpg"
+import Search from "../bottomNavBarImg/search.jpg"
 
 export default class BottomNavBar extends React.Component{
     constructor(){
@@ -21,8 +21,6 @@ export default class BottomNavBar extends React.Component{
         listStyleType: "none",
         gridTemplateColumn: "1fr 1fr 1fr 1fr 1fr",
         justifyContent: "space evenly",
-        //backgroundColor: "gray",
-        //borderRadius: "25%"
    }
 
    liStyle = {
@@ -37,18 +35,8 @@ export default class BottomNavBar extends React.Component{
         maxWidth: "6vw",
         minHeight: "3vw",
         maxHeight: "6vh",
-        position: "fixed",
-        bottom: "1vh",
-        width: "80%",
-        margin: "auto",
-        listStyleType: "none"
    }
 
-   liStyle = {
-       float: "left",
-       width: "25%",
-       margin: "auto"
-   }
 
     render(){
 

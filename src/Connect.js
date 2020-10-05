@@ -7,7 +7,8 @@ export default class Connect extends React.Component{
     constructor(){
         super()
         this.state={
-            buttonText: "",
+            bool: false,
+            buttonText: "Request Connect",
         }
     }
     
@@ -22,6 +23,7 @@ export default class Connect extends React.Component{
     parsed = JSON.parse(this.requestingUserData);
     requestingId = JSON.stringify(this.parsed.UserAttributes[0].Value)
 
+    
     createConnect = () => { console.log("creating");
         const data = {
             userId: this.requestingId,
@@ -33,19 +35,33 @@ export default class Connect extends React.Component{
         API.graphql(graphqlOperation(mutations.createConnect, {input: data}))
     }
 
-    updateConnect = (requestingUser) =>{ console.log("updating");
-        const data = {
-            id: requestingUser[0].id,
-            connectsId: {
+    updateConnect = (requestingUser) =>{console.log("updating")
+        API.graphql(graphqlOperation(queries.listConnects, {
+            filter: {
+                userId: {
+                    eq: this.requestingId
+                }
+            }
+        }))
+        .then((result) => {
+            const data = {
                 userId: this.requestedId,
                 status: "pending"
             }
-        }
-        API.graphql(graphqlOperation(mutations.updateConnect, {input: data}))
+            return result.data.listConnects.items[0].connectsId.concat(data);
+        })
+        .then((result) => {
+            const data = {
+                id: requestingUser[0].id,
+                connectsId: result
+            }
+           API.graphql(graphqlOperation(mutations.updateConnect, {input: data}))
+        })
+        
     }
 
      requestConnect = () => {
-         console.log(this.requestedId);
+         //if(this.state.bool == true){
         API.graphql(graphqlOperation(queries.listConnects, {
             filter: {
                 userId: {
@@ -62,14 +78,45 @@ export default class Connect extends React.Component{
                 console.log("add requested to connect array");
             }
         }) 
-    } 
-
+    // }
+    }
+    /*
+    checkStatus = () =>{console.log("running checkstatus from connect.js*******")
+        API.graphql(graphqlOperation(queries.listConnects, {
+            filter: {
+                userId: {
+                    eq: this.requestingId
+                }
+            }
+        }))
+        .then((result) => {
+            result.data.listConnects.items.forEach((connect) => {
+                if(connect.connectsId.userId == this.requestedId){
+                    return connect;
+                } else {
+                    this.setState({bool: true});
+                }
+            });
+        })
+        .then((connect) => {
+          if(this.state.bool == false){
+            if(connect.connectsId.status == 'denied'){
+                this.setState({buttonText: 'Request Denied'})
+            } else if(connect.connectsId.status == 'pending'){
+                this.setState({buttonText: 'Awaiting Response'})
+            } else if (connect.connectsId.status == 'connected'){
+                this.setState({buttonText: 'Connected'})
+            } 
+          }
+        })
+    } */
+        
 
     render(){
 
         return(
             <div>
-                <button onClick={this.requestConnect}>Connect</button>
+                <button onClick={this.requestConnect}>{this.state.buttonText}</button>
             </div>
 
         )
