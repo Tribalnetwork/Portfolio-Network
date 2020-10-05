@@ -19,7 +19,7 @@ export default class BottomNavBar extends React.Component{
         bottom: "1vh",
         width: "95%",
         listStyleType: "none",
-        gridTemplateColumn: "1fr 1fr 1fr 1fr",
+        gridTemplateColumn: "1fr 1fr 1fr 1fr 1fr",
         justifyContent: "space evenly",
         //backgroundColor: "gray",
         //borderRadius: "25%"
@@ -36,7 +36,18 @@ export default class BottomNavBar extends React.Component{
         minWidth: "3vw",
         maxWidth: "6vw",
         minHeight: "3vw",
-        maxHeight: "6vh"
+        maxHeight: "6vh",
+        position: "fixed",
+        bottom: "1vh",
+        width: "80%",
+        margin: "auto",
+        listStyleType: "none"
+   }
+
+   liStyle = {
+       float: "left",
+       width: "25%",
+       margin: "auto"
    }
 
     render(){

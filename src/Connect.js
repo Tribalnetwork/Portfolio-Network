@@ -6,6 +6,9 @@ import * as mutations from './graphql/mutations';
 export default class Connect extends React.Component{
     constructor(){
         super()
+        this.state={
+            buttonText: "",
+        }
     }
     
 

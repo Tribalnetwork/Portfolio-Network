@@ -3,7 +3,6 @@ import { API, graphqlOperation } from 'aws-amplify';
 import * as queries from './graphql/queries';
 import { Link } from "react-router-dom";
 
-
 export default class SearchQueries extends React.Component {
     constructor(){
         super()
@@ -14,7 +13,6 @@ export default class SearchQueries extends React.Component {
             global: []
             }
         }
-         
 
        getUserNames = () => {
             API.graphql(graphqlOperation(queries.listUsers))
@@ -92,9 +90,7 @@ export default class SearchQueries extends React.Component {
                    break;
            }
            
-        })
-               this.setState({global: styledMatches})
-        }
+        })}
 
         getGlobal = (e) => {
             let input = e.target.value;
@@ -117,14 +113,18 @@ export default class SearchQueries extends React.Component {
             justifyContent: "center",
             gridColumn: "2",
             fontSize: "3vw",
-            postion: "fixed"
+            postion: "fixed",
+            gridRow: "1",
+            fontSize: "3vw"
          }
 
          mainDivStyle = {
             display: "grid",
             width: "100%",
             gridTemplateColumns: "1fr 3fr 1fr",
-            gridTemplateRows: "10vh 80vh"
+            gridTemplateRows: "10vh 80vh",
+            gridTemplateColumns: "2fr 2fr 2fr",
+            gridTemplateRows: "5vh 90%",  
         }
         
          ulStyle = {
@@ -141,9 +141,17 @@ export default class SearchQueries extends React.Component {
             justifyContent: "center",
             fontSize: "3vw",
             color: "black",
+            gridRow: "2"
+         }
+        
+         liStyle = {
+            margin: "1vh",
+            justifyContent: "center",
+            fontSize: "3vw"
          }
 
-        render(){
+        render() {
+
             return (
                 <div style={this.mainDivStyle}>
                     <input style={this.inputStyle} onChange={this.getGlobal.bind(this)}/>
@@ -152,5 +160,4 @@ export default class SearchQueries extends React.Component {
                 
             )
         }
-
 }
