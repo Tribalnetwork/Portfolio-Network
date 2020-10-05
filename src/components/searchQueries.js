@@ -1,8 +1,7 @@
 import React from 'react';
 import { API, graphqlOperation } from 'aws-amplify';
-import * as queries from './graphql/queries';
+import * as queries from '../graphql/queries';
 import { Link } from "react-router-dom";
-
 
 export default class SearchQueries extends React.Component {
     constructor(){
@@ -14,11 +13,10 @@ export default class SearchQueries extends React.Component {
             global: []
             }
         }
-         
 
        getUserNames = () => {
             API.graphql(graphqlOperation(queries.listUsers))
-            .then((result) => { return result.data.listUsers.items})
+            .then((result) => {return result.data.listUsers.items})
             .then((result) => { 
                 let list = [];
                 result.forEach((user) =>{
@@ -71,9 +69,7 @@ export default class SearchQueries extends React.Component {
         }
 
         search = (input, global) => {
-            console.log("is running search")
             const rawMatches = global.filter((search) => {
-                //search.toUpperCase();
                 if(search.name.includes(input.toUpperCase())){
                     return search;
                 }
@@ -93,14 +89,14 @@ export default class SearchQueries extends React.Component {
            }
            
         })
-               this.setState({global: styledMatches})
-        }
+            this.setState({global: styledMatches})
+    }
 
-        getGlobal = (e) => {
+        getGlobal = async (e) => {
             let input = e.target.value;
-            this.getUserNames();
-            this.getFilmTitles();
-            this.getLiveStreams();
+            await this.getUserNames();
+            await this.getFilmTitles();
+            await this.getLiveStreams();
             const users = this.state.users;
             const films = this.state.films;
             const liveStreamers = this.state.liveStreams;
@@ -117,14 +113,18 @@ export default class SearchQueries extends React.Component {
             justifyContent: "center",
             gridColumn: "2",
             fontSize: "3vw",
-            postion: "fixed"
+            postion: "fixed",
+            gridRow: "1",
+            fontSize: "3vw"
          }
 
          mainDivStyle = {
             display: "grid",
             width: "100%",
             gridTemplateColumns: "1fr 3fr 1fr",
-            gridTemplateRows: "10vh 80vh"
+            gridTemplateRows: "10vh 80vh",
+            gridTemplateColumns: "2fr 2fr 2fr",
+            gridTemplateRows: "5vh 90%",  
         }
         
          ulStyle = {
@@ -141,9 +141,17 @@ export default class SearchQueries extends React.Component {
             justifyContent: "center",
             fontSize: "3vw",
             color: "black",
+            gridRow: "2"
+         }
+        
+         liStyle = {
+            margin: "1vh",
+            justifyContent: "center",
+            fontSize: "3vw"
          }
 
-        render(){
+        render() {
+
             return (
                 <div style={this.mainDivStyle}>
                     <input style={this.inputStyle} onChange={this.getGlobal.bind(this)}/>
@@ -152,5 +160,4 @@ export default class SearchQueries extends React.Component {
                 
             )
         }
-
 }

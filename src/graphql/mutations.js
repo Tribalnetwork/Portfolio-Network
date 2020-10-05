@@ -572,10 +572,10 @@ export const updateConnect = /* GraphQL */ `
     updateConnect(input: $input, condition: $condition) {
       id
       userId
-      connectsId: this.push({
+      connectsId {
         userId
         status
-      })
+      }
       createdAt
       updatedAt
     }
