@@ -555,8 +555,10 @@ export const createConnect = /* GraphQL */ `
     createConnect(input: $input, condition: $condition) {
       id
       userId
-      status
-      connectsId
+      connectsId {
+        userId
+        status
+      }
       createdAt
       updatedAt
     }
@@ -570,8 +572,10 @@ export const updateConnect = /* GraphQL */ `
     updateConnect(input: $input, condition: $condition) {
       id
       userId
-      status
-      connectsId
+      connectsId {
+        userId
+        status
+      }
       createdAt
       updatedAt
     }
@@ -585,8 +589,10 @@ export const deleteConnect = /* GraphQL */ `
     deleteConnect(input: $input, condition: $condition) {
       id
       userId
-      status
-      connectsId
+      connectsId {
+        userId
+        status
+      }
       createdAt
       updatedAt
     }
