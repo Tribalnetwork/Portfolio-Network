@@ -90,7 +90,7 @@ export default class SearchQueries extends React.Component {
            }
            
         })
-
+    }
         getGlobal = (e) => {
             let input = e.target.value;
             this.getUserNames();
@@ -101,9 +101,6 @@ export default class SearchQueries extends React.Component {
             const liveStreamers = this.state.liveStreams;
             const hold = users.concat(films)
             const global = hold.concat(liveStreamers);
-            const users = this.state.users;
-            const films = this.state.films;
-            const global = users.concat(films);
             this.search(input, global)
         }
 
@@ -115,7 +112,7 @@ export default class SearchQueries extends React.Component {
             justifyContent: "center",
             gridColumn: "2",
             fontSize: "3vw",
-            postion: "fixed"
+            postion: "fixed",
             gridRow: "1",
             fontSize: "3vw"
          }
@@ -124,7 +121,7 @@ export default class SearchQueries extends React.Component {
             display: "grid",
             width: "100%",
             gridTemplateColumns: "1fr 3fr 1fr",
-            gridTemplateRows: "10vh 80vh"
+            gridTemplateRows: "10vh 80vh",
             gridTemplateColumns: "2fr 2fr 2fr",
             gridTemplateRows: "5vh 90%",  
         }
