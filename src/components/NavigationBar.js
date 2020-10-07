@@ -57,6 +57,7 @@ export const NavigationBar = () => {
             <MenuIcon />
 
           </IconButton>
+        <div>
           <Link to='/' className={classes.title}>
             <Typography variant="h6" >
               Tribal
@@ -64,19 +65,39 @@ export const NavigationBar = () => {
           </Link>
           {
             isLoaded ? isAuthenticated ? (
-              <Link to='/profile' style={{ textDecoration: 'none' }}>
+              <>
+              <Link to='/profile' style={{ textDecoration: 'none', float: 'right', position: 'absolute', bottom: '15px', right: '20px' }}>
                 <Button variant='contained' style={{ background: '#d4af37', textTransform: 'none' }}>
                   {context.user.username}
                 </Button>
               </Link>
+              <Link to='/settings' style={{ textDecoration: 'none'}}>
+                <IconButton>
+                  <img src='../icons/Settings.svg' alt='settings icons'/>
+                </IconButton>
+              </Link>
+              <Link to='/calendar' style={{ textDecoration: 'none'}}>
+                calendar
+              </Link>
+              <Link to='/notifications' style={{ textDecoration: 'none'}}>
+                notifications
+              </Link>
+              <Link to='/films' style={{ textDecoration: 'none'}}>
+                films
+              </Link>
+              <Link to='/events' style={{ textDecoration: 'none'}}>
+                events
+              </Link>
+              </>
             ) : (
-              <Link to='/auth' style={{ textDecoration: 'none' }}>
+              <Link to='/auth' style={{ textDecoration: 'none', color: '#000'}}>
                 <Button color="inherit" style={{ color: '#d4af37' }}>
                   Login/Register
                 </Button>
               </Link>
             ) : null
           }
+        </div>
         </Toolbar>
       </AppBar>
       <Drawer
