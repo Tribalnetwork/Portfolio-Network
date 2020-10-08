@@ -6,6 +6,7 @@ import { getUser } from './graphql/queries'
 import './App.css'
 import Router from './Router'
 import UserContext from './UserContext'
+import Calendar from 'react-calendar'
 
 class App extends Component {
   state = {

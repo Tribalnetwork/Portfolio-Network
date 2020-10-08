@@ -23,6 +23,7 @@ import BotNavBar from './bottomNavBar'
 import SearchQueries from "./searchQueries"
 import ViewProfile from "./ViewProfile"
 import MyList from "./MyList"
+import Cal from './Cal'
 
 class PrivateRoute extends React.Component { // PrivateRoutes require authentication to access
   state = {
@@ -81,6 +82,7 @@ const Routes = () => (
         <Route path='/home' exact component={Home} />
         <Route path='/search' exact component={SearchQueries} />
         <Route path='/viewProfile' exact component={ViewProfile} />
+        <Route path='/calendar' exact component={Cal} />
         <PrivateRoute path='/upload' exact component={Upload} />
         <PrivateRoute path='/streams'  component={Stream} />
         <PrivateRoute path='/watch'  component={Watch} />
