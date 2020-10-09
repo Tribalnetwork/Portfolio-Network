@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
-import Home from "../bottomNavBarImg/Home.jpg"
-import Tribal from "../bottomNavBarImg/Tribal.jpg"
-import Settings from "../bottomNavBarImg/Settings.jpg"
-import Social from "../bottomNavBarImg/Social.jpg"
-import Search from "../bottomNavBarImg/Search.jpg"
+import Home from "../bottomNavBarImg/home.jpg"
+import Tribal from "../bottomNavBarImg/tribal.jpg"
+import Settings from "../bottomNavBarImg/settings.jpg"
+import Social from "../bottomNavBarImg/social.jpg"
+import Search from "../bottomNavBarImg/search.jpg"
 
 export default class BottomNavBar extends React.Component{
     constructor(){
