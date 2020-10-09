@@ -6,7 +6,9 @@ import { getUser } from './graphql/queries'
 import './App.css'
 import Router from './Router'
 import UserContext from './UserContext'
-import Calendar from 'react-calendar'
+import 'react-notifications/lib/notifications.css'
+import { NotificationContainer } from 'react-notifications'
+
 
 class App extends Component {
   state = {
@@ -61,6 +63,7 @@ class App extends Component {
       }}>
         <div className="App">
           <Router />
+          <NotificationContainer />
         </div>
       </UserContext.Provider>
     );

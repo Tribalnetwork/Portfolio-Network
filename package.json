@@ -20,9 +20,12 @@
     "react-dom": "^16.13.1",
     "react-helmet": "^6.1.0",
     "react-horizontal-scrolling-menu": "^0.7.7",
+    "react-notifications": "^1.7.2",
     "react-player": "^2.4.0",
     "react-router-dom": "^5.0.1",
     "react-scripts": "^3.4.3",
+    "react-settings-pane": "^0.1.5",
+    "react-vote": "^3.3.3",
     "redux": "^4.0.5"
   },
   "scripts": {
