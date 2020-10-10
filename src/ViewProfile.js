@@ -2,7 +2,7 @@ import React from 'react';
 import { API, graphqlOperation } from 'aws-amplify';
 import * as queries from './graphql/queries';
 import { Link } from "react-router-dom";
-import Connect from "./Connect";
+//import Connect from "./Connect";
 
 
 export default class ViewProfile extends React.Component{
@@ -20,13 +20,7 @@ export default class ViewProfile extends React.Component{
         <div>
             <h1>Hi my name is {this.name}</h1>
             <h2>Location: {this.location}</h2>
-            <Connect/>
         </div>
     )
 }
-<<<<<<< HEAD
-
-
-=======
->>>>>>> origin/master
 }

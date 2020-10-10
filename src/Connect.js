@@ -23,8 +23,13 @@ export default class Connect extends React.Component{
     parsed = JSON.parse(this.requestingUserData);
     requestingId = JSON.stringify(this.parsed.UserAttributes[0].Value)
 
-    
-    createConnect = () => { console.log("creating");
+    /* Logic of functions: On initial render, runs checkStatus, to see if you have already requested a connect from this user
+    and displays the status(i.e. pending, connected, denied). If you have never requested a  connect from this user, it sets 
+    bool value to true. If bool value is true when button is clicked, runs requestConnect. If requesting user already has 
+    a record in the DynamoDb table, it runs updateConnect, if not it runs createConnect. */
+
+
+    createConnect = () => {
         const data = {
             userId: this.requestingId,
             connectsId: { 
@@ -33,9 +38,11 @@ export default class Connect extends React.Component{
             }
         }
         API.graphql(graphqlOperation(mutations.createConnect, {input: data}))
+        this.setState({bool: false})
+        this.checkStatus();
     }
 
-    updateConnect = (requestingUser) =>{console.log("updating")
+    updateConnect = (requestingUser) =>{
         API.graphql(graphqlOperation(queries.listConnects, {
             filter: {
                 userId: {
@@ -56,12 +63,14 @@ export default class Connect extends React.Component{
                 connectsId: result
             }
            API.graphql(graphqlOperation(mutations.updateConnect, {input: data}))
+           this.setState({bool: false})
+           this.checkStatus();
         })
         
     }
 
      requestConnect = () => {
-         //if(this.state.bool == true){
+         if(this.state.bool == true){
         API.graphql(graphqlOperation(queries.listConnects, {
             filter: {
                 userId: {
@@ -72,16 +81,14 @@ export default class Connect extends React.Component{
         .then((result) => { 
            if (result.data.listConnects.items.length == 0){
                 this.createConnect();
-                console.log("creates new connect");
             } else {
                 this.updateConnect(result.data.listConnects.items)
-                console.log("add requested to connect array");
             }
         }) 
-    // }
+     }
     }
-    /*
-    checkStatus = () =>{console.log("running checkstatus from connect.js*******")
+    
+    checkStatus = () =>{
         API.graphql(graphqlOperation(queries.listConnects, {
             filter: {
                 userId: {
@@ -90,27 +97,26 @@ export default class Connect extends React.Component{
             }
         }))
         .then((result) => {
-            result.data.listConnects.items.forEach((connect) => {
-                if(connect.connectsId.userId == this.requestedId){
-                    return connect;
+            result.data.listConnects.items[0].connectsId.forEach((connect) => {
+                if(connect.userId == this.requestedId){
+                  if(connect.status == 'denied'){
+                        this.setState({buttonText: 'Request Denied'})
+                } else if(connect.status == 'pending'){
+                      this.setState({buttonText: 'Awaiting Response'})
+                } else if (connect.status == 'connected'){
+                      this.setState({buttonText: 'Connected'})
+            } 
                 } else {
                     this.setState({bool: true});
                 }
             });
         })
-        .then((connect) => {
-          if(this.state.bool == false){
-            if(connect.connectsId.status == 'denied'){
-                this.setState({buttonText: 'Request Denied'})
-            } else if(connect.connectsId.status == 'pending'){
-                this.setState({buttonText: 'Awaiting Response'})
-            } else if (connect.connectsId.status == 'connected'){
-                this.setState({buttonText: 'Connected'})
-            } 
-          }
-        })
-    } */
-        
+    } 
+
+    componentDidMount(){
+        this.checkStatus();
+    }
+
 
     render(){
 
