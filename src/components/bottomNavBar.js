@@ -12,6 +12,9 @@ export default class BottomNavBar extends React.Component{
     }
 
     divStyle = {
+        display: "grid",
+        gridTemplateRow: "1fr",
+        placeItems: "center",
         backgroundColor: "#121212",
         marginLeft: "1vw",
         marginRight: "1vw",
@@ -19,15 +22,16 @@ export default class BottomNavBar extends React.Component{
         position: "fixed",
         bottom: "1vh",
         width: "98%",
-        height: "7vh",
+        height: "8vh",
         borderRadius: "10px"
     }
 
     ulStyle = {
+        gridTemplateRow: "subgrid",
         margin: "0",
         padding: "0",
         display: "grid",
-        position: "fixed",
+        placeItems: "center",
         bottom: "1vh",
         width: "95%",
         listStyleType: "none",
@@ -41,14 +45,15 @@ export default class BottomNavBar extends React.Component{
        width: "6vw",
        fontSize: "2vw",
        maxMarginBottom: "1vh",
-       minMarginBottom: "0"
+       minMarginBottom: "0",
+       width: "100%"
    }
 
    imgStyle = {
-        minWidth: "3vw",
-        maxWidth: "9vw",
-        minHeight: "3vw",
-        maxHeight: "9vh",
+        minWidth: "4vw",
+        maxWidth: "16vw",
+        minHeight: "4vh",
+        maxHeight: "16vh",
    }
 
 

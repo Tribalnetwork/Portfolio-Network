@@ -8,9 +8,15 @@ export default class SearchQueries extends React.Component {
     constructor(){
         super()
         this.state = {
-            users: [],
-            films: [],
-            liveStreams: [],
+            users: [],//users
+            films: [],//films
+            liveStreams: [],//livestreams
+            filter: {
+                hasFilter: false,
+                users: false,
+                films: false,
+                liveStreams: false,
+            },
             global: []
             }
         }
@@ -93,56 +99,177 @@ export default class SearchQueries extends React.Component {
             this.setState({global: styledMatches})
     }
 
-        getGlobal = (e) => { 
+        checkFilter = () => {
+            let user = this.state.filter.users;
+            let film = this.state.filter.films;
+            let liveStream = this.state.filter.liveStreams;
+            if (user == false && film == false && liveStream == false){
+                this.setState(prevState => ({
+                    filter: {                   
+                        ...prevState.filter,   
+                        hasFilter: false   
+                    }
+                }))
+            }
+        }
+
+        filterUsers = (e) => {
+            if(this.state.filter.users == true){
+                e.target.style.backgroundColor = "#2C2C2E";
+                e.target.style.color = "white"
+            }else{
+                e.target.style.backgroundColor = "rgb(212, 175, 55)";
+                e.target.style.color = "Black"
+            }
+            
+            this.setState(prevState => ({
+                filter: {                   
+                    ...prevState.filter,   
+                    hasFilter: true,
+                }
+            }));
+            this.setState(prevState => ({
+                filter: {                   
+                    ...prevState.filter,   
+                    users: !this.state.filter.users,  
+                }
+            }));
+        }
+
+        filterFilms = (e) => {
+            if(this.state.filter.films == true){
+                e.target.style.backgroundColor = "#2C2C2E";
+                e.target.style.color = "white"
+            }else{
+                e.target.style.backgroundColor = "rgb(212, 175, 55)";
+                e.target.style.color = "Black"
+            }
+            this.setState(prevState => ({
+                filter: {                   
+                    ...prevState.filter,   
+                    hasFilter: true   
+                }
+            }));
+            this.setState(prevState => ({
+                filter: {                   
+                    ...prevState.filter,   
+                    films: !this.state.filter.films   
+                }
+            }))
+        }
+
+        filterLiveStreams = (e) => {
+            if(this.state.filter.liveStreams == true){
+                e.target.style.backgroundColor = "#2C2C2E";
+                e.target.style.color = "white"
+            }else{
+                e.target.style.backgroundColor = "rgb(212, 175, 55)";
+                e.target.style.color = "Black"
+            }
+            this.setState(prevState => ({
+                filter: {                   
+                    ...prevState.filter,   
+                    hasFilter: true   
+                }
+            }));
+            this.setState(prevState => ({
+                filter: {                   
+                    ...prevState.filter,   
+                    liveStreams: !this.state.filter.liveStreams
+                }
+            }))
+        }
+
+        getGlobal = (e) => {
             let input = e.target.value;
-            this.getUserNames();
-            this.getFilmTitles();
-            this.getLiveStreams();
-            const users = this.state.users;
-            const films = this.state.films;
-            const liveStreamers = this.state.liveStreams;
-            const hold = users.concat(films)
-            const global = hold.concat(liveStreamers);
-            this.search(input, global)
-            console.log("registered change, ran getglobal", e.target.value)
+            this.checkFilter();
+            if(this.state.filter.hasFilter == false){
+                const users = this.state.users;
+                const films = this.state.films;
+                const liveStreamers = this.state.liveStreams;
+                const hold = users.concat(films)
+                const global = hold.concat(liveStreamers);
+                this.search(input, global)
+            } else{
+                var filterGlobal = new Array;
+                for(let i=1; i < 4; i++) {
+                    let name = Object.keys(this.state.filter)[i];
+                    let current = this.state.filter[name]
+                    if(current == true){
+                        filterGlobal = filterGlobal.concat(this.state[name])
+                    }
+                }
+                this.search(input, filterGlobal)
+            }
         }
 
         // Styling objects
-
-        inputStyle = {
-            height: "6vh",
-            marginTop: "10px",
-            justifyContent: "center",
-            gridColumn: "2",
-            fontSize: "3vw",
-            postion: "fixed",
-            gridRow: "1",
-            fontSize: "3vw",
-            borderRadius: '10px'
-         }
-
-         mainDivStyle = {
+        mainDivStyle = {
             position: "fixed",
             display: "grid",
             top: "7vh",
             width: "100%",
             bottom: "0px",
-            //top: "0px",
             padding: '0',
-            gridTemplateColumns: "1fr 3fr 1fr",
-            gridTemplateRows: "10vh 80vh",
             gridTemplateColumns: "2fr 2fr 2fr",
-            gridTemplateRows: "5vh 90%",  
-            backgroundColor: "#2C2C2E"
+            gridTemplateRows: "8vh 3vh 90%",  
         }
+
+        inputWrapperStyle = {
+            justifyContent: "center",
+            gridColumn: "1/4",
+            postion: "fixed",
+            gridRow: "1",
+            width: "100%",
+            height: "14vh",
+            backgroundColor: 'black'
+        }
+
+        inputStyle = {
+            height: "6vh",
+            width: "70vw",
+            marginTop: "10px",
+            justifyContent: "center",
+            gridColumn: "2",
+            fontSize: "2vw",
+            color: "white",
+            postion: "fixed",
+            gridRow: "1",
+            fontSize: "4vw",
+            borderRadius: '15px',
+            backgroundColor: "#2C2C2E",
+            borderColor: "black"
+         }
+
+         filterStyle = {
+             display: "grid",
+             gridTemplateRows: "subgrid",
+             gridTemplateColumns: "1fr 1fr 1fr",
+             justifySelf: "center",
+             justifyContent: "space-evenly",
+             listStyleType: "none",
+             gridColumn: "2",
+             gridRow: "2",
+             width: "70vw",
+             paddingLeft: "15vw",
+             paddingRight: "15vw"
+         }
+
+         filterButtonStyle = {
+            backgroundColor: "#2C2C2E",
+            color: "white",
+            width: "12vw",
+            fontSize: "1.25vw",
+            borderRadius: "25px",
+         }
         
          ulStyle = {
             padding: '0',
-            height: "75vh",
+            height: "80vh",
             listStyleType: "none",
             justifyContent: "center",
             gridColumn: "1/4",
-            gridRow: "2",
+            gridRow: "3",
             overflow: "auto",
             
          }
@@ -173,14 +300,24 @@ export default class SearchQueries extends React.Component {
                      value: ""
                  }
              }
-             this.getGlobal(filler);
+            this.getGlobal(filler);
+            this.getUserNames();
+            this.getFilmTitles();
+            this.getLiveStreams();
          }
 
         render() {
 
             return (
                 <div style={this.mainDivStyle}>
+                    <div style={this.inputWrapperStyle}> 
                     <input style={this.inputStyle} onChange={this.getGlobal.bind(this)}/>
+                    </div>
+                    <ul style={this.filterStyle}>
+                        <li><button style={this.filterButtonStyle} onClick={this.filterUsers}>Users</button></li>
+                        <li><button style={this.filterButtonStyle} onClick={this.filterFilms}>Films</button></li>
+                        <li><button style={this.filterButtonStyle} onClick={this.filterLiveStreams}>Live Streams</button></li>
+                    </ul>
                     <ul style={this.ulStyle}><Scrollbars style={this.scroll}>{this.state.global}</Scrollbars></ul>
                 </div>
                 
