@@ -1,0 +1,19 @@
+.body {
+}
+
+.settings {
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  background-color: #363635;
+}
+
+.settings__Button {
+  width: 50%;
+  padding: 20px 0px;
+  margin: 5px 0px;
+  background-color: #252323 !important;
+  color: white;
+  font-size: 16px;
+  border: none;
+}
