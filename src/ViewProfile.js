@@ -1,7 +1,5 @@
 import React from 'react';
-import { API, graphqlOperation } from 'aws-amplify';
-import * as queries from './graphql/queries';
-import { Link } from "react-router-dom";
+import DefaultPhoto from "./icons/defaultPhoto.jpg"
 //import Connect from "./Connect";
 
 
@@ -14,12 +12,38 @@ export default class ViewProfile extends React.Component{
     name = this.urlParams.get("name");
     location = this.urlParams.get("location");
 
+    //Styling Objects
+    mainDivStyle = {
+        marginTop: "10vh",
+        width: "100%",
+        display: "grid",
+        gridTemplateRows: "3fr 1fr 1fr",
+        gridTemplateColumns: "1fr 3fr 1fr",
+        justifyContent: "center"
+    }
+    imgStyle = {
+         borderRadius: "100%",
+         minHeight: "10vh",
+         maxHeight: "15vh",
+         minWidth: "10vw",
+         maxWidth: "15vw",
+         gridRow: "1",
+         gridColumn: "2",
+         justifySelf: "center"
+    }
+    nameStyle = {
+        color: "white",
+        gridRow: "2",
+        gridColumn: "2",
+        justifySelf: "center"
+    }
+
     render(){
 
     return(
-        <div>
-            <h1>Hi my name is {this.name}</h1>
-            <h2>Location: {this.location}</h2>
+        <div style={this.mainDivStyle}>
+            <img style={this.imgStyle} src={DefaultPhoto}></img>
+            <h1 style={this.nameStyle}>Hi my name is {this.name}</h1>
         </div>
     )
 }

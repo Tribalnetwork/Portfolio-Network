@@ -3,6 +3,7 @@ import { API, graphqlOperation } from 'aws-amplify';
 import * as queries from '../graphql/queries';
 import { Link } from "react-router-dom";
 import {Scrollbars} from "react-custom-scrollbars";
+import FilmBlock from "./filmBlock";
 
 export default class SearchQueries extends React.Component {
     constructor(){
@@ -50,6 +51,8 @@ export default class SearchQueries extends React.Component {
                 let titleObj = {
                    name:  film.title.toUpperCase(),
                    id: film.id,
+                   thumbNailsUrls: film.thumbNailsUrls,
+                   duration: film.duration,
                    type: "Film"
                 }
                 list.push(titleObj);
@@ -84,15 +87,16 @@ export default class SearchQueries extends React.Component {
             });
            const styledMatches = rawMatches.map((item) =>{ 
            switch(item.type){
-               case "User":
-                    return <Link style={{textDecoration: "none"}} to={`/viewProfile?name=${item.name}&location=${item.location}&id=${item.id}`}><li key={item.id} style={this.liStyle}>{item.name}  <p style={this.typeStyle}>{item.type}</p></li></Link>
+                case "Film":
+                    //return <Link style={{textDecoration: "none"}} to={`/watch?id=${item.id}`}><li key={item.id} style={this.liStyle}>{item.name}  <p style={this.typeStyle}>{item.type}</p></li> </Link>
+                    return <li key={item.id} style={this.filmLiStyle}><FilmBlock film={item} /></li>
                     break;
-               case "Film":
-                   return <Link style={{textDecoration: "none"}} to={`/watch?id=${item.id}`}><li key={item.id} style={this.liStyle}>{item.name}  <p style={this.typeStyle}>{item.type}</p></li> </Link>
-                   break;
-               case "Live Stream":
+                case "Live Stream":
                    return <Link style={{textDecoration: "none"}} to={`/live?id=${item.id}`}><li key={item.id} style={this.liStyle}>{item.name}  <p style={this.typeStyle}>{item.type}</p></li> </Link>
                    break;
+                case "User":
+                    return <Link style={{textDecoration: "none"}} to={`/viewProfile?name=${item.name}&location=${item.location}&id=${item.id}`}><li key={item.id} style={this.liStyle}>{item.name}  <p style={this.typeStyle}>{item.type}</p></li></Link>
+                    break;
            }
            
         })
@@ -184,11 +188,11 @@ export default class SearchQueries extends React.Component {
             let input = e.target.value;
             this.checkFilter();
             if(this.state.filter.hasFilter == false){
-                const users = this.state.users;
                 const films = this.state.films;
                 const liveStreamers = this.state.liveStreams;
-                const hold = users.concat(films)
-                const global = hold.concat(liveStreamers);
+                const users = this.state.users;
+                const hold = films.concat(liveStreamers)
+                const global = hold.concat(users);
                 this.search(input, global)
             } else{
                 var filterGlobal = new Array;
@@ -221,7 +225,7 @@ export default class SearchQueries extends React.Component {
             postion: "fixed",
             gridRow: "1",
             width: "100%",
-            height: "14vh",
+            height: "15vh",
             backgroundColor: 'black'
         }
 
@@ -264,14 +268,14 @@ export default class SearchQueries extends React.Component {
          }
         
          ulStyle = {
-            padding: '0',
+            paddingTop: '2vh',
             height: "80vh",
             listStyleType: "none",
             justifyContent: "center",
             gridColumn: "1/4",
             gridRow: "3",
             overflow: "auto",
-            
+            paddingBottom: "10vh"
          }
         
          liStyle = {
@@ -280,7 +284,12 @@ export default class SearchQueries extends React.Component {
             textAlign: 'left',
             fontSize: "3vw",
             color: "#FFFFFF",
-            gridRow: "2"
+
+         }
+
+         filmLiStyle = {
+             margin: "4vw",
+             display: 'inline-block'
          }
 
          typeStyle = {
