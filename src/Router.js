@@ -19,8 +19,8 @@ import Profile from './Profile'
 import GetAccess from './GetAccess'
 import Pending from './Pending'
 import { MyLive } from './MyLive'
-import BotNavBar from './bottomNavBar'
-import SearchQueries from "./searchQueries"
+import BotNavBar from './components/bottomNavBar'
+import SearchQueries from "./components/searchQueries"
 import ViewProfile from "./ViewProfile"
 import MyList from "./MyList"
 
