@@ -14,6 +14,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from './Button';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
+import SearchField from "react-search-field";
 
 Amplify.configure(awsconfig);
 
@@ -59,7 +60,14 @@ export default class Home extends React.Component {
             isLoaded ? isAuthenticated ? hasAccess ? (
               <>
                 <div className="home">
-                  <h1>Films</h1>
+                  <h1 style={{color: 'rgb(212, 175, 55)'}}>FILMS</h1>
+                  <SearchField
+                    style={{ marginBottom: '100px' }}
+                    placeholder="Search..."
+                    // onChange={}
+                    searchText=''
+                    classNames='search-input'
+                    />
                   <Grid container justify="center" spacing={5}>
                     {
                       this.state.films.map((film, index) => (

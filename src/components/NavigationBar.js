@@ -65,30 +65,11 @@ export const NavigationBar = () => {
           </Link>
           {
             isLoaded ? isAuthenticated ? (
-              <> 
               <Link to='/profile' style={{ textDecoration: 'none', float: 'right', position: 'absolute', bottom: '15px', right: '20px' }}>
                 <Button variant='contained' style={{ background: '#d4af37', textTransform: 'none' }}>
                   {context.user.username}
                 </Button>
               </Link>
-              <div style={{ position: 'absolute', top: '35%', left: '30%' }}>
-              <Link to='/settings' style={{ textDecoration: 'none', marginLeft: '40px', color: '#fff' }}>
-                SETTINGS
-              </Link>
-              <Link to='/calendar' style={{ textDecoration: 'none', marginLeft: '40px', color: '#fff'}}>
-                CALENDAR
-              </Link>
-              <Link to='/notifications' style={{ textDecoration: 'none', marginLeft: '40px', color: '#fff'}}>
-                NOTIFICATIONS
-              </Link>
-              <Link to='/films' style={{ textDecoration: 'none', marginLeft: '40px', color: '#fff'}}>
-                FILMS
-              </Link>
-              <Link to='/events' style={{ textDecoration: 'none', marginLeft: '40px', color: '#fff' }}>
-                EVENTS
-              </Link>
-              </div>
-              </>
             ) : (
               <Link to='/auth' style={{ textDecoration: 'none', color: '#000'}}>
                 <Button color="inherit" style={{ color: '#d4af37' }}>

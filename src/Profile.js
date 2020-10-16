@@ -26,15 +26,15 @@ class Profile extends React.Component {
           <title>Profile</title>
         </Helmet>
         <Container>
-          <h1>Profile</h1>
-          <h2>Welcome {this.context.user.attributes.given_name}</h2>
+          <h1 style={{color: '#ffb102', width: '100%'}}>Profile</h1>
+          <h2 style={{color: '#fff', width: '100%'}}>Welcome {this.context.user.attributes.given_name}</h2>
           {
             hasAccess ? (
               null
             ) : (
               <>
-                <h2>Remaining Film Watch Time: {this.context.remainingVODTime} minutes</h2>
-                <h2>Remaining Live Watch Time: {this.context.remainingLiveTime} minutes</h2>
+                <h2 style={{color: '#fff', width: '100%'}}>Remaining Film Watch Time: {this.context.remainingVODTime} minutes</h2>
+                <h2 style={{color: '#fff', width: '100%'}}>Remaining Live Watch Time: {this.context.remainingLiveTime} minutes</h2>
               </>
             )
           }

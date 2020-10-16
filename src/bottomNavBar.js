@@ -13,6 +13,7 @@ import {ReactComponent as SettingsLogo} from './icons/setting-tab.svg';
 import Grid from '@material-ui/core/Grid';
 
 export default class BottomNavBar extends React.Component{
+    // eslint-disable-next-line no-useless-constructor
     constructor(){
         super()
     }
@@ -21,7 +22,7 @@ export default class BottomNavBar extends React.Component{
 
         return(
         <div className="BottomTabs">
-            <Grid container justify="space-between" >
+            <Grid container justify="space-between" style={{ backgroundColor: 'black', width: '100%', height: '60px', paddingTop: '15px', paddingRight: '10px', paddingLeft: '10px', position: 'absolute', bottom: '0'}}>
                     <Grid item><Link to={"/home"}><Homelogo></Homelogo></Link></Grid>
                     <Grid item><Link to={"/search"}><SearchLogo></SearchLogo></Link></Grid>
                     <Grid item><Link to={"/streams"}><TribalLogo></TribalLogo></Link></Grid>

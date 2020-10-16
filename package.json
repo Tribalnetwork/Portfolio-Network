@@ -24,6 +24,7 @@
     "react-player": "^2.4.0",
     "react-router-dom": "^5.0.1",
     "react-scripts": "^3.4.3",
+    "react-search-field": "^1.1.0",
     "react-settings-pane": "^0.1.5",
     "react-vote": "^3.3.3",
     "redux": "^4.0.5"
