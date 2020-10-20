@@ -3,21 +3,22 @@ import { API, graphqlOperation } from 'aws-amplify';
 import * as queries from '../graphql/queries';
 import { Link } from "react-router-dom";
 import {Scrollbars} from "react-custom-scrollbars";
-import FilmBlock from "./filmBlock";
+import FilmFrame from "./filmFrame";
 
 export default class SearchQueries extends React.Component {
     constructor(){
         super()
         this.state = {
-            users: [],//users
-            films: [],//films
-            liveStreams: [],//livestreams
+            users: [],
+            films: [],
+            liveStreams: [],
             filter: {
                 hasFilter: false,
                 users: false,
                 films: false,
                 liveStreams: false,
             },
+            buttons: [],
             global: []
             }
         }
@@ -89,7 +90,7 @@ export default class SearchQueries extends React.Component {
            switch(item.type){
                 case "Film":
                     //return <Link style={{textDecoration: "none"}} to={`/watch?id=${item.id}`}><li key={item.id} style={this.liStyle}>{item.name}  <p style={this.typeStyle}>{item.type}</p></li> </Link>
-                    return <li key={item.id} style={this.filmLiStyle}><FilmBlock film={item} /></li>
+                    return <li key={item.id} style={this.filmLiStyle}><FilmFrame film={item} /></li>
                     break;
                 case "Live Stream":
                    return <Link style={{textDecoration: "none"}} to={`/live?id=${item.id}`}><li key={item.id} style={this.liStyle}>{item.name}  <p style={this.typeStyle}>{item.type}</p></li> </Link>
@@ -184,6 +185,22 @@ export default class SearchQueries extends React.Component {
             }))
         }
 
+        checkType = () => {
+            if (this.props.type == "liveStreams"){
+                this.setState(prevState => ({
+                    filter: {                   
+                        ...prevState.filter,   
+                        liveStreams: true
+                    }
+                }))
+            } else {
+                const filterButtons = [<li><button style={this.filterButtonStyle} onClick={this.filterUsers}>Users</button></li>,
+                    <li><button style={this.filterButtonStyle} onClick={this.filterFilms}>Films</button></li>,
+                    <li><button style={this.filterButtonStyle} onClick={this.filterLiveStreams}>Live Streams</button></li>]
+                    this.setState({buttons: filterButtons})
+            }
+        }
+
         getGlobal = (e) => {
             let input = e.target.value;
             this.checkFilter();
@@ -256,7 +273,7 @@ export default class SearchQueries extends React.Component {
              gridRow: "2",
              width: "70vw",
              paddingLeft: "15vw",
-             paddingRight: "15vw"
+             paddingRight: "15vw",
          }
 
          filterButtonStyle = {
@@ -313,6 +330,7 @@ export default class SearchQueries extends React.Component {
             this.getUserNames();
             this.getFilmTitles();
             this.getLiveStreams();
+            this.checkType();
          }
 
         render() {
@@ -323,9 +341,7 @@ export default class SearchQueries extends React.Component {
                     <input style={this.inputStyle} onChange={this.getGlobal.bind(this)}/>
                     </div>
                     <ul style={this.filterStyle}>
-                        <li><button style={this.filterButtonStyle} onClick={this.filterUsers}>Users</button></li>
-                        <li><button style={this.filterButtonStyle} onClick={this.filterFilms}>Films</button></li>
-                        <li><button style={this.filterButtonStyle} onClick={this.filterLiveStreams}>Live Streams</button></li>
+                        {this.state.buttons}
                     </ul>
                     <ul style={this.ulStyle}><Scrollbars style={this.scroll}>{this.state.global}</Scrollbars></ul>
                 </div>
