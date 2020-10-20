@@ -84,6 +84,9 @@ const Routes = () => (
         <Route path="/settings" exact component={Settings}>
           <Settings />
         </Route>
+        <Route path="/settings/wifiandcellular" exact component={Settings}>
+          <Settings />
+        </Route>
         <Route path="/auth" exact component={Authenticator} />
         <Route path="/" exact component={Home} />
         <Route path="/home" exact component={Home} />
