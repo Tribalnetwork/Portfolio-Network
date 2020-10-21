@@ -547,3 +547,54 @@ export const deleteUser = /* GraphQL */ `
     }
   }
 `;
+export const createConnect = /* GraphQL */ `
+  mutation CreateConnect(
+    $input: CreateConnectInput!
+    $condition: ModelConnectConditionInput
+  ) {
+    createConnect(input: $input, condition: $condition) {
+      id
+      userId
+      connectsId {
+        userId
+        status
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateConnect = /* GraphQL */ `
+  mutation UpdateConnect(
+    $input: UpdateConnectInput!
+    $condition: ModelConnectConditionInput
+  ) {
+    updateConnect(input: $input, condition: $condition) {
+      id
+      userId
+      connectsId {
+        userId
+        status
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteConnect = /* GraphQL */ `
+  mutation DeleteConnect(
+    $input: DeleteConnectInput!
+    $condition: ModelConnectConditionInput
+  ) {
+    deleteConnect(input: $input, condition: $condition) {
+      id
+      userId
+      connectsId {
+        userId
+        status
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
