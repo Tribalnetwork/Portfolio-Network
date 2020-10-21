@@ -26,7 +26,7 @@ import MyList from "./MyList";
 import Settings from "./Settings";
 
 class PrivateRoute extends React.Component {
-  // PrivateRoutes require authentication to accesss
+  // PrivateRoutes require authentication to accessss
   state = {
     loaded: false,
     isAuthenticated: false,
