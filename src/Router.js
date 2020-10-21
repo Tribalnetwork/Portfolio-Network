@@ -1,54 +1,56 @@
-import React from 'react'
+import React from "react";
 import {
   withRouter,
   Switch,
   Route,
   Redirect,
-  BrowserRouter as Router
-} from 'react-router-dom'
-import UserContext from './UserContext'
-import { NavigationBar } from './components/NavigationBar'
+  BrowserRouter as Router,
+} from "react-router-dom";
+import UserContext from "./UserContext";
+import { NavigationBar } from "./components/NavigationBar";
 
-import Authenticator from './Authenticator'
-import Home from './Home'
-import { Upload } from './Upload';
-import Watch from './Watch'
-import Live from './Live'
-import { Stream } from './Stream'
-import Profile from './Profile'
-import GetAccess from './GetAccess'
-import Pending from './Pending'
-import { MyLive } from './MyLive'
-import BotNavBar from './components/bottomNavBar'
-import SearchQueries from "./components/searchQueries"
-import ViewProfile from "./ViewProfile"
-import MyList from "./MyList"
-import Settings from "./Settings"
+import Authenticator from "./Authenticator";
+import Home from "./Home";
+import { Upload } from "./Upload";
+import Watch from "./Watch";
+import Live from "./Live";
+import { Stream } from "./Stream";
+import Profile from "./Profile";
+import GetAccess from "./GetAccess";
+import Pending from "./Pending";
+import { MyLive } from "./MyLive";
+import BotNavBar from "./bottomNavBar";
+import SearchQueries from "./searchQueries";
+import ViewProfile from "./ViewProfile";
+import MyList from "./MyList";
+import Settings, { WifiAndCellular } from "./Settings";
+
 class PrivateRoute extends React.Component {
-  // PrivateRoutes require authentication to accesssss
+  // PrivateRoutes require authentication to access
   state = {
     loaded: false,
-    isAuthenticated: false
-  }
-  static contextType = UserContext
+    isAuthenticated: false,
+  };
+  static contextType = UserContext;
   componentDidMount() {
     this.unlisten = this.props.history.listen(() => {
-      this.context.updateCurrentUser()
-    })
+      this.context.updateCurrentUser();
+    });
   }
   componentWillUnmount() {
-    this.unlisten()
+    this.unlisten();
   }
   render() {
-    const { component: Component, ...rest } = this.props
-    const isAuthenticated = this.context.user && this.context.user.username ? true : false
-    const isLoaded = this.context.isLoaded
-    if (!isLoaded) return null
+    const { component: Component, ...rest } = this.props;
+    const isAuthenticated =
+      this.context.user && this.context.user.username ? true : false;
+    const isLoaded = this.context.isLoaded;
+    if (!isLoaded) return null;
 
     return (
       <Route
         {...rest}
-        render={props => {
+        render={(props) => {
           return isAuthenticated ? (
             <Component {...props} />
           ) : (
@@ -57,20 +59,22 @@ class PrivateRoute extends React.Component {
                 pathname: "/auth",
               }}
             />
-          )
+          );
         }}
       />
-    )
+    );
   }
 }
 
 const NoMatch = ({ location }) => (
   <div>
-    <h3>No match for <code>{location.pathname}</code></h3>
+    <h3>
+      No match for <code>{location.pathname}</code>
+    </h3>
   </div>
-)
+);
 
-PrivateRoute = withRouter(PrivateRoute)
+PrivateRoute = withRouter(PrivateRoute);
 
 const Routes = () => (
   <Router>
@@ -80,8 +84,12 @@ const Routes = () => (
         <Route path="/settings" exact component={Settings}>
           <Settings />
         </Route>
-        <Route path="/settings/wifiandcellular" exact component={Settings}>
-          <Settings />
+        <Route
+          path="/settings/wifiandcellular"
+          exact
+          component={WifiAndCellular}
+        >
+          <WifiAndCellular />
         </Route>
         <Route path="/auth" exact component={Authenticator} />
         <Route path="/" exact component={Home} />
@@ -102,6 +110,7 @@ const Routes = () => (
       <BotNavBar />
     </div>
   </Router>
-)
+);
 
-export default Routes
+export default Routes;
+
