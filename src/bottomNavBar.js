@@ -10,6 +10,7 @@ import {ReactComponent as SearchLogo} from './icons/search-tab.svg';
 import {ReactComponent as TribalLogo} from './icons/tribal-tab.svg';
 import {ReactComponent as SocialLogo} from './icons/social-tab.svg';
 import {ReactComponent as SettingsLogo} from './icons/setting-tab.svg';
+import {ReactComponent as CalendarLogo } from './icons/calendar.svg';
 import Grid from '@material-ui/core/Grid';
 
 export default class BottomNavBar extends React.Component{
@@ -21,12 +22,13 @@ export default class BottomNavBar extends React.Component{
     render(){
 
         return(
-        <div className="BottomTabs">
-            <Grid container justify="space-between" style={{ backgroundColor: 'black', width: '100%', height: '60px', paddingTop: '15px', paddingRight: '10px', paddingLeft: '10px', position: 'absolute', bottom: '0'}}>
+        <div className="BottomTabs" style={{ backgroundColor: 'black', width: '100%', height: '60px', paddingTop: '15px', paddingRight: '10px', paddingLeft: '10px', position: 'absolute', bottom: '0'}}>
+            <Grid container justify="space-between">
                     <Grid item><Link to={"/home"}><Homelogo></Homelogo></Link></Grid>
                     <Grid item><Link to={"/search"}><SearchLogo></SearchLogo></Link></Grid>
                     <Grid item><Link to={"/streams"}><TribalLogo></TribalLogo></Link></Grid>
                     <Grid item><Link to={"/profile"}><SocialLogo></SocialLogo></Link></Grid>
+                    <Grid item><Link to={"/calendar"}><CalendarLogo></CalendarLogo></Link></Grid>
                     <Grid item><Link to={"/settings"}><SettingsLogo></SettingsLogo></Link></Grid>
             </Grid>
         </div>
