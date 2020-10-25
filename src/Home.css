@@ -1,0 +1,36 @@
+.section {
+    margin: 0px;
+  }
+.player-wrapper {
+    position: relative;
+    padding-top: 56.25% /* Player ratio: 100 / (1280 / 720) */
+  }
+   
+  .react-player {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .video-name-wrapper{
+    position: absolute;
+    left:15px;
+    bottom:0;
+  }
+  .video-name{
+      color:white;
+  }
+  .functionbar-wrapper{
+      margin:10px;
+  }
+  .trendy-wrapper{
+    margin:10px;
+}
+.continue-watching-wrapper{
+  margin:10px;
+}
+.trending-now-wrapper{
+  margin:10px;
+}
+.mylist-wrapper{
+  margin:10px;
+}
