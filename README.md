@@ -130,4 +130,4 @@ git push origin my_feature_branch_name_here
 
 8.  To publish changes to [tribalnetwork.org](https://www.tribalnetwork.org), run `amplify publish`.
 
-8.  Return to step 1 and repeat: fetch, merge, branch, edit, commit, push!
+8.  Return to step 1 and repeat: fetch/pull, edit, commit, push, merge branch, publish!
