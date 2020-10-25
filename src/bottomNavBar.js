@@ -25,7 +25,7 @@ export default class BottomNavBar extends React.Component{
                     <Grid item><Link to={"/home"}><Homelogo></Homelogo></Link></Grid>
                     <Grid item><Link to={"/search"}><SearchLogo></SearchLogo></Link></Grid>
                     <Grid item><Link to={"/streams"}><TribalLogo></TribalLogo></Link></Grid>
-                    <Grid item><Link to={"/profile"}><SocialLogo></SocialLogo></Link></Grid>
+                    <Grid item><Link to={"/social"}><SocialLogo></SocialLogo></Link></Grid>
                     <Grid item><Link to={"/settings"}><SettingsLogo></SettingsLogo></Link></Grid>
             </Grid>
         </div>

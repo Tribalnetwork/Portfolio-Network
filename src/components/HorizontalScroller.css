@@ -6,7 +6,10 @@
     border: none;
   }
   .menu-item-wrapper {
-    margin:0 4px;
+    margin:0 10px;
+    width:120px;
+    overflow: hidden;
+    white-space: nowrap;
   }
   .menu-item {
     width:120px;

@@ -1,12 +1,13 @@
 import React from 'react'
 import Amplify from 'aws-amplify';
 import { API, graphqlOperation } from 'aws-amplify'
-import { listFilms } from './graphql/queries'
+import { listFilms,listLiveStreams } from './graphql/queries'
 import awsconfig from './aws-exports';
 import '@aws-amplify/ui/dist/style.css';
 import { Link } from "react-router-dom";
 import UserContext from './UserContext'
 import { Helmet } from 'react-helmet'
+import ReactPlayer from 'react-player'
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
@@ -14,7 +15,13 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from './Button';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
-
+import './Home.css';
+import HorizontalScrollerCircular from "./components/HorizontalScrollerCircular";
+import TrendingNow from "./TrendingNow";
+import ContinueWatching from "./ContinueWatching";
+import MyList from "./MyList";
+import {ReactComponent as ExploreLogo} from './icons/Explore.svg';
+import {ReactComponent as MyStudioLogo} from './icons/myStudio.svg';
 Amplify.configure(awsconfig);
 
 export default class Home extends React.Component {
@@ -22,12 +29,16 @@ export default class Home extends React.Component {
   static contextType = UserContext
 
   state = {
-    films: []
+    films: [],
+    url:"https://d2tj5fkeuzoaui.cloudfront.net/4a13ac70-b95c-48bb-9c80-1d340078c647/hls/bunny_2020-07-28T01:25:05.353Z.m3u8",
+    videoName:"Bunny",
+    livestreams:[]
   }
 
   componentDidMount() {
     //this.context.updateCurrentUser()
-    this.fetchFilms()
+    this.fetchFilms();
+    this.fetchLivestreams();
   }
 
   async fetchFilms() {
@@ -41,6 +52,14 @@ export default class Home extends React.Component {
       }));
       //console.log(streams.data.listLiveStreams.items)
       this.setState({ films: films.data.listFilms.items })
+    } catch (err) { console.log(err) }
+  }
+  async fetchLivestreams() {
+    try {
+      const livestreams = await API.graphql(graphqlOperation(listLiveStreams, {
+      }));
+      console.log(livestreams.data.listLiveStreams.items);
+      this.setState({ livestreams: livestreams.data.listLiveStreams.items })
     } catch (err) { console.log(err) }
   }
 
@@ -57,40 +76,39 @@ export default class Home extends React.Component {
         <div style={styles.container}>
         {
             isLoaded ? isAuthenticated ? hasAccess ? (
-              <>
-                <div className="home">
-                  <h1>Films</h1>
-                  <Grid container justify="center" spacing={5}>
-                    {
-                      this.state.films.map((film, index) => (
-                        <Grid key={film.id ? film.id : index} item>
-                          <Card style={styles.root}>
-                            <Link to={`/watch?id=${film.id}`} style={styles.link}>
-                              <CardActionArea>
-                                <CardMedia
-                                  style={styles.media}
-                                  image={film.thumbNailsUrls[0]}
-                                  title={film.title}
-                                />
-                                <CardContent>
-                                  <Typography gutterBottom variant="h5" component="h2">
-                                    {film.title}
-                                  </Typography>
-                                  <Typography variant="body2" color="textSecondary" component="p">
-                                    {(film.duration > 3600) ?
-                                      new Date(film.duration * 1000).toISOString().substr(11, 8) :
-                                      new Date(film.duration * 1000).toISOString().substr(14, 5) }
-                                  </Typography>
-                                </CardContent>
-                              </CardActionArea>
-                            </Link>
-                          </Card>
-                        </Grid>
-                      ))
-                    }
-                  </Grid>
-                </div>
-              </>
+              <div>
+          <div className="player-wrapper">
+            <ReactPlayer
+            className="react-player"
+              ref={p => { this.p = p }}
+              url={this.state.url}
+              controls
+              playing
+              volume="0"
+              muted
+              onEnded={() => this.p.showPreview()}
+              width="100%"
+              height="100%"
+            />
+            <div className="video-name-wrapper">
+              <p className="video-name">{this.state.videoName}</p>
+            </div>
+          </div>
+          <div className="functionbar-wrapper">
+          <Grid container justify="space-between">
+            <Grid item><ExploreLogo></ExploreLogo></Grid>
+            <Grid item><MyStudioLogo></MyStudioLogo></Grid>
+          </Grid>
+          </div>
+          <div className="trendy-wrapper">
+            <p>Trending Live</p>
+            <HorizontalScrollerCircular list={this.state.livestreams} />
+          </div>
+          <ContinueWatching></ContinueWatching>
+          <TrendingNow></TrendingNow>
+          <MyList></MyList>
+          </div>
+              
             ) : (
               <div>
                 <>
@@ -131,7 +149,7 @@ const styles = {
     height: 112.5,
   },
   header: { width: 1000, margin: '0 auto', display: 'flex', flex: 1, flexDirection: 'column', justifyContent: 'center', padding: 20 },
-  container: { width: 1000, margin: '0 auto', display: 'flex', flex: 1, flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'left', padding: 20 },
+  container: { width: "100%" },
   link: { textDecoration: 'none' },
   film: { width: 200, marginBottom: 15, marginRight: 10 },
   stream: { width: 400 },
