@@ -19,7 +19,7 @@ import Profile from './Profile'
 import GetAccess from './GetAccess'
 import Pending from './Pending'
 import { MyLive } from './MyLive'
-import BotNavBar from './components/bottomNavBar'
+import BottomNavBar from './components/bottomNavBar'
 import SearchQueries from "./components/searchQueries"
 import ViewProfile from "./ViewProfile"
 import MyList from "./MyList"
@@ -92,7 +92,7 @@ const Routes = () => (
         <PrivateRoute path='/mylist'  component={MyList} />
         <Route component={NoMatch} />
       </Switch>
-      <BotNavBar />
+      <BottomNavBar />
     </div>
   </Router>
 )
