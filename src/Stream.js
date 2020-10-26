@@ -12,6 +12,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
+import SearchQueries from "./components/searchQueries"
 
 export const Stream = () => {
   const [liveStreams, setLiveStreams] = useState([])
@@ -85,7 +86,9 @@ export const Stream = () => {
           )
         }
       </div>
-
+      <div style={styles.searchContainer}>
+        <SearchQueries type={"liveStreams"}/>
+      </div> 
       <div style={styles.container}>
         <h1>Live Streams</h1>
         <Grid container justify="center" spacing={5}>
@@ -128,7 +131,7 @@ const styles = {
     height: 178,
   },
   header: { margin: '0 auto', display: 'flex', flex: 1, flexDirection: 'column', justifyContent: 'center', padding: 20 },
-  container: { width: 1000, margin: '0 auto', display: 'flex', flex: 1, flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'left', padding: 20 },
+  container: { width: 1000, margin: '0 auto', display: 'flex', flex: 1, flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'left', padding: 20, zIndex: "-1" },
   link: { textDecoration: 'none' },
   film: { width: 200, marginBottom: 15, marginRight: 10 },
   stream: { width: 400 },
@@ -136,5 +139,6 @@ const styles = {
   filmTitle: { fontSize: 20, fontWeight: 'bold', marginBottom: 0 },
   streamText: { fontSize: 14, marginBottom: 0},
   filmDescription: { marginBottom: 0 },
-  button: { width: 400, backgroundColor: 'black', color: 'white', outline: 'none', fontSize: 18, padding: '12px 0px' }
+  button: { width: 400, backgroundColor: 'black', color: 'white', outline: 'none', fontSize: 18, padding: '12px 0px' },
+  searchContainer: {width: "70vw", marginLeft: "15vw", marginRight: "25%", borderRadius: "25px"},
 }
