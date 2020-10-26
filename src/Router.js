@@ -23,6 +23,8 @@ import BottomNavBar from './components/bottomNavBar'
 import SearchQueries from "./components/searchQueries"
 import ViewProfile from "./ViewProfile"
 import MyList from "./MyList"
+import Settings from "./Settings"
+import WifiAndCellular from "./Settings"
 
 class PrivateRoute extends React.Component {
   // PrivateRoutes require authentication to access
