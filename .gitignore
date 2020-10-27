@@ -35,28 +35,9 @@ amplify/backend/awscloudformation
 build/
 dist/
 node_modules/
-awsconfiguration.json
-amplifyconfiguration.json
-amplify-build-config.json
-amplify-gradle-config.json
-amplifytools.xcconfig
-<<<<<<< HEAD
-./src/aws-exports.js
-=======
-
-#amplify
-amplify/\#current-cloud-backend
-amplify/.config/local-*
-amplify/mock-data
-amplify/backend/amplify-meta.json
-amplify/backend/awscloudformation
-build/
-dist/
-node_modules/
 aws-exports.js
 awsconfiguration.json
 amplifyconfiguration.json
 amplify-build-config.json
 amplify-gradle-config.json
 amplifytools.xcconfig
->>>>>>> f5b5085... search function, and skeleton of bottom nav bar
