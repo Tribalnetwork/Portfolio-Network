@@ -5,6 +5,35 @@ import { Link } from "react-router-dom";
 import {Scrollbars} from "react-custom-scrollbars";
 import FilmFrame from "./filmFrame";
 
+
+/* The logic for how this component works is as follows:
+- On componentDidMount, functions getUsernames, getFilmTiltle, and getLiveStreams run and using graphQl, get a list of all of the 
+    previously mentioned and save them into their respective state variables.
+
+ - The last thing that runs on componentDidMount is the checkType funciton. This function was recently added. It allows the prevention of
+    rendering the filter buttons in you want to use this component in places other than the search page. It works by reading a prop passed to it
+    and evaluating based on that prop what filter function should be enabled for that page. (i.e. search bar on live stream page automatically
+    has liveStream filter enabled). This function may need some editing depending on what you use it for.
+
+- After that, the getGlobal function is triggered onChange of the input tag. The get gloabal checks to see if any filters are enabled, if so
+    it groups the list appropiatley, if not it groups all list into one big list (i.e. global list). After this is passes the list and the value
+    of the input tag into the search function.
+
+- The search function uses the built in javascript filter method to return all results that include the value of input. After this it maps through
+    that list and uses a switch function to determine what kind of result it is (i.e. users, films, ect.). This is also somewhere that would need
+    updating if we decide to include more kinds of results in the search funtion like gigs or events.
+
+- Upon completion of the search function, it sets that filterd list to the global state variable. And that makes up the overall logic of the 
+    search component. There are also filter functions, which set the state variable filter objects respective values to true or false, which is
+    used to deterine if there is a filter or not.
+
+- If your goal is to update this function to include more search results such as gigs or events, what you will want to do is add
+    another get(What you want) fucntion that saves the list into a new state variable, and call that function on component did mount.
+    Then in get global add it to the global list that is passed to search, and in search add a new option in the switch statement.
+    If you use the other components as a template, everything should flow smoothly. :)
+
+*/
+
 export default class SearchQueries extends React.Component {
     constructor(){
         super()
@@ -89,7 +118,6 @@ export default class SearchQueries extends React.Component {
            const styledMatches = rawMatches.map((item) =>{ 
            switch(item.type){
                 case "Film":
-                    //return <Link style={{textDecoration: "none"}} to={`/watch?id=${item.id}`}><li key={item.id} style={this.liStyle}>{item.name}  <p style={this.typeStyle}>{item.type}</p></li> </Link>
                     return <li key={item.id} style={this.filmLiStyle}><FilmFrame film={item} /></li>
                     break;
                 case "Live Stream":
@@ -101,7 +129,11 @@ export default class SearchQueries extends React.Component {
            }
            
         })
+            if(input == ''){
+                this.setState({global: null})
+            } else {
             this.setState({global: styledMatches})
+            }
     }
 
         checkFilter = () => {
@@ -190,6 +222,12 @@ export default class SearchQueries extends React.Component {
                 this.setState(prevState => ({
                     filter: {                   
                         ...prevState.filter,   
+                        hasFilter: true   
+                    }
+                }));
+                this.setState(prevState => ({
+                    filter: {                   
+                        ...prevState.filter,   
                         liveStreams: true
                     }
                 }))
@@ -226,7 +264,7 @@ export default class SearchQueries extends React.Component {
 
         // Styling objects
         mainDivStyle = {
-            position: "fixed",
+            //position: "fixed",
             display: "grid",
             top: "7vh",
             width: "100%",
@@ -237,18 +275,20 @@ export default class SearchQueries extends React.Component {
         }
 
         inputWrapperStyle = {
+            paddingLeft: "2vw",
+            paddingRight: "2vw",
             justifyContent: "center",
             gridColumn: "1/4",
             postion: "fixed",
             gridRow: "1",
             width: "100%",
             height: "15vh",
-            backgroundColor: 'black'
+            backgroundColor: 'black',
         }
 
         inputStyle = {
             height: "6vh",
-            width: "70vw",
+            width: "45vw",
             marginTop: "10px",
             justifyContent: "center",
             gridColumn: "2",
@@ -286,22 +326,23 @@ export default class SearchQueries extends React.Component {
         
          ulStyle = {
             paddingTop: '2vh',
-            height: "80vh",
+            height: "375%",
             listStyleType: "none",
             justifyContent: "center",
             gridColumn: "1/4",
             gridRow: "3",
             overflow: "auto",
-            paddingBottom: "10vh"
+            paddingBottom: "10vh",
+            zIndex: "100"
          }
         
          liStyle = {
             borderBottom: "1px solid black",
-            margin: "1vh",
+            paddingTop: "1vh",
             textAlign: 'left',
             fontSize: "3vw",
             color: "#FFFFFF",
-
+            backgroundColor: "#2C2C2E",
          }
 
          filmLiStyle = {
@@ -326,7 +367,7 @@ export default class SearchQueries extends React.Component {
                      value: ""
                  }
              }
-            this.getGlobal(filler);
+            this.getGlobal(filler); // this is a work around for a bug, that made it so the first character typed in the input would not trigger the search.
             this.getUserNames();
             this.getFilmTitles();
             this.getLiveStreams();
