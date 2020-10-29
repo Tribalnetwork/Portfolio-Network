@@ -10,7 +10,7 @@ import UserContext from "./UserContext";
 import { NavigationBar } from "./components/NavigationBar";
 
 import Authenticator from './Authenticator'
-import Home from './Home'
+import Home from './Homepage/Home'
 import { Upload } from './Upload';
 import Watch from './Watch'
 import Live from './Live'
@@ -23,7 +23,8 @@ import BottomNavBar from './components/bottomNavBar'
 import SearchQueries from "./components/searchQueries"
 import ViewProfile from "./ViewProfile"
 import MyList from "./MyList"
-
+import Settings from "./Settings"
+import {WifiAndCellular} from "./Settings"
 class PrivateRoute extends React.Component {
   // PrivateRoutes require authentication to access
   state = {
@@ -112,4 +113,3 @@ const Routes = () => (
 );
 
 export default Routes;
-
