@@ -26,9 +26,12 @@ export default class MyList extends React.Component {
     static contextType = UserContext
     state = {
         films: [],
-        list:{}
+        list:{},
+        selected:{}
       }
       componentDidMount() {
+        //this.context.updateCurrentUser()
+        //console.log("fetching films...")
         this.fetchMyList()
       }
     
@@ -43,7 +46,7 @@ export default class MyList extends React.Component {
             }
           }));
           //console.log(filmLists.data.listFilmInLists);
-          this.setState({ films: filmLists.data.listFilmInLists.items.map(i=>i.film),list:list1 })
+          this.setState({ films: filmLists.data.listFilmInLists.items,list:list1 })
         } catch (err) { console.log(err) }
       }
        
@@ -56,14 +59,42 @@ export default class MyList extends React.Component {
       }
 
       render(){
+        const isAuthenticated = this.context.user && this.context.user.username ? true : false;
           return(
-          <div className="mylist-wrapper">
-              <p>My List</p>
-              <HorizontalScroller list={this.state.films} />               
-          </div>
+            <div>
+              <Helmet>
+              <meta charSet="utf-8" />
+              <title>My studio</title>
+              </Helmet>
+              
+                {
+                   isAuthenticated?(
+                     <div style={styles.container}>
+                       <div><h4>My Watchlist</h4></div>
+                       <HorizontalScroller list={this.state.films} />
+                    </div>
+                   ):(
+                     <div style={styles.container}>
+                       please log in first
+                     </div>
+                   )
+                }
+            </div>
+            
+
           )
       }
 
 }
 
+const styles = {
+  header: { width: 1000, margin: '0 auto', display: 'flex', flex: 1, flexDirection: 'column', justifyContent: 'center', padding: 20 },
+  container: {  margin: '0 auto', display: 'flex', flex: 1, flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'left', padding: 20 },
+  input: { border: 'none', backgroundColor: '#ddd', marginBottom: 10, padding: 8, fontSize: 18 },
+  filmTitle: { fontSize: 20, fontWeight: 'bold', marginBottom: 0 },
+  streamText: { fontSize: 14, marginBottom: 0},
+  filmDescription: { marginBottom: 0 },
+  button: { backgroundColor: 'black', color: 'white', outline: 'none', fontSize: 18, padding: '12px 0px' },
+
+}
 
