@@ -12,6 +12,8 @@ import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
+import './NavigationBar.css';
+
 
 const useStyles = makeStyles((theme) => ({
   menuButton: {
@@ -44,7 +46,9 @@ export const NavigationBar = () => {
   };
 
   return (
-    <div>
+    <div className={"navcontainer"}>
+      
+    
       <AppBar position="sticky" style={{ background: 'black' }}>
         <Toolbar>
           <IconButton
@@ -99,6 +103,8 @@ export const NavigationBar = () => {
         </List>
         </div>
       </Drawer>
+    
+         
     </div>
   )
 }

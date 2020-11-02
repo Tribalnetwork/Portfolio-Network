@@ -140,7 +140,7 @@ class Profile extends React.Component {
         </div>
        
         </div>
-        <div className={"tribeinfoContainer"}> <h1 className="tribeInfo"> Check Out What Your Tribe Is Up To </h1></div>
+        <div className={"tribeinfoContainer"}> <p className="tribeInfo"> Check Out What Your Tribe Is Up To </p></div>
 
         
         <div className="line"> </div>
