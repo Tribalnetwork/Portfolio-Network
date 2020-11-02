@@ -35,7 +35,10 @@ export default class MyList extends React.Component {
       async fetchMyList() {
         const user1=await API.graphql(graphqlOperation(getUser, { id: this.context.user.attributes.sub}))
         let list1=user1.data.getUser.myList;
-        if(list1===null){alert("you don't have a list yet, let's go add some films to the list!");}
+        if(list1===null){
+          //alert("you don't have a list yet, let's go add some films to the list!");
+          return;
+        }
         try {
           const filmLists = await API.graphql(graphqlOperation(listFilmInLists, {
             filter: {
@@ -47,13 +50,6 @@ export default class MyList extends React.Component {
         } catch (err) { console.log(err) }
       }
        
-      async deleteFromList(filmlistid){
-        console.log("start deleting...");
-        console.log(filmlistid);
-        await API.graphql(graphqlOperation(deleteFilmInList, { input:{id: filmlistid}}));
-        console.log("film is deleted from list");
-        this.fetchMyList();
-      }
 
       render(){
           return(

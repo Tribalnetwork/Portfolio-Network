@@ -24,3 +24,14 @@ h3 {
   top: 0;
   left: 0;
 }
+.trending-now-wrapper{
+  margin:10px;
+  color: white;
+}
+.up-next-wrapper{
+  margin:10px;
+  color:white
+}
+.author-text{
+  color:white
+}
