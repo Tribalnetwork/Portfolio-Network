@@ -12,6 +12,16 @@ export const getFilm = /* GraphQL */ `
       duration
       available
       sub
+      lists {
+        items {
+          id
+          filmId
+          listId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       createdAt
       updatedAt
     }
@@ -33,6 +43,9 @@ export const listFilms = /* GraphQL */ `
         duration
         available
         sub
+        lists {
+          nextToken
+        }
         createdAt
         updatedAt
       }
@@ -77,6 +90,162 @@ export const listLiveStreams = /* GraphQL */ `
     }
   }
 `;
+export const getPlayList = /* GraphQL */ `
+  query GetPlayList($id: ID!) {
+    getPlayList(id: $id) {
+      id
+      name
+      User {
+        id
+        name
+        location
+        fullAccess
+        admin
+        liveStreamID
+        liveChannelCreated
+        remainingVODTime
+        remainingLiveTime
+        myList {
+          id
+          name
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
+      }
+      films {
+        items {
+          id
+          filmId
+          listId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listPlayLists = /* GraphQL */ `
+  query ListPlayLists(
+    $filter: ModelPlayListFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listPlayLists(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        name
+        User {
+          id
+          name
+          location
+          fullAccess
+          admin
+          liveStreamID
+          liveChannelCreated
+          remainingVODTime
+          remainingLiveTime
+          createdAt
+          updatedAt
+        }
+        films {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const getFilmInList = /* GraphQL */ `
+  query GetFilmInList($id: ID!) {
+    getFilmInList(id: $id) {
+      id
+      film {
+        id
+        title
+        genre
+        hlsUrl
+        thumbNailsUrls
+        duration
+        available
+        sub
+        lists {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      filmId
+      listId
+      list {
+        id
+        name
+        User {
+          id
+          name
+          location
+          fullAccess
+          admin
+          liveStreamID
+          liveChannelCreated
+          remainingVODTime
+          remainingLiveTime
+          createdAt
+          updatedAt
+        }
+        films {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listFilmInLists = /* GraphQL */ `
+  query ListFilmInLists(
+    $filter: ModelFilmInListFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listFilmInLists(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        film {
+          id
+          title
+          genre
+          hlsUrl
+          thumbNailsUrls
+          duration
+          available
+          sub
+          createdAt
+          updatedAt
+        }
+        filmId
+        listId
+        list {
+          id
+          name
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
 export const getUser = /* GraphQL */ `
   query GetUser($id: ID!) {
     getUser(id: $id) {
@@ -89,6 +258,28 @@ export const getUser = /* GraphQL */ `
       liveChannelCreated
       remainingVODTime
       remainingLiveTime
+      myList {
+        id
+        name
+        User {
+          id
+          name
+          location
+          fullAccess
+          admin
+          liveStreamID
+          liveChannelCreated
+          remainingVODTime
+          remainingLiveTime
+          createdAt
+          updatedAt
+        }
+        films {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
       createdAt
       updatedAt
     }
@@ -111,6 +302,93 @@ export const listUsers = /* GraphQL */ `
         liveChannelCreated
         remainingVODTime
         remainingLiveTime
+        myList {
+          id
+          name
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const getConnect = /* GraphQL */ `
+  query GetConnect($id: ID!) {
+    getConnect(id: $id) {
+      id
+      userId
+      connectsId {
+        userId
+        status
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listConnects = /* GraphQL */ `
+  query ListConnects(
+    $filter: ModelConnectFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listConnects(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        userId
+        connectsId {
+          userId
+          status
+        }
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const filmInListByListByFilm = /* GraphQL */ `
+  query FilmInListByListByFilm(
+    $listId: ID
+    $filmId: ModelIDKeyConditionInput
+    $sortDirection: ModelSortDirection
+    $filter: ModelFilmInListFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    FilmInListByListByFilm(
+      listId: $listId
+      filmId: $filmId
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        film {
+          id
+          title
+          genre
+          hlsUrl
+          thumbNailsUrls
+          duration
+          available
+          sub
+          createdAt
+          updatedAt
+        }
+        filmId
+        listId
+        list {
+          id
+          name
+          createdAt
+          updatedAt
+        }
         createdAt
         updatedAt
       }

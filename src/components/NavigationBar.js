@@ -12,6 +12,8 @@ import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
+import './NavigationBar.css';
+
 
 const useStyles = makeStyles((theme) => ({
   menuButton: {
@@ -44,7 +46,9 @@ export const NavigationBar = () => {
   };
 
   return (
-    <div>
+    <div className={"navcontainer"}>
+      
+    
       <AppBar position="sticky" style={{ background: 'black' }}>
         <Toolbar>
           <IconButton
@@ -55,6 +59,7 @@ export const NavigationBar = () => {
             onClick={handleDrawerOpen}
           >
             <MenuIcon />
+
           </IconButton>
           <Link to='/' className={classes.title}>
             <Typography variant="h6" >
@@ -91,13 +96,15 @@ export const NavigationBar = () => {
         >
         <List>
             {['Home', 'Upload', 'Streams'].map((text, index) => (
-              <ListItem button component={Link} to={`/${text}`} key={text}>
+                <ListItem button component={Link} to={`/${text}`} key={text}>
                 <ListItemText primary={text} />
               </ListItem>
             ))}
         </List>
         </div>
       </Drawer>
+    
+         
     </div>
   )
 }
