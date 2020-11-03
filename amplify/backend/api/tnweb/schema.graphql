@@ -1,0 +1,32 @@
+type Film @model {
+  id: ID!
+  title: String!
+  genre: String
+  hlsUrl: String
+  thumbNailsUrls: [String]
+  duration: Int
+  available: Boolean
+  sub: String
+}
+
+type LiveStream @model {
+  id: ID!
+  playbackID: String
+  streamKey: String
+  latestAssetID: String
+  IDforThumbnail: String
+  status: String
+  streamerName: String
+}
+
+type User @model {
+  id: ID!
+  name: String
+  location: String
+  fullAccess: Boolean
+  admin: Boolean
+  liveStreamID: String
+  liveChannelCreated: Boolean
+  remainingVODTime: Int
+  remainingLiveTime: Int
+}
