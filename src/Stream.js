@@ -12,7 +12,8 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
-import SearchQueries from "./components/searchQueries"
+import SearchQueries from "./components/searchQueries";
+import StartLive from "./startLive.png";
 
 export const Stream = () => {
   const [liveStreams, setLiveStreams] = useState([])
@@ -77,9 +78,7 @@ export const Stream = () => {
           context.hasChannel ? (
             <div>
               <p style={{textAlign: 'center'}}>You created a live channel.</p>
-              <Link to="/mylive">
-                <button style={styles.button} >My Channel</button>
-              </Link>
+              
             </div>
           ) : (
             <button style={styles.button} onClick={generateUrl}>Create Channel</button>
@@ -87,7 +86,10 @@ export const Stream = () => {
         }
       </div>
       <div style={styles.searchContainer}>
-        <SearchQueries type={"liveStreams"}/>
+        <Link to="/mylive" style={styles.startLive}>
+            <img src={StartLive}/>
+        </Link>
+        <SearchQueries type={"liveStreams"} style={styles.search}/>
       </div> 
       <div style={styles.container}>
         <h1>Live Streams</h1>
@@ -140,5 +142,7 @@ const styles = {
   streamText: { fontSize: 14, marginBottom: 0},
   filmDescription: { marginBottom: 0 },
   button: { width: 400, backgroundColor: 'black', color: 'white', outline: 'none', fontSize: 18, padding: '12px 0px' },
-  searchContainer: {width: "70vw", marginLeft: "15vw", marginRight: "25%", borderRadius: "25px"},
+  searchContainer: {width: "70vw", marginLeft: "15vw", marginRight: "25%", borderRadius: "25px", display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gridTemplateRows: "1fr"},
+  search: {},
+  startLive: {position: "relative", left: "7.5vw", top: "5vh", minHeight: "3vh", maxHeight: "9vh", minWidth: "3vh", maxWidth: "9vw"}
 }
