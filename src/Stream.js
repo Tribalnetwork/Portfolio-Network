@@ -14,6 +14,7 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import SearchQueries from "./components/searchQueries";
 import StartLive from "./startLive.png";
+import Trending from "./Trending";
 
 export const Stream = () => {
   const [liveStreams, setLiveStreams] = useState([])
@@ -73,6 +74,7 @@ export const Stream = () => {
         <meta charSet="utf-8" />
         <title>Live Streams</title>
       </Helmet>
+      <Trending/>
       <div>
         {
           context.hasChannel ? (
@@ -127,13 +129,13 @@ export const Stream = () => {
 
 const styles = {
   root: {
-    width: 237,
+    width: "237px",
   },
   media: {
     height: 178,
   },
   header: { margin: '0 auto', display: 'flex', flex: 1, flexDirection: 'column', justifyContent: 'center', padding: 20 },
-  container: { width: 1000, margin: '0 auto', display: 'flex', flex: 1, flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'left', padding: 20, zIndex: "-1" },
+  container: { width: "100%", margin: '0', display: 'flex', flex: 1, flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'left', zIndex: "-1" },
   link: { textDecoration: 'none' },
   film: { width: 200, marginBottom: 15, marginRight: 10 },
   stream: { width: 400 },
