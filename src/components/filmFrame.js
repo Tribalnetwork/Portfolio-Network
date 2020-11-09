@@ -6,6 +6,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import { Link } from "react-router-dom";
+import "./filmFrame.css"
 
 
 export default class FilmFrame extends React.Component{
@@ -17,11 +18,11 @@ export default class FilmFrame extends React.Component{
 
         return(
             <Grid key={this.props.film.id}>
-                <Card style={styles.root}>
+                <Card  className={"root"}>
                     <Link to={`/watch?id=${this.props.film.id}`} style={styles.link}>
                         <CardActionArea>
                             <CardMedia
-                                  style={styles.media}
+                                 className={"media"}
                                   image={this.props.film.thumbNailsUrls[0]}
                                   title={this.props.film.name}
                              />

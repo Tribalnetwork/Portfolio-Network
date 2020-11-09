@@ -82,6 +82,7 @@ const Routes = () => (
     <div>
       <NavigationBar />
       <Switch>
+        {/*
         <Route path="/settings" exact component={Settings}>
           <Settings />
         </Route>
@@ -92,6 +93,7 @@ const Routes = () => (
         >
           <WifiAndCellular />
         </Route>
+        */}
         <Route path="/auth" exact component={Authenticator} />
         <Route path="/" exact component={Home} />
         <Route path="/home" exact component={Home} />
