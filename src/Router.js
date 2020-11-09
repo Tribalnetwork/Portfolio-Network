@@ -10,12 +10,12 @@ import UserContext from "./UserContext";
 import { NavigationBar } from "./components/NavigationBar";
 
 import Authenticator from './Authenticator'
-import Home from './Home'
+import Home from './HomePage/Home'
 import { Upload } from './Upload';
 import Watch from './Watch'
 import Live from './Live'
-import { Stream } from './Stream'
-import Profile from './Profile'
+import { Stream } from './TribalPage/Stream'
+import Profile from './SocialPage/Profile'
 import GetAccess from './GetAccess'
 import Pending from './Pending'
 import { MyLive } from './MyLive'
@@ -23,8 +23,8 @@ import BottomNavBar from './components/bottomNavBar'
 import SearchQueries from "./components/searchQueries"
 import ViewProfile from "./ViewProfile"
 import MyList from "./MyList"
-import Settings from "./Settings"
-import WifiAndCellular from "./Settings"
+import Settings from "./SettingsPage/Settings"
+import WifiAndCellular from "./SettingsPage/Settings"
 
 class PrivateRoute extends React.Component {
   // PrivateRoutes require authentication to access
