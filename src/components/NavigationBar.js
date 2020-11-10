@@ -12,6 +12,11 @@ import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
+<<<<<<< HEAD
+=======
+import './NavigationBar.css';
+
+>>>>>>> aafbd93c547ca40388ecea25893e1bea5e2f2cda
 
 const useStyles = makeStyles((theme) => ({
   menuButton: {
@@ -44,7 +49,13 @@ export const NavigationBar = () => {
   };
 
   return (
+<<<<<<< HEAD
     <div>
+=======
+    <div className={"navcontainer"}>
+      
+    
+>>>>>>> aafbd93c547ca40388ecea25893e1bea5e2f2cda
       <AppBar position="sticky" style={{ background: 'black' }}>
         <Toolbar>
           <IconButton
@@ -55,6 +66,10 @@ export const NavigationBar = () => {
             onClick={handleDrawerOpen}
           >
             <MenuIcon />
+<<<<<<< HEAD
+=======
+
+>>>>>>> aafbd93c547ca40388ecea25893e1bea5e2f2cda
           </IconButton>
           <Link to='/' className={classes.title}>
             <Typography variant="h6" >
@@ -91,13 +106,22 @@ export const NavigationBar = () => {
         >
         <List>
             {['Home', 'Upload', 'Streams'].map((text, index) => (
+<<<<<<< HEAD
               <ListItem button component={Link} to={`/${text}`} key={text}>
+=======
+                <ListItem button component={Link} to={`/${text}`} key={text}>
+>>>>>>> aafbd93c547ca40388ecea25893e1bea5e2f2cda
                 <ListItemText primary={text} />
               </ListItem>
             ))}
         </List>
         </div>
       </Drawer>
+<<<<<<< HEAD
+=======
+    
+         
+>>>>>>> aafbd93c547ca40388ecea25893e1bea5e2f2cda
     </div>
   )
 }
