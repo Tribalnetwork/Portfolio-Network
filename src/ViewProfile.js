@@ -1,6 +1,6 @@
 import React from 'react';
 import DefaultPhoto from "./icons/defaultPhoto.jpg"
-//import Connect from "./Connect";
+import Connect from "./Connect";
 
 
 export default class ViewProfile extends React.Component{
@@ -44,6 +44,7 @@ export default class ViewProfile extends React.Component{
         <div style={this.mainDivStyle}>
             <img style={this.imgStyle} src={DefaultPhoto}></img>
             <h1 style={this.nameStyle}>Hi my name is {this.name}</h1>
+            <Connect/>
         </div>
     )
 }
