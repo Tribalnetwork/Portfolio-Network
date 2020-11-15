@@ -10,7 +10,7 @@ import UserContext from "./UserContext";
 import { NavigationBar } from "./components/NavigationBar";
 
 import Authenticator from './Authenticator'
-import Home from './HomePage/Home'
+import Home from "./Homepage/Home"
 import { Upload } from './Upload';
 import Watch from './Watch'
 import Live from './Live'
