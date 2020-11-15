@@ -23,7 +23,7 @@ import BottomNavBar from "./components/bottomNavBar";
 import SearchQueries from "./searchQueries";
 import ViewProfile from "./ViewProfile";
 import MyList from "./MyList";
-import Settings, { WifiAndCellular } from "./Settings";
+import Settings, { Wifi, Support, TermsOfService, PrivacyPolicy, Account, Notifications, DownloadOptions, Logout } from "./Settings";
 
 class PrivateRoute extends React.Component {
   // PrivateRoutes require authentication to access
@@ -85,11 +85,48 @@ const Routes = () => (
           <Settings />
         </Route>
         <Route
-          path="/settings/wifiandcellular"
-          exact
-          component={WifiAndCellular}
+          path="/settings/wifi"
         >
-          <WifiAndCellular />
+          <Wifi />
+        </Route>
+        <Route
+          path="/settings/support"
+        >
+          <Support />
+        </Route>
+        <Route
+          path="/settings/termsofservice"
+        >
+          <TermsOfService />
+        </Route>
+        <Route
+          path="/settings/privacypolicy"
+        >
+          <PrivacyPolicy />
+        </Route>
+        <Route
+          path="/settings/account"
+        >
+          <Account />
+        </Route>
+        <Route
+          path="/settings/notifications"
+        >
+          <Notifications />
+        </Route>
+        <Route
+          path="/settings/downloadoptions"
+        >
+          <DownloadOptions />
+        </Route>
+        <Route
+          path="/settings/logout"
+        >
+          <Logout />
+        </Route>
+        <Route
+          path="/settings/wifiandcellular"
+        >
         </Route>
         <Route path="/auth" exact component={Authenticator} />
         <Route path="/" exact component={Home} />

@@ -22,7 +22,7 @@
     "react-horizontal-scrolling-menu": "^0.7.7",
     "react-player": "^2.4.0",
     "react-router-dom": "^5.0.1",
-    "react-scripts": "3.4.1",
+    "react-scripts": "^3.4.4",
     "redux": "^4.0.5"
   },
   "scripts": {
