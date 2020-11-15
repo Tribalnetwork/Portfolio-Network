@@ -1,22 +1,22 @@
 import React from 'react'
 import {  Auth,Storage } from 'aws-amplify'
-import Container from './Container'
-import Button from './Button';
-import UserContext from './UserContext'
+import Container from '../Container'
+import Button from '../Button';
+import UserContext from '../UserContext'
 import { Helmet } from 'react-helmet'
 import './Profile.css'
-import ChangeProfilePhotoButton from "./components/ChangeProfilePhotoButton";
+import ChangeProfilePhotoButton from "../components/ChangeProfilePhotoButton";
 import { API, graphqlOperation } from 'aws-amplify'
 import DetailsIcon from '@material-ui/icons/Details';
 import ReorderIcon from '@material-ui/icons/Reorder';
 import NotificationsNoneIcon from '@material-ui/icons/NotificationsNone';
 import AddIcon from '@material-ui/icons/Add';
-import FilmFrame from "./components/filmFrame";
+import FilmFrame from "../components/filmFrame";
 import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
-import { Upload } from './Upload';
-import { getUser} from './graphql/queries'
-import {updateUser} from './graphql/mutations'
+import { Upload } from '../Upload';
+import { getUser} from '../graphql/queries'
+import {updateUser} from '../graphql/mutations'
 
 
 

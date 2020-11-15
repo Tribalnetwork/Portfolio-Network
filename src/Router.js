@@ -10,12 +10,12 @@ import UserContext from "./UserContext";
 import { NavigationBar } from "./components/NavigationBar";
 
 import Authenticator from './Authenticator'
-import Home from './Homepage/Home'
+import Home from "./Homepage/Home"
 import { Upload } from './Upload';
 import Watch from './Watch'
 import Live from './Live'
-import { Stream } from './Stream'
-import Profile from './Profile'
+import { Stream } from './TribalPage/Stream'
+import Profile from './SocialPage/Profile'
 import GetAccess from './GetAccess'
 import Pending from './Pending'
 import { MyLive } from './MyLive'
@@ -23,8 +23,10 @@ import BottomNavBar from './components/bottomNavBar'
 import SearchQueries from "./components/searchQueries"
 import ViewProfile from "./ViewProfile"
 import MyList from "./MyList"
-import Settings from "./Settings"
-import {WifiAndCellular} from "./Settings"
+import Settings from "./SettingsPage/Settings"
+import WifiAndCellular from "./SettingsPage/Settings"
+import MyStudio from "./MyStudio/MyStudio";
+
 class PrivateRoute extends React.Component {
   // PrivateRoutes require authentication to access
   state = {
@@ -81,6 +83,7 @@ const Routes = () => (
     <div>
       <NavigationBar />
       <Switch>
+        {/*
         <Route path="/settings" exact component={Settings}>
           <Settings />
         </Route>
@@ -91,11 +94,15 @@ const Routes = () => (
         >
           <WifiAndCellular />
         </Route>
+        */}
         <Route path="/auth" exact component={Authenticator} />
         <Route path="/" exact component={Home} />
         <Route path="/home" exact component={Home} />
         <Route path="/search" exact component={SearchQueries} />
         <Route path="/viewProfile" exact component={ViewProfile} />
+        <Route path="/myStudio" exact component={MyStudio} />
+        <Route path="/myStudio/myFolder" exact component={MyStudio} />
+        <Route path="/myStudio/toDoList" exact component={MyStudio} />
         <PrivateRoute path="/upload" exact component={Upload} />
         <PrivateRoute path="/streams" component={Stream} />
         <PrivateRoute path="/watch" component={Watch} />
@@ -113,3 +120,4 @@ const Routes = () => (
 );
 
 export default Routes;
+

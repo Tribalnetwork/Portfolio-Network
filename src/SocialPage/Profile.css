@@ -236,7 +236,34 @@ margin-top: 20px;
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
+    .profileimage
+    {
+       max-width: 50vw;
+        max-height:210px;
+        border-radius: 50%;
+        margin-top:10px;
+        border: 2px solid #887d3b;
+       }
 
+       .arrownavigation
+       {
+        color: grey;
+        margin-bottom: 105px;
+        margin-left: 2px;
+        margin-right: 2px;
+       }
+
+       .tribeInfo
+       {
+
+        color:#ffffff; 
+        font: "Roboto";
+        font-weight: 500;
+        font-style: normal;
+        font-size: 3vw;   
+       }
+
+ 
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */

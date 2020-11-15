@@ -17,7 +17,8 @@ class WatchStreamPage extends React.Component {
     url: null,
     status: '',
     streamerName: '',
-    watchTime: 0
+    watchTime: 0,
+    views: 0,
   }
 
   constructor(props) {
@@ -48,6 +49,7 @@ class WatchStreamPage extends React.Component {
 
   async getInfo() {
     const stream = await API.graphql(graphqlOperation(getLiveStream, { id: this.id }))
+    console.log(stream.data.getLiveStream);
     this.setState({
       url: "https://stream.mux.com/"+stream.data.getLiveStream.playbackID+".m3u8",
       status: stream.data.getLiveStream.status,
