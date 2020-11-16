@@ -24,20 +24,6 @@ import SearchQueries from "./components/searchQueries"
 import ViewProfile from "./ViewProfile"
 import MyList from "./MyList"
 import MyStudio from "./MyStudio/MyStudio";
-// import Authenticator from "./Authenticator";
-import Home from "./HomePage/Home";
-import { Upload } from "./Upload";
-import Watch from "./Watch";
-import Live from "./Live";
-import { Stream } from "./Stream";
-import Profile from "./Profile";
-import GetAccess from "./GetAccess";
-import Pending from "./Pending";
-import { MyLive } from "./MyLive";
-import BottomNavBar from "./components/bottomNavBar";
-import SearchQueries from "./searchQueries";
-import ViewProfile from "./ViewProfile";
-import MyList from "./MyList";
 import Settings, { Wifi, Support, TermsOfService, PrivacyPolicy, Account, Notifications, DownloadOptions, Logout } from "./SettingsPage/Settings";
 
 class PrivateRoute extends React.Component {
