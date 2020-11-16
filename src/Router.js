@@ -9,7 +9,6 @@ import {
 import UserContext from "./UserContext";
 import { NavigationBar } from "./components/NavigationBar";
 
-<<<<<<< HEAD
 import Authenticator from './Authenticator'
 import Home from "./HomePage/Home"
 import { Upload } from './Upload';
@@ -24,12 +23,9 @@ import BottomNavBar from './components/bottomNavBar'
 import SearchQueries from "./components/searchQueries"
 import ViewProfile from "./ViewProfile"
 import MyList from "./MyList"
-import Settings from "./SettingsPage/Settings"
-import WifiAndCellular from "./SettingsPage/Settings"
 import MyStudio from "./MyStudio/MyStudio";
-=======
-import Authenticator from "./Authenticator";
-import Home from "./Home";
+// import Authenticator from "./Authenticator";
+import Home from "./HomePage/Home";
 import { Upload } from "./Upload";
 import Watch from "./Watch";
 import Live from "./Live";
@@ -42,8 +38,7 @@ import BottomNavBar from "./components/bottomNavBar";
 import SearchQueries from "./searchQueries";
 import ViewProfile from "./ViewProfile";
 import MyList from "./MyList";
-import Settings, { Wifi, Support, TermsOfService, PrivacyPolicy, Account, Notifications, DownloadOptions, Logout } from "./Settings";
->>>>>>> sunnydelight23-settings
+import Settings, { Wifi, Support, TermsOfService, PrivacyPolicy, Account, Notifications, DownloadOptions, Logout } from "./SettingsPage/Settings";
 
 class PrivateRoute extends React.Component {
   // PrivateRoutes require authentication to access
