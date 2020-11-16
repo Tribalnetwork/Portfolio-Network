@@ -148,7 +148,6 @@ async getImg(){
             <img className={"profileimage"} src={this.state.ImgUrl} alt={"profileimage"} />
             
             <NavigateNextIcon  className={"arrownavigation"} />
-        <input type="file" id="img" name="img" accept="image/*" onChange={event =>this.addPhoto(event)}/>
             </div>
          <h1 className={"welcomeText"}> Welcome back </h1>
         <h2 className={"username"}> {this.context.user.attributes.given_name}</h2>
