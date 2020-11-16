@@ -9,6 +9,7 @@ import {
 import UserContext from "./UserContext";
 import { NavigationBar } from "./components/NavigationBar";
 
+<<<<<<< HEAD
 import Authenticator from './Authenticator'
 import Home from "./HomePage/Home"
 import { Upload } from './Upload';
@@ -26,6 +27,23 @@ import MyList from "./MyList"
 import Settings from "./SettingsPage/Settings"
 import WifiAndCellular from "./SettingsPage/Settings"
 import MyStudio from "./MyStudio/MyStudio";
+=======
+import Authenticator from "./Authenticator";
+import Home from "./Home";
+import { Upload } from "./Upload";
+import Watch from "./Watch";
+import Live from "./Live";
+import { Stream } from "./Stream";
+import Profile from "./Profile";
+import GetAccess from "./GetAccess";
+import Pending from "./Pending";
+import { MyLive } from "./MyLive";
+import BottomNavBar from "./components/bottomNavBar";
+import SearchQueries from "./searchQueries";
+import ViewProfile from "./ViewProfile";
+import MyList from "./MyList";
+import Settings, { Wifi, Support, TermsOfService, PrivacyPolicy, Account, Notifications, DownloadOptions, Logout } from "./Settings";
+>>>>>>> sunnydelight23-settings
 
 class PrivateRoute extends React.Component {
   // PrivateRoutes require authentication to access
@@ -83,18 +101,55 @@ const Routes = () => (
     <div>
       <NavigationBar />
       <Switch>
-        {/*
+        
         <Route path="/settings" exact component={Settings}>
           <Settings />
         </Route>
         <Route
-          path="/settings/wifiandcellular"
-          exact
-          component={WifiAndCellular}
+          path="/settings/wifi"
         >
-          <WifiAndCellular />
+          <Wifi />
         </Route>
-        */}
+        <Route
+          path="/settings/support"
+        >
+          <Support />
+        </Route>
+        <Route
+          path="/settings/termsofservice"
+        >
+          <TermsOfService />
+        </Route>
+        <Route
+          path="/settings/privacypolicy"
+        >
+          <PrivacyPolicy />
+        </Route>
+        <Route
+          path="/settings/account"
+        >
+          <Account />
+        </Route>
+        <Route
+          path="/settings/notifications"
+        >
+          <Notifications />
+        </Route>
+        <Route
+          path="/settings/downloadoptions"
+        >
+          <DownloadOptions />
+        </Route>
+        <Route
+          path="/settings/logout"
+        >
+          <Logout />
+        </Route>
+        <Route
+          path="/settings/wifiandcellular"
+        >
+        </Route>
+       
         <Route path="/auth" exact component={Authenticator} />
         <Route path="/" exact component={Home} />
         <Route path="/home" exact component={Home} />
