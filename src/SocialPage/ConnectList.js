@@ -1,3 +1,4 @@
+/*
 import React from 'react';
 import { API, graphqlOperation } from 'aws-amplify';
 import * as queries from '../graphql/queries';
@@ -38,7 +39,7 @@ export default class ConnectList extends React.Component{
                 return username;
             })
             console.log("this is name list: " + nameList)
-        }) */
+        }) 
     }
 
     componentDidMount(){
@@ -54,3 +55,4 @@ export default class ConnectList extends React.Component{
         )
     }
 }
+*/
