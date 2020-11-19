@@ -27,6 +27,8 @@ import Settings from "./SettingsPage/Settings"
 import WifiAndCellular from "./SettingsPage/Settings"
 import MyStudio from "./MyStudio/MyStudio";
 
+import ConnectList from "./SocialPage/ConnectList"
+
 class PrivateRoute extends React.Component {
   // PrivateRoutes require authentication to access
   state = {
