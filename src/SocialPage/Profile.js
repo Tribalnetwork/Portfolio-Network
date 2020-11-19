@@ -1,11 +1,12 @@
 import React from 'react'
-
-import { Auth } from 'aws-amplify'
+import {  Auth,Storage } from 'aws-amplify'
 import Container from '../Container'
 import Button from '../Button';
 import UserContext from '../UserContext'
 import { Helmet } from 'react-helmet'
 import './Profile.css'
+import ChangeProfilePhotoButton from "../components/ChangeProfilePhotoButton";
+import { API, graphqlOperation } from 'aws-amplify'
 import DetailsIcon from '@material-ui/icons/Details';
 import ReorderIcon from '@material-ui/icons/Reorder';
 import NotificationsNoneIcon from '@material-ui/icons/NotificationsNone';
@@ -13,7 +14,9 @@ import AddIcon from '@material-ui/icons/Add';
 import FilmFrame from "../components/filmFrame";
 import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
-
+import { Upload } from '../Upload';
+import { getUser} from '../graphql/queries'
+import {updateUser} from '../graphql/mutations'
 
 
 
@@ -110,8 +113,22 @@ for (var i = 0; i < 48; i++)
 
 
 class Profile extends React.Component {
-  static contextType = UserContext
-
+  static contextType = UserContext;
+  state={
+    ImgUrl:null
+  }
+componentDidMount(){
+  this.getImg();
+}
+async getImg(){
+  const user1=await API.graphql(graphqlOperation(getUser, { id: this.context.user.attributes.sub}));
+  if(user1.data.getUser.ImgUrl===undefined || user1.data.getUser.ImgUrl===null){
+    this.setState({ImgUrl:"https://d202tggnzywgd9.cloudfront.net/public/photos/avatar.png"});
+  }
+  else{
+    this.setState({ImgUrl:user1.data.getUser.ImgUrl});
+  }
+}
   signOut() {
     Auth.signOut()
       .then(() => {
@@ -121,14 +138,15 @@ class Profile extends React.Component {
   }
 
   render() {
-    const hasAccess = this.context.hasAccess
+    const hasAccess = this.context.hasAccess;
     return (
    
       <div className={"bodycontainer"}>
         <div className={"container"}>
           <div className="profileimagecontainer">
             <NavigateBeforeIcon className={"arrownavigation"} />
-            <img className={"profileimage"} src={posterimage.url[0]} alt={"profileimage"} />
+            <img className={"profileimage"} src={this.state.ImgUrl} alt={"profileimage"} />
+            
             <NavigateNextIcon  className={"arrownavigation"} />
             </div>
          <h1 className={"welcomeText"}> Welcome back </h1>
@@ -140,7 +158,7 @@ class Profile extends React.Component {
         </div>
        
         </div>
-        <div className={"tribeinfoContainer"}> <p className="tribeInfo"> Check Out What Your Tribe Is Up To </p></div>
+        <div className={"tribeinfoContainer"}> <h1 className="tribeInfo"> Check Out What Your Tribe Is Up To </h1></div>
 
         
         <div className="line"> </div>

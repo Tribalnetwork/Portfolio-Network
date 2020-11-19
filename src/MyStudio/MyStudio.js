@@ -28,6 +28,15 @@ export default class MyStudio extends React.Component{
         this.setState({myFolderTab: this.off});
         this.setState({toDoTab: this.on});
     }
+
+    checkTab = () =>{
+        let url = window.location.href;
+        if(url.includes("myFolder")){
+            this.onMyFolder()
+        } else if (url.includes("toDoList")){
+            this.onToDo();
+        }
+    }
     
     on = {
         justifySelf: "center", 
@@ -48,6 +57,7 @@ export default class MyStudio extends React.Component{
     componentDidMount(){
         this.setState({myFolderTab: this.on})
         this.setState({toDoTab: this.off})
+        this.checkTab();
     }
     
     render(){
@@ -74,8 +84,8 @@ export default class MyStudio extends React.Component{
 
 const styles = {
     main: {},
-    header: {backgroundColor: "black"},
-    title: {width: "100%", margin: "0", padding: "0", textAlign: "center", color: "white", fontSize: "1.5vw"},
+    header: {backgroundColor: "black", paddingTop: "3vh"},
+    title: {width: "100%", margin: "0", padding: "0", textAlign: "center", color: "white", fontSize: "3vh"},
     tabs: {display: "grid", gridTemplateColumns: "1fr 1fr", gridTemplateRows: "1fr", justifyContent: "space-evenly", width: "100%"},
-    p: {textAlign: "center", fontSize: "1.25vw"}
+    p: {textAlign: "center", fontSize: "3vh"}
 }

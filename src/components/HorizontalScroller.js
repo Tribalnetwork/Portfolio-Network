@@ -9,7 +9,7 @@ import Grid from '@material-ui/core/Grid';
 import { Link } from "react-router-dom";
 import './HorizontalScroller.css';
 
-const MenuItem = ({film,filmlistId}) => {
+const MenuItem = ({film}) => {
   return (<div>
     
        <Grid item>
@@ -43,7 +43,7 @@ const MenuItem = ({film,filmlistId}) => {
 export const Menu = (list) =>
   list.map(film => {
  
-    return <MenuItem film={film.film} filmlistId={film.id} key={film.film.id}  />;
+    return <MenuItem film={film} key={film.id}  />;
   });
   const Arrow = ({ text, className }) => {
     return (
@@ -63,6 +63,7 @@ export const Menu = (list) =>
                         data={Menu(this.props.list)}
                         arrowLeft={ArrowLeft}
                         arrowRight={ArrowRight}
+                        alignCenter={false}
                         />
             
 
@@ -74,19 +75,10 @@ export const Menu = (list) =>
 
 const styles = {
   root: {
-    width: 150,
+    width: 120,
   },
   media: {
     height: 112.5,
   },
-  link: { textDecoration: 'none' },
-  header: { width: 1000, margin: '0 auto', display: 'flex', flex: 1, flexDirection: 'column', justifyContent: 'center', padding: 20 },
-  link: { textDecoration: 'none' },
-  film: { width: 150, marginBottom: 15, marginRight: 10 },
-  stream: { width: 400 },
-  input: { border: 'none', backgroundColor: '#ddd', marginBottom: 10, padding: 8, fontSize: 18 },
-  filmTitle: { fontSize: 20, fontWeight: 'bold', marginBottom: 0 },
-  streamText: { fontSize: 14, marginBottom: 0},
-  filmDescription: { marginBottom: 0 }
-
+  link: { textDecoration: 'none' }
 }

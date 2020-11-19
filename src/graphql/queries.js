@@ -261,6 +261,7 @@ export const getUser = /* GraphQL */ `
       liveChannelCreated
       remainingVODTime
       remainingLiveTime
+      ImgUrl
       myList {
         id
         name
