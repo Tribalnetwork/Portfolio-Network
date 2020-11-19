@@ -10,7 +10,7 @@ export default class MyFolder extends React.Component{
             largeFrames: []
         }
     }
-    getFilms = () => {
+   /* getFilms = () => {
         API.graphql(graphqlOperation(queries.listFilms))
         .then((result) => { return result.data.listFilms.items})
         .then((result) => { 
@@ -35,15 +35,12 @@ export default class MyFolder extends React.Component{
     componentDidMount(){
         this.getFilms();
     }
-
+    */
     render(){
 
         return(
             <div>
                 test text my folder
-                <ul>
-                    {this.state.largeFrames}
-                </ul>
             </div>
         )
     }
