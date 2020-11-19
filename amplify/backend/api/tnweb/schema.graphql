@@ -49,3 +49,14 @@ type User @model {
   myList:PlayList@connection(name: "UsermyList")
   ImgUrl:String
 }
+
+type ConnectItem {
+  userId: String
+  status: String
+  }
+
+type Connect @model {
+  id: ID!
+  userId: String
+  connectsId: [ConnectItem]
+}
