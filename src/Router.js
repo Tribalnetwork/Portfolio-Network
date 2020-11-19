@@ -25,6 +25,7 @@ import ViewProfile from "./ViewProfile"
 import MyList from "./MyList"
 import Settings from "./SettingsPage/Settings"
 import WifiAndCellular from "./SettingsPage/Settings"
+import MyStudio from "./MyStudio/MyStudio";
 
 import ConnectList from "./SocialPage/ConnectList"
 
@@ -101,7 +102,9 @@ const Routes = () => (
         <Route path="/home" exact component={Home} />
         <Route path="/search" exact component={SearchQueries} />
         <Route path="/viewProfile" exact component={ViewProfile} />
-        <Route path="/ConnectList" exact component={ConnectList} />
+        <Route path="/myStudio" exact component={MyStudio} />
+        <Route path="/myStudio/myFolder" exact component={MyStudio} />
+        <Route path="/myStudio/toDoList" exact component={MyStudio} />
         <PrivateRoute path="/upload" exact component={Upload} />
         <PrivateRoute path="/streams" component={Stream} />
         <PrivateRoute path="/watch" component={Watch} />
