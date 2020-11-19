@@ -20,6 +20,6 @@ export default class Trending extends React.Component {
 }
 
 const styles = {
-    main: {width: "100%", height: "25vh", backgroundColor: "black", margin: "0", padding: "0"},
+    main: {width: "100%", height: "70vh", backgroundColor: "black", margin: "0", padding: "25vh 0 0 0"},
     text: {color: "white", margin: "0", padding: "0", textAlign: 'center'}
 }

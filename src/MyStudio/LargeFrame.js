@@ -61,3 +61,33 @@ const styles = {
     filmDescription: { marginBottom: 0 },
     button: { backgroundColor: 'black', color: 'white', outline: 'none', fontSize: 18, padding: '12px 0px' }
   }
+
+  /* code to input to component you want largeFrames in
+
+  getFilms = () => {
+        API.graphql(graphqlOperation(queries.listFilms))
+        .then((result) => { return result.data.listFilms.items})
+        .then((result) => { 
+            let list = [];
+            result.forEach((film) =>{
+                let titleObj = {
+                   name:  film.title.toUpperCase(),
+                   id: film.id,
+                   thumbNailsUrls: film.thumbNailsUrls,
+                   duration: film.duration,
+                   type: "Film"
+                }
+                list.push(titleObj);
+            })
+            let frameList = list.map((filmItem) => {
+                return <li><LargeFrame film={filmItem}/></li>
+            })
+            this.setState({largeFrames: frameList})
+      })
+    }
+    
+    componentDidMount(){
+        this.getFilms();
+    }
+  
+  */
