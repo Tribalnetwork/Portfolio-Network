@@ -26,6 +26,8 @@ import MyList from "./MyList"
 import Settings from "./SettingsPage/Settings"
 import WifiAndCellular from "./SettingsPage/Settings"
 
+import ConnectList from "./SocialPage/ConnectList"
+
 class PrivateRoute extends React.Component {
   // PrivateRoutes require authentication to access
   state = {
@@ -99,6 +101,7 @@ const Routes = () => (
         <Route path="/home" exact component={Home} />
         <Route path="/search" exact component={SearchQueries} />
         <Route path="/viewProfile" exact component={ViewProfile} />
+        <Route path="/ConnectList" exact component={ConnectList} />
         <PrivateRoute path="/upload" exact component={Upload} />
         <PrivateRoute path="/streams" component={Stream} />
         <PrivateRoute path="/watch" component={Watch} />
