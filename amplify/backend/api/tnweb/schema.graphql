@@ -56,3 +56,14 @@ type User @model {
   ImgUrl:String
 >>>>>>> upstream/master
 }
+
+type ConnectItem {
+  userId: String
+  status: String
+  }
+
+type Connect @model {
+  id: ID!
+  userId: String
+  connectsId: [ConnectItem]
+}

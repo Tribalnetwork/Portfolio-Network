@@ -111,6 +111,7 @@ export const getPlayList = /* GraphQL */ `
           createdAt
           updatedAt
         }
+        ImgUrl
         createdAt
         updatedAt
       }
@@ -149,6 +150,7 @@ export const listPlayLists = /* GraphQL */ `
           liveChannelCreated
           remainingVODTime
           remainingLiveTime
+          ImgUrl
           createdAt
           updatedAt
         }
@@ -196,6 +198,7 @@ export const getFilmInList = /* GraphQL */ `
           liveChannelCreated
           remainingVODTime
           remainingLiveTime
+          ImgUrl
           createdAt
           updatedAt
         }
@@ -275,6 +278,7 @@ export const getUser = /* GraphQL */ `
           liveChannelCreated
           remainingVODTime
           remainingLiveTime
+          ImgUrl
           createdAt
           updatedAt
         }
@@ -284,6 +288,7 @@ export const getUser = /* GraphQL */ `
         createdAt
         updatedAt
       }
+      ImgUrl
       createdAt
       updatedAt
     }

@@ -1451,6 +1451,17 @@
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
+          "name" : "ImgUrl",
+          "description" : null,
+          "args" : [ ],
+          "type" : {
+            "kind" : "SCALAR",
+            "name" : "String",
+            "ofType" : null
+          },
+          "isDeprecated" : false,
+          "deprecationReason" : null
+        }, {
           "name" : "createdAt",
           "description" : null,
           "args" : [ ],
@@ -3320,6 +3331,15 @@
           "type" : {
             "kind" : "INPUT_OBJECT",
             "name" : "ModelIntInput",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "ImgUrl",
+          "description" : null,
+          "type" : {
+            "kind" : "INPUT_OBJECT",
+            "name" : "ModelStringInput",
             "ofType" : null
           },
           "defaultValue" : null
@@ -6603,6 +6623,15 @@
           },
           "defaultValue" : null
         }, {
+          "name" : "ImgUrl",
+          "description" : null,
+          "type" : {
+            "kind" : "SCALAR",
+            "name" : "String",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
           "name" : "userMyListId",
           "description" : null,
           "type" : {
@@ -6715,6 +6744,15 @@
           },
           "defaultValue" : null
         }, {
+          "name" : "ImgUrl",
+          "description" : null,
+          "type" : {
+            "kind" : "INPUT_OBJECT",
+            "name" : "ModelStringInput",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
           "name" : "and",
           "description" : null,
           "type" : {
@@ -6791,6 +6829,15 @@
               "name" : "ConnectItemInput",
               "ofType" : null
             }
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "ImgUrl",
+          "description" : null,
+          "type" : {
+            "kind" : "SCALAR",
+            "name" : "String",
+            "ofType" : null
           },
           "defaultValue" : null
         }, {
@@ -7922,6 +7969,7 @@
         "onField" : true
       }, {
 <<<<<<< HEAD
+<<<<<<< HEAD
         "name" : "aws_iam",
         "description" : "Tells the service this field/object has access authorized by sigv4 signing.",
         "locations" : [ "OBJECT", "FIELD_DEFINITION" ],
@@ -7973,16 +8021,23 @@
         "onFragment" : false,
         "onField" : false
       }, {
+=======
+>>>>>>> upstream/master
         "name" : "aws_subscribe",
         "description" : "Tells the service which mutation triggers this subscription.",
         "locations" : [ "FIELD_DEFINITION" ],
         "args" : [ {
+<<<<<<< HEAD
 <<<<<<< HEAD
           "name" : "mutations",
           "description" : "List of mutations which will trigger this subscription when they are called.",
 =======
           "name" : "subscriptions",
           "description" : "List of subscriptions which will be published to when this mutation is called.",
+>>>>>>> upstream/master
+=======
+          "name" : "mutations",
+          "description" : "List of mutations which will trigger this subscription when they are called.",
 >>>>>>> upstream/master
           "type" : {
             "kind" : "LIST",
@@ -8041,6 +8096,7 @@
         "onFragment" : false,
         "onField" : false
       }, {
+<<<<<<< HEAD
         "name" : "aws_oidc",
         "description" : "Tells the service this field/object has access authorized by an OIDC token.",
 >>>>>>> upstream/master
@@ -8059,13 +8115,28 @@
         "description" : "Tells the service this field/object has access authorized by an API key.",
         "locations" : [ "OBJECT", "FIELD_DEFINITION" ],
         "args" : [ ],
+=======
+        "args" : [ {
+          "name" : "reason",
+          "description" : null,
+          "type" : {
+            "kind" : "SCALAR",
+            "name" : "String",
+            "ofType" : null
+          },
+          "defaultValue" : "\"No longer supported\""
+        } ],
+>>>>>>> upstream/master
         "onOperation" : false,
         "onFragment" : false,
         "onField" : false
       }, {
+<<<<<<< HEAD
         "name" : "aws_auth",
         "description" : "Directs the schema to enforce authorization on a field",
         "locations" : [ "FIELD_DEFINITION" ],
+>>>>>>> upstream/master
+=======
 >>>>>>> upstream/master
         "args" : [ {
           "name" : "cognito_groups",
@@ -8107,6 +8178,7 @@
         "onOperation" : false,
         "onFragment" : false,
         "onField" : false
+<<<<<<< HEAD
       }, {
 >>>>>>> upstream/master
         "name" : "deprecated",
@@ -8133,6 +8205,8 @@
         "onOperation" : false,
         "onFragment" : false,
         "onField" : false
+=======
+>>>>>>> upstream/master
       } ]
     }
   }

@@ -7,7 +7,7 @@ export default class Connect extends React.Component{
     constructor(){
         super()
         this.state={
-            bool: false,
+            bool: true,
             buttonText: "Request Connect",
         }
     }
@@ -30,16 +30,18 @@ export default class Connect extends React.Component{
 
 
     createConnect = () => {
+        this.setState({bool: false})
         const data = {
             userId: this.requestingId,
             connectsId: { 
                 userId: this.requestedId,
-                status: "pending"
+                status: "connected"
             }
         }
         API.graphql(graphqlOperation(mutations.createConnect, {input: data}))
-        this.setState({bool: false})
-        this.checkStatus();
+        .then(() =>{
+            this.checkStatus();
+        })
     }
 
     updateConnect = (requestingUser) =>{
@@ -53,7 +55,7 @@ export default class Connect extends React.Component{
         .then((result) => {
             const data = {
                 userId: this.requestedId,
-                status: "pending"
+                status: "connected"
             }
             return result.data.listConnects.items[0].connectsId.concat(data);
         })
@@ -62,15 +64,18 @@ export default class Connect extends React.Component{
                 id: requestingUser[0].id,
                 connectsId: result
             }
-           API.graphql(graphqlOperation(mutations.updateConnect, {input: data}))
            this.setState({bool: false})
-           this.checkStatus();
+           API.graphql(graphqlOperation(mutations.updateConnect, {input: data}))
+           .then(() => {
+            this.checkStatus();
+           }) 
         })
         
     }
 
      requestConnect = () => {
-         if(this.state.bool == true){
+        if(this.state.bool == true){
+        this.setState({bool: false})
         API.graphql(graphqlOperation(queries.listConnects, {
             filter: {
                 userId: {
@@ -89,7 +94,7 @@ export default class Connect extends React.Component{
     }
     
     checkStatus = () =>{
-        API.graphql(graphqlOperation(queries.listConnects, {
+         API.graphql(graphqlOperation(queries.listConnects, {
             filter: {
                 userId: {
                     eq: this.requestingId
@@ -97,8 +102,12 @@ export default class Connect extends React.Component{
             }
         }))
         .then((result) => {
+            if(result.data.listConnects.items[0] == undefined){
+                this.setState({count: 1})
+            } else {
             result.data.listConnects.items[0].connectsId.forEach((connect) => {
                 if(connect.userId == this.requestedId){
+                    this.setState({bool: false})
                   if(connect.status == 'denied'){
                         this.setState({buttonText: 'Request Denied'})
                 } else if(connect.status == 'pending'){
@@ -106,11 +115,10 @@ export default class Connect extends React.Component{
                 } else if (connect.status == 'connected'){
                       this.setState({buttonText: 'Connected'})
             } 
-                } else {
-                    this.setState({bool: true});
-                }
+                } 
             });
-        })
+        }
+        }) 
     } 
 
     componentDidMount(){
