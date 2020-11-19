@@ -166,6 +166,7 @@ export const createPlayList = /* GraphQL */ `
           createdAt
           updatedAt
         }
+        ImgUrl
         createdAt
         updatedAt
       }
@@ -208,6 +209,7 @@ export const updatePlayList = /* GraphQL */ `
           createdAt
           updatedAt
         }
+        ImgUrl
         createdAt
         updatedAt
       }
@@ -250,6 +252,7 @@ export const deletePlayList = /* GraphQL */ `
           createdAt
           updatedAt
         }
+        ImgUrl
         createdAt
         updatedAt
       }
@@ -305,6 +308,7 @@ export const createFilmInList = /* GraphQL */ `
           liveChannelCreated
           remainingVODTime
           remainingLiveTime
+          ImgUrl
           createdAt
           updatedAt
         }
@@ -356,6 +360,7 @@ export const updateFilmInList = /* GraphQL */ `
           liveChannelCreated
           remainingVODTime
           remainingLiveTime
+          ImgUrl
           createdAt
           updatedAt
         }
@@ -407,6 +412,7 @@ export const deleteFilmInList = /* GraphQL */ `
           liveChannelCreated
           remainingVODTime
           remainingLiveTime
+          ImgUrl
           createdAt
           updatedAt
         }
@@ -449,6 +455,7 @@ export const createUser = /* GraphQL */ `
           liveChannelCreated
           remainingVODTime
           remainingLiveTime
+          ImgUrl
           createdAt
           updatedAt
         }
@@ -458,6 +465,7 @@ export const createUser = /* GraphQL */ `
         createdAt
         updatedAt
       }
+      ImgUrl
       createdAt
       updatedAt
     }
@@ -491,6 +499,7 @@ export const updateUser = /* GraphQL */ `
           liveChannelCreated
           remainingVODTime
           remainingLiveTime
+          ImgUrl
           createdAt
           updatedAt
         }
@@ -500,6 +509,7 @@ export const updateUser = /* GraphQL */ `
         createdAt
         updatedAt
       }
+      ImgUrl
       createdAt
       updatedAt
     }
@@ -533,6 +543,7 @@ export const deleteUser = /* GraphQL */ `
           liveChannelCreated
           remainingVODTime
           remainingLiveTime
+          ImgUrl
           createdAt
           updatedAt
         }
@@ -542,57 +553,7 @@ export const deleteUser = /* GraphQL */ `
         createdAt
         updatedAt
       }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const createConnect = /* GraphQL */ `
-  mutation CreateConnect(
-    $input: CreateConnectInput!
-    $condition: ModelConnectConditionInput
-  ) {
-    createConnect(input: $input, condition: $condition) {
-      id
-      userId
-      connectsId {
-        userId
-        status
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const updateConnect = /* GraphQL */ `
-  mutation UpdateConnect(
-    $input: UpdateConnectInput!
-    $condition: ModelConnectConditionInput
-  ) {
-    updateConnect(input: $input, condition: $condition) {
-      id
-      userId
-      connectsId {
-        userId
-        status
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const deleteConnect = /* GraphQL */ `
-  mutation DeleteConnect(
-    $input: DeleteConnectInput!
-    $condition: ModelConnectConditionInput
-  ) {
-    deleteConnect(input: $input, condition: $condition) {
-      id
-      userId
-      connectsId {
-        userId
-        status
-      }
+      ImgUrl
       createdAt
       updatedAt
     }
