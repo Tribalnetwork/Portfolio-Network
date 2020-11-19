@@ -258,6 +258,10 @@ export const getUser = /* GraphQL */ `
       liveChannelCreated
       remainingVODTime
       remainingLiveTime
+<<<<<<< HEAD
+=======
+      ImgUrl
+>>>>>>> upstream/master
       myList {
         id
         name
@@ -308,6 +312,7 @@ export const listUsers = /* GraphQL */ `
           createdAt
           updatedAt
         }
+<<<<<<< HEAD
         createdAt
         updatedAt
       }
@@ -343,6 +348,9 @@ export const listConnects = /* GraphQL */ `
           userId
           status
         }
+=======
+        ImgUrl
+>>>>>>> upstream/master
         createdAt
         updatedAt
       }

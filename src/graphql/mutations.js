@@ -542,6 +542,7 @@ export const deleteUser = /* GraphQL */ `
         createdAt
         updatedAt
       }
+<<<<<<< HEAD
       createdAt
       updatedAt
     }
@@ -593,6 +594,8 @@ export const deleteConnect = /* GraphQL */ `
         userId
         status
       }
+=======
+>>>>>>> upstream/master
       createdAt
       updatedAt
     }

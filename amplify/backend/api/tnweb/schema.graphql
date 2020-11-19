@@ -36,7 +36,10 @@ type FilmInList@model
   listId:ID!
   list:PlayList@connection(fields: ["listId"])
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> upstream/master
 type User @model {
   id: ID!
   name: String
@@ -48,4 +51,8 @@ type User @model {
   remainingVODTime: Int
   remainingLiveTime: Int
   myList:PlayList@connection(name: "UsermyList")
+<<<<<<< HEAD
+=======
+  ImgUrl:String
+>>>>>>> upstream/master
 }

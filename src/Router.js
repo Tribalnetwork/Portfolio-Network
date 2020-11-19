@@ -10,12 +10,12 @@ import UserContext from "./UserContext";
 import { NavigationBar } from "./components/NavigationBar";
 
 import Authenticator from './Authenticator'
-import Home from './Home'
+import Home from "./HomePage/Home"
 import { Upload } from './Upload';
 import Watch from './Watch'
 import Live from './Live'
-import { Stream } from './Stream'
-import Profile from './Profile'
+import { Stream } from './TribalPage/Stream'
+import Profile from './SocialPage/Profile'
 import GetAccess from './GetAccess'
 import Pending from './Pending'
 import { MyLive } from './MyLive'
@@ -23,6 +23,11 @@ import BottomNavBar from './components/bottomNavBar'
 import SearchQueries from "./components/searchQueries"
 import ViewProfile from "./ViewProfile"
 import MyList from "./MyList"
+<<<<<<< HEAD
+=======
+import MyStudio from "./MyStudio/MyStudio";
+import Settings, { Wifi, Support, TermsOfService, PrivacyPolicy, Account, Notifications, DownloadOptions, Logout } from "./SettingsPage/Settings";
+>>>>>>> upstream/master
 
 class PrivateRoute extends React.Component {
   // PrivateRoutes require authentication to access
@@ -80,11 +85,16 @@ const Routes = () => (
     <div>
       <NavigationBar />
       <Switch>
+<<<<<<< HEAD
         {/*
+=======
+        
+>>>>>>> upstream/master
         <Route path="/settings" exact component={Settings}>
           <Settings />
         </Route>
         <Route
+<<<<<<< HEAD
           path="/settings/wifiandcellular"
           exact
           component={WifiAndCellular}
@@ -92,11 +102,63 @@ const Routes = () => (
           <WifiAndCellular />
         </Route>
         */}
+=======
+          path="/settings/wifi"
+        >
+          <Wifi />
+        </Route>
+        <Route
+          path="/settings/support"
+        >
+          <Support />
+        </Route>
+        <Route
+          path="/settings/termsofservice"
+        >
+          <TermsOfService />
+        </Route>
+        <Route
+          path="/settings/privacypolicy"
+        >
+          <PrivacyPolicy />
+        </Route>
+        <Route
+          path="/settings/account"
+        >
+          <Account />
+        </Route>
+        <Route
+          path="/settings/notifications"
+        >
+          <Notifications />
+        </Route>
+        <Route
+          path="/settings/downloadoptions"
+        >
+          <DownloadOptions />
+        </Route>
+        <Route
+          path="/settings/logout"
+        >
+          <Logout />
+        </Route>
+        <Route
+          path="/settings/wifiandcellular"
+        >
+        </Route>
+       
+>>>>>>> upstream/master
         <Route path="/auth" exact component={Authenticator} />
         <Route path="/" exact component={Home} />
         <Route path="/home" exact component={Home} />
         <Route path="/search" exact component={SearchQueries} />
         <Route path="/viewProfile" exact component={ViewProfile} />
+<<<<<<< HEAD
+=======
+        <Route path="/myStudio" exact component={MyStudio} />
+        <Route path="/myStudio/myFolder" exact component={MyStudio} />
+        <Route path="/myStudio/toDoList" exact component={MyStudio} />
+>>>>>>> upstream/master
         <PrivateRoute path="/upload" exact component={Upload} />
         <PrivateRoute path="/streams" component={Stream} />
         <PrivateRoute path="/watch" component={Watch} />

@@ -1,10 +1,10 @@
 import React, {useState, useEffect, useContext} from 'react'
 import { API, graphqlOperation } from 'aws-amplify'
-import { createLiveStream, updateUser } from './graphql/mutations'
-import { listLiveStreams } from './graphql/queries'
+import { createLiveStream, updateUser } from '../graphql/mutations'
+import { listLiveStreams } from '../graphql/queries'
 import '@aws-amplify/ui/dist/style.css';
 import { Link } from "react-router-dom";
-import UserContext from './UserContext'
+import UserContext from '../UserContext'
 import { Helmet } from 'react-helmet'
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -12,7 +12,13 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
+<<<<<<< HEAD:src/Stream.js
 import SearchQueries from "./components/searchQueries"
+=======
+import SearchQueries from "../components/searchQueries";
+import StartLive from "./startLive.png";
+import Trending from "../components/Trending";
+>>>>>>> upstream/master:src/TribalPage/Stream.js
 
 export const Stream = () => {
   const [liveStreams, setLiveStreams] = useState([])
@@ -72,14 +78,13 @@ export const Stream = () => {
         <meta charSet="utf-8" />
         <title>Live Streams</title>
       </Helmet>
+      <Trending/>
       <div>
         {
           context.hasChannel ? (
             <div>
               <p style={{textAlign: 'center'}}>You created a live channel.</p>
-              <Link to="/mylive">
-                <button style={styles.button} >My Channel</button>
-              </Link>
+              
             </div>
           ) : (
             <button style={styles.button} onClick={generateUrl}>Create Channel</button>
@@ -87,7 +92,14 @@ export const Stream = () => {
         }
       </div>
       <div style={styles.searchContainer}>
+<<<<<<< HEAD:src/Stream.js
         <SearchQueries type={"liveStreams"}/>
+=======
+        <Link to="/mylive" style={styles.startLive}>
+            <img src={StartLive}/>
+        </Link>
+        <SearchQueries type={"liveStreams"} style={styles.search}/>
+>>>>>>> upstream/master:src/TribalPage/Stream.js
       </div> 
       <div style={styles.container}>
         <h1>Live Streams</h1>
@@ -125,13 +137,17 @@ export const Stream = () => {
 
 const styles = {
   root: {
-    width: 237,
+    width: "237px",
   },
   media: {
     height: 178,
   },
   header: { margin: '0 auto', display: 'flex', flex: 1, flexDirection: 'column', justifyContent: 'center', padding: 20 },
+<<<<<<< HEAD:src/Stream.js
   container: { width: 1000, margin: '0 auto', display: 'flex', flex: 1, flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'left', padding: 20, zIndex: "-1" },
+=======
+  container: { width: "100%", margin: '0', display: 'flex', flex: 1, flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'left', zIndex: "-1" },
+>>>>>>> upstream/master:src/TribalPage/Stream.js
   link: { textDecoration: 'none' },
   film: { width: 200, marginBottom: 15, marginRight: 10 },
   stream: { width: 400 },
@@ -140,5 +156,11 @@ const styles = {
   streamText: { fontSize: 14, marginBottom: 0},
   filmDescription: { marginBottom: 0 },
   button: { width: 400, backgroundColor: 'black', color: 'white', outline: 'none', fontSize: 18, padding: '12px 0px' },
+<<<<<<< HEAD:src/Stream.js
   searchContainer: {width: "70vw", marginLeft: "15vw", marginRight: "25%", borderRadius: "25px"},
+=======
+  searchContainer: {width: "70vw", marginLeft: "15vw", marginRight: "25%", borderRadius: "25px", display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gridTemplateRows: "1fr"},
+  search: {},
+  startLive: {position: "relative", left: "7.5vw", top: "5vh", minHeight: "3vh", maxHeight: "9vh", minWidth: "3vh", maxWidth: "9vw"}
+>>>>>>> upstream/master:src/TribalPage/Stream.js
 }

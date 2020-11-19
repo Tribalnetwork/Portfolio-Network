@@ -1,10 +1,16 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 node_modules
 =======
 >>>>>>> f5b5085... search function, and skeleton of bottom nav bar
 >>>>>>> aafbd93c547ca40388ecea25893e1bea5e2f2cda
+=======
+node_modules
+=======
+>>>>>>> f5b5085... search function, and skeleton of bottom nav bar
+>>>>>>> upstream/master
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies

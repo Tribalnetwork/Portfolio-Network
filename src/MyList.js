@@ -26,19 +26,32 @@ export default class MyList extends React.Component {
     static contextType = UserContext
     state = {
         films: [],
+<<<<<<< HEAD
         list:{},
         selected:{}
       }
       componentDidMount() {
         //this.context.updateCurrentUser()
         //console.log("fetching films...")
+=======
+        list:{}
+      }
+      componentDidMount() {
+>>>>>>> upstream/master
         this.fetchMyList()
       }
     
       async fetchMyList() {
         const user1=await API.graphql(graphqlOperation(getUser, { id: this.context.user.attributes.sub}))
         let list1=user1.data.getUser.myList;
+<<<<<<< HEAD
         if(list1===null){alert("you don't have a list yet, let's go add some films to the list!");}
+=======
+        if(list1===null){
+          //alert("you don't have a list yet, let's go add some films to the list!");
+          return;
+        }
+>>>>>>> upstream/master
         try {
           const filmLists = await API.graphql(graphqlOperation(listFilmInLists, {
             filter: {
@@ -46,6 +59,7 @@ export default class MyList extends React.Component {
             }
           }));
           //console.log(filmLists.data.listFilmInLists);
+<<<<<<< HEAD
           this.setState({ films: filmLists.data.listFilmInLists.items,list:list1 })
         } catch (err) { console.log(err) }
       }
@@ -82,11 +96,25 @@ export default class MyList extends React.Component {
             </div>
             
 
+=======
+          this.setState({ films: filmLists.data.listFilmInLists.items.map(i=>i.film),list:list1 })
+        } catch (err) { console.log(err) }
+      }
+       
+
+      render(){
+          return(
+          <div className="mylist-wrapper">
+              <p>My List</p>
+              <HorizontalScroller list={this.state.films} />               
+          </div>
+>>>>>>> upstream/master
           )
       }
 
 }
 
+<<<<<<< HEAD
 const styles = {
   header: { width: 1000, margin: '0 auto', display: 'flex', flex: 1, flexDirection: 'column', justifyContent: 'center', padding: 20 },
   container: {  margin: '0 auto', display: 'flex', flex: 1, flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'left', padding: 20 },
@@ -97,4 +125,6 @@ const styles = {
   button: { backgroundColor: 'black', color: 'white', outline: 'none', fontSize: 18, padding: '12px 0px' },
 
 }
+=======
+>>>>>>> upstream/master
 
