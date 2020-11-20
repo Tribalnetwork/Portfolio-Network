@@ -1,4 +1,5 @@
 .menu-item {
+<<<<<<< HEAD
   padding: 0 40px;
   margin: 5px 5px;
   user-select: none;
@@ -26,6 +27,19 @@
     max-height: 255px;
     overflow-y: hidden;
     overflow-x: 500px;
+=======
+    padding: 0 40px;
+    margin: 5px 5px;
+    user-select: none;
+    cursor: pointer;
+    border: none;
+  }
+  .menu-item-wrapper {
+    margin:0 10px;
+    width:120px;
+    overflow: hidden;
+    white-space: nowrap;
+>>>>>>> upstream/master
   }
 
   .MuiGrid-root::-webkit-scrollbar {
