@@ -508,7 +508,55 @@ export const onDeleteUser = /* GraphQL */ `
         createdAt
         updatedAt
       }
+<<<<<<< HEAD
+<<<<<<< HEAD
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onCreateConnect = /* GraphQL */ `
+  subscription OnCreateConnect {
+    onCreateConnect {
+      id
+      userId
+      connectsId {
+        userId
+        status
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateConnect = /* GraphQL */ `
+  subscription OnUpdateConnect {
+    onUpdateConnect {
+      id
+      userId
+      connectsId {
+        userId
+        status
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteConnect = /* GraphQL */ `
+  subscription OnDeleteConnect {
+    onDeleteConnect {
+      id
+      userId
+      connectsId {
+        userId
+        status
+      }
+=======
+>>>>>>> upstream/master
+=======
       ImgUrl
+>>>>>>> upstream/master
       createdAt
       updatedAt
     }

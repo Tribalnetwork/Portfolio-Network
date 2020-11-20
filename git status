@@ -1,0 +1,291 @@
+[33mcommit 4a6fd0f150ade7b0e96fe975d6863728f943f4e5[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31mupstream/master[m[33m, [m[1;31mupstream/landing-signin-components[m[33m, [m[1;31morigin/rollback_positions[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/landing-signin-components[m[33m, [m[1;32mrollback_positions[m[33m, [m[1;32mlanding-signin-components[m[33m)[m
+Merge: ef6317b aafbd93
+Author: DRSUS <jhinesgu99@gmail.com>
+Date:   Mon Nov 9 22:03:32 2020 -0500
+
+    Merge branch 'master' of https://github.com/DRSUS/TNWeb
+
+[33mcommit ef6317bd25d889f52f8e891acb188a9995d51a26[m
+Author: DRSUS <jhinesgu99@gmail.com>
+Date:   Tue Nov 3 16:32:54 2020 -0500
+
+    landing/signin
+
+[33mcommit aafbd93c547ca40388ecea25893e1bea5e2f2cda[m
+Author: Jesse Hines <40167881+DRSUS@users.noreply.github.com>
+Date:   Tue Nov 3 15:32:09 2020 -0500
+
+    tribal-landing2 (#1)
+    
+    * add aws-exports
+    
+    * Add aws-exports.js
+    
+    * initial commit
+    
+    * search function and bottom navbar
+    
+    * Add files via upload
+    
+    * git ignore
+    
+    * aws-exports
+    
+    * Add files via upload
+    
+    * modified player screen aspect ratio and implemented addtolist button
+    
+    * commit aws-export
+    
+    * Add files via upload
+    
+    * commit to un conflict
+    
+    * search function and skeleton of bottom navbar
+    
+    * search
+    
+    * updated search
+    
+    * updated search and bottom nav bar
+    
+    * add schema for connects
+    
+    * connect schema
+    
+    * updated search and bottom nav bar
+    
+    * Bottom Nav with icons & Search scrollable
+    
+    * connect component(not done yet)
+    
+    * updated graphql schema, imported connect component into viewProfile
+    
+    * update
+    
+    * created connect function, still needs work
+    
+    * add to watch page
+    
+    * More Progress on connect button, moved searchqueires and botnavbar to components folder
+    
+    * updated styling on bottomNavBar and Search, updated connect feature
+    
+    * Update bottomNavBar.js
+    
+    * initial settings page
+    
+    * search updated
+    
+    * Create npm-publish.yml
+    
+    * Revert "Merge pull request #10 from sunnydelight23/settings"
+    
+    This reverts commit 605c7633ea4243e969c45d3381ce7856d2902005, reversing
+    changes made to 81cf79a96ecb69c1374b29c6d364fe244d2e6fb2.
+    
+    * film blocks added to search
+    
+    * debug file
+    
+    * debug log
+    
+    * Update README.md
+    
+    * updated search to be used across other parts of app, renamed filmBlocks to filmFrame
+    
+    * initial settings page
+    
+    * initial settings page
+    
+    * initial settings page
+    
+    * initial settings page
+    
+    * initial settings page
+    
+    * router.js includes bottomnavbar
+    
+    * Scrollers on Homepage
+    
+    * imported search bar to live Streams page
+    
+    * started styling social page ver1.
+    
+    * Homepage Styling 2
+    
+    * Revert "Home styling2"
+    
+    * add some media query to social and top navbar.
+    
+    Co-authored-by: Leo Xu <leo.xu.64@gmail.com>
+    Co-authored-by: jreid2454 <jreid2454@yahoo.com>
+    Co-authored-by: jreid2454 <57486037+jreid2454@users.noreply.github.com>
+    Co-authored-by: Yuqi Ma <yuqi_m@yahoo.com>
+    Co-authored-by: Justin <62265418+sgthuth@users.noreply.github.com>
+    Co-authored-by: Tribaloperations <63390983+Tribaloperations@users.noreply.github.com>
+    Co-authored-by: Sasaank Reddy <sasaankreddy@gmail.com>
+    Co-authored-by: joseph ken <you@example.com>
+
+[33mcommit 055bf418cb2224d93593bc482a2760a9394c2ad9[m
+Author: Leo Xu <leo.xu.64@gmail.com>
+Date:   Sat Aug 15 14:45:30 2020 -0400
+
+    added material ui to pending page
+
+[33mcommit 2517948e706130cadc2d332e0e1593bc348600e8[m
+Author: LeoXu1 <leo.xu.64@gmail.com>
+Date:   Sat Aug 15 13:32:02 2020 -0400
+
+    comment about PrivateRoute
+
+[33mcommit 62af5082bb463c136c4e921a5e0220c027ae7e97[m
+Author: LeoXu1 <leo.xu.64@gmail.com>
+Date:   Sat Aug 15 13:30:06 2020 -0400
+
+    comments for the state variables
+
+[33mcommit 5d030eb9b4daf35685b724eb9c90991d64682e13[m
+Author: LeoXu1 <leo.xu.64@gmail.com>
+Date:   Fri Aug 14 14:37:59 2020 -0400
+
+    Update README.md
+
+[33mcommit 7b5709974bd669581ed7e8237c9c0b15d8bfc0a3[m
+Author: LeoXu1 <leo.xu.64@gmail.com>
+Date:   Fri Aug 14 14:26:38 2020 -0400
+
+    Update README.md
+
+[33mcommit bb9971ac123a08b56400a96fbb978e5d55b146b5[m
+Author: Leo Xu <leo.xu.64@gmail.com>
+Date:   Thu Aug 13 21:56:17 2020 -0400
+
+    cleanup
+
+[33mcommit 87b714adaafe55e95f18c5f35ea40aec9312d958[m
+Author: Leo Xu <leo.xu.64@gmail.com>
+Date:   Thu Aug 13 20:40:49 2020 -0400
+
+    viewport
+
+[33mcommit 8590b28b1caf6fc8123886b33d9901e086e3e3c9[m
+Author: LeoXu1 <leo.xu.64@gmail.com>
+Date:   Thu Aug 13 20:26:19 2020 -0400
+
+    Update README.md
+
+[33mcommit eb7ce09490492c1912fb17f8adfe3b1b225ba283[m
+Author: Leo Xu <leo.xu.64@gmail.com>
+Date:   Thu Aug 13 19:49:08 2020 -0400
+
+    removed yarn.lock
+
+[33mcommit 80a39fd7b647e2fa476e68959df1b11b0f7e52e7[m
+Author: LeoXu1 <leo.xu.64@gmail.com>
+Date:   Thu Aug 13 19:48:30 2020 -0400
+
+    Update README.md
+
+[33mcommit 78a183322fc538d23fbd482ea15014f887753869[m
+Author: Leo Xu <leo.xu.64@gmail.com>
+Date:   Thu Aug 13 17:51:53 2020 -0400
+
+    more material UI
+
+[33mcommit 81433c459599e03afe4f9fc363ec89ab8fa4f02e[m
+Author: Leo Xu <leo.xu.64@gmail.com>
+Date:   Wed Aug 12 12:03:15 2020 -0400
+
+    nav drawer
+
+[33mcommit 1a178f315f2b0d1725e953a9a6b1a68add8caeb6[m
+Author: Leo Xu <leo.xu.64@gmail.com>
+Date:   Wed Aug 12 11:12:56 2020 -0400
+
+    fixed links
+
+[33mcommit 3a77129bed92a12bb5e620941633e07ca6deebcc[m
+Author: Leo Xu <leo.xu.64@gmail.com>
+Date:   Tue Aug 11 22:23:02 2020 -0400
+
+    material ui navbar
+
+[33mcommit 3b314e8b599f7a04044f8bcac7e168833b149a6a[m
+Author: LeoXu1 <leo.xu.64@gmail.com>
+Date:   Tue Aug 11 12:41:44 2020 -0400
+
+    Update README.md
+
+[33mcommit 4947e5fad9d173bdb25b45297a58ea358a4adee9[m
+Merge: e768ea3 38e90b6
+Author: Leo Xu <leo.xu.64@gmail.com>
+Date:   Mon Aug 10 22:08:43 2020 -0400
+
+    Merge branch 'master' of https://github.com/Tribalnetwork/TNWeb
+
+[33mcommit e768ea35f4e8fec92a48eaa966edcce1ae20e6f2[m
+Author: Leo Xu <leo.xu.64@gmail.com>
+Date:   Mon Aug 10 22:08:14 2020 -0400
+
+    page titles and more proxy usage
+
+[33mcommit 38e90b66f2e1251f28aa1fb80ac8754571eb62d2[m
+Author: LeoXu1 <leo.xu.64@gmail.com>
+Date:   Sat Aug 8 16:36:27 2020 -0400
+
+    Update README.md
+
+[33mcommit c88d1f50b5b7ea1562f74b26ed297ebf679c0840[m
+Author: LeoXu1 <leo.xu.64@gmail.com>
+Date:   Sat Aug 8 14:45:44 2020 -0400
+
+    Update README.md
+
+[33mcommit 14f55b25fea7203e85c839f534d8b39bff33c855[m
+Author: LeoXu1 <leo.xu.64@gmail.com>
+Date:   Fri Aug 7 18:12:45 2020 -0400
+
+    Update README.md
+
+[33mcommit e6ae6814fc89ca932778c92ed129a6c1fddc6f5f[m
+Author: LeoXu1 <leo.xu.64@gmail.com>
+Date:   Fri Aug 7 18:12:06 2020 -0400
+
+    Update README.md
+
+[33mcommit bd87340fbcd7d8f21e6c02567cf7160a0d0e5860[m
+Author: LeoXu1 <leo.xu.64@gmail.com>
+Date:   Fri Aug 7 18:11:22 2020 -0400
+
+    Added additional guides link.
+
+[33mcommit bdc09a8017c3bf5cad3143c2f6104c754db43a03[m
+Author: LeoXu1 <leo.xu.64@gmail.com>
+Date:   Fri Aug 7 14:09:37 2020 -0400
+
+    Update README.md
+
+[33mcommit ba6ed2864a758a34a4694a9c327728f0bfef0b42[m
+Author: LeoXu1 <leo.xu.64@gmail.com>
+Date:   Fri Aug 7 14:09:19 2020 -0400
+
+    Update README.md
+
+[33mcommit 716c4702c696ceffd82e16f9b2ab01ba32d7ae8d[m
+Author: LeoXu1 <leo.xu.64@gmail.com>
+Date:   Fri Aug 7 13:26:52 2020 -0400
+
+    update
+
+[33mcommit e95315fa1c8063f9ca872ce5d7ffcce5dde6d286[m
+Author: Leo Xu <leo.xu.64@gmail.com>
+Date:   Fri Aug 7 11:45:02 2020 -0400
+
+    added files
+
+[33mcommit f07865407dda26216e0f15ec13eaa55600c007b5[m
+Author: Leo Xu <leo.xu.64@gmail.com>
+Date:   Fri Aug 7 11:43:57 2020 -0400
+
+    first commit

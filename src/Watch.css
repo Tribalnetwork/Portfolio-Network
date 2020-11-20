@@ -24,6 +24,8 @@ h3 {
   top: 0;
   left: 0;
 }
+<<<<<<< HEAD
+=======
 .trending-now-wrapper{
   margin:10px;
   color: white;
@@ -35,3 +37,4 @@ h3 {
 .author-text{
   color:white
 }
+>>>>>>> upstream/master
