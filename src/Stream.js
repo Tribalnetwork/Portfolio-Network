@@ -13,6 +13,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import SearchQueries from "./components/searchQueries"
+import { hover } from 'glamor';
 
 export const Stream = () => {
   const [liveStreams, setLiveStreams] = useState([])
@@ -77,6 +78,13 @@ export const Stream = () => {
           context.hasChannel ? (
             <div>
               <p style={{textAlign: 'center'}}>You created a live channel.</p>
+              <div className="tribalButton">
+                <div className='action'><button>Submit Film</button></div>
+                <div className='action'><button>Gig Board</button></div>
+                <div className='action'><button>Live</button></div>
+                <div className='action'><button>Events</button></div>
+                <div className='action'><button>Our Studio</button></div>
+              </div>
               <Link to="/mylive">
                 <button style={styles.button} >My Channel</button>
               </Link>
@@ -88,14 +96,16 @@ export const Stream = () => {
       </div>
       <div style={styles.searchContainer}>
         <SearchQueries type={"liveStreams"}/>
-      </div> 
+      </div>
       <div style={styles.container}>
-        <h1>Live Streams</h1>
+        <h1>Live Stream</h1>
+      </div>
+      <div style={styles.container} className='containers'>
         <Grid container justify="center" spacing={5}>
           {
             liveStreams.map((stream, index) => (
               <Grid key={stream.id ? stream.id : index} item>
-                <Card style={styles.root}>
+                <Card style={styles.root} className='card'>
                   <Link to={`/live?id=${stream.id}`} style={styles.link}>
                     <CardActionArea>
                       <CardMedia
@@ -125,10 +135,10 @@ export const Stream = () => {
 
 const styles = {
   root: {
-    width: 237,
+    width: 275,
   },
   media: {
-    height: 178,
+    height: 112,
   },
   header: { margin: '0 auto', display: 'flex', flex: 1, flexDirection: 'column', justifyContent: 'center', padding: 20 },
   container: { width: 1000, margin: '0 auto', display: 'flex', flex: 1, flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'left', padding: 20, zIndex: "-1" },
@@ -139,6 +149,6 @@ const styles = {
   filmTitle: { fontSize: 20, fontWeight: 'bold', marginBottom: 0 },
   streamText: { fontSize: 14, marginBottom: 0},
   filmDescription: { marginBottom: 0 },
-  button: { width: 400, backgroundColor: 'black', color: 'white', outline: 'none', fontSize: 18, padding: '12px 0px' },
+  button: { width: 400, backgroundColor: 'black', color: 'white', outline: 'none', fontSize: 18, padding: '12px 0px', borderRadius: '50px', border: 'none', margin: '15px'},
   searchContainer: {width: "70vw", marginLeft: "15vw", marginRight: "25%", borderRadius: "25px"},
 }
