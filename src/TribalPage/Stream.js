@@ -1,4 +1,3 @@
-<<<<<<< HEAD:src/Stream.js
 import React, {useState, useEffect, useContext} from 'react'
 import { API, graphqlOperation } from 'aws-amplify'
 import { createLiveStream, updateUser } from './graphql/mutations'
@@ -153,15 +152,15 @@ const styles = {
   button: { width: 400, backgroundColor: 'black', color: 'white', outline: 'none', fontSize: 18, padding: '12px 0px', borderRadius: '50px', border: 'none', margin: '15px'},
   searchContainer: {width: "70vw", marginLeft: "15vw", marginRight: "25%", borderRadius: "25px"},
 }
-=======
-import React, {useState, useEffect, useContext} from 'react'
-import { API, graphqlOperation } from 'aws-amplify'
-import { createLiveStream, updateUser } from '../graphql/mutations'
-import { listLiveStreams } from '../graphql/queries'
+
+import React, {useState, useEffect, useContext} from 'react';
+import { API, graphqlOperation } from 'aws-amplify';
+import { createLiveStream, updateUser } from '../graphql/mutations';
+import { listLiveStreams } from '../graphql/queries';
 import '@aws-amplify/ui/dist/style.css';
 import { Link } from "react-router-dom";
 import UserContext from '../UserContext'
-import { Helmet } from 'react-helmet'
+import { Helmet } from 'react-helmet';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
@@ -304,4 +303,4 @@ const styles = {
   search: {},
   startLive: {position: "relative", left: "7.5vw", top: "5vh", minHeight: "3vh", maxHeight: "9vh", minWidth: "3vh", maxWidth: "9vw"}
 }
->>>>>>> upstream/master:src/TribalPage/Stream.js
+

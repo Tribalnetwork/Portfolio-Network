@@ -1,5 +1,4 @@
 .menu-item {
-<<<<<<< HEAD
   padding: 0 40px;
   margin: 5px 5px;
   user-select: none;
@@ -27,7 +26,7 @@
     max-height: 255px;
     overflow-y: hidden;
     overflow-x: 500px;
-=======
+
     padding: 0 40px;
     margin: 5px 5px;
     user-select: none;
@@ -35,24 +34,26 @@
     border: none;
   }
   .menu-item-wrapper {
-    margin:0 10px;
-    width:120px;
+    margin: 0 10px;
+    width: 120px;
     overflow: hidden;
     white-space: nowrap;
->>>>>>> upstream/master
   }
 
   .MuiGrid-root::-webkit-scrollbar {
     width: 0px;
   }
+}
 
-  .containers {
-    justify-content: center;
-    display: flex;
-    height: 100%;
-    line-height: 110px;
-    text-align: center;
-  }
+.MuiGrid-root::-webkit-scrollbar {
+  width: 0px;
+}
+.containers {
+  justify-content: center;
+  display: flex;
+  height: 100%;
+  line-height: 110px;
+  text-align: center;
 }
 
 .tribalButton {
