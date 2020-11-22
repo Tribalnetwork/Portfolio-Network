@@ -25,6 +25,7 @@ import ViewProfile from "./ViewProfile"
 import MyList from "./MyList"
 import MyStudio from "./MyStudio/MyStudio";
 import Settings, { Wifi, Support, TermsOfService, PrivacyPolicy, Account, Notifications, DownloadOptions, Logout } from "./SettingsPage/Settings";
+import Gigs from "./Gigs";
 
 class PrivateRoute extends React.Component {
   // PrivateRoutes require authentication to access
@@ -148,6 +149,7 @@ const Routes = () => (
         <PrivateRoute path="/pending" component={Pending} />
         <PrivateRoute path="/mylive" component={MyLive} />
         <PrivateRoute path="/mylist" component={MyList} />
+        <PrivateRoute path="/gigs" component={Gigs} />
         <Route component={NoMatch} />
       </Switch>
       <BottomNavBar />

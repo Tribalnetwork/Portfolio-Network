@@ -22,6 +22,7 @@ import ContinueWatching from "../ContinueWatching";
 import MyList from "../MyList";
 import {ReactComponent as ExploreLogo} from '../icons/Explore.svg';
 import {ReactComponent as MyStudioLogo} from '../icons/myStudio.svg';
+import Gigs from '../Gigs';
 Amplify.configure(awsconfig);
 
 export default class Home extends React.Component {
@@ -94,9 +95,10 @@ export default class Home extends React.Component {
                   height="100%"
                 />
               </Link>
-            <div className="video-name-wrapper">
-              <p className="video-name">{this.state.videoName}</p>
-            </div>
+             
+              <div className="video-name-wrapper">
+                <p className="video-name">{this.state.videoName}</p>
+              </div>
             </div>
             <div className = "blk">
               <div className="functionbar-wrapper">
