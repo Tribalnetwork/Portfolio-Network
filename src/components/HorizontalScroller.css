@@ -56,6 +56,18 @@
   text-align: center;
 }
 
+.MuiGrid-root::-webkit-scrollbar {
+  width: 0px;
+}
+
+.containers {
+  justify-content: center;
+  display: flex;
+  height: 100%;
+  line-height: 110px;
+  text-align: center;
+}
+
 .tribalButton {
   margin: auto;
   display: flex;

@@ -152,3 +152,5 @@ const styles = {
   button: { width: 400, backgroundColor: 'black', color: 'white', outline: 'none', fontSize: 18, padding: '12px 0px', borderRadius: '50px', border: 'none', margin: '15px'},
   searchContainer: {width: "70vw", marginLeft: "15vw", marginRight: "25%", borderRadius: "25px"},
 }
+
+
