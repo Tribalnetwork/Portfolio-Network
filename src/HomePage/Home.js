@@ -22,6 +22,7 @@ import ContinueWatching from "../ContinueWatching";
 import MyList from "../MyList";
 import {ReactComponent as ExploreLogo} from '../icons/Explore.svg';
 import {ReactComponent as MyStudioLogo} from '../icons/myStudio.svg';
+import Gigs from '../Gigs';
 Amplify.configure(awsconfig);
 
 export default class Home extends React.Component {
@@ -76,39 +77,48 @@ export default class Home extends React.Component {
         <div style={styles.container}>
         {
             isLoaded ? isAuthenticated ? hasAccess ? (
-              <div>
-          <div className="player-wrapper">
-            <ReactPlayer
-            className="react-player"
-              ref={p => { this.p = p }}
-              url={this.state.url}
-              controls
-              playing
-              volume="0"
-              muted
-              onEnded={() => this.p.showPreview()}
-              width="100%"
-              height="100%"
-            />
-            <div className="video-name-wrapper">
-              <p className="video-name">{this.state.videoName}</p>
+          <div>
+            <div className="player-wrapper">
+              <Link to={`/watch?id=${'4a13ac70-b95c-48bb-9c80-1d340078c647'}`} style={styles.link}>
+                <ReactPlayer
+                className="react-player"
+                 // ref={p => { this.p = p }}
+                  //url={this.state.url}
+                  url = {'https://d2tj5fkeuzoaui.cloudfront.net/4a13ac70-b95c-48bb-9c80-1d340078c647/hls/bunny_2020-07-28T01:25:05.353Z.m3u8'}
+                  controls = {false}
+                  loop = {true}
+                  playing = {true}
+                 // volume="0"
+                  muted = {true}
+                  //onEnded={() => this.p.showPreview()}
+                  width="100%"
+                  height="100%"
+                />
+              </Link>
+             
+              <div className="video-name-wrapper">
+                <p className="video-name">{this.state.videoName}</p>
+              </div>
             </div>
-          </div>
-          <div className="functionbar-wrapper">
-          <Grid container justify="space-between">
-            <Grid item><ExploreLogo></ExploreLogo></Grid>
-            <Grid item>
-              <Link to={'/mystudio/myFolder'}><MyStudioLogo></MyStudioLogo></Link>
-              </Grid>
-          </Grid>
-          </div>
-          <div className="trendy-wrapper">
-            <p>Trending Live</p>
-            <HorizontalScrollerCircular list={this.state.livestreams} />
-          </div>
-          <ContinueWatching></ContinueWatching>
-          <TrendingNow></TrendingNow>
-          <MyList></MyList>
+            <div className = "blk">
+              <div className="functionbar-wrapper">
+                <Grid container justify="space-between">
+                  <Grid item>
+                    <ExploreLogo></ExploreLogo>
+                  </Grid>
+                  <Grid item>
+                    <Link to={'/mystudio'}><MyStudioLogo></MyStudioLogo></Link>
+                  </Grid>
+                </Grid>
+              </div>
+              <div className="trendy-wrapper">
+                <p>Trending Live</p>
+                <HorizontalScrollerCircular list={this.state.livestreams} />
+              </div>
+            </div>
+            <ContinueWatching></ContinueWatching>
+            <TrendingNow></TrendingNow>
+            <MyList></MyList>
           </div>
               
             ) : (

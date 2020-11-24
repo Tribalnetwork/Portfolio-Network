@@ -1,0 +1,45 @@
+.GigBoard {
+  position: relative;
+  /*padding-top: 56.25%; /* Player ratio: 100 / (1280 / 720) */
+  color: white;
+  border: solid black;
+  padding-bottom: 180px;
+  width: 375px;
+}
+.Boards {
+  color: pink;
+  margin: 10px;
+  height: 50px;
+  display: flex;
+  border-radius: 50;
+  text-decoration: none;
+  justify-content: space-between;
+}
+
+button,
+input {
+  margin-left: 20px;
+  border: solid pink;
+  border-radius: 50;
+  justify-content: space-between;
+}
+.searchBar {
+  margin: 10px;
+  /*border: solid gold;*/
+  padding-bottom: -100px;
+}
+.picked {
+  color: white;
+}
+.near {
+  color: white;
+}
+
+.line {
+  width: 95%;
+  height: 2px;
+  border: 1px solid #757575;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  align-self: center;
+}
