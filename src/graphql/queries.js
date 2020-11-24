@@ -261,10 +261,7 @@ export const getUser = /* GraphQL */ `
       liveChannelCreated
       remainingVODTime
       remainingLiveTime
-<<<<<<< HEAD
-=======
       ImgUrl
->>>>>>> upstream/master
       myList {
         id
         name
@@ -317,45 +314,7 @@ export const listUsers = /* GraphQL */ `
           createdAt
           updatedAt
         }
-<<<<<<< HEAD
-        createdAt
-        updatedAt
-      }
-      nextToken
-    }
-  }
-`;
-export const getConnect = /* GraphQL */ `
-  query GetConnect($id: ID!) {
-    getConnect(id: $id) {
-      id
-      userId
-      connectsId {
-        userId
-        status
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const listConnects = /* GraphQL */ `
-  query ListConnects(
-    $filter: ModelConnectFilterInput
-    $limit: Int
-    $nextToken: String
-  ) {
-    listConnects(filter: $filter, limit: $limit, nextToken: $nextToken) {
-      items {
-        id
-        userId
-        connectsId {
-          userId
-          status
-        }
-=======
         ImgUrl
->>>>>>> upstream/master
         createdAt
         updatedAt
       }
