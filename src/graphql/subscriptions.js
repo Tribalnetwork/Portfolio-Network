@@ -145,6 +145,7 @@ export const onCreatePlayList = /* GraphQL */ `
           createdAt
           updatedAt
         }
+        ImgUrl
         createdAt
         updatedAt
       }
@@ -184,6 +185,7 @@ export const onUpdatePlayList = /* GraphQL */ `
           createdAt
           updatedAt
         }
+        ImgUrl
         createdAt
         updatedAt
       }
@@ -223,6 +225,7 @@ export const onDeletePlayList = /* GraphQL */ `
           createdAt
           updatedAt
         }
+        ImgUrl
         createdAt
         updatedAt
       }
@@ -275,6 +278,7 @@ export const onCreateFilmInList = /* GraphQL */ `
           liveChannelCreated
           remainingVODTime
           remainingLiveTime
+          ImgUrl
           createdAt
           updatedAt
         }
@@ -323,6 +327,7 @@ export const onUpdateFilmInList = /* GraphQL */ `
           liveChannelCreated
           remainingVODTime
           remainingLiveTime
+          ImgUrl
           createdAt
           updatedAt
         }
@@ -371,6 +376,7 @@ export const onDeleteFilmInList = /* GraphQL */ `
           liveChannelCreated
           remainingVODTime
           remainingLiveTime
+          ImgUrl
           createdAt
           updatedAt
         }
@@ -410,6 +416,7 @@ export const onCreateUser = /* GraphQL */ `
           liveChannelCreated
           remainingVODTime
           remainingLiveTime
+          ImgUrl
           createdAt
           updatedAt
         }
@@ -419,6 +426,7 @@ export const onCreateUser = /* GraphQL */ `
         createdAt
         updatedAt
       }
+      ImgUrl
       createdAt
       updatedAt
     }
@@ -449,6 +457,7 @@ export const onUpdateUser = /* GraphQL */ `
           liveChannelCreated
           remainingVODTime
           remainingLiveTime
+          ImgUrl
           createdAt
           updatedAt
         }
@@ -458,6 +467,7 @@ export const onUpdateUser = /* GraphQL */ `
         createdAt
         updatedAt
       }
+      ImgUrl
       createdAt
       updatedAt
     }
@@ -488,6 +498,7 @@ export const onDeleteUser = /* GraphQL */ `
           liveChannelCreated
           remainingVODTime
           remainingLiveTime
+          ImgUrl
           createdAt
           updatedAt
         }
@@ -497,6 +508,7 @@ export const onDeleteUser = /* GraphQL */ `
         createdAt
         updatedAt
       }
+      ImgUrl
       createdAt
       updatedAt
     }

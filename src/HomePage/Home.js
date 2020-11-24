@@ -103,10 +103,12 @@ export default class Home extends React.Component {
             <div className = "blk">
               <div className="functionbar-wrapper">
                 <Grid container justify="space-between">
-                  <Grid item><ExploreLogo></ExploreLogo></Grid>
+                  <Grid item>
+                    <ExploreLogo></ExploreLogo>
+                  </Grid>
                   <Grid item>
                     <Link to={'/mystudio'}><MyStudioLogo></MyStudioLogo></Link>
-                    </Grid>
+                  </Grid>
                 </Grid>
               </div>
               <div className="trendy-wrapper">
