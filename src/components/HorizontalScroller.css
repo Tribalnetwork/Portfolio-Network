@@ -6,14 +6,10 @@
     border: none;
   }
   .menu-item-wrapper {
-<<<<<<< HEAD
-    margin:0 4px;
-=======
     margin:0 10px;
     width:120px;
     overflow: hidden;
     white-space: nowrap;
->>>>>>> upstream/master
   }
   .menu-item {
     width:120px;
