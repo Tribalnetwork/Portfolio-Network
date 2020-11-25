@@ -4,7 +4,6 @@ import * as queries from '../graphql/queries';
 import { Link } from "react-router-dom";
 import {Scrollbars} from "react-custom-scrollbars";
 import FilmFrame from "./filmFrame";
-//import * as RecentSearches from "./RecentSearches"
 
 /* The logic for how this component works is as follows:
 - On componentDidMount, functions getUsernames, getFilmTiltle, and getLiveStreams run and using graphQl, get a list of all of the 
@@ -118,13 +117,13 @@ export default class SearchQueries extends React.Component {
            const styledMatches = rawMatches.map((item) =>{ 
            switch(item.type){
                 case "Film":
-                    return <li key={item.id} style={this.filmLiStyle} onClick={this.add('main', item)}><FilmFrame film={item} /></li>
+                    return <li key={item.id} style={this.filmLiStyle}><FilmFrame film={item} /></li>
                     break;
                 case "Live Stream":
-                   return <Link style={{textDecoration: "none"}} to={`/live?id=${item.id}`}><li key={item.id} style={this.liStyle} onClick={this.add('main', item)}>{item.name}  <p style={this.typeStyle}>{item.type}</p></li> </Link>
+                   return <Link style={{textDecoration: "none"}} to={`/live?id=${item.id}`}><li key={item.id} style={this.liStyle}>{item.name}  <p style={this.typeStyle}>{item.type}</p></li> </Link>
                    break;
                 case "User":
-                    return <Link style={{textDecoration: "none"}} to={`/viewProfile?name=${item.name}&location=${item.location}&id=${item.id}`}><li key={item.id} style={this.liStyle} onClick={this.add('main', item)}>{item.name}  <p style={this.typeStyle}>{item.type}</p></li></Link>
+                    return <Link style={{textDecoration: "none"}} to={`/viewProfile?name=${item.name}&location=${item.location}&id=${item.id}`}><li key={item.id} style={this.liStyle}>{item.name}  <p style={this.typeStyle}>{item.type}</p></li></Link>
                     break;
            }
            
@@ -239,8 +238,8 @@ export default class SearchQueries extends React.Component {
             }
         }
 
-        add = (type, input) => {
-            /*let list = localStorage.getItem(type)
+        /*add = (type, input) => {
+            let list = localStorage.getItem(type)
             console.log("this is list: " + list)
             if (list == null || list == undefined){
                 localStorage.setItem(type, [input])
@@ -250,8 +249,8 @@ export default class SearchQueries extends React.Component {
                 }
                 let update = list.push(input)
                 localStorage.setItem(type, update)
-            }*/
-        }
+            }
+        } */
 
         getGlobal = (e) => {
             let input = e.target.value;
