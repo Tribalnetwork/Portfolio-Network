@@ -4,7 +4,7 @@ import * as queries from '../graphql/queries';
 import { Link } from "react-router-dom";
 import {Scrollbars} from "react-custom-scrollbars";
 import FilmFrame from "./filmFrame";
-
+//import * as RecentSearches from "./RecentSearches"
 
 /* The logic for how this component works is as follows:
 - On componentDidMount, functions getUsernames, getFilmTiltle, and getLiveStreams run and using graphQl, get a list of all of the 
@@ -118,13 +118,13 @@ export default class SearchQueries extends React.Component {
            const styledMatches = rawMatches.map((item) =>{ 
            switch(item.type){
                 case "Film":
-                    return <li key={item.id} style={this.filmLiStyle}><FilmFrame film={item} /></li>
+                    return <li key={item.id} style={this.filmLiStyle} onClick={this.add('main', item)}><FilmFrame film={item} /></li>
                     break;
                 case "Live Stream":
-                   return <Link style={{textDecoration: "none"}} to={`/live?id=${item.id}`}><li key={item.id} style={this.liStyle}>{item.name}  <p style={this.typeStyle}>{item.type}</p></li> </Link>
+                   return <Link style={{textDecoration: "none"}} to={`/live?id=${item.id}`}><li key={item.id} style={this.liStyle} onClick={this.add('main', item)}>{item.name}  <p style={this.typeStyle}>{item.type}</p></li> </Link>
                    break;
                 case "User":
-                    return <Link style={{textDecoration: "none"}} to={`/viewProfile?name=${item.name}&location=${item.location}&id=${item.id}`}><li key={item.id} style={this.liStyle}>{item.name}  <p style={this.typeStyle}>{item.type}</p></li></Link>
+                    return <Link style={{textDecoration: "none"}} to={`/viewProfile?name=${item.name}&location=${item.location}&id=${item.id}`}><li key={item.id} style={this.liStyle} onClick={this.add('main', item)}>{item.name}  <p style={this.typeStyle}>{item.type}</p></li></Link>
                     break;
            }
            
@@ -239,6 +239,20 @@ export default class SearchQueries extends React.Component {
             }
         }
 
+        add = (type, input) => {
+            /*let list = localStorage.getItem(type)
+            console.log("this is list: " + list)
+            if (list == null || list == undefined){
+                localStorage.setItem(type, [input])
+            } else {
+                if(list.length >= 50){
+                    list = list.pop();
+                }
+                let update = list.push(input)
+                localStorage.setItem(type, update)
+            }*/
+        }
+
         getGlobal = (e) => {
             let input = e.target.value;
             this.checkFilter();
@@ -264,7 +278,6 @@ export default class SearchQueries extends React.Component {
 
         // Styling objects
         mainDivStyle = {
-            //position: "fixed",
             display: "grid",
             top: "7vh",
             width: "100%",
@@ -319,8 +332,9 @@ export default class SearchQueries extends React.Component {
          filterButtonStyle = {
             backgroundColor: "#2C2C2E",
             color: "white",
-            width: "12vw",
-            fontSize: "1.25vw",
+            minWidth: "12vw",
+            maxWidth: "20vw",
+            fontSize: "1.5vh",
             borderRadius: "25px",
          }
         
