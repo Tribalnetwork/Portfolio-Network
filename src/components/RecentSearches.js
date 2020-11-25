@@ -5,11 +5,11 @@
         console.log("this is list: " + list)
         if (list == null || list == undefined){
             localStorage.setItem(type, [input])
-        } /*else {
+        } else {
             if(list.length >= 50){
                 list = list.pop();
             }
             let update = list.push(input)
             localStorage.setItem(type, update)
-        }*/
+        }
     }
