@@ -9,9 +9,11 @@ export default class TrendingNow extends React.Component {
     static contextType = UserContext
     state = {
         films: [],
+        text: "Trending Now"
       }
       componentDidMount() {
-        this.fetchFilms()
+        this.fetchFilms();
+        this.checkText();
       }
     
       async fetchFilms() {
@@ -28,11 +30,17 @@ export default class TrendingNow extends React.Component {
         } catch (err) { console.log(err) }
       }
 
+      checkText = () => {
+        if(this.props.text == "none"){
+          this.setState({text: ""})
+        }
+      }
+
 
       render(){
           return(
             <div className="trending-now-wrapper">
-                <p>Trending Now</p>
+                <p>{this.state.text}</p>
                 <HorizontalScroller list={this.state.films} />
             </div>
           )
