@@ -238,6 +238,8 @@ export default class SearchQueries extends React.Component {
             }
         }
 
+        //
+        
         /*add = (type, input) => {
             let list = localStorage.getItem(type)
             console.log("this is list: " + list)
