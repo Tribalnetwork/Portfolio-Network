@@ -239,6 +239,23 @@ export default class SearchQueries extends React.Component {
             }
         }
 
+
+        //
+        
+        /*add = (type, input) => {
+            let list = localStorage.getItem(type)
+            console.log("this is list: " + list)
+            if (list == null || list == undefined){
+                localStorage.setItem(type, [input])
+            } else {
+                if(list.length >= 50){
+                    list = list.pop();
+                }
+                let update = list.push(input)
+                localStorage.setItem(type, update)
+            }
+        } */
+
         getGlobal = (e) => {
             let input = e.target.value;
             this.checkFilter();
