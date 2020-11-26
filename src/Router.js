@@ -25,7 +25,6 @@ import ViewProfile from "./ViewProfile"
 import MyList from "./MyList"
 import MyStudio from "./MyStudio/MyStudio";
 import Settings, { Wifi, Support, TermsOfService, PrivacyPolicy, Account, Notifications, DownloadOptions, Logout } from "./SettingsPage/Settings";
-import Gigs from "./Gigs";
 
 import ConnectList from "./SocialPage/ConnectList"
 
@@ -151,7 +150,6 @@ const Routes = () => (
         <PrivateRoute path="/pending" component={Pending} />
         <PrivateRoute path="/mylive" component={MyLive} />
         <PrivateRoute path="/mylist" component={MyList} />
-        <PrivateRoute path="/gigs" component={Gigs} />
         <Route component={NoMatch} />
       </Switch>
       <BottomNavBar />
