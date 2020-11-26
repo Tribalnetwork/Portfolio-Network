@@ -8,14 +8,13 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import { Link } from "react-router-dom";
 import './HorizontalScrollerCircular.css';
-import LiveStreamPic from "../icons/profile-example.jpg"
 
 const MenuItem = ({Live,liveId}) => {
   return (<div>
     
        <Grid item>
          <div className="profile-wrapper">
-           <img src={LiveStreamPic} alt="Profile" className="profile-img" />
+           <img src="profile-example.jpg" alt="Profile" className="profile-img" />
            <p className="pTitle">{Live.streamerName}</p>
          </div> 
         </Grid>

@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import {Scrollbars} from "react-custom-scrollbars";
 import FilmFrame from "./filmFrame";
 
+
 /* The logic for how this component works is as follows:
 - On componentDidMount, functions getUsernames, getFilmTiltle, and getLiveStreams run and using graphQl, get a list of all of the 
     previously mentioned and save them into their respective state variables.
@@ -238,20 +239,6 @@ export default class SearchQueries extends React.Component {
             }
         }
 
-        /*add = (type, input) => {
-            let list = localStorage.getItem(type)
-            console.log("this is list: " + list)
-            if (list == null || list == undefined){
-                localStorage.setItem(type, [input])
-            } else {
-                if(list.length >= 50){
-                    list = list.pop();
-                }
-                let update = list.push(input)
-                localStorage.setItem(type, update)
-            }
-        } */
-
         getGlobal = (e) => {
             let input = e.target.value;
             this.checkFilter();
@@ -277,6 +264,7 @@ export default class SearchQueries extends React.Component {
 
         // Styling objects
         mainDivStyle = {
+            //position: "fixed",
             display: "grid",
             top: "7vh",
             width: "100%",
@@ -331,9 +319,8 @@ export default class SearchQueries extends React.Component {
          filterButtonStyle = {
             backgroundColor: "#2C2C2E",
             color: "white",
-            minWidth: "12vw",
-            maxWidth: "20vw",
-            fontSize: "1.5vh",
+            width: "12vw",
+            fontSize: "1.25vw",
             borderRadius: "25px",
          }
         
