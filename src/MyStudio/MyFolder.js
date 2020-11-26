@@ -1,5 +1,4 @@
 import React from "react";
-import Amplify from 'aws-amplify';
 import { API, graphqlOperation } from 'aws-amplify'
 import { listLiveStreams } from '../graphql/queries'
 import HorizontalScrollerCircular from "../components/HorizontalScrollerCircular";
