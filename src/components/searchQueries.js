@@ -117,13 +117,13 @@ export default class SearchQueries extends React.Component {
            const styledMatches = rawMatches.map((item) =>{ 
            switch(item.type){
                 case "Film":
-                    return <li key={item.id} style={this.filmLiStyle}><FilmFrame film={item} /></li>
+                    return <li key={item.id} style={this.filmLiStyle} onClick={() => {this.add("main", item)}}><FilmFrame film={item} /></li>
                     break;
                 case "Live Stream":
-                   return <Link style={{textDecoration: "none"}} to={`/live?id=${item.id}`}><li key={item.id} style={this.liStyle}>{item.name}  <p style={this.typeStyle}>{item.type}</p></li> </Link>
+                   return <Link style={{textDecoration: "none"}} to={`/live?id=${item.id}`}><li key={item.id} style={this.liStyle} onClick={() => {this.add("main", item)}}>{item.name}  <p style={this.typeStyle}>{item.type}</p></li> </Link>
                    break;
                 case "User":
-                    return <Link style={{textDecoration: "none"}} to={`/viewProfile?name=${item.name}&location=${item.location}&id=${item.id}`}><li key={item.id} style={this.liStyle}>{item.name}  <p style={this.typeStyle}>{item.type}</p></li></Link>
+                    return <Link style={{textDecoration: "none"}} to={`/viewProfile?name=${item.name}&location=${item.location}&id=${item.id}`}><li key={item.id} style={this.liStyle} onClick={() => {this.add("main", item)}}>{item.name}  <p style={this.typeStyle}>{item.type}</p></li></Link>
                     break;
            }
            
@@ -240,19 +240,21 @@ export default class SearchQueries extends React.Component {
 
         //
         
-        /*add = (type, input) => {
+        add = (type, input) => {
             let list = localStorage.getItem(type)
-            console.log("this is list: " + list)
             if (list == null || list == undefined){
-                localStorage.setItem(type, [input])
+                localStorage.setItem(type, [])
+                list = localStorage.getItem(type);
+                console.log("this is list: " + list);
             } else {
-                if(list.length >= 50){
+                /*if(list.length >= 50){
                     list = list.pop();
-                }
-                let update = list.push(input)
-                localStorage.setItem(type, update)
+                }*/ 
+                console.log("this is list: " + list);
+                list.push(input)
+                localStorage.setItem(type, list)
             }
-        } */
+        }
 
         getGlobal = (e) => {
             let input = e.target.value;
