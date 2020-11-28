@@ -33,16 +33,17 @@
     cursor: pointer;
     border: none;
   }
-  .menu-item-wrapper {
-    margin: 0 10px;
-    width: 120px;
-    overflow: hidden;
-    white-space: nowrap;
-  }
+}
 
-  .MuiGrid-root::-webkit-scrollbar {
-    width: 0px;
-  }
+.menu-item-wrapper {
+  margin: 0 10px;
+  width: 120px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.MuiGrid-root::-webkit-scrollbar {
+  width: 0px;
 }
 
 .MuiGrid-root::-webkit-scrollbar {

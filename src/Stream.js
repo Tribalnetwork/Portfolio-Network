@@ -1,3 +1,4 @@
+
 import React, {useState, useEffect, useContext} from 'react'
 import { API, graphqlOperation } from 'aws-amplify'
 import { createLiveStream, updateUser } from './graphql/mutations'
@@ -27,7 +28,7 @@ export const Stream = () => {
   async function fetchStreams() {
     try {
       const streams = await API.graphql(graphqlOperation(listLiveStreams));
-      //console.log(streams.data.listLiveStreams.items)
+      // console.log(streams.data.listLiveStreams.items)
       setLiveStreams(streams.data.listLiveStreams.items)
     } catch (err) { console.log(err) }
 
