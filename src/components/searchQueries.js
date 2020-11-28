@@ -31,6 +31,12 @@ import FilmFrame from "./filmFrame";
     Then in get global add it to the global list that is passed to search, and in search add a new option in the switch statement.
     If you use the other components as a template, everything should flow smoothly. :)
 
+    Addendum 1:
+        A recent searches function as been incorporated into this file. It uses two functions, which are add(), and checkRecents();
+        add() adds a search results to an array in localStorage, which should be no more then 50 results
+        checkRecents is triggered onClick on input, and runs the search function with the list pulled from localStorage, instead of the entire
+        global list.
+
 */
 
 export default class SearchQueries extends React.Component {
@@ -107,13 +113,20 @@ export default class SearchQueries extends React.Component {
       })
         }
 
-        search = (input, global) => {
-            const rawMatches = global.filter((search) => {
-                if(search.name.includes(input.toUpperCase())){
-                    return search;
-                }
-                
-            });
+
+        search = (input, global, recents) => {
+            let rawMatches;
+            if(recents == true){
+                rawMatches = global
+            } else {
+                rawMatches = global.filter((search) => {
+                    if(search.name.includes(input.toUpperCase())){
+                        return search;
+                    }
+                    
+                });
+            }
+            
            const styledMatches = rawMatches.map((item) =>{ 
            switch(item.type){
                 case "Film":
@@ -237,23 +250,36 @@ export default class SearchQueries extends React.Component {
                     this.setState({buttons: filterButtons})
             }
         }
-
-        //
         
         add = (type, input) => {
-            let list = localStorage.getItem(type)
-            if (list == null || list == undefined){
-                localStorage.setItem(type, [])
-                list = localStorage.getItem(type);
-                console.log("this is list: " + list);
+            let local = JSON.parse(localStorage.getItem(type))
+            if (local == null || local == undefined){
+                let container = {
+                    list: [input]
+                }
+                localStorage.setItem(type, JSON.stringify(container))
             } else {
-                /*if(list.length >= 50){
-                    list = list.pop();
-                }*/ 
-                console.log("this is list: " + list);
-                list.push(input)
-                localStorage.setItem(type, list)
+                if(local.list.length >= 50){
+                   local.list.pop();
+                }
+                let update = [input];
+                local.list = update.concat(local.list);
+                localStorage.setItem(type, JSON.stringify(local))
             }
+        }
+
+        checkRecent = () => {
+            let stored =JSON.parse(localStorage.getItem("main"));
+            if(stored == null || stored == undefined){
+                console.log("no recents")
+            } else {
+                let recent = stored.list;
+                if (recent.length == 0){
+                    console.log("no recents");
+                } else if (recent.length >= 1){
+                    this.search(" ", recent, true)
+                }
+                }   
         }
 
         getGlobal = (e) => {
@@ -265,7 +291,7 @@ export default class SearchQueries extends React.Component {
                 const users = this.state.users;
                 const hold = films.concat(liveStreamers)
                 const global = hold.concat(users);
-                this.search(input, global)
+                this.search(input, global, false)
             } else{
                 var filterGlobal = new Array;
                 for(let i=1; i < 4; i++) {
@@ -275,7 +301,7 @@ export default class SearchQueries extends React.Component {
                         filterGlobal = filterGlobal.concat(this.state[name])
                     }
                 }
-                this.search(input, filterGlobal)
+                this.search(input, filterGlobal, false)
             }
         }
 
@@ -378,13 +404,14 @@ export default class SearchQueries extends React.Component {
              color: "red"
          }
 
+         filler = {
+            target: {
+                value: ""
+            }
+        }
+
          componentDidMount(){
-             let filler = {
-                 target: {
-                     value: ""
-                 }
-             }
-            this.getGlobal(filler); // this is a work around for a bug, that made it so the first character typed in the input would not trigger the search.
+            this.getGlobal(this.filler); // this is a work around for a bug, that made it so the first character typed in the input would not trigger the search.
             this.getUserNames();
             this.getFilmTitles();
             this.getLiveStreams();
@@ -396,7 +423,7 @@ export default class SearchQueries extends React.Component {
             return (
                 <div style={this.mainDivStyle}>
                     <div style={this.inputWrapperStyle}> 
-                    <input style={this.inputStyle} onChange={this.getGlobal.bind(this)}/>
+                    <input style={this.inputStyle} onChange={this.getGlobal.bind(this)} onClick={() => {this.checkRecent()}} onBlur={() => {setTimeout(() => this.getGlobal(this.filler), 250)}}/>
                     </div>
                     <ul style={this.filterStyle}>
                         {this.state.buttons}
