@@ -385,20 +385,19 @@ export default class SearchQueries extends React.Component {
          }
         
          ulStyle = {
-            paddingTop: '3.1vh',
+            padding: '3.1vh 0 10vh 0',
             height: "375%",
             listStyleType: "none",
             justifyContent: "center",
             gridColumn: "1/4",
             gridRow: "3",
             overflow: "auto",
-            paddingBottom: "10vh",
             zIndex: "100"
          }
         
          liStyle = {
             borderBottom: "1px solid black",
-            paddingTop: "1vh",
+            padding: "1vh 0 0 1vw",
             textAlign: 'left',
             fontSize: "3vw",
             color: "#FFFFFF",

@@ -145,5 +145,5 @@ const styles = {
   filmDescription: { marginBottom: 0 },
   button: { width: 400, backgroundColor: 'black', color: 'white', outline: 'none', fontSize: 18, padding: '12px 0px' },
   searchContainer: {width: "100%", marginLeft: "0", marginRight: "0", padding: "0 2.5vw 0 2.5vw", borderRadius: "25px", display: "grid", gridTemplateColumns: "1fr", gridTemplateRows: "1fr",},
-  startLive: {position: "relative", left: "6vw", top: "8vh", minHeight: "3vh", maxHeight: "9vh", minWidth: "3vh", maxWidth: "9vw"}
+  startLive: {position: "relative", left: "6vw", top: "6.5vh", minHeight: "1vh", maxHeight: "4vh", minWidth: "1vh", maxWidth: "4vw"}
 }
