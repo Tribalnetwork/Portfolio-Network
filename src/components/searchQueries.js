@@ -53,7 +53,7 @@ export default class SearchQueries extends React.Component {
                 liveStreams: false,
             },
             buttons: [],
-            global: []
+            global: [],
             }
         }
 
@@ -230,6 +230,9 @@ export default class SearchQueries extends React.Component {
         }
 
         checkType = () => {
+            if(this.props.round == true){
+                this.inputWrapperStyle = this.inputWrapperStyleRound;
+            }
             if (this.props.type == "liveStreams"){
                 this.setState(prevState => ({
                     filter: {                   
@@ -316,21 +319,34 @@ export default class SearchQueries extends React.Component {
             gridTemplateRows: "8vh 3vh 90%",  
         }
 
-        inputWrapperStyle = {
+        inputWrapperStyleNorm = {
             paddingLeft: "2vw",
             paddingRight: "2vw",
             justifyContent: "center",
             gridColumn: "1/4",
-            postion: "fixed",
             gridRow: "1",
             width: "100%",
-            height: "15vh",
+            height: "16vh",
             backgroundColor: 'black',
+            borderRadius: "0px"
         }
+
+        inputWrapperStyleRound = {
+            paddingLeft: "2vw",
+            paddingRight: "2vw",
+            justifyContent: "center",
+            gridColumn: "1/4",
+            gridRow: "1",
+            height: "9vh",
+            backgroundColor: 'black',
+            borderRadius: "25px"
+        }
+        
+        inputWrapperStyle = this.inputWrapperStyleNorm;
 
         inputStyle = {
             height: "6vh",
-            width: "45vw",
+            width: "60%",
             marginTop: "10px",
             justifyContent: "center",
             gridColumn: "2",
@@ -362,13 +378,14 @@ export default class SearchQueries extends React.Component {
             backgroundColor: "#2C2C2E",
             color: "white",
             minWidth: "12vw",
-            maxWidth: "20vw",
+            maxWidth: "22vw",
+            height: "4vh",
             fontSize: "1.5vh",
             borderRadius: "25px",
          }
         
          ulStyle = {
-            paddingTop: '2vh',
+            paddingTop: '3.1vh',
             height: "375%",
             listStyleType: "none",
             justifyContent: "center",
@@ -422,7 +439,7 @@ export default class SearchQueries extends React.Component {
 
             return (
                 <div style={this.mainDivStyle}>
-                    <div style={this.inputWrapperStyle}> 
+                    <div style={this.inputWrapperStyle} className={"inputWrapper"}> 
                     <input style={this.inputStyle} onChange={this.getGlobal.bind(this)} onClick={() => {this.checkRecent()}} onBlur={() => {setTimeout(() => this.getGlobal(this.filler), 250)}}/>
                     </div>
                     <ul style={this.filterStyle}>
