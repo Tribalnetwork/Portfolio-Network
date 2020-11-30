@@ -249,7 +249,7 @@ export default class SearchQueries extends React.Component {
             } else {
                 const filterButtons = [<li><button style={this.filterButtonStyle} onClick={this.filterUsers}>Users</button></li>,
                     <li><button style={this.filterButtonStyle} onClick={this.filterFilms}>Films</button></li>,
-                    <li><button style={this.filterButtonStyle} onClick={this.filterLiveStreams}>Live Streams</button></li>]
+                    <li style={{fontSize: "1.5vh"}}><button style={this.filterButtonStyle} onClick={this.filterLiveStreams}>Live Streams</button></li>]
                     this.setState({buttons: filterButtons})
             }
         }
@@ -370,8 +370,9 @@ export default class SearchQueries extends React.Component {
              gridColumn: "2",
              gridRow: "2",
              width: "70vw",
-             paddingLeft: "15vw",
-             paddingRight: "15vw",
+             padding: "0 15vw 0 15vw"
+             //paddingLeft: "15vw",
+             //paddingRight: "15vw",
          }
 
          filterButtonStyle = {
@@ -382,6 +383,7 @@ export default class SearchQueries extends React.Component {
             height: "4vh",
             fontSize: "1.5vh",
             borderRadius: "25px",
+            borderColor: "black"
          }
         
          ulStyle = {
