@@ -54,10 +54,10 @@ export default class MyFolder extends React.Component{
 
 const styles = {
     main: {paddingBottom: "10vh"},
-    myUploads: {color: "white", margin: "0", padding: "0", width: "100%", height: "35vh"},
-    streamers: {color: "white", margin: "0", padding: "0", width: "100%", height: "25vh"},
-    watchList: {color: "white", margin: "0", padding: "0", width: "100%", height: "35vh"},
-    downLoads: {color: "white", margin: "0", padding: "0", width: "100%", height: "35vh"},
+    myUploads: {color: "white", margin: "0", padding: "0", width: "100%", height: "40vh"},
+    streamers: {color: "white", margin: "0", padding: "0", width: "100%", height: "30vh"},
+    watchList: {color: "white", margin: "0", padding: "0", width: "100%", height: "40vh"},
+    downLoads: {color: "white", margin: "0", padding: "0", width: "100%", height: "40vh"},
     header: {marginLeft: "5vw"},
     p: {width: "40vw", marginLeft: "10vw"},
     a: {color: "white"}
