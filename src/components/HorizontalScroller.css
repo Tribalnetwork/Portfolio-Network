@@ -19,7 +19,7 @@
   width: 100%;
 }
 
-@media only screen and (max-width: 375px) {
+/* @media only screen and (max-width: 375px) {
   .containers {
     display: flex;
     width: 100%;
@@ -32,7 +32,7 @@
     user-select: none;
     cursor: pointer;
     border: none;
-  }
+  } */
 
 .menu-item-wrapper {
   margin: 0 10px;
