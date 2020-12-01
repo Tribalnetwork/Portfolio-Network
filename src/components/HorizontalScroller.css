@@ -33,7 +33,6 @@
     cursor: pointer;
     border: none;
   }
-}
 
 .menu-item-wrapper {
   margin: 0 10px;
@@ -49,6 +48,18 @@
 .MuiGrid-root::-webkit-scrollbar {
   width: 0px;
 }
+.containers {
+  justify-content: center;
+  display: flex;
+  height: 100%;
+  line-height: 110px;
+  text-align: center;
+}
+
+.MuiGrid-root::-webkit-scrollbar {
+  width: 0px;
+}
+
 .containers {
   justify-content: center;
   display: flex;
