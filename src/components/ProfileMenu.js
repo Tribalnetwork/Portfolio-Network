@@ -12,7 +12,7 @@ export default class Popup extends React.Component {
 
                                     <h1 id="MENU">  MENU </h1>
                                     <hr className="solid" />
-                                    <div>My Profile</div>
+                                    <div onClick={() => console.log("Clicked")}  >My Profile</div>
                                     <hr className="solid" /> 
                                     <div>My Studio</div>
                                     <hr className="solid" /> 
@@ -23,7 +23,7 @@ export default class Popup extends React.Component {
                                     <p>&nbsp;</p>
                                     <br/>
                             </div>
-                     </div>  
+                    </div>  
 
             );  
     }  
