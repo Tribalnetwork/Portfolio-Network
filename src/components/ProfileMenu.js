@@ -6,21 +6,26 @@ import "./ProfileMenu.css"
 export default class Popup extends React.Component {  
     render() {  
 	    return (  
-		    <div className='popup'>  
-			    <div className='popup_inner'>  
-			    <h1 id="MENU"> MENU </h1>
-				    <hr  id="unique_divier" /> <br/>
-				    <button className="popup_element"><a> My Profile </a> </button> 
-				    <br/> <br/><hr  className="popup_diver" /> <br/>
+                    <div className='popup'> 
+                            {/* <h1 style={{  color: 'white' }}>  MENU </h1> */}
+                            <div className="flex-container">
 
-				    <button className="popup_element"><a> My Studio </a> </button> 
-				    <br/> <br/><hr  className="popup_diver" /> <br/>
-				    <button className="popup_element"><a> What can others see? </a> </button> 
-				    <br/> <br/><hr  className="popup_diver" /> <br/>
-				    <button  onClick={this.props.closePopup} className="popup_element"  id="EXIT">Exit   </button> 
-			    </div>  
-		    </div>  
-	    );  
+                                    <h1 id="MENU">  MENU </h1>
+                                    <hr className="solid" />
+                                    <div>My Profile</div>
+                                    <hr className="solid" /> 
+                                    <div>My Studio</div>
+                                    <hr className="solid" /> 
+                                    <div>What an others see?</div>  
+                                    <hr className="solid" /> 
+                                    <div style={{color:"#757575"}}>Exit</div>  
+                                    <p>&nbsp;</p>
+                                    <p>&nbsp;</p>
+                                    <br/>
+                            </div>
+                     </div>  
+
+            );  
     }  
 }  
 
