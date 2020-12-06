@@ -18,7 +18,7 @@
         .flex-container {
                 display: flex; 
                 align-items: center;  
-                /* margin: 8.28% auto auto auto; */
+                margin: 2.28% auto auto auto;
                 width: 100%;
                 background-color: black;
                 flex-direction: column;
@@ -29,15 +29,31 @@
         .flex-container > div {
                 background-color: #15161B;
                 width: 92.5%;
-                margin: 5%;
+                margin: 1%;
                 color: white;
                 cursor: pointer;
                 text-align: center;
                 line-height: 120%;
-                font-size: 135%;
+                font-size: 100%;
+                /* font-size: 135%; */
                 font-family: Roboto;
-
+                /* height: 10%; */
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+                text-decoration: none;
         }
+
+        .flex-container> div:active {
+                background-color: grey;
+                color: black;
+        }
+
+
+        /* a { */
+
         #MENU{
                 background: linear-gradient(180deg, #D3C095 0%, #A07923 100%);
                 -webkit-background-clip: text;
@@ -56,11 +72,12 @@
                 align-items: center;  
                 margin: 4.28% auto auto auto;
                 width: 35%;
+                height:80%;
                 background-color: black;
                 flex-direction: column;
                 border-radius: 0% 0% 9% 9%;
 
-                height:80%;
+                /* height:80%; */
 
         }
         .flex-container > div {
@@ -68,13 +85,19 @@
                 width: 92.5%;
                 margin: 5%;
                 color: white;
+                /* height: 1.5vw; */
 
                 cursor: pointer;
                 text-align: center;
                 line-height: 150%;
-                font-size: 150%;
+                /* font-size: 150%; */
+                font-size: 1.5vw;
                 font-family: Roboto;
-
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
         }
 
         #MENU{
@@ -89,6 +112,10 @@
         }
 }
 
+        .flex-container > div a {
+                text-decoration: none;
+                color: white;
+        }
 
 hr.solid {
 

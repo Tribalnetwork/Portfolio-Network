@@ -7,6 +7,7 @@ export default class Popup extends React.Component {
     render() {  
 	    return (  
                     <div className='popup'> 
+                            {/* <h1 style={{  color: 'white' }}>  MENU </h1> */}
                             <div className="flex-container">
 
                                     <h1 id="MENU">  MENU </h1>
