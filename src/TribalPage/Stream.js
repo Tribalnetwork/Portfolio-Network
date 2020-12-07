@@ -28,6 +28,10 @@ export const Stream = () => {
     fetchStreams()
   }, [])
 
+  useEffect(() => {
+    fetchStreams()
+  }, [])
+
   async function fetchStreams() {
     try {
       const streams = await API.graphql(graphqlOperation(listLiveStreams));
@@ -113,7 +117,7 @@ export const Stream = () => {
               <Grid key={stream.id ? stream.id : index} item>
 
 
-
+                
                 <Card style={styles.root}>
 
 
