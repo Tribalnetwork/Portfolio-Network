@@ -1,0 +1,50 @@
+.headertext {
+    color: white;   
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.categoriesHeader {
+    margin: auto;
+    padding: 20px;
+    color: white;
+    text-align: center;
+    padding-right: 700px;
+}
+
+/* .categories {
+    display: flex;
+    flex-direction: column;
+} */
+
+.row1 {
+    margin: 5px;
+}
+
+.row2 {
+    margin: 5px;
+}
+
+.trendyTitleText {
+    margin: auto;
+    padding: 20px;
+    color: white;
+    text-align: center;
+    padding-right: 700px;
+}
+
+.whatsNewTitleText {
+    margin: auto;
+    padding: 20px;
+    color: white;
+    text-align: center;
+    padding-right: 700px;
+}
+
+.whatsNewVideos {
+    margin-left: 500px;
+}

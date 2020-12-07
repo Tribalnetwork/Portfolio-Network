@@ -25,6 +25,7 @@ import ViewProfile from "./ViewProfile"
 import MyList from "./MyList"
 import MyStudio from "./MyStudio/MyStudio";
 import Settings, { Wifi, Support, TermsOfService, PrivacyPolicy, Account, Notifications, DownloadOptions, Logout } from "./SettingsPage/Settings";
+import Explore from "./ExplorePage/Explore"
 
 import ConnectList from "./SocialPage/ConnectList"
 
@@ -132,7 +133,7 @@ const Routes = () => (
           path="/settings/wifiandcellular"
         >
         </Route>
-       
+        <Route path="/explore"><Explore /></Route>
         <Route path="/auth" exact component={Authenticator} />
         <Route path="/" exact component={Home} />
         <Route path="/home" exact component={Home} />
