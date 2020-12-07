@@ -258,7 +258,6 @@ export const getUser = /* GraphQL */ `
       liveChannelCreated
       remainingVODTime
       remainingLiveTime
-      ImgUrl
       myList {
         id
         name
@@ -309,7 +308,6 @@ export const listUsers = /* GraphQL */ `
           createdAt
           updatedAt
         }
-        ImgUrl
         createdAt
         updatedAt
       }

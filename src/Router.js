@@ -26,6 +26,9 @@ import MyList from "./MyList"
 import MyStudio from "./MyStudio/MyStudio";
 import Settings, { Wifi, Support, TermsOfService, PrivacyPolicy, Account, Notifications, DownloadOptions, Logout } from "./SettingsPage/Settings";
 import Explore from "./ExplorePage/Explore"
+
+import ConnectList from "./SocialPage/ConnectList"
+
 class PrivateRoute extends React.Component {
   // PrivateRoutes require authentication to access
   state = {

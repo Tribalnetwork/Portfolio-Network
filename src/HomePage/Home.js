@@ -98,7 +98,7 @@ export default class Home extends React.Component {
           <Grid container justify="space-between">
             <Grid item><Link to={'/explore'}><ExploreLogo></ExploreLogo></Link></Grid>
             <Grid item>
-              <Link to={'/mystudio'}><MyStudioLogo></MyStudioLogo></Link>
+              <Link to={'/mystudio/myFolder'}><MyStudioLogo></MyStudioLogo></Link>
               </Grid>
           </Grid>
           </div>
