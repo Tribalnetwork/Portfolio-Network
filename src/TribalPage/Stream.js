@@ -107,25 +107,36 @@ export const Stream = () => {
           {
             liveStreams.map((stream, index) => (
               <Grid key={stream.id ? stream.id : index} item>
+
+
+
                 <Card style={styles.root}>
+
+
+
                   <Link to={`/live?id=${stream.id}`} style={styles.link}>
                     <CardActionArea>
+
+
                       <CardMedia
                         style={styles.media}
                         image={`https://image.mux.com/${stream.IDforThumbnail}/thumbnail.png?width=314&height=178`}
                         title={stream.streamerName}
                       />
-                      <CardContent>
-                        <Typography gutterBottom variant="h5" component="h2">
-                          {stream.streamerName}
-                        </Typography>
-                        <Typography variant="body2" color="textSecondary" component="p">
-                          {stream.status}
-                        </Typography>
-                      </CardContent>
+
+
+                      
                     </CardActionArea>
                   </Link>
                 </Card>
+                <CardContent style={styles.cardContent}>
+                  <Typography className="gutterButtom" gutterBottom variant="h5" component="h2">
+                   {stream.streamerName}
+                  </Typography>
+                  <Typography className="streamStatus" variant="body2" color="textSecondary">
+                    {stream.status}
+                   </Typography>
+                </CardContent>
               </Grid>
             ))
           }
@@ -137,11 +148,13 @@ export const Stream = () => {
 
 const styles = {
   root: {
-    width: "237px",
+    width: "180px",
+    borderRadius:"50px"
   },
   media: {
-    height: 178,
+    height: 180,
   },
+  cardContent: { justifyContent: 'center', display: 'grid', textAlign: 'center' },
   header: { margin: '0 auto', display: 'flex', flex: 1, flexDirection: 'column', justifyContent: 'center', padding: 20 },
   container: { width: "100%", margin: '0', display: 'flex', flex: 1, flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'left', zIndex: "-1" },
   link: { textDecoration: 'none' },

@@ -4,6 +4,7 @@ import * as queries from '../graphql/queries';
 import { Link } from "react-router-dom";
 import {Scrollbars} from "react-custom-scrollbars";
 import FilmFrame from "./filmFrame";
+import { hover } from 'glamor';
 
 /* The logic for how this component works is as follows:
 - On componentDidMount, functions getUsernames, getFilmTiltle, and getLiveStreams run and using graphQl, get a list of all of the 
@@ -167,8 +168,9 @@ export default class SearchQueries extends React.Component {
                 e.target.style.backgroundColor = "#2C2C2E";
                 e.target.style.color = "white"
             }else{
-                e.target.style.backgroundColor = "rgb(212, 175, 55)";
-                e.target.style.color = "Black"
+                e.target.style.backgroundColor = "#b4964b";
+                e.target.style.color = "white"
+                e.target.style.outline = "none"
             }
             
             this.setState(prevState => ({
@@ -190,8 +192,9 @@ export default class SearchQueries extends React.Component {
                 e.target.style.backgroundColor = "#2C2C2E";
                 e.target.style.color = "white"
             }else{
-                e.target.style.backgroundColor = "rgb(212, 175, 55)";
-                e.target.style.color = "Black"
+                e.target.style.backgroundColor = "#b4964b";
+                e.target.style.color = "white"
+                e.target.style.outline = "none"
             }
             this.setState(prevState => ({
                 filter: {                   
@@ -202,18 +205,19 @@ export default class SearchQueries extends React.Component {
             this.setState(prevState => ({
                 filter: {                   
                     ...prevState.filter,   
-                    films: !this.state.filter.films   
+                    films: !this.state.filter.films    
                 }
             }))
         }
-
+ 
         filterLiveStreams = (e) => {
             if(this.state.filter.liveStreams == true){
                 e.target.style.backgroundColor = "#2C2C2E";
                 e.target.style.color = "white"
             }else{
-                e.target.style.backgroundColor = "rgb(212, 175, 55)";
-                e.target.style.color = "Black"
+                e.target.style.backgroundColor = "#b4964b";
+                e.target.style.color = "white"
+                e.target.style.outline = "none"
             }
             this.setState(prevState => ({
                 filter: {                   
@@ -378,12 +382,13 @@ export default class SearchQueries extends React.Component {
          filterButtonStyle = {
             backgroundColor: "#2C2C2E",
             color: "white",
-            minWidth: "12vw",
+            minWidth: "25vw",
             maxWidth: "22vw",
             height: "4vh",
             fontSize: "1.5vh",
             borderRadius: "25px",
-            borderColor: "black"
+            border: "none",
+            marginLeft: "18px"
          }
         
          ulStyle = {
