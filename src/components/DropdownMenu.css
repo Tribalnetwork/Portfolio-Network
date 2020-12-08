@@ -23,6 +23,7 @@
                 background-color: black;
                 flex-direction: column;
                 border-radius: 0% 0% 9% 9%;
+                overflow: scroll;
                 height:90%;
 
         }
@@ -70,12 +71,13 @@
         .flex-container {
                 display: flex; 
                 align-items: center;  
-                margin: 4.28% auto auto auto;
+                margin: 5.08% auto auto auto;
                 width: 35%;
                 height:80%;
                 background-color: black;
                 flex-direction: column;
                 border-radius: 0% 0% 9% 9%;
+                overflow: auto;
 
                 /* height:80%; */
 
