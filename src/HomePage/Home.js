@@ -96,7 +96,7 @@ export default class Home extends React.Component {
           </div>
           <div className="functionbar-wrapper">
           <Grid container justify="space-between">
-            <Grid item><ExploreLogo></ExploreLogo></Grid>
+            <Grid item><Link to={'/explore'}><ExploreLogo></ExploreLogo></Link></Grid>
             <Grid item>
               <Link to={'/mystudio/myFolder'}><MyStudioLogo></MyStudioLogo></Link>
               </Grid>
