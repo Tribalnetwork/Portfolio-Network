@@ -5,7 +5,7 @@ import Home from './landing-home'
 import Live from './live'
 import Submit from './submit'
 import Notfound from './notfound'
-import HomePage from './src/Home.js'
+import HomePage from './src/Homepage/Home.js'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 
 
