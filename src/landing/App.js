@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import './responsive-styles.css'
-import Home from './home'
+import Home from './landing-home'
 import Live from './live'
 import Login from './login'
 import Submit from './submit'
