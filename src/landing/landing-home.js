@@ -1,6 +1,6 @@
 import React from 'react';
-import './home.css';
-import './App.css'
+//import './home.css';
+//import './App.css'
 import './responsive-styles.css'
 import { Link } from 'react-router-dom';
 

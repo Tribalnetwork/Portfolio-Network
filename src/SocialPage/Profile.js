@@ -18,6 +18,7 @@ import { Upload } from '../Upload';
 import { getUser} from '../graphql/queries'
 import {updateUser} from '../graphql/mutations'
 import ProfileMenu from '../components/ProfileMenu.js'
+import Skills from "./Skills";
 
 
 
@@ -150,6 +151,7 @@ async getImg(){
     return (
    
       <div className={"bodycontainer"}>
+        <Skills/>
         <div className={"container"}>
           <div className="profileimagecontainer">
             <NavigateBeforeIcon className={"arrownavigation"} />
