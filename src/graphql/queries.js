@@ -111,6 +111,11 @@ export const getPlayList = /* GraphQL */ `
           createdAt
           updatedAt
         }
+        ImgUrl
+        Skills {
+          name
+          type
+        }
         createdAt
         updatedAt
       }
@@ -149,6 +154,7 @@ export const listPlayLists = /* GraphQL */ `
           liveChannelCreated
           remainingVODTime
           remainingLiveTime
+          ImgUrl
           createdAt
           updatedAt
         }
@@ -196,6 +202,7 @@ export const getFilmInList = /* GraphQL */ `
           liveChannelCreated
           remainingVODTime
           remainingLiveTime
+          ImgUrl
           createdAt
           updatedAt
         }
@@ -271,6 +278,7 @@ export const getUser = /* GraphQL */ `
           liveChannelCreated
           remainingVODTime
           remainingLiveTime
+          ImgUrl
           createdAt
           updatedAt
         }
@@ -279,6 +287,11 @@ export const getUser = /* GraphQL */ `
         }
         createdAt
         updatedAt
+      }
+      ImgUrl
+      Skills {
+        name
+        type
       }
       createdAt
       updatedAt
@@ -307,6 +320,46 @@ export const listUsers = /* GraphQL */ `
           name
           createdAt
           updatedAt
+        }
+        ImgUrl
+        Skills {
+          name
+          type
+        }
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const getConnect = /* GraphQL */ `
+  query GetConnect($id: ID!) {
+    getConnect(id: $id) {
+      id
+      userId
+      connectsId {
+        userId
+        status
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listConnects = /* GraphQL */ `
+  query ListConnects(
+    $filter: ModelConnectFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listConnects(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        userId
+        connectsId {
+          userId
+          status
         }
         createdAt
         updatedAt

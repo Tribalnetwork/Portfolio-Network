@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import {Scrollbars} from "react-custom-scrollbars";
 import FilmFrame from "./filmFrame";
 
+
 /* The logic for how this component works is as follows:
 - On componentDidMount, functions getUsernames, getFilmTiltle, and getLiveStreams run and using graphQl, get a list of all of the 
     previously mentioned and save them into their respective state variables.
@@ -164,11 +165,13 @@ export default class SearchQueries extends React.Component {
 
         filterUsers = (e) => {
             if(this.state.filter.users == true){
-                e.target.style.backgroundColor = "#2C2C2E";
+                e.target.style.borderBottom = "0px solid black";
                 e.target.style.color = "white"
             }else{
-                e.target.style.backgroundColor = "rgb(212, 175, 55)";
-                e.target.style.color = "Black"
+                e.target.style.borderBottom = "1px solid"
+                e.target.style.borderImage = "repeating-linear-gradient(to left,#D3C095,#A07923)"
+                e.target.style.borderImageSlice = "1"
+                e.target.style.color = "gold"
             }
             
             this.setState(prevState => ({
@@ -187,11 +190,13 @@ export default class SearchQueries extends React.Component {
 
         filterFilms = (e) => {
             if(this.state.filter.films == true){
-                e.target.style.backgroundColor = "#2C2C2E";
+                e.target.style.borderBottom = "0px solid black";
                 e.target.style.color = "white"
             }else{
-                e.target.style.backgroundColor = "rgb(212, 175, 55)";
-                e.target.style.color = "Black"
+                e.target.style.borderBottom = "1px solid"
+                e.target.style.borderImage = "repeating-linear-gradient(to left,#D3C095,#A07923)"
+                e.target.style.borderImageSlice = "1"
+                e.target.style.color = "gold"
             }
             this.setState(prevState => ({
                 filter: {                   
@@ -209,11 +214,13 @@ export default class SearchQueries extends React.Component {
 
         filterLiveStreams = (e) => {
             if(this.state.filter.liveStreams == true){
-                e.target.style.backgroundColor = "#2C2C2E";
+                e.target.style.borderBottom = "0px solid black";
                 e.target.style.color = "white"
             }else{
-                e.target.style.backgroundColor = "rgb(212, 175, 55)";
-                e.target.style.color = "Black"
+                e.target.style.borderBottom = "1px solid"
+                e.target.style.borderImage = "repeating-linear-gradient(to left,#D3C095,#A07923)"
+                e.target.style.borderImageSlice = "1"
+                e.target.style.color = "gold"
             }
             this.setState(prevState => ({
                 filter: {                   
@@ -232,6 +239,7 @@ export default class SearchQueries extends React.Component {
         checkType = () => {
             if(this.props.round == true){
                 this.inputWrapperStyle = this.inputWrapperStyleRound;
+                this.filterStyle = this.filterStyleNone;
             }
             if (this.props.type == "liveStreams"){
                 this.setState(prevState => ({
@@ -247,9 +255,9 @@ export default class SearchQueries extends React.Component {
                     }
                 }))
             } else {
-                const filterButtons = [<li><button style={this.filterButtonStyle} onClick={this.filterUsers}>Users</button></li>,
-                    <li><button style={this.filterButtonStyle} onClick={this.filterFilms}>Films</button></li>,
-                    <li><button style={this.filterButtonStyle} onClick={this.filterLiveStreams}>Live Streams</button></li>]
+                const filterButtons = [<li style={this.filterButtonStyle} onClick={this.filterUsers}>Users</li>,
+                    <li style={this.filterButtonStyle} onClick={this.filterFilms}>Films</li>,
+                    <li style={this.filterButtonStyle} onClick={this.filterLiveStreams}>Live Streams</li>]
                     this.setState({buttons: filterButtons})
             }
         }
@@ -316,7 +324,7 @@ export default class SearchQueries extends React.Component {
             bottom: "0px",
             padding: '0',
             gridTemplateColumns: "2fr 2fr 2fr",
-            gridTemplateRows: "8vh 3vh 90%",  
+            gridTemplateRows: "13% 3% 85%",  
         }
 
         inputWrapperStyleNorm = {
@@ -347,7 +355,7 @@ export default class SearchQueries extends React.Component {
         inputStyle = {
             height: "6vh",
             width: "60%",
-            marginTop: "10px",
+            margin: "2vh 0 0 0",
             justifyContent: "center",
             gridColumn: "2",
             fontSize: "2vw",
@@ -359,8 +367,9 @@ export default class SearchQueries extends React.Component {
             backgroundColor: "#2C2C2E",
             borderColor: "black"
          }
-
-         filterStyle = {
+         
+         filterStyleNorm = {
+             backgroundColor: "black",
              display: "grid",
              gridTemplateRows: "subgrid",
              gridTemplateColumns: "1fr 1fr 1fr",
@@ -369,36 +378,47 @@ export default class SearchQueries extends React.Component {
              listStyleType: "none",
              gridColumn: "2",
              gridRow: "2",
-             width: "70vw",
-             paddingLeft: "15vw",
-             paddingRight: "15vw",
+             width: "100vw",
+             height: "8vh",
+             padding: "0 15vw 0 15vw",
+             margin: "2.25vh 0 0 0",
+             zIndex: "100"
          }
 
+         filterStyleNone = {
+             height: "0",
+             width: "0",
+             margin: "0",
+             padding: "0",
+         }
+
+         filterStyle = this.filterStyleNorm
+
          filterButtonStyle = {
-            backgroundColor: "#2C2C2E",
             color: "white",
             minWidth: "12vw",
             maxWidth: "22vw",
-            height: "4vh",
+            height: "8vh",
             fontSize: "1.5vh",
-            borderRadius: "25px",
+            paddingTop: "2vh",
+            margin: "0",
+            zIndex: "100"
          }
         
          ulStyle = {
-            paddingTop: '3.1vh',
+            padding: '6.5vh 0 10vh 0',
             height: "375%",
             listStyleType: "none",
             justifyContent: "center",
             gridColumn: "1/4",
             gridRow: "3",
             overflow: "auto",
-            paddingBottom: "10vh",
-            zIndex: "100"
+            zIndex: "95"
          }
         
          liStyle = {
             borderBottom: "1px solid black",
-            paddingTop: "1vh",
+            padding: "1vh 0 0 1vw",
             textAlign: 'left',
             fontSize: "3vw",
             color: "#FFFFFF",

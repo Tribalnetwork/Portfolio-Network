@@ -108,6 +108,6 @@ const styles = {
     title: {marginLeft: "5vw"},
     ul: {listStyleType: "none", width: "100%", margin: '0', padding: "0"},
     li: {backgroundColor: "black", width: "100%", height: "20vh", color: "white", margin: '0', border: "1px solid gray"},
-    pic: {marginTop: "2vh", marginLeft: "-90vw"},
+    pic: {marginTop: "2vh", marginLeft: "-86vw"},
     text: {width: "20vw", marginLeft: "20vw", padding: '0', marginTop: "-9vh", fontSize: "1.5vh"}
 }
