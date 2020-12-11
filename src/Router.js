@@ -14,6 +14,7 @@ import Home from "./HomePage/Home"
 import { Upload } from './Upload';
 import Watch from './Watch'
 import Landing from './landing/landing-home.js'
+import Submit from './landing/Submit'
 import Live from './Live'
 import { Stream } from './TribalPage/Stream'
 import Profile from './SocialPage/Profile'
@@ -59,13 +60,14 @@ class PrivateRoute extends React.Component {
         {...rest}
         render={(props) => {
           return isAuthenticated ? (
-            <Component {...props} />
+           <Component {...props}
+            />
           ) : (
             <Redirect
-              to={{
-                pathname: "/auth",
-              }}
-            />
+            to={{
+              pathname: "./auth",
+            }}
+          />
           );
         }}
       />
@@ -138,9 +140,10 @@ const Routes = () => (
         </Route>
         <Route path="/explore"><Explore /></Route>
         <Route path="/auth" exact component={Authenticator} />
-        <Route path="/" exact component={Home} />
+        <Route path="/" exact component={Landing} />
         <Route path="/home" exact component={Home} />
         <Route path="/landing/landing-home" exact component={Landing} />
+        <Route path="/landing/Submit" exact component={Submit} />
         <Route path="/search" exact component={SearchQueries} />
         <Route path="/viewProfile" exact component={ViewProfile} />
         <Route path="/myStudio" exact component={MyStudio} />
