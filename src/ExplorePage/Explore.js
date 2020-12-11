@@ -103,4 +103,117 @@ export default class Explore extends React.Component {
 }
 }
 
+export class SportsPage extends React.Component {
+    render() {
+        console.log("sports")
+    return(
+        <h1>Sports</h1>
+        
+        )
+    }
+}
+export class TalksPage extends React.Component {
+    render() {
+        return(
+            <h1>Talks</h1>
+        )
+    }
+}
+
+export class DramaPage extends React.Component {
+    render() {
+        return(
+            <h1>Drama</h1>
+        )
+    }
+}
+
+export class RomancePage extends React.Component {
+    render() {
+        return(
+            <h1>Romance</h1>
+        )
+    }
+}
+
+export class HorrorPage extends React.Component {
+    render() {
+        return(
+            <h1>Horror</h1>
+        )
+    }
+}
+
+export class FamilyPage extends React.Component {
+    render() {
+        return(
+            <h1>Family</h1>
+        )
+    }
+}
+
+export class AnimationPage extends React.Component {
+    render() {
+        return(
+            <h1>Animation</h1>
+        )
+    }
+}
+
+export class ExperimentalPage extends React.Component {
+    render() {
+        return(
+            <h1>Talks</h1>
+        )
+    }
+}
+
+export class ThrillerPage extends React.Component {
+    render() {
+        return(
+            <h1>Talks</h1>
+        )
+    }
+}
+
+export class SciFiPage extends React.Component {
+    render() {
+        return(
+            <h1>Talks</h1>
+        )
+    }
+}
+
+export class ActionPage extends React.Component {
+    render() {
+        return(
+            <h1>Talks</h1>
+        )
+    }
+}
+
+export class ComedyPage extends React.Component {
+    render() {
+        return(
+            <h1>Talks</h1>
+        )
+    }
+}
+
+export class MusicalPage extends React.Component {
+    render() {
+        return(
+            <h1>Talks</h1>
+        )
+    }
+}
+
+export class DocumentaryPage extends React.Component {
+    render() {
+        return(
+            <h1>Talks</h1>
+        )
+    }
+}
+
 
