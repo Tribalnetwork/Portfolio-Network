@@ -1,0 +1,4 @@
+2020-12-09T06:06:38.705Z|info : amplify env core add 
+2020-12-09T06:11:10.857Z|info : amplify-provider-awscloudformation.amplify-service-permission-check.checkAmplifyServiceIAMPermission.amplifyClient.listApps([])
+2020-12-09T06:11:12.276Z|info : amplify-provider-awscloudformation.amplify-service-manager.init.amplifyClient.createApp([{"environmentVariables":{"_LIVE_PACKAGE_UPDATES":"[{\"pkg\":\"@aws-amplify/cli\",\"type\":\"npm\",\"version\":\"latest\"}]"}}])
+2020-12-09T20:56:45.099Z|info : amplify version core  {"version":true,"yes":false}
