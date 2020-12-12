@@ -5,6 +5,7 @@
   border: solid black;
   padding-bottom: 180px;
   width: 375px;
+  height: 201;
 }
 .Boards {
   color: pink;
@@ -30,16 +31,17 @@ input {
 }
 .picked {
   color: white;
+  margin: 5px;
 }
 .near {
   color: white;
 }
 
 .line {
-  width: 95%;
+  width: 375px;
   height: 2px;
   border: 1px solid #757575;
-  margin-top: 5px;
+  margin-top: 15px;
   margin-bottom: 10px;
   align-self: center;
 }

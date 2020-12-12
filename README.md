@@ -32,7 +32,7 @@ You can also set the upstream remote with SSH if you have that set up.
 
 To get access to Tribal's AWS account, log in with this information:
 
-_Email:_ Tribaloperations@gmail.com  
+_Email:_  
 _Password:_ Skezanzu11
 
 Of course, keep in mind that this is senstive information, and only exists in this README because this is a private repo.
@@ -121,7 +121,6 @@ npm start
 ```
 git add .
 git commit -m "Enter your description of your changes."
-git push origin my_feature_branch_name_here
 ```
 
 6.  Use your GitHub page to create a pull request from your feature branch to master.

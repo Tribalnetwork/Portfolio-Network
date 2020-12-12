@@ -112,6 +112,12 @@ export const getPlayList = /* GraphQL */ `
           updatedAt
         }
         ImgUrl
+        MyGigs {
+          nextToken
+        }
+        InvitedGig {
+          nextToken
+        }
         createdAt
         updatedAt
       }
@@ -261,7 +267,6 @@ export const getUser = /* GraphQL */ `
       liveChannelCreated
       remainingVODTime
       remainingLiveTime
-      ImgUrl
       myList {
         id
         name
@@ -286,6 +291,35 @@ export const getUser = /* GraphQL */ `
         updatedAt
       }
       ImgUrl
+      MyGigs {
+        items {
+          id
+          imageUrl
+          Title
+          Genre
+          Synopsis
+          Budget
+          Pro_dates
+          Position
+          Rates
+          Exe_notes
+          Stakeholders
+          Audience
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      InvitedGig {
+        items {
+          id
+          gigID
+          userID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       createdAt
       updatedAt
     }
@@ -315,6 +349,269 @@ export const listUsers = /* GraphQL */ `
           updatedAt
         }
         ImgUrl
+        MyGigs {
+          nextToken
+        }
+        InvitedGig {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const getConnect = /* GraphQL */ `
+  query GetConnect($id: ID!) {
+    getConnect(id: $id) {
+      id
+      userId
+      connectsId {
+        userId
+        status
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listConnects = /* GraphQL */ `
+  query ListConnects(
+    $filter: ModelConnectFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listConnects(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        userId
+        connectsId {
+          userId
+          status
+        }
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const getGig = /* GraphQL */ `
+  query GetGig($id: ID!) {
+    getGig(id: $id) {
+      id
+      User {
+        id
+        name
+        location
+        fullAccess
+        admin
+        liveStreamID
+        liveChannelCreated
+        remainingVODTime
+        remainingLiveTime
+        myList {
+          id
+          name
+          createdAt
+          updatedAt
+        }
+        ImgUrl
+        MyGigs {
+          nextToken
+        }
+        InvitedGig {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      imageUrl
+      Title
+      Genre
+      Synopsis
+      Budget
+      Pro_dates
+      Position
+      Rates
+      Exe_notes
+      Stakeholders
+      Audience
+      invite {
+        items {
+          id
+          gigID
+          userID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listGigs = /* GraphQL */ `
+  query ListGigs(
+    $filter: ModelGigFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listGigs(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        User {
+          id
+          name
+          location
+          fullAccess
+          admin
+          liveStreamID
+          liveChannelCreated
+          remainingVODTime
+          remainingLiveTime
+          ImgUrl
+          createdAt
+          updatedAt
+        }
+        imageUrl
+        Title
+        Genre
+        Synopsis
+        Budget
+        Pro_dates
+        Position
+        Rates
+        Exe_notes
+        Stakeholders
+        Audience
+        invite {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const getUserInviteByGig = /* GraphQL */ `
+  query GetUserInviteByGig($id: ID!) {
+    getUserInviteByGig(id: $id) {
+      id
+      gigID
+      userID
+      gig {
+        id
+        User {
+          id
+          name
+          location
+          fullAccess
+          admin
+          liveStreamID
+          liveChannelCreated
+          remainingVODTime
+          remainingLiveTime
+          ImgUrl
+          createdAt
+          updatedAt
+        }
+        imageUrl
+        Title
+        Genre
+        Synopsis
+        Budget
+        Pro_dates
+        Position
+        Rates
+        Exe_notes
+        Stakeholders
+        Audience
+        invite {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      user {
+        id
+        name
+        location
+        fullAccess
+        admin
+        liveStreamID
+        liveChannelCreated
+        remainingVODTime
+        remainingLiveTime
+        myList {
+          id
+          name
+          createdAt
+          updatedAt
+        }
+        ImgUrl
+        MyGigs {
+          nextToken
+        }
+        InvitedGig {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listUserInviteByGigs = /* GraphQL */ `
+  query ListUserInviteByGigs(
+    $filter: ModelUserInviteByGigFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listUserInviteByGigs(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        gigID
+        userID
+        gig {
+          id
+          imageUrl
+          Title
+          Genre
+          Synopsis
+          Budget
+          Pro_dates
+          Position
+          Rates
+          Exe_notes
+          Stakeholders
+          Audience
+          createdAt
+          updatedAt
+        }
+        user {
+          id
+          name
+          location
+          fullAccess
+          admin
+          liveStreamID
+          liveChannelCreated
+          remainingVODTime
+          remainingLiveTime
+          ImgUrl
+          createdAt
+          updatedAt
+        }
         createdAt
         updatedAt
       }

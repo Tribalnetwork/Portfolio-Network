@@ -167,6 +167,12 @@ export const createPlayList = /* GraphQL */ `
           updatedAt
         }
         ImgUrl
+        MyGigs {
+          nextToken
+        }
+        InvitedGig {
+          nextToken
+        }
         createdAt
         updatedAt
       }
@@ -210,6 +216,12 @@ export const updatePlayList = /* GraphQL */ `
           updatedAt
         }
         ImgUrl
+        MyGigs {
+          nextToken
+        }
+        InvitedGig {
+          nextToken
+        }
         createdAt
         updatedAt
       }
@@ -253,6 +265,12 @@ export const deletePlayList = /* GraphQL */ `
           updatedAt
         }
         ImgUrl
+        MyGigs {
+          nextToken
+        }
+        InvitedGig {
+          nextToken
+        }
         createdAt
         updatedAt
       }
@@ -466,6 +484,35 @@ export const createUser = /* GraphQL */ `
         updatedAt
       }
       ImgUrl
+      MyGigs {
+        items {
+          id
+          imageUrl
+          Title
+          Genre
+          Synopsis
+          Budget
+          Pro_dates
+          Position
+          Rates
+          Exe_notes
+          Stakeholders
+          Audience
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      InvitedGig {
+        items {
+          id
+          gigID
+          userID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       createdAt
       updatedAt
     }
@@ -510,6 +557,35 @@ export const updateUser = /* GraphQL */ `
         updatedAt
       }
       ImgUrl
+      MyGigs {
+        items {
+          id
+          imageUrl
+          Title
+          Genre
+          Synopsis
+          Budget
+          Pro_dates
+          Position
+          Rates
+          Exe_notes
+          Stakeholders
+          Audience
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      InvitedGig {
+        items {
+          id
+          gigID
+          userID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       createdAt
       updatedAt
     }
@@ -554,6 +630,482 @@ export const deleteUser = /* GraphQL */ `
         updatedAt
       }
       ImgUrl
+      MyGigs {
+        items {
+          id
+          imageUrl
+          Title
+          Genre
+          Synopsis
+          Budget
+          Pro_dates
+          Position
+          Rates
+          Exe_notes
+          Stakeholders
+          Audience
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      InvitedGig {
+        items {
+          id
+          gigID
+          userID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const createConnect = /* GraphQL */ `
+  mutation CreateConnect(
+    $input: CreateConnectInput!
+    $condition: ModelConnectConditionInput
+  ) {
+    createConnect(input: $input, condition: $condition) {
+      id
+      userId
+      connectsId {
+        userId
+        status
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateConnect = /* GraphQL */ `
+  mutation UpdateConnect(
+    $input: UpdateConnectInput!
+    $condition: ModelConnectConditionInput
+  ) {
+    updateConnect(input: $input, condition: $condition) {
+      id
+      userId
+      connectsId {
+        userId
+        status
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteConnect = /* GraphQL */ `
+  mutation DeleteConnect(
+    $input: DeleteConnectInput!
+    $condition: ModelConnectConditionInput
+  ) {
+    deleteConnect(input: $input, condition: $condition) {
+      id
+      userId
+      connectsId {
+        userId
+        status
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const createGig = /* GraphQL */ `
+  mutation CreateGig(
+    $input: CreateGigInput!
+    $condition: ModelGigConditionInput
+  ) {
+    createGig(input: $input, condition: $condition) {
+      id
+      User {
+        id
+        name
+        location
+        fullAccess
+        admin
+        liveStreamID
+        liveChannelCreated
+        remainingVODTime
+        remainingLiveTime
+        myList {
+          id
+          name
+          createdAt
+          updatedAt
+        }
+        ImgUrl
+        MyGigs {
+          nextToken
+        }
+        InvitedGig {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      imageUrl
+      Title
+      Genre
+      Synopsis
+      Budget
+      Pro_dates
+      Position
+      Rates
+      Exe_notes
+      Stakeholders
+      Audience
+      invite {
+        items {
+          id
+          gigID
+          userID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateGig = /* GraphQL */ `
+  mutation UpdateGig(
+    $input: UpdateGigInput!
+    $condition: ModelGigConditionInput
+  ) {
+    updateGig(input: $input, condition: $condition) {
+      id
+      User {
+        id
+        name
+        location
+        fullAccess
+        admin
+        liveStreamID
+        liveChannelCreated
+        remainingVODTime
+        remainingLiveTime
+        myList {
+          id
+          name
+          createdAt
+          updatedAt
+        }
+        ImgUrl
+        MyGigs {
+          nextToken
+        }
+        InvitedGig {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      imageUrl
+      Title
+      Genre
+      Synopsis
+      Budget
+      Pro_dates
+      Position
+      Rates
+      Exe_notes
+      Stakeholders
+      Audience
+      invite {
+        items {
+          id
+          gigID
+          userID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteGig = /* GraphQL */ `
+  mutation DeleteGig(
+    $input: DeleteGigInput!
+    $condition: ModelGigConditionInput
+  ) {
+    deleteGig(input: $input, condition: $condition) {
+      id
+      User {
+        id
+        name
+        location
+        fullAccess
+        admin
+        liveStreamID
+        liveChannelCreated
+        remainingVODTime
+        remainingLiveTime
+        myList {
+          id
+          name
+          createdAt
+          updatedAt
+        }
+        ImgUrl
+        MyGigs {
+          nextToken
+        }
+        InvitedGig {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      imageUrl
+      Title
+      Genre
+      Synopsis
+      Budget
+      Pro_dates
+      Position
+      Rates
+      Exe_notes
+      Stakeholders
+      Audience
+      invite {
+        items {
+          id
+          gigID
+          userID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const createUserInviteByGig = /* GraphQL */ `
+  mutation CreateUserInviteByGig(
+    $input: CreateUserInviteByGigInput!
+    $condition: ModelUserInviteByGigConditionInput
+  ) {
+    createUserInviteByGig(input: $input, condition: $condition) {
+      id
+      gigID
+      userID
+      gig {
+        id
+        User {
+          id
+          name
+          location
+          fullAccess
+          admin
+          liveStreamID
+          liveChannelCreated
+          remainingVODTime
+          remainingLiveTime
+          ImgUrl
+          createdAt
+          updatedAt
+        }
+        imageUrl
+        Title
+        Genre
+        Synopsis
+        Budget
+        Pro_dates
+        Position
+        Rates
+        Exe_notes
+        Stakeholders
+        Audience
+        invite {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      user {
+        id
+        name
+        location
+        fullAccess
+        admin
+        liveStreamID
+        liveChannelCreated
+        remainingVODTime
+        remainingLiveTime
+        myList {
+          id
+          name
+          createdAt
+          updatedAt
+        }
+        ImgUrl
+        MyGigs {
+          nextToken
+        }
+        InvitedGig {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateUserInviteByGig = /* GraphQL */ `
+  mutation UpdateUserInviteByGig(
+    $input: UpdateUserInviteByGigInput!
+    $condition: ModelUserInviteByGigConditionInput
+  ) {
+    updateUserInviteByGig(input: $input, condition: $condition) {
+      id
+      gigID
+      userID
+      gig {
+        id
+        User {
+          id
+          name
+          location
+          fullAccess
+          admin
+          liveStreamID
+          liveChannelCreated
+          remainingVODTime
+          remainingLiveTime
+          ImgUrl
+          createdAt
+          updatedAt
+        }
+        imageUrl
+        Title
+        Genre
+        Synopsis
+        Budget
+        Pro_dates
+        Position
+        Rates
+        Exe_notes
+        Stakeholders
+        Audience
+        invite {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      user {
+        id
+        name
+        location
+        fullAccess
+        admin
+        liveStreamID
+        liveChannelCreated
+        remainingVODTime
+        remainingLiveTime
+        myList {
+          id
+          name
+          createdAt
+          updatedAt
+        }
+        ImgUrl
+        MyGigs {
+          nextToken
+        }
+        InvitedGig {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteUserInviteByGig = /* GraphQL */ `
+  mutation DeleteUserInviteByGig(
+    $input: DeleteUserInviteByGigInput!
+    $condition: ModelUserInviteByGigConditionInput
+  ) {
+    deleteUserInviteByGig(input: $input, condition: $condition) {
+      id
+      gigID
+      userID
+      gig {
+        id
+        User {
+          id
+          name
+          location
+          fullAccess
+          admin
+          liveStreamID
+          liveChannelCreated
+          remainingVODTime
+          remainingLiveTime
+          ImgUrl
+          createdAt
+          updatedAt
+        }
+        imageUrl
+        Title
+        Genre
+        Synopsis
+        Budget
+        Pro_dates
+        Position
+        Rates
+        Exe_notes
+        Stakeholders
+        Audience
+        invite {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      user {
+        id
+        name
+        location
+        fullAccess
+        admin
+        liveStreamID
+        liveChannelCreated
+        remainingVODTime
+        remainingLiveTime
+        myList {
+          id
+          name
+          createdAt
+          updatedAt
+        }
+        ImgUrl
+        MyGigs {
+          nextToken
+        }
+        InvitedGig {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
       createdAt
       updatedAt
     }

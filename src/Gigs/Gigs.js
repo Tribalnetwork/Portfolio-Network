@@ -1,64 +1,81 @@
 import React from 'react'
 import Amplify from 'aws-amplify';
 import { API, graphqlOperation } from 'aws-amplify'
-import { listFilms,listLiveStreams } from './graphql/queries'
-import awsconfig from './aws-exports';
+import { listGigs } from '../graphql/queries'
+import awsconfig from '../aws-exports';
 import '@aws-amplify/ui/dist/style.css';
 import { Link } from "react-router-dom";
-import UserContext from './UserContext'
+import UserContext from '../UserContext'
 import { Helmet } from 'react-helmet'
 import ReactPlayer from 'react-player'
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import Button from './Button';
+import Button from '../Button';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
-import HorizontalScrollerCircular from "./components/HorizontalScrollerCircular";
-import HorizontalScroller from "./components/HorizontalScroller";
-import TrendingNow from "./TrendingNow";
-import ContinueWatching from "./ContinueWatching";
-import MyList from "./MyList";
-import {ReactComponent as ExploreLogo} from './icons/Explore.svg';
-import {ReactComponent as MyStudioLogo} from './icons/myStudio.svg';
-import SearchQueries from "./components/searchQueries";
-import StartLive from './TribalPage/startLive.png';
+import SearchQueries from "../components/searchQueries";
 import { Home } from '@material-ui/icons';
 import './Gigs.css';
-
+import {ReactComponent as AuthorPhotoLogo} from '../icons/Ellipse.svg';
 
 Amplify.configure(awsconfig);
 
 export default class Gigs extends React.Component {
   
-  static contextType = UserContext
+    static contextType = UserContext
 
   state = {
-    films: [],
+    gigs: [],
     url:"https://d2tj5fkeuzoaui.cloudfront.net/4a13ac70-b95c-48bb-9c80-1d340078c647/hls/bunny_2020-07-28T01:25:05.353Z.m3u8",
-    videoName:"Bunny",
-    livestreams:[]
   }
 
   componentDidMount() {
-    //this.context.updateCurrentUser()
-    this.fetchFilms();
+    this.fetchGigs();
   }
 
-  async fetchFilms() {
+  gig_card=(gig)=>{
+    console.log(gig)
+    return (
+      <Grid>
+      <Card style={styles.root2}>
+          <Link>
+              <CardActionArea>
+              <CardMedia
+                  style={styles.media2}
+                  image={gig.imageUrl}
+              />
+              <Typography >
+              <Grid container spacing={3} alignItems="center">
+                  <Grid item xs={2}>
+                  <AuthorPhotoLogo></AuthorPhotoLogo>
+                  </Grid>
+                  <Grid item xs={6}>
+                  <p>{gig.Position}</p>
+                  <p>{gig.Title}</p>
+                  </Grid>
+                  
+              </Grid>
+              </Typography>
+              </CardActionArea>
+          </Link>
+      </Card>
+  </Grid>
+    )
+  }
+
+  async fetchGigs() {
     try {
-      const films = await API.graphql(graphqlOperation(listFilms, {
-        filter: {
-          available: {
-            eq: true
-          }
-        }
+      const gigs = await API.graphql(graphqlOperation(listGigs, {
+        
       }));
       //console.log(streams.data.listLiveStreams.items)
-      this.setState({ films: films.data.listFilms.items })
+      this.setState({ gigs: gigs.data.listGigs.items })
+      console.log(this.state.gigs);
     } catch (err) { console.log(err) }
   }
+
 
   render() {
  
@@ -77,22 +94,39 @@ export default class Gigs extends React.Component {
                     <div className="Boards"> 
                     <Grid dispaly="inline">
                       <Grid item>Gig Board<Link to = {'/gigs'}></Link></Grid>
+                      <Grid item>Events<Link to = {'/events'}></Link></Grid>
+                      <Link to= "/events">Clk Me</Link>
                    </Grid>  
                     </div>
                     <div  className="searchBar" style={styles.searchContainer}>
                             <Link to="/mylive" style={styles.startLive}>
-                                <img src={StartLive}/>
+                                <img src="https://d202tggnzywgd9.cloudfront.net/public/events_n_gigs/53019567-7e3f-4360-92b6-6ec2b787a67d.png"/>
                             </Link>
                             <SearchQueries type={"liveStreams"} style={styles.search}/>
                     </div>
                     <div className="picked">
                         <p>Gigs picked for you</p>
-                        <HorizontalScroller list={this.state.films} />
+                        <Grid>
+                            <Card style={styles.root1}>
+                                <Link>
+                                    <CardActionArea>
+                                    <div style={styles.wrk}>Title</div>
+                                    <CardMedia
+                                        title= 'TitelS'
+                                        style={styles.media1}
+                                        image={`https://tonedeaf.thebrag.com/wp-content/uploads/2018/05/patdcrowd-1-768x396.jpg`}
+                                    />
+                                    </CardActionArea>
+                                </Link>
+                            </Card>
+                        </Grid>
                     </div>
                     <div className="line"> </div>
                     <div className="near">
                         <p>Gigs Near You</p>
-                        
+                        <div>
+                          {this.state.gigs.map(g=>this.gig_card(g))}
+                          </div>
                     </div>
                 </div>
                 }     
@@ -104,12 +138,31 @@ export default class Gigs extends React.Component {
 }
 
 const styles = {
-    root: {
-      width: "237px",
+    root1: {
+      width: "131px",
+      heigh: "109px",
+      borderRadius: 15,
+      marginBottom: "20px",
     },
-    media: {
+    wrk: {
+        marginBottom: "-25px",
+        marginTop: "5px",
+        color: "white",
+        textDecoration: "none",
+        position: "center",
+    },
+    media1: {
       height: 178,
+      width: 175,
     },
+    root2: {
+        width: "375px",
+        heigh: "315px",
+      },
+    media2: {
+        height: 212,
+        width: 375,
+      },
     header: { margin: '0 auto', display: 'flex', flex: 1, flexDirection: 'column', justifyContent: 'center', padding: 20 },
     container: { width: "100%", margin: '0', display: 'flex', flex: 1, flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'left', zIndex: "-1" },
     link: { textDecoration: 'none' },
@@ -124,4 +177,3 @@ const styles = {
     search: {},
     startLive: {position: "relative", left: "7.5vw", top: "5vh", minHeight: "3vh", maxHeight: "9vh", minWidth: "3vh", maxWidth: "9vw"}
   }
-  

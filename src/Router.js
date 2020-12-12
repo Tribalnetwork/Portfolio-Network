@@ -10,7 +10,7 @@ import UserContext from "./UserContext";
 import { NavigationBar } from "./components/NavigationBar";
 
 import Authenticator from './Authenticator'
-import Home from "./HomePage/Home"
+import Home from "./Homepage/Home"
 import { Upload } from './Upload';
 import Watch from './Watch'
 import Live from './Live'
@@ -25,7 +25,9 @@ import ViewProfile from "./ViewProfile"
 import MyList from "./MyList"
 import MyStudio from "./MyStudio/MyStudio";
 import Settings, { Wifi, Support, TermsOfService, PrivacyPolicy, Account, Notifications, DownloadOptions, Logout } from "./SettingsPage/Settings";
-import Gigs from "./Gigs";
+import Gigs from "./Gigs/Gigs";
+import PostGig from "./Gigs/PostGig";
+
 
 import ConnectList from "./SocialPage/ConnectList"
 
@@ -152,6 +154,7 @@ const Routes = () => (
         <PrivateRoute path="/mylive" component={MyLive} />
         <PrivateRoute path="/mylist" component={MyList} />
         <PrivateRoute path="/gigs" component={Gigs} />
+        <PrivateRoute path="/postagig" component={PostGig} />
         <Route component={NoMatch} />
       </Switch>
       <BottomNavBar />

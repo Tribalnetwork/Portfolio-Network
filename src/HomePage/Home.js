@@ -22,7 +22,7 @@ import ContinueWatching from "../ContinueWatching";
 import MyList from "../MyList";
 import {ReactComponent as ExploreLogo} from '../icons/Explore.svg';
 import {ReactComponent as MyStudioLogo} from '../icons/myStudio.svg';
-import Gigs from '../Gigs';
+import Gigs from '../Gigs/Gigs';
 Amplify.configure(awsconfig);
 
 export default class Home extends React.Component {
