@@ -6317,7 +6317,7 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "and",
+          "name" : "Skills",
           "description" : null,
           "type" : {
             "kind" : "LIST",
@@ -6330,7 +6330,7 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "or",
+          "name" : "userMyListId",
           "description" : null,
           "type" : {
             "kind" : "LIST",
@@ -6342,8 +6342,17 @@
             }
           },
           "defaultValue" : null
-        }, {
-          "name" : "not",
+        } ],
+        "interfaces" : null,
+        "enumValues" : null,
+        "possibleTypes" : null
+      }, {
+        "kind" : "INPUT_OBJECT",
+        "name" : "DeleteUserInput",
+        "description" : null,
+        "fields" : null,
+        "inputFields" : [ {
+          "name" : "id",
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
@@ -6364,13 +6373,9 @@
           "name" : "id",
           "description" : null,
           "type" : {
-            "kind" : "NON_NULL",
-            "name" : null,
-            "ofType" : {
-              "kind" : "SCALAR",
-              "name" : "ID",
-              "ofType" : null
-            }
+            "kind" : "SCALAR",
+            "name" : "ID",
+            "ofType" : null
           },
           "defaultValue" : null
         }, {
@@ -6386,9 +6391,13 @@
           "name" : "userID",
           "description" : null,
           "type" : {
-            "kind" : "SCALAR",
-            "name" : "ID",
-            "ofType" : null
+            "kind" : "LIST",
+            "name" : null,
+            "ofType" : {
+              "kind" : "INPUT_OBJECT",
+              "name" : "ConnectItemInput",
+              "ofType" : null
+            }
           },
           "defaultValue" : null
         } ],

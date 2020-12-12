@@ -32,6 +32,12 @@ import FilmFrame from "./filmFrame";
     Then in get global add it to the global list that is passed to search, and in search add a new option in the switch statement.
     If you use the other components as a template, everything should flow smoothly. :)
 
+    Addendum 1:
+        A recent searches function as been incorporated into this file. It uses two functions, which are add(), and checkRecents();
+        add() adds a search results to an array in localStorage, which should be no more then 50 results
+        checkRecents is triggered onClick on input, and runs the search function with the list pulled from localStorage, instead of the entire
+        global list.
+
 */
 
 export default class SearchQueries extends React.Component {
@@ -48,7 +54,7 @@ export default class SearchQueries extends React.Component {
                 liveStreams: false,
             },
             buttons: [],
-            global: []
+            global: [],
             }
         }
 
@@ -108,23 +114,30 @@ export default class SearchQueries extends React.Component {
       })
         }
 
-        search = (input, global) => {
-            const rawMatches = global.filter((search) => {
-                if(search.name.includes(input.toUpperCase())){
-                    return search;
-                }
-                
-            });
+
+        search = (input, global, recents) => {
+            let rawMatches;
+            if(recents == true){
+                rawMatches = global
+            } else {
+                rawMatches = global.filter((search) => {
+                    if(search.name.includes(input.toUpperCase())){
+                        return search;
+                    }
+                    
+                });
+            }
+            
            const styledMatches = rawMatches.map((item) =>{ 
            switch(item.type){
                 case "Film":
-                    return <li key={item.id} style={this.filmLiStyle}><FilmFrame film={item} /></li>
+                    return <li key={item.id} style={this.filmLiStyle} onClick={() => {this.add("main", item)}}><FilmFrame film={item} /></li>
                     break;
                 case "Live Stream":
-                   return <Link style={{textDecoration: "none"}} to={`/live?id=${item.id}`}><li key={item.id} style={this.liStyle}>{item.name}  <p style={this.typeStyle}>{item.type}</p></li> </Link>
+                   return <Link style={{textDecoration: "none"}} to={`/live?id=${item.id}`}><li key={item.id} style={this.liStyle} onClick={() => {this.add("main", item)}}>{item.name}  <p style={this.typeStyle}>{item.type}</p></li> </Link>
                    break;
                 case "User":
-                    return <Link style={{textDecoration: "none"}} to={`/viewProfile?name=${item.name}&location=${item.location}&id=${item.id}`}><li key={item.id} style={this.liStyle}>{item.name}  <p style={this.typeStyle}>{item.type}</p></li></Link>
+                    return <Link style={{textDecoration: "none"}} to={`/viewProfile?name=${item.name}&location=${item.location}&id=${item.id}`}><li key={item.id} style={this.liStyle} onClick={() => {this.add("main", item)}}>{item.name}  <p style={this.typeStyle}>{item.type}</p></li></Link>
                     break;
            }
            
@@ -152,11 +165,13 @@ export default class SearchQueries extends React.Component {
 
         filterUsers = (e) => {
             if(this.state.filter.users == true){
-                e.target.style.backgroundColor = "#2C2C2E";
+                e.target.style.borderBottom = "0px solid black";
                 e.target.style.color = "white"
             }else{
-                e.target.style.backgroundColor = "rgb(212, 175, 55)";
-                e.target.style.color = "Black"
+                e.target.style.borderBottom = "1px solid"
+                e.target.style.borderImage = "repeating-linear-gradient(to left,#D3C095,#A07923)"
+                e.target.style.borderImageSlice = "1"
+                e.target.style.color = "gold"
             }
             
             this.setState(prevState => ({
@@ -175,11 +190,13 @@ export default class SearchQueries extends React.Component {
 
         filterFilms = (e) => {
             if(this.state.filter.films == true){
-                e.target.style.backgroundColor = "#2C2C2E";
+                e.target.style.borderBottom = "0px solid black";
                 e.target.style.color = "white"
             }else{
-                e.target.style.backgroundColor = "rgb(212, 175, 55)";
-                e.target.style.color = "Black"
+                e.target.style.borderBottom = "1px solid"
+                e.target.style.borderImage = "repeating-linear-gradient(to left,#D3C095,#A07923)"
+                e.target.style.borderImageSlice = "1"
+                e.target.style.color = "gold"
             }
             this.setState(prevState => ({
                 filter: {                   
@@ -197,11 +214,13 @@ export default class SearchQueries extends React.Component {
 
         filterLiveStreams = (e) => {
             if(this.state.filter.liveStreams == true){
-                e.target.style.backgroundColor = "#2C2C2E";
+                e.target.style.borderBottom = "0px solid black";
                 e.target.style.color = "white"
             }else{
-                e.target.style.backgroundColor = "rgb(212, 175, 55)";
-                e.target.style.color = "Black"
+                e.target.style.borderBottom = "1px solid"
+                e.target.style.borderImage = "repeating-linear-gradient(to left,#D3C095,#A07923)"
+                e.target.style.borderImageSlice = "1"
+                e.target.style.color = "gold"
             }
             this.setState(prevState => ({
                 filter: {                   
@@ -218,6 +237,10 @@ export default class SearchQueries extends React.Component {
         }
 
         checkType = () => {
+            if(this.props.round == true){
+                this.inputWrapperStyle = this.inputWrapperStyleRound;
+                this.filterStyle = this.filterStyleNone;
+            }
             if (this.props.type == "liveStreams"){
                 this.setState(prevState => ({
                     filter: {                   
@@ -232,11 +255,42 @@ export default class SearchQueries extends React.Component {
                     }
                 }))
             } else {
-                const filterButtons = [<li><button style={this.filterButtonStyle} onClick={this.filterUsers}>Users</button></li>,
-                    <li><button style={this.filterButtonStyle} onClick={this.filterFilms}>Films</button></li>,
-                    <li><button style={this.filterButtonStyle} onClick={this.filterLiveStreams}>Live Streams</button></li>]
+                const filterButtons = [<li style={this.filterButtonStyle} onClick={this.filterUsers}>Users</li>,
+                    <li style={this.filterButtonStyle} onClick={this.filterFilms}>Films</li>,
+                    <li style={this.filterButtonStyle} onClick={this.filterLiveStreams}>Live Streams</li>]
                     this.setState({buttons: filterButtons})
             }
+        }
+        
+        add = (type, input) => {
+            let local = JSON.parse(localStorage.getItem(type))
+            if (local == null || local == undefined){
+                let container = {
+                    list: [input]
+                }
+                localStorage.setItem(type, JSON.stringify(container))
+            } else {
+                if(local.list.length >= 50){
+                   local.list.pop();
+                }
+                let update = [input];
+                local.list = update.concat(local.list);
+                localStorage.setItem(type, JSON.stringify(local))
+            }
+        }
+
+        checkRecent = () => {
+            let stored =JSON.parse(localStorage.getItem("main"));
+            if(stored == null || stored == undefined){
+                console.log("no recents")
+            } else {
+                let recent = stored.list;
+                if (recent.length == 0){
+                    console.log("no recents");
+                } else if (recent.length >= 1){
+                    this.search(" ", recent, true)
+                }
+                }   
         }
 
         getGlobal = (e) => {
@@ -248,7 +302,7 @@ export default class SearchQueries extends React.Component {
                 const users = this.state.users;
                 const hold = films.concat(liveStreamers)
                 const global = hold.concat(users);
-                this.search(input, global)
+                this.search(input, global, false)
             } else{
                 var filterGlobal = new Array;
                 for(let i=1; i < 4; i++) {
@@ -258,38 +312,50 @@ export default class SearchQueries extends React.Component {
                         filterGlobal = filterGlobal.concat(this.state[name])
                     }
                 }
-                this.search(input, filterGlobal)
+                this.search(input, filterGlobal, false)
             }
         }
 
         // Styling objects
         mainDivStyle = {
-            //position: "fixed",
             display: "grid",
             top: "7vh",
             width: "100%",
             bottom: "0px",
             padding: '0',
             gridTemplateColumns: "2fr 2fr 2fr",
-            gridTemplateRows: "8vh 3vh 90%",  
+            gridTemplateRows: "13% 3% 85%",  
         }
 
-        inputWrapperStyle = {
+        inputWrapperStyleNorm = {
             paddingLeft: "2vw",
             paddingRight: "2vw",
             justifyContent: "center",
             gridColumn: "1/4",
-            postion: "fixed",
             gridRow: "1",
             width: "100%",
-            height: "15vh",
+            height: "16vh",
             backgroundColor: 'black',
+            borderRadius: "0px"
         }
+
+        inputWrapperStyleRound = {
+            paddingLeft: "2vw",
+            paddingRight: "2vw",
+            justifyContent: "center",
+            gridColumn: "1/4",
+            gridRow: "1",
+            height: "9vh",
+            backgroundColor: 'black',
+            borderRadius: "25px"
+        }
+        
+        inputWrapperStyle = this.inputWrapperStyleNorm;
 
         inputStyle = {
             height: "6vh",
-            width: "45vw",
-            marginTop: "10px",
+            width: "60%",
+            margin: "2vh 0 0 0",
             justifyContent: "center",
             gridColumn: "2",
             fontSize: "2vw",
@@ -301,8 +367,9 @@ export default class SearchQueries extends React.Component {
             backgroundColor: "#2C2C2E",
             borderColor: "black"
          }
-
-         filterStyle = {
+         
+         filterStyleNorm = {
+             backgroundColor: "black",
              display: "grid",
              gridTemplateRows: "subgrid",
              gridTemplateColumns: "1fr 1fr 1fr",
@@ -311,34 +378,47 @@ export default class SearchQueries extends React.Component {
              listStyleType: "none",
              gridColumn: "2",
              gridRow: "2",
-             width: "70vw",
-             paddingLeft: "15vw",
-             paddingRight: "15vw",
+             width: "100vw",
+             height: "8vh",
+             padding: "0 15vw 0 15vw",
+             margin: "2.25vh 0 0 0",
+             zIndex: "100"
          }
 
+         filterStyleNone = {
+             height: "0",
+             width: "0",
+             margin: "0",
+             padding: "0",
+         }
+
+         filterStyle = this.filterStyleNorm
+
          filterButtonStyle = {
-            backgroundColor: "#2C2C2E",
             color: "white",
-            width: "12vw",
-            fontSize: "1.25vw",
-            borderRadius: "25px",
+            minWidth: "12vw",
+            maxWidth: "22vw",
+            height: "8vh",
+            fontSize: "1.5vh",
+            paddingTop: "2vh",
+            margin: "0",
+            zIndex: "100"
          }
         
          ulStyle = {
-            paddingTop: '2vh',
+            padding: '6.5vh 0 10vh 0',
             height: "375%",
             listStyleType: "none",
             justifyContent: "center",
             gridColumn: "1/4",
             gridRow: "3",
             overflow: "auto",
-            paddingBottom: "10vh",
-            zIndex: "100"
+            zIndex: "95"
          }
         
          liStyle = {
             borderBottom: "1px solid black",
-            paddingTop: "1vh",
+            padding: "1vh 0 0 1vw",
             textAlign: 'left',
             fontSize: "3vw",
             color: "#FFFFFF",
@@ -361,13 +441,14 @@ export default class SearchQueries extends React.Component {
              color: "red"
          }
 
+         filler = {
+            target: {
+                value: ""
+            }
+        }
+
          componentDidMount(){
-             let filler = {
-                 target: {
-                     value: ""
-                 }
-             }
-            this.getGlobal(filler); // this is a work around for a bug, that made it so the first character typed in the input would not trigger the search.
+            this.getGlobal(this.filler); // this is a work around for a bug, that made it so the first character typed in the input would not trigger the search.
             this.getUserNames();
             this.getFilmTitles();
             this.getLiveStreams();
@@ -378,8 +459,8 @@ export default class SearchQueries extends React.Component {
 
             return (
                 <div style={this.mainDivStyle}>
-                    <div style={this.inputWrapperStyle}> 
-                    <input style={this.inputStyle} onChange={this.getGlobal.bind(this)}/>
+                    <div style={this.inputWrapperStyle} className={"inputWrapper"}> 
+                    <input style={this.inputStyle} onChange={this.getGlobal.bind(this)} onClick={() => {this.checkRecent()}} onBlur={() => {setTimeout(() => this.getGlobal(this.filler), 250)}}/>
                     </div>
                     <ul style={this.filterStyle}>
                         {this.state.buttons}

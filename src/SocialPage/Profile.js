@@ -14,9 +14,9 @@ import AddIcon from '@material-ui/icons/Add';
 import FilmFrame from "../components/filmFrame";
 import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
-import { Upload } from '../Upload';
 import { getUser} from '../graphql/queries'
-import {updateUser} from '../graphql/mutations'
+import DropdownMenu from '../components/DropdownMenu.js'
+import Skills from "./Skills";
 
 
 
@@ -115,7 +115,8 @@ for (var i = 0; i < 48; i++)
 class Profile extends React.Component {
   static contextType = UserContext;
   state={
-    ImgUrl:null
+    ImgUrl:null,
+    showPopup:false
   }
 componentDidMount(){
   this.getImg();
@@ -129,6 +130,12 @@ async getImg(){
     this.setState({ImgUrl:user1.data.getUser.ImgUrl});
   }
 }
+  togglePopup() {  
+    this.setState({  
+      showPopup: !this.state.showPopup  
+    });  
+  }  
+
   signOut() {
     Auth.signOut()
       .then(() => {
@@ -142,6 +149,7 @@ async getImg(){
     return (
    
       <div className={"bodycontainer"}>
+        <Skills/>
         <div className={"container"}>
           <div className="profileimagecontainer">
             <NavigateBeforeIcon className={"arrownavigation"} />
@@ -151,9 +159,23 @@ async getImg(){
             </div>
          <h1 className={"welcomeText"}> Welcome back </h1>
         <h2 className={"username"}> {this.context.user.attributes.given_name}</h2>
+	<div className="iconcontainer"> 
+	  {this.state.showPopup ? <DropdownMenu
+          text='Click "Close Button" to hide popup'  
+          closePopup={this.togglePopup.bind(this)}  
+          link3="link3"
+          text3="What can others see?"  
+          link1="link1"
+          text1="My Studio"  
+          link2="link2"
+          text2="My Profile"  
+	  /> : null} 
+	</div>
+
         <div className="iconcontainer"> 
           <div className={"icon"}> <button className={"iconButton"}><DetailsIcon className={"iconlogo"}/> </button></div>
-        <div className={"icon"} id={"middle"}>  <button className={"iconButton"}><ReorderIcon className={"iconlogo"}/> </button> </div>
+        <div className={"icon"} id={"middle"}>  <button onClick={this.togglePopup.bind(this)}  className={"iconButton"}> <ReorderIcon className={"iconlogo"}/> </button> </div>
+
           <div className={"icon"}> <button className={"iconButton"}><NotificationsNoneIcon className={"iconlogo"}/> </button>   </div>
         </div>
        

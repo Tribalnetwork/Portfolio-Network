@@ -319,7 +319,7 @@ export const onUpdateFilmInList = /* GraphQL */ `
         id
         title
         genre
-        hlsUrl
+        hlsUrlnp
         thumbNailsUrls
         duration
         available
