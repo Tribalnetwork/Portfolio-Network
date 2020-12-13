@@ -15,6 +15,7 @@ import Grid from '@material-ui/core/Grid';
 import SearchQueries from "../components/searchQueries";
 import StartLive from "./startLive.png";
 import Trending from "../components/Trending";
+import LargeFrame from "../components/LargeFrame"
 
 export const Stream = () => {
   const [liveStreams, setLiveStreams] = useState([])
@@ -98,27 +99,7 @@ export const Stream = () => {
         <Grid container justify="center" spacing={5}>
           {
             liveStreams.map((stream, index) => (
-              <Grid key={stream.id ? stream.id : index} item>
-                <Card style={styles.root}>
-                  <Link to={`/live?id=${stream.id}`} style={styles.link}>
-                    <CardActionArea>
-                      <CardMedia
-                        style={styles.media}
-                        image={`https://image.mux.com/${stream.IDforThumbnail}/thumbnail.png?width=314&height=178`}
-                        title={stream.streamerName}
-                      />
-                      <CardContent>
-                        <Typography gutterBottom variant="h5" component="h2">
-                          {stream.streamerName}
-                        </Typography>
-                        <Typography variant="body2" color="textSecondary" component="p">
-                          {stream.status}
-                        </Typography>
-                      </CardContent>
-                    </CardActionArea>
-                  </Link>
-                </Card>
-              </Grid>
+               <LargeFrame item={stream} type={"livestream"}/>
             ))
           }
         </Grid>
