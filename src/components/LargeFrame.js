@@ -15,26 +15,26 @@ export default class LargeFrame extends React.Component{
     }
 
     render(){
-
+        if(this.props.type == "film"){
         return(
-            <Grid key={this.props.film.id}>
+            <Grid key={this.props.item.id}>
                 <Card style={styles.card} className={"root"}>
-                    <Link to={`/watch?id=${this.props.film.id}`} style={styles.link}>
+                    <Link to={`/watch?id=${this.props.item.id}`} style={styles.link}>
                         <CardActionArea>
                             <CardMedia
                                  className={"media"}
-                                  image={this.props.film.thumbNailsUrls[0]}
-                                  title={this.props.film.name}
+                                  image={this.props.item.thumbNailsUrls[0]}
+                                  title={this.props.item.name}
                                   style={styles.cardMedia}
                              />
-                            <CardContent>
+                            <CardContent style={styles.cardContent}>
                                   <Typography gutterBottom variant="h5" component="h2">
-                                    {this.props.film.name}
+                                    {this.props.item.name}
                                   </Typography>
-                                  <Typography variant="body2" color="textSecondary" component="p">
-                                    {(this.props.film.duration > 3600) ?
-                                      new Date(this.props.film.duration * 1000).toISOString().substr(11, 8) :
-                                      new Date(this.props.film.duration * 1000).toISOString().substr(14, 5) }
+                                  <Typography variant="body2" color="white" component="p">
+                                    {(this.props.item.duration > 3600) ?
+                                      new Date(this.props.item.duration * 1000).toISOString().substr(11, 8) :
+                                      new Date(this.props.item.duration * 1000).toISOString().substr(14, 5) }
                                   </Typography>
                             </CardContent>
                         </CardActionArea>
@@ -42,13 +42,38 @@ export default class LargeFrame extends React.Component{
                     </Card>
                 </Grid>
         )
+        } else if (this.props.type == "livestream"){
+            return(
+                <Grid key={this.props.item.id} item>
+                <Card style={styles.card} className={"root"}>
+                  <Link to={`/live?id=${this.props.item.id}`} style={styles.link}>
+                    <CardActionArea>
+                      <CardMedia className={"media"}
+                        style={styles.cardMedia}
+                        image={`https://image.mux.com/${this.props.item.IDforThumbnail}/thumbnail.png?width=314&height=178`}
+                        title={this.props.item.streamerName}
+                      />
+                      <CardContent style={styles.cardContent}>
+                        <Typography gutterBottom variant="h5" component="h2">
+                          {this.props.item.streamerName}
+                        </Typography>
+                        <Typography variant="body2" color="textSecondary" component="p">
+                          {this.props.item.status}
+                        </Typography>
+                      </CardContent>
+                    </CardActionArea>
+                  </Link>
+                </Card>
+              </Grid>
+            )
+        }
     }
 }
 
 const styles = {
-    root: {width: 200,},
-    media: {height: 112.5,},
-    //card: {width: "100%", maxHeight: "50vh", minHeight: "30vh"},
+    //root: {width: "100%"},
+    //media: {height: 112.5,},
+    //card: {width: "auto"},
    // cardMedia: {backgroundSize: "cover"},
     header: { width: 1000, margin: '0 auto', display: 'flex', flex: 1, flexDirection: 'column', justifyContent: 'center', padding: 20 },
     container: { width: 1000, margin: '0 auto', display: 'flex', flex: 1, flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'left', padding: 20 },
@@ -59,7 +84,8 @@ const styles = {
     filmTitle: { fontSize: 20, fontWeight: 'bold', marginBottom: 0 },
     streamText: { fontSize: 14, marginBottom: 0},
     filmDescription: { marginBottom: 0 },
-    button: { backgroundColor: 'black', color: 'white', outline: 'none', fontSize: 18, padding: '12px 0px' }
+    button: { backgroundColor: 'black', color: 'white', outline: 'none', fontSize: 18, padding: '12px 0px' },
+    cardContent: {backgroundColor: "black", color: "white"}
   }
 
   /* code to input to component you want largeFrames in
