@@ -16,6 +16,8 @@ import Grid from '@material-ui/core/Grid';
 import SearchQueries from "../components/searchQueries";
 import StartLive from "./startLive.png";
 import Trending from "../components/Trending";
+import HorizontalScrollerCircular from "../components/HorizontalScrollerCircular";
+
 
 export const Stream = () => {
   const [liveStreams, setLiveStreams] = useState([])
@@ -101,9 +103,11 @@ export const Stream = () => {
         </Link>
         <SearchQueries type={"liveStreams"} round={true} style={styles.search}/>
       </div> 
+      
       <div style={styles.container}>
         <h1>Live Streams</h1>
-        <Grid container justify="center" spacing={5}>
+        <HorizontalScrollerCircular list={liveStreams}></HorizontalScrollerCircular>
+        {/* <Grid container justify="center" spacing={5}>
           {
             liveStreams.map((stream, index) => (
               <Grid key={stream.id ? stream.id : index} item>
@@ -140,7 +144,7 @@ export const Stream = () => {
               </Grid>
             ))
           }
-        </Grid>
+        </Grid> */}
       </div>
     </div>
   )
@@ -154,7 +158,6 @@ const styles = {
   media: {
     height: 180,
   },
-  cardContent: { justifyContent: 'center', display: 'grid', textAlign: 'center' },
   header: { margin: '0 auto', display: 'flex', flex: 1, flexDirection: 'column', justifyContent: 'center', padding: 20 },
   container: { width: "100%", margin: '0', display: 'flex', flex: 1, flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'left', zIndex: "-1" },
   link: { textDecoration: 'none' },
