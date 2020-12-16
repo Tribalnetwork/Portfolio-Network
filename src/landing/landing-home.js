@@ -1,5 +1,5 @@
 import React from 'react';
-import './landing.css'
+import './landing-home.css'
 import './responsive-styles.css'
 import { Link } from 'react-router-dom';
 
