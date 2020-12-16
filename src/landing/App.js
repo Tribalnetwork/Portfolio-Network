@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './landing.css';
 import './responsive-styles.css'
 import Home from './landing-home'
 import Live from './live'
