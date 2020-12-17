@@ -73,7 +73,7 @@ export const Stream = () => {
       console.log(err)
     }
   }
-
+  
   return (
 
     <div>
@@ -119,8 +119,6 @@ export const Stream = () => {
 
                 
                 <Card style={styles.root}>
-
-
 
                   <Link to={`/live?id=${stream.id}`} style={styles.link}>
                     <CardActionArea>
