@@ -3,10 +3,15 @@ import { API, graphqlOperation } from 'aws-amplify';
 import * as queries from '../graphql/queries';
 import { Link } from "react-router-dom";
 import {Scrollbars} from "react-custom-scrollbars";
+<<<<<<< HEAD
+import FilmFrame from "./filmFrame";
+import { hover } from 'glamor';
+=======
 //import FilmFrame from "./filmFrame";
 import LargeFrame from "./LargeFrame"
 import "./searchQueries.css"
 
+>>>>>>> upstream/master
 
 /* The logic for how this component works is as follows:
 - On componentDidMount, functions getUsernames, getFilmTiltle, and getLiveStreams run and using graphQl, get a list of all of the 
@@ -210,11 +215,11 @@ export default class SearchQueries extends React.Component {
             this.setState(prevState => ({
                 filter: {                   
                     ...prevState.filter,   
-                    films: !this.state.filter.films   
+                    films: !this.state.filter.films    
                 }
             }))
         }
-
+ 
         filterLiveStreams = (e) => {
             if(this.state.filter.liveStreams == true){
                 e.target.style.borderBottom = "0px solid black";
@@ -399,7 +404,7 @@ export default class SearchQueries extends React.Component {
 
          filterButtonStyle = {
             color: "white",
-            minWidth: "12vw",
+            minWidth: "25vw",
             maxWidth: "22vw",
             height: "8vh",
             fontSize: "1.5vh",
