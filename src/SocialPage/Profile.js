@@ -18,7 +18,6 @@ import { Upload } from '../Upload';
 import { getUser} from '../graphql/queries'
 import {updateUser} from '../graphql/mutations'
 import DropdownMenu from '../components/DropdownMenu.js'
-import ProfileMenu from '../components/ProfileMenu.js'
 import Skills from "./Skills";
 
 

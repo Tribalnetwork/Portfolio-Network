@@ -15,7 +15,6 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '../Button';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
-import './Home.css';
 import HorizontalScrollerCircular from "../components/HorizontalScrollerCircular";
 import TrendingNow from "../TrendingNow";
 import ContinueWatching from "../ContinueWatching";
