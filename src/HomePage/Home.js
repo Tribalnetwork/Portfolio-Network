@@ -1,5 +1,4 @@
 import React from 'react'
-import './landing-home.css';
 import Amplify from 'aws-amplify';
 import { API, graphqlOperation } from 'aws-amplify'
 import { listFilms,listLiveStreams } from '../graphql/queries'
