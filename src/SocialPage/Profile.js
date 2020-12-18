@@ -100,13 +100,17 @@ const movies = [
 ]
 
 const autofilm = [];
+const cols = 7
 /* this are fake video for testing the filmframe*/
 /* video have to be correctly pull from graph graphql*/
-for (var i = 0; i < 48; i++)
+for (var i = 0; i < 48/cols; i++)
 {
-  
-  const temp = movies[ Math.floor((Math.random() * movies.length))];
-  autofilm.push(temp);
+    var row = []
+    for(var j =0; j< cols; j++){
+	const temp = movies[ Math.floor((Math.random() * movies.length))];
+	row.push(temp)
+    }
+  autofilm.push(row);
 
 
 }
@@ -153,7 +157,9 @@ async getImg(){
         <div className={"container"}>
           <div className="profileimagecontainer">
             <NavigateBeforeIcon className={"arrownavigation"} />
+                  <a href="MyProfile">
             <img className={"profileimage"} src={this.state.ImgUrl} alt={"profileimage"} />
+                  </a>
             
             <NavigateNextIcon  className={"arrownavigation"} />
             </div>
@@ -163,12 +169,12 @@ async getImg(){
 	  {this.state.showPopup ? <DropdownMenu
           text='Click "Close Button" to hide popup'  
           closePopup={this.togglePopup.bind(this)}  
+          link1="mystudio/myfolder"
+          link2="MyProfile"
           link3="link3"
-          text3="What can others see?"  
-          link1="link1"
           text1="My Studio"  
-          link2="link2"
           text2="My Profile"  
+          text3="What can others see?"  
 	  /> : null} 
 	</div>
 
@@ -188,11 +194,18 @@ async getImg(){
         
      
         <div className={"contentcontainer"}> 
-        {autofilm.map((movie) => (
-          <FilmFrame film={movie.film} style={styles} />
-        ))}
             
-     
+
+	    <table>
+		{autofilm.map((row) =>{
+		    return(<tr>
+			       {row.map((movie) =>{
+				   return <td> <FilmFrame film={movie.film} style={styles}/> </td>
+			       })}
+			   </tr>);
+		})}
+	    </table>
+		 
           </div>
       
         </div>
