@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import './Responsive.css'
+import "./Responsive.css";
 import { Link, useHistory } from "react-router-dom";
 import "./Settings.css";
 import KeyboardArrowRightIcon from "@material-ui/icons/KeyboardArrowRight";

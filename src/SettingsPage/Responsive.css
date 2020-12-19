@@ -3,15 +3,21 @@
   and (max-device-width: 570px)
   and (-webkit-min-device-pixel-ratio: 2) {
 
-
+    .text {
+        font-size: 35px;
+        margin-right: 0px;
+    }
 
     .navbardiv {
         display: none;
     }
 
-    h2 {
-        font-size: 35px;
+
+    .MuiButton-label {
+        padding-left: 30px;
+        font-size: 20px;
     }
+
 
     .button__withArrow {
         margin: 0 10px;
@@ -31,19 +37,12 @@
         font-size: 20px;
     }
 
-    .text {
-        padding-right: 20px;
-    }
-
-    .MuiButton-text {
-        padding-left: 30px;
-    }
 
 }
 
 @media only screen 
-  and (min-device-width: 320px) 
-  and (max-device-width: 570px)
+  and (min-device-width: 571px) 
+  and (max-device-width: 768px)
   and (-webkit-min-device-pixel-ratio: 2) {
 
     h2 {
