@@ -1,19 +1,29 @@
-.body {
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+html, body {
+    height: 100vh;
+    position: relative;
     background-color: #2c2c2e;
 }
+
   
 .settings {
     display: flex;
     flex-direction: column;
     align-content: space-between;
     background-color: #2c2c2e;
-    overflow-y: scroll;
     color: white;
     text-align: center;
+    
 }
 
 .navbardiv {
     background-color: #131212;
+
 }
 
 .Button {
@@ -40,12 +50,12 @@
     margin-left: 3px;
 }
 
-.text {
+.header-text {
     margin: 0 auto;
     color: #fff;
     text-align: center;
     /* position: relative; */
-    padding-right: 60px;
+    padding-right: 40px;
 }
 
 .button__withArrow {
@@ -93,6 +103,12 @@
     text-align: left;
     color: white;
     
+}
+
+.logout-exit {
+    line-height: 3em;
+    margin: 10px auto;
+    text-align: center;
 }
 
 

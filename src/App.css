@@ -13,9 +13,6 @@
   text-align: center;
 }
 
-.App h1, p {
-  text-align: left;
-}
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
@@ -84,13 +81,6 @@ input:-webkit-autofill {
   font-family: 'Lato', sans-serif;
 }
 
-.App {
-  text-align: center;
-}
-
-.App h1, p {
-  text-align: left;
-}
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;

@@ -11,8 +11,8 @@ const Home = () => {
   <div className="Home">
       <div className="HomePage">
 
-        <h1>TRIBAL<br/>NETWORK</h1>
-        <h2>The Network for the modern entertainer</h2>
+        <h1 className= "landingh1">TRIBAL<br/>NETWORK</h1>
+        <h2 className= "landingh2">The Network for the modern entertainer</h2>
 
 
       <div className="navigation">

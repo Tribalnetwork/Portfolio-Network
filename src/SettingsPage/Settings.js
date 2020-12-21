@@ -19,7 +19,7 @@ function Settings() {
         >
           <ArrowBackIosIcon className="backIcon" />
         </IconButton>
-        <h2 className="text">Settings</h2>
+        <h2 className="header-text">Settings</h2>
       </div>
       <div className="settings">
         <div className="button__withArrow">
@@ -1396,11 +1396,11 @@ function Logout() {
 
   return (
     <body>
-      <div className="pageTitle">
+      <div className="logout-exit">
         <IconButton edge="end" color="white" onClick={() => history.goBack()}>
           <ArrowBackIosIcon className="backIcon" />
         </IconButton>
-        <h2 className="text">Logout</h2>
+        <h2 className="text">Goodbye for Now</h2>
       </div>
       <div className="settings"></div>
     </body>
