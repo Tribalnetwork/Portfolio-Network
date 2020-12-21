@@ -33,6 +33,7 @@ You can also set the upstream remote with SSH if you have that set up.
 To get access to Tribal's AWS account, ask your lead or manager for IAM user cridentials. Then sign in with this information:
 
 _Account ID:_ 427025378311 or tribalnetwork
+
 _IAM User Name & Password:_ Get from your Admin
 
 ## Set up Amplify on your machine
