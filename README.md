@@ -131,4 +131,4 @@ git push origin my_feature_branch_name_here
 
 9.  Return to step 1 and repeat: fetch/pull, edit, push, merge branch, publish!
 
-You can also refer to the 'Additional Guides' Repo for more help.
+You can also refer to the [additional guides](https://github.com/Tribalnetwork/Additional-Guides#summary-of-not-yet-implemented-features-that-need-backend-work) Repo for more help.
