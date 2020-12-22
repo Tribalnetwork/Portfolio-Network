@@ -1,3 +1,4 @@
+
 import React, {useState, useEffect, useContext} from 'react'
 import { API, graphqlOperation } from 'aws-amplify'
 import { createLiveStream, updateUser } from '../graphql/mutations'
@@ -15,11 +16,16 @@ import Grid from '@material-ui/core/Grid';
 import SearchQueries from "../components/searchQueries";
 import StartLive from "./startLive.png";
 import Trending from "../components/Trending";
+import LargeFrame from "../components/LargeFrame"
 
 export const Stream = () => {
   const [liveStreams, setLiveStreams] = useState([])
   const context = useContext(UserContext)
   const [streamCreated, setStreamCreated] = useState(context.user.hasChannel)
+
+  useEffect(() => {
+    fetchStreams()
+  }, [])
 
   useEffect(() => {
     fetchStreams()
@@ -80,6 +86,13 @@ export const Stream = () => {
           context.hasChannel ? (
             <div>
               <p style={{textAlign: 'center'}}>You created a live channel.</p>
+              <div className="tribalButton">
+                <div className='action'><button>Submit Film</button></div>
+                <div className='action'><button>Gig Board</button></div>
+                <div className='action'><button>Live</button></div>
+                <div className='action'><button>Events</button></div>
+                <div className='action'><button>Our Studio</button></div>
+              </div>
               
             </div>
           ) : (
@@ -93,35 +106,17 @@ export const Stream = () => {
         </Link>
         <SearchQueries type={"liveStreams"} round={true} style={styles.search}/>
       </div> 
+      
       <div style={styles.container}>
         <h1>Live Streams</h1>
-        <Grid container justify="center" spacing={5}>
+        <HorizontalScrollerCircular list={liveStreams}></HorizontalScrollerCircular>
+        {/* <Grid container justify="center" spacing={5}>
           {
             liveStreams.map((stream, index) => (
-              <Grid key={stream.id ? stream.id : index} item>
-                <Card style={styles.root}>
-                  <Link to={`/live?id=${stream.id}`} style={styles.link}>
-                    <CardActionArea>
-                      <CardMedia
-                        style={styles.media}
-                        image={`https://image.mux.com/${stream.IDforThumbnail}/thumbnail.png?width=314&height=178`}
-                        title={stream.streamerName}
-                      />
-                      <CardContent>
-                        <Typography gutterBottom variant="h5" component="h2">
-                          {stream.streamerName}
-                        </Typography>
-                        <Typography variant="body2" color="textSecondary" component="p">
-                          {stream.status}
-                        </Typography>
-                      </CardContent>
-                    </CardActionArea>
-                  </Link>
-                </Card>
-              </Grid>
+               <LargeFrame item={stream} type={"livestream"}/>
             ))
           }
-        </Grid>
+        </Grid> */}
       </div>
     </div>
   )
@@ -129,10 +124,11 @@ export const Stream = () => {
 
 const styles = {
   root: {
-    width: "237px",
+    width: "180px",
+    borderRadius:"50px"
   },
   media: {
-    height: 178,
+    height: 180,
   },
   header: { margin: '0 auto', display: 'flex', flex: 1, flexDirection: 'column', justifyContent: 'center', padding: 20 },
   container: { width: "100%", margin: '0', display: 'flex', flex: 1, flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'left', zIndex: "-1" },

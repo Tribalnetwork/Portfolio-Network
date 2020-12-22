@@ -1,5 +1,9 @@
 import React from 'react';
+<<<<<<< HEAD
 import './landing-home.css';
+=======
+//import './home.css';
+>>>>>>> upstream/master
 //import './App.css'
 import './responsive-styles.css'
 import { Link } from 'react-router-dom';
