@@ -63,7 +63,7 @@ export default class BottomNavBar extends React.Component{
 
         return(
         
-            <div style={this.divStyle} className={"navbardiv"}>
+            <div className={"navbardiv"}>
                 <ul style={this.ulStyle}>
                     <li style={this.liStyle}><Link to={"/home"}><img style={this.imgStyle} src={Home}/></Link></li>
                     <li style={this.liStyle}><Link to={"/search"}><img style={this.imgStyle} src={Search}/></Link></li>

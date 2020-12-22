@@ -1,7 +1,4 @@
 {
-<<<<<<< HEAD
-  "version": "3.0"
-=======
   "providers": [
     "awscloudformation"
   ],
@@ -13,9 +10,8 @@
     "config": {
       "SourceDir": "src",
       "DistributionDir": "build",
-      "BuildCommand": "npm run-script build",
-      "StartCommand": "npm run-script start"
+      "BuildCommand": "npm.cmd run-script build",
+      "StartCommand": "npm start"
     }
   }
->>>>>>> upstream/master
 }
