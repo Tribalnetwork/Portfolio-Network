@@ -13,6 +13,7 @@ import Authenticator from './Authenticator'
 import Home from "./HomePage/Home"
 import { Upload } from './Upload';
 import Watch from './Watch'
+import Landing from './landing/landing-home.js'
 import Live from './Live'
 import { Stream } from './TribalPage/Stream'
 import Profile from './SocialPage/Profile'
@@ -25,8 +26,12 @@ import ViewProfile from "./ViewProfile"
 import MyList from "./MyList"
 import MyStudio from "./MyStudio/MyStudio";
 import Settings, { Wifi, Support, TermsOfService, PrivacyPolicy, Account, Notifications, DownloadOptions, Logout } from "./SettingsPage/Settings";
+import Explore, { SportsPage, TalksPage, DramaPage, RomancePage, HorrorPage, FamilyPage, AnimationPage, ExperimentalPage, ThrillerPage, SciFiPage, ActionPage, ComedyPage, MusicalPage, DocumentaryPage } from "./ExplorePage/Explore"
+
+
 
 import ConnectList from "./SocialPage/ConnectList"
+// import SportsPage from "./ExplorePage/SportsPage";
 
 class PrivateRoute extends React.Component {
   // PrivateRoutes require authentication to access
@@ -132,10 +137,28 @@ const Routes = () => (
           path="/settings/wifiandcellular"
         >
         </Route>
-       
+        <Route path="/explore" component={Explore} />
+
+        {/* <Route path="/explore"><Explore /></Route> */}
+        <Route path="/explore/sports" exact component={SportsPage} />
+        <Route path="/explore/talks"><TalksPage/></Route>
+        <Route path="/explore/drama"><DramaPage /></Route>
+        <Route path="/explore/romance"><RomancePage/></Route>
+        <Route path="/explore/horror"><HorrorPage/></Route>
+        <Route path="/explore/family"><FamilyPage/></Route>
+        <Route path="/explore/animation"><AnimationPage/></Route>
+        <Route path="/explore/experimental"><ExperimentalPage/></Route>
+        <Route path="/explore/thriller"><ThrillerPage/></Route>
+        <Route path="/explore/family"><FamilyPage/></Route>
+        <Route path="/explore/scifi"><SciFiPage/></Route>
+        <Route path="/explore/action"><ActionPage/></Route>
+        <Route path="/explore/comedy"><ComedyPage/></Route>
+        <Route path="/explore/musical"><MusicalPage/></Route>
+        <Route path="/explore/documentary"><DocumentaryPage/></Route>
         <Route path="/auth" exact component={Authenticator} />
         <Route path="/" exact component={Home} />
         <Route path="/home" exact component={Home} />
+        <Route path="/landing/landing-home" exact component={Landing} />
         <Route path="/search" exact component={SearchQueries} />
         <Route path="/viewProfile" exact component={ViewProfile} />
         <Route path="/myStudio" exact component={MyStudio} />
