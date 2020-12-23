@@ -1,7 +1,4 @@
 {
-<<<<<<< HEAD
-  "version": "3.0"
-=======
   "providers": [
     "awscloudformation"
   ],
@@ -17,5 +14,4 @@
       "StartCommand": "npm run-script start"
     }
   }
->>>>>>> upstream/master
 }

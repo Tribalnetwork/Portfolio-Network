@@ -3,11 +3,6 @@
 
 .navcontainer{
    display: initial;
-   position: absolute;
-  margin-top: -180px;
-  /* negative value of footer height */
-  height: 180px;
-  clear: both;
 }
 
 /* Extra small devices (phones, 600px and down) */
