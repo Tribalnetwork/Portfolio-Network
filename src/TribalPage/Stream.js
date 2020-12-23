@@ -72,7 +72,7 @@ export const Stream = () => {
       console.log(err)
     }
   }
-
+  
   return (
 
     <div>
@@ -110,13 +110,14 @@ export const Stream = () => {
       <div style={styles.container}>
         <h1>Live Streams</h1>
         <HorizontalScrollerCircular list={liveStreams}></HorizontalScrollerCircular>
-        {/* <Grid container justify="center" spacing={5}>
+{ <Grid container justify="center" spacing={5}>
           {
             liveStreams.map((stream, index) => (
+
                <LargeFrame item={stream} type={"livestream"}/>
             ))
           }
-        </Grid> */}
+        </Grid> }
       </div>
     </div>
   )
