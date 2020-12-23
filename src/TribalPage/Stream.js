@@ -17,6 +17,7 @@ import SearchQueries from "../components/searchQueries";
 import StartLive from "./startLive.png";
 import Trending from "../components/Trending";
 import LargeFrame from "../components/LargeFrame"
+import HorizontalScrollerCircular from "../components/HorizontalScrollerCircular";
 
 export const Stream = () => {
   const [liveStreams, setLiveStreams] = useState([])

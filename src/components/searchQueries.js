@@ -3,15 +3,10 @@ import { API, graphqlOperation } from 'aws-amplify';
 import * as queries from '../graphql/queries';
 import { Link } from "react-router-dom";
 import {Scrollbars} from "react-custom-scrollbars";
-<<<<<<< HEAD
-import FilmFrame from "./filmFrame";
-import { hover } from 'glamor';
-=======
 //import FilmFrame from "./filmFrame";
 import LargeFrame from "./LargeFrame"
 import "./searchQueries.css"
 
->>>>>>> upstream/master
 
 /* The logic for how this component works is as follows:
 - On componentDidMount, functions getUsernames, getFilmTiltle, and getLiveStreams run and using graphQl, get a list of all of the 
