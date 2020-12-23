@@ -30,12 +30,11 @@ You can also set the upstream remote with SSH if you have that set up.
 
 ## AWS Credentials
 
-To get access to Tribal's AWS account, log in with this information:
+To get access to Tribal's AWS account, ask your lead or manager for IAM user cridentials. Then sign in with this information:
 
-_Email:_ Tribaloperations@gmail.com  
-_Password:_ Skezanzu11
+_Account ID:_ 427025378311 or tribalnetwork
 
-Of course, keep in mind that this is senstive information, and only exists in this README because this is a private repo.
+_IAM User Name & Password:_ Get from your Admin
 
 ## Set up Amplify on your machine
 
@@ -130,4 +129,6 @@ git push origin my_feature_branch_name_here
 
 8.  To publish changes to [tribalnetwork.org](https://www.tribalnetwork.org), run `amplify publish`.
 
-8.  Return to step 1 and repeat: fetch/pull, edit, commit, push, merge branch, publish!
+9.  Return to step 1 and repeat: fetch/pull, edit, push, merge branch, publish!
+
+You can also refer to the [additional guides](https://github.com/Tribalnetwork/Additional-Guides#summary-of-not-yet-implemented-features-that-need-backend-work) Repo for more help.

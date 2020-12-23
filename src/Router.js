@@ -13,6 +13,7 @@ import Authenticator from './Authenticator'
 import Home from "./HomePage/Home"
 import { Upload } from './Upload';
 import Watch from './Watch'
+import Landing from './landing/landing-home.js'
 import Live from './Live'
 import { Stream } from './TribalPage/Stream'
 import Profile from './SocialPage/Profile'
@@ -26,6 +27,8 @@ import MyList from "./MyList"
 import MyStudio from "./MyStudio/MyStudio";
 import Settings, { Wifi, Support, TermsOfService, PrivacyPolicy, Account, Notifications, DownloadOptions, Logout } from "./SettingsPage/Settings";
 import Explore, { SportsPage, TalksPage, DramaPage, RomancePage, HorrorPage, FamilyPage, AnimationPage, ExperimentalPage, ThrillerPage, SciFiPage, ActionPage, ComedyPage, MusicalPage, DocumentaryPage, WatchRandom } from "./ExplorePage/Explore"
+
+
 
 import ConnectList from "./SocialPage/ConnectList"
 // import SportsPage from "./ExplorePage/SportsPage";
@@ -156,6 +159,7 @@ const Routes = () => (
         <Route path="/auth" exact component={Authenticator} />
         <Route path="/" exact component={Home} />
         <Route path="/home" exact component={Home} />
+        <Route path="/landing/landing-home" exact component={Landing} />
         <Route path="/search" exact component={SearchQueries} />
         <Route path="/viewProfile" exact component={ViewProfile} />
         <Route path="/myStudio" exact component={MyStudio} />
