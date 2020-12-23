@@ -25,7 +25,7 @@ import ViewProfile from "./ViewProfile"
 import MyList from "./MyList"
 import MyStudio from "./MyStudio/MyStudio";
 import Settings, { Wifi, Support, TermsOfService, PrivacyPolicy, Account, Notifications, DownloadOptions, Logout } from "./SettingsPage/Settings";
-import Explore, { SportsPage, TalksPage, DramaPage, RomancePage, HorrorPage, FamilyPage, AnimationPage, ExperimentalPage, ThrillerPage, SciFiPage, ActionPage, ComedyPage, MusicalPage, DocumentaryPage } from "./ExplorePage/Explore"
+import Explore, { SportsPage, TalksPage, DramaPage, RomancePage, HorrorPage, FamilyPage, AnimationPage, ExperimentalPage, ThrillerPage, SciFiPage, ActionPage, ComedyPage, MusicalPage, DocumentaryPage, WatchRandom } from "./ExplorePage/Explore"
 
 import ConnectList from "./SocialPage/ConnectList"
 // import SportsPage from "./ExplorePage/SportsPage";
@@ -152,6 +152,7 @@ const Routes = () => (
         <Route path="/explore/comedy"><ComedyPage/></Route>
         <Route path="/explore/musical"><MusicalPage/></Route>
         <Route path="/explore/documentary"><DocumentaryPage/></Route>
+        <Route path="/explore/watchrandom"><WatchRandom/></Route>
         <Route path="/auth" exact component={Authenticator} />
         <Route path="/" exact component={Home} />
         <Route path="/home" exact component={Home} />

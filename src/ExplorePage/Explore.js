@@ -13,6 +13,7 @@ import Action from '../icons/Action.svg'
 import Comedy from '../icons/Comedy.svg'
 import Musical from '../icons/Musical.svg'
 import Documentary from '../icons/Documentary.svg'
+import WatchRandomButton from '../icons/WatchRandomButton.svg'
 import { Link, useHistory } from "react-router-dom";
 import "./Explore.css"
 import HorizontalScrollerCircular from "../components/HorizontalScrollerCircular";
@@ -23,6 +24,7 @@ import { API, graphqlOperation } from 'aws-amplify'
 import { listFilms,listLiveStreams } from '../graphql/queries'
 import awsconfig from '../aws-exports';
 Amplify.configure(awsconfig);
+
 // import {ReactComponent as Categories} from '../icons/Categories.svg'
 // import Talks from "./Element/Category/Talks.png"
 // import Drama from "./Element/Category/Drama.png"
@@ -62,7 +64,11 @@ export default class Explore extends React.Component {
             <h2 className="headertext">Discover all the fun things</h2>
             </header>
         
-        
+        <div className="coverArt">
+            <h3 className="coverArtText">Cover Art Promo Area</h3>
+        </div>
+
+        <Link to={"/explore/watchrandom"}><button className="watchButton"><img src={WatchRandomButton} alt="WatchRandomButton" className="watchRandomButton"/></button></Link>
         
     <div className="categories"> 
             <h3 className="categoriesHeader">Categories</h3>
@@ -215,5 +221,14 @@ export class DocumentaryPage extends React.Component {
         )
     }
 }
+
+export class WatchRandom extends React.Component {
+    render() {
+        return(
+            <h1>Watch Random</h1>
+        )
+    }
+}
+
 
 
