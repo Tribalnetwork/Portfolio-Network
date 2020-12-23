@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./Responsive.css";
 import { Link, useHistory } from "react-router-dom";
 import "./Settings.css";
 import KeyboardArrowRightIcon from "@material-ui/icons/KeyboardArrowRight";
@@ -19,7 +18,7 @@ function Settings() {
         >
           <ArrowBackIosIcon className="backIcon" />
         </IconButton>
-        <h2 className="header-text">Settings</h2>
+        <h2 className="text">Settings</h2>
       </div>
       <div className="settings">
         <div className="button__withArrow">
@@ -1396,11 +1395,11 @@ function Logout() {
 
   return (
     <body>
-      <div className="logout-exit">
+      <div className="pageTitle">
         <IconButton edge="end" color="white" onClick={() => history.goBack()}>
           <ArrowBackIosIcon className="backIcon" />
         </IconButton>
-        <h2 className="text">Goodbye for Now</h2>
+        <h2 className="text">Logout</h2>
       </div>
       <div className="settings"></div>
     </body>

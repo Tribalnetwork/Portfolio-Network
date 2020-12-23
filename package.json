@@ -17,16 +17,11 @@
     "aws-appsync": "^3.0.4",
     "bootstrap": "^4.5.3",
     "glamor": "^2.20.40",
-<<<<<<< HEAD
-    "graphql-tag": "^2.10.3",
-    "query-string": "^6.13.1",
-=======
     "graphql-tag": "^2.11.0",
     "internal": "^2.0.27",
     "main": "^1000.0.1",
     "masonry-layout": "^4.2.2",
     "query-string": "^6.13.7",
->>>>>>> upstream/master
     "react": "^16.14.0",
     "react-custom-scrollbars": "^4.2.1",
     "react-dom": "^16.14.0",
@@ -35,7 +30,6 @@
     "react-player": "^2.7.0",
     "react-router-dom": "^5.0.1",
     "react-scripts": "^3.4.4",
-    "react-select": "^3.1.1",
     "redux": "^4.0.5"
   },
   "scripts": {
