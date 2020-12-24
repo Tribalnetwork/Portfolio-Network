@@ -17,6 +17,7 @@ import SearchQueries from "../components/searchQueries";
 import StartLive from "./startLive.png";
 import Trending from "../components/Trending";
 import LargeFrame from "../components/LargeFrame"
+import HorizontalScrollerCircular from "../components/HorizontalScrollerCircular";
 
 export const Stream = () => {
   const [liveStreams, setLiveStreams] = useState([])
@@ -72,7 +73,7 @@ export const Stream = () => {
       console.log(err)
     }
   }
-
+  
   return (
 
     <div>
@@ -109,10 +110,13 @@ export const Stream = () => {
       
       <div style={styles.container}>
         <h1>Live Streams</h1>
-        {/*<HorizontalScrollerCircular list={liveStreams}></HorizontalScrollerCircular>*/}
-        {/* <Grid container justify="center" spacing={5}>
+
+          {/*<HorizontalScrollerCircular list={liveStreams}></HorizontalScrollerCircular>*/}
+{/* <Grid container justify="center" spacing={5}>
+
           {
             liveStreams.map((stream, index) => (
+
                <LargeFrame item={stream} type={"livestream"}/>
             ))
           }
