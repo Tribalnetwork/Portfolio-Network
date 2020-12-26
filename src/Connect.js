@@ -138,4 +138,4 @@ export default class Connect extends React.Component{
 
 }
 
-// test work for screen record of git workflow
+// fake work for screen record
