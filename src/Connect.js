@@ -84,7 +84,7 @@ export default class Connect extends React.Component{
             }
         }))
         .then((result) => { 
-           if (result.data.listConnects.items.length == 0){
+           if (result.data.listConnects == null || result.data.listConnects.items.length == 0 ){
                 this.createConnect();
             } else {
                 this.updateConnect(result.data.listConnects.items)
@@ -102,19 +102,25 @@ export default class Connect extends React.Component{
             }
         }))
         .then((result) => {
-            if(result.data.listConnects.items[0] == undefined){
-                this.setState({count: 1})
+            if(result.data.listConnects == null){
+                //this.setState({count: 1})
+                console.log("no rows have been made")
+                console.log("my id: " + this.requestingId)
+                console.log("there id: " + this.requestedId)
             } else {
             result.data.listConnects.items[0].connectsId.forEach((connect) => {
                 if(connect.userId == this.requestedId){
-                    this.setState({bool: false})
-                  if(connect.status == 'denied'){
+                    if (connect.status == 'connected'){
+                        this.setState({buttonText: 'Connected'})
+                        this.setState({bool: false})
+              }
+                 /* if(connect.status == 'denied'){
                         this.setState({buttonText: 'Request Denied'})
                 } else if(connect.status == 'pending'){
                       this.setState({buttonText: 'Awaiting Response'})
                 } else if (connect.status == 'connected'){
                       this.setState({buttonText: 'Connected'})
-            } 
+            }*/
                 } 
             });
         }
