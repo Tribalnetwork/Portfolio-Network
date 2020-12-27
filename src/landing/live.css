@@ -1,0 +1,45 @@
+html, body {
+    background-color: #525252;
+    
+    }
+    
+    /* .Home {
+      text-align: center;
+      background-color: #525252;
+    } */
+    
+    
+    .LiveDiv {
+      text-align: center;
+      min-height: 100vh;
+      background-color: #333;
+      width: 1286px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: calc(10px + 2vmin);
+      color: #bea550;
+    }
+    
+    
+    h1 {
+      font-size: 150px;
+      margin: 200px auto 40px;
+      line-height: 175px;
+      letter-spacing: 7px;
+      text-shadow: 2px;
+      font-family: 'Roboto', sans-serif;
+      font-weight: normal;
+      background: -webkit-linear-gradient(#f7e47b, #A07923);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    h2 {
+      font-size: 50px;
+      font-weight: 400;
+      color: #f1d744;
+      letter-spacing: 7px;
+    }
