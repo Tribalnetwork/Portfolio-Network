@@ -23,11 +23,8 @@ import BottomNavBar from './components/bottomNavBar'
 import SearchQueries from "./components/searchQueries"
 import ViewProfile from "./ViewProfile"
 import MyList from "./MyList"
-<<<<<<< HEAD
-=======
 import MyStudio from "./MyStudio/MyStudio";
 import Settings, { Wifi, Support, TermsOfService, PrivacyPolicy, Account, Notifications, DownloadOptions, Logout } from "./SettingsPage/Settings";
->>>>>>> upstream/master
 
 import ConnectList from "./SocialPage/ConnectList"
 
@@ -87,24 +84,11 @@ const Routes = () => (
     <div>
       <NavigationBar />
       <Switch>
-<<<<<<< HEAD
-        {/*
-=======
         
->>>>>>> upstream/master
         <Route path="/settings" exact component={Settings}>
           <Settings />
         </Route>
         <Route
-<<<<<<< HEAD
-          path="/settings/wifiandcellular"
-          exact
-          component={WifiAndCellular}
-        >
-          <WifiAndCellular />
-        </Route>
-        */}
-=======
           path="/settings/wifi"
         >
           <Wifi />
@@ -149,18 +133,14 @@ const Routes = () => (
         >
         </Route>
        
->>>>>>> upstream/master
         <Route path="/auth" exact component={Authenticator} />
         <Route path="/" exact component={Home} />
         <Route path="/home" exact component={Home} />
         <Route path="/search" exact component={SearchQueries} />
         <Route path="/viewProfile" exact component={ViewProfile} />
-<<<<<<< HEAD
-=======
         <Route path="/myStudio" exact component={MyStudio} />
         <Route path="/myStudio/myFolder" exact component={MyStudio} />
         <Route path="/myStudio/toDoList" exact component={MyStudio} />
->>>>>>> upstream/master
         <PrivateRoute path="/upload" exact component={Upload} />
         <PrivateRoute path="/streams" component={Stream} />
         <PrivateRoute path="/watch" component={Watch} />

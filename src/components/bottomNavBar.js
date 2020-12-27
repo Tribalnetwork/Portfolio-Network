@@ -20,15 +20,12 @@ export default class BottomNavBar extends React.Component{
         marginRight: "1vw",
         padding: "0",
         position: "fixed",
-        bottom: "1vh",
+        top: "90%",
+        //bottom: "1vh",
         width: "98%",
         height: "8vh",
-<<<<<<< HEAD
-        borderRadius: "10px"
-=======
         borderRadius: "10px",
         zIndex: "1000"
->>>>>>> upstream/master
     }
 
     ulStyle = {

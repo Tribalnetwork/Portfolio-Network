@@ -17,12 +17,6 @@ import {ReactComponent as Sharelogo} from './icons/Share.svg';
 import {ReactComponent as AddToListlogo} from './icons/AddtoList.svg';
 import {ReactComponent as AuthorPhotoLogo} from './icons/Ellipse.svg';
 import {ReactComponent as SubscribeLogo} from './icons/subscribe.svg';
-<<<<<<< HEAD
-import { StylesProvider } from '@material-ui/core';
-
-const AuthorSection=({author})=>{
-  console.log(author);
-=======
 import UpNext from "./UpNext";
 import TrendingNow from "./TrendingNow";
 import { StylesProvider } from '@material-ui/core';
@@ -30,7 +24,6 @@ import {ReactComponent as AddToListSelectedLogo} from './icons/AddToList-Selecte
 
 const AuthorSection=({author})=>{
   //console.log(author);
->>>>>>> upstream/master
   return(
       <div>
         <hr></hr>
@@ -39,11 +32,7 @@ const AuthorSection=({author})=>{
           <AuthorPhotoLogo></AuthorPhotoLogo>
         </Grid>
         <Grid item xs={6}>
-<<<<<<< HEAD
-          <p>{author.name}</p>
-=======
           <p className="author-text">{author.name}</p>
->>>>>>> upstream/master
         </Grid>
         <Grid item xs={4}>
           <SubscribeLogo></SubscribeLogo>
@@ -152,40 +141,6 @@ class WatchPage extends React.Component {
     const updatedUser = await API.graphql(graphqlOperation(updateUser, { input: userUpdate }))
     this.context.updateCurrentUser()
   }
-<<<<<<< HEAD
-  async addToList() {
-    //get the user
-    const user1=await API.graphql(graphqlOperation(getUser, { id: this.context.user.attributes.sub}))
-    let list1=user1.data.getUser.myList;
-    const uuidv4 = require("uuid/v4");
-    //check to see if he has a my list->create a mylist
-    if(list1===null){
-      const newId=uuidv4();
-      const listCreate={
-        id:newId,
-        name:user1.data.getUser.name+"'s list",
-        playListUserId: user1.data.getUser.id
-
-      };
-      const newlist=await API.graphql(graphqlOperation(createPlayList,{input:listCreate}));
-      console.log("new list created!");
-      const userUpdate = {
-        id: user1.data.getUser.id,
-        userMyListId: newId
-      }
-      //console.log(await API.graphql(graphqlOperation(updateUser, { input: userUpdate })));
-      list1=newlist.data.createPlayList;
-    }
-
-    //check if myList has the film already
-    const filmIdInput={
-      eq:this.id
-    }
-    const filmInList1=await API.graphql(graphqlOperation(filmInListByListByFilm, { listId: list1.id,filmId:filmIdInput}));
-    const items=filmInList1.data.FilmInListByListByFilm.items;
-    //if haven't
-     if(items.length===0){
-=======
   async toggleList() {
     //if delete
     if(this.state.inlist===true){
@@ -194,30 +149,17 @@ class WatchPage extends React.Component {
       this.setState({filminlistId:null});
     }
     else{
->>>>>>> upstream/master
       const uuidv4 = require("uuid/v4");
       const newFilmInListId=uuidv4();
       const newFilmInListCreate={
         id:newFilmInListId,
         filmId:this.id,
-<<<<<<< HEAD
-        listId:list1.id
-      }
-      const filmInListCreated=await API.graphql(graphqlOperation(createFilmInList,{input:newFilmInListCreate}));
-      console.log("item added to the list!") 
-    }
-    else{
-      console.log("item is already in the list");
-    }
-    
-=======
         listId:this.state.listId
       }
       const filmInListCreated=await API.graphql(graphqlOperation(createFilmInList,{input:newFilmInListCreate}));
       this.setState({filminlistId:newFilmInListId});
     }
     this.setState({inlist:!this.state.inlist});
->>>>>>> upstream/master
   }
   
 
@@ -277,13 +219,8 @@ class WatchPage extends React.Component {
               <Grid item><Donatelogo></Donatelogo></Grid>
               <Grid item><Sharelogo></Sharelogo></Grid>
               <Grid item><Downloadlogo></Downloadlogo></Grid>
-<<<<<<< HEAD
-              <Grid item><AddToListlogo onClick={this.addToList.bind(this)}></AddToListlogo></Grid>
-            </Grid>
-=======
           <Grid item onClick={this.toggleList.bind(this)}>{this.state.inlist?(<AddToListSelectedLogo></AddToListSelectedLogo>):(<AddToListlogo></AddToListlogo>)}</Grid>
           </Grid>
->>>>>>> upstream/master
           </div>
           <AuthorSection author={this.state.artist}></AuthorSection>
         </section>

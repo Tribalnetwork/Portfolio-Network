@@ -1,24 +1,4 @@
 {
-<<<<<<< HEAD
-<<<<<<< HEAD
-    "projectName": "TNWeb",
-    "version": "3.0",
-    "frontend": "javascript",
-    "javascript": {
-        "framework": "react",
-        "config": {
-            "SourceDir": "src",
-            "DistributionDir": "build",
-            "BuildCommand": "npm.cmd run-script build",
-            "StartCommand": "npm.cmd run-script start"
-        }
-    },
-    "providers": [
-        "awscloudformation"
-    ]
-=======
-=======
->>>>>>> upstream/master
   "providers": [
     "awscloudformation"
   ],
@@ -34,8 +14,4 @@
       "StartCommand": "npm start"
     }
   }
-<<<<<<< HEAD
->>>>>>> aafbd93c547ca40388ecea25893e1bea5e2f2cda
-=======
->>>>>>> upstream/master
 }

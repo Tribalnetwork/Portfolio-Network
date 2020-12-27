@@ -36,10 +36,6 @@ type FilmInList@model
   listId:ID!
   list:PlayList@connection(fields: ["listId"])
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> upstream/master
 type User @model {
   id: ID!
   name: String
@@ -51,10 +47,9 @@ type User @model {
   remainingVODTime: Int
   remainingLiveTime: Int
   myList:PlayList@connection(name: "UsermyList")
-<<<<<<< HEAD
-=======
   ImgUrl:String
->>>>>>> upstream/master
+  MyGigs:[Gig!]@connection(name:"UserGig")
+  InvitedGig:[UserInviteByGig!]@connection(keyName: "byUser", fields: ["id"])
 }
 
 type ConnectItem {
@@ -66,4 +61,32 @@ type Connect @model {
   id: ID!
   userId: String
   connectsId: [ConnectItem]
+}
+
+type Gig @model{
+  id:ID!
+  User:User@connection(name: "UserGig")
+  imageUrl:String!
+  Title:String
+  Genre:String
+  Synopsis:String
+  Budget:String
+  Pro_dates:String
+  Position:String
+  Rates:String
+  Exe_notes:String
+  Stakeholders:String
+  Audience:String
+  invite:[UserInviteByGig!]@connection(keyName: "byGig", fields: ["id"])
+}
+
+type UserInviteByGig @model
+@key(name:"byGig", fields:["gigID","userID"])
+@key(name: "byUser", fields: ["userID", "gigID"])
+{
+ id: ID!
+  gigID: ID!
+  userID: ID!
+  gig: Gig! @connection(fields: ["gigID"])
+  user: User! @connection(fields: ["userID"])
 }
