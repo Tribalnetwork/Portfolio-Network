@@ -31,11 +31,6 @@ export default class LargeFrame extends React.Component{
                                   <Typography gutterBottom variant="h5" component="h2">
                                     {this.props.item.name}
                                   </Typography>
-                                  <Typography variant="body2" color="white" component="p" style={styles.duration}>
-                                    {(this.props.item.duration > 3600) ?
-                                      new Date(this.props.item.duration * 1000).toISOString().substr(11, 8) :
-                                      new Date(this.props.item.duration * 1000).toISOString().substr(14, 5) }
-                                  </Typography>
                             </CardContent>
                         </CardActionArea>
                     </Link>
@@ -86,7 +81,6 @@ const styles = {
     filmDescription: { marginBottom: 0 },
     button: { backgroundColor: 'black', color: 'white', outline: 'none', fontSize: 18, padding: '12px 0px' },
     cardContent: {backgroundColor: "black", color: "white", height: '10.5vh',},
-    duration: {margin: "-6vh 0 0 85%"}
   }
 
   /* code to input to component you want largeFrames in
