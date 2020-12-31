@@ -13,6 +13,7 @@ class SignUp extends React.Component {
   state = {
     username: '',
     password: '',
+    uniqueID: new Date().getTime(),
     email: '',
     given_name: '',
     // phone_number: '',
