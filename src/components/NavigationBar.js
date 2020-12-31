@@ -6,6 +6,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
+import Badge from '@material-ui/core/Badge';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import Drawer from '@material-ui/core/Drawer';
@@ -68,13 +69,23 @@ export const NavigationBar = () => {
           </Link>
           {
             isLoaded ? isAuthenticated ? (
-              <Link to='/profile' style={{ textDecoration: 'none' }}>
-                <Button variant='contained' style={{ background: '#d4af37', textTransform: 'none' }}>
-                  {context.user.username}
-                </Button>
-              </Link>
-            ) : (
-              <Link to='/auth' style={{ textDecoration: 'none' }}>
+		<div>
+		    <Link to='/settings/notifications' style={{ textDecoration: 'none' }}>
+			<Button variant='contained' style={{ background: '#daaaaa', textTransform: 'none' }}>
+			    <Badge badgeContent={2} color="secondary" >
+				Notifications
+			    </Badge>
+			</Button>
+		    </Link>
+		    &nbsp;
+		    <Link to='/profile' style={{ textDecoration: 'none' }}>
+			<Button variant='contained' style={{ background: '#d4af37', textTransform: 'none' }}>
+			    {context.user.username}
+			</Button>
+		    </Link>
+		</div>
+	    ) : (
+	      <Link to='/auth' style={{ textDecoration: 'none' }}>
                 <Button color="inherit" style={{ color: '#d4af37' }}>
                   Login/Register
                 </Button>

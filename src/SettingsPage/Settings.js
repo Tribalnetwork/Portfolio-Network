@@ -309,19 +309,73 @@ export {Account}
 
 function Notifications() {
   let history = useHistory();
+       const [message, setMessage] = useState(""); 
+    function generatenotify(_from, _subject, _body, _time,_read=false){
+            return {from:_from, subject:_subject, body:_body, time:_time, read:_read}
+    }
+        // let testdata=[generatenotify("TRIBAL Network", "You got a Star Review for: Film Title", "The film you just released was a hit! Your film currently has 55 total stars and 374 views!"), generatenotify("Sarah Barnes", "Filming Date Change",  "Hi Zak, this is Sarah from the DerrenWolf production team. I’m reaching out to let you know that filming for your scene has moved from the 14th to the 16th.")]
+        let testdata=[
+                generatenotify("From1", "Subject1", "Body1",  new Date(2020, 11, 9, 2, 3, 4))
+               ,generatenotify("From6", "Subject6 LOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO OIJDASOI DJASDIAJ OISADJOAIS DJ", "Body6",  new Date(2020, 16, 9, 2, 3, 4))
+               ,generatenotify("From2", "Subject2", "Body2",  new Date(2020, 12, 9, 2, 3, 4))
+               ,generatenotify("From4", "Subject4", "Body4",  new Date(2020, 14, 9, 2, 3, 4))
+               ,generatenotify("From5", "Subject5", "Body5",  new Date(2020, 15, 9, 2, 3, 4))
+               ,generatenotify("From3", "Subject3", "Body3",  new Date(2020, 13, 9, 2, 3, 4))
+        ]
+        
 
-    return (
-      <body>
-        <div className="pageTitle">
-        <IconButton edge="end" color="white" onClick={() => history.goBack()}><ArrowBackIosIcon className="backIcon" /></IconButton>
-          <h2 className="text">Notifications</h2>
-        </div>
-        <div className="settings">
-          
-        </div>
-      </body>
-    );
-  }
+        var header=(
+
+                <div className="pageTitle">
+                        <IconButton edge="end" color="white" onClick={() => history.goBack()}><ArrowBackIosIcon className="backIcon" /></IconButton>
+                        <h2 className="text">Notifications</h2>
+                </div>
+        )
+        if(message === ""){
+                return(<body>
+                        {header}
+                        <table className="not-table">
+                                {testdata.sort((a, b)=>a.time > b.time ? -1 : 1).map((notify, index) =>{
+                                        if(notify.read==true)
+                                                return(
+                                                        <tr className="not" style={{backgroundColor: 'grey'}}> 
+                                                                <td className="not-entry" > <input type="checkbox" id={index}/>  </td>
+                                                                <td className="not-entry"  >  {notify.from} </td> 
+
+                                                                <td className="not-entry">  {notify.subject}  </td>
+                                                        </tr>
+                                                )
+                                        else
+                                                return(
+                                                        <tr className="not" > 
+                                                                <td className="not-entry" > <input type="checkbox" id={index}/>  </td>
+                                                                <td className="not-entry">  {notify.from} </td> 
+
+                                                                <td className="not-entry">  {notify.subject}  </td>
+                                                        </tr>
+                                                )
+                                }
+                                )}
+                        </table>
+                        <div >
+                                <button> Trash </button>
+                                <button onClick={() => setMessage("MEME")}> Read message </button>
+                        </div>
+                </body>)
+        }
+        else{
+                return(<body>
+                        {header}
+                        <h1> DOOM </h1>
+                        <div >
+                                <button> Trash </button>
+                                <button onClick={() => setMessage("")}> Read message </button>
+                        </div>
+                </body>)
+                        
+        }
+
+}
 
 export {Notifications}
 
