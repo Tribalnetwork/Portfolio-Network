@@ -139,6 +139,8 @@ const styles = {
     boxShadow: "0px 0px 2px rgba(0, 0, 0, .2)",
     borderRadius: 20
   }
+
+  
 }
 
 export default SignIn
