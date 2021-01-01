@@ -10,7 +10,7 @@ import UserContext from "./UserContext";
 import { NavigationBar } from "./components/NavigationBar";
 
 import Authenticator from './Authenticator'
-import Home from "./HomePage/Home"
+import Home from "./Homepage/Home"
 import { Upload } from './Upload';
 import Watch from './Watch'
 import Landing from './landing/landing-home.js'
@@ -27,11 +27,17 @@ import ViewProfile from "./ViewProfile"
 import MyList from "./MyList"
 import MyStudio from "./MyStudio/MyStudio";
 import Settings, { Wifi, Support, TermsOfService, PrivacyPolicy, Account, Notifications, DownloadOptions, Logout } from "./SettingsPage/Settings";
+import Gigs from "./Gigs/Gigs";
+import PostGig from "./Gigs/PostGig";
 import Explore, { SportsPage, TalksPage, DramaPage, RomancePage, HorrorPage, FamilyPage, AnimationPage, ExperimentalPage, ThrillerPage, SciFiPage, ActionPage, ComedyPage, MusicalPage, DocumentaryPage } from "./ExplorePage/Explore"
-
+import Gigdetail from "./Gigs/Gigdetail"
+import Events from "./Events/Events"
+import PostEvent from "./Events/PostEvent"
+import Eventdetail from "./Events/Eventdetail"
 
 
 import ConnectList from "./SocialPage/ConnectList"
+
 // import SportsPage from "./ExplorePage/SportsPage";
 
 class PrivateRoute extends React.Component {
@@ -169,12 +175,19 @@ const Routes = () => (
         <PrivateRoute path="/upload" exact component={Upload} />
         <PrivateRoute path="/streams" component={Stream} />
         <PrivateRoute path="/watch" component={Watch} />
+        
         <PrivateRoute path="/live" component={Live} />
         <PrivateRoute path="/profile" component={Profile} />
         <PrivateRoute path="/getaccess" component={GetAccess} />
         <PrivateRoute path="/pending" component={Pending} />
         <PrivateRoute path="/mylive" component={MyLive} />
         <PrivateRoute path="/mylist" component={MyList} />
+        <PrivateRoute path="/gigs" component={Gigs} />
+        <PrivateRoute path="/postagig" component={PostGig} />
+        <PrivateRoute path="/gigdetail" component={Gigdetail} />
+        <PrivateRoute path="/events" component={Events} />
+        <PrivateRoute path="/postanevent" component={PostEvent} />
+        <PrivateRoute path="/eventdetail" component={Eventdetail} />
         <Route component={NoMatch} />
       </Switch>
       <BottomNavBar />

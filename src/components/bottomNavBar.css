@@ -1,9 +1,8 @@
 .outside-div {
-    display: initial;
+  display: initial;
+}
+@media only screen and (min-width: 992px) {
+  .outside-div {
+    display: none;
   }
-  @media only screen and (min-width: 600px) {
-    .outside-div {
-      display: none;
-    }
-  }
-  
+}

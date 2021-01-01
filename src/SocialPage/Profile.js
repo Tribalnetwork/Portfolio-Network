@@ -14,9 +14,7 @@ import AddIcon from '@material-ui/icons/Add';
 import FilmFrame from "../components/filmFrame";
 import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
-import { Upload } from '../Upload';
 import { getUser} from '../graphql/queries'
-import {updateUser} from '../graphql/mutations'
 import DropdownMenu from '../components/DropdownMenu.js'
 //import ProfileMenu from '../components/ProfileMenu.js'
 import Skills from "./Skills";

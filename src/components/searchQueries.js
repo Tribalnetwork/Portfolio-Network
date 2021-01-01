@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import {Scrollbars} from "react-custom-scrollbars";
 //import FilmFrame from "./filmFrame";
 import LargeFrame from "./LargeFrame"
+import {ReactComponent as StartliveLogo} from "../icons/startlive.svg"
 import "./searchQueries.css"
 
 
@@ -49,6 +50,8 @@ export default class SearchQueries extends React.Component {
             users: [],
             films: [],
             liveStreams: [],
+            gigs: [],
+            events: [],
             filter: {
                 hasFilter: false,
                 users: false,
@@ -115,6 +118,41 @@ export default class SearchQueries extends React.Component {
             this.setState({liveStreams: list})
       })
         }
+
+        //Gigs and events need to be added to the search query
+       /* getGigs = () => {
+            API.graphql(graphqlOperation(queries.listGigs))
+        .then((result) => { return result.data.listGigs.items})
+        .then((result) => { 
+            let list = [];
+            result.forEach((gig) =>{
+                let namesObj = {
+                    name: gig.title.toUpperCase(),
+                    id: gig.id,
+                    type: "Gig"
+                }
+                list.push(namesObj);
+            })
+            this.setState({gigs: list})
+      })
+        }
+
+        getEvents = () => {
+            API.graphql(graphqlOperation(queries.listEvents))
+        .then((result) => { return result.data.listEvents.items})
+        .then((result) => { 
+            let list = [];
+            result.forEach((event) =>{
+                let namesObj = {
+                    name: event.title.toUpperCase(),
+                    id: event.id,
+                    type: "Event"
+                }
+                list.push(namesObj);
+            })
+            this.setState({events: list})
+      })
+        }*/
 
 
         search = (input, global, recents) => {
@@ -321,13 +359,7 @@ export default class SearchQueries extends React.Component {
 
         // Styling objects
         mainDivStyle = {
-            display: "grid",
-            top: "7vh",
-            width: "100%",
-            bottom: "0px",
-            padding: '0',
-            gridTemplateColumns: "2fr 2fr 2fr",
-            gridTemplateRows: "13% 3% 85%",  
+ 
         }
 
         inputWrapperStyleNorm = {
@@ -384,7 +416,7 @@ export default class SearchQueries extends React.Component {
              width: "100vw",
              height: "8vh",
              padding: "0 15vw 0 15vw",
-             margin: "2.25vh 0 0 0",
+             "margin-top": "-45px",
              zIndex: "100"
          }
 
@@ -401,10 +433,8 @@ export default class SearchQueries extends React.Component {
             color: "white",
             minWidth: "25vw",
             maxWidth: "22vw",
-            height: "8vh",
+            height: "20px",
             fontSize: "1.5vh",
-            paddingTop: "2vh",
-            margin: "0",
             zIndex: "100"
          }
         
