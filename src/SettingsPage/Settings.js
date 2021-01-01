@@ -377,7 +377,7 @@ function Notifications() {
                                         if(id!=-1)
                                                 setread(true)
 
-                                }}> Read id </button>
+                                }}> Read currently selected notification </button>
                         </div>
                 </body>)
         }
@@ -397,11 +397,11 @@ function Notifications() {
                                                 setid(-1)
 
                                         }
-                                }}> Trash </button>
+                                }}> Trash current notification</button>
                                 <button onClick={() => {
                                         setid(-1)
                                         setread(false)
-                                } }> Read id </button>
+                                } }> Check rest of notifications </button>
                         </div>
                 </body>)
                         
