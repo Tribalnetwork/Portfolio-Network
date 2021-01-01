@@ -19,9 +19,12 @@ import SearchQueries from "../components/searchQueries";
 import { Home } from '@material-ui/icons';
 import './Gigs.css';
 import {ReactComponent as AuthorPhotoLogo} from '../icons/Ellipse.svg';
+import {ReactComponent as DetailsLogo} from '../icons/details.svg';
 import ForYouScrollers from "../components/ForYouScrollers";
 import StartLive from '../TribalPage/startLive.png';
 import {ReactComponent as PostLogo} from "../icons/post.svg"
+import {ReactComponent as HideLogo} from "../icons/hide.svg"
+import {ReactComponent as SavedLogo} from "../icons/saved.svg"
 Amplify.configure(awsconfig);
 
 export default class Gigs extends React.Component {
@@ -40,25 +43,29 @@ export default class Gigs extends React.Component {
   gig_card=(gig)=>{
     return (
         <Card style={styles.root2}>
-          <Link to={`/gigdetail?id=${gig.id}`} style={styles.link}>
+          <Link style={styles.link}>
             <CardActionArea>
               <CardMedia
                   style={styles.media2}
                   image={gig.imageUrl}
               />
               <CardContent>
-              <Grid container spacing={3} alignItems="center">
-                  <Grid item xs={2}>
-                  <AuthorPhotoLogo></AuthorPhotoLogo>
-                  </Grid>
-                  <Grid item xs={6}>
-                  <p>{gig.Position}</p>
-                  <p>{gig.Title}</p>
-                  </Grid>
-              </Grid>
+                <Grid container spacing={3} alignItems="center">
+                    <Grid item xs={2}>
+                    <AuthorPhotoLogo></AuthorPhotoLogo>
+                    </Grid>
+                    <Grid item xs={6}>
+                    <p style={{color: "white",margin:"3px"}}>{gig.Position}</p>
+                    <p style={{color: "white",margin:"3px"}}>{gig.Title}</p>
+                    </Grid> 
+                </Grid>
+                <div className="flex-buttons">
+                 <Link to={`/gigdetail?id=${gig.id}`}><DetailsLogo className="flex-button" style={{background: "linear-gradient(180deg, #FED7D5 0%, #B55B56 100%)"}}></DetailsLogo></Link> 
+                  <HideLogo className="flex-button"></HideLogo>
+                </div>
               </CardContent>
-              </CardActionArea>
-            </Link>
+            </CardActionArea>
+          </Link>
       </Card>
     )
   }
@@ -87,18 +94,19 @@ export default class Gigs extends React.Component {
                     <div className="GigBoard">
                         <text>Poster/Vid will go here</text>
                     </div>
-                    <div className="Boards"> 
-                    <Grid dispaly="inline">
-                      <Grid item><Link to = {'/gigs'}>Gig Board</Link></Grid>
-                      <Grid item><Link to = {'/events'}>Events</Link></Grid>
-                      <Link to= "/events">Clk Me</Link>
-                   </Grid>  
+                    <div> 
+                      <div className="tribalButton">
+                        <div className='action'><Link to="/submit"><button>Submit Film</button></Link></div>
+                        <div className='action'><Link to="/Gigs"><button>Gig Board</button></Link></div>
+                        <div className='action'><Link to="/streams"><button>Live</button></Link></div>
+                        <div className='action'><Link to="/events"><button>Events</button></Link></div>
+                        <div className='action'><Link to="/MyStudio"><button>Our Studio</button></Link></div>
+                      </div>
                     </div>
-                    <div className = "searchBar" style={styles.searchContainer}>
-                      <Link to="/mylive" style={styles.startLive}>
-                          <img src={StartLive} style={styles.startLiveImg}/>
-                      </Link>
-                      <Link to="/postagig"><PostLogo></PostLogo></Link>
+                    <div className = "searchSection" style={styles.searchContainer}>
+                    <Link to="/postagig"><PostLogo className="posticon"></PostLogo></Link>
+                      <SearchQueries className="searchBar"></SearchQueries>
+                      <Link ><SavedLogo className="savedicon"></SavedLogo></Link>
                     </div>
                     <div className="picked">
                         <p>Gigs picked for you</p>
@@ -124,10 +132,10 @@ const styles = {
     searchContainer: {width: "100%",  display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gridTemplateRows: "1fr"},
     media2: {
       height: 212,
-      width: 375,
+      width: "100%",
     },
     root2:{
-background:"black"
+      background:"black"
     },
     startLive: {position: "relative", left: "6vw", top: "7vh", minHeight: "3vh", maxHeight: "5vh", minWidth: "3vh", maxWidth: "5vw"},
     startLiveImg: {minHeight: "3vh", maxHeight: "5vh", minWidth: "3vh", maxWidth: "5vw"}

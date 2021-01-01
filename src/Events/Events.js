@@ -23,6 +23,9 @@ import './Events.css'
 import {ReactComponent as AuthorPhotoLogo} from '../icons/Ellipse.svg';
 import ForYouScrollersEvent from "../components/ForYouScrollersEvent";
 import {ReactComponent as PostLogo} from "../icons/post.svg"
+import {ReactComponent as RemindMeLogo} from "../icons/remindme.svg"
+import {ReactComponent as HideLogo} from "../icons/hide.svg";
+import {ReactComponent as SavedLogo} from "../icons/saved.svg"
 Amplify.configure(awsconfig);
 
 //temporarily stored data--backend not setup yet
@@ -69,33 +72,34 @@ export default class Event extends React.Component {
   }*/
 
 
-  event_card=(events)=>{
-    console.log(events)
+  event_card=(event)=>{
+    console.log(event)
     return (
-      <Grid>
       <Card style={styles.root2}>
-          <Link to="/eventdetail">
-              <CardActionArea>
-              <CardMedia
-                  style={styles.media2}
-                  image={events.imageUrl}
-              />
-              <Typography >
-              <Grid container spacing={3} alignItems="center">
-                  <Grid item xs={2}>
-                  <AuthorPhotoLogo></AuthorPhotoLogo>
-                  </Grid>
-                  <Grid item xs={6}>
-                  <p>{events.Position}</p>
-                  <p>{events.Title}</p>
-                  </Grid>
-                  
-              </Grid>
-              </Typography>
-              </CardActionArea>
-          </Link>
-      </Card>
-  </Grid>
+      <Link to={"/eventdetail"} style={styles.link}>
+        <CardActionArea>
+          <CardMedia
+              style={styles.media2}
+              image={event.imageUrl}
+          />
+          <CardContent>
+            <Grid container spacing={3} alignItems="center">
+                <Grid item xs={2}>
+                <AuthorPhotoLogo></AuthorPhotoLogo>
+                </Grid>
+                <Grid item xs={6}>
+                <p style={{color: "white",margin:"3px"}}>{event.Position}</p>
+                <p style={{color: "white",margin:"3px"}}>{event.Title}</p>
+                </Grid> 
+            </Grid>
+            <div className="flex-buttons">
+              <RemindMeLogo className="flex-button" style={{background: "linear-gradient(180deg, #FED7D5 0%, #B55B56 100%)"}}></RemindMeLogo>
+              <HideLogo className="flex-button"></HideLogo>
+            </div>
+          </CardContent>
+        </CardActionArea>
+      </Link>
+  </Card>
     )
   }
 
@@ -124,25 +128,19 @@ export default class Event extends React.Component {
                     <div className="EventsBoard">
                         <text>Promo Area</text>
                     </div>
-                    <div className="Boards"> 
-                    <Grid dispaly="inline">
-                      <Link to= "../Gigs" style={{color: 'pink'}}>Gigs</Link>
-                   </Grid>  
-                    </div>
                     <div> 
                       <div className="tribalButton">
-                        <div className='action'><button>Submit Film</button></div>
-                        <div className='action'><button onClick={<Link to ="../Gigs/Gigs"></Link>}>Gig Board</button></div>
-                        <div className='action'><button>Live</button></div>
-                        <div className='action'><button>Events</button></div>
-                        <div className='action'><button>Our Studio</button></div>
+                        <div className='action'><Link to="/submit"><button>Submit Film</button></Link></div>
+                        <div className='action'><Link to="/Gigs"><button>Gig Board</button></Link></div>
+                        <div className='action'><Link to="/streams"><button>Live</button></Link></div>
+                        <div className='action'><Link to="/events"><button>Events</button></Link></div>
+                        <div className='action'><Link to="/MyStudio"><button>Our Studio</button></Link></div>
                       </div>
                     </div>
-                    <div className = "searchBar" style={styles.searchContainer}>
-                      <Link to="/mylive" style={styles.startLive}>
-                          <img src={StartLive} style={styles.startLiveImg}/>
-                      </Link>
-                      <Link to="./postanevent"><PostLogo></PostLogo></Link>
+                    <div className = "searchSection" style={styles.searchContainer}>
+                    <Link to="/postanevent"><PostLogo className="posticon"></PostLogo></Link>
+                      <SearchQueries className="searchBar"></SearchQueries>
+                      <Link ><SavedLogo className="savedicon"></SavedLogo></Link>
                     </div>
                     <div className="picked">
                         <p>Events picked for you</p>
@@ -172,10 +170,11 @@ const styles = {
   searchContainer: {width: "100%", display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gridTemplateRows: "1fr"},
   media2: {
   height: 212,
-  width: 375,
+  width: "100%",
   },
   root2: {
-
+    backgroundColor: 'black',
+    marginBottom: "15px",
   },
   startLive: {position: "relative", left: "6vw", top: "7vh", minHeight: "3vh", maxHeight: "5vh", minWidth: "3vh", maxWidth: "5vw"},
   startLiveImg: {minHeight: "3vh", maxHeight: "5vh", minWidth: "3vh", maxWidth: "5vw"}

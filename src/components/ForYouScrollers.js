@@ -70,7 +70,6 @@ const styles = {
   root2: {
     width: "131px",
     heigh: "109px",
-    borderRadius: 15,
     marginBottom: "20px",
   },
   wrk: {

@@ -49,6 +49,7 @@ export default class BottomNavBar extends React.Component {
     maxMarginBottom: "1vh",
     minMarginBottom: "0",
     width: "100%",
+    padding:"0"
   };
 
   imgStyle = {
