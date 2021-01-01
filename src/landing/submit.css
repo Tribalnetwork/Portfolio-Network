@@ -1,53 +1,348 @@
-html, body {
-  background-color: #525252;
-  
+.submitcontainer {
+  /*background-color: blue;*/
+  width: 100%;
+  display: flex;
+  align-self: center;
+  max-height: 100vh;
+  background-color: transparent !important;
+}
+
+.videosubmit {
+  margin: 0 auto;
+  width: 100%;
+  height: auto;
+  position: absolute;
+  z-index: 1;
+  max-height: 100%;
+}
+
+.overlayercontainer {
+  width: 100vw;
+  height: 100%;
+  z-index: 4;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.backVideo {
+  object-fit: cover;
+}
+
+.infobutton {
+  width: 25vw;
+  height: 4vh;
+  background-color: transparent;
+  border-radius: 10px;
+  border: 2px solid #ffd700;
+  margin-top: 25vh;
+  color: white;
+  font-size: 20px;
+  outline: none;
+  z-index: 5;
+}
+
+.listcontainer {
+  align-self: center;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.bullets {
+  width: 100%;
+}
+.Benefitlist {
+  align-self: center;
+}
+.Benefitlist ul {
+  list-style-type: none;
+  text-align: center;
+}
+
+.Benefitlist ul li {
+  color: white;
+  font-family: Roboto;
+  font-size: 18px;
+}
+
+.InfoSection {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+
+  /*background-color: orange;*/
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: 5px;
+  margin-bottom: 100px;
+  background-color: transparent;
+}
+
+.inputcontainer {
+  width: 400px;
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
+  /* background-color: purple;*/
+
+  border: 2px solid gold;
+  background-color: transparent;
+  border-radius: 15px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+.inputcontainer input {
+  width: 50%;
+  align-self: center;
+  font-family: Roboto;
+  color: white;
+  background-color: transparent;
+  border: 2px solid gold;
+  text-align: center;
+  cursor: none;
+}
+
+.inputcontainer label {
+  color: white;
+  font-family: Roboto;
+  margin-bottom: 2px;
+}
+
+.inputcontainer ::placeholder {
+  color: white;
+  font-family: Roboto;
+}
+
+.termcontainer {
+  width: 400px;
+  max-height: 200px;
+  overflow-y: scroll;
+  background-color: transparent;
+  margin-top: 25vh;
+}
+
+.termcontainer p {
+  text-align: center;
+  color: white;
+  font-family: "roboto";
+}
+
+.uploadcontainer {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border-radius: 15px;
+  border: 2px solid gold;
+}
+
+.uploadcontainer label {
+  color: white;
+}
+
+.uploadcontainer input {
+  font-family: Roboto;
+
+  color: white;
+  background-color: transparent;
+  border: 1px solid gold;
+  text-align: center;
+  cursor: none;
+  font-size: 16px;
+}
+
+.uploadcontainer textarea {
+  font-family: Roboto;
+
+  color: white;
+  background-color: transparent;
+  border: 1px solid gold;
+  outline: none;
+  font-size: 16px;
+  width: 100%;
+  height: 300px;
+}
+.genre {
+  width: 50vw;
+  height: auto;
+  margin-top: 25vh;
+  text-align: center;
+}
+
+.lastinput button {
+  width: 100px;
+  background-color: transparent;
+  border-radius: 15px;
+  border: 2px solid gold;
+  outline: none;
+  margin-right: 4px;
+  margin-left: 4px;
+  color: white;
+  font-family: Roboto;
+  margin-top: 4vh;
+}
+.lastinput button:active {
+  background-color: goldenrod;
+}
+
+.thanks p {
+  color: white;
+  font-size: 18px;
+  font-family: "roboto";
+}
+
+.computerscreenrequire {
+  display: none;
+  margin-bottom: 10px;
+}
+
+.computerscreenrequire p {
+  color: white;
+}
+
+.RequiredFields {
+  padding: 2px;
+}
+.RequiredFields p {
+  color: white;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .videosubmit,
+  .backVideo,
+  .lastinput,
+  .inputcontainer,
+  .uploadcontainer,
+  .termcontainer,
+  .thanks {
+    display: none;
   }
-  
-  /* .Home {
-    text-align: center;
-    background-color: #525252;
-  } */
-  
-  
-  .SubmitDiv {
-    text-align: center;
-    min-height: 100vh;
-    background-color: #333;
-    width: 1286px;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: #bea550;
+
+  .infobutton {
+    width: 50vw;
+    font-size: 3vw;
+    height: 4vh;
   }
-  
-  
-  h1 {
-    font-size: 150px;
-    margin: 200px auto 40px;
-    line-height: 175px;
-    letter-spacing: 7px;
-    text-shadow: 2px;
-    font-family: 'Roboto', sans-serif;
-    font-weight: normal;
-    background: -webkit-linear-gradient(#f7e47b, #A07923);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+
+  .Benefitlist ul li {
+    font-size: 4vw;
   }
-  
-  h2 {
-    font-size: 50px;
-    font-weight: 400;
-    color: #f1d744;
-    letter-spacing: 7px;
+
+  .computerscreenrequire {
+    display: block;
+    font-size: 3.5vw;
   }
-  
-  
-  
-  
-  
-  
-  
-  
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .videosubmit,
+  .backVideo,
+  .lastinput,
+  .inputcontainer,
+  .uploadcontainer,
+  .termcontainer,
+  .thanks {
+    display: none;
+  }
+
+  .infobutton {
+    width: 50vw;
+    font-size: 3vw;
+    height: 8vh;
+  }
+
+  .Benefitlist ul li {
+    font-size: 4vw;
+  }
+
+  .computerscreenrequire {
+    display: block;
+    font-size: 3.5vw;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .videosubmit,
+  .backVideo,
+  .lastinput,
+  .inputcontainer,
+  .uploadcontainer,
+  .termcontainer .thanks {
+    display: none;
+  }
+
+  .infobutton {
+    width: 50vw;
+    font-size: 3vw;
+    height: 8vh;
+  }
+
+  .computerscreenrequire {
+    display: block;
+    font-size: 3.5vw;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 1028px) {
+  .videosubmit,
+  .backVideo,
+  .lastinput,
+  .inputcontainer,
+  .uploadcontainer,
+  .termcontainer,
+  .thanks {
+    display: inherit;
+  }
+
+  .infobutton {
+    width: 25vw;
+    font-size: 18px;
+    height: 8vh;
+  }
+
+  .Benefitlist ul li {
+    font-size: 18px;
+  }
+
+  .computerscreenrequire {
+    display: none;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .videosubmit,
+  .backVideo,
+  .lastinput,
+  .inputcontainer,
+  .uploadcontainer,
+  .termcontainer,
+  .thanks {
+    display: inherit;
+  }
+
+  .infobutton {
+    width: 25vw;
+    font-size: 18px;
+  }
+  .Benefitlist ul li {
+    font-size: 18px;
+  }
+
+  .computerscreenrequire {
+    display: none;
+  }
+}

@@ -3,7 +3,9 @@ import { API, graphqlOperation } from 'aws-amplify';
 import * as queries from '../graphql/queries';
 import { Link } from "react-router-dom";
 import {Scrollbars} from "react-custom-scrollbars";
-import FilmFrame from "./filmFrame";
+//import FilmFrame from "./filmFrame";
+import LargeFrame from "./LargeFrame"
+import "./searchQueries.css"
 
 
 /* The logic for how this component works is as follows:
@@ -131,7 +133,7 @@ export default class SearchQueries extends React.Component {
            const styledMatches = rawMatches.map((item) =>{ 
            switch(item.type){
                 case "Film":
-                    return <li key={item.id} style={this.filmLiStyle} onClick={() => {this.add("main", item)}}><FilmFrame film={item} /></li>
+                    return <li key={item.id} className={"FilmLi"} style={this.filmLiStyle} onClick={() => {this.add("main", item)}}><LargeFrame item={item} type={"film"} /></li>
                     break;
                 case "Live Stream":
                    return <Link style={{textDecoration: "none"}} to={`/live?id=${item.id}`}><li key={item.id} style={this.liStyle} onClick={() => {this.add("main", item)}}>{item.name}  <p style={this.typeStyle}>{item.type}</p></li> </Link>
@@ -144,6 +146,7 @@ export default class SearchQueries extends React.Component {
         })
             if(input == ''){
                 this.setState({global: null})
+                this.forceUpdate();
             } else {
             this.setState({global: styledMatches})
             }
@@ -207,11 +210,11 @@ export default class SearchQueries extends React.Component {
             this.setState(prevState => ({
                 filter: {                   
                     ...prevState.filter,   
-                    films: !this.state.filter.films   
+                    films: !this.state.filter.films    
                 }
             }))
         }
-
+ 
         filterLiveStreams = (e) => {
             if(this.state.filter.liveStreams == true){
                 e.target.style.borderBottom = "0px solid black";
@@ -396,7 +399,7 @@ export default class SearchQueries extends React.Component {
 
          filterButtonStyle = {
             color: "white",
-            minWidth: "12vw",
+            minWidth: "25vw",
             maxWidth: "22vw",
             height: "8vh",
             fontSize: "1.5vh",
@@ -426,8 +429,10 @@ export default class SearchQueries extends React.Component {
          }
 
          filmLiStyle = {
-             margin: "4vw",
-             display: 'inline-block'
+             margin: "4vh 0 4vh 0",
+             display: 'inline-block',
+             minWidth: "auto",
+             maxWidth: "100%"
          }
 
          typeStyle = {
@@ -438,7 +443,8 @@ export default class SearchQueries extends React.Component {
          scroll = {
              width: "100%",
              height: "100%",
-             color: "red"
+             padding: "0",
+             margin: "0",
          }
 
          filler = {

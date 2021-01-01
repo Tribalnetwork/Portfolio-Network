@@ -78,6 +78,11 @@
     /* position: relative; */
     padding-right: 60px;
 }
+h2.text{
+    color:white;
+    font-size:20px;
+    letter-spacing:0;
+}
 
 .button__withArrow {
     padding: 1px 0px;

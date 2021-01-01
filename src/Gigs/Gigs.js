@@ -98,7 +98,7 @@ export default class Gigs extends React.Component {
                       <Link to="/mylive" style={styles.startLive}>
                           <img src={StartLive} style={styles.startLiveImg}/>
                       </Link>
-                      <PostLogo></PostLogo>
+                      <Link to="/postagig"><PostLogo></PostLogo></Link>
                     </div>
                     <div className="picked">
                         <p>Gigs picked for you</p>

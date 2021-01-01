@@ -16,7 +16,9 @@ import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import { getUser} from '../graphql/queries'
 import DropdownMenu from '../components/DropdownMenu.js'
+//import ProfileMenu from '../components/ProfileMenu.js'
 import Skills from "./Skills";
+import ConnectList from "./ConnectList"
 
 
 
@@ -173,6 +175,7 @@ async getImg(){
 	</div>
 
         <div className="iconcontainer"> 
+        <ConnectList/>
           <div className={"icon"}> <button className={"iconButton"}><DetailsIcon className={"iconlogo"}/> </button></div>
         <div className={"icon"} id={"middle"}>  <button onClick={this.togglePopup.bind(this)}  className={"iconButton"}> <ReorderIcon className={"iconlogo"}/> </button> </div>
 
