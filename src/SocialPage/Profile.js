@@ -17,7 +17,10 @@ import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import { Upload } from '../Upload';
 import { getUser} from '../graphql/queries'
 import {updateUser} from '../graphql/mutations'
-import ProfileMenu from '../components/ProfileMenu.js'
+import DropdownMenu from '../components/DropdownMenu.js'
+//import ProfileMenu from '../components/ProfileMenu.js'
+import Skills from "./Skills";
+import ConnectList from "./ConnectList"
 
 
 
@@ -150,6 +153,7 @@ async getImg(){
     return (
    
       <div className={"bodycontainer"}>
+        <Skills/>
         <div className={"container"}>
           <div className="profileimagecontainer">
             <NavigateBeforeIcon className={"arrownavigation"} />
@@ -160,13 +164,20 @@ async getImg(){
          <h1 className={"welcomeText"}> Welcome back </h1>
         <h2 className={"username"}> {this.context.user.attributes.given_name}</h2>
 	<div className="iconcontainer"> 
-	  {this.state.showPopup ? <ProfileMenu
+	  {this.state.showPopup ? <DropdownMenu
           text='Click "Close Button" to hide popup'  
           closePopup={this.togglePopup.bind(this)}  
+          link3="link3"
+          text3="What can others see?"  
+          link1="link1"
+          text1="My Studio"  
+          link2="link2"
+          text2="My Profile"  
 	  /> : null} 
 	</div>
 
         <div className="iconcontainer"> 
+        <ConnectList/>
           <div className={"icon"}> <button className={"iconButton"}><DetailsIcon className={"iconlogo"}/> </button></div>
         <div className={"icon"} id={"middle"}>  <button onClick={this.togglePopup.bind(this)}  className={"iconButton"}> <ReorderIcon className={"iconlogo"}/> </button> </div>
 

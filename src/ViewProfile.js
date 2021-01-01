@@ -7,7 +7,7 @@ import AddIcon from '@material-ui/icons/Add';
 import FilmFrame from "./components/filmFrame";
 import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
-//import Connect from "./Connect"
+import Connect from "./Connect"
 
 
 
@@ -125,6 +125,7 @@ export default class ViewProfile extends React.Component {
          <h1 className={"welcomeText"}>{this.name}</h1>
         <h2 className={"username"}> {this.location}</h2>
         <div className="iconcontainer"> 
+          <Connect/>
           <div className={"icon"}> <button className={"iconButton"}><DonateLogo className={"iconlogo"}/> </button></div>
           <div className={"icon"} id={"middle"}>  <button className={"iconButton"}><ReorderIcon className={"iconlogo"}/> </button> </div>
           <div className={"icon"}> <button className={"iconButton"}><NotificationsNoneIcon className={"iconlogo"}/> </button>   </div>
