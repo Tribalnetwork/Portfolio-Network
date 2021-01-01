@@ -12,6 +12,7 @@ import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import TextField from '@material-ui/core/TextField';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import { Link } from "react-router-dom";
 
 
 Amplify.configure(awsconfig);
@@ -107,7 +108,8 @@ render(){
   return(
     <body>
     <div className="pageTitle">
-    <IconButton className="backbutton" edge="end" color="white"><ArrowBackIosIcon className="backIcon" /></IconButton>
+      <Link to="/gigs">
+    <IconButton className="backbutton" edge="end" color="white"><ArrowBackIosIcon className="backIcon" /></IconButton></Link>
       <h2 className="text">Post a Gig</h2>
     </div>
     <div className="PostaGig">

@@ -1,0 +1,77 @@
+.EventsBoard {
+    position: relative;
+    /*padding-top: 56.25%; /* Player ratio: 100 / (1280 / 720) */
+    color: white;
+    background-color: black;
+    padding-bottom: 180px;
+    width: 375px;
+    height: 195;
+  }
+  .Boards {
+    color: pink;
+    margin: 10px;
+    height: 50px;
+    display: flex;
+    border-radius: 50;
+    text-decoration: none;
+    justify-content: space-between;
+  }
+  
+  button,
+  input {
+    margin-left: 20px;
+    border: solid pink;
+    border-radius: 50;
+    justify-content: space-between;
+  }
+  .searchBar {
+    margin: 10px;
+    /*border: solid gold;*/
+  }
+  .picked {
+    color: white;
+    margin: 5px;
+    padding-top: 36px;
+  }
+  .near {
+    color: white;
+  }
+  
+  .line {
+    width: 375px;
+    height: 2px;
+    border: 1px solid #757575;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    align-self: center;
+  }
+  
+  .tribalButton {
+    margin: auto;
+    display: flex;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    justify-content: center;
+    border: none;
+  }
+  /*
+  .tribalButton .action button {
+    height: 50px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 20px;
+    color: white;
+    margin: 35px;
+    border: 3px solid pink;
+    width: 185px;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+  }
+  
+  .tribalButton button {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+  */
+  

@@ -19,7 +19,9 @@ import SearchQueries from "../components/searchQueries";
 import { Home } from '@material-ui/icons';
 import './Gigs.css';
 import {ReactComponent as AuthorPhotoLogo} from '../icons/Ellipse.svg';
-
+import ForYouScrollers from "../components/ForYouScrollers";
+import StartLive from '../TribalPage/startLive.png';
+import {ReactComponent as PostLogo} from "../icons/post.svg"
 Amplify.configure(awsconfig);
 
 export default class Gigs extends React.Component {
@@ -36,17 +38,15 @@ export default class Gigs extends React.Component {
   }
 
   gig_card=(gig)=>{
-    console.log(gig)
     return (
-      <Grid>
-      <Card style={styles.root2}>
-          <Link>
-              <CardActionArea>
+        <Card style={styles.root2}>
+          <Link to={`/gigdetail?id=${gig.id}`} style={styles.link}>
+            <CardActionArea>
               <CardMedia
                   style={styles.media2}
                   image={gig.imageUrl}
               />
-              <Typography >
+              <CardContent>
               <Grid container spacing={3} alignItems="center">
                   <Grid item xs={2}>
                   <AuthorPhotoLogo></AuthorPhotoLogo>
@@ -55,21 +55,18 @@ export default class Gigs extends React.Component {
                   <p>{gig.Position}</p>
                   <p>{gig.Title}</p>
                   </Grid>
-                  
               </Grid>
-              </Typography>
+              </CardContent>
               </CardActionArea>
-          </Link>
+            </Link>
       </Card>
-  </Grid>
     )
   }
 
   async fetchGigs() {
     try {
-      const gigs = await API.graphql(graphqlOperation(listGigs, {
-        
-      }));
+      const gigs = await API.graphql(graphqlOperation(listGigs, {}));
+      console.log(gigs);
       //console.log(streams.data.listLiveStreams.items)
       this.setState({ gigs: gigs.data.listGigs.items })
       console.log(this.state.gigs);
@@ -86,40 +83,26 @@ export default class Gigs extends React.Component {
             <title>Gigs - Tribal Network</title>
             </Helmet>
             <div style={styles.container}>
-                {
-                <div>
+                
                     <div className="GigBoard">
                         <text>Poster/Vid will go here</text>
                     </div>
                     <div className="Boards"> 
                     <Grid dispaly="inline">
-                      <Grid item>Gig Board<Link to = {'/gigs'}></Link></Grid>
-                      <Grid item>Events<Link to = {'/events'}></Link></Grid>
+                      <Grid item><Link to = {'/gigs'}>Gig Board</Link></Grid>
+                      <Grid item><Link to = {'/events'}>Events</Link></Grid>
                       <Link to= "/events">Clk Me</Link>
                    </Grid>  
                     </div>
-                    <div  className="searchBar" style={styles.searchContainer}>
-                            <Link to="/mylive" style={styles.startLive}>
-                                <img src="https://d202tggnzywgd9.cloudfront.net/public/events_n_gigs/53019567-7e3f-4360-92b6-6ec2b787a67d.png"/>
-                            </Link>
-                            <SearchQueries type={"liveStreams"} style={styles.search}/>
+                    <div className = "searchBar" style={styles.searchContainer}>
+                      <Link to="/mylive" style={styles.startLive}>
+                          <img src={StartLive} style={styles.startLiveImg}/>
+                      </Link>
+                      <PostLogo></PostLogo>
                     </div>
                     <div className="picked">
                         <p>Gigs picked for you</p>
-                        <Grid>
-                            <Card style={styles.root1}>
-                                <Link>
-                                    <CardActionArea>
-                                    <div style={styles.wrk}>Title</div>
-                                    <CardMedia
-                                        title= 'TitelS'
-                                        style={styles.media1}
-                                        image={`https://tonedeaf.thebrag.com/wp-content/uploads/2018/05/patdcrowd-1-768x396.jpg`}
-                                    />
-                                    </CardActionArea>
-                                </Link>
-                            </Card>
-                        </Grid>
+                        <ForYouScrollers list={this.state.gigs}></ForYouScrollers>
                     </div>
                     <div className="line"> </div>
                     <div className="near">
@@ -129,8 +112,7 @@ export default class Gigs extends React.Component {
                           </div>
                     </div>
                 </div>
-                }     
-            </div>
+                 
         </div>
     );
   }
@@ -138,42 +120,15 @@ export default class Gigs extends React.Component {
 }
 
 const styles = {
-    root1: {
-      width: "131px",
-      heigh: "109px",
-      borderRadius: 15,
-      marginBottom: "20px",
-    },
-    wrk: {
-        marginBottom: "-25px",
-        marginTop: "5px",
-        color: "white",
-        textDecoration: "none",
-        position: "center",
-    },
-    media1: {
-      height: 178,
-      width: 175,
-    },
-    root2: {
-        width: "375px",
-        heigh: "315px",
-      },
+    container: { width: "100%" },
+    searchContainer: {width: "100%",  display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gridTemplateRows: "1fr"},
     media2: {
-        height: 212,
-        width: 375,
-      },
-    header: { margin: '0 auto', display: 'flex', flex: 1, flexDirection: 'column', justifyContent: 'center', padding: 20 },
-    container: { width: "100%", margin: '0', display: 'flex', flex: 1, flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'left', zIndex: "-1" },
-    link: { textDecoration: 'none' },
-    film: { width: 200, marginBottom: 15, marginRight: 10 },
-    stream: { width: 400 },
-    input: { border: 'none', backgroundColor: '#ddd', marginBottom: 10, padding: 8, fontSize: 18 },
-    filmTitle: { fontSize: 20, fontWeight: 'bold', marginBottom: 0 },
-    streamText: { fontSize: 14, marginBottom: 0},
-    filmDescription: { marginBottom: 0 },
-    button: { width: 400, backgroundColor: 'black', color: 'white', outline: 'none', fontSize: 18, padding: '12px 0px' },
-    searchContainer: {width: "70vw", marginLeft: "15vw", marginRight: "25%", borderRadius: "25px", display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gridTemplateRows: "1fr", marginBottom: "-90px"},
-    search: {},
-    startLive: {position: "relative", left: "7.5vw", top: "5vh", minHeight: "3vh", maxHeight: "9vh", minWidth: "3vh", maxWidth: "9vw"}
+      height: 212,
+      width: 375,
+    },
+    root2:{
+background:"black"
+    },
+    startLive: {position: "relative", left: "6vw", top: "7vh", minHeight: "3vh", maxHeight: "5vh", minWidth: "3vh", maxWidth: "5vw"},
+    startLiveImg: {minHeight: "3vh", maxHeight: "5vh", minWidth: "3vh", maxWidth: "5vw"}
   }

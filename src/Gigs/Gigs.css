@@ -7,6 +7,9 @@
   width: 375px;
   height: 201;
 }
+.MuiButtonBase-root{
+  color:black;
+}
 .Boards {
   color: pink;
   margin: 10px;
