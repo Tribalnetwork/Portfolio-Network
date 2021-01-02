@@ -10,7 +10,7 @@ import UserContext from "./UserContext";
 import { NavigationBar } from "./components/NavigationBar";
 
 import Authenticator from './Authenticator'
-import Home from "./Homepage/Home"
+import Home from "./HomePage/Home"
 import { Upload } from './Upload';
 import Watch from './Watch'
 import Landing from './landing/landing-home.js'
@@ -34,6 +34,7 @@ import Gigdetail from "./Gigs/Gigdetail"
 import Events from "./Events/Events"
 import PostEvent from "./Events/PostEvent"
 import Eventdetail from "./Events/Eventdetail"
+import MyProfile from "./ProfilePage/Profile.js"
 
 
 import ConnectList from "./SocialPage/ConnectList"
@@ -178,6 +179,7 @@ const Routes = () => (
         
         <PrivateRoute path="/live" component={Live} />
         <PrivateRoute path="/profile" component={Profile} />
+        <PrivateRoute path="/myprofile" component={MyProfile} />
         <PrivateRoute path="/getaccess" component={GetAccess} />
         <PrivateRoute path="/pending" component={Pending} />
         <PrivateRoute path="/mylive" component={MyLive} />

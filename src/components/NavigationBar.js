@@ -136,7 +136,7 @@ export const NavigationBar = () => {
           <List>
           <ListItem
           button
-          component={Link} to={"/notif"}
+          component={Link} to={"/settings/notifications"}
         >
           <img className={classes.svgStyle} src = {Bell}></img> 
           <ListItemText primary={'Notifications'}> </ListItemText>

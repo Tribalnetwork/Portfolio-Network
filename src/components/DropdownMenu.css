@@ -109,15 +109,15 @@
                 font-family:Roboto;
                 font-style: normal;
                 font-weight:normal;
-                font-size:1.75vw;
+                font-size:1.5vw;
 
         }
 }
 
-        .flex-container > div a {
-                text-decoration: none;
-                color: white;
-        }
+.flex-container > div a {
+        text-decoration: none;
+        color: white;
+}
 
 hr.solid {
 
