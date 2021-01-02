@@ -8,13 +8,11 @@ import {
 } from "react-router-dom";
 import UserContext from "./UserContext";
 import { NavigationBar } from "./components/NavigationBar";
-
 import Authenticator from './Authenticator'
-import Home from "./HomePage/Home"
 import { Upload } from './Upload';
 import Watch from './Watch'
 import Landing from './landing/landing-home.js'
-//import Submit from './landing/Submit'
+import Submit from './landing/submit'
 import Live from './Live'
 import { Stream } from './TribalPage/Stream'
 import Profile from './SocialPage/Profile'
@@ -35,8 +33,7 @@ import Events from "./Events/Events"
 import PostEvent from "./Events/PostEvent"
 import Eventdetail from "./Events/Eventdetail"
 import MyProfile from "./ProfilePage/Profile.js"
-
-
+import Home from "./Home"
 import ConnectList from "./SocialPage/ConnectList"
 
 // import SportsPage from "./ExplorePage/SportsPage";
@@ -167,7 +164,7 @@ const Routes = () => (
         <Route path="/" exact component={Landing} />
         <Route path="/home" exact component={Home} />
         <Route path="/landing/landing-home" exact component={Landing} />
-        {/*<Route path="/landing/Submit" exact component={Submit} />*/}
+        <Route path="/landing/Submit" exact component={Submit} />
         <Route path="/search" exact component={SearchQueries} />
         <Route path="/viewProfile" exact component={ViewProfile} />
         <Route path="/myStudio" exact component={MyStudio} />
@@ -199,4 +196,3 @@ const Routes = () => (
 
 export default Routes;
 
-//

@@ -4,7 +4,7 @@ import { Auth } from "aws-amplify";
 import Container from "../Container";
 import Button from "../Button";
 import UserContext from "../UserContext";
-import "./Submit.css";
+import "./submit.css";
 import ReactPlayer from "react-player";
 import { CodeSharp, FormatAlignCenter } from "@material-ui/icons";
 import Select from 'react-select'
