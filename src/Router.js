@@ -8,7 +8,6 @@ import {
 } from "react-router-dom";
 import UserContext from "./UserContext";
 import { NavigationBar } from "./components/NavigationBar";
-
 import Authenticator from './Authenticator'
 import { Upload } from './Upload';
 import Watch from './Watch'
@@ -33,8 +32,8 @@ import Gigdetail from "./Gigs/Gigdetail"
 import Events from "./Events/Events"
 import PostEvent from "./Events/PostEvent"
 import Eventdetail from "./Events/Eventdetail"
+import MyProfile from "./ProfilePage/Profile.js"
 import Home from "./Home"
-
 import ConnectList from "./SocialPage/ConnectList"
 
 // import SportsPage from "./ExplorePage/SportsPage";
@@ -177,6 +176,7 @@ const Routes = () => (
         
         <PrivateRoute path="/live" component={Live} />
         <PrivateRoute path="/profile" component={Profile} />
+        <PrivateRoute path="/myprofile" component={MyProfile} />
         <PrivateRoute path="/getaccess" component={GetAccess} />
         <PrivateRoute path="/pending" component={Pending} />
         <PrivateRoute path="/mylive" component={MyLive} />
