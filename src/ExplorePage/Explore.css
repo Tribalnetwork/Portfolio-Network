@@ -6,6 +6,31 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    background-color: black;
+}
+
+.coverArt {
+    position: absolute;
+    background-color: black;
+    height: 200px;
+    width: 100%;
+}
+
+.coverArtText {
+    color: white;
+    margin: 0 auto;
+    text-align: center;
+    padding: 50px;
+    z-index: 0
+}
+
+.watchButton {
+    position: relative;
+    border: none;
+    cursor: pointer;
+    margin-left: 300px;
+    margin-top: 170px;
+    z-index: 1;
 }
 
 .categoriesHeader {
@@ -14,6 +39,7 @@
     color: white;
     text-align: center;
     padding-right: 700px;
+    margin-top: 0px;
 }
 
 /* .categories {

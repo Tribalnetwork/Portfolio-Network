@@ -25,9 +25,9 @@ import ViewProfile from "./ViewProfile"
 import MyList from "./MyList"
 import MyStudio from "./MyStudio/MyStudio";
 import Settings, { Wifi, Support, TermsOfService, PrivacyPolicy, Account, Notifications, DownloadOptions, Logout } from "./SettingsPage/Settings";
+import Explore, { SportsPage, TalksPage, DramaPage, RomancePage, HorrorPage, FamilyPage, AnimationPage, ExperimentalPage, ThrillerPage, SciFiPage, ActionPage, ComedyPage, MusicalPage, DocumentaryPage, WatchRandom } from "./ExplorePage/Explore"
 import Gigs from "./Gigs/Gigs";
 import PostGig from "./Gigs/PostGig";
-import Explore, { SportsPage, TalksPage, DramaPage, RomancePage, HorrorPage, FamilyPage, AnimationPage, ExperimentalPage, ThrillerPage, SciFiPage, ActionPage, ComedyPage, MusicalPage, DocumentaryPage } from "./ExplorePage/Explore"
 import Gigdetail from "./Gigs/Gigdetail"
 import Events from "./Events/Events"
 import PostEvent from "./Events/PostEvent"
@@ -160,6 +160,7 @@ const Routes = () => (
         <Route path="/explore/comedy"><ComedyPage/></Route>
         <Route path="/explore/musical"><MusicalPage/></Route>
         <Route path="/explore/documentary"><DocumentaryPage/></Route>
+        <Route path="/explore/watchrandom"><WatchRandom/></Route>
         <Route path="/auth" exact component={Authenticator} />
         <Route path="/" exact component={Landing} />
         <Route path="/home" exact component={Home} />
