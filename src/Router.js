@@ -8,12 +8,11 @@ import {
 } from "react-router-dom";
 import UserContext from "./UserContext";
 import { NavigationBar } from "./components/NavigationBar";
-
 import Authenticator from './Authenticator'
-import Home from "./HomePage/Home"
 import { Upload } from './Upload';
 import Watch from './Watch'
 import Landing from './landing/landing-home.js'
+import Submit from './landing/submit'
 import Live from './Live'
 import { Stream } from './TribalPage/Stream'
 import Profile from './SocialPage/Profile'
@@ -27,10 +26,16 @@ import MyList from "./MyList"
 import MyStudio from "./MyStudio/MyStudio";
 import Settings, { Wifi, Support, TermsOfService, PrivacyPolicy, Account, Notifications, DownloadOptions, Logout } from "./SettingsPage/Settings";
 import Explore, { SportsPage, TalksPage, DramaPage, RomancePage, HorrorPage, FamilyPage, AnimationPage, ExperimentalPage, ThrillerPage, SciFiPage, ActionPage, ComedyPage, MusicalPage, DocumentaryPage, WatchRandom } from "./ExplorePage/Explore"
-
-
-
+import Gigs from "./Gigs/Gigs";
+import PostGig from "./Gigs/PostGig";
+import Gigdetail from "./Gigs/Gigdetail"
+import Events from "./Events/Events"
+import PostEvent from "./Events/PostEvent"
+import Eventdetail from "./Events/Eventdetail"
+import MyProfile from "./ProfilePage/Profile.js"
+import Home from "./Home"
 import ConnectList from "./SocialPage/ConnectList"
+
 // import SportsPage from "./ExplorePage/SportsPage";
 
 class PrivateRoute extends React.Component {
@@ -157,9 +162,10 @@ const Routes = () => (
         <Route path="/explore/documentary"><DocumentaryPage/></Route>
         <Route path="/explore/watchrandom"><WatchRandom/></Route>
         <Route path="/auth" exact component={Authenticator} />
-        <Route path="/" exact component={Home} />
+        <Route path="/" exact component={Landing} />
         <Route path="/home" exact component={Home} />
         <Route path="/landing/landing-home" exact component={Landing} />
+        <Route path="/landing/Submit" exact component={Submit} />
         <Route path="/search" exact component={SearchQueries} />
         <Route path="/viewProfile" exact component={ViewProfile} />
         <Route path="/myStudio" exact component={MyStudio} />
@@ -168,12 +174,20 @@ const Routes = () => (
         <PrivateRoute path="/upload" exact component={Upload} />
         <PrivateRoute path="/streams" component={Stream} />
         <PrivateRoute path="/watch" component={Watch} />
+        
         <PrivateRoute path="/live" component={Live} />
         <PrivateRoute path="/profile" component={Profile} />
+        <PrivateRoute path="/myprofile" component={MyProfile} />
         <PrivateRoute path="/getaccess" component={GetAccess} />
         <PrivateRoute path="/pending" component={Pending} />
         <PrivateRoute path="/mylive" component={MyLive} />
         <PrivateRoute path="/mylist" component={MyList} />
+        <PrivateRoute path="/gigs" component={Gigs} />
+        <PrivateRoute path="/postagig" component={PostGig} />
+        <PrivateRoute path="/gigdetail" component={Gigdetail} />
+        <PrivateRoute path="/events" component={Events} />
+        <PrivateRoute path="/postanevent" component={PostEvent} />
+        <PrivateRoute path="/eventdetail" component={Eventdetail} />
         <Route component={NoMatch} />
       </Switch>
       <BottomNavBar />

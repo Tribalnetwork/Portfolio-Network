@@ -92,4 +92,24 @@
 
 
 
+.not-entry {
+        border-bottom: 1px solid black;
+        border-top: 1px solid black;
+        /* color: white; */
+        font-size: 15px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+}
+
+.not-entry:nth-child(1){ width:5%; }
+.not-entry:nth-child(2){ width:10%; }
+.not-entry:nth-child(3){ text-align:left; width:40%; }
+
+
+.not-table{
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  /* word-break: break-all; */}
 

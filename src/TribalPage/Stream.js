@@ -88,12 +88,12 @@ export const Stream = () => {
             <div>
               <p style={{textAlign: 'center'}}>You created a live channel.</p>
               <div className="tribalButton">
-                <div className='action'><button>Submit Film</button></div>
-                <div className='action'><button>Gig Board</button></div>
-                <div className='action'><button>Live</button></div>
-                <div className='action'><button>Events</button></div>
-                <div className='action'><button>Our Studio</button></div>
-              </div>
+                  <div className='action'><Link to="/submit"><button>Submit Film</button></Link></div>
+                  <div className='action'><Link to="/Gigs"><button>Gig Board</button></Link></div>
+                  <div className='action'><Link to="/streams"><button>Live</button></Link></div>
+                  <div className='action'><Link to="/events"><button>Events</button></Link></div>
+                  <div className='action'><Link to="/MyStudio"><button>Our Studio</button></Link></div>
+               </div>
               
             </div>
           ) : (
@@ -110,15 +110,17 @@ export const Stream = () => {
       
       <div style={styles.container}>
         <h1>Live Streams</h1>
-        <HorizontalScrollerCircular list={liveStreams}></HorizontalScrollerCircular>
-{ <Grid container justify="center" spacing={5}>
+
+          {/*<HorizontalScrollerCircular list={liveStreams}></HorizontalScrollerCircular>*/}
+{/* <Grid container justify="center" spacing={5}>
+
           {
             liveStreams.map((stream, index) => (
 
                <LargeFrame item={stream} type={"livestream"}/>
             ))
           }
-        </Grid> }
+        </Grid> */}
       </div>
     </div>
   )
