@@ -19,7 +19,7 @@ import DropdownMenu from '../components/DropdownMenu.js'
 //import ProfileMenu from '../components/ProfileMenu.js'
 // import Skills from "./Skills";
 // import ConnectList from "./ConnectList"
-import {ReactComponent as UserLogo} from "../icons/users.svg"
+//import {ReactComponent as UserLogo} from "../icons/users.svg"
 
 
 
@@ -82,7 +82,7 @@ async getImg(){
           </div>
 
           <div className="iconcontainer"> 
-            <div className={"icon"}> <button className={"iconButton"}><UserLogo className={"iconlogo"}/> </button></div>
+            <div className={"icon"}> <button className={"iconButton"}>{/*<UserLogo className={"iconlogo"}/>*/} </button></div>
             <div className={"icon"} id={"middle"}>  <button onClick={this.togglePopup.bind(this)}  className={"iconButton"}> <ReorderIcon className={"iconlogo"}/> </button> </div>
 
             <div className={"icon"}> <button className={"iconButton"}><NotificationsNoneIcon className={"iconlogo"}/> </button>   </div>
