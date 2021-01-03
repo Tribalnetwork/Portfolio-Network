@@ -10,6 +10,7 @@
 }
 
 .coverArt {
+    position: absolute;
     background-color: black;
     height: 200px;
     width: 100%;
@@ -20,14 +21,16 @@
     margin: 0 auto;
     text-align: center;
     padding: 50px;
+    z-index: 0
 }
 
 .watchButton {
-    background-color: #2C2C2E;
+    position: relative;
     border: none;
     cursor: pointer;
-    margin: 0;
-    padding: 0;
+    margin-left: 300px;
+    margin-top: 170px;
+    z-index: 1;
 }
 
 .categoriesHeader {
@@ -36,6 +39,7 @@
     color: white;
     text-align: center;
     padding-right: 700px;
+    margin-top: 0px;
 }
 
 /* .categories {
