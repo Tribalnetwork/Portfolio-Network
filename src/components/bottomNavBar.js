@@ -16,14 +16,14 @@ export default class BottomNavBar extends React.Component {
     gridTemplateRow: "1fr",
     placeItems: "center",
     backgroundColor: "#121212",
-    marginLeft: "1vw",
-    marginRight: "1vw",
+    marginLeft: "0vw",
+    marginRight: "0vw",
     padding: "0",
     position: "fixed",
-    top: "90%",
+    top: "88%",
     //bottom: "1vh",
-    width: "98%",
-    height: "8vh",
+    width: "100%",
+    height: "12vh",
     borderRadius: "10px",
     zIndex: "1000",
   };
@@ -49,6 +49,7 @@ export default class BottomNavBar extends React.Component {
     maxMarginBottom: "1vh",
     minMarginBottom: "0",
     width: "100%",
+    padding:"0"
   };
 
   imgStyle = {

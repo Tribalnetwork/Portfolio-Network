@@ -1,9 +1,13 @@
 .outside-div {
     display: initial;
   }
-  @media only screen and (min-width: 600px) {
+  @media only screen and (min-width: 600px) and (orientation:portrait) {
     .outside-div {
       display: none;
     }
   }
-  
+  @media only screen and (min-width: 600px) and (orientation:landscape) {
+    .outside-div {
+      display: initial;
+    }
+  }
