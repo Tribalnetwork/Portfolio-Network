@@ -13,16 +13,20 @@ import Action from '../icons/Action.svg'
 import Comedy from '../icons/Comedy.svg'
 import Musical from '../icons/Musical.svg'
 import Documentary from '../icons/Documentary.svg'
+import WatchRandomButton from '../icons/WatchRandomButton.svg'
 import { Link, useHistory } from "react-router-dom";
 import "./Explore.css"
 import HorizontalScrollerCircular from "../components/HorizontalScrollerCircular";
+import LargeFrame from "../components/LargeFrame";
 import UserContext from '../UserContext'
 import WhatsNew from "../WhatsNew";
 import Amplify from 'aws-amplify';
 import { API, graphqlOperation } from 'aws-amplify'
 import { listFilms,listLiveStreams } from '../graphql/queries'
+import * as queries from '../graphql/queries';
 import awsconfig from '../aws-exports';
 Amplify.configure(awsconfig);
+
 // import {ReactComponent as Categories} from '../icons/Categories.svg'
 // import Talks from "./Element/Category/Talks.png"
 // import Drama from "./Element/Category/Drama.png"
@@ -31,17 +35,29 @@ Amplify.configure(awsconfig);
 
 
 export default class Explore extends React.Component {
+    constructor(props){
+        super(props)
+
+        this.state = {
+            url:"https://d2tj5fkeuzoaui.cloudfront.net/4a13ac70-b95c-48bb-9c80-1d340078c647/hls/bunny_2020-07-28T01:25:05.353Z.m3u8",
+            videoName:"Bunny",
+            livestreams:[],
+            largeFrames: []
+        }
+    }
     static contextType = UserContext
 
     state = {
       url:"https://d2tj5fkeuzoaui.cloudfront.net/4a13ac70-b95c-48bb-9c80-1d340078c647/hls/bunny_2020-07-28T01:25:05.353Z.m3u8",
       videoName:"Bunny",
-      livestreams:[]
+      livestreams:[],
+      largeFrames: []
     }
 
     componentDidMount() {
         //this.context.updateCurrentUser()
         this.fetchLivestreams();
+        this.getFilms();
       }
 
     async fetchLivestreams() {
@@ -52,8 +68,63 @@ export default class Explore extends React.Component {
           this.setState({ livestreams: livestreams.data.listLiveStreams.items })
         } catch (err) { console.log(err) }
       }
+
+    // async getFilms() {
+    //     const result = await API.graphql(graphqlOperation(queries.listFilms, {})) 
+    //     this.setState({result: result})
+    //     .then((result) => {
+    //         result = this.state.result
+    //         return (result.data.listFilms.items)
+    //     })
+    //     .then((result) => { 
+    //         result = this.state.result
+    //         let list = [];
+    //         result.forEach((film) =>{
+    //             let titleObj = {
+    //                name:  film.title.toUpperCase(),
+    //                id: film.id,
+    //                thumbNailsUrls: film.thumbNailsUrls,
+    //                duration: film.duration,
+    //                type: "Film"
+    //             }
+    //             list.push(titleObj);
+    //         })
+    //         let frameList = list.map((filmItem) => {
+    //             return <li><LargeFrame item={filmItem} type={"film"}/></li>
+    //         })
+    //         this.setState({largeFrames: frameList})
+            
+    //   })
+    //   .catch(error => console.log("error", error))
+    // }
+
+
+  getFilms = () => {
+    API.graphql(graphqlOperation(queries.listFilms))
+    .then((result) => { return result.data.listFilms.items})
+    .then((result) => { 
+        let list = [];
+        result.forEach((film) =>{
+            let titleObj = {
+               name:  film.title.toUpperCase(),
+               id: film.id,
+               thumbNailsUrls: film.thumbNailsUrls,
+               duration: film.duration,
+               type: "Film"
+            }
+            list.push(titleObj);
+        })
+        let frameList = list.map((filmItem) => {
+            return <li><LargeFrame film={filmItem} type={"film"}/></li>
+        })
+        this.setState({largeFrames: frameList})
+  })
+}
   
     render() {
+    console.log(this.state.result)
+    console.log(API.graphql(graphqlOperation(queries.listFilms)))
+        
         return(
         
     <div>
@@ -62,7 +133,11 @@ export default class Explore extends React.Component {
             <h2 className="headertext">Discover all the fun things</h2>
             </header>
         
-        
+        <div className="coverArt">
+            <h3 className="coverArtText">Cover Art Promo Area</h3>
+        </div>
+
+        <Link to={"/explore/watchrandom"}><img className="watchButton" src={WatchRandomButton} alt="WatchRandomButton"/></Link>
         
     <div className="categories"> 
             <h3 className="categoriesHeader">Categories</h3>
@@ -95,7 +170,7 @@ export default class Explore extends React.Component {
             </div>
             <div className="whatsNew">
                 <h3 className="whatsNewTitleText">What's New</h3>
-                <WhatsNew className="whatsNewVideos" />
+                <ul>{this.state.largeFrames}</ul>
             </div>
     </div>
 </div>
@@ -215,5 +290,14 @@ export class DocumentaryPage extends React.Component {
         )
     }
 }
+
+export class WatchRandom extends React.Component {
+    render() {
+        return(
+            <h1>Watch Random</h1>
+        )
+    }
+}
+
 
 

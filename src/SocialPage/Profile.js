@@ -14,9 +14,7 @@ import AddIcon from '@material-ui/icons/Add';
 import FilmFrame from "../components/filmFrame";
 import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
-import { Upload } from '../Upload';
 import { getUser} from '../graphql/queries'
-import {updateUser} from '../graphql/mutations'
 import DropdownMenu from '../components/DropdownMenu.js'
 //import ProfileMenu from '../components/ProfileMenu.js'
 import Skills from "./Skills";
@@ -167,12 +165,13 @@ async getImg(){
 	  {this.state.showPopup ? <DropdownMenu
           text='Click "Close Button" to hide popup'  
           closePopup={this.togglePopup.bind(this)}  
-          link3="link3"
-          text3="What can others see?"  
-          link1="link1"
+          link1="/mystudio"
+          link2="/myprofile"
+          link3="/social"
           text1="My Studio"  
-          link2="link2"
           text2="My Profile"  
+          text3="What can others see?"  
+
 	  /> : null} 
 	</div>
 

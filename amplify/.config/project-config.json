@@ -11,7 +11,11 @@
       "SourceDir": "src",
       "DistributionDir": "build",
       "BuildCommand": "npm.cmd run-script build",
+<<<<<<< HEAD
       "StartCommand": "npm start"
+=======
+      "StartCommand": "npm start "
+>>>>>>> 7a76648568d9bc1d9b693993ba928c7391f3b844
     }
   }
 }
