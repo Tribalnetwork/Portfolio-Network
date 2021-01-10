@@ -20,7 +20,7 @@ export default class BottomNavBar extends React.Component {
     marginRight: "0vw",
     padding: "0",
     position: "fixed",
-    top: "88%",
+    top: "87%",
     //bottom: "1vh",
     width: "100%",
     height: "12vh",
