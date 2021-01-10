@@ -67,14 +67,21 @@ export default class MyStudio extends React.Component {
         justifySelf: "center",
         textDecoration: "none",
         color: "gold",
+
+        // Issue details: 
+        //      border-image CSS3 property has compatibility issue with safari browser, 
+        //      some old virsion may not ru the border-image as has been specified for,
+        //      and even in lates versions of safari there is not full suport for the border-image
+        //      reference: https://caniuse.com/?search=border-image
+
         // borderBottom: "1px solid",
         // borderImage: "repeating-linear-gradient(to left,#D3C095,#A07923)",
         // borderImageSlice: "1",
 
-        // try 1
+        // try 1: solution (trying to remove top, left, and right border manually)
         // borderTop: 'none',
 
-        // try 2
+        // try 2: solution (using box-shadow instead of border-image)
         // boxShadow: '0px 1px 0px 0px gold',
         width: "100%",
 
@@ -111,8 +118,11 @@ export default class MyStudio extends React.Component {
                                 onClick={this.onToDo}>
                                 <p style={styles.p}>To Do List</p>
                             </Link>
+
+                            {/* additional divs to show up as a bottom border to selected tab */}
                             <div style={myFolderState === true ? styles.tabLine : { "width": '100%', "height": '1px' }}></div>
-                            <div style={todoState ? styles.tabLine : { "width": '100%', "height": '1px' }}></div>
+                            <div style={todoState ? styles.tabLine : { "width": '100%', "height": '1px'}}></div>
+
                         </div>
                     </header>
                     <Switch>
@@ -131,12 +141,10 @@ const styles = {
     title: { width: "100%", margin: "0", padding: "0", textAlign: "center", color: "white", fontSize: "3vh" },
     tabs: { display: "grid", gridTemplateColumns: "1fr 1fr", gridTemplateRows: "1fr", justifyContent: "space-evenly", width: "100%" },
     p: { textAlign: "center", fontSize: "3vh" },
+
     tabLine: {
         "width": '100%',
-        "height": '10px',
-        // "background-color": 'gold',
-        "border-bottom": "1px solid",
-        "border-image": "linear-gradient(to left,#D3C095,#A07923)",
-        "border-imageSlice": "1"
-    },
+        "height": '1px',
+        "background": 'repeating-linear-gradient(to left,#D3C095,#A07923)'
+    }
 }

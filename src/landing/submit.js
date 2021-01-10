@@ -39,8 +39,7 @@ var requestedId = JSON.stringify(urlParams.get("id"));
 var requestingName = localStorage.getItem('CognitoIdentityServiceProvider.1t8oqsg1kvuja9u9rvd2r1a6o4.LastAuthUser');
 var requestingUserData = localStorage.getItem(`CognitoIdentityServiceProvider.1t8oqsg1kvuja9u9rvd2r1a6o4.${requestingName}.userData`);
 var parsed = JSON.parse(requestingUserData);
-// var requestingId = JSON.stringify(parsed.UserAttributes[0].Value)
-var requestingId = 10;  // needs to delete it 
+var requestingId = JSON.stringify(parsed.UserAttributes[0].Value)
 
 // Film Genre
 const options = [
