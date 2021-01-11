@@ -22,7 +22,19 @@
 .functionbar-wrapper {
   margin: 10px;
   padding-top: 5px;
+  
+position: absolute;
+height: 242px;
+left: 0px;
+right: 0px;
+top: 256px;
+
+
+
+background: #15161B; 
+ 
 }
+
 .trendy-wrapper {
   color: white;
   margin: 10px;
@@ -32,7 +44,9 @@
 }
 .Grid .item {
   color: blueviolet;
+
 }
+
 
 .continue-watching-wrapper {
   margin: 10px;
