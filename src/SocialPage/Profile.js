@@ -167,7 +167,7 @@ class Profile extends React.Component {
               link1="/mystudio"
               link2="/myprofile"
               link3="/social"
-              text1="My Studio"
+              text1="To-Do"
               text2="My Profile"
               text3="What can others see?"
 
