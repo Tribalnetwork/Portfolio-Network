@@ -160,5 +160,10 @@ const styles = {
   filmTitle: { fontSize: 20, fontWeight: 'bold', marginBottom: 0 },
   streamText: { fontSize: 14, marginBottom: 0},
   filmDescription: { marginBottom: 0 },
-  button: { backgroundColor: 'black', color: 'white', outline: 'none', fontSize: 18, padding: '12px 0px' }
+  button: { backgroundColor: 'black', color: 'white', outline: 'none', fontSize: 18, padding: '12px 0px' },
+  functionbar: {position: 'absolute', width: 375, height: 242, left: 0, right: 0, top: 256, background: '#15161B'},
+  trendy: {position: 'absolute', width: 375, height: 242, left: 0, right: 0, top: 256, background: '#15161B'}
+
+
+
 }
