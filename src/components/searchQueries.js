@@ -352,7 +352,7 @@ export default class SearchQueries extends React.Component {
 
         // Styling objects
         mainDivStyle = {
- 
+
         }
 
         inputWrapperStyleNorm = {
@@ -362,7 +362,7 @@ export default class SearchQueries extends React.Component {
             gridColumn: "1/4",
             gridRow: "1",
             width: "100%",
-            height: "16vh",
+            height: "18vh",
             backgroundColor: 'black',
             borderRadius: "0px",
         }
@@ -395,7 +395,7 @@ export default class SearchQueries extends React.Component {
             backgroundPositionX: "10px",
             backgroundPositionY : "8px",
             backgroundSize: "16px",
-            borderColor: "black"
+            borderColor: "black",
 
          }
          
@@ -413,7 +413,7 @@ export default class SearchQueries extends React.Component {
              height: "8vh",
              padding: "0 15vw 0 15vw",
              "margin-top": "-45px",
-             zIndex: "100"
+             zIndex: "100",
          }
 
          filterStyleNone = {
@@ -429,9 +429,9 @@ export default class SearchQueries extends React.Component {
             color: "white",
             minWidth: "25vw",
             maxWidth: "22vw",
-            height: "20px",
+            height: "49px",
             fontSize: "1.5vh",
-            zIndex: "100"
+            zIndex: "100",
          }
         
          ulStyle = {
@@ -442,7 +442,7 @@ export default class SearchQueries extends React.Component {
             gridColumn: "1/4",
             gridRow: "3",
             overflow: "auto",
-            zIndex: "95"
+            zIndex: "95",
          }
         
          liStyle = {
