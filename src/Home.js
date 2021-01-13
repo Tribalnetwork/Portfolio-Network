@@ -1,7 +1,7 @@
 import React from 'react'
 import Amplify from 'aws-amplify';
 import { API, graphqlOperation } from 'aws-amplify'
-import { listFilms,listLiveStreams } from './graphql/queries'
+import { listFilms, listLiveStreams } from './graphql/queries'
 import awsconfig from './aws-exports';
 import '@aws-amplify/ui/dist/style.css';
 import { Link } from "react-router-dom";
@@ -20,9 +20,10 @@ import HorizontalScrollerCircular from "./components/HorizontalScrollerCircular"
 import TrendingNow from "./TrendingNow";
 import ContinueWatching from "./ContinueWatching";
 import MyList from "./MyList";
-import {ReactComponent as ExploreLogo} from './icons/Explore.svg';
-import {ReactComponent as MyStudioLogo} from './icons/myStudio.svg';
+import { ReactComponent as ExploreLogo } from './icons/Explore.svg';
+import { ReactComponent as MyStudioLogo } from './icons/myStudio.svg';
 import Gigs from './Gigs/Gigs';
+import './Home.css'
 Amplify.configure(awsconfig);
 
 export default class Home extends React.Component {
@@ -31,9 +32,9 @@ export default class Home extends React.Component {
 
   state = {
     films: [],
-    url:"https://d2tj5fkeuzoaui.cloudfront.net/4a13ac70-b95c-48bb-9c80-1d340078c647/hls/bunny_2020-07-28T01:25:05.353Z.m3u8",
-    videoName:"Bunny",
-    livestreams:[]
+    url: "https://d2tj5fkeuzoaui.cloudfront.net/4a13ac70-b95c-48bb-9c80-1d340078c647/hls/bunny_2020-07-28T01:25:05.353Z.m3u8",
+    videoName: "Bunny",
+    livestreams: []
   }
 
   componentDidMount() {
@@ -75,65 +76,72 @@ export default class Home extends React.Component {
           <title>Home - Tribal Network</title>
         </Helmet>
         <div style={styles.container}>
-        {
+          {
             isLoaded ? isAuthenticated ? hasAccess ? (
               <div>
-          <div className="player-wrapper">
-            <ReactPlayer
-            className="react-player"
-              ref={p => { this.p = p }}
-              url={this.state.url}
-              controls
-              playing
-              volume="0"
-              muted
-              onEnded={() => this.p.showPreview()}
-              width="100%"
-              height="100%"
-            />
-            <div className="video-name-wrapper">
-              <p className="video-name">{this.state.videoName}</p>
-            </div>
-          </div>
-          <div className="functionbar-wrapper">
-          <Grid container justify="space-between">
-            <Grid item><Link to={'/explore'}><ExploreLogo></ExploreLogo></Link></Grid>
-            <Grid item>
-              <Link to={'/mystudio/myFolder'}><MyStudioLogo></MyStudioLogo></Link>
-              </Grid>
-          </Grid>
-          </div>
-          <div className="trendy-wrapper">
-            <p>Trending Live</p>
-            <HorizontalScrollerCircular list={this.state.livestreams} />
-          </div>
-          <ContinueWatching></ContinueWatching>
-          <TrendingNow></TrendingNow>
-          <MyList></MyList>
-          </div>
-              
-            ) : (
-              <div>
-                <>
-                  <h1>Free Trial Ended</h1>
-                  <p>Your 5 hour free trial has ended.</p>
-                  <Link to="/getaccess" style={styles.link}>
-                    <Button
-                      title="Get Full Access"
-                    />
-                  </Link>
-                </>
+                  
+                <div className="player-wrapper">
+                  {/* <p className="video-name" style={styles.filmTitle}>{this.state.videoName}</p> */}
+                  <ReactPlayer
+                    className="react-player"
+                    ref={p => { this.p = p }}
+                    url={this.state.url}
+                    controls
+                    playing
+                    volume="0"
+                    muted
+                    onEnded={() => this.p.showPreview()}
+                    width="100%"
+                    height="100%"
+                  />
+
+                  <div className="video-name-wrapper">
+                    <p className="video-name" style={styles.filmTitle}>{this.state.videoName}</p>
+                  </div>
+                </div>
+
+                <div className="functionbar-wrapper" style={styles.blkbox}>
+                  <Grid container justify="space-between">
+                    <Grid item><Link to={'/explore'}><ExploreLogo></ExploreLogo></Link></Grid>
+                    <Grid item>
+                      <Link to={'/mystudio/myFolder'}><MyStudioLogo></MyStudioLogo></Link>
+                    </Grid>
+                  </Grid>
+                  {/* </div> */}
+                  {/* <div className="trendy-wrapper" > */}
+                  <p style={styles.title}>Trendy Live</p>
+                  <HorizontalScrollerCircular list={this.state.livestreams} />
+                </div>
+
+                <ContinueWatching style={styles.title}></ContinueWatching>
+
+                <TrendingNow></TrendingNow>
+                <MyList></MyList>
               </div>
+
+
             ) : (
-              <div>
-                <>
-                  <h1>Welcome to Tribal</h1>
-                  <p>Create a free account to get started.</p>
-                </>
-              </div>
-            ) : (
-              null
-            )
+                <div>
+                  <>
+                    <h1>Free Trial Ended</h1>
+                    <p>Your 5 hour free trial has ended.</p>
+                    <Link to="/getaccess" style={styles.link}>
+                      <Button
+                        title="Get Full Access"
+                      />
+                    </Link>
+                  </>
+                </div>
+              ) : (
+                <div>
+                  <>
+                    <h1>Welcome to Tribal</h1>
+                    <p>Create a free account to get started.</p>
+                  </>
+                </div>
+              ) : (
+                null
+              )
           }
         </div>
       </div>
@@ -157,12 +165,12 @@ const styles = {
   film: { width: 200, marginBottom: 15, marginRight: 10 },
   stream: { width: 400 },
   input: { border: 'none', backgroundColor: '#ddd', marginBottom: 10, padding: 8, fontSize: 18 },
-  filmTitle: { fontSize: 20, fontWeight: 'bold', marginBottom: 0 },
-  streamText: { fontSize: 14, marginBottom: 0},
+  filmTitle: { fontSize: 20, fontWeight: 'bold', marginBottom: 0, color: '#FFFFFF', background: 'black'  },
+  streamText: { fontSize: 14, marginBottom: 0 },
   filmDescription: { marginBottom: 0 },
   button: { backgroundColor: 'black', color: 'white', outline: 'none', fontSize: 18, padding: '12px 0px' },
-  functionbar: {position: 'absolute', width: 375, height: 242, left: 0, right: 0, top: 256, background: '#15161B'},
-  trendy: {position: 'absolute', width: 375, height: 242, left: 0, right: 0, top: 256, background: '#15161B'}
+  title: { color: '#FFFFFF' },
+  blkbox: { width: "100%", height: 250, padding: 10, left: 0, right: 0, top: 950, background: '#15161B' }
 
 
 

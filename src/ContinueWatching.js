@@ -32,10 +32,11 @@ export default class ContinueWatching extends React.Component {
       render(){
           return(
             <div className="continue-watching-wrapper">
-                <p>Continue Watching</p>
+                <p style={{color: "white"}}>Continue Watching</p>
                 <HorizontalScroller list={this.state.films} />
             </div>
           )
       }
 }
 
+ 
