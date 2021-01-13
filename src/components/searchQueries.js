@@ -276,6 +276,7 @@ export default class SearchQueries extends React.Component {
                 this.filterStyle = this.filterStyleNone;
             }
             if (this.props.type == "liveStreams"){
+                this.inputStyle = this.inputStyleLive;
                 this.setState(prevState => ({
                     filter: {                   
                         ...prevState.filter,   
@@ -368,14 +369,11 @@ export default class SearchQueries extends React.Component {
         }
 
         inputWrapperStyleRound = {
-            paddingLeft: "2vw",
-            paddingRight: "2vw",
-            justifyContent: "center",
             gridColumn: "1/4",
             gridRow: "1",
-            height: "9vh",
+            padding: "0 0 10px 0",
             backgroundColor: 'black',
-            borderRadius: "25px"
+            borderRadius: "25px",
         }
         
         inputWrapperStyle = this.inputWrapperStyleNorm;
@@ -396,7 +394,24 @@ export default class SearchQueries extends React.Component {
             backgroundPositionY : "8px",
             backgroundSize: "16px",
             borderColor: "black",
+         }
 
+         inputStyleLive = {
+            width: "75%",
+            marginTop: "8px",
+            gridColumn: "2",
+            color: "white",
+            postion: "fixed",
+            gridRow: "1",
+            borderRadius: '10px',
+            backgroundColor: "#2C2C2E",
+            backgroundImage: `url(${SearchIcon})`,
+            backgroundRepeat: "no-repeat",
+            backgroundPositionX: "10px",
+            backgroundPositionY : "8px",
+            backgroundSize: "16px",
+            borderColor: "black",
+            // border: "1px solid yellow",
          }
          
          filterStyleNorm = {
