@@ -1,4 +1,3 @@
-
 import React, {useState, useEffect, useContext} from 'react'
 import { API, graphqlOperation } from 'aws-amplify'
 import { createLiveStream, updateUser } from '../graphql/mutations'
@@ -18,6 +17,7 @@ import StartLive from "./startLive.png";
 import Trending from "../components/Trending";
 import LargeFrame from "../components/LargeFrame"
 import HorizontalScrollerCircular from "../components/HorizontalScrollerCircular";
+import './livepageSearch.css';
 
 export const Stream = () => {
   const [liveStreams, setLiveStreams] = useState([])
@@ -102,10 +102,13 @@ export const Stream = () => {
         }
       </div>
       <div style={styles.searchContainer}>
-        <Link to="/mylive" style={styles.startLive}>
+        
+        <div className="seacrchCtn">
+          <Link to="/mylive" style={styles.startLive} className="live-btn">
             <img src={StartLive} style={styles.startLiveImg}/>
-        </Link>
-        <SearchQueries type={"liveStreams"} round={true} style={styles.search}/>
+          </Link>
+          <SearchQueries type={"liveStreams"} round={true} style={styles.search}/>
+        </div>
       </div> 
       
       <div style={styles.container}>
@@ -113,10 +116,8 @@ export const Stream = () => {
 
           {/*<HorizontalScrollerCircular list={liveStreams}></HorizontalScrollerCircular>*/}
 {/* <Grid container justify="center" spacing={5}>
-
           {
             liveStreams.map((stream, index) => (
-
                <LargeFrame item={stream} type={"livestream"}/>
             ))
           }
@@ -144,7 +145,7 @@ const styles = {
   streamText: { fontSize: 14, marginBottom: 0},
   filmDescription: { marginBottom: 0 },
   button: { width: 400, backgroundColor: 'black', color: 'white', outline: 'none', fontSize: 18, padding: '12px 0px' },
-  searchContainer: {width: "100%", marginLeft: "0", marginRight: "0", padding: "0 2.5vw 0 2.5vw", borderRadius: "25px", display: "grid", gridTemplateColumns: "1fr", gridTemplateRows: "1fr",},
-  startLive: {position: "relative", left: "6vw", top: "7vh", minHeight: "3vh", maxHeight: "5vh", minWidth: "3vh", maxWidth: "5vw"},
-  startLiveImg: {minHeight: "3vh", maxHeight: "5vh", minWidth: "3vh", maxWidth: "5vw"}
+  searchContainer: {width: "100%", marginLeft: "0", marginRight: "0", padding: "0 2.5vw 0 2.5vw", borderRadius: "25px", display: "grid", gridTemplateColumns: "1fr", gridTemplateRows: "1fr"},
+  startLive: {position: "absolute", left: "5%", top: "18%", minHeight: "3vh", maxHeight: "7vh", minWidth: "3vh", maxWidth: "7vw"},
+  startLiveImg: {minHeight: "3vh", maxHeight: "7vh", minWidth: "3vh", maxWidth: "7vw"}
 }

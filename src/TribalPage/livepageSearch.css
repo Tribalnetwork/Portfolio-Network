@@ -1,0 +1,12 @@
+.seacrchCtn {
+	height: 11vh;
+	width: 70vw;
+	margin: 20px auto;
+	position: relative;
+}
+
+@media screen and (max-width: 600px) {
+	.seacrchCtn {
+		width: 80vw;
+	}
+}
