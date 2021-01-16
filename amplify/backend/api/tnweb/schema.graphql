@@ -90,3 +90,12 @@ type UserInviteByGig @model
   gig: Gig! @connection(fields: ["gigID"])
   user: User! @connection(fields: ["userID"])
 }
+
+type Review @model {
+  id: ID!
+  name: String
+  filmId: String
+  userId: String
+  stars: Int
+  content: String
+  }
