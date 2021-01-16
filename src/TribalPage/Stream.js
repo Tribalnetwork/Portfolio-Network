@@ -1,8 +1,8 @@
 
 import React, {useState, useEffect, useContext} from 'react'
 import { API, graphqlOperation } from 'aws-amplify'
-import { createLiveStream, updateUser } from '../graphql/mutations'
-import { listLiveStreams } from '../graphql/queries'
+import { createMusic, updateUser } from '../graphql/mutations'
+import { listMusic } from '../graphql/queries'
 import '@aws-amplify/ui/dist/style.css';
 import { Link } from "react-router-dom";
 import UserContext from '../UserContext'
@@ -20,7 +20,7 @@ import LargeFrame from "../components/LargeFrame"
 import HorizontalScrollerCircular from "../components/HorizontalScrollerCircular";
 
 export const Stream = () => {
-  const [liveStreams, setLiveStreams] = useState([])
+  const [music, setMusic] = useState([])
   const context = useContext(UserContext)
   const [streamCreated, setStreamCreated] = useState(context.user.hasChannel)
 
@@ -34,9 +34,9 @@ export const Stream = () => {
 
   async function fetchStreams() {
     try {
-      const streams = await API.graphql(graphqlOperation(listLiveStreams));
+      const streams = await API.graphql(graphqlOperation(listMusic));
       //console.log(streams.data.listLiveStreams.items)
-      setLiveStreams(streams.data.listLiveStreams.items)
+      setMusic(streams.data.listMusic.items)
     } catch (err) { console.log(err) }
 
   }
@@ -54,10 +54,10 @@ export const Stream = () => {
             status: responseJSON.status,
             streamerName: context.user.attributes.given_name
           }
-          const liveStream = await API.graphql(graphqlOperation(createLiveStream, {input: streamData}))
+          const music = await API.graphql(graphqlOperation(createMusic, {input: streamData}))
           const userData = {
             id: context.user.attributes.sub,
-            liveStreamID: responseJSON.id,
+            MusicID: responseJSON.id,
             liveChannelCreated: true
           }
           const updatedUser = await API.graphql(graphqlOperation(updateUser, {input: userData}))
@@ -79,7 +79,7 @@ export const Stream = () => {
     <div>
       <Helmet>
         <meta charSet="utf-8" />
-        <title>Live Streams</title>
+        <title>Music</title>
       </Helmet>
       <Trending/>
       <div>
@@ -105,11 +105,11 @@ export const Stream = () => {
         <Link to="/mylive" style={styles.startLive}>
             <img src={StartLive} style={styles.startLiveImg}/>
         </Link>
-        <SearchQueries type={"liveStreams"} round={true} style={styles.search}/>
+        <SearchQueries type={"music"} round={true} style={styles.search}/>
       </div> 
       
       <div style={styles.container}>
-        <h1>Live Streams</h1>
+        <h1>Music</h1>
 
           {/*<HorizontalScrollerCircular list={liveStreams}></HorizontalScrollerCircular>*/}
 {/* <Grid container justify="center" spacing={5}>

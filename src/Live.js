@@ -3,7 +3,7 @@ import queryString from 'query-string'
 import ReactPlayer from 'react-player'
 import { withRouter } from "react-router-dom";
 import { API, graphqlOperation } from 'aws-amplify'
-import { getLiveStream } from './graphql/queries'
+import { getMusic } from './graphql/queries'
 import { updateUser } from './graphql/mutations'
 import UserContext from './UserContext'
 import { Helmet } from 'react-helmet'
@@ -48,12 +48,12 @@ class WatchStreamPage extends React.Component {
   }
 
   async getInfo() {
-    const stream = await API.graphql(graphqlOperation(getLiveStream, { id: this.id }))
-    console.log(stream.data.getLiveStream);
+    const stream = await API.graphql(graphqlOperation(getMusic, { id: this.id }))
+    console.log(stream.data.getMusic);
     this.setState({
-      url: "https://stream.mux.com/"+stream.data.getLiveStream.playbackID+".m3u8",
-      status: stream.data.getLiveStream.status,
-      streamerName: stream.data.getLiveStream.streamerName
+      url: "https://stream.mux.com/"+stream.data.getMusic.playbackID+".m3u8",
+      status: stream.data.getMusic.status,
+      streamerName: stream.data.getMusic.streamerName
     });
   }
 

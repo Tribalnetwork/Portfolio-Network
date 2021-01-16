@@ -96,16 +96,16 @@ export default class SearchQueries extends React.Component {
       })
         }
 
-        getLiveStreams = () => {
-            API.graphql(graphqlOperation(queries.listLiveStreams))
+        getMusic = () => {
+            API.graphql(graphqlOperation(queries.listMusic))
         .then((result) => { return result.data.listLiveStreams.items})
         .then((result) => { 
             let list = [];
-            result.forEach((liveStream) =>{
+            result.forEach((Music) =>{
                 let namesObj = {
-                    name: liveStream.streamerName.toUpperCase(),
-                    id: liveStream.id,
-                    type: "Live Stream"
+                    name: Music.streamerName.toUpperCase(),
+                    id: Music.id,
+                    type: "Music"
                 }
                 list.push(namesObj);
             })

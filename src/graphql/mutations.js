@@ -88,12 +88,12 @@ export const deleteFilm = /* GraphQL */ `
     }
   }
 `;
-export const createLiveStream = /* GraphQL */ `
-  mutation CreateLiveStream(
-    $input: CreateLiveStreamInput!
-    $condition: ModelLiveStreamConditionInput
+export const createMusic = /* GraphQL */ `
+  mutation CreateMusic(
+    $input: CreateMusicInput!
+    $condition: ModelMusicConditionInput
   ) {
-    createLiveStream(input: $input, condition: $condition) {
+    createMusic(input: $input, condition: $condition) {
       id
       playbackID
       streamKey
@@ -106,12 +106,12 @@ export const createLiveStream = /* GraphQL */ `
     }
   }
 `;
-export const updateLiveStream = /* GraphQL */ `
-  mutation UpdateLiveStream(
-    $input: UpdateLiveStreamInput!
-    $condition: ModelLiveStreamConditionInput
+export const updateMusic = /* GraphQL */ `
+  mutation UpdateMusic(
+    $input: UpdateMusicInput!
+    $condition: ModelMusicConditionInput
   ) {
-    updateLiveStream(input: $input, condition: $condition) {
+    updateMusic(input: $input, condition: $condition) {
       id
       playbackID
       streamKey
@@ -124,12 +124,12 @@ export const updateLiveStream = /* GraphQL */ `
     }
   }
 `;
-export const deleteLiveStream = /* GraphQL */ `
-  mutation DeleteLiveStream(
-    $input: DeleteLiveStreamInput!
-    $condition: ModelLiveStreamConditionInput
+export const deleteMusic = /* GraphQL */ `
+  mutation DeleteMusic(
+    $input: DeleteMusicInput!
+    $condition: ModelMusicConditionInput
   ) {
-    deleteLiveStream(input: $input, condition: $condition) {
+    deleteMusic(input: $input, condition: $condition) {
       id
       playbackID
       streamKey

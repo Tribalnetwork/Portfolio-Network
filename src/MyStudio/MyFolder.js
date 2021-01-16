@@ -1,6 +1,6 @@
 import React from "react";
 import { API, graphqlOperation } from 'aws-amplify'
-import { listLiveStreams } from '../graphql/queries'
+import { listMusic } from '../graphql/queries'
 import HorizontalScrollerCircular from "../components/HorizontalScrollerCircular";
 import TrendingNow from "../TrendingNow";
 import MyList from "../MyList";
@@ -9,21 +9,21 @@ export default class MyFolder extends React.Component{
     constructor(){
         super()
         this.state={
-            livestreams: []
+            music: []
         }
     }
 
-    async fetchLivestreams() {
+    async fetchMusic() {
         try {
-          const livestreams = await API.graphql(graphqlOperation(listLiveStreams, {
+          const music = await API.graphql(graphqlOperation(listMusic, {
           }));
-          console.log(livestreams.data.listLiveStreams.items);
-          this.setState({ livestreams: livestreams.data.listLiveStreams.items })
+          console.log(music.data.listMusic.items);
+          this.setState({ music: music.data.listMusic.items })
         } catch (err) { console.log(err) }
       }
 
       componentDidMount(){
-          this.fetchLivestreams();
+          this.fetchMusic();
       }
 
     render(){
