@@ -50,6 +50,8 @@ type User @model {
   ImgUrl:String
   MyGigs:[Gig!]@connection(name:"UserGig")
   InvitedGig:[UserInviteByGig!]@connection(keyName: "byUser", fields: ["id"])
+  userType:Int
+  
 }
 
 type ConnectItem {
@@ -90,12 +92,3 @@ type UserInviteByGig @model
   gig: Gig! @connection(fields: ["gigID"])
   user: User! @connection(fields: ["userID"])
 }
-
-type Review @model {
-  id: ID!
-  name: String
-  filmId: String
-  userId: String
-  stars: Int
-  content: String
-  }
