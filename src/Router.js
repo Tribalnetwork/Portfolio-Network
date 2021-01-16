@@ -35,6 +35,7 @@ import Eventdetail from "./Events/Eventdetail"
 import MyProfile from "./ProfilePage/Profile.js"
 import Home from "./Home"
 import ConnectList from "./SocialPage/ConnectList"
+import { FeatureComingSoon } from "./components/FeatureComingSoon";
 
 // import SportsPage from "./ExplorePage/SportsPage";
 
@@ -67,12 +68,12 @@ class PrivateRoute extends React.Component {
           return isAuthenticated ? (
             <Component {...props} />
           ) : (
-            <Redirect
-              to={{
-                pathname: "/auth",
-              }}
-            />
-          );
+              <Redirect
+                to={{
+                  pathname: "/auth",
+                }}
+              />
+            );
         }}
       />
     );
