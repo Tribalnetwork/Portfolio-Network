@@ -95,100 +95,100 @@ const Routes = () => (
       <NavigationBar />
       <Switch>
         
-        <Route path="/settings" exact component={Settings}>
-          <Settings />
+        <Route path="/settings" exact component={ConnectList}>
+          <ConnectList />
         </Route>
         <Route
           path="/settings/wifi"
         >
-          <Wifi />
+          <ConnectList />
         </Route>
         <Route
           path="/settings/support"
         >
-          <Support />
+          <ConnectList />
         </Route>
         <Route
           path="/settings/termsofservice"
         >
-          <TermsOfService />
+          <ConnectList />
         </Route>
         <Route
           path="/settings/privacypolicy"
         >
-          <PrivacyPolicy />
+          <ConnectList />
         </Route>
         <Route
           path="/settings/account"
         >
-          <Account />
+          <ConnectList />
         </Route>
         <Route
           path="/settings/notifications"
         >
-          <Notifications />
+          <ConnectList />
         </Route>
         <Route
           path="/settings/downloadoptions"
         >
-          <DownloadOptions />
+          <ConnectList />
         </Route>
         <Route
           path="/settings/logout"
         >
-          <Logout />
+          <ConnectList />
         </Route>
         <Route
           path="/settings/wifiandcellular"
         >
         </Route>
-        <Route path="/explore" component={Explore} />
+        <Route path="/explore" component={ConnectList} />
 
         {/* <Route path="/explore"><Explore /></Route> */}
-        <Route path="/explore/sports" exact component={SportsPage} />
-        <Route path="/explore/talks"><TalksPage/></Route>
-        <Route path="/explore/drama"><DramaPage /></Route>
-        <Route path="/explore/romance"><RomancePage/></Route>
-        <Route path="/explore/horror"><HorrorPage/></Route>
-        <Route path="/explore/family"><FamilyPage/></Route>
-        <Route path="/explore/animation"><AnimationPage/></Route>
-        <Route path="/explore/experimental"><ExperimentalPage/></Route>
-        <Route path="/explore/thriller"><ThrillerPage/></Route>
-        <Route path="/explore/family"><FamilyPage/></Route>
-        <Route path="/explore/scifi"><SciFiPage/></Route>
-        <Route path="/explore/action"><ActionPage/></Route>
-        <Route path="/explore/comedy"><ComedyPage/></Route>
-        <Route path="/explore/musical"><MusicalPage/></Route>
-        <Route path="/explore/documentary"><DocumentaryPage/></Route>
-        <Route path="/explore/watchrandom"><WatchRandom/></Route>
-        <Route path="/auth" exact component={Authenticator} />
-        <Route path="/" exact component={Landing} />
+        <Route path="/explore/sports" exact component={ConnectList} />
+        <Route path="/explore/talks"><ConnectList/></Route>
+        <Route path="/explore/drama"><ConnectList/></Route>
+        <Route path="/explore/romance"><ConnectList/></Route>
+        <Route path="/explore/horror"><ConnectList/></Route>
+        <Route path="/explore/family"><ConnectList/></Route>
+        <Route path="/explore/animation"><ConnectList/></Route>
+        <Route path="/explore/experimental"><ConnectList/></Route>
+        <Route path="/explore/thriller"><ConnectList/></Route>
+        <Route path="/explore/family"><ConnectList/></Route>
+        <Route path="/explore/scifi"><ConnectList/></Route>
+        <Route path="/explore/action"><ConnectList/></Route>
+        <Route path="/explore/comedy"><ConnectList/></Route>
+        <Route path="/explore/musical"><ConnectList/></Route>
+        <Route path="/explore/documentary"><ConnectList/></Route>
+        <Route path="/explore/watchrandom"><ConnectList/></Route>
+        <Route path="/auth" exact component={ConnectList} />
+        <Route path="/" exact component={ConnectList} />
         <Route path="/home" exact component={Home} />
-        <Route path="/landing/landing-home" exact component={Landing} />
+        <Route path="/landing/landing-home" exact component={ConnectList} />
         <Route path="/landing/Submit" exact component={Submit} />
-        <Route path="/search" exact component={SearchQueries} />
-        <Route path="/viewProfile" exact component={ViewProfile} />
-        <Route path="/myStudio" exact component={MyStudio} />
-        <Route path="/myStudio/myFolder" exact component={MyStudio} />
-        <Route path="/myStudio/toDoList" exact component={MyStudio} />
-        <PrivateRoute path="/upload" exact component={Upload} />
-        <PrivateRoute path="/streams" component={Stream} />
-        <PrivateRoute path="/watch" component={Watch} />
+        <Route path="/search" exact component={ConnectList} />
+        <Route path="/viewProfile" exact component={ConnectList} />
+        <Route path="/myStudio" exact component={ConnectList} />
+        <Route path="/myStudio/myFolder" exact component={ConnectList} />
+        <Route path="/myStudio/toDoList" exact component={ConnectList} />
+        <PrivateRoute path="/upload" exact component={ConnectList} />
+        <PrivateRoute path="/streams" component={ConnectList} />
+        <PrivateRoute path="/watch" component={ConnectList} />
         
-        <PrivateRoute path="/live" component={Live} />
-        <PrivateRoute path="/profile" component={Profile} />
-        <PrivateRoute path="/myprofile" component={MyProfile} />
-        <PrivateRoute path="/getaccess" component={GetAccess} />
-        <PrivateRoute path="/pending" component={Pending} />
-        <PrivateRoute path="/mylive" component={MyLive} />
-        <PrivateRoute path="/mylist" component={MyList} />
-        <PrivateRoute path="/gigs" component={Gigs} />
-        <PrivateRoute path="/postagig" component={PostGig} />
-        <PrivateRoute path="/gigdetail" component={Gigdetail} />
-        <PrivateRoute path="/events" component={Events} />
-        <PrivateRoute path="/postanevent" component={PostEvent} />
-        <PrivateRoute path="/eventdetail" component={Eventdetail} />
-        <Route component={NoMatch} />
+        <PrivateRoute path="/live" component={ConnectList} />
+        <PrivateRoute path="/profile" component={ConnectList} />
+        <PrivateRoute path="/myprofile" component={ConnectList} />
+        <PrivateRoute path="/getaccess" component={ConnectList} />
+        <PrivateRoute path="/pending" component={ConnectList} />
+        <PrivateRoute path="/mylive" component={ConnectList} />
+        <PrivateRoute path="/mylist" component={ConnectList} />
+        <PrivateRoute path="/gigs" component={ConnectList} />
+        <PrivateRoute path="/postagig" component={ConnectList} />
+        <PrivateRoute path="/gigdetail" component={ConnectList} />
+        <PrivateRoute path="/events" component={ConnectList} />
+        <PrivateRoute path="/postanevent" component={ConnectList} />
+        <PrivateRoute path="/eventdetail" component={ConnectList} />
+        <Route component={ConnectList} />
       </Switch>
       <BottomNavBar />
     </div>
