@@ -96,100 +96,100 @@ const Routes = () => (
       <NavigationBar />
       <Switch>
         
-        <Route path="/settings" exact component={ConnectList}>
-          <ConnectList />
+        <Route path="/settings" exact component={FeatureComingSoon}>
+          <FeatureComingSoon />
         </Route>
         <Route
           path="/settings/wifi"
         >
-          <ConnectList />
+          <FeatureComingSoon />
         </Route>
         <Route
           path="/settings/support"
         >
-          <ConnectList />
+          <FeatureComingSoon />
         </Route>
         <Route
           path="/settings/termsofservice"
         >
-          <ConnectList />
+          <FeatureComingSoon />
         </Route>
         <Route
           path="/settings/privacypolicy"
         >
-          <ConnectList />
+          <FeatureComingSoon />
         </Route>
         <Route
           path="/settings/account"
         >
-          <ConnectList />
+          <FeatureComingSoon />
         </Route>
         <Route
           path="/settings/notifications"
         >
-          <ConnectList />
+          <FeatureComingSoon />
         </Route>
         <Route
           path="/settings/downloadoptions"
         >
-          <ConnectList />
+          <FeatureComingSoon />
         </Route>
         <Route
           path="/settings/logout"
         >
-          <ConnectList />
+          <FeatureComingSoon />
         </Route>
         <Route
           path="/settings/wifiandcellular"
         >
         </Route>
-        <Route path="/explore" component={ConnectList} />
+        <Route path="/explore" component={FeatureComingSoon} />
 
         {/* <Route path="/explore"><Explore /></Route> */}
-        <Route path="/explore/sports" exact component={ConnectList} />
-        <Route path="/explore/talks"><ConnectList/></Route>
-        <Route path="/explore/drama"><ConnectList/></Route>
-        <Route path="/explore/romance"><ConnectList/></Route>
-        <Route path="/explore/horror"><ConnectList/></Route>
-        <Route path="/explore/family"><ConnectList/></Route>
-        <Route path="/explore/animation"><ConnectList/></Route>
-        <Route path="/explore/experimental"><ConnectList/></Route>
-        <Route path="/explore/thriller"><ConnectList/></Route>
-        <Route path="/explore/family"><ConnectList/></Route>
-        <Route path="/explore/scifi"><ConnectList/></Route>
-        <Route path="/explore/action"><ConnectList/></Route>
-        <Route path="/explore/comedy"><ConnectList/></Route>
-        <Route path="/explore/musical"><ConnectList/></Route>
-        <Route path="/explore/documentary"><ConnectList/></Route>
-        <Route path="/explore/watchrandom"><ConnectList/></Route>
-        <Route path="/auth" exact component={ConnectList} />
-        <Route path="/" exact component={ConnectList} />
+        <Route path="/explore/sports" exact component={FeatureComingSoon} />
+        <Route path="/explore/talks"><FeatureComingSoon/></Route>
+        <Route path="/explore/drama"><FeatureComingSoon/></Route>
+        <Route path="/explore/romance"><FeatureComingSoon/></Route>
+        <Route path="/explore/horror"><FeatureComingSoon/></Route>
+        <Route path="/explore/family"><FeatureComingSoon/></Route>
+        <Route path="/explore/animation"><FeatureComingSoon/></Route>
+        <Route path="/explore/experimental"><FeatureComingSoon/></Route>
+        <Route path="/explore/thriller"><FeatureComingSoon/></Route>
+        <Route path="/explore/family"><FeatureComingSoon/></Route>
+        <Route path="/explore/scifi"><FeatureComingSoon/></Route>
+        <Route path="/explore/action"><FeatureComingSoon/></Route>
+        <Route path="/explore/comedy"><FeatureComingSoon/></Route>
+        <Route path="/explore/musical"><FeatureComingSoon/></Route>
+        <Route path="/explore/documentary"><FeatureComingSoon/></Route>
+        <Route path="/explore/watchrandom"><FeatureComingSoon/></Route>
+        <Route path="/auth" exact component={FeatureComingSoon} />
+        <Route path="/" exact component={FeatureComingSoon} />
         <Route path="/home" exact component={Home} />
-        <Route path="/landing/landing-home" exact component={ConnectList} />
+        <Route path="/landing/landing-home" exact component={FeatureComingSoon} />
         <Route path="/landing/Submit" exact component={Submit} />
-        <Route path="/search" exact component={ConnectList} />
-        <Route path="/viewProfile" exact component={ConnectList} />
-        <Route path="/myStudio" exact component={ConnectList} />
-        <Route path="/myStudio/myFolder" exact component={ConnectList} />
-        <Route path="/myStudio/toDoList" exact component={ConnectList} />
-        <PrivateRoute path="/upload" exact component={ConnectList} />
-        <PrivateRoute path="/streams" component={ConnectList} />
-        <PrivateRoute path="/watch" component={ConnectList} />
+        <Route path="/search" exact component={FeatureComingSoon} />
+        <Route path="/viewProfile" exact component={FeatureComingSoon} />
+        <Route path="/myStudio" exact component={FeatureComingSoon} />
+        <Route path="/myStudio/myFolder" exact component={FeatureComingSoon} />
+        <Route path="/myStudio/toDoList" exact component={FeatureComingSoon} />
+        <PrivateRoute path="/upload" exact component={FeatureComingSoon} />
+        <PrivateRoute path="/streams" component={FeatureComingSoon} />
+        <PrivateRoute path="/watch" component={FeatureComingSoon} />
         
-        <PrivateRoute path="/live" component={ConnectList} />
-        <PrivateRoute path="/profile" component={ConnectList} />
-        <PrivateRoute path="/myprofile" component={ConnectList} />
-        <PrivateRoute path="/getaccess" component={ConnectList} />
-        <PrivateRoute path="/pending" component={ConnectList} />
-        <PrivateRoute path="/mylive" component={ConnectList} />
-        <PrivateRoute path="/mylist" component={ConnectList} />
-        <PrivateRoute path="/gigs" component={ConnectList} />
-        <PrivateRoute path="/postagig" component={ConnectList} />
-        <PrivateRoute path="/gigdetail" component={ConnectList} />
-        <PrivateRoute path="/events" component={ConnectList} />
-        <PrivateRoute path="/postanevent" component={ConnectList} />
-        <PrivateRoute path="/eventdetail" component={ConnectList} />
-        <Route component={ConnectList} />
+        <PrivateRoute path="/live" component={FeatureComingSoon} />
+        <PrivateRoute path="/profile" component={FeatureComingSoon} />
+        <PrivateRoute path="/myprofile" component={FeatureComingSoon} />
+        <PrivateRoute path="/getaccess" component={FeatureComingSoon} />
+        <PrivateRoute path="/pending" component={FeatureComingSoon} />
+        <PrivateRoute path="/mylive" component={FeatureComingSoon} />
+        <PrivateRoute path="/mylist" component={FeatureComingSoon} />
+        <PrivateRoute path="/gigs" component={FeatureComingSoon} />
+        <PrivateRoute path="/postagig" component={FeatureComingSoon} />
+        <PrivateRoute path="/gigdetail" component={FeatureComingSoon} />
+        <PrivateRoute path="/events" component={FeatureComingSoon} />
+        <PrivateRoute path="/postanevent" component={FeatureComingSoon} />
+        <PrivateRoute path="/eventdetail" component={FeatureComingSoon} />
+        <Route component={FeatureComingSoon} />
       </Switch>
       <BottomNavBar />
     </div>
