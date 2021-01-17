@@ -6,41 +6,35 @@ import {Scrollbars} from "react-custom-scrollbars";
 //import FilmFrame from "./filmFrame";
 import LargeFrame from "./LargeFrame"
 import {ReactComponent as StartliveLogo} from "../icons/startlive.svg"
-import "./searchQueries.css"
+import "./searchQueries.css";
+import SearchIcon from '../icons/search-icon.svg';
 
 
 /* The logic for how this component works is as follows:
 - On componentDidMount, functions getUsernames, getFilmTiltle, and getLiveStreams run and using graphQl, get a list of all of the 
     previously mentioned and save them into their respective state variables.
-
  - The last thing that runs on componentDidMount is the checkType funciton. This function was recently added. It allows the prevention of
     rendering the filter buttons in you want to use this component in places other than the search page. It works by reading a prop passed to it
     and evaluating based on that prop what filter function should be enabled for that page. (i.e. search bar on live stream page automatically
     has liveStream filter enabled). This function may need some editing depending on what you use it for.
-
 - After that, the getGlobal function is triggered onChange of the input tag. The get gloabal checks to see if any filters are enabled, if so
     it groups the list appropiatley, if not it groups all list into one big list (i.e. global list). After this is passes the list and the value
     of the input tag into the search function.
-
 - The search function uses the built in javascript filter method to return all results that include the value of input. After this it maps through
     that list and uses a switch function to determine what kind of result it is (i.e. users, films, ect.). This is also somewhere that would need
     updating if we decide to include more kinds of results in the search funtion like gigs or events.
-
 - Upon completion of the search function, it sets that filterd list to the global state variable. And that makes up the overall logic of the 
     search component. There are also filter functions, which set the state variable filter objects respective values to true or false, which is
     used to deterine if there is a filter or not.
-
 - If your goal is to update this function to include more search results such as gigs or events, what you will want to do is add
     another get(What you want) fucntion that saves the list into a new state variable, and call that function on component did mount.
     Then in get global add it to the global list that is passed to search, and in search add a new option in the switch statement.
     If you use the other components as a template, everything should flow smoothly. :)
-
     Addendum 1:
         A recent searches function as been incorporated into this file. It uses two functions, which are add(), and checkRecents();
         add() adds a search results to an array in localStorage, which should be no more then 50 results
         checkRecents is triggered onClick on input, and runs the search function with the list pulled from localStorage, instead of the entire
         global list.
-
 */
 
 export default class SearchQueries extends React.Component {
@@ -52,6 +46,7 @@ export default class SearchQueries extends React.Component {
             liveStreams: [],
             gigs: [],
             events: [],
+            music: [],
             filter: {
                 hasFilter: false,
                 users: false,
@@ -118,6 +113,22 @@ export default class SearchQueries extends React.Component {
             this.setState({liveStreams: list})
       })
         }
+       getMusic = () => {
+            API.graphql(graphqlOperation(queries.listMusic))
+        .then((result) => { return result.data.listMusic.items})
+        .then((result) => { 
+            let list = [];
+            result.forEach((music) =>{
+                let namesObj = {
+                    name: music.streamerName.toUpperCase(),
+                    id: music.id,
+                    type: "Music"
+                }
+                list.push(namesObj);
+            })
+            this.setState({music: list})
+      })
+        }
 
         //Gigs and events need to be added to the search query
        /* getGigs = () => {
@@ -136,7 +147,6 @@ export default class SearchQueries extends React.Component {
             this.setState({gigs: list})
       })
         }
-
         getEvents = () => {
             API.graphql(graphqlOperation(queries.listEvents))
         .then((result) => { return result.data.listEvents.items})
@@ -283,6 +293,7 @@ export default class SearchQueries extends React.Component {
                 this.filterStyle = this.filterStyleNone;
             }
             if (this.props.type == "liveStreams"){
+                this.inputStyle = this.inputStyleLive;
                 this.setState(prevState => ({
                     filter: {                   
                         ...prevState.filter,   
@@ -359,7 +370,7 @@ export default class SearchQueries extends React.Component {
 
         // Styling objects
         mainDivStyle = {
- 
+
         }
 
         inputWrapperStyleNorm = {
@@ -369,38 +380,54 @@ export default class SearchQueries extends React.Component {
             gridColumn: "1/4",
             gridRow: "1",
             width: "100%",
-            height: "16vh",
+            height: "18vh",
             backgroundColor: 'black',
-            borderRadius: "0px"
+            borderRadius: "0px",
         }
 
         inputWrapperStyleRound = {
-            paddingLeft: "2vw",
-            paddingRight: "2vw",
-            justifyContent: "center",
             gridColumn: "1/4",
             gridRow: "1",
-            height: "9vh",
+            padding: "0 0 10px 0",
             backgroundColor: 'black',
-            borderRadius: "25px"
+            borderRadius: "25px",
         }
         
         inputWrapperStyle = this.inputWrapperStyleNorm;
 
         inputStyle = {
-            height: "6vh",
-            width: "60%",
+            width: "90%",
             margin: "2vh 0 0 0",
             justifyContent: "center",
             gridColumn: "2",
-            fontSize: "2vw",
             color: "white",
             postion: "fixed",
             gridRow: "1",
-            fontSize: "4vw",
-            borderRadius: '15px',
+            borderRadius: '10px',
             backgroundColor: "#2C2C2E",
-            borderColor: "black"
+            backgroundImage: `url(${SearchIcon})`,
+            backgroundRepeat: "no-repeat",
+            backgroundPositionX: "10px",
+            backgroundPositionY : "8px",
+            backgroundSize: "16px",
+            borderColor: "black",
+         }
+
+         inputStyleLive = {
+            width: "75%",
+            marginTop: "8px",
+            gridColumn: "2",
+            color: "white",
+            postion: "fixed",
+            gridRow: "1",
+            borderRadius: '10px',
+            backgroundColor: "#2C2C2E",
+            backgroundImage: `url(${SearchIcon})`,
+            backgroundRepeat: "no-repeat",
+            backgroundPositionX: "10px",
+            backgroundPositionY : "8px",
+            backgroundSize: "16px",
+            borderColor: "black",
          }
          
          filterStyleNorm = {
@@ -417,7 +444,7 @@ export default class SearchQueries extends React.Component {
              height: "8vh",
              padding: "0 15vw 0 15vw",
              "margin-top": "-45px",
-             zIndex: "100"
+             zIndex: "100",
          }
 
          filterStyleNone = {
@@ -433,9 +460,9 @@ export default class SearchQueries extends React.Component {
             color: "white",
             minWidth: "25vw",
             maxWidth: "22vw",
-            height: "20px",
+            height: "49px",
             fontSize: "1.5vh",
-            zIndex: "100"
+            zIndex: "100",
          }
         
          ulStyle = {
@@ -446,7 +473,7 @@ export default class SearchQueries extends React.Component {
             gridColumn: "1/4",
             gridRow: "3",
             overflow: "auto",
-            zIndex: "95"
+            zIndex: "95",
          }
         
          liStyle = {
@@ -496,7 +523,7 @@ export default class SearchQueries extends React.Component {
             return (
                 <div style={this.mainDivStyle}>
                     <div style={this.inputWrapperStyle} className={"inputWrapper"}> 
-                    <input style={this.inputStyle} onChange={this.getGlobal.bind(this)} onClick={() => {this.checkRecent()}} onBlur={() => {setTimeout(() => this.getGlobal(this.filler), 250)}}/>
+                    <input style={this.inputStyle} onChange={this.getGlobal.bind(this)} onClick={() => {this.checkRecent()}} onBlur={() => {setTimeout(() => this.getGlobal(this.filler), 250)}} placeholder="Search" className="search-bar"/>
                     </div>
                     <ul style={this.filterStyle}>
                         {this.state.buttons}
