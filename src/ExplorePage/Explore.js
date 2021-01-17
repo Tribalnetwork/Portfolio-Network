@@ -22,7 +22,7 @@ import UserContext from '../UserContext'
 import WhatsNew from "../WhatsNew";
 import Amplify from 'aws-amplify';
 import { API, graphqlOperation } from 'aws-amplify'
-import { listFilms,listMusic } from '../graphql/queries'
+import { listFilms,listLiveStreams } from '../graphql/queries'
 import * as queries from '../graphql/queries';
 import awsconfig from '../aws-exports';
 Amplify.configure(awsconfig);
@@ -60,14 +60,15 @@ export default class Explore extends React.Component {
         this.getFilms();
       }
 
-    async fetchMusic() {
+      async fetchLivestreams() {
         try {
-          const music = await API.graphql(graphqlOperation(listMusic, {
+          const livestreams = await API.graphql(graphqlOperation(listLiveStreams, {
           }));
-          console.log(music.data.listMusic.items);
-          this.setState({ music: music.data.listLiveStreams.items })
+          console.log(livestreams.data.listLiveStreams.items);
+          this.setState({ livestreams: livestreams.data.listLiveStreams.items })
         } catch (err) { console.log(err) }
       }
+
 
     // async getFilms() {
     //     const result = await API.graphql(graphqlOperation(queries.listFilms, {})) 

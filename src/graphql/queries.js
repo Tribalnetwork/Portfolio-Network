@@ -53,9 +53,9 @@ export const listFilms = /* GraphQL */ `
     }
   }
 `;
-export const getMusic = /* GraphQL */ `
-  query GetMusic($id: ID!) {
-    getMusic(id: $id) {
+export const getLiveStream = /* GraphQL */ `
+  query GetLiveStream($id: ID!) {
+    getLiveStream(id: $id) {
       id
       playbackID
       streamKey
@@ -68,13 +68,13 @@ export const getMusic = /* GraphQL */ `
     }
   }
 `;
-export const listMusic = /* GraphQL */ `
-  query ListMusic(
-    $filter: ModelMusicFilterInput
+export const listLiveStreams = /* GraphQL */ `
+  query ListLiveStreams(
+    $filter: ModelLiveStreamFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    listMusic(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listLiveStreams(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
         playbackID

@@ -166,7 +166,7 @@ const Routes = () => (
         <Route path="/" exact component={FeatureComingSoon} />
         <Route path="/home" exact component={Home} />
         <Route path="/landing/landing-home" exact component={FeatureComingSoon} />
-        <Route path="/landing/Submit" exact component={Submit} />
+        <Route path="/submit" exact component={Submit} />
         <Route path="/search" exact component={FeatureComingSoon} />
         <Route path="/viewProfile" exact component={FeatureComingSoon} />
         <Route path="/myStudio" exact component={FeatureComingSoon} />

@@ -1,7 +1,7 @@
 import React from 'react'
 import Amplify from 'aws-amplify';
 import { API, graphqlOperation } from 'aws-amplify'
-import { listFilms,listMusic } from './graphql/queries'
+import { listFilms,listLiveStreams } from './graphql/queries'
 import awsconfig from './aws-exports';
 import '@aws-amplify/ui/dist/style.css';
 import { Link } from "react-router-dom";
@@ -55,12 +55,12 @@ export default class Home extends React.Component {
       this.setState({ films: films.data.listFilms.items })
     } catch (err) { console.log(err) }
   }
-  async fetchMusic() {
+  async fetchLivestreams() {
     try {
-      const music = await API.graphql(graphqlOperation(listMusic, {
+      const livestreams = await API.graphql(graphqlOperation(listLiveStreams, {
       }));
-      console.log(music.data.listMusic.items);
-      this.setState({ music: music.data.listMusic.items })
+      console.log(livestreams.data.listLiveStreams.items);
+      this.setState({ livestreams: livestreams.data.listLiveStreams.items })
     } catch (err) { console.log(err) }
   }
 
