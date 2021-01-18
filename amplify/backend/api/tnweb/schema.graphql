@@ -92,3 +92,10 @@ type UserInviteByGig @model
   gig: Gig! @connection(fields: ["gigID"])
   user: User! @connection(fields: ["userID"])
 }
+
+type Music @model{
+  id: ID!
+  user: String
+  title: String
+  genre: String
+}

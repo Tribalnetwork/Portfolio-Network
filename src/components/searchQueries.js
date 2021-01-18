@@ -46,6 +46,7 @@ export default class SearchQueries extends React.Component {
             liveStreams: [],
             gigs: [],
             events: [],
+            music: [],
             filter: {
                 hasFilter: false,
                 users: false,
@@ -110,6 +111,22 @@ export default class SearchQueries extends React.Component {
                 list.push(namesObj);
             })
             this.setState({liveStreams: list})
+      })
+        }
+       getMusic = () => {
+            API.graphql(graphqlOperation(queries.listMusic))
+        .then((result) => { return result.data.listMusic.items})
+        .then((result) => { 
+            let list = [];
+            result.forEach((music) =>{
+                let namesObj = {
+                    name: music.streamerName.toUpperCase(),
+                    id: music.id,
+                    type: "Music"
+                }
+                list.push(namesObj);
+            })
+            this.setState({music: list})
       })
         }
 
