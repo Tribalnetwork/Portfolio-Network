@@ -1,8 +1,8 @@
 
 import React, {useState, useEffect, useContext} from 'react'
 import { API, graphqlOperation } from 'aws-amplify'
-import { createMusic, updateUser } from '../graphql/mutations'
-import { listMusic } from '../graphql/queries'
+import { createLiveStream, updateUser } from '../graphql/mutations'
+import { listLiveStreams } from '../graphql/queries'
 import '@aws-amplify/ui/dist/style.css';
 import { Link } from "react-router-dom";
 import UserContext from '../UserContext'
@@ -20,7 +20,7 @@ import LargeFrame from "../components/LargeFrame"
 import HorizontalScrollerCircular from "../components/HorizontalScrollerCircular";
 
 export const Stream = () => {
-  const [music, setMusic] = useState([])
+  const [livestreams, setLivestreams] = useState([])
   const context = useContext(UserContext)
   const [streamCreated, setStreamCreated] = useState(context.user.hasChannel)
 
@@ -34,9 +34,9 @@ export const Stream = () => {
 
   async function fetchStreams() {
     try {
-      const streams = await API.graphql(graphqlOperation(listMusic));
+      const streams = await API.graphql(graphqlOperation(listLiveStreams));
       //console.log(streams.data.listLiveStreams.items)
-      setMusic(streams.data.listMusic.items)
+      setLivestreams(streams.data.listLiveStreams.items)
     } catch (err) { console.log(err) }
 
   }
@@ -54,12 +54,13 @@ export const Stream = () => {
             status: responseJSON.status,
             streamerName: context.user.attributes.given_name
           }
-          const music = await API.graphql(graphqlOperation(createMusic, {input: streamData}))
+          const liveStream = await API.graphql(graphqlOperation(createLiveStream, {input: streamData}))
           const userData = {
             id: context.user.attributes.sub,
-            MusicID: responseJSON.id,
+            liveStreamID: responseJSON.id,
             liveChannelCreated: true
-          }
+}
+
           const updatedUser = await API.graphql(graphqlOperation(updateUser, {input: userData}))
           context.updateCurrentUser()
           setStreamCreated(true)
