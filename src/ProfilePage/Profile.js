@@ -4,7 +4,7 @@ import Container from '../Container'
 import Button from '../Button';
 import UserContext from '../UserContext'
 import { Helmet } from 'react-helmet'
-import './Profile.css'
+
 import ChangeProfilePhotoButton from "../components/ChangeProfilePhotoButton";
 import { API, graphqlOperation } from 'aws-amplify'
 import DetailsIcon from '@material-ui/icons/Details';
@@ -21,7 +21,8 @@ import DropdownMenu from '../components/DropdownMenu.js'
 // import ConnectList from "./ConnectList"
 //import {ReactComponent as UserLogo} from "../icons/users.svg"
 
-
+// custom styling file
+import './Profile.css'
 
 class Profile extends React.Component {
   static contextType = UserContext;
@@ -89,11 +90,12 @@ async getImg(){
           </div>
 
         </div>
-        <h1 > BIO </h1>
+        {/* adding class to each heading */}
+        <h1 className='bio-heading'> BIO </h1>
         <p> Grew up on Planet Earth, Dallas, I learned human speak. </p>
-        <h1> Resume & Portfolio </h1>
+        <h1 className='resumeAndPortfolio-heading'> Resume & Portfolio </h1>
         <p> Link here </p>
-        <h1> Verified Skills </h1>
+        <h1 className='verifiedSkills-heading'> Verified Skills </h1>
         <p> Grew up on Planet Earth, Dallas, I learned human speak. </p>
       </div>
 

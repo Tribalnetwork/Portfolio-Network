@@ -67,12 +67,12 @@ class PrivateRoute extends React.Component {
           return isAuthenticated ? (
             <Component {...props} />
           ) : (
-            <Redirect
-              to={{
-                pathname: "/auth",
-              }}
-            />
-          );
+              <Redirect
+                to={{
+                  pathname: "/auth",
+                }}
+              />
+            );
         }}
       />
     );
@@ -94,7 +94,7 @@ const Routes = () => (
     <div>
       <NavigationBar />
       <Switch>
-        
+
         <Route path="/settings" exact component={Settings}>
           <Settings />
         </Route>
@@ -146,21 +146,21 @@ const Routes = () => (
 
         {/* <Route path="/explore"><Explore /></Route> */}
         <Route path="/explore/sports" exact component={SportsPage} />
-        <Route path="/explore/talks"><TalksPage/></Route>
+        <Route path="/explore/talks"><TalksPage /></Route>
         <Route path="/explore/drama"><DramaPage /></Route>
-        <Route path="/explore/romance"><RomancePage/></Route>
-        <Route path="/explore/horror"><HorrorPage/></Route>
-        <Route path="/explore/family"><FamilyPage/></Route>
-        <Route path="/explore/animation"><AnimationPage/></Route>
-        <Route path="/explore/experimental"><ExperimentalPage/></Route>
-        <Route path="/explore/thriller"><ThrillerPage/></Route>
-        <Route path="/explore/family"><FamilyPage/></Route>
-        <Route path="/explore/scifi"><SciFiPage/></Route>
-        <Route path="/explore/action"><ActionPage/></Route>
-        <Route path="/explore/comedy"><ComedyPage/></Route>
-        <Route path="/explore/musical"><MusicalPage/></Route>
-        <Route path="/explore/documentary"><DocumentaryPage/></Route>
-        <Route path="/explore/watchrandom"><WatchRandom/></Route>
+        <Route path="/explore/romance"><RomancePage /></Route>
+        <Route path="/explore/horror"><HorrorPage /></Route>
+        <Route path="/explore/family"><FamilyPage /></Route>
+        <Route path="/explore/animation"><AnimationPage /></Route>
+        <Route path="/explore/experimental"><ExperimentalPage /></Route>
+        <Route path="/explore/thriller"><ThrillerPage /></Route>
+        <Route path="/explore/family"><FamilyPage /></Route>
+        <Route path="/explore/scifi"><SciFiPage /></Route>
+        <Route path="/explore/action"><ActionPage /></Route>
+        <Route path="/explore/comedy"><ComedyPage /></Route>
+        <Route path="/explore/musical"><MusicalPage /></Route>
+        <Route path="/explore/documentary"><DocumentaryPage /></Route>
+        <Route path="/explore/watchrandom"><WatchRandom /></Route>
         <Route path="/auth" exact component={Authenticator} />
         <Route path="/" exact component={Landing} />
         <Route path="/home" exact component={Home} />
@@ -174,10 +174,15 @@ const Routes = () => (
         <PrivateRoute path="/upload" exact component={Upload} />
         <PrivateRoute path="/streams" component={Stream} />
         <PrivateRoute path="/watch" component={Watch} />
-        
+
         <PrivateRoute path="/live" component={Live} />
-        <PrivateRoute path="/profile" component={Profile} />
+
+        {/* <PrivateRoute path="/profile" component={Profile} /> */}
+        {/* commenting out and changing value of component
+         just to give me access to MyProfile */}
+        <PrivateRoute path="/profile" component={MyProfile} />
         <PrivateRoute path="/myprofile" component={MyProfile} />
+
         <PrivateRoute path="/getaccess" component={GetAccess} />
         <PrivateRoute path="/pending" component={Pending} />
         <PrivateRoute path="/mylive" component={MyLive} />

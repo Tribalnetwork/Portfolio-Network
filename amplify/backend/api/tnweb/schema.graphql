@@ -50,11 +50,8 @@ type User @model {
   ImgUrl:String
   MyGigs:[Gig!]@connection(name:"UserGig")
   InvitedGig:[UserInviteByGig!]@connection(keyName: "byUser", fields: ["id"])
-<<<<<<< HEAD
-=======
-  userType:Int
   
->>>>>>> upstream/master
+  
 }
 
 type ConnectItem {
@@ -94,8 +91,6 @@ type UserInviteByGig @model
   userID: ID!
   gig: Gig! @connection(fields: ["gigID"])
   user: User! @connection(fields: ["userID"])
-<<<<<<< HEAD
-=======
 }
 
 type Music @model{
@@ -103,5 +98,4 @@ type Music @model{
   user: String
   title: String
   genre: String
->>>>>>> upstream/master
 }
