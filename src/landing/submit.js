@@ -13,7 +13,7 @@ import { API, graphqlOperation } from 'aws-amplify';
 import * as queries from '../graphql/queries';
 import Amplify, { Storage } from 'aws-amplify';
 import awsconfig from '../aws-exports';
-import { SelectPicker } from 'rsuite';
+//import { SelectPicker } from 'rsuite';
 
 Amplify.configure(awsconfig);
 

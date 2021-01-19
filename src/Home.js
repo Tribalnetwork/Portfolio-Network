@@ -39,7 +39,7 @@ export default class Home extends React.Component {
   componentDidMount() {
     //this.context.updateCurrentUser()
     this.fetchFilms();
-    this.fetchLivestreams();
+    //this.fetchLivestreams();
   }
 
   async fetchFilms() {
