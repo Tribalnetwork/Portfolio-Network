@@ -104,7 +104,6 @@ export const getPlayList = /* GraphQL */ `
         liveStreamID
         liveChannelCreated
         remainingVODTime
-        userType
         remainingLiveTime
         myList {
           id
@@ -156,7 +155,6 @@ export const listPlayLists = /* GraphQL */ `
           liveStreamID
           liveChannelCreated
           remainingVODTime
-          userType
           remainingLiveTime
           ImgUrl
           createdAt
@@ -205,7 +203,6 @@ export const getFilmInList = /* GraphQL */ `
           liveStreamID
           liveChannelCreated
           remainingVODTime
-          userType
           remainingLiveTime
           ImgUrl
           createdAt
@@ -269,7 +266,6 @@ export const getUser = /* GraphQL */ `
       liveStreamID
       liveChannelCreated
       remainingVODTime
-      userType
       remainingLiveTime
       myList {
         id
@@ -283,7 +279,6 @@ export const getUser = /* GraphQL */ `
           liveStreamID
           liveChannelCreated
           remainingVODTime
-          userType
           remainingLiveTime
           ImgUrl
           createdAt
@@ -346,7 +341,6 @@ export const listUsers = /* GraphQL */ `
         liveStreamID
         liveChannelCreated
         remainingVODTime
-        userType
         remainingLiveTime
         myList {
           id
@@ -416,7 +410,6 @@ export const getGig = /* GraphQL */ `
         liveStreamID
         liveChannelCreated
         remainingVODTime
-        userType
         remainingLiveTime
         myList {
           id
@@ -478,7 +471,6 @@ export const listGigs = /* GraphQL */ `
           liveStreamID
           liveChannelCreated
           remainingVODTime
-        userType
           remainingLiveTime
           ImgUrl
           createdAt
@@ -522,7 +514,6 @@ export const getUserInviteByGig = /* GraphQL */ `
           liveStreamID
           liveChannelCreated
           remainingVODTime
-        userType
           remainingLiveTime
           ImgUrl
           createdAt
@@ -554,7 +545,6 @@ export const getUserInviteByGig = /* GraphQL */ `
         liveStreamID
         liveChannelCreated
         remainingVODTime
-        userType
         remainingLiveTime
         myList {
           id
@@ -617,7 +607,6 @@ export const listUserInviteByGigs = /* GraphQL */ `
           liveStreamID
           liveChannelCreated
           remainingVODTime
-          userType
           remainingLiveTime
           ImgUrl
           createdAt
