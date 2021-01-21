@@ -30,7 +30,7 @@ class WatchStreamPage extends React.Component {
     this.getInfo()
     if (this.state.status === 'active') {
       this.interval = setInterval(() => {
-        this.setState({ watchTime: this.state.watchTime + 1});
+        this.setState({ watchTime: this.state.watchTime + 1 });
       }, 1000)
     }
   }
@@ -40,7 +40,7 @@ class WatchStreamPage extends React.Component {
     if (this.state.status === 'active') {
       const data = {
         id: this.context.user.attributes.sub,
-        remainingVODTime: this.context.remainingVODTime - parseInt(this.state.watchTime/60, 10)
+        remainingVODTime: this.context.remainingVODTime - parseInt(this.state.watchTime / 60, 10)
       }
       const updatedUser = await API.graphql(graphqlOperation(updateUser, { input: data }))
       this.context.updateCurrentUser()
@@ -51,13 +51,13 @@ class WatchStreamPage extends React.Component {
     const stream = await API.graphql(graphqlOperation(getLiveStream, { id: this.id }))
     console.log(stream.data.getLiveStream);
     this.setState({
-      url: "https://stream.mux.com/"+stream.data.getLiveStream.playbackID+".m3u8",
+      url: "https://stream.mux.com/" + stream.data.getLiveStream.playbackID + ".m3u8",
       status: stream.data.getLiveStream.status,
       streamerName: stream.data.getLiveStream.streamerName
     });
   }
 
-  render () {
+  render() {
     return (
       <div>
         <Helmet>
@@ -72,16 +72,25 @@ class WatchStreamPage extends React.Component {
                 <p>{this.state.streamerName} is currently offline. Check back later.</p>
               </>
             ) : (
-              <div className="player-wrapper">
-                <ReactPlayer
-                  ref={p => { this.p = p }}
-                  url={this.state.url}
-                  controls
-                  playing
-                  onEnded={() => this.p.showPreview()}
-                />
-              </div>
-            )
+                <div className="player-wrapper">
+                  <ReactPlayer
+                    ref={p => { this.p = p }}
+                    url={this.state.url}
+                    controls
+                    playing
+                    onEnded={() => this.p.showPreview()}
+                    className='react-player'
+                    width='100%'
+                    height='100%'
+                  />
+                  
+                {/* <ReactPlayer url='https://youtu.be/w7ejDZ8SWv8' 
+                className='react-player' 
+                width='100%' 
+                height="100%"/> */}
+                
+                </div>
+              )
           }
 
         </section>
