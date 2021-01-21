@@ -113,7 +113,7 @@ export default class SearchQueries extends React.Component {
             this.setState({liveStreams: list})
       })
         }
-       getMusic = () => {
+      /* getMusic = () => {
             API.graphql(graphqlOperation(queries.listMusic))
         .then((result) => { return result.data.listMusic.items})
         .then((result) => { 
@@ -128,7 +128,7 @@ export default class SearchQueries extends React.Component {
             })
             this.setState({music: list})
       })
-        }
+        }*/
 
         //Gigs and events need to be added to the search query
        /* getGigs = () => {
