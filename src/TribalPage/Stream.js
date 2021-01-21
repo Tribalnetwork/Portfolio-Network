@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useContext} from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { API, graphqlOperation } from 'aws-amplify'
 import { createLiveStream, updateUser } from '../graphql/mutations'
 import { listLiveStreams } from '../graphql/queries'
@@ -44,7 +44,7 @@ export const Stream = () => {
   async function generateUrl() {
     try {
       var request = new XMLHttpRequest();
-      request.onreadystatechange = async function() {
+      request.onreadystatechange = async function () {
         if (this.readyState === 4 && this.status === 200) {
           var responseJSON = JSON.parse(request.responseText)
           const streamData = {
@@ -54,13 +54,13 @@ export const Stream = () => {
             status: responseJSON.status,
             streamerName: context.user.attributes.given_name
           }
-          const liveStream = await API.graphql(graphqlOperation(createLiveStream, {input: streamData}))
+          const liveStream = await API.graphql(graphqlOperation(createLiveStream, { input: streamData }))
           const userData = {
             id: context.user.attributes.sub,
             liveStreamID: responseJSON.id,
             liveChannelCreated: true
           }
-          const updatedUser = await API.graphql(graphqlOperation(updateUser, {input: userData}))
+          const updatedUser = await API.graphql(graphqlOperation(updateUser, { input: userData }))
           context.updateCurrentUser()
           setStreamCreated(true)
           //console.log(responseJSON.data)
@@ -73,7 +73,7 @@ export const Stream = () => {
       console.log(err)
     }
   }
-  
+
   return (
 
     <div>
@@ -81,41 +81,41 @@ export const Stream = () => {
         <meta charSet="utf-8" />
         <title>Live Streams</title>
       </Helmet>
-      <Trending/>
+      <Trending />
       <div>
         {
           context.hasChannel ? (
             <div>
-              <p style={{textAlign: 'center'}}>You created a live channel.</p>
+              <p style={{ textAlign: 'center' }}>You created a live channel.</p>
               <div className="tribalButton">
-                  <div className='action'><Link to="/submit"><button>Submit Film</button></Link></div>
-                  <div className='action'><Link to="/Gigs"><button>Gig Board</button></Link></div>
-                  <div className='action'><Link to="/streams"><button>Live</button></Link></div>
-                  <div className='action'><Link to="/events"><button>Events</button></Link></div>
-                  <div className='action'><Link to="/MyStudio"><button>Our Studio</button></Link></div>
-               </div>
-              
+                <div className='action'><Link to="/submit"><button>Submit Film</button></Link></div>
+                <div className='action'><Link to="/Gigs"><button>Gig Board</button></Link></div>
+                <div className='action'><Link to="/streams"><button>Live</button></Link></div>
+                <div className='action'><Link to="/events"><button>Events</button></Link></div>
+                <div className='action'><Link to="/MyStudio"><button>Our Studio</button></Link></div>
+              </div>
+
             </div>
           ) : (
-            <button style={styles.button} onClick={generateUrl}>Create Channel</button>
-          )
+              <button style={styles.button} onClick={generateUrl}>Create Channel</button>
+            )
         }
       </div>
       <div style={styles.searchContainer}>
-        
+
         <div className="seacrchCtn">
           <Link to="/mylive" style={styles.startLive} className="live-btn">
-            <img src={StartLive} style={styles.startLiveImg}/>
+            <img src={StartLive} style={styles.startLiveImg} />
           </Link>
-          <SearchQueries type={"liveStreams"} round={true} style={styles.search}/>
+          <SearchQueries type={"liveStreams"} round={true} style={styles.search} />
         </div>
-      </div> 
-      
-      <div style={styles.container}>
-        <h1>Live Streams</h1>
+      </div>
 
-          {/*<HorizontalScrollerCircular list={liveStreams}></HorizontalScrollerCircular>*/}
-{/* <Grid container justify="center" spacing={5}>
+      <div style={styles.container}>
+        <h1 style={styles.h1Tag}>Live Streams</h1>
+
+        {/*<HorizontalScrollerCircular list={liveStreams}></HorizontalScrollerCircular>*/}
+        {/* <Grid container justify="center" spacing={5}>
           {
             liveStreams.map((stream, index) => (
                <LargeFrame item={stream} type={"livestream"}/>
@@ -130,22 +130,24 @@ export const Stream = () => {
 const styles = {
   root: {
     width: "180px",
-    borderRadius:"50px"
+    borderRadius: "50px"
   },
   media: {
     height: 180,
   },
   header: { margin: '0 auto', display: 'flex', flex: 1, flexDirection: 'column', justifyContent: 'center', padding: 20 },
   container: { width: "100%", margin: '0', display: 'flex', flex: 1, flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'left', zIndex: "-1" },
+  // setting font size 30pt for h1 tag
+  h1Tag: { fontSize: '30px' },
   link: { textDecoration: 'none' },
   film: { width: 200, marginBottom: 15, marginRight: 10 },
   stream: { width: 400 },
   input: { border: 'none', backgroundColor: '#ddd', marginBottom: 10, padding: 8, fontSize: 18 },
   filmTitle: { fontSize: 20, fontWeight: 'bold', marginBottom: 0 },
-  streamText: { fontSize: 14, marginBottom: 0},
+  streamText: { fontSize: 14, marginBottom: 0 },
   filmDescription: { marginBottom: 0 },
   button: { width: 400, backgroundColor: 'black', color: 'white', outline: 'none', fontSize: 18, padding: '12px 0px' },
-  searchContainer: {width: "100%", marginLeft: "0", marginRight: "0", padding: "0 2.5vw 0 2.5vw", borderRadius: "25px", display: "grid", gridTemplateColumns: "1fr", gridTemplateRows: "1fr"},
-  startLive: {position: "absolute", left: "5%", top: "18%", minHeight: "3vh", maxHeight: "7vh", minWidth: "3vh", maxWidth: "7vw"},
-  startLiveImg: {minHeight: "3vh", maxHeight: "7vh", minWidth: "3vh", maxWidth: "7vw"}
+  searchContainer: { width: "100%", marginLeft: "0", marginRight: "0", padding: "0 2.5vw 0 2.5vw", borderRadius: "25px", display: "grid", gridTemplateColumns: "1fr", gridTemplateRows: "1fr" },
+  startLive: { position: "absolute", left: "5%", top: "18%", minHeight: "3vh", maxHeight: "7vh", minWidth: "3vh", maxWidth: "7vw" },
+  startLiveImg: { minHeight: "3vh", maxHeight: "7vh", minWidth: "3vh", maxWidth: "7vw" }
 }
