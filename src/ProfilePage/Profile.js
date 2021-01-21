@@ -118,8 +118,15 @@ class Profile extends React.Component {
 
         </div>
         {/* adding class to each heading */}
-        <h1 className='bio-heading'> BIO </h1>
-        <p> Grew up on Planet Earth, Dallas, I learned human speak. </p>
+        <div className="bio-ctn">
+          <h2 className='bio-heading'> Bio </h2>
+        </div>
+        <p  className='bio-content'>
+          Grew up on Planet Earth, Dallas, I learned human speak.
+          Grew up on Planet Earth, Dallas, I learned human speak.
+          Grew up on Planet Earth, Dallas, I learned human speak.
+        </p>
+        <hr className="bio-division"/>
         <h1 className='resumeAndPortfolio-heading'> Resume & Portfolio </h1>
         <p> Link here </p>
         <h1 className='verifiedSkills-heading'> Verified Skills </h1>
