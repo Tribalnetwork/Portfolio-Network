@@ -50,7 +50,7 @@ type User @model {
   ImgUrl:String
   MyGigs:[Gig!]@connection(name:"UserGig")
   InvitedGig:[UserInviteByGig!]@connection(keyName: "byUser", fields: ["id"])
-  userType:Int
+  
   
 }
 
