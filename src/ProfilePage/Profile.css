@@ -1,207 +1,162 @@
-body{
-overflow: auto;
-overflow-x: hidden;
+body {
+    overflow: auto;
+    overflow-x: hidden;
 }
 
-
-.bodycontainer
-{
-    width:100%;
-   height: auto;
+.bodycontainer {
+    width: 100%;
+    height: auto;
     display: flex;
     flex-direction: column;
     /*background-color: red;*/
-
- 
-   
-   
 }
-.container{
-    background-color:#15161B ;
-    width:100%;
+.container {
+    background-color: #15161b;
+    width: 100%;
     height: 478px;
     border-radius: 15px;
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-     justify-content: center;
-     border: 2px solid #887d3b; 
- 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #887d3b;
 }
 
-
-.profileimagecontainer{
-   flex-direction: row;
-   width: 100%;
-   height: 210px;
+.profileimagecontainer {
+    flex-direction: row;
+    width: 100%;
+    height: 210px;
     margin: 0 auto;
     justify-content: center;
     align-items: center;
 }
 
-.profileimage{
-
- max-width: 210px;
- max-height:210px;
- border-radius: 50%;
- margin-top:10px;
- border: 2px solid #887d3b;
+.profileimage {
+    max-width: 210px;
+    max-height: 210px;
+    border-radius: 50%;
+    margin-top: 10px;
+    border: 2px solid #887d3b;
 }
 
-.arrownavigation{
+.arrownavigation {
     color: grey;
     margin-bottom: 105px;
     margin-left: 8%;
     margin-right: 8%;
-   
-
-     
 }
 
-.welcomeText{
-
-color: #ffffff;
-font-family: Roboto;
-font-style: normal;
-font-weight: normal;
-font-size: 30px;
-line-height: 35px;
+/* Making sure font-size for h1.welcomText will remain: 30px */
+.welcomeText {
+    color: #ffffff;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    /* adding !important */
+    font-size: 30px !important;
+    line-height: 35px;
 }
 
-.username{
-
- color: #ffffff;
- font-family: Roboto;
-font-style: normal;
-font-weight: normal;
-font-size: 20px;
-line-height: 23px;
-text-align: center;
+.username {
+    color: #ffffff;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 23px;
+    text-align: center;
 }
 
-
-
-.iconcontainer{
-
+.iconcontainer {
     display: flex;
     flex-direction: row;
-    
-
 }
 
-.icon
-{
-width: 60px;
-height: 60px;
-left: 37px;
-top: 352px;
-border-radius: 50%;
-border: 2px solid #887d3b; 
-margin-right: 2vw;
-margin-left: 2vw;
+.icon {
+    width: 60px;
+    height: 60px;
+    left: 37px;
+    top: 352px;
+    border-radius: 50%;
+    border: 2px solid #887d3b;
+    margin-right: 2vw;
+    margin-left: 2vw;
 }
 
-.iconButton{
- width:100%;
- height: 100%;
- border-radius: 50%;
- background-color:#15161B;
- border: 1px solid #15161B;
- cursor: pointer;
- position: relative;
- outline: none;
- 
- 
+.iconButton {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #15161b;
+    border: 1px solid #15161b;
+    cursor: pointer;
+    position: relative;
+    outline: none;
 }
 
-.iconButton:active{
-    border:2px solid #76772b;
-
+.iconButton:active {
+    border: 2px solid #76772b;
 }
 
-
-
-
-
-.iconlogo{
-
- color: #ffffff; 
+.iconlogo {
+    color: #ffffff;
 }
 
 /*middle button icon*/
-#middle
-{
-margin-top: 20px;
+#middle {
+    margin-top: 20px;
 }
 
-
-.tribeinfoContainer
-{
-    width:100%;
+.tribeinfoContainer {
+    width: 100%;
     height: 150px;
     /*background-color: blue;*/
     display: flex;
     justify-content: center;
     align-items: center;
-    
 }
 
-.tribeInfo{
-
-    color:#ffffff; 
+.tribeInfo {
+    color: #ffffff;
     font: "Roboto";
     font-weight: 500;
     font-style: normal;
+    /* font is 20pt and centered */
     font-size: 20px;
-
-
-    
+    text-align: center;
 }
 
-.line{
+.line {
     width: 95%;
     height: 2px;
     border: 1px solid #757575;
     margin-top: 5px;
     margin-bottom: 10px;
-     align-self: center;
-    }
-    
-
-.contentcontainer{
-  margin-top: 50px;
-  display: flex;
-  flex-direction: row;
-  width: 100vw;
-  height: 100%;
-  flex-wrap: wrap;
-  justify-content: center;
- 
- 
+    align-self: center;
 }
 
+.contentcontainer {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 
-.moviecontainer{
-   
+.moviecontainer {
     width: 33%;
-  
-
-  
-
 }
 
-
-.poster{
+.poster {
     height: 75%;
-     width:100%;
-     border-radius: 10px;
-  
-    
-     
+    width: 100%;
+    border-radius: 10px;
 }
 
-.addcontainer{
-    background-color:black ;
+.addcontainer {
+    background-color: black;
     width: 100%;
     height: 25%;
     display: flex;
@@ -210,9 +165,7 @@ margin-top: 20px;
     padding-right: 5%;
 }
 
-
-
-.addbutton{
+.addbutton {
     height: 30px;
     align-self: center;
     background-color: #000000;
@@ -220,15 +173,16 @@ margin-top: 20px;
     border: none;
 }
 
-.addbutton :active :only-child
-{
-  color: blue;
-    
+.addbutton :active :only-child {
+    color: blue;
 }
 
-.addIcon{
-  
-    color: #ffffff; 
+.addIcon {
+    color: #ffffff;
+}
+
+h1.bio-heading, h1.resumeAndPortfolio-heading, h1.verifiedSkills-heading{
+    font-size: 30px;
 }
 
 
@@ -236,46 +190,42 @@ margin-top: 20px;
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
-    .profileimage
-    {
-       max-width: 50vw;
-        max-height:210px;
+    .profileimage {
+        max-width: 50vw;
+        max-height: 210px;
         border-radius: 50%;
-        margin-top:10px;
+        margin-top: 10px;
         border: 2px solid #887d3b;
-       }
+    }
 
-       .arrownavigation
-       {
+    .arrownavigation {
         color: grey;
         margin-bottom: 105px;
         margin-left: 2px;
         margin-right: 2px;
-       }
+    }
 
-       .tribeInfo
-       {
-
-        color:#ffffff; 
+    .tribeInfo {
+        color: #ffffff;
         font: "Roboto";
         font-weight: 500;
         font-style: normal;
-        font-size: 3vw;   
-       }
-
- 
+        font-size: 3vw;
+    }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {}
+@media only screen and (min-width: 600px) {
+}
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
-    
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {}
+@media only screen and (min-width: 992px) {
+}
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {}
+@media only screen and (min-width: 1200px) {
+}
