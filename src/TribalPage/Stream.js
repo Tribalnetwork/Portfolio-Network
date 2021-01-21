@@ -105,7 +105,7 @@ export const Stream = () => {
 
         <div className="seacrchCtn">
           <Link to="/mylive" style={styles.startLive} className="live-btn">
-            <img src={StartLive} style={styles.startLiveImg} />
+            <img src={StartLive} style={styles.startLiveImg} alt="go live"/>
           </Link>
           <SearchQueries type={"liveStreams"} round={true} style={styles.search} />
         </div>
@@ -148,6 +148,6 @@ const styles = {
   filmDescription: { marginBottom: 0 },
   button: { width: 400, backgroundColor: 'black', color: 'white', outline: 'none', fontSize: 18, padding: '12px 0px' },
   searchContainer: { width: "100%", marginLeft: "0", marginRight: "0", padding: "0 2.5vw 0 2.5vw", borderRadius: "25px", display: "grid", gridTemplateColumns: "1fr", gridTemplateRows: "1fr" },
-  startLive: { position: "absolute", left: "5%", top: "18%", minHeight: "3vh", maxHeight: "7vh", minWidth: "3vh", maxWidth: "7vw" },
-  startLiveImg: { minHeight: "3vh", maxHeight: "7vh", minWidth: "3vh", maxWidth: "7vw" }
+  // startLive: { position: "absolute", left: "5%", top: "18%", minHeight: "40px", maxHeight: "7vh", minWidth: "40px", maxWidth: "7vw" },
+  startLiveImg: { width: "100%" }
 }

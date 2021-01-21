@@ -5,8 +5,22 @@
 	position: relative;
 }
 
+.live-btn {
+	position: absolute;
+	left: 5%;
+	top: 18%;
+	min-height: 38px;
+	min-width: 38px;
+	max-height: 7vh;
+	max-width: 7vw;
+}
+
 @media screen and (max-width: 600px) {
 	.seacrchCtn {
-		width: 80vw;
+		width: 90vw;
+	}
+
+	.live-btn {
+		left: 3%;
 	}
 }
