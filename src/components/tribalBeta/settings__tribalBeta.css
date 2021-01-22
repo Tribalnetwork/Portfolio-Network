@@ -1,0 +1,28 @@
+.setting__tribalBeta {
+  padding-top: 2rem;
+  padding-bottom: 0.3rem;
+  margin-bottom: 2.75rem;
+}
+
+.settingText__tribalBeta {
+  font-size: 2rem !important;
+}
+
+.settingsButton__tribalBeta.MuiButtonBase-root {
+  display: flex;
+  justify-content: flex-start;
+  background-color: rgba(30, 30, 30, 0.75);
+}
+
+.buttonArrow__tribalBeta {
+  margin-top: 0.5rem !important;
+}
+
+.settingsButton__tribalBeta > .MuiButton-label {
+  padding: 0.4rem;
+  font-size: 1.05rem;
+}
+
+.settingsRightIcon__tribalBeta {
+  margin-right: 1rem;
+}
