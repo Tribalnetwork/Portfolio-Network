@@ -164,7 +164,7 @@ class Profile extends React.Component {
             {this.state.showPopup ? <DropdownMenu
               text='Click "Close Button" to hide popup'
               closePopup={this.togglePopup.bind(this)}
-              link1="/mystudio"
+              link1="/myStudio/toDoList"
               link2="/myprofile"
               link3="/social"
               text1="To-Do"
