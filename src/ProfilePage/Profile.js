@@ -60,6 +60,10 @@ class Profile extends React.Component {
 
   render() {
     const hasAccess = this.context.hasAccess;
+    const skills = ["singer", "song-writer", "animator", "producer", "baller", "cool"];
+    const list = skills.map(skill => (
+      <p key={Math.random()} className="skills">{skill}</p>
+    ))
     return (
 
       <div className={"bodycontainer"}>
@@ -127,10 +131,19 @@ class Profile extends React.Component {
           Grew up on Planet Earth, Dallas, I learned human speak.
         </p>
         <hr className="bio-division"/>
-        <h1 className='resumeAndPortfolio-heading'> Resume & Portfolio </h1>
-        <p> Link here </p>
-        <h1 className='verifiedSkills-heading'> Verified Skills </h1>
-        <p> Grew up on Planet Earth, Dallas, I learned human speak. </p>
+        <div className="bio-ctn">
+          <h2 className='resumeAndPortfolio-heading'> Resume & Portfolio </h2>
+        </div>
+        <div className="resume-content">Placeholder1</div>
+        <div className="resume-content second">Placeholder2</div>
+        {/* <p> Link here </p> */}
+        <div className="bio-ctn">
+          <h2 className='verifiedSkills-heading'> Verified Skills </h2>
+        </div>
+        <div className="skills-content">
+            {list}
+        </div>
+        {/* <p> Grew up on Planet Earth, Dallas, I learned human speak. </p> */}
       </div>
 
     )

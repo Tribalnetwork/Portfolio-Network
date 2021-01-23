@@ -189,13 +189,6 @@ body {
 	margin-top: 30px;
 }
 
-.bio-heading {
-	font-size: 20px;
-	color: white;
-	letter-spacing: 2px;
-	font-weight: 600;
-}
-
 .bio-content {
 	padding: 10px;
 	color: white;
@@ -210,9 +203,46 @@ body {
 	background-color: rgb(155, 152, 152);
 }
 
-h1.resumeAndPortfolio-heading,
-h1.verifiedSkills-heading {
-	font-size: 30px;
+.bio-heading,
+.resumeAndPortfolio-heading,
+.verifiedSkills-heading {
+	font-size: 20px;
+	letter-spacing: 2px;
+	font-weight: 600;
+}
+
+.resume-content {
+	border: 1px solid rgb(22, 19, 19);
+	border-radius: 20px;
+	background: rgb(22, 19, 19);
+	padding: 10px;
+	width: 90%;
+	margin: 0 auto;
+	color: white;
+}
+
+.second {
+	margin-top: 15px;
+}
+
+.skills-content {
+	width: 70%;
+	margin: 0 auto;
+	display: grid;
+	justify-content: space-between;
+	padding: 10px;
+	grid-template-columns: auto auto auto;
+}
+
+.skills {
+	border: 3px solid #887d3b;
+	border-radius: 50%;
+	width: 90px;
+	height: 90px;
+	color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 /* media queries */
@@ -244,6 +274,15 @@ h1.verifiedSkills-heading {
 		font-weight: 500;
 		font-style: normal;
 		font-size: 3vw;
+	}
+
+	.skills-content {
+		width: 90%;
+	}
+
+	.skills {
+		width: 80px;
+		height: 80px;
 	}
 }
 
