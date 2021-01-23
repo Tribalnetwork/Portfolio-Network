@@ -2,7 +2,7 @@ import React from 'react'
 import { Auth, Storage } from 'aws-amplify'
 import Container from '../components/Container'
 import Button from '../components/Button';
-import UserContext from '../UserContext'
+import UserContext from '../components/UserContext'
 import { Helmet } from 'react-helmet'
 
 import ChangeProfilePhotoButton from "../components/ChangeProfilePhotoButton";

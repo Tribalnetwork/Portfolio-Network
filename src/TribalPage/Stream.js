@@ -4,7 +4,7 @@ import { createLiveStream, updateUser } from '../graphql/mutations'
 import { listLiveStreams } from '../graphql/queries'
 import '@aws-amplify/ui/dist/style.css';
 import { Link } from "react-router-dom";
-import UserContext from '../UserContext'
+import UserContext from '../components/UserContext'
 import { Helmet } from 'react-helmet'
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';

@@ -5,7 +5,7 @@ import { getUser } from './graphql/queries'
 
 import './App.css'
 import Router from './OnePager/Router'
-import UserContext from './UserContext'
+import UserContext from './components/UserContext'
 
 class App extends Component {
   state = {

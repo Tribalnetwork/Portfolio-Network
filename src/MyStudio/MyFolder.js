@@ -2,7 +2,7 @@ import React from "react";
 import { API, graphqlOperation } from 'aws-amplify'
 import { listLiveStreams } from '../graphql/queries'
 import HorizontalScrollerCircular from "../components/HorizontalScrollerCircular";
-import TrendingNow from "../TrendingNow";
+import TrendingNow from '../OnePager/TrendingNow';
 import MyList from '../components/MyList';
 
 export default class MyFolder extends React.Component{

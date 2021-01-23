@@ -5,7 +5,7 @@
 // import awsconfig from '../aws-exports';
 // import '@aws-amplify/ui/dist/style.css';
 // import { Link } from "react-router-dom";
-// import UserContext from '../UserContext'
+// import UserContext from '../components/UserContext'
 // import { Helmet } from 'react-helmet'
 // import ReactPlayer from 'react-player'
 // import Card from '@material-ui/core/Card';
@@ -17,7 +17,7 @@
 // import Grid from '@material-ui/core/Grid';
 // //import './Home.css';
 // import HorizontalScrollerCircular from "../components/HorizontalScrollerCircular";
-// import TrendingNow from "../TrendingNow";
+// import TrendingNow from '../OnePager/TrendingNow';
 // import ContinueWatching from '../components/ContinueWatching';
 // import MyList from '../components/MyList';
 // import {ReactComponent as ExploreLogo} from '../icons/Explore.svg';

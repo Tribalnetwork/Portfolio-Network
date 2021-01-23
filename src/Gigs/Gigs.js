@@ -5,7 +5,7 @@ import { listGigs } from '../graphql/queries'
 import awsconfig from '../aws-exports';
 import '@aws-amplify/ui/dist/style.css';
 import { Link } from "react-router-dom";
-import UserContext from '../UserContext'
+import UserContext from '../components/UserContext'
 import { Helmet } from 'react-helmet'
 import ReactPlayer from 'react-player'
 import Card from '@material-ui/core/Card';
