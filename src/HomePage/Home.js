@@ -18,8 +18,8 @@
 // //import './Home.css';
 // import HorizontalScrollerCircular from "../components/HorizontalScrollerCircular";
 // import TrendingNow from "../TrendingNow";
-// import ContinueWatching from "../ContinueWatching";
-// import MyList from "../MyList";
+// import ContinueWatching from '../components/ContinueWatching';
+// import MyList from '../components/MyList';
 // import {ReactComponent as ExploreLogo} from '../icons/Explore.svg';
 // import {ReactComponent as MyStudioLogo} from '../icons/myStudio.svg';
 // import Gigs from '../Gigs/Gigs';

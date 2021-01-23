@@ -4,7 +4,7 @@ import { API, graphqlOperation } from 'aws-amplify'
 import { getUser } from './graphql/queries'
 
 import './App.css'
-import Router from './Router'
+import Router from './OnePager/Router'
 import UserContext from './UserContext'
 
 class App extends Component {
