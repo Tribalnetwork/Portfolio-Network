@@ -7,7 +7,7 @@ import { API, graphqlOperation } from 'aws-amplify'
 import { getFilm, getUser,getPlayList,filmInListByListByFilm} from './graphql/queries'
 import { updateFilm, updateUser,createPlayList,updatePlayList,createFilmInList,deleteFilmInList } from './graphql/mutations'
 import UserContext from './UserContext'
-import Button from './Button'
+import Button from './components/Button'
 import './Watch.css'
 import Grid from '@material-ui/core/Grid';
 import {ReactComponent as Ratelogo} from './icons/Rate.svg';

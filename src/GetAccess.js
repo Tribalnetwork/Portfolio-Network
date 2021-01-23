@@ -1,9 +1,9 @@
 import React from 'react'
 import { API, graphqlOperation } from 'aws-amplify'
 import { updateUser } from './graphql/mutations'
-import Container from './Container'
+import Container from './components/Container'
 import UserContext from './UserContext'
-import Button from './Button'
+import Button from './components/Button'
 import { Link } from "react-router-dom";
 import { Helmet } from 'react-helmet'
 

@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 import UserContext from "./UserContext";
 import { NavigationBar } from "./components/NavigationBar";
-import Authenticator from './Authenticator'
+import Authenticator from './Auth/Authenticator'
 import { Upload } from './Upload';
 import Watch from './Watch'
 import Landing from './landing/landing-home.js'
