@@ -79,6 +79,9 @@ class WatchStreamPage extends React.Component {
                   controls
                   playing
                   onEnded={() => this.p.showPreview()}
+                  className='react-player' 
+                  width='100%' 
+                  height="100%"
                 />
               </div>
             )
