@@ -35,38 +35,38 @@ const useStyles = makeStyles((theme) => ({
   list: {
     width: 250,
     height: '100%',
-    backgroundColor:'#000',
-    color:'#DAA520',
+    backgroundColor: '#000',
+    color: '#DAA520',
   },
-  list2:{
+  list2: {
     width: 250,
     height: '100%',
-    backgroundColor:'#000',
-    color:'#fff',
+    backgroundColor: '#000',
+    color: '#fff',
   },
-  imgStyle : {
+  imgStyle: {
     width: 30,
-    height:13,
+    height: 13,
   },
-  svgStyle : {
+  svgStyle: {
     width: 50,
-    height:20,
+    height: 20,
   },
-  avatarStyle : {
+  avatarStyle: {
     width: 30,
-    height:10,
+    height: 10,
   },
-  textStyle :{
-    textAlign: 'center', 
+  textStyle: {
+    textAlign: 'center',
   }
-  
+
 }));
 
 
 
 
 export const NavigationBar = () => {
-  
+
   const context = useContext(UserContext)
   const classes = useStyles();
   const [open, setOpen] = useState(false);
@@ -110,54 +110,58 @@ export const NavigationBar = () => {
             <MenuIcon />
 
           </IconButton>
-          <Link to='/' className={classes.title}>
+          <span className={classes.title}>
             <Typography variant="h6" >
               Tribal
             </Typography>
-          </Link>
+          </span>
           {
             isLoaded ? isAuthenticated ? (
               <div >
-                <button style="display:inline-block"
- className = {"profileimage2"} onClick={handleDrawerOpen2} variant='contained' style={{ background: 'black', textTransform: 'none' }}>
-                <img className = {"profileimage2"} src = "https://d202tggnzywgd9.cloudfront.net/public/photos/avatar.png" ></img>
+                <button
+                  style="display:inline-block"
+                  className={"profileimage2"}
+                  onClick={handleDrawerOpen2}
+                  variant='contained'
+                  style={{ background: 'black', textTransform: 'none' }}>
+
+                  <img className={"profileimage2"} src="https://d202tggnzywgd9.cloudfront.net/public/photos/avatar.png" />
                 </button>
-                <Drawer 
-        anchor="right"
-        open={open2}
-        onClose={handleDrawerClose2}
-      >
-        <div
-          className={classes.list2}
-          role="presentation"
-          onClick={handleDrawerClose2}
-          onKeyDown={handleDrawerClose2}
-        >
-          <List>
-          <ListItem
-          button
-          component={Link} to={"/settings/notifications"}
-        >
-          <img className={classes.svgStyle} src = {Bell}></img> 
-          <ListItemText primary={'Notifications'}> </ListItemText>
-        </ListItem>
-        <ListItem
-          button
-          component={Link} to={"/mystudio"}
-        >
-          <img className={classes.svgStyle} src = {Book}></img> 
-          <ListItemText primary={'My Studio'}> </ListItemText>
-        </ListItem>
-        <ListItem
-          button
-          component={Link} to={"/ss"}
-        >
-          <img className={classes.svgStyle} src = {People}></img> 
-          <ListItemText primary={'Connections'}> </ListItemText>
-        </ListItem>
-          </List>
-        </div>
-      </Drawer>
+
+                <Drawer
+                  anchor="right"
+                  open={open2}
+                  onClose={handleDrawerClose2}>
+                  <div
+                    className={classes.list2}
+                    role="presentation"
+                    onClick={handleDrawerClose2}
+                    onKeyDown={handleDrawerClose2}>
+                    <List>
+                      <ListItem
+                        button
+                        component={Link} to={"/settings/notifications"}
+                      >
+                        <img className={classes.svgStyle} src={Bell}></img>
+                        <ListItemText primary={'Notifications'}> </ListItemText>
+                      </ListItem>
+                      <ListItem
+                        button
+                        component={Link} to={"/mystudio"}
+                      >
+                        <img className={classes.svgStyle} src={Book}></img>
+                        <ListItemText primary={'My Studio'}> </ListItemText>
+                      </ListItem>
+                      <ListItem
+                        button
+                        component={Link} to={"/ss"}
+                      >
+                        <img className={classes.svgStyle} src={People}></img>
+                        <ListItemText primary={'Connections'}> </ListItemText>
+                      </ListItem>
+                    </List>
+                  </div>
+                </Drawer>
               </div>
             ) : (
                 <Link to='/auth' style={{ textDecoration: 'none' }}>
@@ -179,59 +183,59 @@ export const NavigationBar = () => {
           onClick={handleDrawerClose}
           onKeyDown={handleDrawerClose}
         >
-        <List component="nav" >
-        <ListItem
-          button
-          component={Link} to={"/home"}
-        >
-          <img src = {Home}></img>  
-          <ListItemText  primary={'Home'}> </ListItemText>  
-          
-        </ListItem>
-        <ListItem
-          button
-          component={Link} to={"/search"}
-        >
-          <img src = {Search}></img>   
-          <ListItemText primary={'Search'}> </ListItemText> 
-          
-        </ListItem>
-        <ListItem
-          button
-          component={Link} to={"/streams"}
-        >
-          <img src = {Tribal}></img> 
-          <ListItemText primary={'Tribal'}> </ListItemText>   
-          
-        </ListItem>
-        <ListItem
-          button
-          component={Link} to={"/profile"}
-        >
-          <img src = {Social}></img>  
-          <ListItemText  primary={'Social'}> </ListItemText>  
-          
-        </ListItem>
-        <ListItem
-          button
-          component={Link} to={"/settings"}
-        >
-          <img src = {Settings}></img>   
-          <ListItemText  primary={'Settings'}> </ListItemText> 
-          
-        </ListItem>
-        <ListItem
-          button
-          component={Link} to={"/submit"}
-        >
-          <img className={classes.imgStyle} src = {Submit}></img>
-          <ListItemText className={classes.textStyle} primary={"Submit"} ></ListItemText> 
-          
-        </ListItem>
-        </List>
-          
+          <List component="nav" >
+            <ListItem
+              button
+              component={Link} to={"/home"}
+            >
+              <img src={Home}></img>
+              <ListItemText primary={'Home'}> </ListItemText>
+
+            </ListItem>
+            <ListItem
+              button
+              component={Link} to={"/search"}
+            >
+              <img src={Search}></img>
+              <ListItemText primary={'Search'}> </ListItemText>
+
+            </ListItem>
+            <ListItem
+              button
+              component={Link} to={"/streams"}
+            >
+              <img src={Tribal}></img>
+              <ListItemText primary={'Tribal'}> </ListItemText>
+
+            </ListItem>
+            <ListItem
+              button
+              component={Link} to={"/profile"}
+            >
+              <img src={Social}></img>
+              <ListItemText primary={'Social'}> </ListItemText>
+
+            </ListItem>
+            <ListItem
+              button
+              component={Link} to={"/settings"}
+            >
+              <img src={Settings}></img>
+              <ListItemText primary={'Settings'}> </ListItemText>
+
+            </ListItem>
+            <ListItem
+              button
+              component={Link} to={"/submit"}
+            >
+              <img className={classes.imgStyle} src={Submit}></img>
+              <ListItemText className={classes.textStyle} primary={"Submit"} ></ListItemText>
+
+            </ListItem>
+          </List>
+
         </div>
-        
+
       </Drawer>
 
 
