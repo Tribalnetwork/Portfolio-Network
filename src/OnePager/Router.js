@@ -183,7 +183,7 @@ const Routes = () => (
         {/* <PrivateRoute path="/profile" component={Profile} /> */}
         {/* commenting out and changing value of component
          just to give me access to MyProfile */}
-        <PrivateRoute path="/profile" component={MyProfile} />
+        <PrivateRoute path="/profile" component={Profile} />
         <PrivateRoute path="/myprofile" component={MyProfile} />
 
         <PrivateRoute path="/getaccess" component={GetAccess} />
