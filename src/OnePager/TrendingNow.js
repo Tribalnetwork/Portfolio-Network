@@ -1,18 +1,19 @@
 import React, { useState, useContext } from 'react';
-import UserContext from './UserContext'
+import UserContext from '../components/UserContext'
 import { API, graphqlOperation } from 'aws-amplify'
-import { listFilms ,getUser,listFilmInLists,getFilmInList} from './graphql/queries';
-import { deleteFilmInList } from './graphql/mutations'
-import HorizontalScroller from './components/HorizontalScroller';
-
-export default class WhatsNew extends React.Component {
+import { listFilms ,getUser,listFilmInLists,getFilmInList} from '../graphql/queries';
+import { deleteFilmInList } from '../graphql/mutations'
+import HorizontalScroller from '../components/HorizontalScroller';
+export default class TrendingNow extends React.Component {
 
     static contextType = UserContext
     state = {
         films: [],
+        text: "Trending Now"
       }
       componentDidMount() {
-        this.fetchFilms()
+        this.fetchFilms();
+        this.checkText();
       }
     
       async fetchFilms() {
@@ -29,13 +30,20 @@ export default class WhatsNew extends React.Component {
         } catch (err) { console.log(err) }
       }
 
+      checkText = () => {
+        if(this.props.text == "none"){
+          this.setState({text: ""})
+        }
+      }
+
 
       render(){
           return(
-            <div className="continue-watching-wrapper">
-                {/* <p>Continue Watching</p> */}
+            <div className="trending-now-wrapper">
+                <p>{this.state.text}</p>
                 <HorizontalScroller list={this.state.films} />
             </div>
           )
       }
 }
+

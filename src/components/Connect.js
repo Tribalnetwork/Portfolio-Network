@@ -1,7 +1,7 @@
 import React from 'react';
 import { API, graphqlOperation } from 'aws-amplify';
-import * as queries from './graphql/queries';
-import * as mutations from './graphql/mutations';
+import * as queries from '../graphql/queries' 
+import * as mutations from '../graphql/mutations' 
 
 export default class Connect extends React.Component{
     constructor(){

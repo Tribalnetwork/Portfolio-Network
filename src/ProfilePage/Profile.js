@@ -1,8 +1,8 @@
 import React from 'react'
 import { Auth, Storage } from 'aws-amplify'
-import Container from '../Container'
-import Button from '../Button';
-import UserContext from '../UserContext'
+import Container from '../components/Container'
+import Button from '../components/Button';
+import UserContext from '../components/UserContext'
 import { Helmet } from 'react-helmet'
 
 import ChangeProfilePhotoButton from "../components/ChangeProfilePhotoButton";
@@ -21,7 +21,7 @@ import DropdownMenu from '../components/DropdownMenu.js'
 //import ConnectList from "../SocialPage/ConnectList";
 //import {ReactComponent as UserLogo} from "../icons/users.svg"
 import PeopleAltOutlinedIcon from '@material-ui/icons/PeopleAltOutlined';
-import Connections from "../Connect";
+import Connections from "../components/Connect";
 // custom styling file
 import './Profile.css'
 

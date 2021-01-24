@@ -1,10 +1,10 @@
 import React, { useState, useContext } from 'react';
-import UserContext from './UserContext'
+import UserContext from '../components/UserContext'
 import { API, graphqlOperation } from 'aws-amplify'
-import { listFilms ,getUser,listFilmInLists,getFilmInList} from './graphql/queries';
-import { deleteFilmInList } from './graphql/mutations'
-import HorizontalScroller from './components/HorizontalScroller';
-export default class UpNext extends React.Component {
+import { listFilms ,getUser,listFilmInLists,getFilmInList} from '../graphql/queries' 
+import { deleteFilmInList } from '../graphql/mutations'
+import HorizontalScroller from '../components/HorizontalScroller' 
+export default class ContinueWatching extends React.Component {
 
     static contextType = UserContext
     state = {
@@ -31,11 +31,12 @@ export default class UpNext extends React.Component {
 
       render(){
           return(
-            <div className="up-next-wrapper">
-                <p>UpNext</p>
+            <div className="continue-watching-wrapper">
+                <p style={{color: "white"}}>Continue Watching</p>
                 <HorizontalScroller list={this.state.films} />
             </div>
           )
       }
 }
 
+ 

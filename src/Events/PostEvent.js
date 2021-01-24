@@ -5,7 +5,7 @@ import { getUser} from '../graphql/queries'
 import { createGig,UpdateUser } from '../graphql/mutations'
 import awsconfig from '../aws-exports';
 import '@aws-amplify/ui/dist/style.css';
-import UserContext from '../UserContext'
+import UserContext from '../components/UserContext'
 import './PostEvent.css';
 import {Button, IconButton, Input} from "@material-ui/core"
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
