@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { API, graphqlOperation } from 'aws-amplify'
-import { getUser } from './graphql/queries'
-import UserContext from './UserContext'
+import { getUser } from '../graphql/queries'
+import UserContext from '../components/UserContext'
 import { Helmet } from 'react-helmet'
 
 const initialState = { target: '', targetStreamKey: '' }

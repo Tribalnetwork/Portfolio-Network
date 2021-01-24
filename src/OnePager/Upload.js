@@ -1,10 +1,10 @@
 import React, { useState, useContext } from 'react'
 import Amplify, { Storage } from 'aws-amplify';
-import awsconfig from './aws-exports';
+import awsconfig from '../aws-exports';
 import '@aws-amplify/ui/dist/style.css';
 import { withStyles } from '@material-ui/core/styles';
 import LinearProgress from '@material-ui/core/LinearProgress';
-import UserContext from './UserContext'
+import UserContext from '../components/UserContext'
 import { Helmet } from 'react-helmet'
 
 Amplify.configure(awsconfig);

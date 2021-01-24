@@ -2,8 +2,8 @@ import React, {useState} from 'react'
 import { Link, useHistory } from "react-router-dom";
 import "./Explore.css"
 import HorizontalScrollerCircular from "../components/HorizontalScrollerCircular";
-import UserContext from '../UserContext'
-import WhatsNew from "../WhatsNew";
+import UserContext from '../components/UserContext'
+import WhatsNew from '../components/WhatsNew';
 import Amplify from 'aws-amplify';
 import { API, graphqlOperation } from 'aws-amplify'
 import { listFilms,listLiveStreams } from '../graphql/queries'
