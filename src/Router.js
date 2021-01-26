@@ -35,6 +35,7 @@ import Eventdetail from "./Events/Eventdetail"
 import MyProfile from "./ProfilePage/Profile.js"
 import Home from "./Home"
 import ConnectList from "./SocialPage/ConnectList"
+import Social from "./Social/Social.js"
 
 // import SportsPage from "./ExplorePage/SportsPage";
 
@@ -171,6 +172,7 @@ const Routes = () => (
         <Route path="/myStudio" exact component={MyStudio} />
         <Route path="/myStudio/myFolder" exact component={MyStudio} />
         <Route path="/myStudio/toDoList" exact component={MyStudio} />
+        <Route path="/social" exact component={Social} />
         <PrivateRoute path="/upload" exact component={Upload} />
         <PrivateRoute path="/streams" component={Stream} />
         <PrivateRoute path="/watch" component={Watch} />

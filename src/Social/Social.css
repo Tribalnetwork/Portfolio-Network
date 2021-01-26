@@ -1,0 +1,440 @@
+ body {
+     overflow: auto;
+    overflow-x: hidden; 
+ }  
+  
+ .bodycontainer {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+   
+  } 
+   .container {
+    background-color: #15161b;
+    width: 100%;
+    height: 200px;
+    border-radius: 0px 0px 60px 60px;
+    /* display: flex; */
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #887d3b; 
+    margin-right: 50px;
+  
+
+   } 
+
+
+   .tribeinfoContainer {
+    width: 100%;
+    height: 80px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+  
+      color: #ffffff;
+      font: 'Roboto';
+      font-weight: 500;
+      font-style: bold;
+      font-size: 20px; 
+   
+  }
+  
+  .line {
+    width: 95%;
+    height: 2px;
+    border: 1px solid #757575;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    align-self: center;
+  }
+
+  .button {
+    height: 39px;
+    width: 349px;
+    left: 13px;
+    top: 103px;
+    border-radius: 0px;
+    background-color: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 98.9%);
+
+
+    color: inherit;
+    text-decoration: inherit;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 23px;
+    text-align: center;
+    
+   
+
+    
+   
+
+ 
+  }
+   
+  
+ 
+  
+  /* .profileimagecontainer {
+    flex-direction: row;
+    width: 100%;
+    height: 210px;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .profileimage {
+    max-width: 210px;
+    max-height: 210px;
+    border-radius: 50%;
+    margin-top: 10px;
+    border: 2px solid #887d3b;
+  } */
+  
+  /* .arrownavigation {
+    color: grey;
+    margin-bottom: 105px;
+    margin-left: 8%;
+    margin-right: 8%;
+  }
+  
+  .welcomeText {
+    color: #ffffff;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 35px;
+    margin-top: 30px !important;
+    margin-bottom: 10px;
+  }
+   */
+  /* .username {
+    color: #ffffff;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 23px;
+    text-align: center;
+  }
+  
+  .iconcontainer {
+    display: flex;
+    flex-direction: row;
+  } */
+  
+  /* .icon {
+    width: 60px;
+    height: 60px;
+    left: 37px;
+    top: 352px;
+    border-radius: 50%;
+    border: 2px solid #887d3b;
+    margin-right: 2vw;
+    margin-left: 2vw;
+  }
+  
+  .iconButton {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #15161b;
+    border: 1px solid #15161b;
+    cursor: pointer;
+    position: relative;
+    outline: none;
+    left: -20px;
+  } */
+/*   
+  .iconButton:active {
+    border: 2px solid #76772b;
+  }
+  
+  .iconlogo {
+    color: #ffffff;
+  }
+  
+  /*middle button icon*/
+  /* #middle {
+    margin-top: 20px;
+  } */
+  
+  /* .iconAndText {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 5px;
+  } */
+  
+  /* .iconText {
+    color: #f1d744;
+    font-family: serif;
+    margin-top: 10px;
+    text-align: center;
+  } */
+  
+   /* .tribeinfoContainer {
+    width: 100%;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  } 
+   */
+  /* .tribeInfo {
+    color: #ffffff;
+    font: 'Roboto';
+    font-weight: 500;
+    font-style: normal;
+    font-size: 20px;
+  } */
+  
+  /* .line {
+    width: 95%;
+    height: 2px;
+    border: 1px solid #757575;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    align-self: center;
+  } */
+  
+  .contentcontainer {
+    /* margin-top: 50px;  
+     display: flex;
+    flex-direction: row;  
+     width: 100vw;
+    height: 100%; 
+    flex-wrap: wrap; 
+    justify-content: center;   */
+    display: grid;
+    /* grid-template-columns: repeat(4, 4fr); */
+    grid-gap: 5px; 
+    grid-template-columns: 1fr 1fr 1fr; 
+    /* grid-column-gap: -5px; */
+    grid-row-gap: 35px; 
+    margin-left: 30px;
+    margin-top: 0;
+ 
+    
+
+  }
+
+ /* .contentcontainer {
+    /* column-gap: .7%; */
+    /* display: grid;	
+    grid-template-columns: 30% 15% 15% 15% 15% 15% 15% 15%; /*230px (16.42) 173px 12.35 173px 175px 12.5 175px 173px 116px 116px 8.28% */
+    
+    /* grid-template-rows: 1fr .07fr .12fr .44fr .638fr; */
+    /* grid-gap: 5px; */
+    /* grid-column-gap: .7%; */
+    /* left: 50%; */
+    /* margin: 100px -50vw 0;  */
+    /* position: relative; */
+    /* right: 50%;
+    width: 100vw;  */
+   /* }  */
+  
+  /* .grid-gallery img {
+    border-radius: 4px;
+    height: auto;
+    width: 100%;
+  }
+  
+  .grid-gallery img:nth-of-type(1) {
+    grid-column: 1 / span 2;
+    grid-row: 1 / span 3;
+  }
+  
+  .grid-gallery img:nth-of-type(2) {
+    grid-column: 1;
+    grid-row: 4 / span 2;
+  }
+  
+  .grid-gallery img:nth-of-type(3) {
+    grid-column: 2;
+    grid-row: 4 / span 2;
+  }
+  
+  .grid-gallery img:nth-of-type(4) {
+    align-self: end;
+    grid-column: 3;
+    grid-row: 1 / span 5;
+  }
+  
+  .grid-gallery img:nth-of-type(5) {
+    grid-column: 4 / span 2;
+    grid-row: 1 / span 2;
+  }
+  
+  .grid-gallery img:nth-of-type(6) {
+    grid-column: 4;
+    grid-row: 3 / span 2;
+  }
+  
+  .grid-gallery img:nth-of-type(7) {
+    grid-column: 5;
+    grid-row: 3 / span 2;
+  }
+  
+  .grid-gallery img:nth-of-type(8) {
+    grid-column: 4 / span 2;
+    grid-row: 5;
+  }
+  
+  .grid-gallery img:nth-of-type(9) {
+    align-self: center;
+    grid-column: 6;
+    grid-row: 1 / span 5;
+  }
+  
+  .grid-gallery img:nth-of-type(10) {
+    align-self: end;
+    grid-column: 7;
+    grid-row: 1;
+  }
+  
+  .grid-gallery img:nth-of-type(11) {
+    align-self: end;
+    grid-column: 8;
+    grid-row: 1;
+  }
+  
+  .grid-gallery img:nth-of-type(12) {
+    grid-column: 7 / span 2;
+    grid-row: 2 / span 4;
+  }
+
+
+
+
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  /* .moviecontainer {
+    width: 33%;
+  } */
+  
+  /* .poster {
+    height: 75%;
+    width: 75%;
+    border-radius: 10px;
+  } */
+  
+  /* .addcontainer {
+    background-color: black;
+    width: 100%;
+    height: 25%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding-right: 5%;
+  }
+   */
+  /* .addbutton {
+    height: 30px;
+    align-self: center;
+    background-color: #000000;
+    outline: none;
+    border: none;
+  } */
+/*   
+  .addbutton :active :only-child {
+    color: blue;
+  }
+  
+  .addIcon {
+    color: #ffffff;
+  } */
+  
+  /* media queries */
+  
+  /* Extra small devices (phones, 600px and down) */
+  @media only screen and (max-width: 600px) {
+    .profileimage {
+      max-width: 50vw;
+      max-height: 210px;
+      border-radius: 50%;
+      margin-top: 10px;
+      border: 2px solid #887d3b;
+    }
+  
+    .arrownavigation {
+      color: grey;
+      margin-bottom: 105px;
+      margin-left: 2px;
+      margin-right: 2px;
+    }
+  
+    .tribeInfo {
+      color: #ffffff;
+      font: 'Roboto';
+      font-weight: 500;
+      font-style: normal;
+      font-size: 3vw;
+    }
+  }
+  
+  /* Small devices (portrait tablets and large phones, 600px and up) */
+  @media only screen and (min-width: 600px) {
+  }
+  
+  /* Medium devices (landscape tablets, 768px and up) */
+  @media only screen and (min-width: 768px) {
+  }
+  
+  /* Large devices (laptops/desktops, 992px and up) */
+  @media only screen and (min-width: 992px) {
+  }
+  
+  /* Extra large devices (large laptops and desktops, 1200px and up) */
+  @media only screen and (min-width: 1200px) {
+  }
+  
