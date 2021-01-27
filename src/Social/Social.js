@@ -161,20 +161,23 @@ class Social extends React.Component {
     const hasAccess = this.context.hasAccess;
     return (
 
-      <div className={"bodycontainer"}>
+      <div className={"socialBodyContainer"}>
 
-        <div className={"container"}>
+        <div className={"socialContainer"}>
 
-        <button type="button" className='button'><Link to="/profile">Done</Link></button>
+        <div className="socialLine"> </div>
+
+        <Link to="/profile" className="socialButton" >Done</Link>
+
         </div>
 
-        <div className={"tribeinfoContainer"}>  Your shared activity    </div>
+        <div className={"socialTribeInfoContainer"}>  Your shared activity    </div>
 
 
-        <div className="line"> </div>
+        <div className="socialLine"> </div>
 
 
-        <div className={"contentcontainer"}>
+        <div className={"socialContentContainer"}>
 
           {/* {autofilm.map((movie) => (
             // <ActivityFilms film={movie.film}><li className = "item">{movie} </li> </ActivityFilms>
@@ -184,7 +187,7 @@ class Social extends React.Component {
 
           {movies.map((movie) => (
             // <ActivityFilms film={movie.film}><li className = "item">{movie} </li> </ActivityFilms>
-            <ActivityFilms film={movie.film}></ActivityFilms>
+            <ActivityFilms key={movie} film={movie.film}></ActivityFilms>
           ))}
 
 
