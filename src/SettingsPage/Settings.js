@@ -1498,7 +1498,8 @@ export { DownloadOptions };
 
 function Logout() {
   let history = useHistory();
-
+  history.push('/login');
+  
   return (
     <body>
       <div className="pageTitle">
