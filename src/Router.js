@@ -36,6 +36,7 @@ import MyProfile from "./ProfilePage/Profile.js"*/
 import Home from "./Home"
 //import ConnectList from "./SocialPage/ConnectList"
 import { FeatureComingSoon } from "./components/FeatureComingSoon";
+import { Settings__tribalBeta } from "./components/tribalBeta/Settings__tribalBeta";
 
 // import SportsPage from "./ExplorePage/SportsPage";
 
@@ -95,9 +96,9 @@ const Routes = () => (
     <div>
       <NavigationBar />
       <Switch>
-        
-        <Route path="/settings" exact component={FeatureComingSoon}>
-          <FeatureComingSoon />
+
+        <Route path="/settings" exact component={Settings__tribalBeta}>
+          <Settings__tribalBeta />
         </Route>
         <Route
           path="/settings/wifi"
@@ -147,21 +148,21 @@ const Routes = () => (
 
         {/* <Route path="/explore"><Explore /></Route> */}
         <Route path="/explore/sports" exact component={FeatureComingSoon} />
-        <Route path="/explore/talks"><FeatureComingSoon/></Route>
-        <Route path="/explore/drama"><FeatureComingSoon/></Route>
-        <Route path="/explore/romance"><FeatureComingSoon/></Route>
-        <Route path="/explore/horror"><FeatureComingSoon/></Route>
-        <Route path="/explore/family"><FeatureComingSoon/></Route>
-        <Route path="/explore/animation"><FeatureComingSoon/></Route>
-        <Route path="/explore/experimental"><FeatureComingSoon/></Route>
-        <Route path="/explore/thriller"><FeatureComingSoon/></Route>
-        <Route path="/explore/family"><FeatureComingSoon/></Route>
-        <Route path="/explore/scifi"><FeatureComingSoon/></Route>
-        <Route path="/explore/action"><FeatureComingSoon/></Route>
-        <Route path="/explore/comedy"><FeatureComingSoon/></Route>
-        <Route path="/explore/musical"><FeatureComingSoon/></Route>
-        <Route path="/explore/documentary"><FeatureComingSoon/></Route>
-        <Route path="/explore/watchrandom"><FeatureComingSoon/></Route>
+        <Route path="/explore/talks"><FeatureComingSoon /></Route>
+        <Route path="/explore/drama"><FeatureComingSoon /></Route>
+        <Route path="/explore/romance"><FeatureComingSoon /></Route>
+        <Route path="/explore/horror"><FeatureComingSoon /></Route>
+        <Route path="/explore/family"><FeatureComingSoon /></Route>
+        <Route path="/explore/animation"><FeatureComingSoon /></Route>
+        <Route path="/explore/experimental"><FeatureComingSoon /></Route>
+        <Route path="/explore/thriller"><FeatureComingSoon /></Route>
+        <Route path="/explore/family"><FeatureComingSoon /></Route>
+        <Route path="/explore/scifi"><FeatureComingSoon /></Route>
+        <Route path="/explore/action"><FeatureComingSoon /></Route>
+        <Route path="/explore/comedy"><FeatureComingSoon /></Route>
+        <Route path="/explore/musical"><FeatureComingSoon /></Route>
+        <Route path="/explore/documentary"><FeatureComingSoon /></Route>
+        <Route path="/explore/watchrandom"><FeatureComingSoon /></Route>
         <Route path="/auth" exact component={FeatureComingSoon} />
         <Route path="/" exact component={FeatureComingSoon} />
         <Route path="/home" exact component={Home} />
@@ -175,7 +176,7 @@ const Routes = () => (
         <PrivateRoute path="/upload" exact component={FeatureComingSoon} />
         <PrivateRoute path="/streams" component={FeatureComingSoon} />
         <PrivateRoute path="/watch" component={FeatureComingSoon} />
-        
+
         <PrivateRoute path="/live" component={FeatureComingSoon} />
         <PrivateRoute path="/profile" component={FeatureComingSoon} />
         <PrivateRoute path="/myprofile" component={FeatureComingSoon} />
