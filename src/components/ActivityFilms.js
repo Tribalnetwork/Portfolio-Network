@@ -10,6 +10,7 @@
 
 
 import React from 'react'
+import { Link } from "react-router-dom";
 import "./ActivityFilms.css"
 import { makeStyles } from '@material-ui/core/styles'
 import {
@@ -19,7 +20,8 @@ import {
     Typography,
     CardHeader,
     CardActionArea,
-    CardMedia
+    CardMedia,
+    Button
 } from '@material-ui/core/'
 
 export default class ActivityFilms extends React.Component {
@@ -55,6 +57,8 @@ export default class ActivityFilms extends React.Component {
                                         />
                                         <CardContent >
 
+                                        <Link to={"/profile"} className="redirect">X</Link>
+
                                         </CardContent>
                                     </CardActionArea>
 
@@ -78,8 +82,9 @@ export default class ActivityFilms extends React.Component {
                                             image={this.props.film.thumbNailsUrls[0]}
                                             title={this.props.film.name}
                                         />
-                                        <CardContent >
-                                        </CardContent>
+                                        <CardContent>
+                                        <Link to={"/profile"} className="redirect">X</Link>
+                                        </CardContent> 
                                     </CardActionArea>
 
                                 </Card >
@@ -102,8 +107,9 @@ const styles = makeStyles(theme => ({
 
     cardBottom: {
         backgroundColor: 'black'
-    }
+    },
 
+    
 
 }))
 
