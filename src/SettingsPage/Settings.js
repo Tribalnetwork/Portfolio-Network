@@ -1500,8 +1500,6 @@ export { DownloadOptions };
 function Logout() {
   let history = useHistory();
   history.push('/');
-
-
   return (
     <body>
       <div className="pageTitle">
