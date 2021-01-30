@@ -1,11 +1,11 @@
 {
-    "AppSyncApiName": "tnweb",
-    "DynamoDBBillingMode": "PAY_PER_REQUEST",
-    "DynamoDBEnableServerSideEncryption": "false",
-    "AuthCognitoUserPoolId": {
-        "Fn::GetAtt": [
-            "authtnweb2cdf60ba",
-            "Outputs.UserPoolId"
-        ]
-    }
+  "AppSyncApiName": "tnweb",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": "false",
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "authtnweb2cdf60ba",
+      "Outputs.UserPoolId"
+    ]
+  }
 }

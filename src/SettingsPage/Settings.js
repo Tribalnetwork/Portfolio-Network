@@ -4,6 +4,7 @@ import "./Settings.css";
 import KeyboardArrowRightIcon from "@material-ui/icons/KeyboardArrowRight";
 import { Button, IconButton } from "@material-ui/core";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
+import { AmplifyAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react';
 
 function Settings() {
   let history = useHistory();
@@ -1498,14 +1499,15 @@ export { DownloadOptions };
 
 function Logout() {
   let history = useHistory();
-
+  history.push('/');
   return (
     <body>
       <div className="pageTitle">
-        <IconButton edge="end" color="white" onClick={() => history.goBack()}>
+      <IconButton edge="end" color="white" onClick={() => history.goBack()}>
           <ArrowBackIosIcon className="backIcon" />
         </IconButton>
-        <h2 className="text">Logout</h2>
+        <h2 className="text"></h2>
+        <div class="one"><AmplifySignOut/></div>      
       </div>
       <div className="settings"></div>
     </body>
