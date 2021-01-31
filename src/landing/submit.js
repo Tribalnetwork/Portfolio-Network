@@ -115,6 +115,7 @@ const customStyles = {
 
 
 //// The max number of input field user on the page
+//Updated API Code
 const maxinput = 9;
 
 class Submit extends React.Component {
