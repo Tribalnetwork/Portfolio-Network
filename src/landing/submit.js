@@ -115,6 +115,7 @@ const customStyles = {
 
 
 //// The max number of input field user on the page
+//Updated API Code and added new parameters for films
 const maxinput = 9;
 
 class Submit extends React.Component {
@@ -122,7 +123,7 @@ class Submit extends React.Component {
     super(props);
 
     this.state = {
-      list: false,  //Determine whether to display the benefit list
+      /*list: false,  //Determine whether to display the benefit list
       index: 0,  // index is the current input that display on the webpage
       Name: "",   //User name not currently use.
       Email: "",
@@ -137,8 +138,20 @@ class Submit extends React.Component {
       backgroundvideo: "",
       Genre: "",
       Require: "",          // I use this required field to keep track of what input field user skip to give prompt to complete 
-      Title: "",
-
+      Title: "",*/
+      user_id: "",         
+      film_submitted_date:"",
+      film_status:"",
+      film_title:"",
+      film_genre:"",
+      film_synopsis:"",
+      film_link:"",
+      film_trailer:"",
+      film_cover_art:"",
+      film_cover_thumb:"",
+      film_credits:"",
+      film_year:"",
+      film_length:""
 
 
     };
@@ -152,8 +165,8 @@ class Submit extends React.Component {
     var result = null;
 
     this.setState({ MovieID: ((new Date()).getTime()) })
-    this.setState({ StatusIndicator: 0 })
-    this.setState({ UserID: requestingId })
+    this.setState({ film_status: 0 })
+    this.setState({ user_id: requestingId })
 
 
 
@@ -171,8 +184,8 @@ class Submit extends React.Component {
 
   componentDidMount() {
     this.setState({ MovieID: ((new Date()).getTime()) })
-    this.setState({ StatusIndicator: 0 })
-    this.setState({ UserID: requestingId })
+    this.setState({ film_status: 0 })
+    this.setState({ user_id: requestingId })
 
 
 
@@ -182,7 +195,7 @@ class Submit extends React.Component {
 
   handleChange(event) {
 
-    this.setState({ Genre: event.value })
+    this.setState({ film_genre: event.value })
   }
 
 
@@ -217,8 +230,21 @@ class Submit extends React.Component {
         url: "https://j9j2n6zof3.execute-api.us-east-1.amazonaws.com/dev",
         header: headers,
         data: {
-          video: this.state.FilmInput,
-          name: this.state.FilmInput.name
+          /*video: this.state.FilmInput,
+          name: this.state.FilmInput.name*/
+          user_id: "",         
+          film_submitted_date:"",
+          film_status:"",
+          film_title:"",
+          film_genre:"",
+          film_synopsis:"",
+          film_link:"",
+          film_trailer:"",
+          film_cover_art:"",
+          film_cover_thumb:"",
+          film_credits:"",
+          film_year:"",
+          film_length:""
         }
 
       }
@@ -260,15 +286,15 @@ class Submit extends React.Component {
         Required = Required + " Upload A Film,  "
       }
 
-      if (this.state.Title == "") {
+      if (this.state.film_title == "") {
         Required = Required + " Title,  "
       }
 
-      if (this.state.Genre == "") {
+      if (this.state.film_genre == "") {
         Required = Required + " Genre,  "
       }
 
-      if (this.state.Synopsis == "") {
+      if (this.state.film_synopsis == "") {
         Required = Required + " Synopsis,  "
       }
 
@@ -302,7 +328,7 @@ class Submit extends React.Component {
 
       <div className={"submitcontainer"}>
         {console.log("MovieID  ", this.state.MovieID)}
-        {console.log("new status indicator ", this.state.StatusIndicator)}
+        {console.log("new status indicator ", this.state.film_status)}
         <div className={"videosubmit"}>
           <ReactPlayer
             className={"backVideo"}
@@ -416,7 +442,7 @@ class Submit extends React.Component {
               <div className={"uploadcontainer"}>
                 <label for="filmTitle"> Enter The Film Title</label>
                 <input type="text" styles={{ cursor: "none,", border: "2px solid gold" }} required
-                  value={this.state.Title}
+                  value={this.state.film_title}
                   onChange={(object) => this.setState({ Title: object.target.value })}
 
                 >
@@ -434,7 +460,7 @@ class Submit extends React.Component {
                   onChange={this.handleChange}
 
                 />
-                {console.log(" current Genre " + this.state.Genre)}
+                {console.log(" current Genre " + this.state.film_genre)}
               </div>
             }
 
@@ -458,13 +484,13 @@ class Submit extends React.Component {
               <div className={"uploadcontainer"}>
                 <label for="Synopsis">Synopsis</label>
                 <textarea name="message" rows="10" cols="30"
-                  value={this.state.Synopsis}
+                  value={this.state.film_synopsis}
                   onChange={(object) => this.setState({ Synopsis: object.target.value })}
                 >
 
                 </textarea>
 
-                {console.log("synosis : ", this.state.Synopsis)}
+                {console.log("synosis : ", this.state.film_synopsis)}
               </div>
 
 
