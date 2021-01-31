@@ -9,7 +9,7 @@ export default class TrendingNow extends React.Component {
     static contextType = UserContext
     state = {
         films: [],
-        text: "Trending Now"
+        text: "Films Picked for You"
       }
       componentDidMount() {
         this.fetchFilms();
