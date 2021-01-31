@@ -123,25 +123,26 @@ body {
   text-align: center;
 }
 
-.tribeinfoContainer {
+.profileTribeInfoContainer {
   width: 100%;
   height: 150px;
-  /*background-color: blue;*/
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.tribeInfo {
   color: #ffffff;
   font: 'Roboto';
   font-weight: 500;
   font-style: normal;
-  /* other css files are overriding this proparety */
-  font-size: 20px !important;
-  /* according to protype it is centered */
-  text-align: center !important;
+  font-size: 20px;
 }
+
+/* .tribeInfo {
+  color: #ffffff;
+  font: 'Roboto';
+  font-weight: 500;
+  font-style: normal;
+  font-size: 20px;
+} */
 
 .line {
   width: 95%;
@@ -161,6 +162,18 @@ body {
   flex-wrap: wrap;
   justify-content: center;
 }
+
+
+.profileContentContainer {
+  display: grid;
+  grid-gap: 5px; 
+  grid-template-columns: 1fr 1fr 1fr; 
+  grid-row-gap: 35px; 
+  margin-left: 16rem;
+  margin-top: 0;
+
+}
+
 
 .moviecontainer {
   width: 33%;
@@ -224,6 +237,26 @@ body {
     font-style: normal;
     font-size: 3vw;
   }
+
+ 
+
+  .profileContentContainer {
+    grid-gap: 0px; 
+    grid-row-gap: 15px; 
+    margin-left: 50px;
+  
+ 
+  }
+
+
+
+
+
+
+
+
+
+
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */

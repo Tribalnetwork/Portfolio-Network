@@ -1504,7 +1504,7 @@ function Logout() {
   return (
     <body>
       <div className="pageTitle">
-        <IconButton edge="end" color="white" onClick={() => history.goBack()}>
+      <IconButton edge="end" color="white" onClick={() => history.goBack()}>
           <ArrowBackIosIcon className="backIcon" />
         </IconButton>
         <h2 className="text">Logout</h2>
