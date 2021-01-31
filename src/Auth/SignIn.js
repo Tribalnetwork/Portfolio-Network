@@ -1,7 +1,7 @@
 import React from 'react'
 import { css } from 'glamor'
 import { Auth } from 'aws-amplify'
-import UserContext from './UserContext'
+import UserContext from '../components/UserContext'
 import { Helmet } from 'react-helmet'
 
 class SignIn extends React.Component {

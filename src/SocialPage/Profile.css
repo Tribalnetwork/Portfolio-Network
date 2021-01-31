@@ -51,7 +51,8 @@ body {
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
-  font-size: 30px;
+  /* adding !important to override other size styling */
+  font-size: 30px !important;
   line-height: 35px;
   margin-top: 30px !important;
   margin-bottom: 10px;
@@ -135,7 +136,7 @@ body {
   font-size: 20px;
 }
 
-/* .tribeInfo {
+ .tribeInfo {
   color: #ffffff;
   font: 'Roboto';
   font-weight: 500;

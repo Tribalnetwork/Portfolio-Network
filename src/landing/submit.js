@@ -1,9 +1,9 @@
 //import React from "react";
 
 //import { Auth } from "aws-amplify";
-//import Container from "../Container";
+//import Container from '../components/Container";
 //import Button from "../Button";
-//import UserContext from "../UserContext";
+//import UserContext from '../components/UserContext';
 //import "./submit.css";
 //import ReactPlayer from "react-player";
 //import { CodeSharp, FormatAlignCenter } from "@material-ui/icons";

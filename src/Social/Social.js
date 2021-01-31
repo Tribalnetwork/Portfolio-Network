@@ -1,22 +1,22 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 import { Auth, Storage } from 'aws-amplify'
-import Container from '../Container'
-import Button from '../Button';
+/*import Container from '../Container'
+import Button from '../components/Button';
 import UserContext from '../UserContext'
-import { Helmet } from 'react-helmet'
+import { Helmet } from 'react-helmet'*/
 import './Social.css'
 import ChangeProfilePhotoButton from "../components/ChangeProfilePhotoButton";
-import { API, graphqlOperation } from 'aws-amplify'
-import DetailsIcon from '@material-ui/icons/Details';
-import ReorderIcon from '@material-ui/icons/Reorder';
-import NotificationsNoneIcon from '@material-ui/icons/NotificationsNone';
-import AddIcon from '@material-ui/icons/Add';
+//import { API, graphqlOperation } from 'aws-amplify'
+//import DetailsIcon from '@material-ui/icons/Details';
+//import ReorderIcon from '@material-ui/icons/Reorder';
+//import NotificationsNoneIcon from '@material-ui/icons/NotificationsNone';
+//import AddIcon from '@material-ui/icons/Add';
 import ActivityFilms from "../components/ActivityFilms";
-import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
-import NavigateNextIcon from '@material-ui/icons/NavigateNext';
-import { getUser } from '../graphql/queries'
-import DropdownMenu from '../components/DropdownMenu.js'
+//import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
+//import NavigateNextIcon from '@material-ui/icons/NavigateNext';
+//import { getUser } from '../graphql/queries'
+//import DropdownMenu from '../components/DropdownMenu.js'
 //import ProfileMenu from '../components/ProfileMenu.js'
 // import Skills from "./Skills";
 // import ConnectList from "./ConnectList"

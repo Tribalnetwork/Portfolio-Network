@@ -35,7 +35,7 @@ import Eventdetail from "./Events/Eventdetail"
 import MyProfile from "./ProfilePage/Profile.js"
 import Home from "./Home"
 import ConnectList from "./SocialPage/ConnectList"
-import Social from "./Social/Social.js"
+import { FeatureComingSoon } from "./components/FeatureComingSoon";
 
 // import SportsPage from "./ExplorePage/SportsPage";
 
@@ -68,12 +68,12 @@ class PrivateRoute extends React.Component {
           return isAuthenticated ? (
             <Component {...props} />
           ) : (
-            <Redirect
-              to={{
-                pathname: "/auth",
-              }}
-            />
-          );
+              <Redirect
+                to={{
+                  pathname: "/auth",
+                }}
+              />
+            );
         }}
       />
     );
@@ -96,101 +96,100 @@ const Routes = () => (
       <NavigationBar />
       <Switch>
         
-        <Route path="/settings" exact component={Settings}>
-          <Settings />
+        <Route path="/settings" exact component={FeatureComingSoon}>
+          <FeatureComingSoon />
         </Route>
         <Route
           path="/settings/wifi"
         >
-          <Wifi />
+          <FeatureComingSoon />
         </Route>
         <Route
           path="/settings/support"
         >
-          <Support />
+          <FeatureComingSoon />
         </Route>
         <Route
           path="/settings/termsofservice"
         >
-          <TermsOfService />
+          <FeatureComingSoon />
         </Route>
         <Route
           path="/settings/privacypolicy"
         >
-          <PrivacyPolicy />
+          <FeatureComingSoon />
         </Route>
         <Route
           path="/settings/account"
         >
-          <Account />
+          <FeatureComingSoon />
         </Route>
         <Route
           path="/settings/notifications"
         >
-          <Notifications />
+          <FeatureComingSoon />
         </Route>
         <Route
           path="/settings/downloadoptions"
         >
-          <DownloadOptions />
+          <FeatureComingSoon />
         </Route>
         <Route
           path="/settings/logout"
         >
-          <Logout />
+          <FeatureComingSoon />
         </Route>
         <Route
           path="/settings/wifiandcellular"
         >
         </Route>
-        <Route path="/explore" component={Explore} />
+        <Route path="/explore" component={FeatureComingSoon} />
 
         {/* <Route path="/explore"><Explore /></Route> */}
-        <Route path="/explore/sports" exact component={SportsPage} />
-        <Route path="/explore/talks"><TalksPage/></Route>
-        <Route path="/explore/drama"><DramaPage /></Route>
-        <Route path="/explore/romance"><RomancePage/></Route>
-        <Route path="/explore/horror"><HorrorPage/></Route>
-        <Route path="/explore/family"><FamilyPage/></Route>
-        <Route path="/explore/animation"><AnimationPage/></Route>
-        <Route path="/explore/experimental"><ExperimentalPage/></Route>
-        <Route path="/explore/thriller"><ThrillerPage/></Route>
-        <Route path="/explore/family"><FamilyPage/></Route>
-        <Route path="/explore/scifi"><SciFiPage/></Route>
-        <Route path="/explore/action"><ActionPage/></Route>
-        <Route path="/explore/comedy"><ComedyPage/></Route>
-        <Route path="/explore/musical"><MusicalPage/></Route>
-        <Route path="/explore/documentary"><DocumentaryPage/></Route>
-        <Route path="/explore/watchrandom"><WatchRandom/></Route>
-        <Route path="/auth" exact component={Authenticator} />
-        <Route path="/" exact component={Landing} />
+        <Route path="/explore/sports" exact component={FeatureComingSoon} />
+        <Route path="/explore/talks"><FeatureComingSoon/></Route>
+        <Route path="/explore/drama"><FeatureComingSoon/></Route>
+        <Route path="/explore/romance"><FeatureComingSoon/></Route>
+        <Route path="/explore/horror"><FeatureComingSoon/></Route>
+        <Route path="/explore/family"><FeatureComingSoon/></Route>
+        <Route path="/explore/animation"><FeatureComingSoon/></Route>
+        <Route path="/explore/experimental"><FeatureComingSoon/></Route>
+        <Route path="/explore/thriller"><FeatureComingSoon/></Route>
+        <Route path="/explore/family"><FeatureComingSoon/></Route>
+        <Route path="/explore/scifi"><FeatureComingSoon/></Route>
+        <Route path="/explore/action"><FeatureComingSoon/></Route>
+        <Route path="/explore/comedy"><FeatureComingSoon/></Route>
+        <Route path="/explore/musical"><FeatureComingSoon/></Route>
+        <Route path="/explore/documentary"><FeatureComingSoon/></Route>
+        <Route path="/explore/watchrandom"><FeatureComingSoon/></Route>
+        <Route path="/auth" exact component={FeatureComingSoon} />
+        <Route path="/" exact component={FeatureComingSoon} />
         <Route path="/home" exact component={Home} />
-        <Route path="/landing/landing-home" exact component={Landing} />
-        <Route path="/landing/Submit" exact component={Submit} />
-        <Route path="/search" exact component={SearchQueries} />
-        <Route path="/viewProfile" exact component={ViewProfile} />
-        <Route path="/myStudio" exact component={MyStudio} />
-        <Route path="/myStudio/myFolder" exact component={MyStudio} />
-        <Route path="/myStudio/toDoList" exact component={MyStudio} />
-        <Route path="/social" exact component={Social} />
-        <PrivateRoute path="/upload" exact component={Upload} />
-        <PrivateRoute path="/streams" component={Stream} />
-        <PrivateRoute path="/watch" component={Watch} />
+        <Route path="/landing/landing-home" exact component={FeatureComingSoon} />
+        <Route path="/submit" exact component={Submit} />
+        <Route path="/search" exact component={FeatureComingSoon} />
+        <Route path="/viewProfile" exact component={FeatureComingSoon} />
+        <Route path="/myStudio" exact component={FeatureComingSoon} />
+        <Route path="/myStudio/myFolder" exact component={FeatureComingSoon} />
+        <Route path="/myStudio/toDoList" exact component={FeatureComingSoon} />
+        <PrivateRoute path="/upload" exact component={FeatureComingSoon} />
+        <PrivateRoute path="/streams" component={FeatureComingSoon} />
+        <PrivateRoute path="/watch" component={FeatureComingSoon} />
         
-        <PrivateRoute path="/live" component={Live} />
-        <PrivateRoute path="/profile" component={Profile} />
-        <PrivateRoute path="/myprofile" component={MyProfile} />
-        <PrivateRoute path="/getaccess" component={GetAccess} />
-        <PrivateRoute path="/pending" component={Pending} />
-        <PrivateRoute path="/mylive" component={MyLive} />
-        <PrivateRoute path="/mylist" component={MyList} />
-        <PrivateRoute path="/gigs" component={Gigs} />
-        <PrivateRoute path="/postagig" component={PostGig} />
-        <PrivateRoute path="/gigdetail" component={Gigdetail} />
-        <PrivateRoute path="/events" component={Events} />
-        <PrivateRoute path="/postanevent" component={PostEvent} />
-        <PrivateRoute path="/eventdetail" component={Eventdetail} />
-        <Route component={NoMatch} />
+        <PrivateRoute path="/live" component={FeatureComingSoon} />
+        <PrivateRoute path="/profile" component={FeatureComingSoon} />
+        <PrivateRoute path="/myprofile" component={FeatureComingSoon} />
+        <PrivateRoute path="/getaccess" component={FeatureComingSoon} />
+        <PrivateRoute path="/pending" component={FeatureComingSoon} />
+        <PrivateRoute path="/mylive" component={FeatureComingSoon} />
+        <PrivateRoute path="/mylist" component={FeatureComingSoon} />
+        <PrivateRoute path="/gigs" component={FeatureComingSoon} />
+        <PrivateRoute path="/postagig" component={FeatureComingSoon} />
+        <PrivateRoute path="/gigdetail" component={FeatureComingSoon} />
+        <PrivateRoute path="/events" component={FeatureComingSoon} />
+        <PrivateRoute path="/postanevent" component={FeatureComingSoon} />
+        <PrivateRoute path="/eventdetail" component={FeatureComingSoon} />
+        <Route component={FeatureComingSoon} />
       </Switch>
       <BottomNavBar />
     </div>

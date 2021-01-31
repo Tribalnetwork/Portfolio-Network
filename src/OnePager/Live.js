@@ -3,9 +3,9 @@ import queryString from 'query-string'
 import ReactPlayer from 'react-player'
 import { withRouter } from "react-router-dom";
 import { API, graphqlOperation } from 'aws-amplify'
-import { getLiveStream } from './graphql/queries'
-import { updateUser } from './graphql/mutations'
-import UserContext from './UserContext'
+import { getLiveStream } from '../graphql/queries'
+import { updateUser } from '../graphql/mutations'
+import UserContext from '../components/UserContext'
 import { Helmet } from 'react-helmet'
 
 
@@ -79,6 +79,9 @@ class WatchStreamPage extends React.Component {
                   controls
                   playing
                   onEnded={() => this.p.showPreview()}
+                  className='react-player' 
+                  width='100%' 
+                  height="100%"
                 />
               </div>
             )

@@ -1,13 +1,13 @@
 import React from 'react'
-import './SocialPage/Profile.css'
-import {ReactComponent as DonateLogo} from './icons/Donate.svg';
+import '../SocialPage/Profile.css'
+import {ReactComponent as DonateLogo} from '../icons/Donate.svg';
 import ReorderIcon from '@material-ui/icons/Reorder';
 import NotificationsNoneIcon from '@material-ui/icons/NotificationsNone';
 import AddIcon from '@material-ui/icons/Add';
-import FilmFrame from "./components/filmFrame";
+import FilmFrame from "../components/filmFrame";
 import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
-import Connect from "./Connect"
+import Connect from "../components/Connect"
 
 
 

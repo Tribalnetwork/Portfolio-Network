@@ -1,8 +1,8 @@
 import React from 'react'
 import { Auth, Storage } from 'aws-amplify'
-import Container from '../Container'
-import Button from '../Button';
-import UserContext from '../UserContext'
+import Container from '../components/Container'
+import Button from '../components/Button';
+import UserContext from '../components/UserContext'
 import { Helmet } from 'react-helmet'
 import './Profile.css'
 import ChangeProfilePhotoButton from "../components/ChangeProfilePhotoButton";
@@ -178,7 +178,7 @@ class Profile extends React.Component {
               link1="/mystudio/toDoList"
               link2="/myprofile"
               link3="/social"
-              text1="My Studio"
+              text1="To-Do"
               text2="My Profile"
               text3="My Activity"
 
@@ -211,8 +211,6 @@ class Profile extends React.Component {
               <p className="iconText">Notifications</p>
             </div>
           </div>
-
-
 
         </div>
         {/* <div className={"tribeinfoContainer"}> <h1 className="tribeInfo"> Check Out What Your Tribe Is Up To </h1></div>
@@ -286,5 +284,3 @@ class Profile extends React.Component {
 
 
 export default Profile
-
-
