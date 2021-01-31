@@ -35,7 +35,11 @@ import Eventdetail from "../Events/Eventdetail"
 import MyProfile from "../ProfilePage/Profile.js"
 import Home from '../HomePage2/Home'
 import ConnectList from "../SocialPage/ConnectList"
+<<<<<<< HEAD
 import { FeatureComingSoon } from "../components/FeatureComingSoon";
+=======
+import Social from "../Social/Social.js"
+>>>>>>> upstream/master
 
 // import SportsPage from "./ExplorePage/SportsPage";
 
@@ -172,8 +176,12 @@ const Routes = () => (
         <Route path="/myStudio" exact component={MyStudio} />
         <Route path="/myStudio/myFolder" exact component={MyStudio} />
         <Route path="/myStudio/toDoList" exact component={MyStudio} />
+<<<<<<< HEAD
         {/*<Route exact path="/miniSite/waitingForFeatures"><FeatureComingSoon /></Route>*/}
 
+=======
+        <Route path="/social" exact component={Social} />
+>>>>>>> upstream/master
         <PrivateRoute path="/upload" exact component={Upload} />
         <PrivateRoute path="/streams" component={Stream} />
         <PrivateRoute path="/watch" component={Watch} />

@@ -175,7 +175,11 @@ class Profile extends React.Component {
             {this.state.showPopup ? <DropdownMenu
               text='Click "Close Button" to hide popup'
               closePopup={this.togglePopup.bind(this)}
+<<<<<<< HEAD
               link1="/myStudio/toDoList"
+=======
+              link1="/mystudio/toDoList"
+>>>>>>> upstream/master
               link2="/myprofile"
               link3="/social"
               text1="To-Do"
@@ -244,6 +248,7 @@ class Profile extends React.Component {
 
       /*
       <div>
+<<<<<<< HEAD
         <Helmet>
           <meta charSet="utf-8" />
           <title>Profile</title>
@@ -267,6 +272,32 @@ class Profile extends React.Component {
           />
         </Container>
       </div>
+=======
+          <Helmet>
+            <meta charSet="utf-8" />
+            <title>Profile</title>
+          </Helmet>
+          <Container>
+            <h1>Profile</h1>
+            <h2>Welcome {this.context.user.attributes.given_name}</h2>
+            {
+              hasAccess ? (
+                null
+              ) : (
+                  <>
+                    <h2>Remaining Film Watch Time: {this.context.remainingVODTime} minutes</h2>
+                    <h2>Remaining Live Watch Time: {this.context.remainingLiveTime} minutes</h2>
+                  </>
+                )
+            }
+
+            <Button
+              title="Sign Out"
+              onClick={this.signOut.bind(this)}
+            />
+          </Container>
+        </div>
+>>>>>>> upstream/master
       */
     )
   }

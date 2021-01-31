@@ -141,11 +141,16 @@ body {
   font: 'Roboto';
   font-weight: 500;
   font-style: normal;
+<<<<<<< HEAD
   /* other css files are overriding this proparety */
   font-size: 20px !important;
   /* according to protype it is centered */
   text-align: center !important;
 }
+=======
+  font-size: 20px;
+} */
+>>>>>>> upstream/master
 
 .line {
   width: 95%;
