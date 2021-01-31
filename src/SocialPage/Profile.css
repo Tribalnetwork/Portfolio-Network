@@ -51,7 +51,8 @@ body {
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
-  font-size: 30px;
+  /* adding !important to override other size styling */
+  font-size: 30px !important;
   line-height: 35px;
   margin-top: 30px !important;
   margin-bottom: 10px;
@@ -135,13 +136,16 @@ body {
   font-size: 20px;
 }
 
-/* .tribeInfo {
+ .tribeInfo {
   color: #ffffff;
   font: 'Roboto';
   font-weight: 500;
   font-style: normal;
-  font-size: 20px;
-} */
+  /* other css files are overriding this proparety */
+  font-size: 20px !important;
+  /* according to protype it is centered */
+  text-align: center !important;
+}
 
 .line {
   width: 95%;

@@ -1,0 +1,11 @@
+.featureComingSoon {
+  margin-top: 28vh;
+  display: grid;
+  place-items: center;
+}
+
+.featureComingSoon__text {
+  color: gold;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 3.75rem;
+}

@@ -1,8 +1,8 @@
 import React from 'react'
 import { Auth, Storage } from 'aws-amplify'
-import Container from '../Container'
-import Button from '../Button';
-import UserContext from '../UserContext'
+import Container from '../components/Container'
+import Button from '../components/Button';
+import UserContext from '../components/UserContext'
 import { Helmet } from 'react-helmet'
 import './Profile.css'
 import ChangeProfilePhotoButton from "../components/ChangeProfilePhotoButton";
@@ -175,10 +175,10 @@ class Profile extends React.Component {
             {this.state.showPopup ? <DropdownMenu
               text='Click "Close Button" to hide popup'
               closePopup={this.togglePopup.bind(this)}
-              link1="/mystudio/toDoList"
+              link1="/myStudio/toDoList"
               link2="/myprofile"
               link3="/social"
-              text1="My Studio"
+              text1="To-Do"
               text2="My Profile"
               text3="My Activity"
 
@@ -212,8 +212,6 @@ class Profile extends React.Component {
             </div>
           </div>
 
-
-
         </div>
         {/* <div className={"tribeinfoContainer"}> <h1 className="tribeInfo"> Check Out What Your Tribe Is Up To </h1></div>
  */}
@@ -246,30 +244,29 @@ class Profile extends React.Component {
 
       /*
       <div>
-          <Helmet>
-            <meta charSet="utf-8" />
-            <title>Profile</title>
-          </Helmet>
-          <Container>
-            <h1>Profile</h1>
-            <h2>Welcome {this.context.user.attributes.given_name}</h2>
-            {
-              hasAccess ? (
-                null
-              ) : (
-                  <>
-                    <h2>Remaining Film Watch Time: {this.context.remainingVODTime} minutes</h2>
-                    <h2>Remaining Live Watch Time: {this.context.remainingLiveTime} minutes</h2>
-                  </>
-                )
-            }
-
-            <Button
-              title="Sign Out"
-              onClick={this.signOut.bind(this)}
-            />
-          </Container>
-        </div>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>Profile</title>
+        </Helmet>
+        <Container>
+          <h1>Profile</h1>
+          <h2>Welcome {this.context.user.attributes.given_name}</h2>
+          {
+            hasAccess ? (
+              null
+            ) : (
+              <>
+                <h2>Remaining Film Watch Time: {this.context.remainingVODTime} minutes</h2>
+                <h2>Remaining Live Watch Time: {this.context.remainingLiveTime} minutes</h2>
+              </>
+            )
+          }
+          <Button
+            title="Sign Out"
+            onClick={this.signOut.bind(this)}
+          />
+        </Container>
+      </div>
       */
     )
   }
@@ -286,5 +283,3 @@ class Profile extends React.Component {
 
 
 export default Profile
-
-
