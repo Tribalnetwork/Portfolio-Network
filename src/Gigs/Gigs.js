@@ -27,6 +27,8 @@ import {ReactComponent as HideLogo} from "../icons/hide.svg"
 import {ReactComponent as SavedLogo} from "../icons/saved.svg"
 Amplify.configure(awsconfig);
 
+<script data-ad-client="ca-pub-9377248146857874" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
 export default class Gigs extends React.Component {
   
     static contextType = UserContext
