@@ -165,7 +165,7 @@ export default class Explore extends React.Component {
 
             </div>
             <div className="trendyLive">
-                <h3 className="trendyTitleText">Trendy Live</h3>
+                <h3 className="trendyTitleText">Trending Films</h3>
                 <HorizontalScrollerCircular list={this.state.livestreams}></HorizontalScrollerCircular>
             </div>
             <div className="whatsNew">
