@@ -25,6 +25,8 @@ import StartLive from '../TribalPage/startLive.png';
 import {ReactComponent as PostLogo} from "../icons/post.svg"
 import {ReactComponent as HideLogo} from "../icons/hide.svg"
 import {ReactComponent as SavedLogo} from "../icons/saved.svg"
+import AdSense from 'react-adsense';
+
 Amplify.configure(awsconfig);
 
 export default class Gigs extends React.Component {
@@ -84,12 +86,20 @@ export default class Gigs extends React.Component {
   render() {
  
     return (
+      
         <div>
             <Helmet>
             <meta charSet="utf-8" />
             <title>Gigs - Tribal Network</title>
             </Helmet>
             <div style={styles.container}>
+              <div> <AdSense.Google
+  client='ca-pub-9377248146857874'
+  slot='8138290375'
+  style={{ width: 200, height: 375, float: 'left' }}
+  format=''
+/>
+</div>
                 
                     <div className="GigBoard">
                         <text>Poster/Vid will go here</text>
