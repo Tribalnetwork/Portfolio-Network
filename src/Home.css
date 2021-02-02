@@ -1,0 +1,147 @@
+.home__tribalBeta {
+  position: relative;
+}
+
+.RateAndSubmit__tribalBeta {
+  margin: 2rem 0.85rem 2rem 0.85rem;
+}
+
+.RateAndSubmit__tribalBeta:hover {
+  cursor: pointer;
+}
+
+.title__tribalBetaHome {
+  color: #ffffff;
+  font-size: 1rem;
+  width: 100vw;
+  padding-left: 1rem;
+}
+
+/*.popup-overlay {
+  display: flex;
+}*/
+
+#popup-2.popup-content {
+  background-color: rgb(30, 30, 30, 0.95);
+  position: absolute;
+  display: grid;
+  place-content: center;
+  border: none;
+  height: 178px !important;
+  width: 289px !important;
+  left: 43px !important;
+  /*top: 372px !important;*/
+  border-radius: 10px;
+}
+
+#popup-4.popup-content {
+  background-color: rgb(30, 30, 30, 0.95);
+  position: absolute;
+  display: grid;
+  place-content: center;
+  border: none;
+  width: 289px !important;
+  left: 40px !important;
+  height: 139px;
+  width: 289px;
+  border-radius: 10px;
+}
+
+.ratingPopup__tribalBetaHome {
+  display: grid;
+  place-items: center;
+  color: white;
+  min-width: fit-content;
+}
+
+.titlePopup__tribalBetaHome {
+  margin-bottom: 1rem;
+}
+
+.overall__tribalBetaHome {
+  display: flex;
+  align-items: center;
+  padding: 1rem 0.5rem;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.overallText__tribalBetaHome {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.overallStar__tribalBetaHome {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.popupBottom {
+  border-top: 1px solid gray;
+  width: 100%;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.ok__popupBottom {
+  width: 100%;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.okText__popupBottom {
+  color: #d3c095 !important;
+  text-decoration: none !important;
+  font-size: 17px;
+}
+
+.link__okText {
+  text-decoration: none !important;
+}
+
+.cancel__tribalBetaHome {
+  padding-right: 1.5rem;
+  border-right: 1px solid gray;
+}
+
+.send__tribalBetaHome {
+  color: #d3c095 !important;
+}
+
+.submit__tribalBetaHome {
+  font-size: 17px;
+  padding-top: 0.5rem;
+}
+
+svg.popup-arrow {
+  display: none;
+}
+
+@media (max-width: 390px) {
+  .RateAndSubmit__tribalBeta {
+    width: 155px;
+  }
+}
+
+@media (max-width: 370px) {
+  .RateAndSubmit__tribalBeta {
+    width: 150px;
+    margin: 2rem 0.65rem 2rem 0.65rem;
+  }
+}
+
+@media (max-width: 345px) {
+  .RateAndSubmit__tribalBeta {
+    width: 145px;
+    margin: 2rem 0.45rem 2rem 0.45rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .RateAndSubmit__tribalBeta {
+    width: 132px;
+    margin: 2rem 0.2rem 2rem 0.2rem;
+  }
+}
