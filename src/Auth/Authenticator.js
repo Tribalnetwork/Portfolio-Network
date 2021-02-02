@@ -21,7 +21,10 @@ class Authenticator extends React.Component {
   render() {
     const { currentState } = this.state
     return (
-      <div style={styles.container}>
+      <div style={styles.container}  className="auth-form">
+        <video autoPlay muted loop>
+            <source src="https://tribal-auth-bg-video.s3.amazonaws.com/Vertical-Version-3-1.m4v" type="video/mp4" />
+        </video>
         { currentState === 'showSignIn'  && <SignIn {...this.props} updateErrorMessage={this.updateErrorMessage} />  }
         { currentState === 'showSignUp' && <SignUp {...this.props} updateErrorMessage={this.updateErrorMessage} switchState={this.switchState} /> }
         { currentState === 'showForgotPassword' && <ForgotPassword switchState={this.switchState} {...this.props} updateErrorMessage={this.updateErrorMessage} /> }
@@ -67,7 +70,8 @@ const styles = {
     marginTop: 30
   },
   container: {
-    marginTop: 50
+    // width: '99%',
+    // margin: '0 auto'
   },
   buttonContainer: {
     display: 'flex',
