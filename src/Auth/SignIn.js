@@ -46,7 +46,7 @@ class SignIn extends React.Component {
   }
   render() {
     return (
-      <div {...css(styles.container)}>
+      <div {...css(styles.container)} className="index">
         <Helmet>
           <meta charSet="utf-8" />
           <title>Sign In</title>
@@ -94,14 +94,16 @@ class SignIn extends React.Component {
 
 const styles = {
   signInHeader: {
-    textAlign: 'left',
+    textAlign: 'center',
     margin: '0px 0px 20px'
   },
   button: {
     padding: '10px 60px',
+    width: '90%',
     backgroundColor: '#ffb102',
-    marginTop: 10,
-    marginBottom: 10,
+    margin: '10px auto 10px',
+    // marginTop: 10,
+    // marginBottom: 10,
     cursor: 'pointer',
     borderRadius: '30px',
     ':hover': {
@@ -115,7 +117,8 @@ const styles = {
   },
   input: {
     height: 40,
-    marginBottom: '10px',
+    width: '80%',
+    margin: '0 auto 10px',
     border: 'none',
     outline: 'none',
     borderBottom: '2px solid #ffb102',
@@ -126,10 +129,12 @@ const styles = {
   },
   container: {
     flex: 1,
-    paddingTop: '15px',
+    // paddingTop: '15px',
+    marginTop: '100px',
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'center'
+    alignItems: 'center',
+    // border: '1px solid white'
   },
   formContainer: {
     padding: 20,
