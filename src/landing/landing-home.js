@@ -3,8 +3,7 @@ import './landing-home.css';
 //import './App.css'
 import './responsive-styles.css'
 import { Link } from 'react-router-dom';
-
-
+import AdSense from 'react-adsense';
 
 
 const Home = () => {
@@ -33,7 +32,12 @@ const Home = () => {
         </div>
 
     </div>
-        
+    <AdSense.Google
+  client='ca-pub-9377248146857874'
+  slot='8138290375'
+  style={{ width: 200, height: 375, float: 'left' }}
+  format=''
+/>
       </div>
   </div>
     
