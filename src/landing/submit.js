@@ -123,9 +123,9 @@ class Submit extends React.Component {
     super(props);
 
     this.state = {
-      /*list: false,  //Determine whether to display the benefit list
+      list: false,  //Determine whether to display the benefit list
       index: 0,  // index is the current input that display on the webpage
-      Name: "",   //User name not currently use.
+      /*Name: "",   //User name not currently use.
       Email: "",
       Phone: "",
       UserID: "",         // User ID 
