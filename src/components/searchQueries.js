@@ -59,7 +59,7 @@ export default class SearchQueries extends React.Component {
         }
 
        getUserNames = () => {
-            API.graphql(graphqlOperation(queries.listUsers))
+            /*API.graphql(graphqlOperation(queries.listUsers))
             .then((result) => {return result.data.listUsers.items})
             .then((result) => { 
                 let list = [];
@@ -73,13 +73,13 @@ export default class SearchQueries extends React.Component {
                     list.push(userObj);
                 })
                 this.setState({users: list})
-            })
+            })*/
             }
         
 
 
         getFilmTitles = () => {
-            API.graphql(graphqlOperation(queries.listFilms))
+           /* API.graphql(graphqlOperation(queries.listFilms))
         .then((result) => { return result.data.listFilms.items})
         .then((result) => { 
             let list = [];
@@ -94,11 +94,11 @@ export default class SearchQueries extends React.Component {
                 list.push(titleObj);
             })
             this.setState({films: list})
-      })
+      })*/
         }
 
         getLiveStreams = () => {
-            API.graphql(graphqlOperation(queries.listLiveStreams))
+           /* API.graphql(graphqlOperation(queries.listLiveStreams))
         .then((result) => { return result.data.listLiveStreams.items})
         .then((result) => { 
             let list = [];
@@ -111,7 +111,7 @@ export default class SearchQueries extends React.Component {
                 list.push(namesObj);
             })
             this.setState({liveStreams: list})
-      })
+      })*/
         }
       /* getMusic = () => {
             API.graphql(graphqlOperation(queries.listMusic))
