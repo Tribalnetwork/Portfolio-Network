@@ -126,4 +126,25 @@ export { PrivacyPolicy };
 export { Account };
 export { Notifications };
 export { DownloadOptions };
+
+/*
+function Logout() {
+  let history = useHistory();
+  history.push('/');
+
+  return (
+    <body>
+      <div className="pageTitle">
+      <IconButton edge="end" color="white" onClick={() => history.goBack()}>
+          <ArrowBackIosIcon className="backIcon" />
+        </IconButton>
+        <h2 className="text">Logout</h2>
+        <div class="logoutbtn"><AmplifySignOut/></div>        
+      </div>
+      <div className="settings"></div>
+    </body>
+  );
+}
+
+*/
 export { Logout };

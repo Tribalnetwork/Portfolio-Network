@@ -26,6 +26,8 @@ import {ReactComponent as PostLogo} from "../icons/post.svg"
 import {ReactComponent as RemindMeLogo} from "../icons/remindme.svg"
 import {ReactComponent as HideLogo} from "../icons/hide.svg";
 import {ReactComponent as SavedLogo} from "../icons/saved.svg"
+import AdSense from 'react-adsense';
+
 Amplify.configure(awsconfig);
 
 //temporarily stored data--backend not setup yet
@@ -122,6 +124,13 @@ export default class Event extends React.Component {
             <meta charSet="utf-8" />
             <title>Events - Tribal Network</title>
             </Helmet>
+            <div> <AdSense.Google
+  client='ca-pub-9377248146857874'
+  slot='8138290375'
+  style={{ width: 200, height: 375, float: 'left' }}
+  format=''
+/>
+</div>
             <div style={styles.container}>
                 {
                 <div>
