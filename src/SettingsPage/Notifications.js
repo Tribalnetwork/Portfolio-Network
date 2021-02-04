@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import "./Settings.css";
 import { IconButton } from "@material-ui/core";
@@ -6,6 +6,7 @@ import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 import ClearIcon from '@material-ui/icons/Clear';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import AttachmentSharpIcon from '@material-ui/icons/AttachmentSharp';
+import DeleteOutlineSharpIcon from '@material-ui/icons/DeleteOutlineSharp';
 
 import "./Notifications.css"
 
@@ -17,7 +18,7 @@ function Notifications() {
   }
   // template Data
   let testdata = [
-    generatenotify("Tim Halbrook", "Hey how are you doing!", "Just checking in to see if you still want to have a meeting next Thursday. We were able to get the new filming location and it'll be ready for us next month! Get back to me when you can. Thanks, Tim", new Date(2020, 20, 9, 2, 3, 4))
+    generatenotify("Tim Halbrook", "Hey how are you doing!", "Just checking in to see if you still want to have a meeting next Thursday.\rWe were able to get the new filming location and it'll be ready for us next month!\rGet back to me when you can.\rThanks,\rTim", new Date(2020, 20, 9, 2, 3, 4))
     , generatenotify("Naura Cook", "Resechedule business team", "Body6", new Date(2020, 16, 9, 2, 3, 4))
     , generatenotify("Tina Fairbrooks", "Gig inquiry", "Body2", new Date(2020, 12, 9, 2, 3, 4), true)
     , generatenotify("Junjie", "Connection Request", "Body4", new Date(2020, 14, 9, 2, 3, 4))
@@ -33,40 +34,33 @@ function Notifications() {
   // states
   let history = useHistory();
   const [id, setid] = useState(-1);
-  const [read, setread] = useState(false);
   let [data, setdata] = useState(testdata.sort((a, b) => a.time > b.time ? -1 : 1));
   let [notifyState, setNotifyState] = useState(0); // 0 normal, 1 user is reading mesg, 2 is about to replay or email somebody
   let [counter, setCounter] = useState(0);
   let [selectedNotifys, setSelectedNotifys] = useState({}) // adding selected notifications
 
-  let [sendTo, setSendTo] = useState('');
-
-
-
   function incrCounter() {
     let c = counter + 1;
     setCounter(c)
   }
+  
   function decrCounter() {
     if (counter !== 0) {
       let c = counter - 1;
       setCounter(c)
     }
   }
-  function resetCounter() {
-    setCounter(0)
-  }
-  // notification page header
 
+  // notification page header
   var header = (
     <div className="pageTitle notification-header">
-      <IconButton
+      {/* <IconButton
         edge="end"
         color="white"
         onClick={() => history.goBack()}>
         <ArrowBackIosIcon className="backIcon" />
-      </IconButton>
-      <h2 className="text">Notifications</h2>
+      </IconButton> */}
+      <h2 className="text" style={{ padding: '0px' }}>Notifications</h2>
       {
         notifyState === 0 ?
           <div className='selected-items'>
@@ -77,12 +71,6 @@ function Notifications() {
       }
     </div>
   )
-
-
-  // console.log("read:"+ read)
-  // console.log("data:"+ data)
-  // console.log("counter:" + counter)
-  // console.log(selectedNotifys)
 
   if (notifyState === 0) {
     return (
@@ -146,29 +134,52 @@ function Notifications() {
             <button
               className='clear-btn'
               onClick={() => {
-                if (id !== -1) {
-                  let tmp = data
-                  tmp.splice(id, 1)
-                  setdata(tmp)
-                  setid(-1)
-                  setread(false)
+                if (counter > 0) {
+                  // delete
+                  // 1 delete
+                  let newDataSet = data;
+                  console.log(selectedNotifys)
+                  let position = 0;
+                  let occur = 0;
+                  for (const prop in selectedNotifys) {
+                    if (selectedNotifys[prop] === true) {
+                      position = parseInt(prop) - occur;
+                      newDataSet = newDataSet.filter((_, index) => index !== position);
+                      occur++;
+                    }
+                  }
+                  setdata(newDataSet);
+                  setCounter(0);
+                  setSelectedNotifys({})
+                } else {
+                  // return back
+                  history.goBack()
                 }
-              }}> <ClearIcon style={{ color: "white" }} fontSize='large' /> </button>
+              }}>
+              {counter > 0 ? <DeleteOutlineSharpIcon style={{ color: "white", fontWeight: "200", fontSize: '2.25rem' }} /> : <ClearIcon style={{ color: "white", fontWeight: "200", fontSize: '2.5rem' }} />}
+            </button>
             <button
               className='read-btn'
-              onClick={() => 
-                {
-                  if(counter > 0){
-                    setNotifyState(2)
-                  }
+              onClick={() => {
+                if (counter > 0) {
+                  setNotifyState(2)
                 }
-              }> <MailOutlineIcon style={{ color: "white" }} fontSize='large' /> </button>
+              }
+              }> <MailOutlineIcon style={{ color: "white", fontWeight: "200", fontSize: '2.5rem' }} /> </button>
           </div>
         </main>
       </div>
     )
   } else if (notifyState === 1) {
+    // change state to read
+    let newData = data;
+    newData[id].read = true;
     let entry = data[id]
+    // let p = entry.body
+    // let regex = /\n/g
+    // console.log(p.match(regex))
+    // console.log(p.replace(regex, "<br/>"))
+    // p = p.replace(regex, "<br/>")
     return (
       <div className='notifications-page'>
         {header}
@@ -176,30 +187,23 @@ function Notifications() {
           <h1 className='from'>
             From: {entry.from}
           </h1>
-          <p className='notification-body'> {entry.body} </p>
+          <div className='notification-body'> 
+            <p className='msg-subject'>{entry.subject}</p>
+            <p className='msg-body'>{entry.body}</p>
+            {/* <p className='msg-time'>{entry.time}</p> */}
+          </div>
 
           <div className='btns-container'>
             <button
               className='clear-btn'
-              onClick={() => {
-                if (id !== -1) {
-                  let tmp = data
-                  tmp.splice(id, 1)
-                  setdata(tmp)
-                  setid(-1)
-                  setread(false)
-                }
-              }}>
-              <ClearIcon style={{ color: "white" }} fontSize='large' />
+              onClick={() => {setNotifyState(0); setid(-1); setdata(newData)}}>
+              <ClearIcon style={{ color: "white", fontWeight: "200", fontSize: '2.5rem' }} />
             </button>
             <button
               className='read-btn'
               onClick={() => {
-                setid(-1)
-                setread(false)
-                let tmp = data;
-                tmp[id].read = true
-                setdata(tmp)
+                setNotifyState(2);
+                setdata(newData);
               }}>
               <MailOutlineIcon style={{ color: "white" }} fontSize='large' />
             </button>
@@ -208,17 +212,19 @@ function Notifications() {
       </div>
     )
   } else if (notifyState === 2) {
-    // let outsideDive = document.querySelector('.outside-div')
-    // outsideDive.style.display = 'none';
-    // console.log(outsideDive)
     let to = '';
-    for (const prop in selectedNotifys) {
-      if (selectedNotifys[prop] === true) {
-        // console.log(data[prop].from)
-        to = to + data[prop].from + ', ';
+
+    if (id !== -1) {
+      to = data[id].from;
+    } else {
+      for (const prop in selectedNotifys) {
+        if (selectedNotifys[prop] === true) {
+          // console.log(data[prop].from)
+          to = to + data[prop].from + ', ';
+        }
       }
     }
-    
+
     return (
       <div className='notification-replay'>
         <div className='top-black-box'></div>
@@ -227,7 +233,7 @@ function Notifications() {
             style={{ paddingLeft: "18.25px" }}
             edge="end"
             color="white"
-            onClick={() => setNotifyState(0)}>
+            onClick={() => {setNotifyState(0); setid(-1)}}>
             <ArrowBackIosIcon className="backIcon" style={{ fontSize: '1.2rem' }} />
           </IconButton>
           <h2>Email</h2>
@@ -239,8 +245,8 @@ function Notifications() {
             <input
               type='text'
               value={to}
-              style={{ textAlign: 'left', paddingLeft: '5px', paddingRight: '5px' }} 
-              />
+              style={{ textAlign: 'left', paddingLeft: '5px', paddingRight: '5px' }}
+            />
           </label>
           {/* subject */}
           <label>
@@ -249,7 +255,7 @@ function Notifications() {
           </label>
           {/* message body */}
           <label>
-            <h3 style={{marginTop: "1.5rem" }}>Body</h3>
+            <h3 style={{ marginTop: "1.5rem" }}>Body</h3>
             <textarea />
           </label>
           <div className='msg-btns'>
