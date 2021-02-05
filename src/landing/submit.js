@@ -123,22 +123,22 @@ class Submit extends React.Component {
     super(props);
 
     this.state = {
-      /*list: false,  //Determine whether to display the benefit list
+      list: false,  //Determine whether to display the benefit list
       index: 0,  // index is the current input that display on the webpage
-      Name: "",   //User name not currently use.
+     /* Name: "",   //User name not currently use.
       Email: "",
       Phone: "",
-      UserID: "",         // User ID 
-      MovieID: "",       // FIlm ID create by using get New Date time stamp
+      UserID: "", */        // User ID 
+      MovieID: "",    // FIlm ID create by using get New Date time stamp
       FilmInput: "",      //The Film user is uploading 
       FilmTrailerInput: "",  //Film Trailer user uploading Currently optional 
-      StatusIndicator: 0,   // This indicate the status of the film every new submission start as 0
+     /* StatusIndicator: 0,   // This indicate the status of the film every new submission start as 0
       FilmLink: "",         //This will be the film link to an S3 buckets 
       Synopsis: "",         // Description of film 
       backgroundvideo: "",
-      Genre: "",
+      Genre: "",*/
       Require: "",          // I use this required field to keep track of what input field user skip to give prompt to complete 
-      Title: "",*/
+     // Title: "",
       user_id: "",         
       film_submitted_date:"",
       film_status:"",
@@ -232,19 +232,19 @@ class Submit extends React.Component {
         data: {
           /*video: this.state.FilmInput,
           name: this.state.FilmInput.name*/
-          user_id: "",         
-          film_submitted_date:"",
-          film_status:"",
-          film_title:"",
-          film_genre:"",
-          film_synopsis:"",
-          film_link:"",
-          film_trailer:"",
-          film_cover_art:"",
-          film_cover_thumb:"",
-          film_credits:"",
-          film_year:"",
-          film_length:""
+          user_id: this.state.FilmInput.user_id,         
+          film_submitted_date:this.state.FilmInput.film_submitted_date,
+          film_status:this.state.FilmInput.film_status,
+          film_title:this.state.FilmInput.film_title,
+          film_genre:this.state.FilmInput.film_genre,
+          film_synopsis:this.state.FilmInput.film_synopsis,
+          film_link:this.state.FilmInput.film_link,
+          film_trailer:this.state.FilmInput.film_trailer,
+          film_cover_art:this.state.FilmInput.film_cover_art,
+          film_cover_thumb:this.state.FilmInput.film_cover_thumb,
+          film_credits:this.state.FilmInput.film_credits,
+          film_year:this.state.FilmInput.film_year,
+          film_length:this.state.FilmInput.film_length
         }
 
       }
@@ -442,8 +442,8 @@ class Submit extends React.Component {
               <div className={"uploadcontainer"}>
                 <label for="filmTitle"> Enter The Film Title</label>
                 <input type="text" styles={{ cursor: "none,", border: "2px solid gold" }} required
-                  value={this.state.film_title}
-                  onChange={(object) => this.setState({ Title: object.target.value })}
+                  value={"Test"}
+                  onChange={(value) => this.setState({ film_title: value })}
 
                 >
 
@@ -484,8 +484,8 @@ class Submit extends React.Component {
               <div className={"uploadcontainer"}>
                 <label for="Synopsis">Synopsis</label>
                 <textarea name="message" rows="10" cols="30"
-                  value={this.state.film_synopsis}
-                  onChange={(object) => this.setState({ Synopsis: object.target.value })}
+                  value={"Tests"}
+                  onChange={(object) => this.setState({ film_synopsis: object.target.value})}
                 >
 
                 </textarea>
