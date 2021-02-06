@@ -291,7 +291,7 @@ export default class SearchQueries extends React.Component {
             } else {
                 const filterButtons = [<li style={this.filterButtonStyle} onClick={this.filterUsers}>Users</li>,
                     <li style={this.filterButtonStyle} onClick={this.filterFilms}>Films</li>,
-                    <li style={this.filterButtonStyle} onClick={this.filterLiveStreams}>Live Streams</li>]
+                    <li style={this.filterButtonStyle} onClick={this.filterLiveStreams}>Music</li>]
                     this.setState({buttons: filterButtons})
             }
         }
