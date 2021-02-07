@@ -227,7 +227,6 @@ function Notifications() {
 
     return (
       <div className='notification-replay'>
-        <div className='top-black-box'></div>
         <div className='replay-header'>
           <IconButton
             style={{ paddingLeft: "18.25px" }}

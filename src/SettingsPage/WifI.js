@@ -16,35 +16,37 @@ function Wifi() {
                 </IconButton>
                 <h2 className="text">Wifi and Cellular</h2>
             </div>
-            <div className="button__withArrow">
-                <Link
-                    className="button__link"
-                    to={"/settings/datausage"}
-                    style={{ textDecoration: "none" }}
-                >
-                    <Button className="settings__Button">Data Usage</Button>
-                    <KeyboardArrowRightIcon fontSize="large" className="rightIcon" />
-                </Link>
-            </div>
-            <div className="button__withArrow">
-                <Link
-                    className="button__link"
-                    to={"/settings/wifionly"}
-                    style={{ textDecoration: "none" }}
-                >
-                    <Button className="settings__Button">Wifi Only</Button>
-                    <KeyboardArrowRightIcon fontSize="large" className="rightIcon" />
-                </Link>
-            </div>
-            <div className="button__withArrow">
-                <Link
-                    className="button__link"
-                    to={"/settings/internetspeedtest"}
-                    style={{ textDecoration: "none" }}
-                >
-                    <Button className="settings__Button">Internet Speed Test</Button>
-                    <KeyboardArrowRightIcon fontSize="large" className="rightIcon" />
-                </Link>
+            <div className="settings">
+                <div className="button__withArrow">
+                    <Link
+                        className="button__link"
+                        to={"/settings/datausage"}
+                        style={{ textDecoration: "none" }}
+                    >
+                        <Button className="settings__Button">Data Usage</Button>
+                        <KeyboardArrowRightIcon fontSize="large" className="rightIcon" />
+                    </Link>
+                </div>
+                <div className="button__withArrow">
+                    <Link
+                        className="button__link"
+                        to={"/settings/wifionly"}
+                        style={{ textDecoration: "none" }}
+                    >
+                        <Button className="settings__Button">Wifi Only</Button>
+                        <KeyboardArrowRightIcon fontSize="large" className="rightIcon" />
+                    </Link>
+                </div>
+                <div className="button__withArrow">
+                    <Link
+                        className="button__link"
+                        to={"/settings/internetspeedtest"}
+                        style={{ textDecoration: "none" }}
+                    >
+                        <Button className="settings__Button">Internet Speed Test</Button>
+                        <KeyboardArrowRightIcon fontSize="large" className="rightIcon" />
+                    </Link>
+                </div>
             </div>
         </body>
     );

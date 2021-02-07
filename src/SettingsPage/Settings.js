@@ -26,21 +26,18 @@ function Settings() {
           className="backbutton"
           edge="end"
           color="white"
-          onClick={() => history.goBack()}
-        >
+          onClick={() => history.goBack()} >
           <ArrowBackIosIcon className="backIcon" />
         </IconButton>
         <h2 className="text">Settings</h2>
       </div>
       <div className="settings">
         <div className="button__withArrow">
-          <Link
-            className="button__link"
-            to={"/settings/wifi"}
-            style={{ textDecoration: "none" }}
-          >
+          <Link className="button__link" to={"/settings/wifi"} style={{ textDecoration: "none" }}>
+
             <Button className="settings__Button">Wifi and Cellular</Button>
             <KeyboardArrowRightIcon fontSize="large" className="rightIcon" />
+
           </Link>
         </div>
         <div className="button__withArrow">

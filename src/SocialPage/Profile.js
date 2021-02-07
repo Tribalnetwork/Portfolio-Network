@@ -21,7 +21,7 @@ import DropdownMenu from '../components/DropdownMenu.js'
 import Skills from "./Skills";
 import ConnectList from "./ConnectList"
 
-
+import {Link} from 'react-router-dom'
 
 // const posterimage = {
 //   url: ["https://homepages.cae.wisc.edu/~ece533/images/airplane.png",
@@ -205,8 +205,11 @@ class Profile extends React.Component {
 
             <div className="iconAndText">
               <div className={"icon"}>
-                <button className={"iconButton"}><NotificationsNoneIcon className={"iconlogo"} />
-                </button>
+              <Link to='/settings/notifications'>
+                  <button className={"iconButton"}>
+                    <NotificationsNoneIcon className={"iconlogo"} />
+                  </button>
+                </Link>
               </div>
               <p className="iconText">Notifications</p>
             </div>
