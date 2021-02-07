@@ -39,7 +39,7 @@ function Settings() {
             to={"/settings/wifi"}
             style={{ textDecoration: "none" }}
           >
-            <Button className="settings__Button">Wifi</Button>
+            <Button className="settings__Button">Wifi and Cellular</Button>
             <KeyboardArrowRightIcon fontSize="large" className="rightIcon" />
           </Link>
         </div>
