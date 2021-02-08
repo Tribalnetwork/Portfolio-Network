@@ -33,7 +33,7 @@ function Support() {
                         to={"/settings/tipsandsupport"}
                         style={{ textDecoration: "none" }}
                     >
-                        <Button className="settings__Button">Tips and Support</Button>
+                        <Button className="settings__Button">Tips &amp; Support</Button>
                         <KeyboardArrowRightIcon fontSize="large" className="rightIcon" />
                     </Link>
                 </div>

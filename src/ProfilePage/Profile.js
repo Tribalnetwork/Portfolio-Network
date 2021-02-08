@@ -25,6 +25,7 @@ import Connections from "../components/Connect";
 // custom styling file
 import './Profile.css'
 
+import {Link} from 'react-router-dom'
 
 class Profile extends React.Component {
   static contextType = UserContext;
@@ -108,12 +109,14 @@ class Profile extends React.Component {
               <p className="iconText">Profile Menu</p>
             </div>
 
-
+            {/* Notifications */}
             <div className="iconAndText">
               <div className={"icon"}>
-                <button className={"iconButton"}>
-                  <NotificationsNoneIcon className={"iconlogo"} />
-                </button>
+                <Link to='/settings/notifications'>
+                  <button className={"iconButton"}>
+                    <NotificationsNoneIcon className={"iconlogo"} />
+                  </button>
+                </Link>
               </div>
               <p className="iconText">Notifications</p>
             </div>
@@ -125,12 +128,12 @@ class Profile extends React.Component {
         <div className="bio-ctn">
           <h2 className='bio-heading'> Bio </h2>
         </div>
-        <p  className='bio-content'>
+        <p className='bio-content'>
           Grew up on Planet Earth, Dallas, I learned human speak.
           Grew up on Planet Earth, Dallas, I learned human speak.
           Grew up on Planet Earth, Dallas, I learned human speak.
         </p>
-        <hr className="bio-division"/>
+        <hr className="bio-division" />
         <div className="bio-ctn">
           <h2 className='resumeAndPortfolio-heading'> Resume & Portfolio </h2>
         </div>
@@ -141,7 +144,7 @@ class Profile extends React.Component {
           <h2 className='verifiedSkills-heading'> Verified Skills </h2>
         </div>
         <div className="skills-content">
-            {list}
+          {list}
         </div>
         {/* <p> Grew up on Planet Earth, Dallas, I learned human speak. </p> */}
       </div>
