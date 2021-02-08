@@ -14,7 +14,7 @@ function Wifi() {
                 <IconButton edge="end" color="white" onClick={() => history.goBack()}>
                     <ArrowBackIosIcon className="backIcon" />
                 </IconButton>
-                <h2 className="text">Wifi and Cellular</h2>
+                <h2 className="text">Wifi & Cellular</h2>
             </div>
             <div className="settings">
                 <div className="button__withArrow">
