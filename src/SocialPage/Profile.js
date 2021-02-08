@@ -19,9 +19,10 @@ import { getUser } from '../graphql/queries'
 import DropdownMenu from '../components/DropdownMenu.js'
 //import ProfileMenu from '../components/ProfileMenu.js'
 import Skills from "./Skills";
-import ConnectList from "./ConnectList"
+import ConnectList from "./ConnectList";
+import { ReactComponent as FilterButton } from '../icons/Filter.svg';
 
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 // const posterimage = {
 //   url: ["https://homepages.cae.wisc.edu/~ece533/images/airplane.png",
@@ -189,7 +190,7 @@ class Profile extends React.Component {
             <ConnectList />
             <div className="iconAndText">
               <div className={"icon"}>
-                <button className={"iconButton"}><DetailsIcon className={"iconlogo"} />
+                <button className={"iconButton"}><FilterButton className={"iconlogo"} />
                 </button>
               </div>
               <p className="iconText">Social</p>
@@ -205,7 +206,7 @@ class Profile extends React.Component {
 
             <div className="iconAndText">
               <div className={"icon"}>
-              <Link to='/settings/notifications'>
+                <Link to='/settings/notifications'>
                   <button className={"iconButton"}>
                     <NotificationsNoneIcon className={"iconlogo"} />
                   </button>

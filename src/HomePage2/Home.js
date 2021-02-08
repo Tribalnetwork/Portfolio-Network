@@ -79,7 +79,7 @@ export default class Home extends React.Component {
           {
             isLoaded ? isAuthenticated ? hasAccess ? (
               <div>
-                  
+
                 <div className="player-wrapper">
                   {/* <p className="video-name" style={styles.filmTitle}>{this.state.videoName}</p> */}
                   <ReactPlayer
@@ -165,7 +165,7 @@ const styles = {
   film: { width: 200, marginBottom: 15, marginRight: 10 },
   stream: { width: 400 },
   input: { border: 'none', backgroundColor: '#ddd', marginBottom: 10, padding: 8, fontSize: 18 },
-  filmTitle: { fontSize: 20, fontWeight: 'bold', marginBottom: 0, color: '#FFFFFF', background: 'black'  },
+  filmTitle: { fontSize: 20, fontWeight: 'bold', marginBottom: 0, color: '#FFFFFF', background: 'black' },
   streamText: { fontSize: 14, marginBottom: 0 },
   filmDescription: { marginBottom: 0 },
   button: { backgroundColor: 'black', color: 'white', outline: 'none', fontSize: 18, padding: '12px 0px' },
