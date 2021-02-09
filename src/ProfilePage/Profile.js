@@ -77,7 +77,7 @@ class Profile extends React.Component {
             <NavigateNextIcon className={"arrownavigation"} />
           </div>
           <h1 className={"welcomeText"}> {this.context.user.attributes.given_name} </h1>
-          <h3> {this.context.user.attributes.city} </h3>
+          <h3 className="location"> {this.context.user.attributes.city} </h3>
 
           <div className="iconcontainer">
             {this.state.showPopup ? <DropdownMenu
