@@ -61,9 +61,10 @@ class Profile extends React.Component {
 
   render() {
     const hasAccess = this.context.hasAccess;
-    const skills = ["singer", "song-writer", "animator", "producer", "baller", "cool"];
+    const skills = ["singer", "writer", "animator", "producer", "camera", "designer"];
     const list = skills.map(skill => (
       <p key={Math.random()} className="skills">{skill}</p>
+     
     ))
     return (
 
@@ -76,6 +77,7 @@ class Profile extends React.Component {
             <NavigateNextIcon className={"arrownavigation"} />
           </div>
           <h1 className={"welcomeText"}> {this.context.user.attributes.given_name} </h1>
+          <h3> {this.context.user.attributes.city} </h3>
 
           <div className="iconcontainer">
             {this.state.showPopup ? <DropdownMenu
@@ -97,7 +99,7 @@ class Profile extends React.Component {
                   <PeopleAltOutlinedIcon className={"iconlogo"} />
                 </button>
               </div>
-              <p className="iconText">Connections</p>
+              {/* <p className="iconText">Connections</p> */}
             </div>
 
             <div className="iconAndText">
@@ -106,7 +108,7 @@ class Profile extends React.Component {
                   <ReorderIcon className={"iconlogo"} />
                 </button>
               </div>
-              <p className="iconText">Profile Menu</p>
+              {/* <p className="iconText">Profile Menu</p> */}
             </div>
 
             {/* Notifications */}
@@ -118,7 +120,7 @@ class Profile extends React.Component {
                   </button>
                 </Link>
               </div>
-              <p className="iconText">Notifications</p>
+              {/* <p className="iconText">Notifications</p> */}
             </div>
 
           </div>
@@ -129,22 +131,21 @@ class Profile extends React.Component {
           <h2 className='bio-heading'> Bio </h2>
         </div>
         <p className='bio-content'>
-          Grew up on Planet Earth, Dallas, I learned human speak.
-          Grew up on Planet Earth, Dallas, I learned human speak.
-          Grew up on Planet Earth, Dallas, I learned human speak.
+         This is my favorite app to use for work!  I love to write and operate a camera.  Sometimes I will act, but I'd much rather be behind the camera making magic!
         </p>
         <hr className="bio-division" />
         <div className="bio-ctn">
           <h2 className='resumeAndPortfolio-heading'> Resume & Portfolio </h2>
         </div>
-        <div className="resume-content">Placeholder1</div>
-        <div className="resume-content second">Placeholder2</div>
+        <div className="resume-content"></div>
+        <div className="resume-content second"></div>
         {/* <p> Link here </p> */}
         <div className="bio-ctn">
           <h2 className='verifiedSkills-heading'> Verified Skills </h2>
         </div>
         <div className="skills-content">
           {list}
+        
         </div>
         {/* <p> Grew up on Planet Earth, Dallas, I learned human speak. </p> */}
       </div>
