@@ -323,7 +323,7 @@ class Submit extends React.Component {
 
   render() {
     const hasAccess = this.context.hasAccess;
-
+    const listName = this.state.list ? "listcontainer1" : "listcontainer2";
 
     return (
 
@@ -336,7 +336,7 @@ class Submit extends React.Component {
 
         <div className={"overlayercontainer"}>
           {this.state.index != 2 && this.state.index != 5 &&
-            <div className={"listcontainer"}>
+            <div className={listName}>
               <button onClick={() => this.setState({ list: !this.state.list })} className={"infobutton"}>
                 {" "}
           Why Submit your Film ?{" "}
