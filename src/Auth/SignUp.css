@@ -1,24 +1,11 @@
-.linkedin {
+.google {
 	position: absolute;
 	width: 60px;
 	height: 60px;
 	left: calc(50% - 60px / 2 - 0.5px);
-	top: calc(50% - 60px / 2 + 189px);
+	top: calc(50% - 60px / 2 - 42px);
 
-	/*background: url(LinkedIn-Icon.png);
-    /* Shadow / Button */
-
-	filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.25));
-}
-
-.amazon {
-	position: absolute;
-	width: 60px;
-	height: 60px;
-	left: calc(50% - 60px / 2 - 0.5px);
-	top: calc(50% - 60px / 2 + 112px);
-
-	/*background: url(362320_preview.png);
+	/*background: url(logo google.png);
     /* Shadow / Button */
 
 	filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.25));
@@ -37,18 +24,33 @@
 	filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.25));
 }
 
-.google {
+.amazon {
 	position: absolute;
 	width: 60px;
 	height: 60px;
 	left: calc(50% - 60px / 2 - 0.5px);
-	top: calc(50% - 60px / 2 - 42px);
+	top: calc(50% - 60px / 2 + 112px);
 
-	/*background: url(logo google.png);
+	/*background: url(362320_preview.png);
     /* Shadow / Button */
 
 	filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.25));
 }
+
+.linkedin {
+	position: absolute;
+	width: 60px;
+	height: 60px;
+	left: calc(50% - 60px / 2 - 0.5px);
+	top: calc(50% - 60px / 2 + 189px);
+
+	/*background: url(LinkedIn-Icon.png);
+    /* Shadow / Button */
+
+	filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.25));
+}
+
+
 
 .auth-form {
 	margin: 0 auto;
@@ -62,7 +64,7 @@
 	z-index: 1;
 }
 
-video {
+.video {
 	min-width: 100%;
 	min-height: 100%;
 	position: absolute;
