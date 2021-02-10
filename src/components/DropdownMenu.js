@@ -10,7 +10,7 @@ export default class Popup extends React.Component {
         {/* <h1 style={{  color: 'white' }}>  MENU </h1> */}
         <div className="flex-container">
 
-          <h4 id="MENU">Social</h4>
+          <h4 id="MENU">{this.props.title}</h4>
           <hr className="solid" />
           <div ><a href={this.props.link1}> {this.props.text1} </a> </div>  
 
