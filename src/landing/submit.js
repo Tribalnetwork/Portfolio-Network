@@ -329,20 +329,9 @@ class Submit extends React.Component {
       <div className={"submitcontainer"}>
         {console.log("MovieID  ", this.state.MovieID)}
         {console.log("new status indicator ", this.state.film_status)}
-        <div className={"videosubmit"}>
-          <ReactPlayer
-            className={"backVideo"}
-            url={"https://s3.amazonaws.com/ribaletwork-20200622075300-hostingbucket-demo/content/48_4min.mp4"}
-            width="100%"
-            height="100%"
-            playing={true}
-            loop={true}
-
-
-          />
-          {/*https://s3.amazonaws.com/ribaletwork-20200622075300-hostingbucket-demo/content/48_4min.mp4*/}
-          {/*"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4*/}
-        </div>
+        <video autoPlay muted loop>
+          <source src="https://tribal-auth-bg-video.s3.amazonaws.com/48+4Min+2-1.m4v" type="video/mp4" />
+        </video>
 
         <div className={"overlayercontainer"}>
           {this.state.index != 2 && this.state.index != 5 &&
