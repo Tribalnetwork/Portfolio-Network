@@ -72,7 +72,7 @@ const customStyles = {
     backgroundColor: "transparent",
     height: 35,
     borderRadius: 15,
-    border: "2px solid gold"
+    border: "2px solid #d4af37"
 
 
   }),
@@ -87,6 +87,7 @@ const customStyles = {
     color: "white",
     fontFamily: "Roboto",
     backgroundColor: "transparent",
+    paddingTop: 10
   }),
 
   placeholder: (provided, state) => ({
@@ -418,6 +419,7 @@ class Submit extends React.Component {
                   type="file"
                   accept="video/*"
                   required
+                  className="file-upload-btn"
                   onChange={(value) => this.setState({ FilmInput: value.target.files[0] })}
                 />
                 {console.log("files ", this.state.FilmInput)}
@@ -431,7 +433,7 @@ class Submit extends React.Component {
               <div className={"uploadcontainer"}>
                 <label for="filmTitle"> Enter The Film Title</label>
                 <input type="text" styles={{ cursor: "none,", border: "2px solid gold" }} required
-                  value={"Test"}
+                  placeholder="Film Title"
                   onChange={(value) => this.setState({ film_title: value })}
 
                 >
@@ -473,7 +475,7 @@ class Submit extends React.Component {
               <div className={"uploadcontainer"}>
                 <label for="Synopsis">Synopsis</label>
                 <textarea name="message" rows="10" cols="30"
-                  value={"Tests"}
+                  placeholder="Write here..."
                   onChange={(object) => this.setState({ film_synopsis: object.target.value})}
                 >
 
