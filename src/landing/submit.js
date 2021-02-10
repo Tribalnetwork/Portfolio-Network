@@ -125,33 +125,28 @@ class Submit extends React.Component {
     this.state = {
       list: false,  //Determine whether to display the benefit list
       index: 0,  // index is the current input that display on the webpage
-     /* Name: "",   //User name not currently use.
+      Require: "",          // I use this required field to keep track of what input field user skip to give prompt to complete
+      MovieID: "",    // FIlm ID create by using get New Date time stamp 
+      user_id: "", 
       Email: "",
       Phone: "",
-      UserID: "", */        // User ID 
-      MovieID: "",    // FIlm ID create by using get New Date time stamp
       FilmInput: "",      //The Film user is uploading 
       FilmTrailerInput: "",  //Film Trailer user uploading Currently optional 
+      film_cover_art:"",
+      film_genre:"",
+      film_status:"",
+      film_synopsis:"",
+      film_title:"",
      /* StatusIndicator: 0,   // This indicate the status of the film every new submission start as 0
       FilmLink: "",         //This will be the film link to an S3 buckets 
-      Synopsis: "",         // Description of film 
       backgroundvideo: "",
-      Genre: "",*/
-      Require: "",          // I use this required field to keep track of what input field user skip to give prompt to complete 
-     // Title: "",
-      user_id: "",         
       film_submitted_date:"",
-      film_status:"",
-      film_title:"",
-      film_genre:"",
-      film_synopsis:"",
       film_link:"",
       film_trailer:"",
-      film_cover_art:"",
       film_cover_thumb:"",
       film_credits:"",
       film_year:"",
-      film_length:""
+      film_length:""*/
 
 
     };
@@ -159,37 +154,30 @@ class Submit extends React.Component {
     this.Previous = this.Previous.bind(this);
     this.handleChange = this.handleChange.bind(this);
 
-
-    console.log("REQUEST ID", requestingId)
-
     var result = null;
 
-    this.setState({ MovieID: ((new Date()).getTime()) })
+    /*this.setState({ MovieID: ((new Date()).getTime()) })
     this.setState({ film_status: 0 })
-    this.setState({ user_id: requestingId })
+    this.setState({ user_id: requestingId })*/
 
 
 
   }
 
-  static contextType = UserContext;
+  //static contextType = UserContext;
 
-  signOut() {
+  /*signOut() {
     Auth.signOut()
       .then(() => {
         this.props.history.push("/auth");
       })
       .catch((err) => console.log("error signing out... " + err));
-  }
+  }*/
 
   componentDidMount() {
     this.setState({ MovieID: ((new Date()).getTime()) })
     this.setState({ film_status: 0 })
     this.setState({ user_id: requestingId })
-
-
-
-
   }
 
 
@@ -199,17 +187,25 @@ class Submit extends React.Component {
   }
 
 
+  Submit = () => {
+    this.Next();
+    if(this.state.Require == ""){
+      //run axios request
+      console.log("running axios")
+    }
+  }
+
   ////Function That determine whether to display the nextInput field to user 
   Next() {
 
 
 
 
-    Storage.put('FilmSubmit/firsttestobject.mp4', "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4", {
-      contentType: 'video/mp4'
+    //Storage.put('FilmSubmit/firsttestobject.mp4', "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4", {
+      //contentType: 'video/mp4'
 
-    }).then(result => console.log("sucess ", result))
-      .catch(err => console.log("erorror ", err));
+    //}).then(result => console.log("sucess ", result))
+     // .catch(err => console.log("erorror ", err));
 
 
     // //"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4
@@ -217,8 +213,8 @@ class Submit extends React.Component {
     ///* testing to write a film object to a bucket using api*/
     //  /* after storing video in buck that url should be to the associated film when making a new film table using Graphl 
     //    with all the other attributes of a film. */
-    if (this.state.FilmInput != "") {
-      var testobject = this.state.FilmInput
+    /*if (this.state.FilmInput != "") {
+     // var testobject = this.state.FilmInput
 
       const headers = {
         'Content-Type': 'mp4'
@@ -231,7 +227,7 @@ class Submit extends React.Component {
         header: headers,
         data: {
           /*video: this.state.FilmInput,
-          name: this.state.FilmInput.name*/
+          name: this.state.FilmInput.name
           user_id: this.state.FilmInput.user_id,         
           film_submitted_date:this.state.FilmInput.film_submitted_date,
           film_status:this.state.FilmInput.film_status,
@@ -257,7 +253,7 @@ class Submit extends React.Component {
         //          // handle error
         console.log("error have occured ", error);
       })
-    }
+    } */
 
     ////keep track of field user left empty
     var Required = ''
@@ -310,6 +306,7 @@ class Submit extends React.Component {
       Required = Required + " Field Require"
       this.setState({ Require: Required })
     }
+    
   }
 
 
@@ -321,14 +318,12 @@ class Submit extends React.Component {
 
 
   render() {
-    const hasAccess = this.context.hasAccess;
+   // const hasAccess = this.context.hasAccess;
 
 
     return (
 
       <div className={"submitcontainer"}>
-        {console.log("MovieID  ", this.state.MovieID)}
-        {console.log("new status indicator ", this.state.film_status)}
         <div className={"videosubmit"}>
           <ReactPlayer
             className={"backVideo"}
@@ -383,11 +378,9 @@ class Submit extends React.Component {
     (?:[A-Z0-9-]+\.)+[A-Z]{2,6}\Z"
                   onChange={(value) => this.setState({ Email: value.target.value })}
 
-                  value={this.state.Email}
+                  
 
                 ></input>
-
-                {console.log("value of email ", this.state.Email)}
               </form>
 
 
@@ -414,7 +407,8 @@ class Submit extends React.Component {
               <div className={"termcontainer"}>
                 <p >
 
-
+                  Terms and Conditions, 
+                  by clicking next, you agree
 
                 </p>
 
@@ -431,10 +425,6 @@ class Submit extends React.Component {
                   required
                   onChange={(value) => this.setState({ FilmInput: value.target.files[0] })}
                 />
-                {console.log("files ", this.state.FilmInput)}
-
-
-                {console.log("film input data value ", this.state.FilmInput)}
               </div>
             }
 
@@ -442,9 +432,7 @@ class Submit extends React.Component {
               <div className={"uploadcontainer"}>
                 <label for="filmTitle"> Enter The Film Title</label>
                 <input type="text" styles={{ cursor: "none,", border: "2px solid gold" }} required
-                  value={"Test"}
-                  onChange={(value) => this.setState({ film_title: value })}
-
+                  onChange={(value) => this.setState({ film_title: value.target.value })}
                 >
 
 
@@ -460,7 +448,6 @@ class Submit extends React.Component {
                   onChange={this.handleChange}
 
                 />
-                {console.log(" current Genre " + this.state.film_genre)}
               </div>
             }
 
@@ -474,7 +461,6 @@ class Submit extends React.Component {
                   required
                   onChange={(value) => this.setState({ FilmTrailerInput: value.target.files[0] })}
                 />
-                {console.log("this is the current film data ", this.state.FilmInput)}
               </div>
             }
 
@@ -484,13 +470,10 @@ class Submit extends React.Component {
               <div className={"uploadcontainer"}>
                 <label for="Synopsis">Synopsis</label>
                 <textarea name="message" rows="10" cols="30"
-                  value={"Tests"}
                   onChange={(object) => this.setState({ film_synopsis: object.target.value})}
                 >
 
                 </textarea>
-
-                {console.log("synosis : ", this.state.film_synopsis)}
               </div>
 
 
@@ -499,7 +482,9 @@ class Submit extends React.Component {
             {this.state.index == 8 &&
               <div className={"uploadcontainer"}>
                 <label for="Coverart">Upload Your CoverArt</label>
-                <input type="file" accept="image/*" required ></input>
+                <input type="file" accept="image/*" required 
+                 onChange={(value) => this.setState({ film_cover_art: value.target.files[0] })} >
+                </input>
                 <div className={"RequiredFields"}>
                   <p> {this.state.Require} </p>
                 </div>
@@ -517,13 +502,17 @@ class Submit extends React.Component {
                 > Previous </button>
               }
 
-              {this.state.index >= 0 && this.state.index < maxinput &&
+              {this.state.index >= 0 && this.state.index < maxinput -1 &&
 
                 <button onClick={() => this.Next()}
 
                 > Next </button>
               }
 
+              {this.state.index == maxinput - 1 &&
+                <button onClick={() => this.Submit()}
+                  > Submit </button>
+              }
 
             </div>
 
