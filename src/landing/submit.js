@@ -367,7 +367,7 @@ class Submit extends React.Component {
                 <label for="email">Enter your Email</label>
                 <input
                   type="email"
-                  placeholder="Examplee@email.com"
+                  placeholder="example@email.com"
                   required
                   pattern="\A[\w!#$%&'*+/=?`{|}~^-]+(?:\.[\w!#$%&'*+/=?`{|}~^-]+)*@↵
     (?:[A-Z0-9-]+\.)+[A-Z]{2,6}\Z"
@@ -489,7 +489,7 @@ class Submit extends React.Component {
 
             {this.state.index == 8 &&
               <div className={"uploadcontainer"}>
-                <label for="Coverart">Upload Your CoverArt</label>
+                <label for="Coverart">Upload Your Cover-Art</label>
                 <input type="file" accept="image/*" required ></input>
                 <div className={"RequiredFields"}>
                   <p> {this.state.Require} </p>

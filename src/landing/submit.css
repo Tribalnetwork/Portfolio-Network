@@ -8,6 +8,7 @@
 	overflow: hidden;
 	position: relative;
 	box-sizing: border-box;
+	font-family: 'Lato', sans-serif;
 }
 
 video {
@@ -116,7 +117,6 @@ video {
 	width: 70%;
 	padding: 10px;
 	margin: 0 auto;
-	font-family: inherit;
 	color: white;
 	background-color: transparent;
 	border: 1px solid #d4af37;
@@ -137,7 +137,6 @@ video {
 
 .inputcontainer label {
 	color: white;
-	font-family: Roboto;
 	margin-bottom: 6px;
 	font-size: 19px;
 }
@@ -182,6 +181,7 @@ video {
 .uploadcontainer label {
 	color: white;
 	margin-bottom: 10px;
+	font-size: 19px;
 }
 
 .uploadcontainer input {
