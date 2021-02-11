@@ -423,7 +423,11 @@ class Submit extends React.Component {
                   onChange={(value) => this.setState({ FilmInput: value.target.files[0] })}
                 />
                 {console.log("files ", this.state.FilmInput)}
-
+                <label className="check-container">
+                  <span className="label-text">Tribal can use clips from my Film for Trailers</span>
+                  <input type="checkbox" />
+                  <span className="checkmark"></span>
+                </label>
 
                 {console.log("film input data value ", this.state.FilmInput)}
               </div>
