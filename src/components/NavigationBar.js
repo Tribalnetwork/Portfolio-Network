@@ -12,7 +12,7 @@ import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-import Submit from "../bottomNavBarImg/Submit.svg"
+import Submit from "../bottomNavBarImg/tribal2.png"
 import './NavigationBar.css';
 import Home from "../bottomNavBarImg/home.svg"
 import Tribal from "../bottomNavBarImg/tribal.svg"
@@ -51,13 +51,16 @@ const useStyles = makeStyles((theme) => ({
   svgStyle: {
     width: 50,
     height: 20,
+    
   },
   avatarStyle: {
     width: 30,
     height: 10,
   },
   textStyle: {
-    textAlign: 'center',
+    textAlign: 'align: left',
+    border: 'solid'
+    
   }
 
 }));
@@ -223,14 +226,24 @@ export const NavigationBar = () => {
               <img src={Settings}></img>
               <ListItemText primary={'Settings'}> </ListItemText>
 
-            </ListItem>
-            <ListItem
+             </ListItem> 
+            {/* <ListItem */}
+              {/* button */}
+              {/* component={Link} to={"/submit"} */}
+            {/* > */}
+            {/* <img src={Submit}></img> */}
+            {/* <ListItemText primary={"Submit"} ></ListItemText> */}
+
+          {/* </ListItem> */}
+
+          <ListItem
               button
               component={Link} to={"/submit"}
             >
-              <ListItemText className={classes.textStyle} primary={"Submit"} ></ListItemText>
+              <img src={Tribal}></img>
+              <ListItemText primary={'Submit'}> </ListItemText>
 
-            </ListItem>
+             </ListItem> 
           </List>
 
         </div>
