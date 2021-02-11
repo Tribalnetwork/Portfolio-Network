@@ -126,7 +126,7 @@ class Submit extends React.Component {
       list: false,  //Determine whether to display the benefit list
       index: 0,  // index is the current input that display on the webpage
       Require: "",          // I use this required field to keep track of what input field user skip to give prompt to complete
-      MovieID: "",    // FIlm ID create by using get New Date time stamp 
+      Film_id: "",    // FIlm ID create by using get New Date time stamp 
       user_id: "", 
       Email: "",
       Phone: "",
@@ -137,6 +137,8 @@ class Submit extends React.Component {
       film_status:"",
       film_synopsis:"",
       film_title:"",
+      url: "",
+      date: ""
      /* StatusIndicator: 0,   // This indicate the status of the film every new submission start as 0
       FilmLink: "",         //This will be the film link to an S3 buckets 
       backgroundvideo: "",
@@ -155,6 +157,14 @@ class Submit extends React.Component {
     this.handleChange = this.handleChange.bind(this);
 
     var result = null;
+
+    var dateObj = new Date();
+    var month = dateObj.getUTCMonth() + 1; //months from 1-12
+    var day = dateObj.getUTCDate();
+    var year = dateObj.getUTCFullYear();
+
+    var newdate = year + "/" + month + "/" + day;
+    this.setState({date: newdate})
 
     /*this.setState({ MovieID: ((new Date()).getTime()) })
     this.setState({ film_status: 0 })
@@ -190,8 +200,49 @@ class Submit extends React.Component {
   Submit = () => {
     this.Next();
     if(this.state.Require == ""){
-      //run axios request
-      console.log("running axios")
+      let formData = {
+        "user_id": this.state.user_id, 
+        "film_submitted_date": this.state.date, 
+        "film_status": "1", 
+        "film_title": this.state.film_title, 
+        "film_genre": this.state.film_genre, 
+        "film_synopsis": this.state.film_synopsis, 
+        "film_link": "", 
+        "film_trailer": "", 
+        "film_cover_art": "", 
+        "film_cover_thumb": "", 
+        "film_credits": "film credits here", 
+        "film_year": "1998", 
+        "film_length": "106"
+    }
+    let dataAsJson = JSON.stringify(formData);
+    axios.post("https://j9j2n6zof3.execute-api.us-east-1.amazonaws.com/dev", dataAsJson).then(res =>{
+        let newFilm_id = res.data.body.New_film_id
+        let newurl = res.data.body.url
+        console.log("response: " + newFilm_id + "  " + newurl)
+        this.setState({
+            Film_id: newFilm_id, 
+            url: newurl
+        })
+    })
+    .then(() => {
+      let filmData = {
+        "film_id": this.state.Film_id, 
+        "content": this.state.FilmInput
+    }
+    let config = {
+        headers: {
+            'Access-Control-Allow-Methods':'*'
+        }
+    }
+  
+    var options = { headers: { 'Content-Type': 'fileType', 'x-amz-acl': 'public-read' }}
+  
+    axios.put(this.state.url, filmData).then( res =>{
+        console.log("YOU HAVE BEEN SUCCESSFUL")
+        console.log(res)
+    });
+    })
     }
   }
 

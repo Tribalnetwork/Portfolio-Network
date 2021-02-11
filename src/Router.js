@@ -8,8 +8,8 @@ import {
 } from "react-router-dom";
 import UserContext from "./UserContext";
 import { NavigationBar } from "./components/NavigationBar";
-/*import Authenticator from './Authenticator'
-import { Upload } from './Upload';
+import Authenticator from './Authenticator'
+/*import { Upload } from './Upload';
 import Watch from './Watch'
 import Landing from './landing/landing-home.js'*/
 import Submit from './landing/submit'
@@ -163,7 +163,7 @@ const Routes = () => (
         <Route path="/explore/musical"><FeatureComingSoon /></Route>
         <Route path="/explore/documentary"><FeatureComingSoon /></Route>
         <Route path="/explore/watchrandom"><FeatureComingSoon /></Route>
-        <Route path="/auth" exact component={FeatureComingSoon} />
+        <Route path="/auth" exact component={Authenticator} />
         <Route path="/" exact component={FeatureComingSoon} />
         <Route path="/home" exact component={Home} />
         <Route path="/landing/landing-home" exact component={FeatureComingSoon} />
