@@ -46,7 +46,7 @@ class SignIn extends React.Component {
   }
   render() {
     return (
-      <div {...css(styles.container)}>
+      <div {...css(styles.container)} className="index">
         <Helmet>
           <meta charSet="utf-8" />
           <title>Sign In</title>
@@ -54,7 +54,7 @@ class SignIn extends React.Component {
         {
           !this.state.showConfirmation && (
             <div {...css(styles.formContainer)}>
-              <h2 {...css(styles.signInHeader)}>Sign In</h2>
+              <h2 {...css(styles.signInHeader)}>Log In</h2>
               <input
                 onChange={evt => this.onChange('username', evt.target.value)}
                 {...css(styles.input)}
@@ -68,7 +68,7 @@ class SignIn extends React.Component {
                 placeholder='password'
               />
               <div {...css(styles.button)} onClick={this.signIn}>
-                <p {...css(styles.buttonText)}>Sign In</p>
+                <p {...css(styles.buttonText)}>Log In</p>
               </div>
             </div>
           )
@@ -94,19 +94,30 @@ class SignIn extends React.Component {
 
 const styles = {
   signInHeader: {
-    textAlign: 'left',
+    textAlign: 'center',
     margin: '0px 0px 20px'
   },
   button: {
-    padding: '10px 60px',
-    backgroundColor: '#ffb102',
-    marginTop: 10,
-    marginBottom: 10,
-    cursor: 'pointer',
-    borderRadius: '30px',
-    ':hover': {
-      backgroundColor: '#ffbb22'
-    }
+  position: 'absolute',
+  width: '169px',
+  height: '44px',
+  left: 'calc(50% - 169px/2)',
+  top: 'calc(50% - 44px/2 + 105px)',
+
+  fontFamily: 'Roboto',
+  fontSstyle: 'normal',
+  fontWeight: 'normal',
+  fontSize: '34px',
+  lineHeight: '41px',
+  /* or 121% */
+
+  textAlign: 'center',
+  letterSpacing: '0.37px',
+
+  /* Font / Primary */
+
+  color: 'linear-gradient(180deg, #D3C095 0%, #A07923 100%)'
+     
   },
   buttonText: {
     margin: 0,
@@ -115,7 +126,8 @@ const styles = {
   },
   input: {
     height: 40,
-    marginBottom: '10px',
+    width: '80%',
+    margin: '0 auto 10px',
     border: 'none',
     outline: 'none',
     borderBottom: '2px solid #ffb102',
@@ -126,10 +138,12 @@ const styles = {
   },
   container: {
     flex: 1,
-    paddingTop: '15px',
+    // paddingTop: '15px',
+    marginTop: '100px',
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'center'
+    alignItems: 'center',
+    // border: '1px solid white'
   },
   formContainer: {
     padding: 20,

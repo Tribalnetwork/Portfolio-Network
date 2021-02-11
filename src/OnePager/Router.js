@@ -37,6 +37,16 @@ import Home from '../HomePage2/Home'
 import ConnectList from "../SocialPage/ConnectList"
 import Social from "../Social/Social.js"
 
+import DataUsage from '../SettingsPage/DataUsage'
+import WifiOnly from '../SettingsPage/WifiOnly'
+import InternetSpeedTest from '../SettingsPage/InternetSpeedTest'
+import ContactUs from '../SettingsPage/ContactUs'
+import TipsAndSupportLink from '../SettingsPage/TipsAndSupportLink'
+import Personalize from '../SettingsPage/Personalize'
+import ChangePassword from '../SettingsPage/ChangePassword'
+import Hidden from '../SettingsPage/Hidden'
+import MyDonation from '../SettingsPage/MyDonation'
+import Random from '../SettingsPage/Random'
 // import SportsPage from "./ExplorePage/SportsPage";
 
 class PrivateRoute extends React.Component {
@@ -99,50 +109,78 @@ const Routes = () => (
         <Route path="/settings" exact component={Settings}>
           <Settings />
         </Route>
-        <Route
-          path="/settings/wifi"
-        >
+        {/* wifi */}
+        <Route path="/settings/wifi">
           <Wifi />
         </Route>
-        <Route
-          path="/settings/support"
-        >
+        <Route path="/settings/datausage">
+          <DataUsage />
+        </Route>
+        <Route path="/settings/wifionly">
+          <WifiOnly />
+        </Route>
+        <Route path="/settings/internetspeedtest">
+          <InternetSpeedTest />
+        </Route>
+        {/* support */}
+        <Route path="/settings/support">
           <Support />
         </Route>
-        <Route
-          path="/settings/termsofservice"
-        >
+        <Route path="/settings/contactus">
+          <ContactUs />
+        </Route>
+        <Route path="/settings/tipsandsupport">
+          <TipsAndSupportLink />
+        </Route>
+
+        {/* term of service */}
+        <Route path="/settings/termsofservice">
           <TermsOfService />
         </Route>
-        <Route
-          path="/settings/privacypolicy"
-        >
+        {/* Privacy Policy */}
+        <Route path="/settings/privacypolicy">
           <PrivacyPolicy />
         </Route>
-        <Route
-          path="/settings/account"
-        >
+        {/* Account */}
+        <Route path="/settings/account">
           <Account />
         </Route>
-        <Route
-          path="/settings/notifications"
-        >
+        {/* Account > Personalize */}
+        <Route path="/settings/personalize/random">
+          <Random />
+        </Route>
+        <Route path="/settings/personalize">
+          <Personalize />
+        </Route>
+
+        <Route path="/settings/changepassword">
+          <ChangePassword />
+        </Route>
+        <Route path="/settings/Hidden">
+          <Hidden />
+        </Route>
+        <Route path="/settings/mydonations">
+          <MyDonation />
+        </Route>
+
+        {/* notifications */}
+        <Route path="/settings/notifications">
           <Notifications />
         </Route>
-        <Route
-          path="/settings/downloadoptions"
-        >
+
+        {/* download options */}
+        <Route path="/settings/downloadoptions">
           <DownloadOptions />
         </Route>
-        <Route
-          path="/settings/logout"
-        >
+
+        {/* logout */}
+        <Route path="/settings/logout">
           <Logout />
         </Route>
-        <Route
-          path="/settings/wifiandcellular"
-        >
+
+        <Route path="/settings/wifiandcellular">
         </Route>
+
         <Route path="/explore" component={Explore} />
 
         {/* <Route path="/explore"><Explore /></Route> */}
