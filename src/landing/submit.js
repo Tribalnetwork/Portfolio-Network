@@ -72,7 +72,7 @@ const customStyles = {
     backgroundColor: "transparent",
     height: 35,
     borderRadius: 15,
-    border: "2px solid gold"
+    border: "2px solid #d4af37"
 
 
   }),
@@ -87,6 +87,7 @@ const customStyles = {
     color: "white",
     fontFamily: "Roboto",
     backgroundColor: "transparent",
+    paddingTop: 10
   }),
 
   placeholder: (provided, state) => ({
@@ -322,31 +323,20 @@ class Submit extends React.Component {
 
   render() {
     const hasAccess = this.context.hasAccess;
-
+    const listName = this.state.list ? "listcontainer1" : "listcontainer2";
 
     return (
 
       <div className={"submitcontainer"}>
         {console.log("MovieID  ", this.state.MovieID)}
         {console.log("new status indicator ", this.state.film_status)}
-        <div className={"videosubmit"}>
-          <ReactPlayer
-            className={"backVideo"}
-            url={"https://s3.amazonaws.com/ribaletwork-20200622075300-hostingbucket-demo/content/48_4min.mp4"}
-            width="100%"
-            height="100%"
-            playing={true}
-            loop={true}
-
-
-          />
-          {/*https://s3.amazonaws.com/ribaletwork-20200622075300-hostingbucket-demo/content/48_4min.mp4*/}
-          {/*"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4*/}
-        </div>
+        <video autoPlay muted loop>
+          <source src="https://tribal-auth-bg-video.s3.amazonaws.com/48+4Min+2-1.m4v" type="video/mp4" />
+        </video>
 
         <div className={"overlayercontainer"}>
           {this.state.index != 2 && this.state.index != 5 &&
-            <div className={"listcontainer"}>
+            <div className={listName}>
               <button onClick={() => this.setState({ list: !this.state.list })} className={"infobutton"}>
                 {" "}
           Why Submit your Film ?{" "}
@@ -377,7 +367,7 @@ class Submit extends React.Component {
                 <label for="email">Enter your Email</label>
                 <input
                   type="email"
-                  placeholder="Examplee@email.com"
+                  placeholder="example@email.com"
                   required
                   pattern="\A[\w!#$%&'*+/=?`{|}~^-]+(?:\.[\w!#$%&'*+/=?`{|}~^-]+)*@↵
     (?:[A-Z0-9-]+\.)+[A-Z]{2,6}\Z"
@@ -429,10 +419,15 @@ class Submit extends React.Component {
                   type="file"
                   accept="video/*"
                   required
+                  className="file-upload-btn"
                   onChange={(value) => this.setState({ FilmInput: value.target.files[0] })}
                 />
                 {console.log("files ", this.state.FilmInput)}
-
+                <label className="check-container">
+                  <span className="label-text">Tribal can use clips from my Film for Trailers</span>
+                  <input type="checkbox" />
+                  <span className="checkmark"></span>
+                </label>
 
                 {console.log("film input data value ", this.state.FilmInput)}
               </div>
@@ -442,7 +437,7 @@ class Submit extends React.Component {
               <div className={"uploadcontainer"}>
                 <label for="filmTitle"> Enter The Film Title</label>
                 <input type="text" styles={{ cursor: "none,", border: "2px solid gold" }} required
-                  value={"Test"}
+                  placeholder="Film Title"
                   onChange={(value) => this.setState({ film_title: value })}
 
                 >
@@ -484,7 +479,7 @@ class Submit extends React.Component {
               <div className={"uploadcontainer"}>
                 <label for="Synopsis">Synopsis</label>
                 <textarea name="message" rows="10" cols="30"
-                  value={"Tests"}
+                  placeholder="Write here..."
                   onChange={(object) => this.setState({ film_synopsis: object.target.value})}
                 >
 
@@ -498,7 +493,7 @@ class Submit extends React.Component {
 
             {this.state.index == 8 &&
               <div className={"uploadcontainer"}>
-                <label for="Coverart">Upload Your CoverArt</label>
+                <label for="Coverart">Upload Your Cover-Art</label>
                 <input type="file" accept="image/*" required ></input>
                 <div className={"RequiredFields"}>
                   <p> {this.state.Require} </p>
