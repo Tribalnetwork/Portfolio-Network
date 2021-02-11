@@ -20,6 +20,8 @@ import DropdownMenu from '../components/DropdownMenu.js'
 //import ProfileMenu from '../components/ProfileMenu.js'
 import Skills from "./Skills";
 import ConnectList from "./ConnectList"
+import {ReactComponent as FilterButton} from '../icons/filterButton.svg';
+
 
 import {Link} from 'react-router-dom'
 
@@ -148,6 +150,12 @@ class Profile extends React.Component {
     });
   }
 
+  toggleSocialPopup() {
+    this.setState({
+      showPopup: !this.state.showPopup
+    });
+  }
+
   signOut() {
     Auth.signOut()
       .then(() => {
@@ -175,13 +183,26 @@ class Profile extends React.Component {
             {this.state.showPopup ? <DropdownMenu
               text='Click "Close Button" to hide popup'
               closePopup={this.togglePopup.bind(this)}
+              title="Social"
               link1="/mystudio/toDoList"
               link2="/myprofile"
               link3="/social"
               text1="To-Do"
               text2="My Profile"
               text3="My Activity"
-
+            /> : null}
+          </div>
+          <div className="iconcontainer">
+            {this.state.showSocialPopup ? <DropdownMenu
+              text='Click "Close Button" to hide popup'
+              closePopup={this.toggleSocialPopup.bind(this)}
+              title="Filter"
+              link1="/profile"
+              link2="/profile"
+              link3="/profile"
+              text1="Films"
+              text2="Gigs"
+              text3="Events"
             /> : null}
           </div>
 
@@ -189,7 +210,7 @@ class Profile extends React.Component {
             <ConnectList />
             <div className="iconAndText">
               <div className={"icon"}>
-                <button className={"iconButton"}><DetailsIcon className={"iconlogo"} />
+                <button className={"iconButton"} onClick={this.toggleSocialPopup.bind(this)}><FilterButton className={"iconlogo"} />
                 </button>
               </div>
               <p className="iconText">Social</p>
