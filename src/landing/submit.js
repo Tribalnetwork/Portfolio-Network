@@ -236,9 +236,9 @@ class Submit extends React.Component {
         }
     }
   
-    var options = { headers: { 'Content-Type': 'fileType', 'x-amz-acl': 'public-read' }}
+    var options = { headers: { 'Content-Type': ''}}
   
-    axios.put(this.state.url, filmData).then( res =>{
+    axios.put(this.state.url, this.state.FilmInput).then( res =>{
         console.log("YOU HAVE BEEN SUCCESSFUL")
         console.log(res)
     });
