@@ -231,18 +231,18 @@ export const NavigationBar = () => {
               {/* button */}
               {/* component={Link} to={"/submit"} */}
             {/* > */}
-            {/* <img src={Submit}></img> */}
+            {/* <img src={Tribal}></img> */}
             {/* <ListItemText primary={"Submit"} ></ListItemText> */}
 
           {/* </ListItem> */}
+
 
           <ListItem
               button
               component={Link} to={"/submit"}
             >
-              <img src={Tribal}></img>
+              <img src={Submit} style={{width: '32px', height: '32px', marginLeft: '22px', marginRight: '22px'}}></img>
               <ListItemText primary={'Submit'}> </ListItemText>
-
              </ListItem> 
           </List>
 
