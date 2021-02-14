@@ -198,8 +198,8 @@ class Submit extends React.Component {
 
 
   Submit = () => {
-    this.Next();
-    if(this.state.Require == ""){
+    //this.Next();
+    if(/*this.state.Require == ""*/true){
       let formData = {
         "user_id": this.state.user_id, 
         "film_submitted_date": this.state.date, 
@@ -234,15 +234,24 @@ class Submit extends React.Component {
     let formData = new FormData();
     formData.append('file', this.state.FilmInput)
   
-    axios.put(this.state.url, this.state.FilmInput, {
+    /*axios.put(this.state.url, this.state.FilmInput, {
       headers: {
         'Content-Type': this.state.FilmInput.type
       }
-    })
+    })*/
+    return axios({
+      url: this.state.url,
+      method: 'put',
+      data: this.state.FilmInput,
+      headers: {
+        'Content-Type': this.state.FilmInput.type
+      }
+      })
     .then( res =>{
         console.log("YOU HAVE BEEN SUCCESSFUL")
         console.log(res)
-    });
+    })
+    .catch(err => console.log("ERROR" + err));
     })
     }
   }
