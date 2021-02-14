@@ -226,19 +226,20 @@ class Submit extends React.Component {
         })
     })
     .then(() => {
-      let filmData = {
-        "film_id": this.state.Film_id, 
-        "content": this.state.FilmInput
-    }
     let config = {
         headers: {
-            'Access-Control-Allow-Methods':'*'
+          'Content-Type': this.state.FilmInput.type
         }
     }
+    let formData = new FormData();
+    formData.append('file', this.state.FilmInput)
   
-    var options = { headers: { 'Content-Type': ''}}
-  
-    axios.put(this.state.url, this.state.FilmInput).then( res =>{
+    axios.put(this.state.url, this.state.FilmInput, {
+      headers: {
+        'Content-Type': this.state.FilmInput.type
+      }
+    })
+    .then( res =>{
         console.log("YOU HAVE BEEN SUCCESSFUL")
         console.log(res)
     });
