@@ -9,22 +9,22 @@ import {
 import UserContext from "./UserContext";
 import { NavigationBar } from "./components/NavigationBar";
 import Authenticator from './Authenticator'
-import { Upload } from './Upload';
+/*import { Upload } from './Upload';
 import Watch from './Watch'
-import Landing from './landing/landing-home.js'
+import Landing from './landing/landing-home.js'*/
 import Submit from './landing/submit'
-import Live from './Live'
+/*import Live from './Live'
 import { Stream } from './TribalPage/Stream'
 import Profile from './SocialPage/Profile'
 import GetAccess from './GetAccess'
 import Pending from './Pending'
-import { MyLive } from './MyLive'
+import { MyLive } from './MyLive'*/
 import BottomNavBar from './components/bottomNavBar'
-import SearchQueries from "./components/searchQueries"
+/*import SearchQueries from "./components/searchQueries"
 import ViewProfile from "./ViewProfile"
-import MyList from "./MyList"
+import MyList from "./MyList"*/
 import MyStudio from "./MyStudio/MyStudio";
-import Settings, { Wifi, Support, TermsOfService, PrivacyPolicy, Account, Notifications, DownloadOptions, Logout } from "./SettingsPage/Settings";
+/*import Settings, { Wifi, Support, TermsOfService, PrivacyPolicy, Account, Notifications, DownloadOptions, Logout } from "./SettingsPage/Settings";
 import Explore, { SportsPage, TalksPage, DramaPage, RomancePage, HorrorPage, FamilyPage, AnimationPage, ExperimentalPage, ThrillerPage, SciFiPage, ActionPage, ComedyPage, MusicalPage, DocumentaryPage, WatchRandom } from "./ExplorePage/Explore"
 import Gigs from "./Gigs/Gigs";
 import PostGig from "./Gigs/PostGig";
@@ -32,9 +32,9 @@ import Gigdetail from "./Gigs/Gigdetail"
 import Events from "./Events/Events"
 import PostEvent from "./Events/PostEvent"
 import Eventdetail from "./Events/Eventdetail"
-import MyProfile from "./ProfilePage/Profile.js"
+import MyProfile from "./ProfilePage/Profile.js"*/
 import Home from "./Home"
-import ConnectList from "./SocialPage/ConnectList"
+//import ConnectList from "./SocialPage/ConnectList"
 import { FeatureComingSoon } from "./components/FeatureComingSoon";
 import { Settings__tribalBeta } from "./components/tribalBeta/Settings__tribalBeta";
 
@@ -163,7 +163,7 @@ const Routes = () => (
         <Route path="/explore/musical"><FeatureComingSoon /></Route>
         <Route path="/explore/documentary"><FeatureComingSoon /></Route>
         <Route path="/explore/watchrandom"><FeatureComingSoon /></Route>
-        <Route path="/auth" exact component={FeatureComingSoon} />
+        <Route path="/auth" exact component={Authenticator} />
         <Route path="/" exact component={FeatureComingSoon} />
         <Route path="/home" exact component={Home} />
         <Route path="/landing/landing-home" exact component={FeatureComingSoon} />
