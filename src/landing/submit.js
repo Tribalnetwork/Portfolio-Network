@@ -77,7 +77,8 @@ class Submit extends React.Component {
       film_title:"",
       url: "",
       date: "",
-      readyToSubmit: "false"
+      readyToSubmit: "false",
+      confirmation: "Thank you very much for submitting your film with Tribal, Please stay on the page until we have confirmation of receipt of your film"
      /* StatusIndicator: 0,   // This indicate the status of the film every new submission start as 0
       FilmLink: "",         //This will be the film link to an S3 buckets 
       backgroundvideo: "",
@@ -155,12 +156,16 @@ class Submit extends React.Component {
       .then( res =>{
           console.log("YOU HAVE BEEN SUCCESSFUL")
           console.log(res)
+          this.setState({confirmation: "Your film has successsfully been recieved, Congrats!"})
       })
-      .catch(err => console.log("ERROR" + err));
+      .catch(err => {
+          console.log("ERROR" + err)
+          this.setState({confirmation: "Uh-Oh! There was a problem submitting your film, please try again and if the problem persist, contact customer support."})
+      });
       })
     }
       
-    }, 5000);
+    }, 1000);
   }
 
           ////Function That determine whether to display the nextInput field to user 
@@ -447,8 +452,7 @@ class Submit extends React.Component {
             {this.state.index == (maxinput) &&
 
               <div className="thanks">
-                <p> Thank you very much for submitting your film with Tribal</p>
-
+                <p>{this.state.confirmation}</p>
               </div>
 
 
