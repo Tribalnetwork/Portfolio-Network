@@ -1,16 +1,8 @@
 import React from "react";
-
-import { Auth } from "aws-amplify";
-import Container from "../Container";
-import Button from "../Button";
-import UserContext from "../UserContext";
 import "./submit.css";
 import ReactPlayer from "react-player";
-import { CodeSharp, FormatAlignCenter } from "@material-ui/icons";
 import Select from 'react-select'
 import axios from 'axios';
-import { API, graphqlOperation } from 'aws-amplify';
-import * as queries from '../graphql/queries';
 import Amplify, { Storage } from 'aws-amplify';
 import awsconfig from '../aws-exports';
 //import { SelectPicker } from 'rsuite';
@@ -31,14 +23,16 @@ const benefitbullets = [
   "Get your career Started",
 ];
 
-var queryString = window.location.search;
-var urlParams = new URLSearchParams(queryString);
-var requestedId = JSON.stringify(urlParams.get("id"));
 ////  gets the user id of the user logged in
 var requestingName = localStorage.getItem('CognitoIdentityServiceProvider.1t8oqsg1kvuja9u9rvd2r1a6o4.LastAuthUser');
 var requestingUserData = localStorage.getItem(`CognitoIdentityServiceProvider.1t8oqsg1kvuja9u9rvd2r1a6o4.${requestingName}.userData`);
 var parsed = JSON.parse(requestingUserData);
-var requestingId = JSON.stringify(parsed.UserAttributes[0].Value)
+var requestingId
+if (parsed == null){
+    requestingId = 0;
+} else {
+  requestingId = JSON.stringify(parsed.UserAttributes[0].Value)
+}
 
 //// Film Genre
 const options = [
@@ -61,57 +55,7 @@ const options = [
 ]
 
 
-//// React Selecter custom styler
-const customStyles = {
-  menu: (provided, state) => ({
-    backgroundColor: "transparent"
 
-  }),
-
-  control: (_, { selectProps: { width } }) => ({
-    backgroundColor: "transparent",
-    height: 35,
-    borderRadius: 15,
-    border: "2px solid gold"
-
-
-  }),
-
-  singleValue: (provided, state) => {
-
-
-  }
-  ,
-
-  input: (provided, state) => ({
-    color: "white",
-    fontFamily: "Roboto",
-    backgroundColor: "transparent",
-  }),
-
-  placeholder: (provided, state) => ({
-    color: "white",
-    fontFamily: "Roboto",
-    textalign: "center",
-
-
-  }),
-
-  dropdownIndicator: (provided, state) => ({
-    display: "none",
-  }),
-
-  menuList: (provided, state) => ({
-    color: "white",
-  }),
-
-  singleValue: (provided, state) => ({
-    color: "white",
-    position: "center",
-  })
-
-
-}
 
 
 //// The max number of input field user on the page
@@ -138,7 +82,8 @@ class Submit extends React.Component {
       film_synopsis:"",
       film_title:"",
       url: "",
-      date: ""
+      date: "",
+      readyToSubmit: "false"
      /* StatusIndicator: 0,   // This indicate the status of the film every new submission start as 0
       FilmLink: "",         //This will be the film link to an S3 buckets 
       backgroundvideo: "",
@@ -149,45 +94,24 @@ class Submit extends React.Component {
       film_credits:"",
       film_year:"",
       film_length:""*/
-
-
     };
+
     this.Next = this.Next.bind(this);
     this.Previous = this.Previous.bind(this);
     this.handleChange = this.handleChange.bind(this);
-
-    var result = null;
-
-    var dateObj = new Date();
-    var month = dateObj.getUTCMonth() + 1; //months from 1-12
-    var day = dateObj.getUTCDate();
-    var year = dateObj.getUTCFullYear();
-
-    var newdate = year + "/" + month + "/" + day;
-    this.setState({date: newdate})
-
-    /*this.setState({ MovieID: ((new Date()).getTime()) })
-    this.setState({ film_status: 0 })
-    this.setState({ user_id: requestingId })*/
-
-
-
   }
-
-  //static contextType = UserContext;
-
-  /*signOut() {
-    Auth.signOut()
-      .then(() => {
-        this.props.history.push("/auth");
-      })
-      .catch((err) => console.log("error signing out... " + err));
-  }*/
 
   componentDidMount() {
     this.setState({ MovieID: ((new Date()).getTime()) })
     this.setState({ film_status: 0 })
     this.setState({ user_id: requestingId })
+
+    var dateObj = new Date();
+    var month = dateObj.getUTCMonth() + 1; //months from 1-12
+    var day = dateObj.getUTCDate();
+    var year = dateObj.getUTCFullYear();
+    var newdate = year + "/" + month + "/" + day;
+    this.setState({date: newdate})
   }
 
 
@@ -199,7 +123,7 @@ class Submit extends React.Component {
 
   Submit = () => {
     this.Next();
-    if(this.state.Require == ""){
+    setTimeout(() => {if(this.state.readyToSubmit == true){
       let formData = {
         "user_id": this.state.user_id, 
         "film_submitted_date": this.state.date, 
@@ -216,121 +140,50 @@ class Submit extends React.Component {
         "film_length": "106",
         "film_file": this.state.FilmInput,
         "content_type": this.state.FilmInput.type
-    }
-    let dataAsJson = JSON.stringify(formData);
-    axios.post("https://j9j2n6zof3.execute-api.us-east-1.amazonaws.com/dev", dataAsJson).then(res =>{
-      console.log(res)
+      }
+      let dataAsJson = JSON.stringify(formData);
+      axios.post("https://j9j2n6zof3.execute-api.us-east-1.amazonaws.com/dev", dataAsJson).then(res =>{
+        console.log(res)
         let newurl = res.data.body.url
         console.log("response: " + newurl)
         this.setState({
             url: newurl
         })
-    })
-    .then(() => {
-    let config = {
+      })
+      .then(() => {  
+      return axios({
+        url: this.state.url,
+        method: 'put',
+        data: this.state.FilmInput,
         headers: {
           'Content-Type': this.state.FilmInput.type
         }
-    }
-    let formData = new FormData();
-    formData.append('file', this.state.FilmInput)
-  
-    /*axios.put(this.state.url, this.state.FilmInput, {
-      headers: {
-        'Content-Type': this.state.FilmInput.type
-      }
-    })*/
-    return axios({
-      url: this.state.url,
-      method: 'put',
-      data: this.state.FilmInput,
-      headers: {
-        'Content-Type': this.state.FilmInput.type
-      }
       })
-    .then( res =>{
-        console.log("YOU HAVE BEEN SUCCESSFUL")
-        console.log(res)
-    })
-    .catch(err => console.log("ERROR" + err));
-    })
+      .then( res =>{
+          console.log("YOU HAVE BEEN SUCCESSFUL")
+          console.log(res)
+      })
+      .catch(err => console.log("ERROR" + err));
+      })
     }
+      
+    }, 5000);
   }
 
-  ////Function That determine whether to display the nextInput field to user 
+          ////Function That determine whether to display the nextInput field to user 
   Next() {
-
-
-
-
-    //Storage.put('FilmSubmit/firsttestobject.mp4', "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4", {
-      //contentType: 'video/mp4'
-
-    //}).then(result => console.log("sucess ", result))
-     // .catch(err => console.log("erorror ", err));
-
-
-    // //"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4
-
-    ///* testing to write a film object to a bucket using api*/
-    //  /* after storing video in buck that url should be to the associated film when making a new film table using Graphl 
-    //    with all the other attributes of a film. */
-    /*if (this.state.FilmInput != "") {
-     // var testobject = this.state.FilmInput
-
-      const headers = {
-        'Content-Type': 'mp4'
-
-      }
-
-      axios({
-        method: 'post',
-        url: "https://j9j2n6zof3.execute-api.us-east-1.amazonaws.com/dev",
-        header: headers,
-        data: {
-          /*video: this.state.FilmInput,
-          name: this.state.FilmInput.name
-          user_id: this.state.FilmInput.user_id,         
-          film_submitted_date:this.state.FilmInput.film_submitted_date,
-          film_status:this.state.FilmInput.film_status,
-          film_title:this.state.FilmInput.film_title,
-          film_genre:this.state.FilmInput.film_genre,
-          film_synopsis:this.state.FilmInput.film_synopsis,
-          film_link:this.state.FilmInput.film_link,
-          film_trailer:this.state.FilmInput.film_trailer,
-          film_cover_art:this.state.FilmInput.film_cover_art,
-          film_cover_thumb:this.state.FilmInput.film_cover_thumb,
-          film_credits:this.state.FilmInput.film_credits,
-          film_year:this.state.FilmInput.film_year,
-          film_length:this.state.FilmInput.film_length
-        }
-
-      }
-      ).then(function (response) {
-        // handle success
-        console.log("my response ", response);
-
-
-      }).catch(function (error) {
-        //          // handle error
-        console.log("error have occured ", error);
-      })
-    } */
-
-    ////keep track of field user left empty
+          ////keep track of field user left empty
     var Required = ''
 
-    //  //if user not at the n-1 last input let user continue moving next with input
+          //if user not at the n-1 last input let user continue moving next with input
     if (this.state.index < maxinput - 1) {
       this.setState({ Require: "" })
       this.setState({ index: ((this.state.index % maxinput) + 1) });
     }
 
-
-
-    ////check if all the required field are complete 
-    //// if not display all the missing field
-    //// user can press next to move foward unless all required field are fill out
+          ////check if all the required field are complete 
+          //// if not display all the missing field
+          //// user can press next to move foward unless all required field are fill out
     if (this.state.index == maxinput - 1) {
       this.setState({ Require: "" })
       if (this.state.Email == "") {
@@ -356,23 +209,25 @@ class Submit extends React.Component {
         Required = Required + " Synopsis,  "
       }
 
-      //    // user complete all the required fields this essential where I would trigger the logic to storage the film data 
-      //    //create new film table
-      //    //before showing the user the Thank for the submission
+          // user complete all the required fields this essential where I would trigger the logic to storage the film data 
+          //create new film table
+          //before showing the user the Thank for the submission
       if (Required == "") {
-        //      //before change the input 
+          //before change the input 
         this.setState({ index: ((this.state.index % maxinput) + 1) })
+        this.setState({readyToSubmit: true})
       }
     }
     if (Required != "") {
       Required = Required + " Field Require"
       this.setState({ Require: Required })
+      this.setState({readyToSubmit: false})
     }
     
   }
 
 
-  //  // allow user to navigate back to previous input field 
+          // allow user to navigate back to previous input field 
   Previous() {
 
     this.setState({ index: ((this.state.index % maxinput) - 1) });
@@ -380,8 +235,6 @@ class Submit extends React.Component {
 
 
   render() {
-   // const hasAccess = this.context.hasAccess;
-
 
     return (
 
@@ -602,6 +455,56 @@ class Submit extends React.Component {
   }
 }
 
+export default Submit;
+
+
+//// React Selecter custom styler
+const customStyles = {
+  menu: (provided, state) => ({
+    backgroundColor: "transparent"
+
+  }),
+
+  control: (_, { selectProps: { width } }) => ({
+    backgroundColor: "transparent",
+    height: 35,
+    borderRadius: 15,
+    border: "2px solid gold"
+
+
+  }),
+
+  input: (provided, state) => ({
+    color: "white",
+    fontFamily: "Roboto",
+    backgroundColor: "transparent",
+  }),
+
+  placeholder: (provided, state) => ({
+    color: "white",
+    fontFamily: "Roboto",
+    textalign: "center",
+
+
+  }),
+
+  dropdownIndicator: (provided, state) => ({
+    display: "none",
+  }),
+
+  menuList: (provided, state) => ({
+    color: "white",
+  }),
+
+  singleValue: (provided, state) => ({
+    color: "white",
+    position: "center",
+  })
+
+
+}
+
+
 /*
 VIDEO SUBMISSION AGREEMENT
 //www.Tribalnetwork.org
@@ -631,6 +534,3 @@ VIDEO SUBMISSION AGREEMENT
 //By submitting any video, you represent and warrant that you have full power and authority to agree to these Submission Terms, including without limitation the power and authority to grant all rights and licenses relating to the Video. 
 
 */
-
-
-export default Submit;
