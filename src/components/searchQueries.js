@@ -44,6 +44,7 @@ export default class SearchQueries extends React.Component {
             users: [],
             films: [],
             liveStreams: [],
+            popularSearches: [],
             gigs: [],
             events: [],
             music: [],
@@ -52,6 +53,7 @@ export default class SearchQueries extends React.Component {
                 users: false,
                 films: false,
                 liveStreams: false,
+                popularSearches: false,
             },
             buttons: [],
             global: [],
@@ -76,8 +78,23 @@ export default class SearchQueries extends React.Component {
             })*/
             }
         
-
-
+            getPopularSearches = () => {
+              /*API.graphql(graphqlOperation(queries.popularSearch))
+              .then((result) => {return result.data.popularSearch.items})
+              .then((result) => { 
+                  let list = [];
+                  result.forEach((search) =>{
+                      let userObj = {
+                          name: search.name.toUpperCase(),
+                          id: search.id,
+                          location: search.location,
+                          type: "Search"
+                      }
+                      list.push(userObj);
+                  })
+                  this.setState({users: list})
+              })*/
+            }
         getFilmTitles = () => {
            /* API.graphql(graphqlOperation(queries.listFilms))
         .then((result) => { return result.data.listFilms.items})
@@ -239,6 +256,9 @@ export default class SearchQueries extends React.Component {
           break;
         case "User":
           return <Link style={{ textDecoration: "none" }} to={`/viewProfile?name=${item.name}&location=${item.location}&id=${item.id}`}><li key={item.id} style={this.liStyle} onClick={() => { this.add("main", item) }}>{item.name}  <p style={this.typeStyle}>{item.type}</p></li></Link>
+          break;
+          case "Popular Searches":
+          return <Link style={{ textDecoration: "none" }} to={`/viewSearch?name=${item.name}&location=${item.location}&id=${item.id}`}><li key={item.id} style={this.liStyle} onClick={() => { this.add("main", item) }}>{item.name}  <p style={this.typeStyle}>{item.type}</p></li></Link>
           break;
       }
 
