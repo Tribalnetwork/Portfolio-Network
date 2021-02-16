@@ -213,19 +213,21 @@ class Submit extends React.Component {
         "film_cover_thumb": "", 
         "film_credits": "film credits here", 
         "film_year": "1998", 
-        "film_length": "106"
+        "film_length": "106",
+        "film_file": this.state.FilmInput
     }
     let dataAsJson = JSON.stringify(formData);
     axios.post("https://j9j2n6zof3.execute-api.us-east-1.amazonaws.com/dev", dataAsJson).then(res =>{
-        let newFilm_id = res.data.body.New_film_id
+      console.log(res)
+        /*let newFilm_id = res.data.body.New_film_id
         let newurl = res.data.body.url
         console.log("response: " + newFilm_id + "  " + newurl)
         this.setState({
             Film_id: newFilm_id, 
             url: newurl
-        })
+        })*/
     })
-    .then(() => {
+    /*.then(() => {
     let config = {
         headers: {
           'Content-Type': this.state.FilmInput.type
@@ -238,13 +240,13 @@ class Submit extends React.Component {
       headers: {
         'Content-Type': this.state.FilmInput.type
       }
-    })*/
+    })*//*
     return axios({
       url: this.state.url,
       method: 'put',
-      data: this.state.FilmInput,
+      data: null,
       headers: {
-        'Content-Type': this.state.FilmInput.type
+        'Content-Type': "multipart/form-data"//this.state.FilmInput.type
       }
       })
     .then( res =>{
@@ -252,7 +254,7 @@ class Submit extends React.Component {
         console.log(res)
     })
     .catch(err => console.log("ERROR" + err));
-    })
+    })*/
     }
   }
 
