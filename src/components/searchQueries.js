@@ -380,7 +380,9 @@ export default class SearchQueries extends React.Component {
     } else {
       const filterButtons = [<li style={this.filterButtonStyle} onClick={this.filterUsers}>Users</li>,
       <li style={this.filterButtonStyle} onClick={this.filterFilms}>Films</li>,
-      <li style={this.filterButtonStyle} onClick={this.filterLiveStreams}>Live Streams</li>]
+      <li style={this.filterButtonStyle} onClick={this.filterLiveStreams}>Live Streams</li>,
+      <li style={this.filterButtonStyle} onClick={this.filterPopularSearches}>Popular Searches</li>]
+
       this.setState({ buttons: filterButtons })
     }
   }
@@ -586,6 +588,7 @@ export default class SearchQueries extends React.Component {
     this.getUserNames();
     this.getFilmTitles();
     this.getLiveStreams();
+    this.getPopularSearches();
     this.checkType();
   }
 
