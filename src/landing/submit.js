@@ -50,13 +50,7 @@ const options = [
   { value: 'thriller', label: 'Thriller' },
   { value: 'experimental', label: 'Experimental' },
   { value: 'talks', label: 'Talks' },
-
-
 ]
-
-
-
-
 
 //// The max number of input field user on the page
 //Updated API Code and added new parameters for films
@@ -116,7 +110,6 @@ class Submit extends React.Component {
 
 
   handleChange(event) {
-
     this.setState({ film_genre: event.value })
   }
 
@@ -235,10 +228,13 @@ class Submit extends React.Component {
 
 
   render() {
+    const hasAccess = this.context.hasAccess;
+    const listName = this.state.list ? "listcontainer1" : "listcontainer2";
 
     return (
 
       <div className={"submitcontainer"}>
+
         <div className={"videosubmit"}>
           <ReactPlayer
             className={"backVideo"}
@@ -254,9 +250,15 @@ class Submit extends React.Component {
           {/*"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4*/}
         </div>
 
+        {console.log("MovieID  ", this.state.MovieID)}
+        {console.log("new status indicator ", this.state.film_status)}
+        <video autoPlay muted loop>
+          <source src="https://tribal-auth-bg-video.s3.amazonaws.com/48+4Min+2-1.m4v" type="video/mp4" />
+        </video>
+
         <div className={"overlayercontainer"}>
           {this.state.index != 2 && this.state.index != 5 &&
-            <div className={"listcontainer"}>
+            <div className={listName}>
               <button onClick={() => this.setState({ list: !this.state.list })} className={"infobutton"}>
                 {" "}
           Why Submit your Film ?{" "}
@@ -287,7 +289,7 @@ class Submit extends React.Component {
                 <label for="email">Enter your Email</label>
                 <input
                   type="email"
-                  placeholder="Examplee@email.com"
+                  placeholder="example@email.com"
                   required
                   pattern="\A[\w!#$%&'*+/=?`{|}~^-]+(?:\.[\w!#$%&'*+/=?`{|}~^-]+)*@↵
     (?:[A-Z0-9-]+\.)+[A-Z]{2,6}\Z"
@@ -338,8 +340,18 @@ class Submit extends React.Component {
                   type="file"
                   accept="video/*"
                   required
+                  className="file-upload-btn"
                   onChange={(value) => this.setState({ FilmInput: value.target.files[0] })}
                 />
+                {console.log("files ", this.state.FilmInput)}
+                <label className="check-container">
+                  <span className="label-text">Tribal can use clips from my Film for Trailers</span>
+                  <input type="checkbox" />
+                  <span className="checkmark"></span>
+                </label>
+
+                {console.log("film input data value ", this.state.FilmInput)}
+
               </div>
             }
 
@@ -385,6 +397,7 @@ class Submit extends React.Component {
               <div className={"uploadcontainer"}>
                 <label for="Synopsis">Synopsis</label>
                 <textarea name="message" rows="10" cols="30"
+                  placeholder="Write here..."
                   onChange={(object) => this.setState({ film_synopsis: object.target.value})}
                 >
 
