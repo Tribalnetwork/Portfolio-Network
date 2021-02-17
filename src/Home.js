@@ -36,13 +36,35 @@ export default class Home extends React.Component {
     films: [],
     url: "https://d2tj5fkeuzoaui.cloudfront.net/4a13ac70-b95c-48bb-9c80-1d340078c647/hls/bunny_2020-07-28T01:25:05.353Z.m3u8",
     videoName: "Bunny",
-    livestreams: []
+    livestreams: [],
+    comedy: [],
+    filmGroups: []
   }
 
   componentDidMount() {
     //this.context.updateCurrentUser()
     this.fetchFilms();
     this.fetchLivestreams();
+    // ------------------------------
+    this.setState({
+      filmGroups:
+        [
+          { 'Comedy': this.state.films, 'rowIndex': 0 },
+          { 'Action': this.state.films, 'rowIndex': 1 },
+          { 'Thriller': this.state.films, 'rowIndex': 2 },
+          { 'Romance': this.state.films, 'rowIndex': 3 },
+          { 'Sci-fi': this.state.films, 'rowIndex': 4 },
+          { 'Drama': this.state.films, 'rowIndex': 5 },
+          { 'Animation': this.state.films, 'rowIndex': 6 },
+          { 'Music': this.state.films, 'rowIndex': 7 },
+          { 'Horror': this.state.films, 'rowIndex': 8 },
+          { 'Experimental': this.state.films, 'rowIndex': 9 },
+          { 'Trailers': this.state.films, 'rowIndex': 10 },
+          { 'Documentary': this.state.films, 'rowIndex': 11 },
+          { 'Sports': this.state.films, 'rowIndex': 12 },
+          { 'Talks': this.state.films, 'rowIndex': 13 }
+        ]
+    })
   }
 
   async fetchFilms() {
@@ -72,6 +94,28 @@ export default class Home extends React.Component {
     const isLoaded = this.context.isLoaded
     const hasAccess = this.context.hasAccess || this.context.remainingVODTime > 0
 
+    let filmGroups = this.state.filmGroups;
+
+    console.clear()
+    // for (const prop in filmGroups) {
+    //   if (filmGroups.hasOwnProperty(prop)) {
+    //     console.log(`${prop}: ${filmGroups[prop]}`)
+    //   }
+    // }
+
+    // sorting
+    // filmGroups = filmGroups.sort((a, b) => a.rowIndex > b.rowIndex ? 1 : -1)
+    // console.log(filmGroups)
+
+    // let fromIndex = 6;
+    // let element = filmGroups[fromIndex];
+
+    // let myList = filmGroups.filter((_, index) => index !== fromIndex)
+    // myList.unshift(element)
+    // console.log(myList)
+    // filmGroups.splice(0, 0, element);
+
+    console.log(filmGroups)
     return (
       <div className="home__tribalBeta">
         <Helmet>
@@ -89,7 +133,7 @@ export default class Home extends React.Component {
                     url={this.state.url}
                     controls
                     playing
-                    volume="0"
+                    volume={0}
                     muted
                     onEnded={() => this.p.showPreview()}
                     width="100%"
@@ -165,66 +209,24 @@ export default class Home extends React.Component {
                     </Grid>
                   </Grid>
                 </div>
-                <div className="trendy-wrapper">
-                  {/*<p className="title__tribalBetaHome">Trending Live</p>*/}
-                  <p className="title__tribalBetaHome">Comedy</p>
-                  <HorizontalScrollerCircular list={this.state.livestreams} />
-                </div>
-                <div className="trendy-wrapper">
-                  <p className="title__tribalBetaHome">Action</p>
-                  <HorizontalScrollerCircular list={this.state.livestreams} />
-                </div>
-                <div className="trendy-wrapper">
-                  <p className="title__tribalBetaHome">Thriller</p>
-                  <HorizontalScrollerCircular list={this.state.livestreams} />
-                </div>
-                <div className="trendy-wrapper">
-                  <p className="title__tribalBetaHome">Romance</p>
-                  <HorizontalScrollerCircular list={this.state.livestreams} />
-                </div>
-                <div className="trendy-wrapper">
-                  <p className="title__tribalBetaHome">Sci-fi</p>
-                  <HorizontalScrollerCircular list={this.state.livestreams} />
-                </div>
-                <div className="trendy-wrapper">
-                  <p className="title__tribalBetaHome">Drama</p>
-                  <HorizontalScrollerCircular list={this.state.livestreams} />
-                </div>
-                <div className="trendy-wrapper">
-                  <p className="title__tribalBetaHome">Animation</p>
-                  <HorizontalScrollerCircular list={this.state.livestreams} />
-                </div>
-                <div className="trendy-wrapper">
-                  <p className="title__tribalBetaHome">Music</p>
-                  <HorizontalScrollerCircular list={this.state.livestreams} />
-                </div>
-                <div className="trendy-wrapper">
-                  <p className="title__tribalBetaHome">Horror</p>
-                  <HorizontalScrollerCircular list={this.state.livestreams} />
-                </div>
-                <div className="trendy-wrapper">
-                  <p className="title__tribalBetaHome">Experimental</p>
-                  <HorizontalScrollerCircular list={this.state.livestreams} />
-                </div>
-                <div className="trendy-wrapper">
-                  <p className="title__tribalBetaHome">Trailers</p>
-                  <HorizontalScrollerCircular list={this.state.livestreams} />
-                </div>
-                <div className="trendy-wrapper">
-                  <p className="title__tribalBetaHome">Documentary</p>
-                  <HorizontalScrollerCircular list={this.state.livestreams} />
-                </div>
-                <div className="trendy-wrapper">
-                  <p className="title__tribalBetaHome">Sports</p>
-                  <HorizontalScrollerCircular list={this.state.livestreams} />
-                </div>
-                <div className="trendy-wrapper">
-                  <p className="title__tribalBetaHome">Talks</p>
-                  <HorizontalScrollerCircular list={this.state.livestreams} />
-                </div>
-                {/*<ContinueWatching></ContinueWatching>
-                <TrendingNow></TrendingNow>
-                <MyList></MyList>*/}
+                {
+                  filmGroups.map(
+                    (film, index) =>
+                      <FilmCat title={Object.getOwnPropertyNames(film)[0]} list={film}
+                        handleClick={
+                          () => {
+                          let element = filmGroups[index];
+                          const myList = filmGroups.filter((_, filterIndex) => index !== filterIndex)
+                          // console.log(myList)
+                          myList.unshift(element)
+                          this.setState(
+                            {
+                              filmGroups: myList
+                            }
+                          )
+                        }} />
+                  )
+                }
               </div>
 
             ) : (
@@ -258,6 +260,22 @@ export default class Home extends React.Component {
   }
 
 }
+
+// Film Catgories 
+function FilmCat(Props) {
+  // console.log(Props.title)
+  // console.log(Props.list[Props.title])
+
+  const title = Props.title;
+  const list = Props.list[title];
+  return (
+    <div className="trendy-wrapper" onClick={() => {Props.handleClick()}}>
+      <p className="title__tribalBetaHome">{title}</p>
+      <HorizontalScrollerCircular list={list} />
+    </div>
+  )
+}
+
 
 const styles = {
   root: {
