@@ -1,19 +1,11 @@
 import React from "react";
-
-import { Auth } from "aws-amplify";
-import Container from "../Container";
-import Button from "../Button";
-import UserContext from "../UserContext";
 import "./submit.css";
 import ReactPlayer from "react-player";
-import { CodeSharp, FormatAlignCenter } from "@material-ui/icons";
 import Select from 'react-select'
 import axios from 'axios';
-import { API, graphqlOperation } from 'aws-amplify';
-import * as queries from '../graphql/queries';
 import Amplify, { Storage } from 'aws-amplify';
 import awsconfig from '../aws-exports';
-import { SelectPicker } from 'rsuite';
+//import { SelectPicker } from 'rsuite';
 
 Amplify.configure(awsconfig);
 
@@ -31,14 +23,16 @@ const benefitbullets = [
   "Get your career Started",
 ];
 
-var queryString = window.location.search;
-var urlParams = new URLSearchParams(queryString);
-var requestedId = JSON.stringify(urlParams.get("id"));
 ////  gets the user id of the user logged in
 var requestingName = localStorage.getItem('CognitoIdentityServiceProvider.1t8oqsg1kvuja9u9rvd2r1a6o4.LastAuthUser');
 var requestingUserData = localStorage.getItem(`CognitoIdentityServiceProvider.1t8oqsg1kvuja9u9rvd2r1a6o4.${requestingName}.userData`);
 var parsed = JSON.parse(requestingUserData);
-var requestingId = JSON.stringify(parsed.UserAttributes[0].Value)
+var requestingId
+if (parsed == null){
+    requestingId = 0;
+} else {
+  requestingId = JSON.stringify(parsed.UserAttributes[0].Value)
+}
 
 //// Film Genre
 const options = [
@@ -56,9 +50,429 @@ const options = [
   { value: 'thriller', label: 'Thriller' },
   { value: 'experimental', label: 'Experimental' },
   { value: 'talks', label: 'Talks' },
-
-
 ]
+
+//// The max number of input field user on the page
+//Updated API Code and added new parameters for films
+const maxinput = 9;
+
+class Submit extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      list: false,  //Determine whether to display the benefit list
+      index: 0,  // index is the current input that display on the webpage
+      Require: "",          // I use this required field to keep track of what input field user skip to give prompt to complete
+      Film_id: "",    // FIlm ID create by using get New Date time stamp 
+      user_id: "", 
+      Email: "",
+      Phone: "",
+      FilmInput: "",      //The Film user is uploading 
+      FilmTrailerInput: "",  //Film Trailer user uploading Currently optional 
+      film_cover_art:"",
+      film_genre:"",
+      film_status:"",
+      film_synopsis:"",
+      film_title:"",
+      url: "",
+      date: "",
+      readyToSubmit: "false",
+      confirmation: "Thank you very much for submitting your film with Tribal, Please stay on the page until we have confirmation of receipt of your film"
+     /* StatusIndicator: 0,   // This indicate the status of the film every new submission start as 0
+      FilmLink: "",         //This will be the film link to an S3 buckets 
+      backgroundvideo: "",
+      film_submitted_date:"",
+      film_link:"",
+      film_trailer:"",
+      film_cover_thumb:"",
+      film_credits:"",
+      film_year:"",
+      film_length:""*/
+    };
+
+    this.Next = this.Next.bind(this);
+    this.Previous = this.Previous.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  componentDidMount() {
+    this.setState({ MovieID: ((new Date()).getTime()) })
+    this.setState({ film_status: 0 })
+    this.setState({ user_id: requestingId })
+
+    var dateObj = new Date();
+    var month = dateObj.getUTCMonth() + 1; //months from 1-12
+    var day = dateObj.getUTCDate();
+    var year = dateObj.getUTCFullYear();
+    var newdate = year + "/" + month + "/" + day;
+    this.setState({date: newdate})
+  }
+
+
+  handleChange(event) {
+    this.setState({ film_genre: event.value })
+  }
+
+
+  Submit = () => {
+    this.Next();
+    setTimeout(() => {if(this.state.readyToSubmit == true){
+      let formData = {
+        "user_id": this.state.user_id, 
+        "film_submitted_date": this.state.date, 
+        "film_status": "1", 
+        "film_title": this.state.film_title, 
+        "film_genre": this.state.film_genre, 
+        "film_synopsis": this.state.film_synopsis, 
+        "film_link": "", 
+        "film_trailer": "", 
+        "film_cover_art": "", 
+        "film_cover_thumb": "", 
+        "film_credits": "film credits here", 
+        "film_year": "1998", 
+        "film_length": "106",
+        "film_file": this.state.FilmInput,
+        "content_type": this.state.FilmInput.type
+      }
+      let dataAsJson = JSON.stringify(formData);
+      axios.post("https://j9j2n6zof3.execute-api.us-east-1.amazonaws.com/dev", dataAsJson).then(res =>{
+        console.log(res)
+        let newurl = res.data.body.url
+        console.log("response: " + newurl)
+        this.setState({
+            url: newurl
+        })
+      })
+      .then(() => {  
+      return axios({
+        url: this.state.url,
+        method: 'put',
+        data: this.state.FilmInput,
+        headers: {
+          'Content-Type': this.state.FilmInput.type
+        }
+      })
+      .then( res =>{
+          console.log("YOU HAVE BEEN SUCCESSFUL")
+          console.log(res)
+          this.setState({confirmation: "Your film has successsfully been recieved, Congrats!"})
+      })
+      .catch(err => {
+          console.log("ERROR" + err)
+          this.setState({confirmation: "Uh-Oh! There was a problem submitting your film, please try again and if the problem persist, contact customer support."})
+      });
+      })
+    }
+      
+    }, 1000);
+  }
+
+          ////Function That determine whether to display the nextInput field to user 
+  Next() {
+          ////keep track of field user left empty
+    var Required = ''
+
+          //if user not at the n-1 last input let user continue moving next with input
+    if (this.state.index < maxinput - 1) {
+      this.setState({ Require: "" })
+      this.setState({ index: ((this.state.index % maxinput) + 1) });
+    }
+
+          ////check if all the required field are complete 
+          //// if not display all the missing field
+          //// user can press next to move foward unless all required field are fill out
+    if (this.state.index == maxinput - 1) {
+      this.setState({ Require: "" })
+      if (this.state.Email == "") {
+        Required = Required + " Email, "
+      }
+      if (this.state.Phone == "") {
+        Required = Required + " Phone Number,  "
+      }
+
+      if (this.state.FilmInput == "") {
+        Required = Required + " Upload A Film,  "
+      }
+
+      if (this.state.film_title == "") {
+        Required = Required + " Title,  "
+      }
+
+      if (this.state.film_genre == "") {
+        Required = Required + " Genre,  "
+      }
+
+      if (this.state.film_synopsis == "") {
+        Required = Required + " Synopsis,  "
+      }
+
+          // user complete all the required fields this essential where I would trigger the logic to storage the film data 
+          //create new film table
+          //before showing the user the Thank for the submission
+      if (Required == "") {
+          //before change the input 
+        this.setState({ index: ((this.state.index % maxinput) + 1) })
+        this.setState({readyToSubmit: true})
+      }
+    }
+    if (Required != "") {
+      Required = Required + " Field Require"
+      this.setState({ Require: Required })
+      this.setState({readyToSubmit: false})
+    }
+    
+  }
+
+
+          // allow user to navigate back to previous input field 
+  Previous() {
+
+    this.setState({ index: ((this.state.index % maxinput) - 1) });
+  }
+
+
+  render() {
+    const hasAccess = this.context.hasAccess;
+    const listName = this.state.list ? "listcontainer1" : "listcontainer2";
+
+    return (
+
+      <div className={"submitcontainer"}>
+
+        <div className={"videosubmit"}>
+          <ReactPlayer
+            className={"backVideo"}
+            url={"https://s3.amazonaws.com/ribaletwork-20200622075300-hostingbucket-demo/content/48_4min.mp4"}
+            width="100%"
+            height="100%"
+            playing={true}
+            loop={true}
+
+
+          />
+          {/*https://s3.amazonaws.com/ribaletwork-20200622075300-hostingbucket-demo/content/48_4min.mp4*/}
+          {/*"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4*/}
+        </div>
+
+        {console.log("MovieID  ", this.state.MovieID)}
+        {console.log("new status indicator ", this.state.film_status)}
+        <video autoPlay muted loop>
+          <source src="https://tribal-auth-bg-video.s3.amazonaws.com/48+4Min+2-1.m4v" type="video/mp4" />
+        </video>
+
+        <div className={"overlayercontainer"}>
+          {this.state.index != 2 && this.state.index != 5 &&
+            <div className={listName}>
+              <button onClick={() => this.setState({ list: !this.state.list })} className={"infobutton"}>
+                {" "}
+          Why Submit your Film ?{" "}
+              </button>
+
+              {this.state.list === true && (
+                <div className="bullets">
+
+                  {benefitbullets.map((benefit) => (
+                    <div className={"Benefitlist"} key={benefit}>
+                      <ul>
+                        <li> {benefit}</li>
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          }
+
+          {/*start of info section ?*/}
+          <div className={"InfoSection"}>
+
+
+            {this.state.index == 0 &&
+
+              <form className={"inputcontainer"}>
+                <label for="email">Enter your Email</label>
+                <input
+                  type="email"
+                  placeholder="example@email.com"
+                  required
+                  pattern="\A[\w!#$%&'*+/=?`{|}~^-]+(?:\.[\w!#$%&'*+/=?`{|}~^-]+)*@↵
+    (?:[A-Z0-9-]+\.)+[A-Z]{2,6}\Z"
+                  onChange={(value) => this.setState({ Email: value.target.value })}
+
+                  
+
+                ></input>
+              </form>
+
+
+            }
+
+            {this.state.index === 1 &&
+              <form className={"inputcontainer"}>
+                <label for="telephone">Enter phone number</label>
+                <input type="tel"
+                  placeholder="xxx-xxx-xxxx"
+                  required
+                  pattern="^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$"
+                  onChange={(value) => this.setState({ Phone: value.target.value })}
+                  value={this.state.Phone}
+
+                >
+
+                </input>
+
+              </form>
+            }
+
+            {this.state.index === 2 &&
+              <div className={"termcontainer"}>
+                <p >
+
+                  Terms and Conditions, 
+                  by clicking next, you agree
+
+                </p>
+
+
+              </div>
+            }
+
+            {this.state.index === 3 &&
+              <div className={"uploadcontainer"}>
+                <label for="film">Upload Your Film</label>
+                <input
+                  type="file"
+                  accept="video/*"
+                  required
+                  className="file-upload-btn"
+                  onChange={(value) => this.setState({ FilmInput: value.target.files[0] })}
+                />
+                {console.log("files ", this.state.FilmInput)}
+                <label className="check-container">
+                  <span className="label-text">Tribal can use clips from my Film for Trailers</span>
+                  <input type="checkbox" />
+                  <span className="checkmark"></span>
+                </label>
+
+                {console.log("film input data value ", this.state.FilmInput)}
+
+              </div>
+            }
+
+            {this.state.index === 4 &&
+              <div className={"uploadcontainer"}>
+                <label for="filmTitle"> Enter The Film Title</label>
+                <input type="text" styles={{ cursor: "none,", border: "2px solid gold" }} required
+                  onChange={(value) => this.setState({ film_title: value.target.value })}
+                >
+
+
+                </input >
+              </div>
+            }
+
+            {this.state.index === 5 &&
+              <div className={"genre"}>
+                <Select options={options} placeholder={"Select Genre"} styles={customStyles}
+
+
+                  onChange={this.handleChange}
+
+                />
+              </div>
+            }
+
+
+            {this.state.index === 6 &&
+              <div className={"uploadcontainer"}>
+                <label for="Trailer">Upload Your Trailer</label>
+                <input
+                  type="file"
+                  accept="video/*"
+                  required
+                  onChange={(value) => this.setState({ FilmTrailerInput: value.target.files[0] })}
+                />
+              </div>
+            }
+
+
+
+            {this.state.index == 7 &&
+              <div className={"uploadcontainer"}>
+                <label for="Synopsis">Synopsis</label>
+                <textarea name="message" rows="10" cols="30"
+                  placeholder="Write here..."
+                  onChange={(object) => this.setState({ film_synopsis: object.target.value})}
+                >
+
+                </textarea>
+              </div>
+
+
+            }
+
+            {this.state.index == 8 &&
+              <div className={"uploadcontainer"}>
+                <label for="Coverart">Upload Your CoverArt</label>
+                <input type="file" accept="image/*" required 
+                 onChange={(value) => this.setState({ film_cover_art: value.target.files[0] })} >
+                </input>
+                <div className={"RequiredFields"}>
+                  <p> {this.state.Require} </p>
+                </div>
+
+              </div>
+
+            }
+
+
+
+            <div className={"lastinput"}>
+              {this.state.index > 0 && this.state.index < maxinput &&
+                <button onClick={() => this.Previous()}
+                  type="submit"
+                > Previous </button>
+              }
+
+              {this.state.index >= 0 && this.state.index < maxinput -1 &&
+
+                <button onClick={() => this.Next()}
+
+                > Next </button>
+              }
+
+              {this.state.index == maxinput - 1 &&
+                <button onClick={() => this.Submit()}
+                  > Submit </button>
+              }
+
+            </div>
+
+            {this.state.index == (maxinput) &&
+
+              <div className="thanks">
+                <p>{this.state.confirmation}</p>
+              </div>
+
+
+            }
+
+
+            <div className={"computerscreenrequire"}>
+              <p> Please login on a laptop or computer to do a submit request</p>
+            </div>
+
+          </div>
+
+        </div>
+        {/*wrapper overlay container end */}
+      </div>
+    );
+  }
+}
+
+export default Submit;
 
 
 //// React Selecter custom styler
@@ -76,12 +490,6 @@ const customStyles = {
 
 
   }),
-
-  singleValue: (provided, state) => {
-
-
-  }
-  ,
 
   input: (provided, state) => ({
     color: "white",
@@ -114,443 +522,6 @@ const customStyles = {
 }
 
 
-//// The max number of input field user on the page
-//Updated API Code and added new parameters for films
-const maxinput = 9;
-
-class Submit extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      list: false,  //Determine whether to display the benefit list
-      index: 0,  // index is the current input that display on the webpage
-     /* Name: "",   //User name not currently use.
-      Email: "",
-      Phone: "",
-      UserID: "", */        // User ID 
-      MovieID: "",    // FIlm ID create by using get New Date time stamp
-      FilmInput: "",      //The Film user is uploading 
-      FilmTrailerInput: "",  //Film Trailer user uploading Currently optional 
-     /* StatusIndicator: 0,   // This indicate the status of the film every new submission start as 0
-      FilmLink: "",         //This will be the film link to an S3 buckets 
-      Synopsis: "",         // Description of film 
-      backgroundvideo: "",
-      Genre: "",*/
-      Require: "",          // I use this required field to keep track of what input field user skip to give prompt to complete 
-     // Title: "",
-      user_id: "",         
-      film_submitted_date:"",
-      film_status:"",
-      film_title:"",
-      film_genre:"",
-      film_synopsis:"",
-      film_link:"",
-      film_trailer:"",
-      film_cover_art:"",
-      film_cover_thumb:"",
-      film_credits:"",
-      film_year:"",
-      film_length:""
-
-
-    };
-    this.Next = this.Next.bind(this);
-    this.Previous = this.Previous.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-
-
-    console.log("REQUEST ID", requestingId)
-
-    var result = null;
-
-    this.setState({ MovieID: ((new Date()).getTime()) })
-    this.setState({ film_status: 0 })
-    this.setState({ user_id: requestingId })
-
-
-
-  }
-
-  static contextType = UserContext;
-
-  signOut() {
-    Auth.signOut()
-      .then(() => {
-        this.props.history.push("/auth");
-      })
-      .catch((err) => console.log("error signing out... " + err));
-  }
-
-  componentDidMount() {
-    this.setState({ MovieID: ((new Date()).getTime()) })
-    this.setState({ film_status: 0 })
-    this.setState({ user_id: requestingId })
-
-
-
-
-  }
-
-
-  handleChange(event) {
-
-    this.setState({ film_genre: event.value })
-  }
-
-
-  ////Function That determine whether to display the nextInput field to user 
-  Next() {
-
-
-
-
-    Storage.put('FilmSubmit/firsttestobject.mp4', "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4", {
-      contentType: 'video/mp4'
-
-    }).then(result => console.log("sucess ", result))
-      .catch(err => console.log("erorror ", err));
-
-
-    // //"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4
-
-    ///* testing to write a film object to a bucket using api*/
-    //  /* after storing video in buck that url should be to the associated film when making a new film table using Graphl 
-    //    with all the other attributes of a film. */
-    if (this.state.FilmInput != "") {
-      var testobject = this.state.FilmInput
-
-      const headers = {
-        'Content-Type': 'mp4'
-
-      }
-
-      axios({
-        method: 'post',
-        url: "https://j9j2n6zof3.execute-api.us-east-1.amazonaws.com/dev",
-        header: headers,
-        data: {
-          /*video: this.state.FilmInput,
-          name: this.state.FilmInput.name*/
-          user_id: this.state.FilmInput.user_id,         
-          film_submitted_date:this.state.FilmInput.film_submitted_date,
-          film_status:this.state.FilmInput.film_status,
-          film_title:this.state.FilmInput.film_title,
-          film_genre:this.state.FilmInput.film_genre,
-          film_synopsis:this.state.FilmInput.film_synopsis,
-          film_link:this.state.FilmInput.film_link,
-          film_trailer:this.state.FilmInput.film_trailer,
-          film_cover_art:this.state.FilmInput.film_cover_art,
-          film_cover_thumb:this.state.FilmInput.film_cover_thumb,
-          film_credits:this.state.FilmInput.film_credits,
-          film_year:this.state.FilmInput.film_year,
-          film_length:this.state.FilmInput.film_length
-        }
-
-      }
-      ).then(function (response) {
-        // handle success
-        console.log("my response ", response);
-
-
-      }).catch(function (error) {
-        //          // handle error
-        console.log("error have occured ", error);
-      })
-    }
-
-    ////keep track of field user left empty
-    var Required = ''
-
-    //  //if user not at the n-1 last input let user continue moving next with input
-    if (this.state.index < maxinput - 1) {
-      this.setState({ Require: "" })
-      this.setState({ index: ((this.state.index % maxinput) + 1) });
-    }
-
-
-
-    ////check if all the required field are complete 
-    //// if not display all the missing field
-    //// user can press next to move foward unless all required field are fill out
-    if (this.state.index == maxinput - 1) {
-      this.setState({ Require: "" })
-      if (this.state.Email == "") {
-        Required = Required + " Email, "
-      }
-      if (this.state.Phone == "") {
-        Required = Required + " Phone Number,  "
-      }
-
-      if (this.state.FilmInput == "") {
-        Required = Required + " Upload A Film,  "
-      }
-
-      if (this.state.film_title == "") {
-        Required = Required + " Title,  "
-      }
-
-      if (this.state.film_genre == "") {
-        Required = Required + " Genre,  "
-      }
-
-      if (this.state.film_synopsis == "") {
-        Required = Required + " Synopsis,  "
-      }
-
-      //    // user complete all the required fields this essential where I would trigger the logic to storage the film data 
-      //    //create new film table
-      //    //before showing the user the Thank for the submission
-      if (Required == "") {
-        //      //before change the input 
-        this.setState({ index: ((this.state.index % maxinput) + 1) })
-      }
-    }
-    if (Required != "") {
-      Required = Required + " Field Require"
-      this.setState({ Require: Required })
-    }
-  }
-
-
-  //  // allow user to navigate back to previous input field 
-  Previous() {
-
-    this.setState({ index: ((this.state.index % maxinput) - 1) });
-  }
-
-
-  render() {
-    const hasAccess = this.context.hasAccess;
-
-
-    return (
-
-      <div className={"submitcontainer"}>
-        {console.log("MovieID  ", this.state.MovieID)}
-        {console.log("new status indicator ", this.state.film_status)}
-        <div className={"videosubmit"}>
-          <ReactPlayer
-            className={"backVideo"}
-            url={"https://s3.amazonaws.com/ribaletwork-20200622075300-hostingbucket-demo/content/48_4min.mp4"}
-            width="100%"
-            height="100%"
-            playing={true}
-            loop={true}
-
-
-          />
-          {/*https://s3.amazonaws.com/ribaletwork-20200622075300-hostingbucket-demo/content/48_4min.mp4*/}
-          {/*"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4*/}
-        </div>
-
-        <div className={"overlayercontainer"}>
-          {this.state.index != 2 && this.state.index != 5 &&
-            <div className={"listcontainer"}>
-              <button onClick={() => this.setState({ list: !this.state.list })} className={"infobutton"}>
-                {" "}
-          Why Submit your Film ?{" "}
-              </button>
-
-              {this.state.list === true && (
-                <div className="bullets">
-
-                  {benefitbullets.map((benefit) => (
-                    <div className={"Benefitlist"} key={benefit}>
-                      <ul>
-                        <li> {benefit}</li>
-                      </ul>
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
-          }
-
-          {/*start of info section ?*/}
-          <div className={"InfoSection"}>
-
-
-            {this.state.index == 0 &&
-
-              <form className={"inputcontainer"}>
-                <label for="email">Enter your Email</label>
-                <input
-                  type="email"
-                  placeholder="Examplee@email.com"
-                  required
-                  pattern="\A[\w!#$%&'*+/=?`{|}~^-]+(?:\.[\w!#$%&'*+/=?`{|}~^-]+)*@↵
-    (?:[A-Z0-9-]+\.)+[A-Z]{2,6}\Z"
-                  onChange={(value) => this.setState({ Email: value.target.value })}
-
-                  value={this.state.Email}
-
-                ></input>
-
-                {console.log("value of email ", this.state.Email)}
-              </form>
-
-
-            }
-
-            {this.state.index === 1 &&
-              <form className={"inputcontainer"}>
-                <label for="telephone">Enter phone number</label>
-                <input type="tel"
-                  placeholder="xxx-xxx-xxxx"
-                  required
-                  pattern="^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$"
-                  onChange={(value) => this.setState({ Phone: value.target.value })}
-                  value={this.state.Phone}
-
-                >
-
-                </input>
-
-              </form>
-            }
-
-            {this.state.index === 2 &&
-              <div className={"termcontainer"}>
-                <p >
-
-
-
-                </p>
-
-
-              </div>
-            }
-
-            {this.state.index === 3 &&
-              <div className={"uploadcontainer"}>
-                <label for="film">Upload Your Film</label>
-                <input
-                  type="file"
-                  accept="video/*"
-                  required
-                  onChange={(value) => this.setState({ FilmInput: value.target.files[0] })}
-                />
-                {console.log("files ", this.state.FilmInput)}
-
-
-                {console.log("film input data value ", this.state.FilmInput)}
-              </div>
-            }
-
-            {this.state.index === 4 &&
-              <div className={"uploadcontainer"}>
-                <label for="filmTitle"> Enter The Film Title</label>
-                <input type="text" styles={{ cursor: "none,", border: "2px solid gold" }} required
-                  value={"Test"}
-                  onChange={(value) => this.setState({ film_title: value })}
-
-                >
-
-
-                </input >
-              </div>
-            }
-
-            {this.state.index === 5 &&
-              <div className={"genre"}>
-                <Select options={options} placeholder={"Select Genre"} styles={customStyles}
-
-
-                  onChange={this.handleChange}
-
-                />
-                {console.log(" current Genre " + this.state.film_genre)}
-              </div>
-            }
-
-
-            {this.state.index === 6 &&
-              <div className={"uploadcontainer"}>
-                <label for="Trailer">Upload Your Trailer</label>
-                <input
-                  type="file"
-                  accept="video/*"
-                  required
-                  onChange={(value) => this.setState({ FilmTrailerInput: value.target.files[0] })}
-                />
-                {console.log("this is the current film data ", this.state.FilmInput)}
-              </div>
-            }
-
-
-
-            {this.state.index == 7 &&
-              <div className={"uploadcontainer"}>
-                <label for="Synopsis">Synopsis</label>
-                <textarea name="message" rows="10" cols="30"
-                  value={"Tests"}
-                  onChange={(object) => this.setState({ film_synopsis: object.target.value})}
-                >
-
-                </textarea>
-
-                {console.log("synosis : ", this.state.film_synopsis)}
-              </div>
-
-
-            }
-
-            {this.state.index == 8 &&
-              <div className={"uploadcontainer"}>
-                <label for="Coverart">Upload Your CoverArt</label>
-                <input type="file" accept="image/*" required ></input>
-                <div className={"RequiredFields"}>
-                  <p> {this.state.Require} </p>
-                </div>
-
-              </div>
-
-            }
-
-
-
-            <div className={"lastinput"}>
-              {this.state.index > 0 && this.state.index < maxinput &&
-                <button onClick={() => this.Previous()}
-                  type="submit"
-                > Previous </button>
-              }
-
-              {this.state.index >= 0 && this.state.index < maxinput &&
-
-                <button onClick={() => this.Next()}
-
-                > Next </button>
-              }
-
-
-            </div>
-
-            {this.state.index == (maxinput) &&
-
-              <div className="thanks">
-                <p> Thank you very much for submitting your film with Tribal</p>
-
-              </div>
-
-
-            }
-
-
-            <div className={"computerscreenrequire"}>
-              <p> Please login on a laptop or computer to do a submit request</p>
-            </div>
-
-          </div>
-
-        </div>
-        {/*wrapper overlay container end */}
-      </div>
-    );
-  }
-}
-
 /*
 VIDEO SUBMISSION AGREEMENT
 //www.Tribalnetwork.org
@@ -580,6 +551,3 @@ VIDEO SUBMISSION AGREEMENT
 //By submitting any video, you represent and warrant that you have full power and authority to agree to these Submission Terms, including without limitation the power and authority to grant all rights and licenses relating to the Video. 
 
 */
-
-
-export default Submit;
