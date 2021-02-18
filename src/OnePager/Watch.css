@@ -35,3 +35,12 @@ h3 {
 .author-text{
   color:white
 }
+
+.MuiGrid-container {
+  display: flex;
+  align-items: center;
+}
+
+.ratingStars{
+  margin-top: 0.185rem;
+}
