@@ -36,7 +36,17 @@ import MyProfile from "./ProfilePage/Profile.js"*/
 import Home from "./Home"
 //import ConnectList from "./SocialPage/ConnectList"
 import { FeatureComingSoon } from "./components/FeatureComingSoon";
+
 import { Settings__tribalBeta } from "./components/tribalBeta/Settings__tribalBeta";
+
+import MobileAppTribalBeta from "./components/tribalBeta/MobileApp__tribalBeta";
+import PrivacyPolicyTribalBeta from "./components/tribalBeta/PrivacyPolicy__tribalBeta";
+import SupportTribalBeta from "./components/tribalBeta/Support__tribalBeta";
+import TermsOfServiceTribalBeta from "./components/tribalBeta/TermsOfService__tribalBeta";
+import TipsAndSupportTribalBeta from "./components/tribalBeta/TipsAndSupport__tribalBeta";
+import ContactUsTribalBeta from "./components/tribalBeta/ContactUs__tribalBeta";
+
+import Signin from './SignIn'
 
 // import SportsPage from "./ExplorePage/SportsPage";
 
@@ -96,10 +106,36 @@ const Routes = () => (
     <div>
       <NavigationBar />
       <Switch>
+        <Route path="/settings/mobileapp" exact component={MobileAppTribalBeta}>
+          {/* <MobileApp__tribalBeta /> */}
+          <FeatureComingSoon />
+        </Route>
+        <Route path="/settings/privacypolicy" exact component={PrivacyPolicyTribalBeta}>
+          <PrivacyPolicyTribalBeta />
+        </Route>
+        <Route path="/settings/support" exact component={SupportTribalBeta}>
+          <SupportTribalBeta />
+        </Route>
+        <Route path="/settings/termsofservice" exact component={TermsOfServiceTribalBeta}>
+          <TermsOfServiceTribalBeta />
+        </Route>
+        <Route path="/settings/tipsandsupport" exact component={TipsAndSupportTribalBeta}>
+          <TipsAndSupportTribalBeta />
+        </Route>
+        <Route path="/settings/contactus" exact component={ContactUsTribalBeta}>
+          <ContactUsTribalBeta />
+        </Route>
 
         <Route path="/settings" exact component={Settings__tribalBeta}>
           <Settings__tribalBeta />
         </Route>
+
+
+        <Route path="/signin" exact component={Signin}>
+          <Signin />
+        </Route>
+
+
         <Route
           path="/settings/wifi"
         >
@@ -135,11 +171,11 @@ const Routes = () => (
         >
           <FeatureComingSoon />
         </Route>
-        <Route
+        {/* <Route
           path="/settings/logout"
         >
           <FeatureComingSoon />
-        </Route>
+        </Route> */}
         <Route
           path="/settings/wifiandcellular"
         >

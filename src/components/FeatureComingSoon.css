@@ -8,4 +8,13 @@
   color: gold;
   font-family: 'Times New Roman', Times, serif;
   font-size: 3.75rem;
+  padding: 0.5rem;
+  
+}
+
+@media only screen and (max-width: 768px) {
+  .featureComingSoon__text {
+    font-size: 2rem;
+    text-align: center;
+  }
 }

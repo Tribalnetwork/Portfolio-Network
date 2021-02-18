@@ -110,11 +110,11 @@ export const NavigationBar = () => {
             <MenuIcon />
 
           </IconButton>
-          <Link to='/' className={classes.title}>
+          <span className={classes.title}>
             <Typography variant="h6" >
-              Tribal
+              Tribal Beta
             </Typography>
-          </Link>
+          </span>
           {
             isLoaded ? isAuthenticated ? (
               <div >
