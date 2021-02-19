@@ -12,15 +12,13 @@ Amplify.configure(awsconfig);
 
 ////It easy to add new benefit the page should be able to adjust to accordingly . 
 const benefitbullets = [
-  " Free access to the app",
-  "Create your Portfolio right on the app and download it at any time ",
-  "Get help to make even more Projects",
+  "Get feedback from peers and supporters.",
+  "Get discounted access.",
   "Get Donations",
-  "Get Feedback on your productions",
-  "Get a professional review from the TFC (Tribal Film Council)",
-  "Get help finding and entering your films into festivals",
-  "Make connections in your industry",
-  "Get your career Started",
+  "Get new viewership.",
+  "Get reviews from the TFC (Tribal Film Council).",
+  "Get help finding and submitting to film festivals.",
+  " Create your portfolio right on the app.",
 ];
 
 ////  gets the user id of the user logged in
