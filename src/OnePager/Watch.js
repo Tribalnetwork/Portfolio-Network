@@ -11,6 +11,9 @@ import Button from '../components/Button'
 import './Watch.css'
 import Grid from '@material-ui/core/Grid';
 import {ReactComponent as Ratelogo} from '../icons/Rate.svg';
+import {ReactComponent as RateFull} from '../icons/StarFull.svg';
+import {ReactComponent as RateText} from '../icons/RateText.svg';
+import {ReactComponent as RateEmpty} from '../icons/StarEmpty.svg';
 import {ReactComponent as Donatelogo} from '../icons/Donate.svg';
 import {ReactComponent as Downloadlogo} from '../icons/Download.svg';
 import {ReactComponent as Sharelogo} from '../icons/Share.svg';
@@ -21,6 +24,8 @@ import UpNext from '../components/UpNext';
 import TrendingNow from '../OnePager/TrendingNow';
 import { StylesProvider } from '@material-ui/core';
 import {ReactComponent as AddToListSelectedLogo} from '../icons/AddToList-Selected.svg';
+import ReactStars from "react-rating-stars-component";
+import { render } from "react-dom";
 
 const AuthorSection=({author})=>{
   //console.log(author);
@@ -42,6 +47,10 @@ const AuthorSection=({author})=>{
       </div>
   )
 }
+
+const ratingChanged = (newRating) => {
+  console.log(newRating);
+};
 
 class WatchPage extends React.Component {
 
@@ -215,7 +224,20 @@ class WatchPage extends React.Component {
           </div>          
           <div className="functionTabs">
             <Grid container justify="space-between">
-              <Grid item><Ratelogo></Ratelogo></Grid>
+              <Grid item>
+                {/* <Ratelogo></Ratelogo> */}
+                <div className="ratingStars">     
+                <ReactStars
+                  count={5}
+                  onChange={ratingChanged}
+                  size={20}
+                  emptyIcon={<RateEmpty></RateEmpty>}
+                  filledIcon={<RateFull></RateFull>}
+                  activeColor='linear-gradient(to left, #333, #333 50%, #eee 75%, #333 75%)'
+                />
+                </div> 
+                <RateText></RateText>
+              </Grid>
               <Grid item><Donatelogo></Donatelogo></Grid>
               <Grid item><Sharelogo></Sharelogo></Grid>
               <Grid item><Downloadlogo></Downloadlogo></Grid>

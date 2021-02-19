@@ -22,6 +22,7 @@ import Search from "../bottomNavBarImg/search.svg"
 import Bell from "../bottomNavBarImg/bell.svg"
 import Book from "../bottomNavBarImg/book.svg"
 import People from "../bottomNavBarImg/people.png"
+
 const useStyles = makeStyles((theme) => ({
   menuButton: {
     marginRight: theme.spacing(2),
@@ -122,13 +123,12 @@ export const NavigationBar = () => {
             isLoaded ? isAuthenticated ? (
               <div >
                 <button
-                  style="display:inline-block"
                   className={"profileimage2"}
                   onClick={handleDrawerOpen2}
                   variant='contained'
                   style={{ background: 'black', textTransform: 'none' }}>
 
-                  <img className={"profileimage2"} src="https://d202tggnzywgd9.cloudfront.net/public/photos/avatar.png" />
+                  <img className={"profileimage2"} src="https://d202tggnzywgd9.cloudfront.net/public/photos/avatar.png" style={{width: '50px', height: '50px'}}/>
                 </button>
 
                 <Drawer
