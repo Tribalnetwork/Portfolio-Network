@@ -126,7 +126,7 @@ export const NavigationBar = () => {
                   className={"profileimage2"}
                   onClick={handleDrawerOpen2}
                   variant='contained'
-                  style={{ background: 'black', textTransform: 'none' }}>
+                  style={{ background: 'black', textTransform: 'none', outline: 'none' }}>
 
                   <img className={"profileimage2"} src="https://d202tggnzywgd9.cloudfront.net/public/photos/avatar.png" style={{width: '50px', height: '50px'}}/>
                 </button>
