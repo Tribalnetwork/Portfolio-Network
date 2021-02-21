@@ -1,0 +1,72 @@
+.menuBtnDiv {
+        vertical-align: top;
+        display: inline-block;
+        text-align: center;
+}
+
+.menuBtnIcon {
+    color: #9e923b
+}
+
+.menuBtnText {
+    color: #9e923b;
+    justify-self: center;
+    text-align: center;
+    font-size: 2;
+}
+
+.toolbar {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 2.5%;
+}
+
+.expandBtn {
+    color: white;
+    float: right;
+}
+
+.videoContent {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.videoContentContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: white;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+.collapse {
+    color: white;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+@media only screen and (min-width: 992px) {
+    .otherThingy {
+            display: flex;
+            flex-flow: column nowrap;
+    }
+    .toolbar {
+        margin-top: auto;
+    }
+
+    .videoName {
+        font-size: large;
+    }
+    .videoContent {
+        justify-content: space-between;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+}

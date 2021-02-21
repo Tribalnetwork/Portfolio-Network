@@ -15,7 +15,12 @@ import Landing from '../landing/landing-home.js'
 import Submit from '../landing/submit'
 import Live from '../OnePager/Live'
 import { Stream } from '../TribalPage/Stream'
+
+// HERE IS WHERE I AM WORKING
 import Profile from '../SocialPage/Profile'
+// import SingleSocialFilm from "../SingleSocialFilm/SingleSocialFilm"
+
+
 import GetAccess from '../OnePager/GetAccess'
 import Pending from '../components/Pending'
 import { MyLive } from '../components/MyLive'
@@ -220,7 +225,17 @@ const Routes = () => (
         {/* <PrivateRoute path="/profile" component={Profile} /> */}
         {/* commenting out and changing value of component
          just to give me access to MyProfile */}
+
+
+
+        {/* HERE IS WHERE I AM WORKING */}
         <PrivateRoute path="/profile" component={Profile} />
+        {/* <PrivateRoute path="/singleSocialFilm" component={SingleSocialFilm} /> */}
+
+
+
+
+
         <PrivateRoute path="/myprofile" component={MyProfile} />
 
         <PrivateRoute path="/getaccess" component={GetAccess} />
