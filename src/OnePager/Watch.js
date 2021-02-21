@@ -29,7 +29,6 @@ import TrendingNow from "../OnePager/TrendingNow";
 import VideoPlayerMenu from "../HomePage2/VideoPlayerMenu";
 
 const AuthorSection = ({ author }) => {
-  //console.log(author);
   return (
     <div>
       <hr></hr>
@@ -59,6 +58,10 @@ const AuthorSection = ({ author }) => {
 const authorSecionStyle = {
   display: "grid",
   gridTemplateColumns: "repeat(2, 1fr)",
+};
+
+const ratingChanged = (newRating) => {
+  console.log(newRating);
 };
 
 class WatchPage extends React.Component {

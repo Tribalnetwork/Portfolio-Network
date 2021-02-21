@@ -35,7 +35,6 @@ h3 {
 .author-text{
   color:white
 }
-
 .player-wrapper {
   width: auto;
   height: auto;
@@ -69,4 +68,12 @@ h3 {
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
+}
+.MuiGrid-container {
+  display: flex;
+  align-items: center;
+}
+
+.ratingStars{
+  margin-top: 0.185rem;
 }

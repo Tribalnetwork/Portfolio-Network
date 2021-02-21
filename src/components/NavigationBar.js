@@ -12,7 +12,7 @@ import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-import Submit from "../bottomNavBarImg/Submit.svg"
+import Submit from "../bottomNavBarImg/tribal2.png"
 import './NavigationBar.css';
 import Home from "../bottomNavBarImg/home.svg"
 import Tribal from "../bottomNavBarImg/tribal.svg"
@@ -22,6 +22,7 @@ import Search from "../bottomNavBarImg/search.svg"
 import Bell from "../bottomNavBarImg/bell.svg"
 import Book from "../bottomNavBarImg/book.svg"
 import People from "../bottomNavBarImg/people.png"
+
 const useStyles = makeStyles((theme) => ({
   menuButton: {
     marginRight: theme.spacing(2),
@@ -51,13 +52,16 @@ const useStyles = makeStyles((theme) => ({
   svgStyle: {
     width: 50,
     height: 20,
+    
   },
   avatarStyle: {
     width: 30,
     height: 10,
   },
   textStyle: {
-    textAlign: 'center',
+    textAlign: 'align: left',
+    border: 'solid'
+    
   }
 
 }));
@@ -119,13 +123,12 @@ export const NavigationBar = () => {
             isLoaded ? isAuthenticated ? (
               <div >
                 <button
-                  style="display:inline-block"
                   className={"profileimage2"}
                   onClick={handleDrawerOpen2}
                   variant='contained'
-                  style={{ background: 'black', textTransform: 'none' }}>
+                  style={{ background: 'black', textTransform: 'none', outline: 'none' }}>
 
-                  <img className={"profileimage2"} src="https://d202tggnzywgd9.cloudfront.net/public/photos/avatar.png" />
+                  <img className={"profileimage2"} src="https://d202tggnzywgd9.cloudfront.net/public/photos/avatar.png" style={{width: '50px', height: '50px'}}/>
                 </button>
 
                 <Drawer
@@ -223,14 +226,24 @@ export const NavigationBar = () => {
               <img src={Settings}></img>
               <ListItemText primary={'Settings'}> </ListItemText>
 
-            </ListItem>
-            <ListItem
+             </ListItem> 
+            {/* <ListItem */}
+              {/* button */}
+              {/* component={Link} to={"/submit"} */}
+            {/* > */}
+            {/* <img src={Tribal}></img> */}
+            {/* <ListItemText primary={"Submit"} ></ListItemText> */}
+
+          {/* </ListItem> */}
+
+
+          <ListItem
               button
               component={Link} to={"/submit"}
             >
-              <ListItemText className={classes.textStyle} primary={"Submit"} ></ListItemText>
-
-            </ListItem>
+              <img src={Submit} style={{width: '32px', height: '32px', marginLeft: '22px', marginRight: '22px'}}></img>
+              <ListItemText primary={'Submit'}> </ListItemText>
+             </ListItem> 
           </List>
 
         </div>
