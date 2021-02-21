@@ -1,3 +1,41 @@
+type Film @model {
+  id: ID!
+  title: String!
+  genre: String
+  hlsUrl: String
+  thumbNailsUrls: [String]
+  duration: Int
+  available: Boolean
+  sub: String
+  lists:[FilmInList!]@connection(keyName: "byFilm", fields: ["id"])
+}
+type LiveStream @model {
+  id: ID!
+  playbackID: String
+  streamKey: String
+  latestAssetID: String
+  IDforThumbnail: String
+  status: String
+  streamerName: String
+}
+
+type PlayList @model{
+id:ID!
+name:String
+User:User@connection(name: "UsermyList")
+films:[FilmInList!]@connection(keyName: "byPlayList", fields: ["id"])
+}
+
+type FilmInList@model
+@key(name: "byPlayList", fields: ["listId","filmId"],queryField: "FilmInListByListByFilm")
+@key(name: "byFilm", fields: ["filmId","listId"])
+ {
+  id: ID!
+  film:Film!@connection(fields: ["filmId"])
+  filmId:ID!
+  listId:ID!
+  list:PlayList@connection(fields: ["listId"])
+}
 type User @model {
   id: ID!
   name: String
@@ -12,8 +50,6 @@ type User @model {
   ImgUrl:String
   MyGigs:[Gig!]@connection(name:"UserGig")
   InvitedGig:[UserInviteByGig!]@connection(keyName: "byUser", fields: ["id"])
-  userType:Int
-  
 }
 
 type ConnectItem {
