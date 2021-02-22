@@ -1,5 +1,8 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 5645b2116e3c9f74c089f53e73f13fa76de866fe
 type Film @model {
   id: ID!
   title: String!
@@ -19,8 +22,11 @@ type LiveStream @model {
   IDforThumbnail: String
   status: String
   streamerName: String
+<<<<<<< HEAD
   createdAt: String
   updatedAt: String
+=======
+>>>>>>> 5645b2116e3c9f74c089f53e73f13fa76de866fe
 }
 
 type PlayList @model{
@@ -40,7 +46,10 @@ type FilmInList@model
   listId:ID!
   list:PlayList@connection(fields: ["listId"])
 }
+<<<<<<< HEAD
 >>>>>>> upstream/master
+=======
+>>>>>>> 5645b2116e3c9f74c089f53e73f13fa76de866fe
 type User @model {
   id: ID!
   name: String
@@ -55,8 +64,6 @@ type User @model {
   ImgUrl:String
   MyGigs:[Gig!]@connection(name:"UserGig")
   InvitedGig:[UserInviteByGig!]@connection(keyName: "byUser", fields: ["id"])
-  userType:Int
-  
 }
 
 type ConnectItem {

@@ -230,7 +230,7 @@ export const NavigationBar = () => {
         </ListItem>
         <ListItem
           button
-          component={Link} to={"/landing/submit"}
+          component={Link} to={"/submit"}
         >
           <img className={classes.imgStyle} src = {Submit}></img>
           <ListItemText className={classes.textStyle} primary={"Submit"} ></ListItemText> 
