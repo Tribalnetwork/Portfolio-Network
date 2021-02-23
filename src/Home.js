@@ -134,15 +134,7 @@ export default class Home extends React.Component {
                       height="100%"
                     />
                     </div>
-                    {/*<div className="video-name-wrapper">
-                    <p className="video-name videoName__tribalBetaHome">{this.state.videoName}</p>
-                  </div>*/}
                   </div>
-                  {/* <div className="video-name-wrapper">
-                    <p className="video-name title__tribalBetaHome">
-                      {this.state.videoName}
-                    </p>
-                  </div> */}
                   <div className="functionbar-wrapper">
                     <Grid container justify="space-between" alignItems="center">
                       <Grid item>
