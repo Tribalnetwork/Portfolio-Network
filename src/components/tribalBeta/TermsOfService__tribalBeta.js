@@ -5,7 +5,7 @@ import { IconButton } from "@material-ui/core";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 import { CenterFocusStrongSharp } from "@material-ui/icons";
 
-
+// Changed this entire file to whats written below, center formatted h3, and more asthetically pleasing terms for end user. Sabina
 function TermsOfService() {
       let history = useHistory();
 
