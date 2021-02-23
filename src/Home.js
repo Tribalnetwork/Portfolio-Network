@@ -117,7 +117,6 @@ export default class Home extends React.Component {
             isAuthenticated ? (
               hasAccess ? (
                 <div>
-                  <div style={{backgroundColor: "#15161b"}}>
                   <div className="player-wrapper">
                     <ReactPlayer
                       className="react-player"
@@ -133,7 +132,14 @@ export default class Home extends React.Component {
                       width="100%"
                       height="100%"
                     />
-                    </div>
+                    {/*<div className="video-name-wrapper">
+                    <p className="video-name videoName__tribalBetaHome">{this.state.videoName}</p>
+                  </div>*/}
+                  </div>
+                  <div className="video-name-wrapper">
+                    <p className="video-name title__tribalBetaHome">
+                      {this.state.videoName}
+                    </p>
                   </div>
                   <div className="functionbar-wrapper">
                     <Grid container justify="space-between" alignItems="center">
