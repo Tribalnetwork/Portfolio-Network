@@ -48,6 +48,20 @@ export default class Home extends React.Component {
     this.getAllFilms();
   }
 
+  async findFilm(id){
+    let FilmKey = {
+      id: id
+    }
+    let theData = JSON.stringify(FilmKey);
+
+    const response = await axios({
+      url: "https://2ajlr7txqa.execute-api.us-east-1.amazonaws.com/default/Get_Film_From_S3",
+      method: "post",
+      data: theData
+    })
+    this.setState({url: response.data.body.url })
+  }
+
   async getAllFilms() {
     try {
       const response = await axios.get(
@@ -80,6 +94,10 @@ export default class Home extends React.Component {
     }
   }
 
+  setName(name){
+    this.setState({videoName: name})
+  }
+
   render() {
     const isAuthenticated =
       this.context.user && this.context.user.username ? true : false;
@@ -88,8 +106,6 @@ export default class Home extends React.Component {
       this.context.hasAccess || this.context.remainingVODTime > 0;
 
     let filmGroups = this.state.filmGroups;
-
-    console.log(filmGroups);
     return (
       <div className="home__tribalBeta">
         <Helmet>
@@ -101,6 +117,7 @@ export default class Home extends React.Component {
             isAuthenticated ? (
               hasAccess ? (
                 <div>
+                  <div style={{backgroundColor: "#15161b"}}>
                   <div className="player-wrapper">
                     <ReactPlayer
                       className="react-player"
@@ -116,15 +133,16 @@ export default class Home extends React.Component {
                       width="100%"
                       height="100%"
                     />
+                    </div>
                     {/*<div className="video-name-wrapper">
                     <p className="video-name videoName__tribalBetaHome">{this.state.videoName}</p>
                   </div>*/}
                   </div>
-                  <div className="video-name-wrapper">
+                  {/* <div className="video-name-wrapper">
                     <p className="video-name title__tribalBetaHome">
                       {this.state.videoName}
                     </p>
-                  </div>
+                  </div> */}
                   <div className="functionbar-wrapper">
                     <Grid container justify="space-between" alignItems="center">
                       <Grid item>
@@ -208,6 +226,11 @@ export default class Home extends React.Component {
                         films={this.state.films.filter(
                           (data) => data.film_genre === genre
                         )}
+
+                        setName={this.setName.bind(this)}
+
+                        findFilm={this.findFilm.bind(this)}
+
                         handleClick={() => {
                           let element = filmGroups[index];
                           const myList = filmGroups.filter(
@@ -251,7 +274,7 @@ export default class Home extends React.Component {
 
 // Film Catgories
 function FilmCat(Props) {
-  const { title, films } = Props;
+  const { title, films, findFilm, setName } = Props;
   return (
     <div
       className="trendy-wrapper"
@@ -260,7 +283,7 @@ function FilmCat(Props) {
       }}
     >
       <p className="title__tribalBetaHome">{title}</p>
-      <HorizontalScrollerCircular list={films} />
+      <HorizontalScrollerCircular list={films} findFilm={findFilm} setName={setName}/>
     </div>
   );
 }

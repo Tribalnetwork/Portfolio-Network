@@ -169,9 +169,11 @@ p.video-name {
   background-color: #15161b;
 }
 
-div.trendy-wrapper {
-  /* margin-bottom: 12px; */
+.player-wrapper {
+  width: auto;
+  height: auto;
 }
+
 @media (max-width: 390px) {
   .RateAndSubmit__tribalBeta {
     width: 155px;
@@ -197,4 +199,15 @@ div.trendy-wrapper {
     width: 132px;
     margin: 2rem 0.2rem 2rem 0.2rem;
   }
+}
+
+@media only screen and (min-width: 992px) {
+
+  .player-wrapper {
+      width: 800px;
+      height: 800px;
+      left: 50%;
+      transform: translateX(-50%);
+  }
+
 }
