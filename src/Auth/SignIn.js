@@ -54,7 +54,7 @@ class SignIn extends React.Component {
         {
           !this.state.showConfirmation && (
             <div {...css(styles.formContainer)}>
-              <h2 {...css(styles.signInHeader)}>Log In</h2>
+              <h2 {...css(styles.signInHeader)}>Sign In</h2>
               <input
                 onChange={evt => this.onChange('username', evt.target.value)}
                 {...css(styles.input)}
@@ -68,7 +68,7 @@ class SignIn extends React.Component {
                 placeholder='password'
               />
               <div {...css(styles.button)} onClick={this.signIn}>
-                <p {...css(styles.buttonText)}>Log In</p>
+                <p {...css(styles.buttonText)}>Sign In</p>
               </div>
             </div>
           )
@@ -98,26 +98,17 @@ const styles = {
     margin: '0px 0px 20px'
   },
   button: {
-  position: 'absolute',
-  width: '169px',
-  height: '44px',
-  left: 'calc(50% - 169px/2)',
-  top: 'calc(50% - 44px/2 + 105px)',
-
-  fontFamily: 'Roboto',
-  fontSstyle: 'normal',
-  fontWeight: 'normal',
-  fontSize: '34px',
-  lineHeight: '41px',
-  /* or 121% */
-
-  textAlign: 'center',
-  letterSpacing: '0.37px',
-
-  /* Font / Primary */
-
-  color: 'linear-gradient(180deg, #D3C095 0%, #A07923 100%)'
-     
+    padding: '10px 60px',
+    width: '90%',
+    backgroundColor: '#ffb102',
+    margin: '10px auto 10px',
+    // marginTop: 10,
+    // marginBottom: 10,
+    cursor: 'pointer',
+    borderRadius: '30px',
+    ':hover': {
+      backgroundColor: '#ffbb22'
+    }
   },
   buttonText: {
     margin: 0,
