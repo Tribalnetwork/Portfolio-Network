@@ -2,6 +2,7 @@
 	width: 100%;
 	display: flex;
 	align-self: center;
+<<<<<<< HEAD
 	background-color: transparent !important;
 	margin: 0 auto;
 	height: 90vh;
@@ -19,6 +20,19 @@ video {
 	left: 50%;
 	transform: translateX(-50%) translateY(-50%);
 	z-index: -1;
+=======
+	max-height: 100vh;
+	background-color: transparent !important;
+}
+
+.videosubmit {
+	margin: 0 auto;
+	width: 100%;
+	height: auto;
+	position: absolute;
+	z-index: 1;
+	max-height: 100%;
+>>>>>>> upstream/master
 }
 
 .overlayercontainer {
@@ -37,12 +51,21 @@ video {
 }
 
 .infobutton {
+<<<<<<< HEAD
 	padding: 10px;
 	background-color: transparent;
 	border-bottom: 1px solid #d4af37;
 	border-top: none;
 	border-left: none;
 	border-right: none;
+=======
+	width: 250px;
+	padding: 10px;
+	background-color: transparent;
+	border-radius: 15px;
+	border: 2px solid #d4af37;
+	margin: 80px auto 0;
+>>>>>>> upstream/master
 	color: white;
 	font-size: 20px;
 	outline: none;
@@ -50,6 +73,7 @@ video {
 	cursor: pointer;
 }
 
+<<<<<<< HEAD
 .listcontainer2 {
 	justify-content: center;
 	align-items: center;
@@ -69,6 +93,11 @@ video {
 		0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
 		0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
 		0 100px 80px rgba(0, 0, 0, 0.12);
+=======
+.listcontainer {
+	margin: 0 auto;
+	padding: 5px;
+>>>>>>> upstream/master
 }
 
 .bullets {
@@ -117,6 +146,10 @@ video {
 	width: 70%;
 	padding: 10px;
 	margin: 0 auto;
+<<<<<<< HEAD
+=======
+	font-family: inherit;
+>>>>>>> upstream/master
 	color: white;
 	background-color: transparent;
 	border: 1px solid #d4af37;
@@ -137,6 +170,10 @@ video {
 
 .inputcontainer label {
 	color: white;
+<<<<<<< HEAD
+=======
+	font-family: Roboto;
+>>>>>>> upstream/master
 	margin-bottom: 6px;
 	font-size: 19px;
 }
@@ -181,11 +218,15 @@ video {
 .uploadcontainer label {
 	color: white;
 	margin-bottom: 10px;
+<<<<<<< HEAD
 	font-size: 19px;
+=======
+>>>>>>> upstream/master
 }
 
 .uploadcontainer input {
 	font-family: Roboto;
+<<<<<<< HEAD
 	text-align: center;
 	color: white;
 	background-color: transparent;
@@ -200,6 +241,21 @@ video {
 	color: white;
 	font-size: 14px;
 	text-align: center;
+=======
+
+	color: white;
+	background-color: transparent;
+	border: 1px solid #d4af37;
+	border-radius: 10px;
+	margin: 0 auto;
+	font-size: 16px;
+	padding: 3px;
+}
+
+.uploadcontainer input::placeholder {
+	color: white;
+	font-size: 14px;
+>>>>>>> upstream/master
 }
 
 .uploadcontainer input:focus {
@@ -208,6 +264,7 @@ video {
 
 .uploadcontainer textarea {
 	font-family: Roboto;
+<<<<<<< HEAD
 	color: white;
 	background-color: transparent;
 	border: 1px solid #d4af37;
@@ -221,11 +278,25 @@ video {
 .uploadcontainer textarea::placeholder {
 	color: white;
 	font-size: 14px;
+=======
+
+	color: white;
+	background-color: transparent;
+	border: 1px solid #d4af37;
+	outline: none;
+	font-size: 16px;
+	width: 100%;
+	height: 300px;
+>>>>>>> upstream/master
 }
 
 .genre {
 	width: 60%;
 	padding: 10px;
+<<<<<<< HEAD
+=======
+	margin-top: 25vh;
+>>>>>>> upstream/master
 }
 
 .lastinput {
@@ -273,6 +344,7 @@ video {
 }
 .RequiredFields p {
 	color: white;
+<<<<<<< HEAD
 }
 
 .check-container {
@@ -374,6 +446,8 @@ input[type='file']::-webkit-file-upload-button:focus {
 
 input[type='file']::file-selector-button:focus {
 	outline: none;
+=======
+>>>>>>> upstream/master
 }
 
 /* Extra small devices (phones, 600px and down) */

@@ -1,6 +1,6 @@
 import React from 'react'
 import {  Auth,Storage } from 'aws-amplify'
-import UserContext from '../UserContext'
+import UserContext from '../components/UserContext'
 import { API, graphqlOperation } from 'aws-amplify'
 import { getUser} from '../graphql/queries'
 import {updateUser} from '../graphql/mutations'
