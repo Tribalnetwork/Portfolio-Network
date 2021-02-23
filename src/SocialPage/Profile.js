@@ -1,8 +1,8 @@
 import React from 'react'
 import { Auth, Storage } from 'aws-amplify'
-import Container from '../Container'
-import Button from '../Button';
-import UserContext from '../UserContext'
+import Container from '../components/Container'
+import Button from '../components/Button';
+import UserContext from '../components/UserContext'
 import { Helmet } from 'react-helmet'
 import './Profile.css'
 import ChangeProfilePhotoButton from "../components/ChangeProfilePhotoButton";
@@ -11,7 +11,8 @@ import DetailsIcon from '@material-ui/icons/Details';
 import ReorderIcon from '@material-ui/icons/Reorder';
 import NotificationsNoneIcon from '@material-ui/icons/NotificationsNone';
 import AddIcon from '@material-ui/icons/Add';
-import FilmFrame from "../components/filmFrame";
+// import FilmFrame from "../components/filmFrame";
+import ActivityFilms from "../components/ActivityFilms";
 import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import { getUser } from '../graphql/queries'
@@ -19,27 +20,29 @@ import DropdownMenu from '../components/DropdownMenu.js'
 //import ProfileMenu from '../components/ProfileMenu.js'
 import Skills from "./Skills";
 import ConnectList from "./ConnectList"
+import {ReactComponent as FilterButton} from '../icons/filterButton.svg';
+
+
+import {Link} from 'react-router-dom'
+
+// const posterimage = {
+//   url: ["https://homepages.cae.wisc.edu/~ece533/images/airplane.png",
+
+//     "https://homepages.cae.wisc.edu/~ece533/images/boat.png",
+//     "https://homepages.cae.wisc.edu/~ece533/images/cat.png",
+//     "https://homepages.cae.wisc.edu/~ece533/images/pool.png",
+//     "https://homepages.cae.wisc.edu/~ece533/images/sails.png",
+//     "https://homepages.cae.wisc.edu/~ece533/images/watch.png",
 
 
 
-const posterimage = {
-  url: ["https://homepages.cae.wisc.edu/~ece533/images/airplane.png",
-
-    "https://homepages.cae.wisc.edu/~ece533/images/boat.png",
-    "https://homepages.cae.wisc.edu/~ece533/images/cat.png",
-    "https://homepages.cae.wisc.edu/~ece533/images/pool.png",
-    "https://homepages.cae.wisc.edu/~ece533/images/sails.png",
-    "https://homepages.cae.wisc.edu/~ece533/images/watch.png",
-
-
-
-  ]
-}
+//   ]
+// }
 
 const movies = [
   {
     film: {
-      id: "https://homepages.cae.wisc.edu/~ece533/images/boat.png",
+      id: 1,
       thumbNailsUrls: ["https://homepages.cae.wisc.edu/~ece533/images/boat.png"],
       name: "test1",
       duration: 2,
@@ -50,7 +53,7 @@ const movies = [
 
   {
     film: {
-      id: "https://homepages.cae.wisc.edu/~ece533/images/boat.png",
+      id: 2,
       thumbNailsUrls: ["https://homepages.cae.wisc.edu/~ece533/images/watch.png"],
       name: "test2",
       duration: 2,
@@ -61,7 +64,7 @@ const movies = [
 
   {
     film: {
-      id: "https://homepages.cae.wisc.edu/~ece533/images/boat.png",
+      id: 3,
       thumbNailsUrls: ["https://homepages.cae.wisc.edu/~ece533/images/pool.png"],
       name: "test1",
       duration: 2,
@@ -73,7 +76,7 @@ const movies = [
 
   {
     film: {
-      id: "https://homepages.cae.wisc.edu/~ece533/images/boat.png",
+      id: 4,
       thumbNailsUrls: ["https://homepages.cae.wisc.edu/~ece533/images/watch.png"],
       name: "test3",
       duration: 11,
@@ -84,7 +87,19 @@ const movies = [
 
   {
     film: {
-      id: "https://homepages.cae.wisc.edu/~ece533/images/boat.png",
+      id: 5,
+      thumbNailsUrls: ["https://homepages.cae.wisc.edu/~ece533/images/cat.png"],
+      name: "test4",
+      duration: 5,
+
+
+    }
+  },
+
+
+  {
+    film: {
+      id: 6,
       thumbNailsUrls: ["https://homepages.cae.wisc.edu/~ece533/images/cat.png"],
       name: "test4",
       duration: 5,
@@ -95,21 +110,19 @@ const movies = [
 
 
 
-
-
-
 ]
 
-const autofilm = [];
-/* this are fake video for testing the filmframe*/
-/* video have to be correctly pull from graph graphql*/
-for (var i = 0;i < 48;i++) {
 
-  const temp = movies[Math.floor((Math.random() * movies.length))];
-  autofilm.push(temp);
+// const autofilm = [];
+// /* this are fake video for testing the filmframe*/
+// /* video have to be correctly pull from graph graphql*/
+// for (var i = 0; i < 48; i++) {
+
+//   const temp = movies[Math.floor((Math.random() * movies.length))];
+//   autofilm.push(temp);
 
 
-}
+// }
 
 
 
@@ -132,6 +145,12 @@ class Profile extends React.Component {
     }
   }
   togglePopup() {
+    this.setState({
+      showPopup: !this.state.showPopup
+    });
+  }
+
+  toggleSocialPopup() {
     this.setState({
       showPopup: !this.state.showPopup
     });
@@ -164,13 +183,26 @@ class Profile extends React.Component {
             {this.state.showPopup ? <DropdownMenu
               text='Click "Close Button" to hide popup'
               closePopup={this.togglePopup.bind(this)}
-              link1="/mystudio"
+              title="Social"
+              link1="/mystudio/toDoList"
               link2="/myprofile"
               link3="/social"
-              text1="My Studio"
+              text1="To-Do"
               text2="My Profile"
-              text3="What can others see?"
-
+              text3="My Activity"
+            /> : null}
+          </div>
+          <div className="iconcontainer">
+            {this.state.showSocialPopup ? <DropdownMenu
+              text='Click "Close Button" to hide popup'
+              closePopup={this.toggleSocialPopup.bind(this)}
+              title="Filter"
+              link1="/profile"
+              link2="/profile"
+              link3="/profile"
+              text1="Films"
+              text2="Gigs"
+              text3="Events"
             /> : null}
           </div>
 
@@ -178,7 +210,7 @@ class Profile extends React.Component {
             <ConnectList />
             <div className="iconAndText">
               <div className={"icon"}>
-                <button className={"iconButton"}><DetailsIcon className={"iconlogo"} />
+                <button className={"iconButton"} onClick={this.toggleSocialPopup.bind(this)}><FilterButton className={"iconlogo"} />
                 </button>
               </div>
               <p className="iconText">Social</p>
@@ -194,26 +226,38 @@ class Profile extends React.Component {
 
             <div className="iconAndText">
               <div className={"icon"}>
-                <button className={"iconButton"}><NotificationsNoneIcon className={"iconlogo"} />
-                </button>
+              <Link to='/settings/notifications'>
+                  <button className={"iconButton"}>
+                    <NotificationsNoneIcon className={"iconlogo"} />
+                  </button>
+                </Link>
               </div>
               <p className="iconText">Notifications</p>
             </div>
           </div>
 
-
-
         </div>
-        <div className={"tribeinfoContainer"}> <h1 className="tribeInfo"> Check Out What Your Tribe Is Up To </h1></div>
+        {/* <div className={"tribeinfoContainer"}> <h1 className="tribeInfo"> Check Out What Your Tribe Is Up To </h1></div>
+ */}
+
+        <div className={"profileTribeInfoContainer"}> Check out what your Tribe is up to!  </div>
+
 
 
         <div className="line"> </div>
 
 
-
+        {/* 
         <div className={"contentcontainer"}>
           {autofilm.map((movie) => (
             <FilmFrame film={movie.film} style={styles} />
+          ))} */}
+
+        <div className={"profileContentContainer"}>
+
+          {movies.map((movie) => (
+
+            <ActivityFilms key={movie} film={movie.film}></ActivityFilms>
           ))}
 
 
@@ -224,30 +268,30 @@ class Profile extends React.Component {
 
       /*
       <div>
-        <Helmet>
-          <meta charSet="utf-8" />
-          <title>Profile</title>
-        </Helmet>
-        <Container>
-          <h1>Profile</h1>
-          <h2>Welcome {this.context.user.attributes.given_name}</h2>
-          {
-            hasAccess ? (
-              null
-            ) : (
-              <>
-                <h2>Remaining Film Watch Time: {this.context.remainingVODTime} minutes</h2>
-                <h2>Remaining Live Watch Time: {this.context.remainingLiveTime} minutes</h2>
-              </>
-            )
-          }
+          <Helmet>
+            <meta charSet="utf-8" />
+            <title>Profile</title>
+          </Helmet>
+          <Container>
+            <h1>Profile</h1>
+            <h2>Welcome {this.context.user.attributes.given_name}</h2>
+            {
+              hasAccess ? (
+                null
+              ) : (
+                  <>
+                    <h2>Remaining Film Watch Time: {this.context.remainingVODTime} minutes</h2>
+                    <h2>Remaining Live Watch Time: {this.context.remainingLiveTime} minutes</h2>
+                  </>
+                )
+            }
 
-          <Button
-            title="Sign Out"
-            onClick={this.signOut.bind(this)}
-          />
-        </Container>
-      </div>
+            <Button
+              title="Sign Out"
+              onClick={this.signOut.bind(this)}
+            />
+          </Container>
+        </div>
       */
     )
   }
@@ -255,14 +299,12 @@ class Profile extends React.Component {
 
 
 /* dont know how the style is apply because i didnt see any change */
-const styles = {
-  media: {
-    backgroundColor: "red",
-    width: "33%",
-  }
-}
+// const styles = {
+//   media: {
+//     backgroundColor: "red",
+//     width: "33%",
+//   }
+// }
 
 
 export default Profile
-
-

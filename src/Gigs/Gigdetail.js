@@ -6,7 +6,7 @@ import { getGig } from '../graphql/queries'
 import awsconfig from '../aws-exports';
 import '@aws-amplify/ui/dist/style.css';
 import { Link } from "react-router-dom";
-import UserContext from '../UserContext'
+import UserContext from '../components/UserContext'
 import './Gigdetail.css';
 import {Button, IconButton, Input} from "@material-ui/core"
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
