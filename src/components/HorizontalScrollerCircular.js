@@ -28,7 +28,7 @@ const MenuItem = (props) => {
   );
 };
 
-export const Menu = (list, findFilm, setName) =>
+export const Menu = (list, findFilm, setName) => 
   list.map((film) => {
     return <MenuItem film={film} key={film.film_id} findFilm={findFilm} setName={setName}/>;
   });

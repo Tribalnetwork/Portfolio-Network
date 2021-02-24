@@ -143,37 +143,35 @@ div.film-lists div.filter-buttons button {
   margin-right: 0.5rem;
 }
 
-.active-filtered-button {
+.active-filtered-button{
   background: linear-gradient(180deg, #797979 0%, rgba(77, 77, 77, 0) 100%);
 }
-div.video-name-wrapper {
+div.video-name-wrapper{
   position: relative;
 }
-div.video-name-wrapper::before {
-  content: "";
+div.video-name-wrapper::before{
+  content: '';
   display: block;
   height: 242px;
   width: 100%;
-  background-color: #15161b;
+  background-color: #15161B;
   position: absolute;
   top: 0px;
   left: 0px;
 
   z-index: -100;
 }
-p.video-name {
+p.video-name{
   margin: 0px;
   font-size: 17px;
   line-height: 22px;
   letter-spacing: -0.41px;
-  background-color: #15161b;
+  background-color: #15161B;
 }
 
-.player-wrapper {
-  width: auto;
-  height: auto;
+div.trendy-wrapper{
+  /* margin-bottom: 12px; */
 }
-
 @media (max-width: 390px) {
   .RateAndSubmit__tribalBeta {
     width: 155px;

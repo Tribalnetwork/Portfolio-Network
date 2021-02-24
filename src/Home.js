@@ -6,13 +6,14 @@ import { listFilms, listLiveStreams } from "./graphql/queries";
 import awsconfig from "./aws-exports";
 import "@aws-amplify/ui/dist/style.css";
 import { Link } from "react-router-dom";
-import UserContext from "./UserContext";
-import { Helmet } from "react-helmet";
-import ReactPlayer from "react-player";
-import Button from "./Button";
-import Typography from "@material-ui/core/Typography";
-import Grid from "@material-ui/core/Grid";
-
+import UserContext from './UserContext'
+import { Helmet } from 'react-helmet'
+import ReactPlayer from 'react-player'
+import Button from './Button';
+import ExpandLessRoundedIcon from '@material-ui/icons/ExpandLessRounded';
+import ExpandMoreRoundedIcon from '@material-ui/icons/ExpandMoreRounded';
+import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
 import HorizontalScrollerCircular from "./components/HorizontalScrollerCircular";
 import HorizontalScroller from "./components/HorizontalScroller";
 
@@ -31,6 +32,8 @@ import "./Home.css";
 import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
 Amplify.configure(awsconfig);
+
+
 
 export default class Home extends React.Component {
   static contextType = UserContext;
@@ -97,6 +100,8 @@ export default class Home extends React.Component {
   setName(name){
     this.setState({videoName: name})
   }
+
+
 
   render() {
     const isAuthenticated =
@@ -192,59 +197,87 @@ export default class Home extends React.Component {
                           trigger={(open) => (
                             <SubmitButton className="RateAndSubmit__tribalBeta" />
                           )}
-                          //position="center center"
-                          closeOnDocumentClick
-                        >
-                          <div className="ratingPopup__tribalBetaHome">
-                            <div className="overall__tribalBetaHome">
-                              <span className="submit__tribalBetaHome">
-                                Log in on Desktop to Submit
-                              </span>
-                            </div>
-                            <div className="ok__popupBottom">
-                              <Link
-                                to={"/submit"}
-                                style={styles.buttonLink}
-                                className="link__okText"
-                              >
-                                <p className="okText__popupBottom">OK</p>
-                              </Link>
-                            </div>
+
+                        closeOnDocumentClick
+                      >
+                        <div className="ratingPopup__tribalBetaHome">
+                          <div className="overall__tribalBetaHome">
+                            <span className="submit__tribalBetaHome">Log in on Desktop to Submit</span>
                           </div>
-                        </Popup>
-                        ;{/*</Link>*/}
-                      </Grid>
+                          <div className="ok__popupBottom">
+                            <Link to={'/submit'} style={styles.buttonLink} className="link__okText">
+                              <p className="okText__popupBottom">OK</p>
+                            </Link>
+                          </div>
+                        </div>
+                      </Popup>
+                      {/*</Link>*/}
                     </Grid>
+                  </Grid>
+                </div>
+                <div className='film-lists'>
+                  <div className='filter-buttons'>
+                    <button
+                      className='filtering-btn1'
+                      onClick={
+                        () => {
+                          let filmList = handleHeighstToLowestRate(this.state.filmGroups)
+                          this.setState({ filmGroups: filmList })
+                          let btn = document.querySelector('.filtering-btn1');
+                          btn.classList.add('active-filtered-button')
+                          btn = document.querySelector('.filtering-btn2');
+                          btn.classList.remove('active-filtered-button')
+                        }}>
+                      <img src='/starForFilmOrdering.svg' alt='rate' />
+                      <ExpandMoreRoundedIcon fontSize='large' style={{ color: 'white' }} />
+                    </button>
+                    <button
+                      className='filtering-btn2'
+                      onClick={
+                        () => {
+                          let filmList = handleLowestToHeighstRate(this.state.filmGroups)
+                          this.setState({ filmGroups: filmList })
+                          let btn = document.querySelector('.filtering-btn2');
+                          btn.classList.add('active-filtered-button')
+                          btn = document.querySelector('.filtering-btn1');
+                          btn.classList.remove('active-filtered-button')
+                        }}>
+                      <img src='/starForFilmOrdering.svg' alt='rate' />
+                      <ExpandLessRoundedIcon fontSize='large' style={{ color: 'white' }} /></button>
                   </div>
-                  {filmGroups.map((genre, index) => {
-                    return (
-                      <FilmCat
-                        title={this.changeGenres(genre)}
-                        key={index}
+                  {
+                    filmGroups.map(
+                      (genre, index) =>
+                        <FilmCat title={this.changeGenres(genre)} 
+                        
                         films={this.state.films.filter(
                           (data) => data.film_genre === genre
                         )}
-
+                        
+                        key={index}
+                        
                         setName={this.setName.bind(this)}
 
                         findFilm={this.findFilm.bind(this)}
-
-                        handleClick={() => {
-                          let element = filmGroups[index];
-                          const myList = filmGroups.filter(
-                            (_, filterIndex) => index !== filterIndex
-                          );
-                          // console.log(myList)
-                          myList.unshift(element);
-                          this.setState({
-                            filmGroups: myList,
-                          });
-                        }}
-                      />
-                    );
-                  })}
+                        
+                        handleClick={
+                            () => {
+                              let element = filmGroups[index];
+                              const myList = filmGroups.filter((_, filterIndex) => index !== filterIndex)
+                              // console.log(myList)
+                              myList.unshift(element)
+                              this.setState(
+                                {
+                                  filmGroups: myList
+                                }
+                              )
+                            }} />
+                    )
+                  }
                 </div>
-              ) : (
+              </div>
+
+            ) : (
                 <div>
                   <>
                     <h1>Free Trial Ended</h1>
@@ -284,6 +317,30 @@ function FilmCat(Props) {
       <HorizontalScrollerCircular list={films} findFilm={findFilm} setName={setName}/>
     </div>
   );
+}
+
+
+// highest to lowest rate
+function handleHeighstToLowestRate(allFilmLists) {
+  let sortedFilmGroups = allFilmLists.map(filmList => {
+    let listTitle = Object.getOwnPropertyNames(filmList)[0]
+    let list = filmList[listTitle]
+    list.sort((a, b) => a.rate > b.rate ? -1 : 1)
+    filmList[listTitle] = list
+    return filmList
+  })
+  return sortedFilmGroups;
+}
+// lowest to highest rate
+function handleLowestToHeighstRate(allFilmLists) {
+  let sortedFilmGroups = allFilmLists.map(filmList => {
+    let listTitle = Object.getOwnPropertyNames(filmList)[0]
+    let list = filmList[listTitle]
+    list.sort((a, b) => a.rate > b.rate ? 1 : -1)
+    filmList[listTitle] = list
+    return filmList
+  })
+  return sortedFilmGroups;
 }
 
 const styles = {

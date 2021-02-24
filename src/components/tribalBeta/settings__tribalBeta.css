@@ -1,6 +1,21 @@
-div.settingBody__tribalBeta {
-  
+
+body{
+  font-family: "Roboto";
+  color:white;
+ 
 }
+h3 {
+  text-align: center;
+  text-emphasis-style: bold ;
+  color: white;
+}
+p{
+  margin-left:1em;
+  margin-right:1em;
+}
+/*div.settingBody__tribalBeta {
+  
+}*/
 
 div.setting__tribalBeta {
   display: flex;
@@ -91,9 +106,9 @@ a.button__link button.settingsButton__tribalBeta{
 
 }
 
-.settingsRightIcon__tribalBeta {
-  /* margin-right: 1rem; */
-}
+/*.settingsRightIcon__tribalBeta {
+  /* margin-right: 1rem; 
+}*/
 
 h3.headertext {
   padding: 0px;
