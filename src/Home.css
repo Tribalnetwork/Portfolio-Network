@@ -12,15 +12,9 @@
 
 .title__tribalBetaHome {
   color: #ffffff;
-  font-size: 18px;
-  height: 32px;
+  font-size: 1rem;
   width: 100vw;
-  padding-left: 13px;
-  line-height: 22px;
-  letter-spacing: -0.41px;
-  display: flex;
-  align-items: center;
-  margin: 0px;
+  padding-left: 1rem;
 }
 
 /*.popup-overlay {
@@ -125,53 +119,6 @@ svg.popup-arrow {
   display: none;
 }
 
-div.film-lists div.filter-buttons {
-  display: flex;
-  padding-left: 7.3rem;
-  position: absolute;
-}
-div.film-lists div.filter-buttons button {
-  display: flex;
-  align-items: center;
-  width: 67px;
-  height: 28px;
-  background-color: transparent;
-  border: none;
-  outline: none;
-  border-radius: 30px;
-  margin-left: 0px;
-  margin-right: 0.5rem;
-}
-
-.active-filtered-button{
-  background: linear-gradient(180deg, #797979 0%, rgba(77, 77, 77, 0) 100%);
-}
-div.video-name-wrapper{
-  position: relative;
-}
-div.video-name-wrapper::before{
-  content: '';
-  display: block;
-  height: 242px;
-  width: 100%;
-  background-color: #15161B;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-
-  z-index: -100;
-}
-p.video-name{
-  margin: 0px;
-  font-size: 17px;
-  line-height: 22px;
-  letter-spacing: -0.41px;
-  background-color: #15161B;
-}
-
-div.trendy-wrapper{
-  /* margin-bottom: 12px; */
-}
 @media (max-width: 390px) {
   .RateAndSubmit__tribalBeta {
     width: 155px;
