@@ -100,7 +100,7 @@ class Profile extends React.Component {
                   <PeopleAltOutlinedIcon className={"iconlogo"} />
                 </button>
               </div>
-              {/* <p className="iconText">Connections</p> */}
+              <p className="iconText">Connections</p>
             </div>
 
             <div className="iconAndText">
@@ -109,19 +109,20 @@ class Profile extends React.Component {
                   <ReorderIcon className={"iconlogo"} />
                 </button>
               </div>
-              {/* <p className="iconText">Profile Menu</p> */}
+              <p className="iconText">Profile Menu</p>
             </div>
 
             {/* Notifications */}
             <div className="iconAndText">
               <div className={"icon"}>
                 <Link to='/settings/notifications'>
+
                   <button className={"iconButton"}>
                     <NotificationsNoneIcon className={"iconlogo"} />
                   </button>
                 </Link>
               </div>
-              {/* <p className="iconText">Notifications</p> */}
+              <p className="iconText">Notifications</p>
             </div>
 
           </div>
@@ -140,7 +141,7 @@ class Profile extends React.Component {
         </div>
         <div className="resume-content"></div>
         <div className="resume-content second">
-        <hr className="line" />
+        {/* <hr className="line" /> */}
         </div>
        
         {/* <p> Link here </p> */}
