@@ -9,6 +9,8 @@ import UserContext from './UserContext'
 import { Helmet } from 'react-helmet'
 import ReactPlayer from 'react-player'
 import Button from './Button';
+import ExpandLessRoundedIcon from '@material-ui/icons/ExpandLessRounded';
+import ExpandMoreRoundedIcon from '@material-ui/icons/ExpandMoreRounded';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import HorizontalScrollerCircular from "./components/HorizontalScrollerCircular";
@@ -27,6 +29,8 @@ import './Home.css';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 Amplify.configure(awsconfig);
+
+
 
 export default class Home extends React.Component {
 
@@ -49,20 +53,20 @@ export default class Home extends React.Component {
     this.setState({
       filmGroups:
         [
-          { 'Comedy': this.state.films, 'rowIndex': 0 },
-          { 'Action': this.state.films, 'rowIndex': 1 },
-          { 'Thriller': this.state.films, 'rowIndex': 2 },
-          { 'Romance': this.state.films, 'rowIndex': 3 },
-          { 'Sci-fi': this.state.films, 'rowIndex': 4 },
-          { 'Drama': this.state.films, 'rowIndex': 5 },
-          { 'Animation': this.state.films, 'rowIndex': 6 },
-          { 'Music': this.state.films, 'rowIndex': 7 },
-          { 'Horror': this.state.films, 'rowIndex': 8 },
-          { 'Experimental': this.state.films, 'rowIndex': 9 },
-          { 'Trailers': this.state.films, 'rowIndex': 10 },
-          { 'Documentary': this.state.films, 'rowIndex': 11 },
-          { 'Sports': this.state.films, 'rowIndex': 12 },
-          { 'Talks': this.state.films, 'rowIndex': 13 }
+          { 'Comedy': tempFilmList1 },
+          { 'Action': tempFilmList2 },
+          { 'Thriller': tempFilmList3 },
+          { 'Romance': tempFilmList4 },
+          { 'Sci-fi': tempFilmList5 },
+          { 'Drama': tempFilmList6 },
+          { 'Animation': tempFilmList7 },
+          { 'Music': tempFilmList8 },
+          { 'Horror': tempFilmList9 },
+          { 'Experimental': tempFilmList10 },
+          { 'Trailers': tempFilmList11 },
+          { 'Documentary': tempFilmList12 },
+          { 'Sports': tempFilmList13 },
+          { 'Talks': tempFilmList14 },
         ]
     })
   }
@@ -89,6 +93,8 @@ export default class Home extends React.Component {
     } catch (err) { console.log(err) }
   }
 
+
+
   render() {
     const isAuthenticated = this.context.user && this.context.user.username ? true : false
     const isLoaded = this.context.isLoaded
@@ -96,7 +102,7 @@ export default class Home extends React.Component {
 
     let filmGroups = this.state.filmGroups;
 
-    console.clear()
+    // console.clear()
     // for (const prop in filmGroups) {
     //   if (filmGroups.hasOwnProperty(prop)) {
     //     console.log(`${prop}: ${filmGroups[prop]}`)
@@ -115,7 +121,7 @@ export default class Home extends React.Component {
     // console.log(myList)
     // filmGroups.splice(0, 0, element);
 
-    console.log(filmGroups)
+    // console.log(filmGroups)
     return (
       <div className="home__tribalBeta">
         <Helmet>
@@ -126,7 +132,7 @@ export default class Home extends React.Component {
           {
             isLoaded ? isAuthenticated ? hasAccess ? (
               <div>
-                <div className="player-wrapper">
+                <div className="player-wrapper" style={{ position: 'relative', minHeight: '32vh' }}>
                   <ReactPlayer
                     className="react-player"
                     ref={p => { this.p = p }}
@@ -209,24 +215,55 @@ export default class Home extends React.Component {
                     </Grid>
                   </Grid>
                 </div>
-                {
-                  filmGroups.map(
-                    (film, index) =>
-                      <FilmCat title={Object.getOwnPropertyNames(film)[0]} list={film}
-                        handleClick={
-                          () => {
-                          let element = filmGroups[index];
-                          const myList = filmGroups.filter((_, filterIndex) => index !== filterIndex)
-                          // console.log(myList)
-                          myList.unshift(element)
-                          this.setState(
-                            {
-                              filmGroups: myList
-                            }
-                          )
-                        }} />
-                  )
-                }
+                <div className='film-lists'>
+                  <div className='filter-buttons'>
+                    <button
+                      className='filtering-btn1'
+                      onClick={
+                        () => {
+                          let filmList = handleHeighstToLowestRate(this.state.filmGroups)
+                          this.setState({ filmGroups: filmList })
+                          let btn = document.querySelector('.filtering-btn1');
+                          btn.classList.add('active-filtered-button')
+                          btn = document.querySelector('.filtering-btn2');
+                          btn.classList.remove('active-filtered-button')
+                        }}>
+                      <img src='/starForFilmOrdering.svg' alt='rate' />
+                      <ExpandMoreRoundedIcon fontSize='large' style={{ color: 'white' }} />
+                    </button>
+                    <button
+                      className='filtering-btn2'
+                      onClick={
+                        () => {
+                          let filmList = handleLowestToHeighstRate(this.state.filmGroups)
+                          this.setState({ filmGroups: filmList })
+                          let btn = document.querySelector('.filtering-btn2');
+                          btn.classList.add('active-filtered-button')
+                          btn = document.querySelector('.filtering-btn1');
+                          btn.classList.remove('active-filtered-button')
+                        }}>
+                      <img src='/starForFilmOrdering.svg' alt='rate' />
+                      <ExpandLessRoundedIcon fontSize='large' style={{ color: 'white' }} /></button>
+                  </div>
+                  {
+                    filmGroups.map(
+                      (film, index) =>
+                        <FilmCat title={Object.getOwnPropertyNames(film)[0]} list={film} key={index}
+                          handleClick={
+                            () => {
+                              let element = filmGroups[index];
+                              const myList = filmGroups.filter((_, filterIndex) => index !== filterIndex)
+                              // console.log(myList)
+                              myList.unshift(element)
+                              this.setState(
+                                {
+                                  filmGroups: myList
+                                }
+                              )
+                            }} />
+                    )
+                  }
+                </div>
               </div>
 
             ) : (
@@ -268,14 +305,137 @@ function FilmCat(Props) {
 
   const title = Props.title;
   const list = Props.list[title];
+  // console.log(Props.list)
   return (
-    <div className="trendy-wrapper" onClick={() => {Props.handleClick()}}>
-      <p className="title__tribalBetaHome">{title}</p>
-      <HorizontalScrollerCircular list={list} />
+    <div className="trendy-wrapper" onClick={() => { Props.handleClick() }}>
+      <HorizontalScrollerCircular list={list} title={title} />
     </div>
   )
 }
 
+// highest to lowest rate
+function handleHeighstToLowestRate(allFilmLists) {
+  let sortedFilmGroups = allFilmLists.map(filmList => {
+    let listTitle = Object.getOwnPropertyNames(filmList)[0]
+    let list = filmList[listTitle]
+    list.sort((a, b) => a.rate > b.rate ? -1 : 1)
+    filmList[listTitle] = list
+    return filmList
+  })
+  return sortedFilmGroups;
+}
+// lowest to highest rate
+function handleLowestToHeighstRate(allFilmLists) {
+  let sortedFilmGroups = allFilmLists.map(filmList => {
+    let listTitle = Object.getOwnPropertyNames(filmList)[0]
+    let list = filmList[listTitle]
+    list.sort((a, b) => a.rate > b.rate ? 1 : -1)
+    filmList[listTitle] = list
+    return filmList
+  })
+  return sortedFilmGroups;
+}
+
+// add film url
+// actions
+let tempFilmList1 = [
+  { id: 1, name: 'film name', 'season': 1, 'epside': 2, 'imgSrc': '/filmImages/film1.jpg', rate: 3},
+  { id: 2, name: 'film name', 'season': 1, 'epside': 2, 'imgSrc': '/filmImages/film2.jpg', rate: 3.5 },
+  { id: 3, name: 'film name', 'season': 1, 'epside': 2, 'imgSrc': '/filmImages/film3.jpg', rate: 2 },
+  { id: 4, name: 'film name', 'season': 1, 'epside': 2, 'imgSrc': '/filmImages/film4.jpg', rate: 4 },
+  { id: 5, name: 'film name', 'season': 1, 'epside': 2, 'imgSrc': '/filmImages/film5.jpg', rate: 2.5 }
+]
+let tempFilmList2 = [
+  { id: 1, name: 'film name', 'season': 1, 'epside': 2, 'imgSrc': '/filmImages/film1.jpg', rate: 3 },
+  { id: 2, name: 'film name', 'season': 1, 'epside': 2, 'imgSrc': '/filmImages/film2.jpg', rate: 3.5 },
+  { id: 3, name: 'film name', 'season': 1, 'epside': 2, 'imgSrc': '/filmImages/film3.jpg', rate: 2 },
+  { id: 4, name: 'film name', 'season': 1, 'epside': 2, 'imgSrc': '/filmImages/film4.jpg', rate: 4 },
+  { id: 5, name: 'film name', 'season': 1, 'epside': 2, 'imgSrc': '/filmImages/film5.jpg', rate: 2.5 }
+]
+let tempFilmList3 = [
+  { id: 1, name: 'film name', 'season': 1, 'epside': 2, 'imgSrc': '/filmImages/film1.jpg', rate: 3 },
+  { id: 2, name: 'film name', 'season': 1, 'epside': 2, 'imgSrc': '/filmImages/film2.jpg', rate: 3.5 },
+  { id: 3, name: 'film name', 'season': 1, 'epside': 2, 'imgSrc': '/filmImages/film3.jpg', rate: 2 },
+  { id: 4, name: 'film name', 'season': 1, 'epside': 2, 'imgSrc': '/filmImages/film4.jpg', rate: 4 },
+  { id: 5, name: 'film name', 'season': 1, 'epside': 2, 'imgSrc': '/filmImages/film5.jpg', rate: 2.5 }
+]
+let tempFilmList4 = [
+  { id: 1, name: 'aa', 'season': 1, 'epside': 2, 'imgSrc': '/filmImages/film1.jpg', rate: 3 },
+  { id: 2, name: 'bb', 'season': 1, 'epside': 2, 'imgSrc': '/filmImages/film2.jpg', rate: 3.5 },
+  { id: 3, name: 'film name', 'season': 1, 'epside': 2, 'imgSrc': '/filmImages/film3.jpg', rate: 2 },
+  { id: 4, name: 'film name', 'season': 1, 'epside': 2, 'imgSrc': '/filmImages/film4.jpg', rate: 4 },
+  { id: 5, name: 'film name', 'season': 1, 'epside': 2, 'imgSrc': '/filmImages/film5.jpg', rate: 2.5 }
+]
+let tempFilmList5 = [
+  { id: 1, name: 'film name', 'season': 1, 'epside': 2, 'imgSrc': '/filmImages/film1.jpg', rate: 3 },
+  { id: 2, name: 'film name', 'season': 1, 'epside': 2, 'imgSrc': '/filmImages/film2.jpg', rate: 3.5 },
+  { id: 3, name: 'film name', 'season': 1, 'epside': 2, 'imgSrc': '/filmImages/film3.jpg', rate: 2 },
+  { id: 4, name: 'film name', 'season': 1, 'epside': 2, 'imgSrc': '/filmImages/film4.jpg', rate: 4 },
+  { id: 5, name: 'film name', 'season': 1, 'epside': 2, 'imgSrc': '/filmImages/film5.jpg', rate: 2.5 }
+]
+let tempFilmList6 = [
+  { id: 1, name: 'film name', 'season': 1, 'epside': 2, 'imgSrc': '/filmImages/film1.jpg', rate: 3 },
+  { id: 2, name: 'film name', 'season': 1, 'epside': 2, 'imgSrc': '/filmImages/film2.jpg', rate: 3.5 },
+  { id: 3, name: 'film name', 'season': 1, 'epside': 2, 'imgSrc': '/filmImages/film3.jpg', rate: 2 },
+  { id: 4, name: 'film name', 'season': 1, 'epside': 2, 'imgSrc': '/filmImages/film4.jpg', rate: 4 },
+  { id: 5, name: 'film name', 'season': 1, 'epside': 2, 'imgSrc': '/filmImages/film5.jpg', rate: 2.5 }
+]
+let tempFilmList7 = [
+  { id: 1, name: 'film name', 'season': 1, 'epside': 2, 'imgSrc': '/filmImages/film1.jpg', rate: 3 },
+  { id: 2, name: 'film name', 'season': 1, 'epside': 2, 'imgSrc': '/filmImages/film2.jpg', rate: 3.5 },
+  { id: 3, name: 'film name', 'season': 1, 'epside': 2, 'imgSrc': '/filmImages/film3.jpg', rate: 2 },
+  { id: 4, name: 'film name', 'season': 1, 'epside': 2, 'imgSrc': '/filmImages/film4.jpg', rate: 4 },
+  { id: 5, name: 'film name', 'season': 1, 'epside': 2, 'imgSrc': '/filmImages/film5.jpg', rate: 2.5 }
+]
+let tempFilmList8 = [
+  { id: 1, name: 'film name', 'season': 1, 'epside': 2, 'imgSrc': '/filmImages/film1.jpg', rate: 3 },
+  { id: 2, name: 'film name', 'season': 1, 'epside': 2, 'imgSrc': '/filmImages/film2.jpg', rate: 3.5 },
+  { id: 3, name: 'film name', 'season': 1, 'epside': 2, 'imgSrc': '/filmImages/film3.jpg', rate: 2 },
+  { id: 4, name: 'film name', 'season': 1, 'epside': 2, 'imgSrc': '/filmImages/film4.jpg', rate: 4 },
+  { id: 5, name: 'film name', 'season': 1, 'epside': 2, 'imgSrc': '/filmImages/film5.jpg', rate: 2.5 }
+]
+let tempFilmList9 = [
+  { id: 1, name: 'film name', 'season': 1, 'epside': 2, 'imgSrc': '/filmImages/film1.jpg', rate: 3 },
+  { id: 2, name: 'film name', 'season': 1, 'epside': 2, 'imgSrc': '/filmImages/film2.jpg', rate: 3.5 },
+  { id: 3, name: 'film name', 'season': 1, 'epside': 2, 'imgSrc': '/filmImages/film3.jpg', rate: 2 },
+  { id: 4, name: 'film name', 'season': 1, 'epside': 2, 'imgSrc': '/filmImages/film4.jpg', rate: 4 },
+  { id: 5, name: 'film name', 'season': 1, 'epside': 2, 'imgSrc': '/filmImages/film5.jpg', rate: 2.5 }
+]
+let tempFilmList10 = [
+  { id: 1, name: 'film name', 'season': 1, 'epside': 2, 'imgSrc': '/filmImages/film1.jpg', rate: 3 },
+  { id: 2, name: 'film name', 'season': 1, 'epside': 2, 'imgSrc': '/filmImages/film2.jpg', rate: 3.5 },
+  { id: 3, name: 'film name', 'season': 1, 'epside': 2, 'imgSrc': '/filmImages/film3.jpg', rate: 2 },
+  { id: 4, name: 'film name', 'season': 1, 'epside': 2, 'imgSrc': '/filmImages/film4.jpg', rate: 4 },
+  { id: 5, name: 'film name', 'season': 1, 'epside': 2, 'imgSrc': '/filmImages/film5.jpg', rate: 2.5 }
+]
+let tempFilmList11 = [
+  { id: 1, name: 'film name', 'season': 1, 'epside': 2, 'imgSrc': '/filmImages/film1.jpg', rate: 3 },
+  { id: 2, name: 'film name', 'season': 1, 'epside': 2, 'imgSrc': '/filmImages/film2.jpg', rate: 3.5 },
+  { id: 3, name: 'film name', 'season': 1, 'epside': 2, 'imgSrc': '/filmImages/film3.jpg', rate: 2 },
+  { id: 4, name: 'film name', 'season': 1, 'epside': 2, 'imgSrc': '/filmImages/film4.jpg', rate: 4 },
+  { id: 5, name: 'film name', 'season': 1, 'epside': 2, 'imgSrc': '/filmImages/film5.jpg', rate: 2.5 }
+]
+let tempFilmList12 = [
+  { id: 1, name: 'film name', 'season': 1, 'epside': 2, 'imgSrc': '/filmImages/film1.jpg', rate: 3 },
+  { id: 2, name: 'film name', 'season': 1, 'epside': 2, 'imgSrc': '/filmImages/film2.jpg', rate: 3.5 },
+  { id: 3, name: 'film name', 'season': 1, 'epside': 2, 'imgSrc': '/filmImages/film3.jpg', rate: 2 },
+  { id: 4, name: 'film name', 'season': 1, 'epside': 2, 'imgSrc': '/filmImages/film4.jpg', rate: 4 },
+  { id: 5, name: 'film name', 'season': 1, 'epside': 2, 'imgSrc': '/filmImages/film5.jpg', rate: 2.5 }
+]
+let tempFilmList13 = [
+  { id: 1, name: 'film name', 'season': 1, 'epside': 2, 'imgSrc': '/filmImages/film1.jpg', rate: 3 },
+  { id: 2, name: 'film name', 'season': 1, 'epside': 2, 'imgSrc': '/filmImages/film2.jpg', rate: 3.5 },
+  { id: 3, name: 'film name', 'season': 1, 'epside': 2, 'imgSrc': '/filmImages/film3.jpg', rate: 2 },
+  { id: 4, name: 'film name', 'season': 1, 'epside': 2, 'imgSrc': '/filmImages/film4.jpg', rate: 4 },
+  { id: 5, name: 'film name', 'season': 1, 'epside': 2, 'imgSrc': '/filmImages/film5.jpg', rate: 2.5 }
+]
+let tempFilmList14 = [
+  { id: 1, name: 'film name', 'season': 1, 'epside': 2, 'imgSrc': '/filmImages/film1.jpg', rate: 3 },
+  { id: 2, name: 'film name', 'season': 1, 'epside': 2, 'imgSrc': '/filmImages/film2.jpg', rate: 3.5 },
+  { id: 3, name: 'film name', 'season': 1, 'epside': 2, 'imgSrc': '/filmImages/film3.jpg', rate: 2 },
+  { id: 4, name: 'film name', 'season': 1, 'epside': 2, 'imgSrc': '/filmImages/film4.jpg', rate: 4 },
+  { id: 5, name: 'film name', 'season': 1, 'epside': 2, 'imgSrc': '/filmImages/film5.jpg', rate: 2.5 }
+]
 
 const styles = {
   root: {
