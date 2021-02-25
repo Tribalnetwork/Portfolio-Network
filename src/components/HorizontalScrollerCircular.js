@@ -2,6 +2,7 @@ import React from 'react'
 import ScrollMenu from 'react-horizontal-scrolling-menu';
 import Grid from '@material-ui/core/Grid';
 import './HorizontalScrollerCircular.css';
+import scrollLock from 'scroll-lock'
 const MenuItem = ({ Item, liveId }) => {
   return (<div className='film-box'>
 
@@ -35,9 +36,17 @@ const ArrowRight = Arrow({ text: '', className: 'arrow-next' });
 export default class HorizontalScroller extends React.Component {
   render() {
     return (
-      <div>
+      <div
+        onMouseEnter={() => {
+          // console.log('Mouse Entered');
+          scrollLock.disablePageScroll();
+        }} onMouseLeave={() => {
+          // console.log('Mouse left');
+          scrollLock.enablePageScroll()
+        }}
+      >
         <div className='title-and-buttons-container'>
-          <p className="title__tribalBetaHome">{this.props.title}</p>          
+          <p className="title__tribalBetaHome">{this.props.title}</p>
         </div>
 
         <ScrollMenu
@@ -45,6 +54,8 @@ export default class HorizontalScroller extends React.Component {
           arrowLeft={ArrowLeft}
           arrowRight={ArrowRight}
           alignCenter={false}
+          transition={1.85}
+          onLastItemVisible={() => scrollLock.enablePageScroll()}
         />
 
       </div>
