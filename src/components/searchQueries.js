@@ -246,50 +246,6 @@ export default class SearchQueries extends React.Component {
       });
     }
 
-<<<<<<< HEAD
-        checkType = () => {
-            if(this.props.round == true){
-                this.inputWrapperStyle = this.inputWrapperStyleRound;
-                this.filterStyle = this.filterStyleNone;
-            }
-            if (this.props.type == "liveStreams"){
-                this.setState(prevState => ({
-                    filter: {                   
-                        ...prevState.filter,   
-                        hasFilter: true   
-                    }
-                }));
-                this.setState(prevState => ({
-                    filter: {                   
-                        ...prevState.filter,   
-                        liveStreams: true
-                    }
-                }))
-            } else {
-                const filterButtons = [<li style={this.filterButtonStyle} onClick={this.filterUsers}>Users</li>,
-                    <li style={this.filterButtonStyle} onClick={this.filterFilms}>Films</li>,
-                    <li style={this.filterButtonStyle} onClick={this.filterLiveStreams}>Music</li>]
-                    this.setState({buttons: filterButtons})
-            }
-        }
-        
-        add = (type, input) => {
-            let local = JSON.parse(localStorage.getItem(type))
-            if (local == null || local == undefined){
-                let container = {
-                    list: [input]
-                }
-                localStorage.setItem(type, JSON.stringify(container))
-            } else {
-                if(local.list.length >= 50){
-                   local.list.pop();
-                }
-                let update = [input];
-                local.list = update.concat(local.list);
-                localStorage.setItem(type, JSON.stringify(local))
-            }
-        }
-=======
     const styledMatches = rawMatches.map((item) => {
       switch (item.type) {
         case "Film":
@@ -305,7 +261,6 @@ export default class SearchQueries extends React.Component {
           return <Link style={{ textDecoration: "none" }} to={`/viewSearch?name=${item.name}&location=${item.location}&id=${item.id}`}><li key={item.id} style={this.liStyle} onClick={() => { this.add("main", item) }}>{item.name}  <p style={this.typeStyle}>{item.type}</p></li></Link>
           break;
       }
->>>>>>> upstream/master
 
     })
     if (input == '') {

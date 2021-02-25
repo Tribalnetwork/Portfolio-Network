@@ -36,15 +36,9 @@
     "react-router-dom": "^5.0.1",
     "react-scripts": "^3.4.4",
     "react-select": "^3.1.1",
-<<<<<<< HEAD
-    "reactjs-popup": "^2.0.4",
-    "redux": "^4.0.5",
-    "rsuite": "^4.8.8"
-=======
     "react-simple-charts": "0.0.19",
     "redux": "^4.0.5",
     "scroll-lock": "^2.1.4"
->>>>>>> upstream/master
   },
   "scripts": {
     "start": "react-scripts start",

@@ -186,59 +186,6 @@ export const NavigationBar = () => {
           onClick={handleDrawerClose}
           onKeyDown={handleDrawerClose}
         >
-<<<<<<< HEAD
-        <List component="nav" >
-        <ListItem
-          button
-          component={Link} to={"/home"}
-        >
-          <img src = {Home}></img>  
-          <ListItemText  primary={'Home'}> </ListItemText>  
-          
-        </ListItem>
-        <ListItem
-          button
-          component={Link} to={"/search"}
-        >
-          <img src = {Search}></img>   
-          <ListItemText primary={'Search'}> </ListItemText> 
-          
-        </ListItem>
-        <ListItem
-          button
-          component={Link} to={"/streams"}
-        >
-          <img src = {Tribal}></img> 
-          <ListItemText primary={'Tribal'}> </ListItemText>   
-          
-        </ListItem>
-        <ListItem
-          button
-          component={Link} to={"/profile"}
-        >
-          <img src = {Social}></img>  
-          <ListItemText  primary={'Social'}> </ListItemText>  
-          
-        </ListItem>
-        <ListItem
-          button
-          component={Link} to={"/settings"}
-        >
-          <img src = {Settings}></img>   
-          <ListItemText  primary={'Settings'}> </ListItemText> 
-          
-        </ListItem>
-        <ListItem
-          button
-          component={Link} to={"/submit"}
-        >
-          <img className={classes.imgStyle} src = {Submit}></img>
-          <ListItemText className={classes.textStyle} primary={"Submit"} ></ListItemText> 
-          
-        </ListItem>
-        </List>
-          
-=======
           <List component="nav" >
             <ListItem
               button
@@ -299,7 +246,6 @@ export const NavigationBar = () => {
              </ListItem> 
           </List>
 
->>>>>>> upstream/master
         </div>
 
       </Drawer>

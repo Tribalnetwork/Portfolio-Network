@@ -23,14 +23,9 @@ import {ReactComponent as SubscribeLogo} from '../icons/subscribe.svg';
 import UpNext from '../components/UpNext';
 import TrendingNow from '../OnePager/TrendingNow';
 import { StylesProvider } from '@material-ui/core';
-<<<<<<< HEAD:src/OnePager/Watch.js
-import {ReactComponent as AddToListSelectedLogo} from '../icons/AddToList-Selected.svg';
-import ReactStars from "react-rating-stars-component";
-import { render } from "react-dom";
-=======
 import {ReactComponent as AddToListSelectedLogo} from './icons/AddToList-Selected.svg';
+import ReactStars from "react-rating-stars-component";
 import axios from "axios"
->>>>>>> 5645b2116e3c9f74c089f53e73f13fa76de866fe:src/Watch.js
 
 const AuthorSection=({author})=>{
   //console.log(author);
