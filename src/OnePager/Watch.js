@@ -18,6 +18,35 @@ import {
   createFilmInList,
   deleteFilmInList,
 } from "../graphql/mutations";
+
+import {
+  ShareButtons,
+  ShareCounts,
+  generateShareIcon
+} from 'react-share';
+
+const {
+  FacebookShareButton,
+  WhatsappShareButton,
+  LinkedinShareButton,
+  TwitterShareButton,
+  EmailShareButton,
+} = ShareButtons;
+const {
+  FacebookShareCount,
+  WhatsappShareCount,
+  LinkedinShareCount,
+ 
+} = ShareCounts;
+
+const FacebookIcon = generateShareIcon('facebook');
+const TwitterIcon = generateShareIcon('twitter');
+const WhatsappIcon = generateShareIcon('whatsapp');
+const LinkedinIcon = generateShareIcon('linkedin');
+const EmailIcon = generateShareIcon('email');
+
+ 
+
 import UserContext from "../components/UserContext";
 import Button from "../components/Button";
 import "./Watch.css";
@@ -280,6 +309,95 @@ class WatchPage extends React.Component {
                   onProgress={this.onProgress}
                 />
               </div>
+              {/* <div><FacebookShareCount url={shareUrl} />  */}
+              {/* </div> */}
+            
+   
+   <div className="share_content">
+      <ul className="social-share">
+         <li>
+             <FacebookShareButton
+             url={shareUrl}
+             quote={title}
+             className="button" 
+             >
+             <FacebookIcon
+               size={32}
+               round={false} />
+           </FacebookShareButton>
+
+           <FacebookShareCount
+             url={shareUrl}
+             className="count">
+             {count => count}
+           </FacebookShareCount>
+         </li>
+         
+         <li>
+             <TwitterShareButton
+             url={shareUrl}
+             title={title}
+             className="button">
+             <TwitterIcon
+               size={32}
+               round={false} />
+           </TwitterShareButton>
+         </li>
+         
+         <li>
+             <WhatsappButton
+             url={shareUrl}
+             title={title}
+             windowWidth={750}
+             windowHeight={600}
+             className="button">
+             <WhatsappIcon
+               size={32}
+               round={false} />
+           </WhatsappButton>
+
+           <WhatsappShareCount
+             url={shareUrl}
+             className="count">
+             {count => count}
+           </WhatsappShareCount>
+         </li>
+         
+         <li>
+             <LinkedinShareButton
+             url={shareUrl}
+             title={title}
+             windowWidth={750}
+             windowHeight={600}
+             className="button">
+             <LinkedinIcon
+               size={32}
+               round={false} />
+           </LinkedinShareButton>
+
+           <LinkedinShareCount
+             url={shareUrl}
+             className="count">
+             {count => count}
+           </LinkedinShareCount>
+         </li>
+
+         <li>
+           <EmailShareButton
+           url={shareUrl}
+           subject={title}
+           body="body"
+           className="button">
+           <EmailIcon
+             size={32}
+             round={false} />
+           </EmailShareButton>
+         
+         </li>
+       </ul>
+       <div
+         className="social-share-content"
+       />
 
               <VideoPlayerMenu
                 className="videoPlayerMenu"
