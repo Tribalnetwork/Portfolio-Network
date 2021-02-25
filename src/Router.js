@@ -9,8 +9,8 @@ import {
 import UserContext from "./UserContext";
 import { NavigationBar } from "./components/NavigationBar";
 import Authenticator from './Authenticator'
-/*import { Upload } from './Upload';
 import Watch from './Watch'
+/*import { Upload } from './Upload';
 import Landing from './landing/landing-home.js'*/
 import Submit from './landing/submit'
 /*import Live from './Live'
@@ -36,18 +36,15 @@ import MyProfile from "./ProfilePage/Profile.js"*/
 import Home from "./Home"
 //import ConnectList from "./SocialPage/ConnectList"
 import { FeatureComingSoon } from "./components/FeatureComingSoon";
-
 import { Settings__tribalBeta } from "./components/tribalBeta/Settings__tribalBeta";
-
 import MobileAppTribalBeta from "./components/tribalBeta/MobileApp__tribalBeta";
 import PrivacyPolicyTribalBeta from "./components/tribalBeta/PrivacyPolicy__tribalBeta";
 import SupportTribalBeta from "./components/tribalBeta/Support__tribalBeta";
 import TermsOfServiceTribalBeta from "./components/tribalBeta/TermsOfService__tribalBeta";
 import TipsAndSupportTribalBeta from "./components/tribalBeta/TipsAndSupport__tribalBeta";
 import ContactUsTribalBeta from "./components/tribalBeta/ContactUs__tribalBeta";
-
 import Signin from './SignIn'
-
+import GetFilmList from "./components/GetFilmList"
 // import SportsPage from "./ExplorePage/SportsPage";
 
 class PrivateRoute extends React.Component {
@@ -106,6 +103,7 @@ const Routes = () => (
     <div>
       <NavigationBar />
       <Switch>
+      <Route path="/getFilmList" exact component={GetFilmList} />
         <Route path="/settings/mobileapp" exact component={MobileAppTribalBeta}>
           {/* <MobileApp__tribalBeta /> */}
           <FeatureComingSoon />
@@ -211,7 +209,7 @@ const Routes = () => (
         <Route path="/myStudio/toDoList" exact component={FeatureComingSoon} />
         <PrivateRoute path="/upload" exact component={FeatureComingSoon} />
         <PrivateRoute path="/streams" component={FeatureComingSoon} />
-        <PrivateRoute path="/watch" component={FeatureComingSoon} />
+        <PrivateRoute path="/watch" component={Watch} />
 
         <PrivateRoute path="/live" component={FeatureComingSoon} />
         <PrivateRoute path="/profile" component={FeatureComingSoon} />

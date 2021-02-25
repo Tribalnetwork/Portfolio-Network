@@ -21,6 +21,7 @@ import UpNext from "./UpNext";
 import TrendingNow from "./TrendingNow";
 import { StylesProvider } from '@material-ui/core';
 import {ReactComponent as AddToListSelectedLogo} from './icons/AddToList-Selected.svg';
+import axios from "axios"
 
 const AuthorSection=({author})=>{
   //console.log(author);
@@ -65,11 +66,28 @@ class WatchPage extends React.Component {
   componentDidMount() {
     this.getInfo();
     this.getListInfo();
-
+    this.getUrl();
     this.interval = setInterval(() => {
       this.setState({ watchTime: this.state.watchTime + 1});
     }, 1000)
 
+  }
+
+  getUrl = () => {
+    let FilmKey = {
+      id: this.id
+    }
+    let theData = JSON.stringify(FilmKey);
+    axios({
+      url: "https://2ajlr7txqa.execute-api.us-east-1.amazonaws.com/default/Get_Film_From_S3",
+      method: "post",
+      data: theData
+    })
+    .then((res) => {
+      console.log("the response: " + JSON.stringify(res.data.body.url));
+      this.setState({url: res.data.body.url});
+    })
+    .catch(err => console.log("the erreor: " + err))
   }
 
   async componentWillUnmount() {
@@ -84,8 +102,7 @@ class WatchPage extends React.Component {
 
   async getInfo() {
     const film = await API.graphql(graphqlOperation(getFilm, { id: this.id }))
-    this.setState({ url: film.data.getFilm.hlsUrl, title: film.data.getFilm.title,
-    approved: film.data.getFilm.available});
+    this.setState({approved: true});
     const artist = await API.graphql(graphqlOperation(getUser, { id: film.data.getFilm.sub }))
     this.setState({ artist: artist.data.getUser});
   }

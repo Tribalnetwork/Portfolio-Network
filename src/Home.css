@@ -25,7 +25,7 @@
 
 /*.popup-overlay {
   display: flex;
-}*/
+  }*/
 
 #popup-2.popup-content {
   background-color: rgb(30, 30, 30, 0.95);
@@ -198,3 +198,14 @@ div.trendy-wrapper{
     margin: 2rem 0.2rem 2rem 0.2rem;
   }
 }
+/* 
+@media only screen and (min-width: 992px) {
+
+  .player-wrapper {
+      width: 800px;
+      height: 800px;
+      left: 50%;
+      transform: translateX(-50%);
+  }
+
+} */
