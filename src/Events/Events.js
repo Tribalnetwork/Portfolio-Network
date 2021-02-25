@@ -5,14 +5,14 @@ import { listGigs } from '../graphql/queries'
 import awsconfig from '../aws-exports';
 import '@aws-amplify/ui/dist/style.css';
 import { Link } from "react-router-dom";
-import UserContext from '../UserContext'
+import UserContext from '../components/UserContext'
 import { Helmet } from 'react-helmet'
 import ReactPlayer from 'react-player'
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import Button from '../Button';
+import Button from '../components/Button';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 
@@ -26,6 +26,8 @@ import {ReactComponent as PostLogo} from "../icons/post.svg"
 import {ReactComponent as RemindMeLogo} from "../icons/remindme.svg"
 import {ReactComponent as HideLogo} from "../icons/hide.svg";
 import {ReactComponent as SavedLogo} from "../icons/saved.svg"
+import AdSense from 'react-adsense';
+
 Amplify.configure(awsconfig);
 
 //temporarily stored data--backend not setup yet
@@ -122,6 +124,13 @@ export default class Event extends React.Component {
             <meta charSet="utf-8" />
             <title>Events - Tribal Network</title>
             </Helmet>
+            <div> <AdSense.Google
+  client='ca-pub-9377248146857874'
+  slot='8138290375'
+  style={{ width: 200, height: 375, float: 'left' }}
+  format=''
+/>
+</div>
             <div style={styles.container}>
                 {
                 <div>

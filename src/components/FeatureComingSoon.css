@@ -1,11 +1,18 @@
 .featureComingSoon {
+<<<<<<< HEAD
   display: grid;
   place-items: center;
   margin-top: 28.5vh;
+=======
+  margin-top: 28vh;
+  display: grid;
+  place-items: center;
+>>>>>>> upstream/master
 }
 
 .featureComingSoon__text {
   color: gold;
+<<<<<<< HEAD
   font-family: 'Times New Roman', Times, serif;
   font-size: 3.75rem;
   padding: 0.5rem;
@@ -18,3 +25,8 @@
     text-align: center;
   }
 }
+=======
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 3.75rem;
+}
+>>>>>>> upstream/master

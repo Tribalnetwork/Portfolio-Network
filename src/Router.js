@@ -34,6 +34,7 @@ import PostEvent from "./Events/PostEvent"
 import Eventdetail from "./Events/Eventdetail"
 import MyProfile from "./ProfilePage/Profile.js"*/
 import Home from "./Home"
+<<<<<<< HEAD
 //import ConnectList from "./SocialPage/ConnectList"
 import { FeatureComingSoon } from "./components/FeatureComingSoon";
 import { Settings__tribalBeta } from "./components/tribalBeta/Settings__tribalBeta";
@@ -44,7 +45,15 @@ import TermsOfServiceTribalBeta from "./components/tribalBeta/TermsOfService__tr
 import TipsAndSupportTribalBeta from "./components/tribalBeta/TipsAndSupport__tribalBeta";
 import ContactUsTribalBeta from "./components/tribalBeta/ContactUs__tribalBeta";
 import Signin from './SignIn'
+<<<<<<< HEAD
+=======
+import ConnectList from "./SocialPage/ConnectList"
+import { FeatureComingSoon } from "./components/FeatureComingSoon";
+>>>>>>> upstream/master
+
+=======
 import GetFilmList from "./components/GetFilmList"
+>>>>>>> 5645b2116e3c9f74c089f53e73f13fa76de866fe
 // import SportsPage from "./ExplorePage/SportsPage";
 
 class PrivateRoute extends React.Component {
@@ -103,7 +112,11 @@ const Routes = () => (
     <div>
       <NavigationBar />
       <Switch>
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
       <Route path="/getFilmList" exact component={GetFilmList} />
+>>>>>>> 5645b2116e3c9f74c089f53e73f13fa76de866fe
         <Route path="/settings/mobileapp" exact component={MobileAppTribalBeta}>
           {/* <MobileApp__tribalBeta /> */}
           <FeatureComingSoon />
@@ -126,6 +139,11 @@ const Routes = () => (
 
         <Route path="/settings" exact component={Settings__tribalBeta}>
           <Settings__tribalBeta />
+=======
+        
+        <Route path="/settings" exact component={FeatureComingSoon}>
+          <FeatureComingSoon />
+>>>>>>> upstream/master
         </Route>
 
 
@@ -173,7 +191,11 @@ const Routes = () => (
           path="/settings/logout"
         >
           <FeatureComingSoon />
+<<<<<<< HEAD
         </Route> */}
+=======
+        </Route>
+>>>>>>> upstream/master
         <Route
           path="/settings/wifiandcellular"
         >
@@ -182,6 +204,7 @@ const Routes = () => (
 
         {/* <Route path="/explore"><Explore /></Route> */}
         <Route path="/explore/sports" exact component={FeatureComingSoon} />
+<<<<<<< HEAD
         <Route path="/explore/talks"><FeatureComingSoon /></Route>
         <Route path="/explore/drama"><FeatureComingSoon /></Route>
         <Route path="/explore/romance"><FeatureComingSoon /></Route>
@@ -198,6 +221,24 @@ const Routes = () => (
         <Route path="/explore/documentary"><FeatureComingSoon /></Route>
         <Route path="/explore/watchrandom"><FeatureComingSoon /></Route>
         <Route path="/auth" exact component={Authenticator} />
+=======
+        <Route path="/explore/talks"><FeatureComingSoon/></Route>
+        <Route path="/explore/drama"><FeatureComingSoon/></Route>
+        <Route path="/explore/romance"><FeatureComingSoon/></Route>
+        <Route path="/explore/horror"><FeatureComingSoon/></Route>
+        <Route path="/explore/family"><FeatureComingSoon/></Route>
+        <Route path="/explore/animation"><FeatureComingSoon/></Route>
+        <Route path="/explore/experimental"><FeatureComingSoon/></Route>
+        <Route path="/explore/thriller"><FeatureComingSoon/></Route>
+        <Route path="/explore/family"><FeatureComingSoon/></Route>
+        <Route path="/explore/scifi"><FeatureComingSoon/></Route>
+        <Route path="/explore/action"><FeatureComingSoon/></Route>
+        <Route path="/explore/comedy"><FeatureComingSoon/></Route>
+        <Route path="/explore/musical"><FeatureComingSoon/></Route>
+        <Route path="/explore/documentary"><FeatureComingSoon/></Route>
+        <Route path="/explore/watchrandom"><FeatureComingSoon/></Route>
+        <Route path="/auth" exact component={FeatureComingSoon} />
+>>>>>>> upstream/master
         <Route path="/" exact component={FeatureComingSoon} />
         <Route path="/home" exact component={Home} />
         <Route path="/landing/landing-home" exact component={FeatureComingSoon} />
@@ -209,8 +250,16 @@ const Routes = () => (
         <Route path="/myStudio/toDoList" exact component={FeatureComingSoon} />
         <PrivateRoute path="/upload" exact component={FeatureComingSoon} />
         <PrivateRoute path="/streams" component={FeatureComingSoon} />
+<<<<<<< HEAD
+        <PrivateRoute path="/watch" component={FeatureComingSoon} />
+<<<<<<< HEAD
+=======
         <PrivateRoute path="/watch" component={Watch} />
+>>>>>>> 5645b2116e3c9f74c089f53e73f13fa76de866fe
 
+=======
+        
+>>>>>>> upstream/master
         <PrivateRoute path="/live" component={FeatureComingSoon} />
         <PrivateRoute path="/profile" component={FeatureComingSoon} />
         <PrivateRoute path="/myprofile" component={FeatureComingSoon} />
