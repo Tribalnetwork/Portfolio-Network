@@ -6,14 +6,14 @@ import { listFilms, listLiveStreams } from "./graphql/queries";
 import awsconfig from "./aws-exports";
 import "@aws-amplify/ui/dist/style.css";
 import { Link } from "react-router-dom";
-import UserContext from './UserContext'
-import { Helmet } from 'react-helmet'
-import ReactPlayer from 'react-player'
-import Button from './Button';
-import ExpandLessRoundedIcon from '@material-ui/icons/ExpandLessRounded';
-import ExpandMoreRoundedIcon from '@material-ui/icons/ExpandMoreRounded';
-import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
+import UserContext from "./UserContext";
+import { Helmet } from "react-helmet";
+import ReactPlayer from "react-player";
+import Button from "./Button";
+import ExpandLessRoundedIcon from "@material-ui/icons/ExpandLessRounded";
+import ExpandMoreRoundedIcon from "@material-ui/icons/ExpandMoreRounded";
+import Typography from "@material-ui/core/Typography";
+import Grid from "@material-ui/core/Grid";
 import HorizontalScrollerCircular from "./components/HorizontalScrollerCircular";
 import HorizontalScroller from "./components/HorizontalScroller";
 
@@ -33,8 +33,6 @@ import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
 Amplify.configure(awsconfig);
 
-
-
 export default class Home extends React.Component {
   static contextType = UserContext;
 
@@ -51,57 +49,107 @@ export default class Home extends React.Component {
     this.getAllFilms();
   }
 
-  async findFilm(id){
+  async findFilm(id) {
     let FilmKey = {
-      id: id
-    }
+      id: id,
+    };
     let theData = JSON.stringify(FilmKey);
 
     const response = await axios({
-      url: "https://2ajlr7txqa.execute-api.us-east-1.amazonaws.com/default/Get_Film_From_S3",
+      url:
+        "https://2ajlr7txqa.execute-api.us-east-1.amazonaws.com/default/Get_Film_From_S3",
       method: "post",
-      data: theData
-    })
-    this.setState({url: response.data.body.url })
+      data: theData,
+    });
+    this.setState({ url: response.data.body.url });
   }
 
   async getAllFilms() {
+
     try {
       const response = await axios.get(
         "https://ulqk0b3anh.execute-api.us-east-1.amazonaws.com/default/Get-Film-List"
       );
       let parsed = JSON.parse(response.data.body);
-
+      let filmGroups = [];
       let categories = [];
       parsed.forEach((film) => {
         if (!categories.includes(film.film_genre)) {
           categories.push(film.film_genre);
+          filmGroups.push({ genre: film.film_genre, films: [] });
         }
       });
 
-      this.setState({ films: parsed, filmGroups: categories });
+      filmGroups.forEach((group) => {
+        group.films = parsed.filter((data) => data.film_genre === group.genre);
+      });
+
+      this.setState({ films: parsed, filmGroups: filmGroups });
     } catch (err) {
       console.log(err);
     }
   }
 
-  changeGenres(genre){
-    if(genre === "d"){
-      return "Drama"
+  changeGenres(genre) {
+    if (genre === "d") {
+      return "Drama";
     }
-    if(genre === "c"){
-      return "Comedy"
-    }
-    else {
-      return genre
+    if (genre === "c") {
+      return "Comedy";
+    } else {
+      return genre;
     }
   }
 
-  setName(name){
-    this.setState({videoName: name})
+  setName(name) {
+    this.setState({ videoName: name });
   }
 
+  sortByRating(filmGroups, operator) {
+    switch (operator) {
+      case "highest":
+        filmGroups.forEach((group) => {
+          let result = group.films.sort((a, b) => {
+            var nameA = a.film_title.toUpperCase(); // ignore upper and lowercase
+            var nameB = b.film_title.toUpperCase(); // ignore upper and lowercase
+            if (nameA > nameB) {
+              return -1;
+            }
+            if (nameA < nameB) {
+              return 1;
+            }
+            return 0;
+          });
+          group.films = result;
+        });
+        this.setState({ filmGroups });
 
+        break;
+
+      case "lowest":
+
+        filmGroups.forEach((group) => {
+          let result = group.films.sort((a, b) => {
+            var nameA = a.film_title.toUpperCase(); // ignore upper and lowercase
+            var nameB = b.film_title.toUpperCase(); // ignore upper and lowercase
+            if (nameA < nameB) {
+              return -1;
+            }
+            if (nameA > nameB) {
+              return 1;
+            }
+            return 0;
+          });
+          group.films = result;
+        });
+        this.setState({ filmGroups });
+
+        break;
+
+      default:
+        break;
+    }
+  }
 
   render() {
     const isAuthenticated =
@@ -134,6 +182,9 @@ export default class Home extends React.Component {
                       volume={0}
                       muted
                       onEnded={() => this.p.showPreview()}
+                      // SHOWS THE CONTROLS????
+                      // width="100%"
+                      // height="auto"
                       width="100%"
                       height="100%"
                     />
@@ -197,87 +248,87 @@ export default class Home extends React.Component {
                           trigger={(open) => (
                             <SubmitButton className="RateAndSubmit__tribalBeta" />
                           )}
-
-                        closeOnDocumentClick
-                      >
-                        <div className="ratingPopup__tribalBetaHome">
-                          <div className="overall__tribalBetaHome">
-                            <span className="submit__tribalBetaHome">Log in on Desktop to Submit</span>
+                          closeOnDocumentClick
+                        >
+                          <div className="ratingPopup__tribalBetaHome">
+                            <div className="overall__tribalBetaHome">
+                              <span className="submit__tribalBetaHome">
+                                Log in on Desktop to Submit
+                              </span>
+                            </div>
+                            <div className="ok__popupBottom">
+                              <Link
+                                to={"/submit"}
+                                style={styles.buttonLink}
+                                className="link__okText"
+                              >
+                                <p className="okText__popupBottom">OK</p>
+                              </Link>
+                            </div>
                           </div>
-                          <div className="ok__popupBottom">
-                            <Link to={'/submit'} style={styles.buttonLink} className="link__okText">
-                              <p className="okText__popupBottom">OK</p>
-                            </Link>
-                          </div>
-                        </div>
-                      </Popup>
-                      {/*</Link>*/}
+                        </Popup>
+                        {/*</Link>*/}
+                      </Grid>
                     </Grid>
-                  </Grid>
-                </div>
-                <div className='film-lists'>
-                  <div className='filter-buttons'>
-                    <button
-                      className='filtering-btn1'
-                      onClick={
-                        () => {
-                          let filmList = handleHeighstToLowestRate(this.state.filmGroups)
-                          this.setState({ filmGroups: filmList })
-                          let btn = document.querySelector('.filtering-btn1');
-                          btn.classList.add('active-filtered-button')
-                          btn = document.querySelector('.filtering-btn2');
-                          btn.classList.remove('active-filtered-button')
-                        }}>
-                      <img src='/starForFilmOrdering.svg' alt='rate' />
-                      <ExpandMoreRoundedIcon fontSize='large' style={{ color: 'white' }} />
-                    </button>
-                    <button
-                      className='filtering-btn2'
-                      onClick={
-                        () => {
-                          let filmList = handleLowestToHeighstRate(this.state.filmGroups)
-                          this.setState({ filmGroups: filmList })
-                          let btn = document.querySelector('.filtering-btn2');
-                          btn.classList.add('active-filtered-button')
-                          btn = document.querySelector('.filtering-btn1');
-                          btn.classList.remove('active-filtered-button')
-                        }}>
-                      <img src='/starForFilmOrdering.svg' alt='rate' />
-                      <ExpandLessRoundedIcon fontSize='large' style={{ color: 'white' }} /></button>
                   </div>
-                  {
-                    filmGroups.map(
-                      (genre, index) =>
-                        <FilmCat title={this.changeGenres(genre)} 
-                        
-                        films={this.state.films.filter(
-                          (data) => data.film_genre === genre
-                        )}
-                        
+                  <div className="film-lists">
+                    <div className="filter-buttons">
+                      <button
+                        className="filtering-btn1"
+                        onClick={() => {
+                          this.sortByRating(this.state.filmGroups, "lowest");
+                          let btn = document.querySelector(".filtering-btn1");
+                          btn.classList.add("active-filtered-button");
+                          btn = document.querySelector(".filtering-btn2");
+                          btn.classList.remove("active-filtered-button");
+                        }}
+                      >
+                        <img src="/starForFilmOrdering.svg" alt="rate" />
+                        <ExpandMoreRoundedIcon
+                          fontSize="large"
+                          style={{ color: "white" }}
+                        />
+                      </button>
+                      <button
+                        className="filtering-btn2"
+                        onClick={() => {
+                          this.sortByRating(this.state.filmGroups, "highest");
+                          let btn = document.querySelector(".filtering-btn2");
+                          btn.classList.add("active-filtered-button");
+                          btn = document.querySelector(".filtering-btn1");
+                          btn.classList.remove("active-filtered-button");
+                        }}
+                      >
+                        <img src="/starForFilmOrdering.svg" alt="rate" />
+                        <ExpandLessRoundedIcon
+                          fontSize="large"
+                          style={{ color: "white" }}
+                        />
+                      </button>
+                    </div>
+                    {filmGroups.map((group, index) => (
+                      <FilmCat
+                        title={this.changeGenres(group.genre)}
+                        films={group.films}
                         key={index}
-                        
                         setName={this.setName.bind(this)}
-
                         findFilm={this.findFilm.bind(this)}
-                        
-                        handleClick={
-                            () => {
-                              let element = filmGroups[index];
-                              const myList = filmGroups.filter((_, filterIndex) => index !== filterIndex)
-                              // console.log(myList)
-                              myList.unshift(element)
-                              this.setState(
-                                {
-                                  filmGroups: myList
-                                }
-                              )
-                            }} />
-                    )
-                  }
+                        handleClick={() => {
+                          let element = filmGroups[index];
+                          const myList = filmGroups.filter(
+                            (_, filterIndex) => index !== filterIndex
+                          );
+                          // console.log(myList)
+                          myList.unshift(element);
+                          this.setState({
+                            filmGroups: myList,
+                          });
+                        }}
+                      />
+                    ))}
+                  </div>
                 </div>
-              </div>
-
-            ) : (
+              ) : (
                 <div>
                   <>
                     <h1>Free Trial Ended</h1>
@@ -314,33 +365,13 @@ function FilmCat(Props) {
       }}
     >
       <p className="title__tribalBetaHome">{title}</p>
-      <HorizontalScrollerCircular list={films} findFilm={findFilm} setName={setName}/>
+      <HorizontalScrollerCircular
+        list={films}
+        findFilm={findFilm}
+        setName={setName}
+      />
     </div>
   );
-}
-
-
-// highest to lowest rate
-function handleHeighstToLowestRate(allFilmLists) {
-  let sortedFilmGroups = allFilmLists.map(filmList => {
-    let listTitle = Object.getOwnPropertyNames(filmList)[0]
-    let list = filmList[listTitle]
-    list.sort((a, b) => a.rate > b.rate ? -1 : 1)
-    filmList[listTitle] = list
-    return filmList
-  })
-  return sortedFilmGroups;
-}
-// lowest to highest rate
-function handleLowestToHeighstRate(allFilmLists) {
-  let sortedFilmGroups = allFilmLists.map(filmList => {
-    let listTitle = Object.getOwnPropertyNames(filmList)[0]
-    let list = filmList[listTitle]
-    list.sort((a, b) => a.rate > b.rate ? 1 : -1)
-    filmList[listTitle] = list
-    return filmList
-  })
-  return sortedFilmGroups;
 }
 
 const styles = {
