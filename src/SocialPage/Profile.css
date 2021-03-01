@@ -142,6 +142,22 @@ body {
   font-size: 19px;
 }
 
+
+.line {
+  width: 100%;
+  height: 2px;
+  border: 1px solid #757575;
+  align-self: center;
+  
+
+
+
+}
+
+
+
+
+
  .tribeInfo {
   color: #ffffff;
   font: 'Roboto';
@@ -150,14 +166,7 @@ body {
   font-size: 20px;
 } */
 
-.line {
-  width: 95%;
-  height: 2px;
-  border: 1px solid #757575;
-  margin-top: 5px;
-  margin-bottom: 10px;
-  align-self: center;
-}
+
 
 .contentcontainer {
   margin-top: 50px;
@@ -176,7 +185,7 @@ body {
   grid-template-columns: 1fr 1fr 1fr; 
   grid-row-gap: 35px; 
   margin-left: 16rem;
-  margin-top: 0;
+  margin-top: -70px;
 
 }
 
