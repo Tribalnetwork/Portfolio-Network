@@ -23,10 +23,6 @@
   margin: 0px;
 }
 
-/*.popup-overlay {
-  display: flex;
-  }*/
-
 #popup-2.popup-content {
   background-color: rgb(30, 30, 30, 0.95);
   position: absolute;
@@ -152,13 +148,12 @@ div.video-name-wrapper{
 div.video-name-wrapper::before{
   content: '';
   display: block;
-  height: 242px;
+  height: 282px;
   width: 100%;
   background-color: #15161B;
   position: absolute;
   top: 0px;
   left: 0px;
-
   z-index: -100;
 }
 p.video-name{
@@ -169,9 +164,15 @@ p.video-name{
   background-color: #15161B;
 }
 
-div.trendy-wrapper{
-  /* margin-bottom: 12px; */
+.react-player{
+  z-index: 9;
 }
+
+.player-wrapper video{
+  outline: none;
+  border: 0;
+}
+
 @media (max-width: 390px) {
   .RateAndSubmit__tribalBeta {
     width: 155px;
@@ -198,14 +199,42 @@ div.trendy-wrapper{
     margin: 2rem 0.2rem 2rem 0.2rem;
   }
 }
-/* 
-@media only screen and (min-width: 992px) {
 
-  .player-wrapper {
-      width: 800px;
-      height: 800px;
-      left: 50%;
-      transform: translateX(-50%);
+@media (min-width: 992px) {
+  .player-wrapper{
+    position: relative;
+    padding: 0;
+    background-color: #15161B;
+    height: 65vh;
   }
 
-} */
+  /* SHOWS THE CONTROLS??? */
+  /* .player-wrapper {
+    background-color: #15161B;
+    position: relative;
+    padding-top: 56.25%;
+      width: 100vw;
+      height: 75vh;
+      left: 50%;
+      transform: translateX(-50%);
+      overflow: hidden;
+  } */
+/* 
+    .player-wrapper {
+    background-color: #15161B;
+    position: relative;
+    padding-top: 56.25%;
+      width: 100vw;
+      height: 75vh;
+      left: 50%;
+      transform: translateX(-50%);
+      overflow: hidden;
+  }
+
+  .react-player{
+    height:967px;
+    width: 544px;
+  } */
+
+
+}
