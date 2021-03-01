@@ -198,7 +198,7 @@ export default class Home extends React.Component {
                     </p>
                   </div>
                   <div className="functionbar-wrapper">
-                    <Grid container justify="space-between" alignItems="center">
+                    <Grid container justify="center" style={{height:'87px',  alignItems:'center'}}>
                       <Grid item>
                         {/*<Link to={'/explore'}><ExploreLogo></ExploreLogo></Link>*/}
                         {/*<StarRating></StarRating>*/}
