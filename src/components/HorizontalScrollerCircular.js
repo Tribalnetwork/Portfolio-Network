@@ -42,10 +42,6 @@ export default class HorizontalScroller extends React.Component {
   render() {
     return (
       <div>
-        <div className="title-and-buttons-container">
-          <p className="title__tribalBetaHome">{this.props.title}</p>
-        </div>
-
         <ScrollMenu
           data={Menu(this.props.list, this.props.findFilm, this.props.setName)}
           arrowLeft={ArrowLeft}

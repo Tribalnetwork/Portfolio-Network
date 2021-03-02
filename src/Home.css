@@ -3,7 +3,7 @@
 }
 
 .RateAndSubmit__tribalBeta {
-  margin: 2rem 0.85rem 2rem 0.85rem;
+  margin: 0px 0.85rem;
 }
 
 .RateAndSubmit__tribalBeta:hover {
@@ -166,6 +166,7 @@ p.video-name{
 
 .react-player{
   z-index: 9;
+  background-color: #15161B;
 }
 
 .player-wrapper video{
