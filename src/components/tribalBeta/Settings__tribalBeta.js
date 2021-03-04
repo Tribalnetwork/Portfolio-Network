@@ -1,4 +1,5 @@
 import React from 'react';
+import { Auth } from 'aws-amplify';
 import './settings__tribalBeta.css';
 import { Button, IconButton } from "@material-ui/core";
 import { Link, useHistory } from "react-router-dom";
@@ -27,7 +28,15 @@ export const Settings__tribalBeta = () => {
       <h2 id="simple-modal-title" style={logoutStyle.h2}>Good bye for now!</h2>
     </div>
   );
-
+  
+  // sign out user
+  async function signOut() {
+      try {
+          await Auth.signOut();
+      } catch (error) {
+          console.log('error signing out: ', error);
+      }
+  }
 
   return (
     <div className='settingBody__tribalBeta'>
@@ -110,11 +119,11 @@ export const Settings__tribalBeta = () => {
           <Link
             onClick={
               () => {
-                handleOpen()
+                handleOpen();
+                signOut();
                 setTimeout(() => {
-                  handleClose()
-                  history.push('/signin');
-                  // history.push('/auth');
+                  handleClose();
+                  history.push('/auth');
                 }, 2000);
               }
             }
