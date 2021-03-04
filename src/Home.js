@@ -356,19 +356,15 @@ export default class Home extends React.Component {
 
 // Film Catgories
 function FilmCat(Props) {
-  const { title, films, findFilm, setName } = Props;
+  const { title, films, findFilm, setName, handleClick } = Props;
   return (
-    <div
-      className="trendy-wrapper"
-      onClick={() => {
-        Props.handleClick();
-      }}
-    >
+    <div className="trendy-wrapper">
       <p className="title__tribalBetaHome">{title}</p>
       <HorizontalScrollerCircular
         list={films}
         findFilm={findFilm}
         setName={setName}
+        handleClick={handleClick}
       />
     </div>
   );

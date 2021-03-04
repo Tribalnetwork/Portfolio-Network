@@ -14,7 +14,7 @@
   color: #ffffff;
   font-size: 18px;
   height: 32px;
-  width: 100vw;
+  /* width: 100vw; */
   padding-left: 13px;
   line-height: 22px;
   letter-spacing: -0.41px;
@@ -150,7 +150,7 @@ div.video-name-wrapper::before{
   display: block;
   height: 282px;
   width: 100%;
-  background-color: #15161B;
+  background-color: black;
   position: absolute;
   top: 0px;
   left: 0px;
@@ -161,12 +161,12 @@ p.video-name{
   font-size: 17px;
   line-height: 22px;
   letter-spacing: -0.41px;
-  background-color: #15161B;
+  background-color: black;
 }
 
 .react-player{
   z-index: 9;
-  background-color: #15161B;
+  background-color: black;
 }
 
 .player-wrapper video{

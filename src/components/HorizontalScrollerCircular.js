@@ -2,7 +2,10 @@ import React from "react";
 import ScrollMenu from "react-horizontal-scrolling-menu";
 import Grid from "@material-ui/core/Grid";
 import "./HorizontalScrollerCircular.css";
-import { Link } from "react-router-dom";
+
+import ArrowBackIosRoundedIcon from '@material-ui/icons/ArrowBackIosRounded';
+import ArrowForwardIosRoundedIcon from '@material-ui/icons/ArrowForwardIosRounded';
+
 const MenuItem = (props) => {
   const { film_id, film_cover_art, film_title } = props.film;
   return (
@@ -28,26 +31,37 @@ const MenuItem = (props) => {
   );
 };
 
-export const Menu = (list, findFilm, setName) => 
-  list.map((film) => {
-    return <MenuItem film={film} key={film.film_id} findFilm={findFilm} setName={setName}/>;
+export const Menu = (list, findFilm, setName, handleClick) => 
+  list.map((film, index) => {
+    return <MenuItem film={film} key={film.film_id} findFilm={findFilm} setName={setName} onClick={()=>handleClick()}/>;
   });
-const Arrow = ({ text, className }) => {
-  return <div className={className}>{text}</div>;
+const arrow_left = () => {
+  return <div className='arrow-prev'>
+    <ArrowBackIosRoundedIcon />
+  </div>;
 };
-const ArrowLeft = Arrow({ text: "", className: "arrow-prev" });
-const ArrowRight = Arrow({ text: "", className: "arrow-next" });
+const arrow_right = () => {
+  return <div className='arrow-next'>
+    <ArrowForwardIosRoundedIcon />
+  </div>;
+};
+const ArrowLeft = arrow_left();
+const ArrowRight = arrow_right();
 
 export default class HorizontalScroller extends React.Component {
   render() {
     return (
       <div>
         <ScrollMenu
-          data={Menu(this.props.list, this.props.findFilm, this.props.setName)}
+          data={Menu(this.props.list, this.props.findFilm, this.props.setName, this.props.handleClick)}
           arrowLeft={ArrowLeft}
           arrowRight={ArrowRight}
           alignCenter={false}
+          wheel={false}
+          transition={false}
+          
         />
+        
       </div>
     );
   }
