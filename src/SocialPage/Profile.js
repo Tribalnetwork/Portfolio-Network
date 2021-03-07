@@ -12,7 +12,7 @@ import ReorderIcon from '@material-ui/icons/Reorder';
 import NotificationsNoneIcon from '@material-ui/icons/NotificationsNone';
 import AddIcon from '@material-ui/icons/Add';
 // import FilmFrame from "../components/filmFrame";
-import ActivityFilms from "../components/ActivityFilms";
+import ProfileFilms from "../components/ProfileFilms";
 import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import { getUser } from '../graphql/queries'
@@ -242,9 +242,9 @@ class Profile extends React.Component {
 
         <div className={"profileTribeInfoContainer"}> Check out what your Tribe is up to!  
        
+        </div>
         <hr className="line" />
 
-        </div>
     
 
         {/* 
@@ -257,7 +257,7 @@ class Profile extends React.Component {
 
           {movies.map((movie) => (
 
-            <ActivityFilms key={movie} film={movie.film}></ActivityFilms>
+            <ProfileFilms key={movie} film={movie.film}></ProfileFilms>
           ))}
 
 
