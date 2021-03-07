@@ -12,7 +12,7 @@ import ChangeProfilePhotoButton from "../components/ChangeProfilePhotoButton";
 //import ReorderIcon from '@material-ui/icons/Reorder';
 //import NotificationsNoneIcon from '@material-ui/icons/NotificationsNone';
 //import AddIcon from '@material-ui/icons/Add';
-import ActivityFilms from "../components/ActivityFilms";
+import MyActivityFilms from "../components/MyActivityFilms";
 //import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
 //import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 //import { getUser } from '../graphql/queries'
@@ -165,16 +165,16 @@ class Social extends React.Component {
 
         <div className={"socialContainer"}>
 
-        <div className="socialLine"> </div>
+          <div className="socialLine"> </div>
 
-        <Link to="/profile" className="socialButton" >Done</Link>
+          <Link to="/profile" className="socialButton" >Done</Link>
 
         </div>
 
         <div className={"socialTribeInfoContainer"}>  Your shared activity    </div>
 
-
-        <div className="socialLine"> </div>
+        <hr className="line" />
+        {/* <div className="socialLine"> </div> */}
 
 
         <div className={"socialContentContainer"}>
@@ -184,10 +184,11 @@ class Social extends React.Component {
             <ActivityFilms film={movie.film}></ActivityFilms>
           ))} */}
 
+       
 
           {movies.map((movie) => (
             // <ActivityFilms film={movie.film}><li className = "item">{movie} </li> </ActivityFilms>
-            <ActivityFilms key={movie} film={movie.film}></ActivityFilms>
+            <MyActivityFilms key={movie} film={movie.film}></MyActivityFilms>
           ))}
 
 

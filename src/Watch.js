@@ -4,23 +4,23 @@ import { Helmet } from 'react-helmet'
 import ReactPlayer from 'react-player'
 import { withRouter } from "react-router-dom";
 import { API, graphqlOperation } from 'aws-amplify'
-import { getFilm, getUser,getPlayList,filmInListByListByFilm} from '../graphql/queries'
-import { updateFilm, updateUser,createPlayList,updatePlayList,createFilmInList,deleteFilmInList } from '../graphql/mutations'
-import UserContext from '../components/UserContext'
-import Button from '../components/Button'
+import { getFilm, getUser,getPlayList,filmInListByListByFilm} from './graphql/queries'
+import { updateFilm, updateUser,createPlayList,updatePlayList,createFilmInList,deleteFilmInList } from './graphql/mutations'
+import UserContext from './UserContext'
+import Button from './Button'
 import './Watch.css'
 import Grid from '@material-ui/core/Grid';
-import {ReactComponent as Ratelogo} from '../icons/Rate.svg';
-import {ReactComponent as Donatelogo} from '../icons/Donate.svg';
-import {ReactComponent as Downloadlogo} from '../icons/Download.svg';
-import {ReactComponent as Sharelogo} from '../icons/Share.svg';
-import {ReactComponent as AddToListlogo} from '../icons/AddtoList.svg';
-import {ReactComponent as AuthorPhotoLogo} from '../icons/Ellipse.svg';
-import {ReactComponent as SubscribeLogo} from '../icons/subscribe.svg';
-import UpNext from "../components/UpNext";
+import {ReactComponent as Ratelogo} from './icons/Rate.svg';
+import {ReactComponent as Donatelogo} from './icons/Donate.svg';
+import {ReactComponent as Downloadlogo} from './icons/Download.svg';
+import {ReactComponent as Sharelogo} from './icons/Share.svg';
+import {ReactComponent as AddToListlogo} from './icons/AddtoList.svg';
+import {ReactComponent as AuthorPhotoLogo} from './icons/Ellipse.svg';
+import {ReactComponent as SubscribeLogo} from './icons/subscribe.svg';
+import UpNext from "./UpNext";
 import TrendingNow from "./TrendingNow";
 import { StylesProvider } from '@material-ui/core';
-import {ReactComponent as AddToListSelectedLogo} from '../icons/AddToList-Selected.svg';
+import {ReactComponent as AddToListSelectedLogo} from './icons/AddToList-Selected.svg';
 import axios from "axios"
 
 const AuthorSection=({author})=>{

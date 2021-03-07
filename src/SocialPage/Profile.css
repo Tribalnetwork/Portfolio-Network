@@ -10,10 +10,12 @@ body {
   flex-direction: column;
   /*background-color: red;*/
 }
+
 .container {
   background-color: #15161b;
   width: 100%;
-  height: 478px;
+  /* height: 478px; */
+  height: fit-content !important;
   border-radius: 15px;
   display: flex;
   flex-direction: column;
@@ -25,7 +27,7 @@ body {
 .profileimagecontainer {
   flex-direction: row;
   width: 100%;
-  height: 210px;
+  height: fit-content !important;
   margin: 0 auto;
   justify-content: center;
   align-items: center;
@@ -33,11 +35,13 @@ body {
 
 .profileimage {
   max-width: 210px;
-  max-height: 210px;
+  /* max-height: 210px; */
+  max-height: 140px !important;
   border-radius: 50%;
-  margin-top: 10px;
+  margin-top: 20px !important;
   border: 2px solid #887d3b;
 }
+
 
 .arrownavigation {
   color: grey;
@@ -54,7 +58,7 @@ body {
   /* adding !important to override other size styling */
   font-size: 30px !important;
   line-height: 35px;
-  margin-top: 30px !important;
+  margin-top: 10px !important;
   margin-bottom: 10px;
 }
 
@@ -66,6 +70,7 @@ body {
   font-size: 20px;
   line-height: 23px;
   text-align: center;
+  margin: 5px !important
 }
 
 .iconcontainer {
@@ -114,6 +119,7 @@ body {
   flex-direction: column;
   justify-content: center;
   margin-top: 5px;
+  margin-bottom:10px;
 }
 
 .iconText {
@@ -125,34 +131,24 @@ body {
 
 .profileTribeInfoContainer {
   width: 100%;
-  height: 150px;
-  display: absolute;
+  height: 53px;
+  display: flex;
   justify-content: center;
   align-items: center;
   color: #ffffff;
   font: 'Roboto';
   font-weight: 500;
   font-style: normal;
-  font-size: 20px;
-  margin-top: 20px;
- 
+  font-size: 19px;
 }
 
 
 .line {
   width: 100%;
-  height: 2px;
+  height: -1px;
   border: 1px solid #757575;
   align-self: center;
-  
-
-
-
 }
-
-
-
-
 
  .tribeInfo {
   color: #ffffff;
@@ -165,7 +161,7 @@ body {
 
 
 .contentcontainer {
-  margin-top: 50px;
+  margin-top: 20px;
   display: flex;
   flex-direction: row;
   width: 100vw;
@@ -174,17 +170,28 @@ body {
   justify-content: center;
 }
 
+ 
+
+
+ /* .profileContentContainer {
+  display: grid;
+  grid-gap: 5px; 
+  grid-template-columns: 1fr 1fr 1fr; 
+  grid-row-gap: 120px; 
+  margin-left: 16rem;
+  margin-top: 0;
+}  */
+
 
 .profileContentContainer {
   display: grid;
   grid-gap: 5px; 
   grid-template-columns: 1fr 1fr 1fr; 
-  grid-row-gap: 35px; 
-  margin-left: 16rem;
-  margin-top: -70px;
+  grid-row-gap: 15px; 
+  margin-left: 1rem;
+  margin-top: 0px;
 
 }
-
 
 .moviecontainer {
   width: 33%;
@@ -249,24 +256,12 @@ body {
     font-size: 3vw;
   }
 
- 
-
-  .profileContentContainer {
-    grid-gap: 0px; 
-    grid-row-gap: 15px; 
-    margin-left: 50px;
+  /* .profileContentContainer {
+    grid-gap: 0; 
+    grid-row-gap: 20px; 
+    margin-left: 30px;
   
- 
-  }
-
-
-
-
-
-
-
-
-
+  } */
 
 }
 

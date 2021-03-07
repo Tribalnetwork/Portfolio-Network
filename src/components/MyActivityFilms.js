@@ -11,7 +11,7 @@
 
 import React from 'react'
 import { Link } from "react-router-dom";
-import "./ActivityFilms.css"
+import "./MyActivityFilms.css"
 import { makeStyles } from '@material-ui/core/styles'
 import {
     Grid,
@@ -83,7 +83,7 @@ export default class ActivityFilms extends React.Component {
                                             title={this.props.film.name}
                                         />
                                         <CardContent>
-                                        <Link to={"/profile"} className="redirect">X</Link>
+                                        <Link to={"/settings"} className="redirect">X</Link>
                                         </CardContent> 
                                     </CardActionArea>
 
