@@ -1,9 +1,9 @@
 import React from 'react'
 import { css } from 'glamor'
 
-import SignIn from '../Auth/SignIn';
-import SignUp from '../Auth/SignUp';
-import ForgotPassword from '../Auth/ForgotPassword';
+import SignIn from './SignIn';
+import SignUp from './SignUp';
+import ForgotPassword from './ForgotPassword';
 
 class Authenticator extends React.Component {
   state = {
