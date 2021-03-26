@@ -25,11 +25,11 @@ export const Stream = () => {
   const [streamCreated, setStreamCreated] = useState(context.user.hasChannel)
 
   useEffect(() => {
-    fetchStreams()
+    // fetchStreams()
   }, [])
 
   useEffect(() => {
-    fetchStreams()
+    // fetchStreams()
   }, [])
 
   async function fetchStreams() {
@@ -54,7 +54,7 @@ export const Stream = () => {
             status: responseJSON.status,
             streamerName: context.user.attributes.given_name
           }
-          const liveStream = await API.graphql(graphqlOperation(createLiveStream, { input: streamData }))
+          // const liveStream = await API.graphql(graphqlOperation(createLiveStream, { input: streamData }))
           const userData = {
             id: context.user.attributes.sub,
             liveStreamID: responseJSON.id,

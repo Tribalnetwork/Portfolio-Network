@@ -63,8 +63,8 @@ export default class Home extends React.Component {
 
   componentDidMount() {
     //this.context.updateCurrentUser()
-    this.fetchFilms();
-    this.fetchLivestreams();
+    // this.fetchFilms();
+    // this.fetchLivestreams();
   }
 
   onDuration = (duration) => {
@@ -171,10 +171,10 @@ export default class Home extends React.Component {
                     <HorizontalScrollerCircular list={this.state.livestreams} />
                   </div>
 
-                  <ContinueWatching style={styles.title}></ContinueWatching>
+                  {/* <ContinueWatching style={styles.title}></ContinueWatching>
 
                   <TrendingNow></TrendingNow>
-                  <MyList></MyList>
+                  <MyList></MyList> */}
                 </div>
               ) : (
                 <div>

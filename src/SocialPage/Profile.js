@@ -136,13 +136,13 @@ class Profile extends React.Component {
     this.getImg();
   }
   async getImg() {
-    const user1 = await API.graphql(graphqlOperation(getUser, { id: this.context.user.attributes.sub }));
-    if (user1.data.getUser.ImgUrl === undefined || user1.data.getUser.ImgUrl === null) {
+    // const user1 = await API.graphql(graphqlOperation(getUser, { id: this.context.user.attributes.sub }));
+    // if (user1.data.getUser.ImgUrl === undefined || user1.data.getUser.ImgUrl === null) {
       this.setState({ ImgUrl: "https://d202tggnzywgd9.cloudfront.net/public/photos/avatar.png" });
-    }
-    else {
-      this.setState({ ImgUrl: user1.data.getUser.ImgUrl });
-    }
+    // }
+    // else {
+    //   this.setState({ ImgUrl: user1.data.getUser.ImgUrl });
+    // }
   }
   togglePopup() {
     this.setState({
@@ -165,11 +165,11 @@ class Profile extends React.Component {
   }
 
   render() {
-    const hasAccess = this.context.hasAccess;
+    // const hasAccess = this.context.hasAccess;
     return (
 
       <div className={"bodycontainer"}>
-        <Skills />
+        {/* <Skills /> */}
         <div className={"container"}>
           <div className="profileimagecontainer">
             <NavigateBeforeIcon className={"arrownavigation"} />
