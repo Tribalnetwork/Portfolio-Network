@@ -28,7 +28,7 @@ class SignIn extends React.Component {
           this.setState({ user, showConfirmation: true })
         } else {
           updateCurrentUser(user)
-          history.push('/profile')
+          history.push('/home')
         }
       })
       .catch(err => {

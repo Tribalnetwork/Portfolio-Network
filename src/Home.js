@@ -1,4 +1,5 @@
 import React from "react";
+import AdSense from 'react-adsense';
 import axios from "axios";
 import Amplify from "aws-amplify";
 import { API, graphqlOperation } from "aws-amplify";
@@ -32,6 +33,7 @@ import "./Home.css";
 import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
 Amplify.configure(awsconfig);
+
 
 export default class Home extends React.Component {
   static contextType = UserContext;
@@ -160,7 +162,7 @@ export default class Home extends React.Component {
 
     let filmGroups = this.state.filmGroups;
     return (
-      <div className="home__tribalBeta">
+      <div className="home__tribalBeta" style={styles.main}>
         <Helmet>
           <meta charSet="utf-8" />
           <title>Home - Tribal Network</title>
@@ -349,6 +351,13 @@ export default class Home extends React.Component {
             )
           ) : null}
         </div>
+        <div> <AdSense.Google
+          client='ca-pub-9377248146857874'
+          slot='8138290375'
+          style={{ width: "100%", height: 375 }}
+          format=''
+          />
+          </div>
       </div>
     );
   }
@@ -371,6 +380,9 @@ function FilmCat(Props) {
 }
 
 const styles = {
+  main: {
+    paddingBottom: "20vh"
+  },
   root: {
     width: 200,
   },
