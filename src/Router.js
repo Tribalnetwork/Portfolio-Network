@@ -198,7 +198,7 @@ const Routes = () => (
         <Route path="/explore/documentary"><FeatureComingSoon /></Route>
         <Route path="/explore/watchrandom"><FeatureComingSoon /></Route>
         <Route path="/auth" exact component={Authenticator} />
-        <Route path="/" exact component={FeatureComingSoon} />
+        <Route path="/" exact component={Home} />
         <Route path="/home" exact component={Home} />
         <Route path="/landing/landing-home" exact component={FeatureComingSoon} />
         <Route path="/submit" exact component={Submit} />
