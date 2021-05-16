@@ -45,6 +45,7 @@ export default class Home extends React.Component {
     videoName: "Bunny",
     livestreams: [],
     filmGroups: [],
+    sponsorshipLabel: "",
   };
 
   componentDidMount() {
@@ -76,9 +77,12 @@ export default class Home extends React.Component {
       let filmGroups = [];
       let categories = [];
       parsed.forEach((film) => {
+        if(film.film_status == 1 || film.film_status == 2){
+          if(film.film_status == 2){this.setState({sponsorshipLabel: "All or part of this film is for advirtisment purposes"})}
         if (!categories.includes(film.film_genre)) {
           categories.push(film.film_genre);
           filmGroups.push({ genre: film.film_genre, films: [] });
+        }
         }
       });
 
@@ -197,7 +201,8 @@ export default class Home extends React.Component {
                   <div className="video-name-wrapper">
                     <p className="video-name title__tribalBetaHome">
                       {this.state.videoName}
-                    </p>
+                    </p><br/>
+                    <p>{this.state.sponsorshipLabel}</p>
                   </div>
                   <div className="functionbar-wrapper">
                     <Grid container justify="center" style={{height:'87px',  alignItems:'center'}}>

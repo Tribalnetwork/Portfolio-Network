@@ -70,14 +70,14 @@ class Submit extends React.Component {
       FilmTrailerInput: "",  //Film Trailer user uploading Currently optional 
       film_cover_art: "",
       film_genre: "",
-      film_status: "",
+      film_status: 0,
       film_synopsis: "",
       film_title: "",
       url: "",
       imageUrl: "", //url for cover image
       date: "",
       readyToSubmit: "false",
-      confirmation: "Thank you very much for submitting your film with Tribal, Please stay on the page until we have confirmation of receipt of your film"
+      confirmation: "Thank you very much for submitting your film with Tribal, Please stay on the page until we have confirmation of receipt of your film",
       /* StatusIndicator: 0,   // This indicate the status of the film every new submission start as 0
        FilmLink: "",         //This will be the film link to an S3 buckets 
        backgroundvideo: "",
@@ -88,6 +88,7 @@ class Submit extends React.Component {
        film_credits:"",
        film_year:"",
        film_length:""*/
+       checkBox: false
     };
 
     this.Next = this.Next.bind(this);
@@ -106,11 +107,22 @@ class Submit extends React.Component {
     var year = dateObj.getUTCFullYear();
     var newdate = year + "/" + month + "/" + day;
     this.setState({ date: newdate })
+    this.setState({status: 0});
   }
 
 
   handleChange(event) {
     this.setState({ film_genre: event.value })
+  }
+
+  handleCheckBox = () => { 
+    if(this.state.checkBox == false){
+        this.setState({checkBox: true});
+        this.setState({status: 3});
+    } else {
+        this.setState({checkBox: false});
+        this.setState({status: 0});
+    }
   }
 
 
@@ -121,7 +133,7 @@ class Submit extends React.Component {
         let formData = {
           "user_id": this.state.user_id,
           "film_submitted_date": this.state.date,
-          "film_status": "1",
+          "film_status": this.state.status,
           "film_title": this.state.film_title,
           "film_genre": this.state.film_genre,
           "film_synopsis": this.state.film_synopsis,
@@ -396,6 +408,7 @@ class Submit extends React.Component {
                 <Select options={options} placeholder={"Select Genre"} styles={customStyles}
                   onChange={this.handleChange}
                 />
+                <input type="checkbox" onChange={() => this.handleCheckBox()} /><p><strong>WARNING!</strong>You must check this box if this films contains any form of advertisment!</p>
               </div>
             }
 
