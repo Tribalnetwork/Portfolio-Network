@@ -31,7 +31,7 @@ import Gigs from "./Gigs/Gigs";
 import { Button as MaterialUiButton } from "@material-ui/core";
 import "./Home.css";
 import Popup from "reactjs-popup";
-import "reactjs-popup/dist/index.css";
+// import "reactjs-popup/dist/index.css";
 Amplify.configure(awsconfig);
 
 
@@ -205,21 +205,22 @@ export default class Home extends React.Component {
                   <div className="video-name-wrapper">
                     <p className="video-name title__tribalBetaHome">
                       {this.state.videoName}
-                    </p><br/>
+                    </p><br />
                     <p>{this.state.sponsorshipLabel}</p>
                   </div>
                   <div className="functionbar-wrapper">
-                    <Grid container justify="center" style={{height:'87px',  alignItems:'center'}}>
+                    <Grid container justify="center" style={{ height: '87px', alignItems: 'center' }}>
                       <Grid item>
                         {/*<Link to={'/explore'}><ExploreLogo></ExploreLogo></Link>*/}
                         {/*<StarRating></StarRating>*/}
                         {/*<Link to={'/sub'} style={styles.buttonLink}>*/}
                         {/*<RatingButton className="RateAndSubmit__tribalBeta" />*/}
                         <Popup
+                          
                           trigger={(open) => (
                             <RatingButton className="RateAndSubmit__tribalBeta" />
                           )}
-                          //position="center center"
+                          position="bottom"
                           closeOnDocumentClick
                         >
                           <div className="ratingPopup__tribalBetaHome">
@@ -365,8 +366,8 @@ export default class Home extends React.Component {
           slot='8138290375'
           style={{ width: "100%", height: 375 }}
           format=''
-          />
-          </div>
+        />
+        </div>
       </div>
     );
   }

@@ -31,7 +31,9 @@
   border: none;
   height: 178px !important;
   width: 289px !important;
-  left: 43px !important;
+  /* left: 50% !important;
+  top: 50vh !important;
+  transform: translate(-50%, -50%); */
   /*top: 372px !important;*/
   border-radius: 10px;
 }
