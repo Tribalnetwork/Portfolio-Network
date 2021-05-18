@@ -48,8 +48,8 @@ class MenuItem extends React.Component {
             onClick={() => { this.props.findFilm(this.props.film.film_id) && this.props.setName(this.props.film.film_title) }} >
             <img
               src={
-                this.state.cover || "https://f4.bcbits.com/img/a1322149552_10.jpg"
-                // "tribal.jpg"
+                this.state.cover || "tribal.jpg"
+                // place holder: "https://f4.bcbits.com/img/a1322149552_10.jpg"
               }
               alt="Profile"
               className="profile-img"

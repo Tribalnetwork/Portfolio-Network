@@ -100,6 +100,10 @@ export default class Home extends React.Component {
     if (genre === "d") {
       return "Drama";
     }
+    if (genre === "e") {
+      return "Experimental";
+    }
+
     if (genre === "c") {
       return "Comedy";
     } else {
