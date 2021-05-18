@@ -77,12 +77,12 @@ export default class Home extends React.Component {
       let filmGroups = [];
       let categories = [];
       parsed.forEach((film) => {
-        if (film.film_status == 1 || film.film_status == 2) {
-          if (film.film_status == 2) { this.setState({ sponsorshipLabel: "All or part of this film is for advirtisment purposes" }) }
-          if (!categories.includes(film.film_genre)) {
-            categories.push(film.film_genre);
-            filmGroups.push({ genre: film.film_genre, films: [] });
-          }
+        if(film.film_status == 1 || film.film_status == 2){
+          if(film.film_status == 2){this.setState({sponsorshipLabel: "This film is or contains an Advertisement, Endorsement, or Sponsorship."})}
+        if (!categories.includes(film.film_genre)) {
+          categories.push(film.film_genre);
+          filmGroups.push({ genre: film.film_genre, films: [] });
+        }
         }
       });
 
