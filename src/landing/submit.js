@@ -408,7 +408,6 @@ class Submit extends React.Component {
                 <Select options={options} placeholder={"Select Genre"} styles={customStyles}
                   onChange={this.handleChange}
                 />
-                <input type="checkbox" onChange={() => this.handleCheckBox()} /><p><strong>WARNING!</strong>You must check this box if this films contains any form of advertisment!</p>
               </div>
             }
 
@@ -434,6 +433,7 @@ class Submit extends React.Component {
                 >
 
                 </textarea>
+                <p><input type="checkbox" onChange={() => this.handleCheckBox()} /><p><strong>WARNING!</strong>You must check this box if this film is or contains an Advertisement, Endorsement, or Sponsorship.</p></p>
               </div>
             }
 
