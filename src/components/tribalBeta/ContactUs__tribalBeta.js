@@ -22,7 +22,7 @@ function ContactUs() {
             <div className="settings">
                 <h3 className='contact-us-heading'>Contact Us</h3>
                 <p className='contact-us-para'>
-                    You can contact us at Tribalnetworkiii@gmail.com <br /> <br />
+                    You can contact us at ops@tribaliii.org <br /> <br />
                     We try our best to reach back out in 5-10 business days
                 </p>
             </div>

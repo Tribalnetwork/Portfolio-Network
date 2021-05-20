@@ -31,7 +31,7 @@ function TipsAndSupport() {
                 </p>
                 <h4 className='tips-and-support-subheading'>Report a bug or glitch:</h4>
                 <p className='tips-and-support-para'>
-                    Take a screenshot or print screen and send your bug report to <a href='mailto: tribalnetworkbugs@gmail.com?subject=Reporting a Bug' style={{color: 'white'}}>Tribalnetworkbugs@gmail.com</a>
+                    Take a screenshot or print screen and send your bug report to <a href='mailto: ops@tribaliii.org?subject=Reporting a Bug' style={{color: 'white'}}>ops@tribaliii.org</a>
                 </p>
                 <h4 className='tips-and-support-subheading'>Fair use:</h4>
                 <p className='tips-and-support-para'>
@@ -75,18 +75,18 @@ function TipsAndSupport() {
                     partially suspended within 30 days.<br />
                     In the meantime, you can still watch films and live streams!
                 </p>
-                <p className='tips-and-support-para'>You can contact us at Tribalnetworkiii@gmail.com.</p>
+                <p className='tips-and-support-para'>You can contact us at ops@tribaliii.org.</p>
                 <h4 className='tips-and-support-subheading'>Why can’t I submit my film?</h4>
                 <p className='tips-and-support-para'>
                     You have tried to submit inappropriate, declined, copy righted, or similar content too many
-                    times. You can contact us at Tribalnetworkiii@gmail.com.
+                    times. You can contact us at ops@tribaliii.org.
                 </p>
                 <h4 className='tips-and-support-subheading'>Why can’t I see certain content or users?</h4>
                 <p className='tips-and-support-para'>
                     You may be under the age limit required to see certain events or content.<br />
                     Check to make sure that these users and content aren’t hidden in ‘Settings/Myaccount’.<br />
                     Films added to our database need up to 21 days to be reviewed by the TFC.<br />
-                    You can contact us at Tribalnetworkiii@gmail.com.
+                    You can contact us at ops@tribaliii.org.
                 </p>
             </div>
         </div>
