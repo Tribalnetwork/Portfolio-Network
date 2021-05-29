@@ -221,7 +221,7 @@ export default class Home extends React.Component {
                           trigger={(open) => (
                             <RatingButton className="RateAndSubmit__tribalBeta" />
                           )}
-                          position="bottom center"
+                          position="bottom left"
                           closeOnDocumentClick
                         >
                           <div className="ratingPopup__tribalBetaHome">
