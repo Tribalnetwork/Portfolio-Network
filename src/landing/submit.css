@@ -8,7 +8,7 @@
 	overflow: hidden;
 	position: relative;
 	box-sizing: border-box;
-	font-family: 'Lato', sans-serif;
+	font-family: "Lato", sans-serif;
 }
 
 video {
@@ -65,9 +65,8 @@ video {
 	top: 10px;
 	left: 10px;
 	padding: 10px;
-	box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
-		0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
-		0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+	box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+		0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
 		0 100px 80px rgba(0, 0, 0, 0.12);
 }
 
@@ -165,7 +164,7 @@ video {
 .termcontainer p {
 	text-align: center;
 	color: white;
-	font-family: 'roboto';
+	font-family: "roboto";
 }
 
 .uploadcontainer {
@@ -256,7 +255,7 @@ video {
 .thanks p {
 	color: white;
 	font-size: 18px;
-	font-family: 'roboto';
+	font-family: "roboto";
 }
 
 .computerscreenrequire {
@@ -319,7 +318,7 @@ video {
 }
 
 .checkmark:after {
-	content: '';
+	content: "";
 	position: absolute;
 	display: none;
 }
@@ -340,7 +339,7 @@ video {
 	transform: rotate(45deg);
 }
 
-input[type='file']::-webkit-file-upload-button {
+input[type="file"]::-webkit-file-upload-button {
 	border: 1px solid #d4af37;
 	padding: 0.2em 0.4em;
 	border-radius: 0.2em;
@@ -349,7 +348,7 @@ input[type='file']::-webkit-file-upload-button {
 	cursor: pointer;
 }
 
-input[type='file']::file-selector-button {
+input[type="file"]::file-selector-button {
 	border: 2px solid #d4af37;
 	padding: 0.2em 0.4em;
 	border-radius: 0.2em;
@@ -358,22 +357,26 @@ input[type='file']::file-selector-button {
 	cursor: pointer;
 }
 
-input[type='file']::-webkit-file-upload-button:hover {
+input[type="file"]::-webkit-file-upload-button:hover {
 	background-color: #c29f2c;
 	border: 2px solid #a8881d;
 }
 
-input[type='file']::file-selector-button:hover {
+input[type="file"]::file-selector-button:hover {
 	background-color: #d4af37;
 	border: 2px solid #d4af37;
 }
 
-input[type='file']::-webkit-file-upload-button:focus {
+input[type="file"]::-webkit-file-upload-button:focus {
 	outline: none;
 }
 
-input[type='file']::file-selector-button:focus {
+input[type="file"]::file-selector-button:focus {
 	outline: none;
+}
+
+.backgroundVideoVolumeControlButtons{
+	display: none;
 }
 
 /* Extra small devices (phones, 600px and down) */
@@ -387,12 +390,6 @@ input[type='file']::file-selector-button:focus {
 	.thanks {
 		display: none;
 	}
-
-	/* .infobutton {
-		width: 50vw;
-		font-size: 3vw;
-		height: 4vh;
-	} */
 
 	.Benefitlist ul li {
 		font-size: 4vw;
@@ -416,12 +413,6 @@ input[type='file']::file-selector-button:focus {
 		display: none;
 	}
 
-	/* .infobutton {
-		width: 50vw;
-		font-size: 3vw;
-		height: 8vh;
-	} */
-
 	.Benefitlist ul li {
 		font-size: 4vw;
 	}
@@ -442,18 +433,6 @@ input[type='file']::file-selector-button:focus {
 	.termcontainer .thanks {
 		display: none;
 	}
-
-	/* .videosubmit, .backVideo{
-		width: 100vw;
-		height: auto;
-		object-fit: cover;
-	} */
-
-	/* .infobutton {
-		width: 50vw;
-		font-size: 3vw;
-		height: 8vh;
-	} */
 
 	.computerscreenrequire {
 		display: block;
@@ -486,5 +465,11 @@ input[type='file']::file-selector-button:focus {
 	.computerscreenrequire {
 		display: none;
 	}
-}
 
+	.backgroundVideoVolumeControlButtons {
+		display: inline-block;
+		position: absolute;
+		top: 1.75rem;
+		right: 2rem;
+	}
+}
