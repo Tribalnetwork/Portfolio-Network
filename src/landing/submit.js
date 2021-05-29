@@ -8,8 +8,8 @@ import axios from 'axios';
 import Amplify, { Storage } from 'aws-amplify';
 import awsconfig from '../aws-exports';
 //import { SelectPicker } from 'rsuite';
-
-
+import VolumeUpOutlinedIcon from '@material-ui/icons/VolumeUpOutlined';
+import VolumeOffOutlinedIcon from '@material-ui/icons/VolumeOffOutlined';
 
 Amplify.configure(awsconfig);
 
@@ -95,7 +95,7 @@ class Submit extends React.Component {
        film_credits:"",
        film_year:"",
        film_length:""*/
-      checkBox: false
+      muteVideo: false // true means mute the video and false means don't mute the video
     };
 
     this.Next = this.Next.bind(this);
@@ -115,7 +115,7 @@ class Submit extends React.Component {
     var newdate = year + "/" + month + "/" + day;
     this.setState({ date: newdate })
     this.setState({ status: 0 });
-    
+
   }
 
 
@@ -293,20 +293,21 @@ class Submit extends React.Component {
 
       <div className={"submitcontainer"}>
 
-        {/* <div className={"videosubmit"}>
-          <ReactPlayer
-            className={"backVideo"}
-            url="https://tribal-auth-bg-video.s3.amazonaws.com/48+4Min+2-1.m4v"
-            width="100vw"
-            height="100vh"
-            playing={true}
-            loop={true}
-          />
-        </div> */}
-
-        <VideoComponent />
+        <VideoComponent mute={this.state.muteVideo} />
 
         <div className={"overlayercontainer"}>
+
+          {/* background video: volume controlling buttons */}
+          <div className="backgroundVideoVolumeControlButtons">
+            {
+              // Toggle background video between mute/unmute state
+              this.state.muteVideo ?
+                <VolumeOffOutlinedIcon onClick={() => this.setState({ muteVideo: false })} />
+                :
+                <VolumeUpOutlinedIcon onClick={() => this.setState({ muteVideo: true })} />
+            }
+          </div>
+          
           {
             this.state.index !== 2 && this.state.index !== 5 &&
             <div className={listName}>
@@ -505,7 +506,7 @@ class Submit extends React.Component {
 }
 
 
-function VideoComponent() {
+function VideoComponent(Props) {
   const theme = useTheme();
   const breakPointQuery = useMediaQuery(theme.breakpoints.up(1024))
   // document.getElementsByTagName('video')[0].volume = 0.5;
@@ -515,7 +516,7 @@ function VideoComponent() {
         className="backVideo"
         onloadstart="this.volume=0.1"
         autoPlay
-        // muted 
+        muted={Props.mute}
         volume={0.1}
         loop>
         <source src="https://tribal-auth-bg-video.s3.amazonaws.com/48+4Min+2-1.m4v" type="video/mp4" />
