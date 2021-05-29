@@ -16,6 +16,7 @@
   height: 32px;
   /* width: 100vw; */
   padding-left: 13px;
+  padding-bottom: 10px;
   line-height: 22px;
   letter-spacing: -0.41px;
   display: flex;
@@ -39,7 +40,7 @@
 }
 
 #popup-4.popup-content {
-  background-color: rgb(30, 30, 30, 0.95);
+  /* background-color: rgb(30, 30, 30, 0.95) !important; */
   position: absolute;
   display: grid;
   place-content: center;
@@ -125,8 +126,10 @@ svg.popup-arrow {
 
 div.film-lists div.filter-buttons {
   display: flex;
-  padding-left: 7.3rem;
-  position: absolute;
+  /* padding-left: 7.3rem;
+  position: absolute; */
+  justify-content: center;
+  
 }
 div.film-lists div.filter-buttons button {
   display: flex;
@@ -160,7 +163,8 @@ div.video-name-wrapper::before{
 }
 p.video-name{
   margin: 0px;
-  font-size: 17px;
+  font-size: 21px;
+  font-weight: 700;
   line-height: 22px;
   letter-spacing: -0.41px;
   background-color: black;

@@ -13,7 +13,7 @@ function TipsAndSupport() {
             {/* Header */}
             <div className="pageTitle setting__tribalBeta">
                 <IconButton edge="end" color="white" onClick={() => history.goBack()}>
-                    <ArrowBackIosIcon className="backIcon" />
+                    <ArrowBackIosIcon className="backIcon" style={{color: "white"}}/>
                 </IconButton>
                 <h2 className="text settingText__tribalBeta">Tips &amp; Support</h2>
             </div>

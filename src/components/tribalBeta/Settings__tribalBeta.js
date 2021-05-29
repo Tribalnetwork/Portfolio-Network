@@ -3,15 +3,32 @@ import { Auth } from 'aws-amplify';
 import './settings__tribalBeta.css';
 import { Button, IconButton } from "@material-ui/core";
 import { Link, useHistory } from "react-router-dom";
-import KeyboardArrowRightIcon from "@material-ui/icons/KeyboardArrowRight";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 import { ReactComponent as ArrowIcon } from '../../icons/tribalBeta__settings__arrow.svg';
 
-import { makeStyles } from '@material-ui/core/styles';
+// 
+// using react context to get user data
+// if user.name is not empty object or null then he can have access 
+// to all options listed in setting page.
+// step 1:
+import { useContext } from 'react'
+import UserContext from "../../UserContext";
+
 import Modal from '@material-ui/core/Modal';
 
 
 export const Settings__tribalBeta = () => {
+  // step 2: 
+  // get context data from UserContext.js file using userContext hook
+  let signedUser = useContext(UserContext);
+
+  // step 3: user check
+  let userCheck = signedUser.user ? true : false;
+  // if(signedUser.user){
+  //   console.log(signedUser.user)
+  //   console.log(signedUser.user.username)
+  // }
+
   let history = useHistory();
 
   // for modal
@@ -28,40 +45,40 @@ export const Settings__tribalBeta = () => {
       <h2 id="simple-modal-title" style={logoutStyle.h2}>Good bye for now!</h2>
     </div>
   );
-  
+
   // sign out user
   async function signOut() {
-      try {
-          await Auth.signOut();
-      } catch (error) {
-          console.log('error signing out: ', error);
-      }
+    try {
+      await Auth.signOut();
+    } catch (error) {
+      console.log('error signing out: ', error);
+    }
   }
-
   return (
     <div className='settingBody__tribalBeta'>
 
       <div className="pageTitle setting__tribalBeta">
         <IconButton edge="end" color="white" onClick={() => history.goBack()}>
-          <ArrowBackIosIcon className="backIcon" />
+          <ArrowBackIosIcon className="backIcon" style={{ color: "white" }} />
         </IconButton>
         <h2 className="text settingText__tribalBeta">Settings</h2>
       </div>
 
       <div className="settings">
 
-        <div className="button__withArrow buttonArrow__tribalBeta">
-          <Link
+        {/* <div className="button__withArrow buttonArrow__tribalBeta"> */}
+        {/* <Link
             className="button__link"
             to={"/settings/mobileapp"}
             style={{ textDecoration: "none" }}
-          >
-            <Button className="settings__Button settingsButton__tribalBeta">Mobile App</Button>
-            {/*<KeyboardArrowRightIcon fontSize="large" className="rightIcon" />*/}
-            <ArrowIcon fontSize="large" className="settingsRightIcon__tribalBeta" />
-          </Link>
-        </div>
+          > */}
+        {/* <Button className="settings__Button settingsButton__tribalBeta">Mobile App</Button> */}
+        {/*<KeyboardArrowRightIcon fontSize="large" className="rightIcon" />*/}
+        {/* <ArrowIcon fontSize="large" className="settingsRightIcon__tribalBeta" /> */}
+        {/* </Link> */}
+        {/* </div> */}
 
+        {/* suport */}
         <div className="button__withArrow buttonArrow__tribalBeta">
           <Link
             className="button__link"
@@ -73,7 +90,7 @@ export const Settings__tribalBeta = () => {
             <ArrowIcon fontSize="large" className="settingsRightIcon__tribalBeta" />
           </Link>
         </div>
-
+        {/* Terms of Service */}
         <div className="button__withArrow buttonArrow__tribalBeta">
           <Link
             className="button__link"
@@ -84,6 +101,7 @@ export const Settings__tribalBeta = () => {
             <ArrowIcon fontSize="large" className="settingsRightIcon__tribalBeta" />
           </Link>
         </div>
+        {/* privacy policy */}
         <div className="button__withArrow buttonArrow__tribalBeta">
           <Link
             className="button__link"
@@ -93,49 +111,56 @@ export const Settings__tribalBeta = () => {
             <ArrowIcon fontSize="large" className="settingsRightIcon__tribalBeta" />
           </Link>
         </div>
-
-        <div className="button__withArrow buttonArrow__tribalBeta">
-          <Link
-            className="button__link"
-            to={"/auth"}
-            style={{ textDecoration: "none" }}
-          >
-            <Button className="settings__Button settingsButton__tribalBeta">Password Reset</Button>
-            <ArrowIcon fontSize="large" className="settingsRightIcon__tribalBeta" />
-          </Link>
-        </div>
+        {/* password reset */}
+        {
+          userCheck ?
+            <div className="button__withArrow buttonArrow__tribalBeta">
+              <Link
+                className="button__link"
+                to={"/auth"}
+                style={{ textDecoration: "none" }}
+              >
+                <Button className="settings__Button settingsButton__tribalBeta">Password Reset</Button>
+                <ArrowIcon fontSize="large" className="settingsRightIcon__tribalBeta" />
+              </Link>
+            </div>
+            : null
+        }
 
         {/* Logout */}
-        <div className="button__withArrow buttonArrow__tribalBeta">
+        {
+          // step 4:
+          userCheck ?
+            <div className="button__withArrow buttonArrow__tribalBeta">
 
-          <Modal
-            open={open}
-            onClose={handleClose}
-            aria-labelledby="simple-modal-title"
-            aria-describedby="simple-modal-description"
-          >
-            {body}
-          </Modal>
-          <Link
-            onClick={
-              () => {
-                handleOpen();
-                signOut();
-                setTimeout(() => {
-                  handleClose();
-                  history.push('/auth');
-                }, 2000);
-              }
-            }
-            className="button__link"
-            // to={"/settings/logout"}
-            style={{ textDecoration: "none" }}
-          >
-            <Button className="settings__Button settingsButton__tribalBeta">Log out</Button>
-            <ArrowIcon fontSize="large" className="settingsRightIcon__tribalBeta" />
-          </Link>
-        </div>
-
+              <Modal
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="simple-modal-title"
+                aria-describedby="simple-modal-description"
+              >
+                {body}
+              </Modal>
+              <Link
+                onClick={
+                  () => {
+                    handleOpen();
+                    signOut();
+                    setTimeout(() => {
+                      handleClose();
+                      history.push('/auth');
+                    }, 2000);
+                  }
+                }
+                className="button__link"
+                // to={"/settings/logout"}
+                style={{ textDecoration: "none" }}
+              >
+                <Button className="settings__Button settingsButton__tribalBeta">Log out</Button>
+                <ArrowIcon fontSize="large" className="settingsRightIcon__tribalBeta" />
+              </Link>
+            </div>
+            : null}
       </div>
     </div>
   )

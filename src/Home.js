@@ -239,12 +239,12 @@ export default class Home extends React.Component {
                                 <StarRatingIcon />
                               </span>
                             </div>
-                            <div className="popupBottom">
+                            {/* <div className="popupBottom">
                               <span className="cancel__tribalBetaHome">
                                 Cancel
                               </span>
                               <span className="send__tribalBetaHome">Send</span>
-                            </div>
+                            </div> */}
                           </div>
                         </Popup>
                         {/*</Link>*/}
@@ -352,11 +352,9 @@ export default class Home extends React.Component {
                 </div>
               )
             ) : (
-              <div>
-                <>
+              <div style={{paddingLeft: '2rem'}}>
                   <h1>Welcome to Tribal</h1>
-                  <p>Create a free account to get started.</p>
-                </>
+                  <p><Link to='/auth' style={{color: "white"}}>Sign in</Link> or create a free <Link to='/auth' style={{color: "white"}}>account</Link> to get started.</p>
               </div>
             )
           ) : null}

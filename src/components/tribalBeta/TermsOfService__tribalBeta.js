@@ -14,7 +14,7 @@ function TermsOfService() {
             <div className='settingBody__tribalBeta'>
                   <div className="pageTitle setting__tribalBeta">
                         <IconButton edge="end" color="white" onClick={() => history.goBack()}>
-                              <ArrowBackIosIcon className="backIcon" />
+                              <ArrowBackIosIcon className="backIcon" style={{color: "white"}}/>
                         </IconButton>
                         <h2 className="text settingText__tribalBeta">Terms of Service</h2>
                   </div>

@@ -443,6 +443,12 @@ input[type='file']::file-selector-button:focus {
 		display: none;
 	}
 
+	/* .videosubmit, .backVideo{
+		width: 100vw;
+		height: auto;
+		object-fit: cover;
+	} */
+
 	/* .infobutton {
 		width: 50vw;
 		font-size: 3vw;
@@ -456,7 +462,7 @@ input[type='file']::file-selector-button:focus {
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 1028px) {
+@media only screen and (min-width: 1024px) {
 	.videosubmit,
 	.backVideo,
 	.lastinput,
@@ -482,27 +488,3 @@ input[type='file']::file-selector-button:focus {
 	}
 }
 
-/* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {
-	.videosubmit,
-	.backVideo,
-	.lastinput,
-	.inputcontainer,
-	.uploadcontainer,
-	.termcontainer,
-	.thanks {
-		display: inherit;
-	}
-
-	/* .infobutton {
-		width: 25vw;
-		font-size: 18px;
-	} */
-	.Benefitlist ul li {
-		font-size: 18px;
-	}
-
-	.computerscreenrequire {
-		display: none;
-	}
-}

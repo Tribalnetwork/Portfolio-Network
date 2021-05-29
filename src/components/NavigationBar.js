@@ -12,7 +12,7 @@ import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-import Submit from "../bottomNavBarImg/Submit.svg"
+
 import './NavigationBar.css';
 import Home from "../bottomNavBarImg/home.svg"
 import Tribal from "../bottomNavBarImg/tribal.svg"
@@ -22,6 +22,8 @@ import Search from "../bottomNavBarImg/search.svg"
 import Bell from "../bottomNavBarImg/bell.svg"
 import Book from "../bottomNavBarImg/book.svg"
 import People from "../bottomNavBarImg/people.png"
+import Submit from "../bottomNavBarImg/Submit.svg"
+
 const useStyles = makeStyles((theme) => ({
   menuButton: {
     marginRight: theme.spacing(2),
@@ -35,38 +37,38 @@ const useStyles = makeStyles((theme) => ({
   list: {
     width: 250,
     height: '100%',
-    backgroundColor:'#000',
-    color:'#DAA520',
+    backgroundColor: '#000',
+    color: '#DAA520',
   },
-  list2:{
+  list2: {
     width: 250,
     height: '100%',
-    backgroundColor:'#000',
-    color:'#fff',
+    backgroundColor: '#000',
+    color: '#fff',
   },
-  imgStyle : {
+  imgStyle: {
     width: 30,
-    height:13,
+    height: 13,
   },
-  svgStyle : {
+  svgStyle: {
     width: 50,
-    height:20,
+    height: 20,
   },
-  avatarStyle : {
+  avatarStyle: {
     width: 30,
-    height:10,
+    height: 10,
   },
-  textStyle :{
-    textAlign: 'center', 
+  textStyle: {
+    textAlign: 'center',
   }
-  
+
 }));
 
 
 
 
 export const NavigationBar = () => {
-  
+
   const context = useContext(UserContext)
   const classes = useStyles();
   const [open, setOpen] = useState(false);
@@ -74,11 +76,11 @@ export const NavigationBar = () => {
   const isAuthenticated = context.user && context.user.username ? true : false
   const isLoaded = context.isLoaded
 
-  const [selectedIndex, setSelectedIndex] = React.useState(1);
+  // const [selectedIndex, setSelectedIndex] = React.useState(1);
 
-  const handleListItemClick = (event, index) => {
-    setSelectedIndex(index);
-  };
+  // const handleListItemClick = (event, index) => {
+  //   setSelectedIndex(index);
+  // };
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -118,123 +120,98 @@ export const NavigationBar = () => {
           {
             isLoaded ? isAuthenticated ? (
               <div >
-                <button style="display:inline-block"
- className = {"profileimage2"} onClick={handleDrawerOpen2} variant='contained' style={{ background: 'black', textTransform: 'none' }}>
-                <img className = {"profileimage2"} src = "https://d202tggnzywgd9.cloudfront.net/public/photos/avatar.png" ></img>
+                <button
+                  style={{ display: "inline-block" }}
+                  className={"profileimage2"} onClick={handleDrawerOpen2} variant='contained' style={{ background: 'black', textTransform: 'none' }}>
+                  <img className={"profileimage2"} src="https://d202tggnzywgd9.cloudfront.net/public/photos/avatar.png" alt='' />
                 </button>
-                <Drawer 
-        anchor="right"
-        open={open2}
-        onClose={handleDrawerClose2}
-      >
-        <div
-          className={classes.list2}
-          role="presentation"
-          onClick={handleDrawerClose2}
-          onKeyDown={handleDrawerClose2}
-        >
-          <List>
-          <ListItem
-          button
-          component={Link} to={"/settings/notifications"}
-        >
-          <img className={classes.svgStyle} src = {Bell}></img> 
-          <ListItemText primary={'Notifications'}> </ListItemText>
-        </ListItem>
-        <ListItem
-          button
-          component={Link} to={"/mystudio"}
-        >
-          <img className={classes.svgStyle} src = {Book}></img> 
-          <ListItemText primary={'My Studio'}> </ListItemText>
-        </ListItem>
-        <ListItem
-          button
-          component={Link} to={"/ss"}
-        >
-          <img className={classes.svgStyle} src = {People}></img> 
-          <ListItemText primary={'Connections'}> </ListItemText>
-        </ListItem>
-          </List>
-        </div>
-      </Drawer>
+                {/* right navigation */}
+                <Drawer
+                  anchor="right"
+                  open={open2}
+                  onClose={handleDrawerClose2}>
+                  <div
+                    className={classes.list2}
+                    role="presentation"
+                    onClick={handleDrawerClose2}
+                    onKeyDown={handleDrawerClose2}>
+                    <List>
+                      {/* 1: Notifications */}
+                      <ListItem button component={Link} to={"/settings/notifications"} >
+                        <img className={classes.svgStyle} src={Bell} alt='' />
+                        <ListItemText primary={'Notifications'}> </ListItemText>
+                      </ListItem>
+                      {/* 2: My Studio */}
+                      <ListItem button component={Link} to={"/mystudio"} >
+                        <img className={classes.svgStyle} src={Book} alt='' />
+                        <ListItemText primary={'My Studio'}> </ListItemText>
+                      </ListItem>
+                      {/* 3: Connections */}
+                      <ListItem button component={Link} to={"/ss"} >
+                        <img className={classes.svgStyle} src={People} alt='' />
+                        <ListItemText primary={'Connections'}> </ListItemText>
+                      </ListItem>
+                    </List>
+                  </div>
+                </Drawer>
               </div>
             ) : (
-                <Link to='/auth' style={{ textDecoration: 'none' }}>
-                  <Button color="inherit" style={{ color: '#d4af37' }}>
-                    Login/Register
+              <Link to='/auth' style={{ textDecoration: 'none' }}>
+                <Button color="inherit" style={{ color: '#d4af37' }}>
+                  Login/Register
                 </Button>
-                </Link>
-              ) : null
+              </Link>
+            ) : null
           }
         </Toolbar>
       </AppBar>
+
+      {/* left navigation */}
       <Drawer
         anchor="left"
         open={open}
-        onClose={handleDrawerClose}
-      >
-        <div className={classes.list}
+        onClose={handleDrawerClose}>
+
+        <div
+          className={classes.list}
           role="presentation"
           onClick={handleDrawerClose}
-          onKeyDown={handleDrawerClose}
-        >
-        <List component="nav" >
-        <ListItem
-          button
-          component={Link} to={"/home"}
-        >
-          <img src = {Home}></img>  
-          <ListItemText  primary={'Home'}> </ListItemText>  
-          
-        </ListItem>
-        <ListItem
-          button
-          component={Link} to={"/search"}
-        >
-          <img src = {Search}></img>   
-          <ListItemText primary={'Search'}> </ListItemText> 
-          
-        </ListItem>
-        <ListItem
-          button
-          component={Link} to={"/streams"}
-        >
-          <img src = {Tribal}></img> 
-          <ListItemText primary={'Tribal'}> </ListItemText>   
-          
-        </ListItem>
-        <ListItem
-          button
-          component={Link} to={"/profile"}
-        >
-          <img src = {Social}></img>  
-          <ListItemText  primary={'Social'}> </ListItemText>  
-          
-        </ListItem>
-        <ListItem
-          button
-          component={Link} to={"/settings"}
-        >
-          <img src = {Settings}></img>   
-          <ListItemText  primary={'Settings'}> </ListItemText> 
-          
-        </ListItem>
-        <ListItem
-          button
-          component={Link} to={"/submit"}
-        >
-          <img className={classes.imgStyle} src = {Submit}></img>
-          <ListItemText className={classes.textStyle} primary={"Submit"} ></ListItemText> 
-          
-        </ListItem>
-        </List>
-          
+          onKeyDown={handleDrawerClose}>
+
+          <List component="nav" >
+            {/* 1: HOME */}
+            <ListItem button component={Link} to={"/home"}>
+              <img src={Home} alt="Home" />
+              <ListItemText primary={'Home'}></ListItemText>
+            </ListItem>
+            {/* 2: Search */}
+            <ListItem button component={Link} to={"/search"} >
+              <img src={Search} alt='Search' />
+              <ListItemText primary={'Search'}></ListItemText>
+            </ListItem>
+            {/* 3: Streams */}
+            <ListItem button component={Link} to={"/streams"} >
+              <img src={Tribal} alt='Tribal' />
+              <ListItemText primary={'Tribal'}></ListItemText>
+            </ListItem>
+            {/* 4: Social */}
+            <ListItem button component={Link} to={"/profile"} >
+              <img src={Social} alt='Social' />
+              <ListItemText primary={'Social'}> </ListItemText>
+            </ListItem>
+            {/* 5: Settings */}
+            <ListItem button component={Link} to={"/settings"} >
+              <img src={Settings} alt='Settings' />
+              <ListItemText primary={'Settings'}> </ListItemText>
+            </ListItem>
+            {/* 6: Submit */}
+            <ListItem button component={Link} to={"/submit"} >
+              <img src={Submit} alt='Submit' style={{ width: '38px', marginLeft: '19px', marginRight: '19px' }} />
+              <ListItemText primary={"Submit"} ></ListItemText>
+            </ListItem>
+          </List>
         </div>
-        
       </Drawer>
-
-
     </div>
   )
 }

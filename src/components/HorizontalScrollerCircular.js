@@ -44,6 +44,7 @@ class MenuItem extends React.Component {
     return (
       <div className="film-box">
         <Grid item>
+          
           <div className="profile-wrapper"
             onClick={() => { this.props.findFilm(this.props.film.film_id) && this.props.setName(this.props.film.film_title) }} >
             <img

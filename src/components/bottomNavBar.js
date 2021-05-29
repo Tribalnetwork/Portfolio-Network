@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import Home from "../bottomNavBarImg/home.jpg";
 import Tribal from "../bottomNavBarImg/tribal.jpg";
@@ -7,9 +7,6 @@ import Social from "../bottomNavBarImg/social.jpg";
 import Search from "../bottomNavBarImg/search.jpg";
 import "./bottomNavBar.css";
 export default class BottomNavBar extends React.Component {
-  constructor() {
-    super();
-  }
 
   divStyle = {
     display: "grid",
@@ -21,7 +18,6 @@ export default class BottomNavBar extends React.Component {
     padding: "0",
     position: "fixed",
     top: "87%",
-    //bottom: "1vh",
     width: "100%",
     height: "12vh",
     borderRadius: "10px",
@@ -44,7 +40,6 @@ export default class BottomNavBar extends React.Component {
   liStyle = {
     justifySelf: "center",
     gridRow: "1",
-    width: "6vw",
     fontSize: "2vw",
     maxMarginBottom: "1vh",
     minMarginBottom: "0",
@@ -66,27 +61,27 @@ export default class BottomNavBar extends React.Component {
           <ul style={this.ulStyle}>
             <li style={this.liStyle}>
               <Link to={"/home"}>
-                <img style={this.imgStyle} src={Home} />
+                <img style={this.imgStyle} src={Home} alt=''/>
               </Link>
             </li>
             <li style={this.liStyle}>
               <Link to={"/search"}>
-                <img style={this.imgStyle} src={Search} />
+                <img style={this.imgStyle} src={Search} alt=''/>
               </Link>
             </li>
             <li style={this.liStyle}>
               <Link to={"/streams"}>
-                <img style={this.imgStyle} src={Tribal} />
+                <img style={this.imgStyle} src={Tribal} alt=''/>
               </Link>
             </li>
             <li style={this.liStyle}>
               <Link to={"/profile"}>
-                <img style={this.imgStyle} src={Social} />
+                <img style={this.imgStyle} src={Social} alt=''/>
               </Link>
             </li>
             <li style={this.liStyle}>
               <Link to={"/settings"}>
-                <img style={this.imgStyle} src={Settings} />
+                <img style={this.imgStyle} src={Settings} alt=''/>
               </Link>
             </li>
           </ul>
