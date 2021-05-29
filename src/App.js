@@ -6,7 +6,7 @@ import { getUser } from './graphql/queries'
 import './App.css'
 import Router from './Router'
 import UserContext from './UserContext'
-
+// console.log("user Conetxt",UserContext)
 class App extends Component {
   state = {
     currentUser: {},

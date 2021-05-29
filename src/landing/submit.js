@@ -1,4 +1,6 @@
 import React from "react";
+import { useTheme } from "@material-ui/core/styles";
+import { useMediaQuery } from "@material-ui/core";
 import "./submit.css";
 import ReactPlayer from "react-player";
 import Select from 'react-select'
@@ -6,6 +8,8 @@ import axios from 'axios';
 import Amplify, { Storage } from 'aws-amplify';
 import awsconfig from '../aws-exports';
 //import { SelectPicker } from 'rsuite';
+
+
 
 Amplify.configure(awsconfig);
 
@@ -54,6 +58,9 @@ const options = [
 //Updated API Code and added new parameters for films
 const maxinput = 9;
 
+
+
+
 class Submit extends React.Component {
   constructor(props) {
     super(props);
@@ -88,7 +95,7 @@ class Submit extends React.Component {
        film_credits:"",
        film_year:"",
        film_length:""*/
-       checkBox: false
+      checkBox: false
     };
 
     this.Next = this.Next.bind(this);
@@ -107,7 +114,8 @@ class Submit extends React.Component {
     var year = dateObj.getUTCFullYear();
     var newdate = year + "/" + month + "/" + day;
     this.setState({ date: newdate })
-    this.setState({status: 0});
+    this.setState({ status: 0 });
+    
   }
 
 
@@ -115,13 +123,13 @@ class Submit extends React.Component {
     this.setState({ film_genre: event.value })
   }
 
-  handleCheckBox = () => { 
-    if(this.state.checkBox == false){
-        this.setState({checkBox: true});
-        this.setState({status: 3});
+  handleCheckBox = () => {
+    if (this.state.checkBox == false) {
+      this.setState({ checkBox: true });
+      this.setState({ status: 3 });
     } else {
-        this.setState({checkBox: false});
-        this.setState({status: 0});
+      this.setState({ checkBox: false });
+      this.setState({ status: 0 });
     }
   }
 
@@ -129,7 +137,7 @@ class Submit extends React.Component {
   Submit = () => {
     this.Next();
     setTimeout(() => {
-      if (this.state.readyToSubmit == true) {
+      if (this.state.readyToSubmit === true) {
         let formData = {
           "user_id": this.state.user_id,
           "film_submitted_date": this.state.date,
@@ -150,22 +158,22 @@ class Submit extends React.Component {
         }
         let dataAsJson = JSON.stringify(formData);
         axios.post("https://j9j2n6zof3.execute-api.us-east-1.amazonaws.com/dev", dataAsJson).then(res => {
-            console.log(res.config.data)
-            console.log(res)
-            console.log(res.data)
-            let newurl = res.data.body.url
+          console.log(res.config.data)
+          console.log(res)
+          console.log(res.data)
+          let newurl = res.data.body.url
 
-            // if cover are is not empty then add presigned url to imgaeUrl
-            this.state.film_cover_art ?
-              this.setState({
-                url: newurl,
-                imageUrl: res.data.body.url_for_image
-              })
-              :
-              this.setState({
-                url: newurl
-              })
-          })
+          // if cover are is not empty then add presigned url to imgaeUrl
+          this.state.film_cover_art ?
+            this.setState({
+              url: newurl,
+              imageUrl: res.data.body.url_for_image
+            })
+            :
+            this.setState({
+              url: newurl
+            })
+        })
           .then(() => {
             // submitting film
             axios({
@@ -223,42 +231,46 @@ class Submit extends React.Component {
     ////check if all the required field are complete 
     //// if not display all the missing field
     //// user can press next to move foward unless all required field are fill out
-    if (this.state.index == maxinput - 1) {
+    if (this.state.index === maxinput - 1) {
       this.setState({ Require: "" })
-      if (this.state.Email == "") {
+      if (this.state.Email === "") {
         Required = Required + " Email, "
       }
-      if (this.state.Phone == "") {
+      if (this.state.Phone === "") {
         Required = Required + " Phone Number,  "
       }
 
-      if (this.state.FilmInput == "") {
+      if (this.state.FilmInput === "") {
         Required = Required + " Upload A Film,  "
       }
 
-      if (this.state.film_title == "") {
+      if (this.state.film_title === "") {
         Required = Required + " Title,  "
       }
 
-      if (this.state.film_genre == "") {
+      if (this.state.film_genre === "") {
         Required = Required + " Genre,  "
       }
 
-      if (this.state.film_synopsis == "") {
+      if (this.state.film_synopsis === "") {
         Required = Required + " Synopsis,  "
       }
-
+      // adding film cover art to required fields
+      console.log("Cover art name: ", this.state.film_cover_art.name)
+      if (this.state.film_cover_art.name === undefined) {
+        Required = Required + " Cover art,"
+      }
       // user complete all the required fields this essential where I would trigger the logic to storage the film data 
       //create new film table
       //before showing the user the Thank for the submission
-      if (Required == "") {
+      if (Required === "") {
         //before change the input 
         this.setState({ index: ((this.state.index % maxinput) + 1) })
         this.setState({ readyToSubmit: true })
       }
     }
-    if (Required != "") {
-      Required = Required + " Field Require"
+    if (Required !== "") {
+      Required = Required + " Field(s) are Required"
       this.setState({ Require: Required })
       this.setState({ readyToSubmit: false })
     }
@@ -273,77 +285,70 @@ class Submit extends React.Component {
   }
 
 
-  render() {
-    const hasAccess = this.context.hasAccess;
-    const listName = this.state.list ? "listcontainer1" : "listcontainer2";
 
+  render() {
+    // const hasAccess = this.context.hasAccess;
+    const listName = this.state.list ? "listcontainer1" : "listcontainer2";
     return (
 
       <div className={"submitcontainer"}>
 
-        <div className={"videosubmit"}>
+        {/* <div className={"videosubmit"}>
           <ReactPlayer
             className={"backVideo"}
-            url={"https://s3.amazonaws.com/ribaletwork-20200622075300-hostingbucket-demo/content/48_4min.mp4"}
-            width="100%"
-            height="100%"
+            url="https://tribal-auth-bg-video.s3.amazonaws.com/48+4Min+2-1.m4v"
+            width="100vw"
+            height="100vh"
             playing={true}
             loop={true}
-
-
           />
-          {/*https://s3.amazonaws.com/ribaletwork-20200622075300-hostingbucket-demo/content/48_4min.mp4*/}
-          {/*"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4*/}
-        </div>
+        </div> */}
 
-        {console.log("MovieID  ", this.state.MovieID)}
-        {console.log("new status indicator ", this.state.film_status)}
-        <video autoPlay muted loop>
-          <source src="https://tribal-auth-bg-video.s3.amazonaws.com/48+4Min+2-1.m4v" type="video/mp4" />
-        </video>
+        <VideoComponent />
 
         <div className={"overlayercontainer"}>
-          {this.state.index != 2 && this.state.index != 5 &&
+          {
+            this.state.index !== 2 && this.state.index !== 5 &&
             <div className={listName}>
               <button onClick={() => this.setState({ list: !this.state.list })} className={"infobutton"}>
                 {" "}
-          Why Submit your Film ?{" "}
+                Why Submit your Film ?{" "}
               </button>
 
-              {this.state.list === true && (
-                <div className="bullets">
-
-                  {benefitbullets.map((benefit) => (
-                    <div className={"Benefitlist"} key={benefit}>
-                      <ul>
-                        <li> {benefit}</li>
-                      </ul>
-                    </div>
-                  ))}
-                </div>
-              )}
+              {
+                this.state.list === true && (
+                  <div className="bullets">
+                    {
+                      benefitbullets.map((benefit) => (
+                        <div className={"Benefitlist"} key={benefit}>
+                          <ul>
+                            <li> {benefit}</li>
+                          </ul>
+                        </div>
+                      ))}
+                  </div>
+                )}
             </div>
           }
 
-          {/*Email address ?*/}
           <div className={"InfoSection"}>
-            {this.state.index == 0 &&
+            {/*Email address ?*/}
+            {
+              this.state.index === 0 &&
               <form className={"inputcontainer"}>
                 <label for="email">Enter your Email</label>
                 <input
                   type="email"
                   placeholder="example@email.com"
                   required
-                  pattern="\A[\w!#$%&'*+/=?`{|}~^-]+(?:\.[\w!#$%&'*+/=?`{|}~^-]+)*@↵
-    (?:[A-Z0-9-]+\.)+[A-Z]{2,6}\Z"
+                  pattern="\A[\w!#$%&'*+/=?`{|}~^-]+(?:\.[\w!#$%&'*+/=?`{|}~^-]+)*@↵(?:[A-Z0-9-]+\.)+[A-Z]{2,6}\Z"
                   onChange={(value) => this.setState({ Email: value.target.value })}
                 ></input>
               </form>
-
-
             }
             {/* phone number */}
-            {this.state.index === 1 &&
+            {
+              this.state.index === 1 &&
               <form className={"inputcontainer"}>
                 <label for="telephone">Enter phone number</label>
                 <input type="tel"
@@ -359,7 +364,8 @@ class Submit extends React.Component {
             }
 
             {/* terms and conditions */}
-            {this.state.index === 2 &&
+            {
+              this.state.index === 2 &&
               <div className={"termcontainer"}>
                 <p >
                   Terms and Conditions,
@@ -369,7 +375,8 @@ class Submit extends React.Component {
             }
 
             {/* upload film */}
-            {this.state.index === 3 &&
+            {
+              this.state.index === 3 &&
               <div className={"uploadcontainer"}>
                 <label for="film">Upload Your Film</label>
                 <input
@@ -392,7 +399,8 @@ class Submit extends React.Component {
             }
 
             {/* film title */}
-            {this.state.index === 4 &&
+            {
+              this.state.index === 4 &&
               <div className={"uploadcontainer"}>
                 <label for="filmTitle"> Enter The Film Title</label>
                 <input type="text" styles={{ cursor: "none,", border: "2px solid gold" }} required
@@ -403,7 +411,8 @@ class Submit extends React.Component {
             }
 
             {/* Genra */}
-            {this.state.index === 5 &&
+            {
+              this.state.index === 5 &&
               <div className={"genre"}>
                 <Select options={options} placeholder={"Select Genre"} styles={customStyles}
                   onChange={this.handleChange}
@@ -412,7 +421,8 @@ class Submit extends React.Component {
             }
 
             {/* Trailer */}
-            {this.state.index === 6 &&
+            {
+              this.state.index === 6 &&
               <div className={"uploadcontainer"}>
                 <label for="Trailer">Upload Your Trailer</label>
                 <input
@@ -424,7 +434,8 @@ class Submit extends React.Component {
               </div>
             }
             {/* Synopsis */}
-            {this.state.index == 7 &&
+            {
+              this.state.index === 7 &&
               <div className={"uploadcontainer"}>
                 <label for="Synopsis">Synopsis</label>
                 <textarea name="message" rows="10" cols="30"
@@ -438,7 +449,7 @@ class Submit extends React.Component {
             }
 
             {/* film cover art */}
-            {this.state.index == 8 &&
+            {this.state.index === 8 &&
               <div className={"uploadcontainer"}>
                 <label for="Coverart">Upload Your CoverArt</label>
                 <input type="file" accept="image/*" required
@@ -452,14 +463,11 @@ class Submit extends React.Component {
               </div>
 
             }
-
-
-
             <div className={"lastinput"}>
-              {this.state.index > 0 && this.state.index < maxinput &&
+              {
+                this.state.index > 0 && this.state.index < maxinput &&
                 <button onClick={() => this.Previous()}
-                  type="submit"
-                > Previous </button>
+                  type="submit"> Previous </button>
               }
 
               {this.state.index >= 0 && this.state.index < maxinput - 1 &&
@@ -469,22 +477,19 @@ class Submit extends React.Component {
                 > Next </button>
               }
 
-              {this.state.index == maxinput - 1 &&
+              {this.state.index === maxinput - 1 &&
                 <button onClick={() => this.Submit()}
                 > Submit </button>
               }
 
             </div>
 
-            {this.state.index == (maxinput) &&
-
+            {
+              this.state.index === (maxinput) &&
               <div className="thanks">
                 <p>{this.state.confirmation}</p>
               </div>
-
-
             }
-
 
             <div className={"computerscreenrequire"}>
               <p> Please login on a laptop or computer to do a submit request</p>
@@ -499,6 +504,28 @@ class Submit extends React.Component {
   }
 }
 
+
+function VideoComponent() {
+  const theme = useTheme();
+  const breakPointQuery = useMediaQuery(theme.breakpoints.up(1024))
+  // document.getElementsByTagName('video')[0].volume = 0.5;
+  if (breakPointQuery) {
+    return (
+      <video
+        className="backVideo"
+        onloadstart="this.volume=0.1"
+        autoPlay
+        // muted 
+        volume={0.1}
+        loop>
+        <source src="https://tribal-auth-bg-video.s3.amazonaws.com/48+4Min+2-1.m4v" type="video/mp4" />
+      </video>
+    )
+  } else {
+    return null
+  }
+
+}
 export default Submit;
 
 
