@@ -25,23 +25,20 @@
 }
 
 #popup-2.popup-content {
-  background-color: rgb(30, 30, 30, 0.95);
-  position: absolute;
+  /* background-color: rgb(30, 30, 30, 0.95) !important; */
+  /* position: absolute;
   display: grid;
   place-content: center;
   border: none;
   height: 178px !important;
   width: 289px !important;
-  /* left: 50% !important;
-  top: 50vh !important;
-  transform: translate(-50%, -50%); */
-  /*top: 372px !important;*/
-  border-radius: 10px;
+  border-radius: 10px; */
+  
 }
 
 #popup-4.popup-content {
   /* background-color: rgb(30, 30, 30, 0.95) !important; */
-  position: absolute;
+  /* position: absolute;
   display: grid;
   place-content: center;
   border: none;
@@ -49,7 +46,7 @@
   left: 40px !important;
   height: 139px;
   width: 289px;
-  border-radius: 10px;
+  border-radius: 10px; */
 }
 
 .ratingPopup__tribalBetaHome {

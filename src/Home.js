@@ -31,7 +31,7 @@ import Gigs from "./Gigs/Gigs";
 import { Button as MaterialUiButton } from "@material-ui/core";
 import "./Home.css";
 import Popup from "reactjs-popup";
-// import "reactjs-popup/dist/index.css";
+import "reactjs-popup/dist/index.css";
 Amplify.configure(awsconfig);
 
 
@@ -77,8 +77,8 @@ export default class Home extends React.Component {
       let filmGroups = [];
       let categories = [];
       parsed.forEach((film) => {
-        if(film.film_status == 1 || film.film_status == 2){
-          if(film.film_status == 2){this.setState({sponsorshipLabel: "This film is or contains an Advertisement, Endorsement, or Sponsorship."})}
+        if(film.film_status === 1 || film.film_status === 2){
+          if(film.film_status === 2){this.setState({sponsorshipLabel: "This film is or contains an Advertisement, Endorsement, or Sponsorship."})}
         if (!categories.includes(film.film_genre)) {
           categories.push(film.film_genre);
           filmGroups.push({ genre: film.film_genre, films: [] });
