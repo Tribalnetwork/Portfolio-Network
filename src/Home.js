@@ -29,9 +29,10 @@ import { ReactComponent as SubmitButton } from "./icons/SubmitButton_tribalBeta.
 import { ReactComponent as StarRatingIcon } from "./icons/starRating__tribalBeta.svg";
 import Gigs from "./Gigs/Gigs";
 import { Button as MaterialUiButton } from "@material-ui/core";
-import "./Home.css";
+
 import Popup from "reactjs-popup";
-import "reactjs-popup/dist/index.css";
+// import "reactjs-popup/dist/index.css";
+import "./Home.css";
 Amplify.configure(awsconfig);
 
 
