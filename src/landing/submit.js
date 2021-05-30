@@ -369,8 +369,8 @@ class Submit extends React.Component {
               this.state.index === 2 &&
               <div className={"termcontainer"}>
                 <p >
-                  Terms and Conditions,
-                  by clicking next, you agree
+                  <strong>Terms and Conditions</strong> <br />
+                  by clicking next, you agree on Terms and Conditions.
                 </p>
               </div>
             }
