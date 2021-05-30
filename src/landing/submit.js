@@ -1,11 +1,12 @@
 import React from "react";
+import { useHistory } from 'react-router-dom'
 import { useTheme } from "@material-ui/core/styles";
 import { useMediaQuery } from "@material-ui/core";
 import "./submit.css";
-import ReactPlayer from "react-player";
+// import ReactPlayer from "react-player";
 import Select from 'react-select'
 import axios from 'axios';
-import Amplify, { Storage } from 'aws-amplify';
+import Amplify from 'aws-amplify';
 import awsconfig from '../aws-exports';
 //import { SelectPicker } from 'rsuite';
 import VolumeUpOutlinedIcon from '@material-ui/icons/VolumeUpOutlined';
@@ -124,7 +125,7 @@ class Submit extends React.Component {
   }
 
   handleCheckBox = () => {
-    if (this.state.checkBox == false) {
+    if (this.state.checkBox === false) {
       this.setState({ checkBox: true });
       this.setState({ status: 3 });
     } else {
@@ -185,9 +186,9 @@ class Submit extends React.Component {
               }
             })
               .then(res => {
-                console.log("YOU HAVE BEEN SUCCESSFUL")
+                console.log("Film Submited Successfuly")
                 console.log(res)
-                this.setState({ confirmation: "Your film has successsfully been recieved, Congrats!" })
+                this.setState({ confirmation: "Thanks for submitting your film. The Tribal film council will make a determination within 21 days." })
               })
               .catch(err => {
                 console.log("ERROR" + err)
@@ -497,6 +498,8 @@ class Submit extends React.Component {
               this.state.index === (maxinput) &&
               <div className="thanks">
                 <p>{this.state.confirmation}</p>
+                {/* reload another film */}
+                <Reload />
               </div>
             }
 
@@ -537,7 +540,15 @@ function VideoComponent(Props) {
 }
 export default Submit;
 
+const Reload = () => {
+  let history = useHistory();
 
+  return (
+    <div className="submitAnotherFilmButton" onClick={() => history.go(0)}>
+      Submit Another Film
+    </div>
+  )
+}
 //// React Selecter custom styler
 const customStyles = {
   menu: (provided, state) => ({
