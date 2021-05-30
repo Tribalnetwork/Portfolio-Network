@@ -54,31 +54,6 @@
   stroke-dashoffset: -54px;
 }
 
-#popup-2.popup-content {
-  /* background-color: rgb(30, 30, 30, 0.95) !important; */
-  /* position: absolute;
-  display: grid;
-  place-content: center;
-  border: none;
-  height: 178px !important;
-  width: 289px !important;
-  border-radius: 10px; */
-
-}
-
-#popup-4.popup-content {
-  /* background-color: rgb(30, 30, 30, 0.95) !important; */
-  /* position: absolute;
-  display: grid;
-  place-content: center;
-  border: none;
-  width: 289px !important;
-  left: 40px !important;
-  height: 139px;
-  width: 289px;
-  border-radius: 10px; */
-}
-
 .ratingPopup__tribalBetaHome {
   display: grid;
   place-items: center;
