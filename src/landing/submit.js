@@ -369,8 +369,8 @@ class Submit extends React.Component {
               this.state.index === 2 &&
               <div className={"termcontainer"}>
                 <p >
-                  Terms and Conditions,
-                  by clicking next, you agree
+                  <strong>Terms and Conditions</strong> <br />
+                  by clicking next, you agree on Terms and Conditions.
                 </p>
               </div>
             }
@@ -415,9 +415,11 @@ class Submit extends React.Component {
             {
               this.state.index === 5 &&
               <div className={"genre"}>
-                <Select options={options} placeholder={"Select Genre"} styles={customStyles}
-                  onChange={this.handleChange}
-                />
+                <Select
+                  options={options}
+                  placeholder={"Select Genre"}
+                  styles={customStyles}
+                  onChange={this.handleChange} />
               </div>
             }
 
