@@ -307,11 +307,24 @@ div.uploadcontainer div.agreement p {
 .lastinput button:active {
 	background-color: goldenrod;
 }
+.thanks{
+	
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 
+}
 .thanks p {
+	width: 600px;
 	color: white;
 	font-size: 18px;
 	font-family: "roboto";
+}
+.thanks div.submitAnotherFilmButton {
+	background-color: goldenrod;
+	padding: 0.6rem 0.8rem;
+	border-radius: 0.5rem;
 }
 
 .computerscreenrequire {
