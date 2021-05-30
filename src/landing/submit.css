@@ -100,6 +100,17 @@ video {
 	background-color: transparent;
 }
 
+.termcontainer,
+.inputcontainer,
+.uploadcontainer,
+.genre {
+	position: relative;
+	right: -100px;
+	/* transform: translateX(50%); */
+	-webkit-animation: slide-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+	animation: slide-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
 .inputcontainer {
 	width: 400px;
 	display: flex;
@@ -156,7 +167,7 @@ video {
 	/* background-color: transparent; */
 	/* margin-top: 10%; */
 	background-color: rgba(0, 0, 0, 0.2);
-	
+
 	border-radius: 0.24rem;
 }
 
@@ -178,10 +189,32 @@ video {
 	background-color: transparent;
 	border-radius: 15px;
 	padding: 10px;
+	/* adding animation to input fields */
+}
+
+@-webkit-keyframes slide-left {
+	0% {
+		-webkit-transform: translateX(0);
+		transform: translateX(0);
+	}
+	100% {
+		-webkit-transform: translateX(-100px);
+		transform: translateX(-100px);
+	}
+}
+@keyframes slide-left {
+	0% {
+		-webkit-transform: translateX(0);
+		transform: translateX(0);
+	}
+	100% {
+		-webkit-transform: translateX(-100px);
+		transform: translateX(-100px);
+	}
 }
 
 /* Synopsis */
-div.uploadcontainer div.agreement{
+div.uploadcontainer div.agreement {
 	display: flex;
 	column-gap: 0.5rem;
 	margin-top: 1rem;
@@ -190,11 +223,11 @@ div.uploadcontainer div.agreement{
 	color: rgb(220, 220, 220);
 	border-radius: 0.24rem;
 }
-div.uploadcontainer div.agreement input[type="checkbox"]{
+div.uploadcontainer div.agreement input[type="checkbox"] {
 	margin-top: 0.2rem;
 }
 /* Agreement Box */
-div.uploadcontainer div.agreement p{
+div.uploadcontainer div.agreement p {
 	margin: 0px;
 	padding: 0px;
 	font-family: "Roboto";
@@ -245,7 +278,8 @@ div.uploadcontainer div.agreement p{
 }
 
 .genre {
-	width: 60%;
+	/* width: 60%; */
+	width: 400px;
 	padding: 10px;
 }
 
@@ -396,7 +430,7 @@ input[type="file"]::file-selector-button:focus {
 	outline: none;
 }
 
-.backgroundVideoVolumeControlButtons{
+.backgroundVideoVolumeControlButtons {
 	display: none;
 }
 
