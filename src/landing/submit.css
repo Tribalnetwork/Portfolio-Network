@@ -8,7 +8,7 @@
 	overflow: hidden;
 	position: relative;
 	box-sizing: border-box;
-	font-family: "Lato", sans-serif;
+	font-family: "Roboto";
 }
 
 video {
@@ -164,7 +164,7 @@ video {
 .termcontainer p {
 	text-align: center;
 	color: white;
-	font-family: "roboto";
+	font-family: "Roboto";
 }
 
 .uploadcontainer {
@@ -177,6 +177,25 @@ video {
 	padding: 10px;
 }
 
+/* Synopsis */
+div.uploadcontainer div.agreement{
+	display: flex;
+	column-gap: 0.5rem;
+	margin-top: 1rem;
+	padding: 0.85rem 0.6rem;
+	background-color: rgba(0, 0, 0, 0.55);
+	color: rgb(220, 220, 220);
+	border-radius: 0.24rem;
+}
+div.uploadcontainer div.agreement input[type="checkbox"]{
+	margin-top: 0.2rem;
+}
+/* Agreement Box */
+div.uploadcontainer div.agreement p{
+	margin: 0px;
+	padding: 0px;
+	font-family: "Roboto";
+}
 .uploadcontainer label {
 	color: white;
 	margin-bottom: 10px;
@@ -184,7 +203,7 @@ video {
 }
 
 .uploadcontainer input {
-	font-family: Roboto;
+	font-family: "Roboto";
 	text-align: center;
 	color: white;
 	background-color: transparent;
@@ -206,7 +225,7 @@ video {
 }
 
 .uploadcontainer textarea {
-	font-family: Roboto;
+	font-family: "Roboto";
 	color: white;
 	background-color: transparent;
 	border: 1px solid #d4af37;
@@ -245,7 +264,7 @@ video {
 	margin-right: 4px;
 	margin-left: 4px;
 	color: white;
-	font-family: Roboto;
+	font-family: "Roboto";
 	margin-top: 15px;
 }
 .lastinput button:active {
@@ -261,9 +280,8 @@ video {
 .computerscreenrequire {
 	display: none;
 	margin-bottom: 10px;
-}
-
-.computerscreenrequire p {
+	font-size: 1.5rem;
+	text-align: center;
 	color: white;
 }
 
@@ -392,12 +410,12 @@ input[type="file"]::file-selector-button:focus {
 	}
 
 	.Benefitlist ul li {
-		font-size: 4vw;
+		font-size: 1rem;
 	}
 
 	.computerscreenrequire {
 		display: block;
-		font-size: 3.5vw;
+		/* font-size: 3rem; */
 	}
 }
 
@@ -414,12 +432,12 @@ input[type="file"]::file-selector-button:focus {
 	}
 
 	.Benefitlist ul li {
-		font-size: 4vw;
+		/* font-size: 4vw; */
 	}
 
 	.computerscreenrequire {
 		display: block;
-		font-size: 3.5vw;
+		/* font-size: 3.5vw; */
 	}
 }
 
@@ -436,7 +454,7 @@ input[type="file"]::file-selector-button:focus {
 
 	.computerscreenrequire {
 		display: block;
-		font-size: 3.5vw;
+		/* font-size: 3.5vw; */
 	}
 }
 

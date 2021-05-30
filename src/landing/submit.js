@@ -307,7 +307,7 @@ class Submit extends React.Component {
                 <VolumeUpOutlinedIcon onClick={() => this.setState({ muteVideo: true })} />
             }
           </div>
-          
+
           {
             this.state.index !== 2 && this.state.index !== 5 &&
             <div className={listName}>
@@ -445,7 +445,13 @@ class Submit extends React.Component {
                 >
 
                 </textarea>
-                <p><input type="checkbox" onChange={() => this.handleCheckBox()} /><p><strong>WARNING!</strong>You must check this box if this film is or contains an Advertisement, Endorsement, or Sponsorship.</p></p>
+                <div className="agreement">
+                  <input type="checkbox" onChange={() => this.handleCheckBox()} />
+                  <p>
+                    Please check this box if your film is or contains
+                    an Advertisement, Endorsement, or Sponsorship.
+                  </p>
+                </div>
               </div>
             }
 
@@ -493,7 +499,7 @@ class Submit extends React.Component {
             }
 
             <div className={"computerscreenrequire"}>
-              <p> Please login on a laptop or computer to do a submit request</p>
+              <p> Please login on a laptop or a desktop to do the submit request</p>
             </div>
 
           </div>
