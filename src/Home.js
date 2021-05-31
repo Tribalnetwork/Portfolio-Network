@@ -2,34 +2,35 @@ import React from "react";
 import AdSense from 'react-adsense';
 import axios from "axios";
 import Amplify from "aws-amplify";
-import { API, graphqlOperation } from "aws-amplify";
-import { listFilms, listLiveStreams } from "./graphql/queries";
+// import { API, graphqlOperation } from "aws-amplify";
+// import { listFilms, listLiveStreams } from "./graphql/queries";
 import awsconfig from "./aws-exports";
 import "@aws-amplify/ui/dist/style.css";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import UserContext from "./UserContext";
 import { Helmet } from "react-helmet";
 import ReactPlayer from "react-player";
 import Button from "./Button";
 import ExpandLessRoundedIcon from "@material-ui/icons/ExpandLessRounded";
 import ExpandMoreRoundedIcon from "@material-ui/icons/ExpandMoreRounded";
-import Typography from "@material-ui/core/Typography";
+// import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import HorizontalScrollerCircular from "./components/HorizontalScrollerCircular";
-import HorizontalScroller from "./components/HorizontalScroller";
+// import HorizontalScroller from "./components/HorizontalScroller";
 
-import TrendingNow from "./TrendingNow";
-import ContinueWatching from "./ContinueWatching";
-import MyList from "./MyList";
+// import TrendingNow from "./TrendingNow";
+// import ContinueWatching from "./ContinueWatching";
+// import MyList from "./MyList";
 //import { ReactComponent as ExploreLogo } from './icons/Explore.svg';
 //import { ReactComponent as MyStudioLogo } from './icons/myStudio.svg';
 //import { ReactComponent as StarRating } from './icons/Rate.svg'
 import { ReactComponent as RatingButton } from "./icons/RateButton_tribalBeta.svg";
 import { ReactComponent as SubmitButton } from "./icons/SubmitButton_tribalBeta.svg";
 import { ReactComponent as StarRatingIcon } from "./icons/starRating__tribalBeta.svg";
-import Gigs from "./Gigs/Gigs";
-import { Button as MaterialUiButton } from "@material-ui/core";
-
+// import Gigs from "./Gigs/Gigs";
+// import { Button as MaterialUiButton } from "@material-ui/core";
+import { useTheme } from "@material-ui/core/styles";
+import { useMediaQuery } from "@material-ui/core";
 import Popup from "reactjs-popup";
 // import "reactjs-popup/dist/index.css";
 import "./Home.css";
@@ -78,12 +79,12 @@ export default class Home extends React.Component {
       let filmGroups = [];
       let categories = [];
       parsed.forEach((film) => {
-        if(film.film_status === 1 || film.film_status === 2){
-          if(film.film_status === 2){this.setState({sponsorshipLabel: "This film is or contains an Advertisement, Endorsement, or Sponsorship."})}
-        if (!categories.includes(film.film_genre)) {
-          categories.push(film.film_genre);
-          filmGroups.push({ genre: film.film_genre, films: [] });
-        }
+        if (film.film_status === 1 || film.film_status === 2) {
+          if (film.film_status === 2) { this.setState({ sponsorshipLabel: "This film is or contains an Advertisement, Endorsement, or Sponsorship." }) }
+          if (!categories.includes(film.film_genre)) {
+            categories.push(film.film_genre);
+            filmGroups.push({ genre: film.film_genre, films: [] });
+          }
         }
       });
 
@@ -217,7 +218,7 @@ export default class Home extends React.Component {
                         {/*<Link to={'/sub'} style={styles.buttonLink}>*/}
                         {/*<RatingButton className="RateAndSubmit__tribalBeta" />*/}
                         <Popup
-                          
+
                           trigger={(open) => (
                             <RatingButton className="RateAndSubmit__tribalBeta" />
                           )}
@@ -261,24 +262,11 @@ export default class Home extends React.Component {
                           trigger={(open) => (
                             <SubmitButton className="RateAndSubmit__tribalBeta" />
                           )}
+                          position="center center"
                           closeOnDocumentClick
                         >
-                          <div className="ratingPopup__tribalBetaHome">
-                            <div className="overall__tribalBetaHome">
-                              <span className="submit__tribalBetaHome">
-                                Log in on Desktop to Submit
-                              </span>
-                            </div>
-                            <div className="ok__popupBottom">
-                              <Link
-                                to={"/submit"}
-                                style={styles.buttonLink}
-                                className="link__okText"
-                              >
-                                <p className="okText__popupBottom">OK</p>
-                              </Link>
-                            </div>
-                          </div>
+                          <SubmitFilmButton />
+
                         </Popup>
                         {/*</Link>*/}
                       </Grid>
@@ -353,9 +341,11 @@ export default class Home extends React.Component {
                 </div>
               )
             ) : (
-              <div style={{paddingLeft: '2rem'}}>
-                  <h1>Welcome to Tribal</h1>
-                  <p><Link to='/auth' style={{color: "white"}}>Sign in</Link> or create a free <Link to='/auth' style={{color: "white"}}>account</Link> to get started.</p>
+              <div style={{ padding: '2rem' }}>
+                <h1 style={{ textAlign: "center" }}>Welcome to Tribal</h1>
+                <p style={{ textAlign: "center" }}>
+                  <Link to='/auth' style={{ color: "white" }}>Sign in</Link> or create a free <Link to='/auth' style={{ color: "white" }}>account</Link> to get started.
+                </p>
               </div>
             )
           ) : null}
@@ -386,6 +376,28 @@ function FilmCat(Props) {
       />
     </div>
   );
+}
+
+function SubmitFilmButton() {
+  let history = useHistory();
+  const theme = useTheme();
+  const breakPointQuery = useMediaQuery(theme.breakpoints.up(1024))
+  // if break point is larger than 1024 then direct user to submit page
+  if (breakPointQuery) {
+    history.push('/submit')
+    return null
+  } else {
+    return (
+      <div className="ratingPopup__tribalBetaHome">
+        <div className="overall__tribalBetaHome">
+          <span className="submit__tribalBetaHome">
+            Please Log in on Desktop to Submit your film.
+          </span>
+        </div>
+      </div>
+    )
+  }
+
 }
 
 const styles = {
