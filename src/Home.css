@@ -91,35 +91,11 @@
   justify-content: space-evenly;
 }
 
-.ok__popupBottom {
-  width: 100%;
-  padding: 0.5rem;
-  display: flex;
-  justify-content: space-evenly;
-}
-
-.okText__popupBottom {
-  color: #d3c095 !important;
-  text-decoration: none !important;
-  font-size: 17px;
-}
-
-.link__okText {
-  text-decoration: none !important;
-}
-
-.cancel__tribalBetaHome {
-  padding-right: 1.5rem;
-  border-right: 1px solid gray;
-}
-
-.send__tribalBetaHome {
-  color: #d3c095 !important;
-}
 
 .submit__tribalBetaHome {
   font-size: 17px;
-  padding-top: 0.5rem;
+  padding: auto 1rem;
+  text-align: center;
 }
 
 svg.popup-arrow {
