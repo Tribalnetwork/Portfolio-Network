@@ -48,6 +48,13 @@ export default class Home extends React.Component {
     livestreams: [],
     filmGroups: [],
     sponsorshipLabel: "",
+
+    // rated stars for the playing film
+    filmRatedStars: {
+      filmId: undefined,
+      stars: 0
+    }
+
   };
 
   componentDidMount() {
@@ -55,6 +62,8 @@ export default class Home extends React.Component {
   }
 
   async findFilm(id) {
+    this.setState({ filmRatedStars: { filmId: id } })
+
     let FilmKey = {
       id: id,
     };
@@ -67,6 +76,7 @@ export default class Home extends React.Component {
       data: theData,
     });
     this.setState({ url: response.data.body.url });
+    
   }
 
   async getAllFilms() {
@@ -233,13 +243,19 @@ export default class Home extends React.Component {
                               <span className="overallStar__tribalBetaHome">
                                 Overall
                               </span>
-                              <span>
-                                <StarRatingIcon />
-                                <StarRatingIcon />
-                                <StarRatingIcon />
-                                <StarRatingIcon />
-                                <StarRatingIcon />
-                              </span>
+                              {/* rated stars */}
+                              {
+                                this.state.filmRatedStars.filmId !== undefined ?
+                                  <span>
+                                    {this.state.filmRatedStars.stars > 0 ? <img src="/starForFilmOrdering.svg" alt="rate" onClick={() => this.setState({ filmRatedStars: { ...this.state.filmRatedStars, stars: 1 } })} /> : <StarRatingIcon onClick={() => this.setState({ filmRatedStars: { ...this.state.filmRatedStars, stars: 1 } })} />}
+                                    {this.state.filmRatedStars.stars > 1 ? <img src="/starForFilmOrdering.svg" alt="rate" onClick={() => this.setState({ filmRatedStars: { ...this.state.filmRatedStars, stars: 2 } })} /> : <StarRatingIcon onClick={() => this.setState({ filmRatedStars: { ...this.state.filmRatedStars, stars: 2 } })} />}
+                                    {this.state.filmRatedStars.stars > 2 ? <img src="/starForFilmOrdering.svg" alt="rate" onClick={() => this.setState({ filmRatedStars: { ...this.state.filmRatedStars, stars: 3 } })} /> : <StarRatingIcon onClick={() => this.setState({ filmRatedStars: { ...this.state.filmRatedStars, stars: 3 } })} />}
+                                    {this.state.filmRatedStars.stars > 3 ? <img src="/starForFilmOrdering.svg" alt="rate" onClick={() => this.setState({ filmRatedStars: { ...this.state.filmRatedStars, stars: 4 } })} /> : <StarRatingIcon onClick={() => this.setState({ filmRatedStars: { ...this.state.filmRatedStars, stars: 4 } })} />}
+                                    {this.state.filmRatedStars.stars > 4 ? <img src="/starForFilmOrdering.svg" alt="rate" onClick={() => this.setState({ filmRatedStars: { ...this.state.filmRatedStars, stars: 5 } })} /> : <StarRatingIcon onClick={() => this.setState({ filmRatedStars: { ...this.state.filmRatedStars, stars: 5 } })} />}
+                                  </span>
+                                  : null
+                              }
+
                             </div>
                             {/* <div className="popupBottom">
                               <span className="cancel__tribalBetaHome">
