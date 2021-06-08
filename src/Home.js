@@ -62,14 +62,35 @@ export default class Home extends React.Component {
     axios.get('https://q8ownfcoj8.execute-api.us-east-1.amazonaws.com/default/')
       .then(
         resp => {
-         console.log(resp.data.body.filmId)
-         console.log(resp.data.body.rate)
-         console.log(resp.data.body.filmTitle)
-         this.findFilm(resp.data.body.filmId)
-        //  the stars must be the stars that user has rated
-        //  this.setState({ filmRatedStars: { filmId: resp.data.body.filmId, stars: resp.data.body.rate } })
-         this.setState({ filmRatedStars: { filmId: resp.data.body.filmId } })
-         this.setState({videoName: resp.data.body.filmTitle})
+          let filmId = resp.data.body.filmId
+          // let filmOverallStars = resp.data.body.stars
+          let filmTitle = resp.data.body.filmTitle
+          // play the film
+          this.findFilm(filmId)
+          // set the film title
+          this.setState({ videoName: filmTitle })
+          // set the film id
+          this.setState({ filmRatedStars: { filmId } })
+
+          // 1.A: get the film rated stars by the cureent user 
+          // user_id : userId
+          // the user id is set fixed in backend and need to get update
+          let userData = {
+            film_id: filmId,
+          };
+          // convert to json object
+          let theUserData = JSON.stringify(userData);
+
+          // make post request to get the stars've been rated by curent user
+          axios({ url: "https://0axc6b1nga.execute-api.us-east-1.amazonaws.com/default/getFilmStar", method: "post", data: theUserData, })
+            .then(resp => {
+              this.setState({ filmRatedStars: { ...this.state.filmRatedStars, stars: resp.data.errorMessage === undefined ? resp.data.body.ratedStars : 0 } })
+            }).catch(err => {
+              console.log(err)
+              console.log(err.response.data);
+              console.log(err.response.status);
+              console.log(err.response.headers);
+            });
         }
       )
       .catch(err => {
@@ -79,25 +100,41 @@ export default class Home extends React.Component {
         console.log(err.response.headers);
       });
 
-      // 2- and then get all films
+    // 2- and then get all films
     this.getAllFilms();
   }
 
   async findFilm(id) {
-    this.setState({ filmRatedStars: { filmId: id } })
-    // console.log(this.state.filmRatedStars)
+
+
+    // one: play film
     let FilmKey = {
       id: id,
     };
     let theData = JSON.stringify(FilmKey);
 
-    const response = await axios({
-      url:
-        "https://2ajlr7txqa.execute-api.us-east-1.amazonaws.com/default/Get_Film_From_S3",
-      method: "post",
-      data: theData,
-    });
+    const response = await axios({ url: "https://2ajlr7txqa.execute-api.us-east-1.amazonaws.com/default/Get_Film_From_S3", method: "post", data: theData, });
     this.setState({ url: response.data.body.url });
+    // Two: get the stars for playing film for current user
+
+    // user_id : userId
+    // the user id is set fixed in backend and need to get update
+    let userData = {
+      film_id: id,
+    };
+    // convert to json object
+    let theUserData = JSON.stringify(userData);
+    await axios({ url: "https://0axc6b1nga.execute-api.us-east-1.amazonaws.com/default/getFilmStar", method: "post", data: theUserData, })
+      .then(resp => {
+        this.setState({ filmRatedStars: { filmId: id, stars: resp.data.errorMessage === undefined ? resp.data.body.ratedStars : 0 } })
+      })
+      .catch(err => {
+        console.log(err)
+        console.log(err.response.data);
+        console.log(err.response.status);
+        console.log(err.response.headers);
+      });
+
 
   }
 
