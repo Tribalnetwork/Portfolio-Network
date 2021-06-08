@@ -31,7 +31,7 @@ import { ReactComponent as StarRatingIcon } from "./icons/starRating__tribalBeta
 // import { Button as MaterialUiButton } from "@material-ui/core";
 import { useTheme } from "@material-ui/core/styles";
 import { useMediaQuery } from "@material-ui/core";
-import Popup from "reactjs-popup";
+ import Popup from "reactjs-popup";
 // import "reactjs-popup/dist/index.css";
 import "./Home.css";
 Amplify.configure(awsconfig);
