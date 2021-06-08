@@ -56,14 +56,36 @@ export default class Home extends React.Component {
     }
 
   };
-
   componentDidMount() {
+    // when component first show up 
+    // 1 - get the highest rated film
+    axios.get('https://q8ownfcoj8.execute-api.us-east-1.amazonaws.com/default/')
+      .then(
+        resp => {
+         console.log(resp.data.body.filmId)
+         console.log(resp.data.body.rate)
+         console.log(resp.data.body.filmTitle)
+         this.findFilm(resp.data.body.filmId)
+        //  the stars must be the stars that user has rated
+        //  this.setState({ filmRatedStars: { filmId: resp.data.body.filmId, stars: resp.data.body.rate } })
+         this.setState({ filmRatedStars: { filmId: resp.data.body.filmId } })
+         this.setState({videoName: resp.data.body.filmTitle})
+        }
+      )
+      .catch(err => {
+        console.log(err)
+        console.log(err.response.data);
+        console.log(err.response.status);
+        console.log(err.response.headers);
+      });
+
+      // 2- and then get all films
     this.getAllFilms();
   }
 
   async findFilm(id) {
     this.setState({ filmRatedStars: { filmId: id } })
-
+    // console.log(this.state.filmRatedStars)
     let FilmKey = {
       id: id,
     };
@@ -76,7 +98,7 @@ export default class Home extends React.Component {
       data: theData,
     });
     this.setState({ url: response.data.body.url });
-    
+
   }
 
   async getAllFilms() {
@@ -174,6 +196,8 @@ export default class Home extends React.Component {
   }
 
   render() {
+    // console.log(Object.keys(this.context.user).length !== 0? this.context.user.attributes.sub : null)
+    // console.log(this.context)
     const isAuthenticated =
       this.context.user && this.context.user.username ? true : false;
     const isLoaded = this.context.isLoaded;
