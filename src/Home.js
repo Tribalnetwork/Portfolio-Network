@@ -48,25 +48,90 @@ export default class Home extends React.Component {
     livestreams: [],
     filmGroups: [],
     sponsorshipLabel: "",
-  };
 
+    // rated stars for the playing film
+    filmRatedStars: {
+      filmId: undefined,
+      stars: 0
+    }
+
+  };
   componentDidMount() {
+    // when component first show up 
+    // 1 - get the highest rated film
+    axios.get('https://q8ownfcoj8.execute-api.us-east-1.amazonaws.com/default/')
+      .then(
+        resp => {
+          let filmId = resp.data.body.filmId
+          // let filmOverallStars = resp.data.body.stars
+          let filmTitle = resp.data.body.filmTitle
+          // play the film
+          this.findFilm(filmId)
+          // set the film title
+          this.setState({ videoName: filmTitle })
+          // set the film id
+          this.setState({ filmRatedStars: { filmId } })
+
+          // 1.A: get the film rated stars by the cureent user 
+          // user_id : userId
+          // the user id is set fixed in backend and need to get update
+          let userData = {
+            film_id: filmId,
+          };
+          // convert to json object
+          let theUserData = JSON.stringify(userData);
+
+          // make post request to get the stars've been rated by curent user
+          axios({ url: "https://0axc6b1nga.execute-api.us-east-1.amazonaws.com/default/getFilmStar", method: "post", data: theUserData, })
+            .then(resp => {
+              this.setState({ filmRatedStars: { ...this.state.filmRatedStars, stars: resp.data.errorMessage === undefined ? resp.data.body.ratedStars : 0 } })
+            }).catch(err => {
+              console.log(err)
+              console.log(err.response.data);
+              console.log(err.response.status);
+              console.log(err.response.headers);
+            });
+        }
+      )
+      .catch(err => {
+        console.log(err)
+        console.log(err.response.data);
+        console.log(err.response.status);
+        console.log(err.response.headers);
+      });
+
+    // 2- and then get all films
     this.getAllFilms();
   }
 
   async findFilm(id) {
+    // one: play film
     let FilmKey = {
       id: id,
     };
     let theData = JSON.stringify(FilmKey);
 
-    const response = await axios({
-      url:
-        "https://2ajlr7txqa.execute-api.us-east-1.amazonaws.com/default/Get_Film_From_S3",
-      method: "post",
-      data: theData,
-    });
+    const response = await axios({ url: "https://2ajlr7txqa.execute-api.us-east-1.amazonaws.com/default/Get_Film_From_S3", method: "post", data: theData, });
     this.setState({ url: response.data.body.url });
+    // Two: get the stars for playing film for current user
+
+    // user_id : userId
+    // the user id is set fixed in backend and need to get update
+    let userData = {
+      film_id: id,
+    };
+    // convert to json object
+    let theUserData = JSON.stringify(userData);
+    await axios({ url: "https://0axc6b1nga.execute-api.us-east-1.amazonaws.com/default/getFilmStar", method: "post", data: theUserData, })
+      .then(resp => {
+        this.setState({ filmRatedStars: { filmId: id, stars: resp.data.errorMessage === undefined ? resp.data.body.ratedStars : 0 } })
+      })
+      .catch(err => {
+        console.log(err)
+        console.log(err.response.data);
+        console.log(err.response.status);
+        console.log(err.response.headers);
+      });
   }
 
   async getAllFilms() {
@@ -163,7 +228,32 @@ export default class Home extends React.Component {
     }
   }
 
+  // update rating stars for curently logged in user
+  async updateRatingStars(stars){
+    this.setState({ filmRatedStars: { ...this.state.filmRatedStars, stars } })
+
+    // user_id : userId
+    // the user id is set fixed in backend and need to get update
+    let userData = {
+      film_id: this.state.filmRatedStars.filmId,
+      stars
+    };
+    // convert to json object
+    let theUserData = JSON.stringify(userData);
+    await axios({ url: "https://vv9ga5l5c0.execute-api.us-east-1.amazonaws.com/default/setFilmRate", method: "post", data: theUserData, })
+      .then(resp => {
+        console.log(resp.data)
+      })
+      .catch(err => {
+        console.log(err)
+        console.log(err.response.data);
+        console.log(err.response.status);
+        console.log(err.response.headers);
+      });
+  }
   render() {
+    // console.log(Object.keys(this.context.user).length !== 0? this.context.user.attributes.sub : null)
+    // console.log(this.context)
     const isAuthenticated =
       this.context.user && this.context.user.username ? true : false;
     const isLoaded = this.context.isLoaded;
@@ -233,13 +323,19 @@ export default class Home extends React.Component {
                               <span className="overallStar__tribalBetaHome">
                                 Overall
                               </span>
-                              <span>
-                                <StarRatingIcon />
-                                <StarRatingIcon />
-                                <StarRatingIcon />
-                                <StarRatingIcon />
-                                <StarRatingIcon />
-                              </span>
+                              {/* rated stars */}
+                              {
+                                this.state.filmRatedStars.filmId !== undefined ?
+                                  <span>
+                                    {this.state.filmRatedStars.stars > 0 ? <img src="/starForFilmOrdering.svg" alt="rate" onClick={() => this.updateRatingStars(1)} /> : <StarRatingIcon onClick={() => this.updateRatingStars(1)} />}
+                                    {this.state.filmRatedStars.stars > 1 ? <img src="/starForFilmOrdering.svg" alt="rate" onClick={() => this.updateRatingStars(2)} /> : <StarRatingIcon onClick={() => this.updateRatingStars(2)} />}
+                                    {this.state.filmRatedStars.stars > 2 ? <img src="/starForFilmOrdering.svg" alt="rate" onClick={() => this.updateRatingStars(3)} /> : <StarRatingIcon onClick={() => this.updateRatingStars(3)} />}
+                                    {this.state.filmRatedStars.stars > 3 ? <img src="/starForFilmOrdering.svg" alt="rate" onClick={() => this.updateRatingStars(4)} /> : <StarRatingIcon onClick={() => this.updateRatingStars(4)} />}
+                                    {this.state.filmRatedStars.stars > 4 ? <img src="/starForFilmOrdering.svg" alt="rate" onClick={() => this.updateRatingStars(5)} /> : <StarRatingIcon onClick={() => this.updateRatingStars(5)} />}
+                                  </span>
+                                  : null
+                              }
+
                             </div>
                             {/* <div className="popupBottom">
                               <span className="cancel__tribalBetaHome">
