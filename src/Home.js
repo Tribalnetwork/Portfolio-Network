@@ -105,8 +105,6 @@ export default class Home extends React.Component {
   }
 
   async findFilm(id) {
-
-
     // one: play film
     let FilmKey = {
       id: id,
@@ -134,8 +132,6 @@ export default class Home extends React.Component {
         console.log(err.response.status);
         console.log(err.response.headers);
       });
-
-
   }
 
   async getAllFilms() {
@@ -232,6 +228,29 @@ export default class Home extends React.Component {
     }
   }
 
+  // update rating stars for curently logged in user
+  async updateRatingStars(stars){
+    this.setState({ filmRatedStars: { ...this.state.filmRatedStars, stars } })
+
+    // user_id : userId
+    // the user id is set fixed in backend and need to get update
+    let userData = {
+      film_id: this.state.filmRatedStars.filmId,
+      stars
+    };
+    // convert to json object
+    let theUserData = JSON.stringify(userData);
+    await axios({ url: "https://vv9ga5l5c0.execute-api.us-east-1.amazonaws.com/default/setFilmRate", method: "post", data: theUserData, })
+      .then(resp => {
+        console.log(resp.data)
+      })
+      .catch(err => {
+        console.log(err)
+        console.log(err.response.data);
+        console.log(err.response.status);
+        console.log(err.response.headers);
+      });
+  }
   render() {
     // console.log(Object.keys(this.context.user).length !== 0? this.context.user.attributes.sub : null)
     // console.log(this.context)
@@ -308,11 +327,11 @@ export default class Home extends React.Component {
                               {
                                 this.state.filmRatedStars.filmId !== undefined ?
                                   <span>
-                                    {this.state.filmRatedStars.stars > 0 ? <img src="/starForFilmOrdering.svg" alt="rate" onClick={() => this.setState({ filmRatedStars: { ...this.state.filmRatedStars, stars: 1 } })} /> : <StarRatingIcon onClick={() => this.setState({ filmRatedStars: { ...this.state.filmRatedStars, stars: 1 } })} />}
-                                    {this.state.filmRatedStars.stars > 1 ? <img src="/starForFilmOrdering.svg" alt="rate" onClick={() => this.setState({ filmRatedStars: { ...this.state.filmRatedStars, stars: 2 } })} /> : <StarRatingIcon onClick={() => this.setState({ filmRatedStars: { ...this.state.filmRatedStars, stars: 2 } })} />}
-                                    {this.state.filmRatedStars.stars > 2 ? <img src="/starForFilmOrdering.svg" alt="rate" onClick={() => this.setState({ filmRatedStars: { ...this.state.filmRatedStars, stars: 3 } })} /> : <StarRatingIcon onClick={() => this.setState({ filmRatedStars: { ...this.state.filmRatedStars, stars: 3 } })} />}
-                                    {this.state.filmRatedStars.stars > 3 ? <img src="/starForFilmOrdering.svg" alt="rate" onClick={() => this.setState({ filmRatedStars: { ...this.state.filmRatedStars, stars: 4 } })} /> : <StarRatingIcon onClick={() => this.setState({ filmRatedStars: { ...this.state.filmRatedStars, stars: 4 } })} />}
-                                    {this.state.filmRatedStars.stars > 4 ? <img src="/starForFilmOrdering.svg" alt="rate" onClick={() => this.setState({ filmRatedStars: { ...this.state.filmRatedStars, stars: 5 } })} /> : <StarRatingIcon onClick={() => this.setState({ filmRatedStars: { ...this.state.filmRatedStars, stars: 5 } })} />}
+                                    {this.state.filmRatedStars.stars > 0 ? <img src="/starForFilmOrdering.svg" alt="rate" onClick={() => this.updateRatingStars(1)} /> : <StarRatingIcon onClick={() => this.updateRatingStars(1)} />}
+                                    {this.state.filmRatedStars.stars > 1 ? <img src="/starForFilmOrdering.svg" alt="rate" onClick={() => this.updateRatingStars(2)} /> : <StarRatingIcon onClick={() => this.updateRatingStars(2)} />}
+                                    {this.state.filmRatedStars.stars > 2 ? <img src="/starForFilmOrdering.svg" alt="rate" onClick={() => this.updateRatingStars(3)} /> : <StarRatingIcon onClick={() => this.updateRatingStars(3)} />}
+                                    {this.state.filmRatedStars.stars > 3 ? <img src="/starForFilmOrdering.svg" alt="rate" onClick={() => this.updateRatingStars(4)} /> : <StarRatingIcon onClick={() => this.updateRatingStars(4)} />}
+                                    {this.state.filmRatedStars.stars > 4 ? <img src="/starForFilmOrdering.svg" alt="rate" onClick={() => this.updateRatingStars(5)} /> : <StarRatingIcon onClick={() => this.updateRatingStars(5)} />}
                                   </span>
                                   : null
                               }
