@@ -42,9 +42,8 @@ export default class Home extends React.Component {
 
   state = {
     films: [],
-    url:
-      "https://d2tj5fkeuzoaui.cloudfront.net/4a13ac70-b95c-48bb-9c80-1d340078c647/hls/bunny_2020-07-28T01:25:05.353Z.m3u8",
-    videoName: "Bunny",
+    url: "",
+    videoName: "",
     livestreams: [],
     filmGroups: [],
     sponsorshipLabel: "",
@@ -53,55 +52,16 @@ export default class Home extends React.Component {
     filmRatedStars: {
       filmId: undefined,
       stars: 0
-    }
+    },
 
+    // user loaded ?
+    user: {
+      requests: 0,
+      userId: undefined
+    }
   };
   componentDidMount() {
-    // when component first show up 
-    // 1 - get the highest rated film
-    axios.get('https://q8ownfcoj8.execute-api.us-east-1.amazonaws.com/default/')
-      .then(
-        resp => {
-          let filmId = resp.data.body.filmId
-          // let filmOverallStars = resp.data.body.stars
-          let filmTitle = resp.data.body.filmTitle
-          // play the film
-          this.findFilm(filmId)
-          // set the film title
-          this.setState({ videoName: filmTitle })
-          // set the film id
-          this.setState({ filmRatedStars: { filmId } })
 
-          // 1.A: get the film rated stars by the cureent user 
-          // user_id : userId
-          // the user id is set fixed in backend and need to get update
-          let userData = {
-            film_id: filmId,
-          };
-          // convert to json object
-          let theUserData = JSON.stringify(userData);
-
-          // make post request to get the stars've been rated by curent user
-          axios({ url: "https://0axc6b1nga.execute-api.us-east-1.amazonaws.com/default/getFilmStar", method: "post", data: theUserData, })
-            .then(resp => {
-              this.setState({ filmRatedStars: { ...this.state.filmRatedStars, stars: resp.data.errorMessage === undefined ? resp.data.body.ratedStars : 0 } })
-            }).catch(err => {
-              console.log(err)
-              console.log(err.response.data);
-              console.log(err.response.status);
-              console.log(err.response.headers);
-            });
-        }
-      )
-      .catch(err => {
-        console.log(err)
-        console.log(err.response.data);
-        console.log(err.response.status);
-        console.log(err.response.headers);
-      });
-
-    // 2- and then get all films
-    this.getAllFilms();
   }
 
   async findFilm(id) {
@@ -114,24 +74,25 @@ export default class Home extends React.Component {
     const response = await axios({ url: "https://2ajlr7txqa.execute-api.us-east-1.amazonaws.com/default/Get_Film_From_S3", method: "post", data: theData, });
     this.setState({ url: response.data.body.url });
     // Two: get the stars for playing film for current user
+    if (this.context.user) {
+      let userData = {
+        film_id: id,
+        user_id: this.state.user.userId
+      };
+      // convert to json object
+      let theUserData = JSON.stringify(userData);
+      await axios({ url: "https://0axc6b1nga.execute-api.us-east-1.amazonaws.com/default/getFilmStar", method: "post", data: theUserData, })
+        .then(resp => {
+          this.setState({ filmRatedStars: { filmId: id, stars: resp.data.errorMessage === undefined ? resp.data.body.ratedStars : 0 } })
+        })
+        .catch(err => {
+          console.log(err)
+          console.log(err.response.data);
+          console.log(err.response.status);
+          console.log(err.response.headers);
+        });
+    }
 
-    // user_id : userId
-    // the user id is set fixed in backend and need to get update
-    let userData = {
-      film_id: id,
-    };
-    // convert to json object
-    let theUserData = JSON.stringify(userData);
-    await axios({ url: "https://0axc6b1nga.execute-api.us-east-1.amazonaws.com/default/getFilmStar", method: "post", data: theUserData, })
-      .then(resp => {
-        this.setState({ filmRatedStars: { filmId: id, stars: resp.data.errorMessage === undefined ? resp.data.body.ratedStars : 0 } })
-      })
-      .catch(err => {
-        console.log(err)
-        console.log(err.response.data);
-        console.log(err.response.status);
-        console.log(err.response.headers);
-      });
   }
 
   async getAllFilms() {
@@ -229,31 +190,104 @@ export default class Home extends React.Component {
   }
 
   // update rating stars for curently logged in user
-  async updateRatingStars(stars){
+  async updateRatingStars(stars) {
     this.setState({ filmRatedStars: { ...this.state.filmRatedStars, stars } })
 
-    // user_id : userId
-    // the user id is set fixed in backend and need to get update
-    let userData = {
-      film_id: this.state.filmRatedStars.filmId,
-      stars
-    };
-    // convert to json object
-    let theUserData = JSON.stringify(userData);
-    await axios({ url: "https://vv9ga5l5c0.execute-api.us-east-1.amazonaws.com/default/setFilmRate", method: "post", data: theUserData, })
-      .then(resp => {
-        console.log(resp.data)
-      })
-      .catch(err => {
-        console.log(err)
-        console.log(err.response.data);
-        console.log(err.response.status);
-        console.log(err.response.headers);
-      });
+    if (this.context.user) {
+      let userData = {
+        film_id: this.state.filmRatedStars.filmId,
+        user_id: this.state.user.userId,
+        stars
+      };
+      // convert to json object
+      let theUserData = JSON.stringify(userData);
+      await axios({ url: "https://vv9ga5l5c0.execute-api.us-east-1.amazonaws.com/default/setFilmRate", method: "post", data: theUserData })
+        .then(resp => {
+          console.log(resp.data)
+        })
+        .catch(err => {
+          console.log(err)
+          console.log(err.response.data);
+          console.log(err.response.status);
+          console.log(err.response.headers);
+        });
+    }
   }
+
+  async cognitoUserToUserTable() {
+    // 1: add cognito user to profile and user tables in (RDS) if user does not exist yet
+
+    if (this.context.user) {
+      this.setState({ user: { requests: 1, userId: this.context.user.attributes.sub } }) // 1 means already we have sent request
+      let data = {
+        "sub": this.context.user.attributes.sub,
+        "email": this.context.user.attributes.email,
+        "username": this.context.user.attributes.given_name
+      }
+      let theData = JSON.stringify(data);
+      axios({ url: "https://172x4sblu9.execute-api.us-east-1.amazonaws.com/default/cognitoUserToUserTable", method: "post", data: theData, })
+        .then(resp => {
+          // 2- get the highest rated film
+          axios.get('https://q8ownfcoj8.execute-api.us-east-1.amazonaws.com/default/')
+            .then(
+              resp => {
+                let filmId = resp.data.body.filmId
+                // let filmOverallStars = resp.data.body.stars
+                let filmTitle = resp.data.body.filmTitle
+                // play the film
+                this.findFilm(filmId)
+                // set the film title
+                this.setState({ videoName: filmTitle })
+                // set the film id
+                this.setState({ filmRatedStars: { filmId } })
+
+                // 1.A: get the film rated stars by the cureent user
+                let userData = {
+                  film_id: filmId,
+                  user_id: this.context.user.attributes.sub
+                };
+                // convert to json object
+                let theUserData = JSON.stringify(userData);
+
+                // make post request to get the stars've been rated by curent user
+                axios({ url: "https://0axc6b1nga.execute-api.us-east-1.amazonaws.com/default/getFilmStar", method: "post", data: theUserData, })
+                  .then(resp => {
+                    this.setState({ filmRatedStars: { ...this.state.filmRatedStars, stars: resp.data.errorMessage === undefined ? resp.data.body.ratedStars : 0 } })
+                  }).catch(err => {
+                    console.log(err)
+                    console.log(err.response.data);
+                    console.log(err.response.status);
+                    console.log(err.response.headers);
+                  });
+              }
+            )
+            .catch(err => {
+              console.log(err)
+              console.log(err.response.data);
+              console.log(err.response.status);
+              console.log(err.response.headers);
+            });
+
+        }).catch(err => {
+          console.log(err)
+          console.log(err.response.data);
+          console.log(err.response.status);
+          console.log(err.response.headers);
+        });
+    }
+
+
+    // 3- and then get all films
+    this.getAllFilms();
+  }
+
+
   render() {
     // console.log(Object.keys(this.context.user).length !== 0? this.context.user.attributes.sub : null)
-    // console.log(this.context)
+    // console.log(this.context.isLoaded)
+    if (this.context.isLoaded && this.state.user.requests === 0) {
+      this.cognitoUserToUserTable()
+    }
     const isAuthenticated =
       this.context.user && this.context.user.username ? true : false;
     const isLoaded = this.context.isLoaded;
