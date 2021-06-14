@@ -175,10 +175,16 @@ video {
 	display: none;
 }
 
-.termcontainer p {
+.termcontainer p,
+.termcontainer a {
 	/* text-align: center; */
 	color: rgb(220, 220, 220);
 	font-family: "Roboto";
+}
+
+.termcontainer p div {
+	margin-top: 1rem;
+	text-align: center;
 }
 
 .uploadcontainer {
