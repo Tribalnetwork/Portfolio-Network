@@ -1,3 +1,14 @@
+* {
+	text-shadow: 1px 1px 1px #000000;
+	/*
+	text-shadow: 1px 1px 1px  #000, -1px -1px 1px  #000, 1px -1px 1px  #000, -1px 1px 1px  #000;
+	*/
+	/*
+	text-shadow: .6px .6px 1px  #000, .6px .6px 1px  #000, .6px -.6px 1px  #000, -.6px .6px 1px  #000;
+	*/
+	
+}
+
 .submitcontainer {
 	width: 100%;
 	display: flex;
@@ -19,6 +30,7 @@ video {
 	left: 50%;
 	transform: translateX(-50%) translateY(-50%);
 	z-index: -1;
+	opacity: 0.60;
 }
 
 .overlayercontainer {
@@ -300,7 +312,10 @@ div.uploadcontainer div.agreement p {
 .lastinput button {
 	width: 120px;
 	padding: 5px 10px;
+	/*
 	background-color: #d4af37;
+	*/
+	background: linear-gradient(180deg, #CAAA65 8.3%, #A07923 91.19%);
 	border-radius: 15px;
 	border: 1px solid #d4af37;
 	outline: none;
@@ -328,7 +343,10 @@ div.uploadcontainer div.agreement p {
 	font-family: "roboto";
 }
 .thanks div.submitAnotherFilmButton {
+	/*
 	background-color: goldenrod;
+	*/
+	background: linear-gradient(180deg, #CAAA65 8.3%, #A07923 91.19%);
 	padding: 0.6rem 0.8rem;
 	border-radius: 0.5rem;
 }
