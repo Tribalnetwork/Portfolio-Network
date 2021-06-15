@@ -31,7 +31,7 @@ import { ReactComponent as StarRatingIcon } from "./icons/starRating__tribalBeta
 // import { Button as MaterialUiButton } from "@material-ui/core";
 import { useTheme } from "@material-ui/core/styles";
 import { useMediaQuery } from "@material-ui/core";
- import Popup from "reactjs-popup";
+import Popup from "reactjs-popup";
 // import "reactjs-popup/dist/index.css";
 import "./Home.css";
 Amplify.configure(awsconfig);
@@ -255,24 +255,15 @@ export default class Home extends React.Component {
                     this.setState({ filmRatedStars: { ...this.state.filmRatedStars, stars: resp.data.errorMessage === undefined ? resp.data.body.ratedStars : 0 } })
                   }).catch(err => {
                     console.log(err)
-                    console.log(err.response.data);
-                    console.log(err.response.status);
-                    console.log(err.response.headers);
                   });
               }
             )
             .catch(err => {
               console.log(err)
-              console.log(err.response.data);
-              console.log(err.response.status);
-              console.log(err.response.headers);
             });
 
         }).catch(err => {
           console.log(err)
-          console.log(err.response.data);
-          console.log(err.response.status);
-          console.log(err.response.headers);
         });
     }
 
@@ -472,9 +463,11 @@ export default class Home extends React.Component {
               )
             ) : (
               <div style={{ padding: '2rem' }}>
-                <h1 style={{ textAlign: "center" }}>Welcome to Tribal</h1>
-                <p style={{ textAlign: "center" }}>
-                  <Link to='/auth' style={{ color: "white" }}>Sign in</Link> or create a free <Link to='/auth' style={{ color: "white" }}>account</Link> to get started.
+                <h1 style={{ textAlign: "center", marginBottom: "0rem", fontSize: "42px", fontWeight: "500", lineHeight: "41px", letterSpacing: "0.364px" }}>Tribal Network</h1>
+                <h1 style={{ textAlign: "center", margin: "0px", fontSize: "42px", fontWeight: "500", lineHeight: "41px", letterSpacing: "0.364px" }}>Beta</h1>
+                <p style={{ textAlign: "center", marginLeft: "0px", marginRight: "0px", marginTop: "2rem", fontWeight: "500", letterSpacing: "0.364px" }}>The Social Streaming Platform for Indie Filmmakers </p>
+                <p style={{ textAlign: "center", marginTop: "5rem",  marginLeft: "2rem", marginRight: "2rem", fontWeight: "500", letterSpacing: "0.364px" }}>
+                  <Link to='/auth' style={{ color: "white" }}>Sign in</Link> or <Link to='/auth' style={{ color: "white" }}>create a free account</Link> to get started.
                 </p>
               </div>
             )

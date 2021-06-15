@@ -145,11 +145,13 @@ export const Settings__tribalBeta = () => {
                 onClick={
                   () => {
                     handleOpen();
-                    signOut();
+                    
                     setTimeout(() => {
+                      signOut();
                       handleClose();
                       history.push('/auth');
                     }, 2000);
+                    
                   }
                 }
                 className="button__link"
