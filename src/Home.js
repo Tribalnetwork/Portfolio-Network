@@ -61,7 +61,7 @@ export default class Home extends React.Component {
     }
   };
   componentDidMount() {
-
+    this.getAllFilms();
   }
 
   async findFilm(id) {
