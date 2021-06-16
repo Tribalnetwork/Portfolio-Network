@@ -3,19 +3,16 @@ import { useHistory } from 'react-router-dom'
 import { useTheme } from "@material-ui/core/styles";
 import { useMediaQuery } from "@material-ui/core";
 import "./submit.css";
-// import ReactPlayer from "react-player";
 import Select from 'react-select'
 import axios from 'axios';
 import Amplify from 'aws-amplify';
 import awsconfig from '../aws-exports';
-//import { SelectPicker } from 'rsuite';
 import VolumeUpOutlinedIcon from '@material-ui/icons/VolumeUpOutlined';
 import VolumeOffOutlinedIcon from '@material-ui/icons/VolumeOffOutlined';
 
 Amplify.configure(awsconfig);
 
-
-////It easy to add new benefit the page should be able to adjust to accordingly . 
+// It easy to add new benefit the page should be able to adjust to accordingly . 
 const benefitbullets = [
   "Get feedback from peers and supporters.",
   "Get discounted access.",
@@ -26,41 +23,26 @@ const benefitbullets = [
   " Create your portfolio right on the app.",
 ];
 
-////  gets the user id of the user logged in
-var requestingName = localStorage.getItem('CognitoIdentityServiceProvider.1t8oqsg1kvuja9u9rvd2r1a6o4.LastAuthUser');
-var requestingUserData = localStorage.getItem(`CognitoIdentityServiceProvider.1t8oqsg1kvuja9u9rvd2r1a6o4.${requestingName}.userData`);
-var parsed = JSON.parse(requestingUserData);
-var requestingId
-if (parsed == null) {
+//  gets the user id of the user logged in
+const requestingName = localStorage.getItem('CognitoIdentityServiceProvider.1t8oqsg1kvuja9u9rvd2r1a6o4.LastAuthUser');
+const requestingUserData = localStorage.getItem(`CognitoIdentityServiceProvider.1t8oqsg1kvuja9u9rvd2r1a6o4.${requestingName}.userData`);
+
+// This will return user attributes: sub, email, given_name, and varified
+const parsed = JSON.parse(requestingUserData);
+
+let requestingId = undefined
+
+if (parsed === null) {
   requestingId = 0;
 } else {
   requestingId = JSON.stringify(parsed.UserAttributes[0].Value)
 }
 
-//// Film Genre
-const options = [
-  { value: 'drama', label: 'Drama' },
-  { value: 'romance', label: 'Romance' },
-  { value: 'horror', label: 'Horror' },
-  { value: 'family', label: 'Family' },
-  { value: 'animation', label: 'Animation' },
-  { value: 'documentary', label: 'Documentary' },
-  { value: 'sport', label: 'Sport' },
-  { value: 'sci-fi', label: 'Sci-Fi' },
-  { value: 'action', label: 'Action' },
-  { value: 'comedy', label: 'Comedy' },
-  { value: 'musical', label: 'Musical' },
-  { value: 'thriller', label: 'Thriller' },
-  { value: 'experimental', label: 'Experimental' },
-  { value: 'talks', label: 'Talks' },
-]
+
 
 //// The max number of input field user on the page
 //Updated API Code and added new parameters for films
 const maxinput = 9;
-
-
-
 
 class Submit extends React.Component {
   constructor(props) {
@@ -96,12 +78,14 @@ class Submit extends React.Component {
        film_credits:"",
        film_year:"",
        film_length:""*/
-      muteVideo: false // true means mute the video and false means don't mute the video
+      muteVideo: false, // true means mute the video and false means don't mute the video
+      listGenres: []
     };
 
     this.Next = this.Next.bind(this);
     this.Previous = this.Previous.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.getGenreList = this.getGenreList.bind(this);
   }
 
   componentDidMount() {
@@ -117,8 +101,22 @@ class Submit extends React.Component {
     this.setState({ date: newdate })
     this.setState({ status: 0 });
 
+    // set genre list
+    this.getGenreList()
   }
 
+  // getGenreList from backend
+  getGenreList() {
+    // 1: get genre list from back end
+    axios.get('https://6evel85j84.execute-api.us-east-1.amazonaws.com/default/getGenresList')
+      .then(resp => {
+        let options = resp.data.body.map(item => { return { value: item.genre_id, label: item.genre_desc } })
+        // 2: set genres to select input
+        this.setState({ listGenres: options })
+      }).catch(err => {
+        console.log(err)
+      })
+  }
 
   handleChange(event) {
     this.setState({ film_genre: event.value })
@@ -144,7 +142,7 @@ class Submit extends React.Component {
           "film_submitted_date": this.state.date,
           "film_status": this.state.status,
           "film_title": this.state.film_title,
-          "film_genre": this.state.film_genre,
+          "film_genre_id": this.state.film_genre,
           "film_synopsis": this.state.film_synopsis,
           "film_link": "",
           "film_trailer": "",
@@ -422,7 +420,7 @@ class Submit extends React.Component {
               this.state.index === 5 &&
               <div className={"genre"}>
                 <Select
-                  options={options}
+                  options={this.state.listGenres}
                   placeholder={"Select Genre"}
                   styles={customStyles}
                   onChange={this.handleChange} />
