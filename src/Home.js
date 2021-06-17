@@ -134,35 +134,18 @@ export default class Home extends React.Component {
       case "highest":
         filmGroups.forEach((group) => {
           let result = group.films.sort((a, b) => {
-            var nameA = a.film_title.toUpperCase(); // ignore upper and lowercase
-            var nameB = b.film_title.toUpperCase(); // ignore upper and lowercase
-            if (nameA > nameB) {
-              return -1;
-            }
-            if (nameA < nameB) {
-              return 1;
-            }
-            return 0;
+            return a.stars_overall > b.stars_overall ? -1 : a.stars_overall < b.stars_overall ? 1: 0;
           });
           group.films = result;
         });
         this.setState({ filmGroups });
-
         break;
 
       case "lowest":
-
         filmGroups.forEach((group) => {
           let result = group.films.sort((a, b) => {
-            var nameA = a.film_title.toUpperCase(); // ignore upper and lowercase
-            var nameB = b.film_title.toUpperCase(); // ignore upper and lowercase
-            if (nameA < nameB) {
-              return -1;
-            }
-            if (nameA > nameB) {
-              return 1;
-            }
-            return 0;
+            return a.stars_overall < b.stars_overall ? -1 : a.stars_overall > b.stars_overall ? 1: 0;
+            
           });
           group.films = result;
         });
@@ -452,7 +435,7 @@ export default class Home extends React.Component {
                 <h1 style={{ textAlign: "center", marginBottom: "0rem", fontSize: "42px", fontWeight: "500", lineHeight: "41px", letterSpacing: "0.364px" }}>Tribal Network</h1>
                 <h1 style={{ textAlign: "center", margin: "0px", fontSize: "42px", fontWeight: "500", lineHeight: "41px", letterSpacing: "0.364px" }}>Beta</h1>
                 <p style={{ textAlign: "center", marginLeft: "0px", marginRight: "0px", marginTop: "2rem", fontWeight: "500", letterSpacing: "0.364px" }}>The Social Streaming Platform for Indie Filmmakers </p>
-                <p style={{ textAlign: "center", marginTop: "5rem",  marginLeft: "2rem", marginRight: "2rem", fontWeight: "500", letterSpacing: "0.364px" }}>
+                <p style={{ textAlign: "center", marginTop: "5rem", marginLeft: "2rem", marginRight: "2rem", fontWeight: "500", letterSpacing: "0.364px" }}>
                   <Link to='/auth' style={{ color: "white" }}>Sign in</Link> or <Link to='/auth' style={{ color: "white" }}>create a free account</Link> to get started.
                 </p>
               </div>
