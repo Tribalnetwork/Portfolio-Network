@@ -107,15 +107,17 @@ export default class Home extends React.Component {
       parsed.forEach((film) => {
         if (film.film_status === 1 || film.film_status === 2) {
           if (film.film_status === 2) { this.setState({ sponsorshipLabel: "This film is or contains an Advertisement, Endorsement, or Sponsorship." }) }
-          if (!categories.includes(film.film_genre)) {
-            categories.push(film.film_genre);
-            filmGroups.push({ genre: film.film_genre, films: [] });
+          // add an empty array to each genre, which means each genre is going to be a list of films
+          // step1: assign genre to an empty array
+          if (!categories.includes(film.genre_desc)) {
+            categories.push(film.genre_desc);
+            filmGroups.push({ genre: film.genre_desc, films: [] });
           }
         }
       });
-
+      // step2: put same films into genre arrays
       filmGroups.forEach((group) => {
-        group.films = parsed.filter((data) => data.film_genre === group.genre);
+        group.films = parsed.filter((data) => data.genre_desc === group.genre);
       });
 
       this.setState({ films: parsed, filmGroups: filmGroups });
@@ -123,22 +125,6 @@ export default class Home extends React.Component {
       console.log(err);
     }
   }
-
-  changeGenres(genre) {
-    if (genre === "d") {
-      return "Drama";
-    }
-    if (genre === "e") {
-      return "Experimental";
-    }
-
-    if (genre === "c") {
-      return "Comedy";
-    } else {
-      return genre;
-    }
-  }
-
   setName(name) {
     this.setState({ videoName: name });
   }
@@ -430,7 +416,7 @@ export default class Home extends React.Component {
                     </div>
                     {filmGroups.map((group, index) => (
                       <FilmCat
-                        title={this.changeGenres(group.genre)}
+                        title={group.genre}
                         films={group.films}
                         key={index}
                         setName={this.setName.bind(this)}
