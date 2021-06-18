@@ -555,8 +555,9 @@ const Reload = () => {
 //// React Selecter custom styler
 const customStyles = {
   menu: (provided, state) => ({
-    backgroundColor: "transparent"
-
+    backgroundColor: "transparent",
+    overflowY: "auto",
+    height: "50vh"
   }),
 
   control: (_, { selectProps: { width } }) => ({
