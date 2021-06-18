@@ -557,7 +557,7 @@ const customStyles = {
   menu: (provided, state) => ({
     backgroundColor: "transparent",
     overflowY: "auto",
-    height: "50vh"
+    height: "70vh"
   }),
 
   control: (_, { selectProps: { width } }) => ({
