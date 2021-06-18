@@ -32,6 +32,8 @@
   border: none;
   height: 178px !important;
   width: 250px !important;
+  left: 50% !important;
+  transform: translateX(-50%);
   background-color: rgb(30, 30, 30, 0.95) !important;
 }
 [role="tooltip"].popup-content {

@@ -134,7 +134,7 @@ export default class Home extends React.Component {
       case "highest":
         filmGroups.forEach((group) => {
           let result = group.films.sort((a, b) => {
-            return a.stars_overall > b.stars_overall ? -1 : a.stars_overall < b.stars_overall ? 1: 0;
+            return a.stars_overall > b.stars_overall ? -1 : a.stars_overall < b.stars_overall ? 1 : 0;
           });
           group.films = result;
         });
@@ -144,8 +144,8 @@ export default class Home extends React.Component {
       case "lowest":
         filmGroups.forEach((group) => {
           let result = group.films.sort((a, b) => {
-            return a.stars_overall < b.stars_overall ? -1 : a.stars_overall > b.stars_overall ? 1: 0;
-            
+            return a.stars_overall < b.stars_overall ? -1 : a.stars_overall > b.stars_overall ? 1 : 0;
+
           });
           group.films = result;
         });
@@ -297,26 +297,14 @@ export default class Home extends React.Component {
                   <div className="functionbar-wrapper">
                     <Grid container justify="center" style={{ height: '87px', alignItems: 'center' }}>
                       <Grid item>
-                        {/*<Link to={'/explore'}><ExploreLogo></ExploreLogo></Link>*/}
-                        {/*<StarRating></StarRating>*/}
-                        {/*<Link to={'/sub'} style={styles.buttonLink}>*/}
-                        {/*<RatingButton className="RateAndSubmit__tribalBeta" />*/}
                         <Popup
-
-                          trigger={(open) => (
-                            <RatingButton className="RateAndSubmit__tribalBeta" />
-                          )}
-                          position="bottom left"
-                          closeOnDocumentClick
-                        >
+                          trigger={(open) => (<RatingButton className="RateAndSubmit__tribalBeta" />)}
+                          // position="center center"
+                          closeOnDocumentClick>
                           <div className="ratingPopup__tribalBetaHome">
-                            <h3 className="titlePopup__tribalBetaHome">
-                              Rate This Film
-                            </h3>
+                            <h3 className="titlePopup__tribalBetaHome">Rate This Film</h3>
                             <div className="overall__tribalBetaHome">
-                              <span className="overallStar__tribalBetaHome">
-                                Overall
-                              </span>
+                              <span className="overallStar__tribalBetaHome">Overall</span>
                               {/* rated stars */}
                               {
                                 this.state.filmRatedStars.filmId !== undefined ?
@@ -329,36 +317,19 @@ export default class Home extends React.Component {
                                   </span>
                                   : null
                               }
-
                             </div>
-                            {/* <div className="popupBottom">
-                              <span className="cancel__tribalBetaHome">
-                                Cancel
-                              </span>
-                              <span className="send__tribalBetaHome">Send</span>
-                            </div> */}
                           </div>
                         </Popup>
-                        {/*</Link>*/}
+
                       </Grid>
                       <Grid item>
-                        {/*<Link to={'/mystudio/myFolder'}><MyStudioLogo></MyStudioLogo></Link>*/}
-                        {/*<Link to={'/submit'} style={styles.buttonLink}>*/}
-                        {/*<MaterialUiButton style={styles.MaterialUiButton}>Submit</MaterialUiButton>*/}
-                        {/*<SubmitButton className="RateAndSubmit__tribalBeta" />*/}
-                        {/*<SubmitButton className="RateAndSubmit__tribalBeta" />
-                         */}
                         <Popup
-                          trigger={(open) => (
-                            <SubmitButton className="RateAndSubmit__tribalBeta" />
-                          )}
-                          position="center center"
-                          closeOnDocumentClick
-                        >
+                          trigger={(open) => (<SubmitButton className="RateAndSubmit__tribalBeta" />)}
+                          // position="center center"
+                          closeOnDocumentClick>
                           <SubmitFilmButton />
-
                         </Popup>
-                        {/*</Link>*/}
+
                       </Grid>
                     </Grid>
                   </div>

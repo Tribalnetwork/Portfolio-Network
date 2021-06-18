@@ -66,18 +66,6 @@ export const Settings__tribalBeta = () => {
 
       <div className="settings">
 
-        {/* <div className="button__withArrow buttonArrow__tribalBeta"> */}
-        {/* <Link
-            className="button__link"
-            to={"/settings/mobileapp"}
-            style={{ textDecoration: "none" }}
-          > */}
-        {/* <Button className="settings__Button settingsButton__tribalBeta">Mobile App</Button> */}
-        {/*<KeyboardArrowRightIcon fontSize="large" className="rightIcon" />*/}
-        {/* <ArrowIcon fontSize="large" className="settingsRightIcon__tribalBeta" /> */}
-        {/* </Link> */}
-        {/* </div> */}
-
         {/* suport */}
         <div className="button__withArrow buttonArrow__tribalBeta">
           <Link
@@ -175,7 +163,7 @@ const logoutStyle = {
     fontSize: '30px',
     color: 'white',
     background: 'repeating-linear-gradient(30deg, #121215, #2c2c2e )',
-    lineHeight: '18px',
+    // lineHeight: '18px',
     letterSpacing: '-0.08px',
     textAlign: 'center',
     padding: '4rem',
