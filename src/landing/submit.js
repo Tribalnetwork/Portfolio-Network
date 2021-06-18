@@ -42,7 +42,7 @@ if (parsed === null) {
 
 //// The max number of input field user on the page
 //Updated API Code and added new parameters for films
-const maxinput = 9;
+const maxinput = 8;
 
 class Submit extends React.Component {
   constructor(props) {
@@ -371,7 +371,7 @@ class Submit extends React.Component {
                   <strong>Terms and Conditions</strong> <br />
                   by clicking next, you agree on Terms and Conditions. <br />
                   <div>
-                    <a href="https://drive.google.com/file/d/1gI65dx69IBCAzFRvAgZ4Kl0EAUt9pxxm/view" target="_blank">
+                    <a href="https://drive.google.com/file/d/1gI65dx69IBCAzFRvAgZ4Kl0EAUt9pxxm/view" target="_blank" rel="noopener noreferrer">
                       Read terms and conditions
                     </a>
                   </div>
@@ -428,7 +428,7 @@ class Submit extends React.Component {
             }
 
             {/* Trailer */}
-            {
+            {/* {
               this.state.index === 6 &&
               <div className={"uploadcontainer"}>
                 <label for="Trailer">Upload Your Trailer</label>
@@ -439,10 +439,10 @@ class Submit extends React.Component {
                   onChange={(value) => this.setState({ FilmTrailerInput: value.target.files[0] })}
                 />
               </div>
-            }
+            } */}
             {/* Synopsis */}
             {
-              this.state.index === 7 &&
+              this.state.index === 6 &&
               <div className={"uploadcontainer"}>
                 <label for="Synopsis">Synopsis</label>
                 <textarea name="message" rows="10" cols="30"
@@ -462,7 +462,7 @@ class Submit extends React.Component {
             }
 
             {/* film cover art */}
-            {this.state.index === 8 &&
+            {this.state.index === 7 &&
               <div className={"uploadcontainer"}>
                 <label for="Coverart">Upload Your CoverArt</label>
                 <input type="file" accept="image/*" required
