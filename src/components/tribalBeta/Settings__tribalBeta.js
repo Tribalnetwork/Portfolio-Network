@@ -63,9 +63,25 @@ export const Settings__tribalBeta = () => {
         </IconButton>
         <h2 className="text settingText__tribalBeta">Settings</h2>
       </div>
-
       <div className="settings">
-
+        {/*
+        <div>
+          <p>Total Stars: 0</p>
+          <p>Total Views: 0</p>
+        </div>
+        */}
+        {/* my films */}
+        <div className="button__withArrow buttonArrow__tribalBeta">
+          <Link
+            className="button__link"
+            to={"/settings/myfilms"}
+            style={{ textDecoration: "none" }}
+          >
+            <Button className="settings__Button settingsButton__tribalBeta">My Films</Button>
+            {/*<KeyboardArrowRightIcon fontSize="large" className="rightIcon" />*/}
+            <ArrowIcon fontSize="large" className="settingsRightIcon__tribalBeta" />
+          </Link>
+        </div>
         {/* suport */}
         <div className="button__withArrow buttonArrow__tribalBeta">
           <Link

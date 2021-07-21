@@ -43,6 +43,7 @@ import SupportTribalBeta from "./components/tribalBeta/Support__tribalBeta";
 import TermsOfServiceTribalBeta from "./components/tribalBeta/TermsOfService__tribalBeta";
 import TipsAndSupportTribalBeta from "./components/tribalBeta/TipsAndSupport__tribalBeta";
 import ContactUsTribalBeta from "./components/tribalBeta/ContactUs__tribalBeta";
+import MyFilms from "./components/tribalBeta/MyFilms__tribalBeta";
 import Signin from './SignIn'
 import GetFilmList from "./components/GetFilmList"
 // import SportsPage from "./ExplorePage/SportsPage";
@@ -118,6 +119,9 @@ const Routes = () => {
         <NavigationBar />
         <Switch>
           <Route path="/getFilmList" exact component={GetFilmList} />
+          <Route path="/settings/myfilms" exact component={PrivacyPolicyTribalBeta}>
+            <MyFilms />
+          </Route>
           <Route path="/settings/mobileapp" exact component={MobileAppTribalBeta}>
             {/* <MobileApp__tribalBeta /> */}
             <FeatureComingSoon />
