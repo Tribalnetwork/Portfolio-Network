@@ -263,7 +263,7 @@ export default class Home extends React.Component {
         </Helmet>
         <div style={styles.container}>
           {isLoaded ? (
-            isAuthenticated ? (
+            //isAuthenticated ? (
               hasAccess ? (
                 <div>
                   <div className="player-wrapper">
@@ -338,7 +338,7 @@ export default class Home extends React.Component {
                       <button
                         className="filtering-btn1"
                         onClick={() => {
-                          this.sortByRating(this.state.filmGroups, "lowest");
+                          this.sortByRating(this.state.filmGroups, "highest");
                           let btn = document.querySelector(".filtering-btn1");
                           btn.classList.add("active-filtered-button");
                           btn = document.querySelector(".filtering-btn2");
@@ -354,7 +354,7 @@ export default class Home extends React.Component {
                       <button
                         className="filtering-btn2"
                         onClick={() => {
-                          this.sortByRating(this.state.filmGroups, "highest");
+                          this.sortByRating(this.state.filmGroups, "lowest");
                           let btn = document.querySelector(".filtering-btn2");
                           btn.classList.add("active-filtered-button");
                           btn = document.querySelector(".filtering-btn1");
@@ -388,6 +388,21 @@ export default class Home extends React.Component {
                         }}
                       />
                     ))}
+                    {
+                      
+                    //My history category
+                    /*
+                    <div className="trendy-wrapper">
+                      <p className="title__tribalBetaHome">My History</p>
+                        <HorizontalScrollerCircular
+                          list={filmGroups[0].films}
+                          findFilm={this.findFilm.bind(this)}
+                          setName={this.setName.bind(this)}
+                          handleClick={() => {}}
+                        />
+                    </div>
+                    */
+                  }
                   </div>
                 </div>
               ) : (
@@ -401,7 +416,7 @@ export default class Home extends React.Component {
                   </>
                 </div>
               )
-            ) : (
+            ) : /*(
               <div style={{ padding: '2rem' }}>
                 <h1 style={{ textAlign: "center", marginBottom: "0rem", fontSize: "42px", fontWeight: "500", lineHeight: "41px", letterSpacing: "0.364px" }}>Tribal Network</h1>
                 <h1 style={{ textAlign: "center", margin: "0px", fontSize: "42px", fontWeight: "500", lineHeight: "41px", letterSpacing: "0.364px" }}>Beta</h1>
@@ -411,7 +426,7 @@ export default class Home extends React.Component {
                 </p>
               </div>
             )
-          ) : null}
+          ) :*/ null}
         </div>
         <div> <AdSense.Google
           client='ca-pub-9377248146857874'
