@@ -33,7 +33,7 @@ import Events from "./Events/Events"
 import PostEvent from "./Events/PostEvent"
 import Eventdetail from "./Events/Eventdetail"
 import MyProfile from "./ProfilePage/Profile.js"*/
-import Home from "./Home"
+import Main from "./components/pages/home/Main"
 //import ConnectList from "./SocialPage/ConnectList"
 import { FeatureComingSoon } from "./components/FeatureComingSoon";
 import { Settings__tribalBeta as SettingsTribalBeta } from "./components/tribalBeta/Settings__tribalBeta";
@@ -201,8 +201,8 @@ const Routes = () => {
           <Route path="/explore/documentary"><FeatureComingSoon /></Route>
           <Route path="/explore/watchrandom"><FeatureComingSoon /></Route>
           <Route path="/auth" exact component={Authenticator} />
-          <Route path="/" exact component={Home} />
-          <Route path="/home" exact component={Home} />
+          <Route path="/" exact component={Main} />
+          <Route path="/Main" exact component={Main} />
           <Route path="/landing/landing-home" exact component={FeatureComingSoon} />
           {/* Submit */}
           <Route path="/submit" exact component={isThereSignedUser ? Submit : Authenticator} />
