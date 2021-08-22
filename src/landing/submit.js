@@ -9,8 +9,9 @@ import Amplify from 'aws-amplify';
 import awsconfig from '../aws-exports';
 import VolumeUpOutlinedIcon from '@material-ui/icons/VolumeUpOutlined';
 import VolumeOffOutlinedIcon from '@material-ui/icons/VolumeOffOutlined';
-
+import UserContext from "../UserContext";
 Amplify.configure(awsconfig);
+
 
 // It easy to add new benefit the page should be able to adjust to accordingly . 
 const benefitbullets = [
@@ -24,19 +25,19 @@ const benefitbullets = [
 ];
 
 //  gets the user id of the user logged in
-const requestingName = localStorage.getItem('CognitoIdentityServiceProvider.1t8oqsg1kvuja9u9rvd2r1a6o4.LastAuthUser');
-const requestingUserData = localStorage.getItem(`CognitoIdentityServiceProvider.1t8oqsg1kvuja9u9rvd2r1a6o4.${requestingName}.userData`);
+// const requestingName = localStorage.getItem('CognitoIdentityServiceProvider.1t8oqsg1kvuja9u9rvd2r1a6o4.LastAuthUser');
+// const requestingUserData = localStorage.getItem(`CognitoIdentityServiceProvider.1t8oqsg1kvuja9u9rvd2r1a6o4.${requestingName}.userData`);
 
 // This will return user attributes: sub, email, given_name, and varified
-const parsed = JSON.parse(requestingUserData);
+// const parsed = JSON.parse(requestingUserData);
 
-let requestingId = undefined
+// let requestingId = undefined
 
-if (parsed === null) {
-  requestingId = 0;
-} else {
-  requestingId = JSON.stringify(parsed.UserAttributes[0].Value)
-}
+// if (parsed === null) {
+//   requestingId = 0;
+// } else {
+//   requestingId = JSON.stringify(parsed.UserAttributes[0].Value)
+// }
 
 
 
@@ -45,6 +46,8 @@ if (parsed === null) {
 const maxinput = 8;
 
 class Submit extends React.Component {
+  static contextType = UserContext;
+  
   constructor(props) {
     super(props);
 
@@ -53,14 +56,13 @@ class Submit extends React.Component {
       index: 0,  // index is the current input that display on the webpage
       Require: "",          // I use this required field to keep track of what input field user skip to give prompt to complete
       Film_id: "",    // FIlm ID create by using get New Date time stamp 
-      user_id: "",
       Email: "",
       Phone: "",
       FilmInput: "",      //The Film user is uploading 
       FilmTrailerInput: "",  //Film Trailer user uploading Currently optional 
       film_cover_art: "",
       film_genre: "",
-      film_status: 0,
+      film_status: 1,
       film_synopsis: "",
       film_title: "",
       url: "",
@@ -91,7 +93,7 @@ class Submit extends React.Component {
   componentDidMount() {
     this.setState({ MovieID: ((new Date()).getTime()) })
     this.setState({ film_status: 0 })
-    this.setState({ user_id: requestingId })
+    // this.setState({ user_id: requestingId })
 
     var dateObj = new Date();
     var month = dateObj.getUTCMonth() + 1; //months from 1-12
@@ -134,11 +136,12 @@ class Submit extends React.Component {
 
 
   Submit = () => {
+    // console.log(this.context.user.attributes.sub )
     this.Next();
     setTimeout(() => {
       if (this.state.readyToSubmit === true) {
         let formData = {
-          "user_id": this.state.user_id,
+          "user_id": this.context.user.attributes.sub,
           "film_submitted_date": this.state.date,
           "film_status": this.state.status,
           "film_title": this.state.film_title,
