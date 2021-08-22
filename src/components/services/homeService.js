@@ -11,6 +11,9 @@ export async function getAllFilms(){
 
         let parsed = JSON.parse(response.data.body);
 
+
+        console.log(parsed)
+
         let filmGroups = [];
         let categories = [];
         parsed.forEach((film) => {

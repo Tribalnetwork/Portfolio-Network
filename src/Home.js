@@ -105,14 +105,12 @@ export default class Home extends React.Component {
       let filmGroups = [];
       let categories = [];
       parsed.forEach((film) => {
-        if (film.film_status === 1 || film.film_status === 2) {
-          if (film.film_status === 2) { this.setState({ sponsorshipLabel: "This film is or contains an Advertisement, Endorsement, or Sponsorship." }) }
-          // add an empty array to each genre, which means each genre is going to be a list of films
-          // step1: assign genre to an empty array
-          if (!categories.includes(film.genre_desc)) {
-            categories.push(film.genre_desc);
-            filmGroups.push({ genre: film.genre_desc, films: [] });
-          }
+        if (film.film_status === 2) { this.setState({ sponsorshipLabel: "This film is or contains an Advertisement, Endorsement, or Sponsorship." }) }
+        // add an empty array to each genre, which means each genre is going to be a list of films
+        // step1: assign genre to an empty array
+        if (!categories.includes(film.genre_desc)) {
+          categories.push(film.genre_desc);
+          filmGroups.push({ genre: film.genre_desc, films: [] });
         }
       });
       // step2: put same films into genre arrays
@@ -264,132 +262,132 @@ export default class Home extends React.Component {
         <div style={styles.container}>
           {isLoaded ? (
             //isAuthenticated ? (
-              hasAccess ? (
-                <div>
-                  <div className="player-wrapper">
-                    <ReactPlayer
-                      className="react-player"
-                      ref={(p) => {
-                        this.p = p;
-                      }}
-                      url={this.state.url}
-                      controls
-                      playing
-                      volume={0}
-                      muted
-                      onEnded={() => this.p.showPreview()}
-                      // SHOWS THE CONTROLS????
-                      // width="100%"
-                      // height="auto"
-                      width="100%"
-                      height="100%"
-                    />
-                    {/*<div className="video-name-wrapper">
+            hasAccess ? (
+              <div>
+                <div className="player-wrapper">
+                  <ReactPlayer
+                    className="react-player"
+                    ref={(p) => {
+                      this.p = p;
+                    }}
+                    url={this.state.url}
+                    controls
+                    playing
+                    volume={0}
+                    muted
+                    onEnded={() => this.p.showPreview()}
+                    // SHOWS THE CONTROLS????
+                    // width="100%"
+                    // height="auto"
+                    width="100%"
+                    height="100%"
+                  />
+                  {/*<div className="video-name-wrapper">
                     <p className="video-name videoName__tribalBetaHome">{this.state.videoName}</p>
                   </div>*/}
-                  </div>
-                  <div className="video-name-wrapper">
-                    <p className="video-name title__tribalBetaHome">
-                      {this.state.videoName}
-                    </p><br />
-                    <p>{this.state.sponsorshipLabel}</p>
-                  </div>
-                  <div className="functionbar-wrapper">
-                    <Grid container justify="center" style={{ height: '87px', alignItems: 'center' }}>
-                      <Grid item>
-                        <Popup
-                          trigger={(open) => (<RatingButton className="RateAndSubmit__tribalBeta" />)}
-                          // position="center center"
-                          closeOnDocumentClick>
-                          <div className="ratingPopup__tribalBetaHome">
-                            <h3 className="titlePopup__tribalBetaHome">Rate This Film</h3>
-                            <div className="overall__tribalBetaHome">
-                              <span className="overallStar__tribalBetaHome">Overall</span>
-                              {/* rated stars */}
-                              {
-                                this.state.filmRatedStars.filmId !== undefined ?
-                                  <span>
-                                    {this.state.filmRatedStars.stars > 0 ? <img src="/starForFilmOrdering.svg" alt="rate" onClick={() => this.updateRatingStars(1)} /> : <StarRatingIcon onClick={() => this.updateRatingStars(1)} />}
-                                    {this.state.filmRatedStars.stars > 1 ? <img src="/starForFilmOrdering.svg" alt="rate" onClick={() => this.updateRatingStars(2)} /> : <StarRatingIcon onClick={() => this.updateRatingStars(2)} />}
-                                    {this.state.filmRatedStars.stars > 2 ? <img src="/starForFilmOrdering.svg" alt="rate" onClick={() => this.updateRatingStars(3)} /> : <StarRatingIcon onClick={() => this.updateRatingStars(3)} />}
-                                    {this.state.filmRatedStars.stars > 3 ? <img src="/starForFilmOrdering.svg" alt="rate" onClick={() => this.updateRatingStars(4)} /> : <StarRatingIcon onClick={() => this.updateRatingStars(4)} />}
-                                    {this.state.filmRatedStars.stars > 4 ? <img src="/starForFilmOrdering.svg" alt="rate" onClick={() => this.updateRatingStars(5)} /> : <StarRatingIcon onClick={() => this.updateRatingStars(5)} />}
-                                  </span>
-                                  : null
-                              }
-                            </div>
+                </div>
+                <div className="video-name-wrapper">
+                  <p className="video-name title__tribalBetaHome">
+                    {this.state.videoName}
+                  </p><br />
+                  <p>{this.state.sponsorshipLabel}</p>
+                </div>
+                <div className="functionbar-wrapper">
+                  <Grid container justify="center" style={{ height: '87px', alignItems: 'center' }}>
+                    <Grid item>
+                      <Popup
+                        trigger={(open) => (<RatingButton className="RateAndSubmit__tribalBeta" />)}
+                        // position="center center"
+                        closeOnDocumentClick>
+                        <div className="ratingPopup__tribalBetaHome">
+                          <h3 className="titlePopup__tribalBetaHome">Rate This Film</h3>
+                          <div className="overall__tribalBetaHome">
+                            <span className="overallStar__tribalBetaHome">Overall</span>
+                            {/* rated stars */}
+                            {
+                              this.state.filmRatedStars.filmId !== undefined ?
+                                <span>
+                                  {this.state.filmRatedStars.stars > 0 ? <img src="/starForFilmOrdering.svg" alt="rate" onClick={() => this.updateRatingStars(1)} /> : <StarRatingIcon onClick={() => this.updateRatingStars(1)} />}
+                                  {this.state.filmRatedStars.stars > 1 ? <img src="/starForFilmOrdering.svg" alt="rate" onClick={() => this.updateRatingStars(2)} /> : <StarRatingIcon onClick={() => this.updateRatingStars(2)} />}
+                                  {this.state.filmRatedStars.stars > 2 ? <img src="/starForFilmOrdering.svg" alt="rate" onClick={() => this.updateRatingStars(3)} /> : <StarRatingIcon onClick={() => this.updateRatingStars(3)} />}
+                                  {this.state.filmRatedStars.stars > 3 ? <img src="/starForFilmOrdering.svg" alt="rate" onClick={() => this.updateRatingStars(4)} /> : <StarRatingIcon onClick={() => this.updateRatingStars(4)} />}
+                                  {this.state.filmRatedStars.stars > 4 ? <img src="/starForFilmOrdering.svg" alt="rate" onClick={() => this.updateRatingStars(5)} /> : <StarRatingIcon onClick={() => this.updateRatingStars(5)} />}
+                                </span>
+                                : null
+                            }
                           </div>
-                        </Popup>
+                        </div>
+                      </Popup>
 
-                      </Grid>
-                      <Grid item>
-                        <Popup
-                          trigger={(open) => (<SubmitButton className="RateAndSubmit__tribalBeta" />)}
-                          // position="center center"
-                          closeOnDocumentClick>
-                          <SubmitFilmButton />
-                        </Popup>
-
-                      </Grid>
                     </Grid>
-                  </div>
-                  <div className="film-lists">
-                    <div className="filter-buttons">
-                      <button
-                        className="filtering-btn1"
-                        onClick={() => {
-                          this.sortByRating(this.state.filmGroups, "highest");
-                          let btn = document.querySelector(".filtering-btn1");
-                          btn.classList.add("active-filtered-button");
-                          btn = document.querySelector(".filtering-btn2");
-                          btn.classList.remove("active-filtered-button");
-                        }}
-                      >
-                        <img src="/starForFilmOrdering.svg" alt="rate" />
-                        <ExpandMoreRoundedIcon
-                          fontSize="large"
-                          style={{ color: "white" }}
-                        />
-                      </button>
-                      <button
-                        className="filtering-btn2"
-                        onClick={() => {
-                          this.sortByRating(this.state.filmGroups, "lowest");
-                          let btn = document.querySelector(".filtering-btn2");
-                          btn.classList.add("active-filtered-button");
-                          btn = document.querySelector(".filtering-btn1");
-                          btn.classList.remove("active-filtered-button");
-                        }}
-                      >
-                        <img src="/starForFilmOrdering.svg" alt="rate" />
-                        <ExpandLessRoundedIcon
-                          fontSize="large"
-                          style={{ color: "white" }}
-                        />
-                      </button>
-                    </div>
-                    {filmGroups.map((group, index) => (
-                      <FilmCat
-                        title={group.genre}
-                        films={group.films}
-                        key={index}
-                        setName={this.setName.bind(this)}
-                        findFilm={this.findFilm.bind(this)}
-                        handleClick={() => {
-                          let element = filmGroups[index];
-                          const myList = filmGroups.filter(
-                            (_, filterIndex) => index !== filterIndex
-                          );
-                          // console.log(myList)
-                          myList.unshift(element);
-                          this.setState({
-                            filmGroups: myList,
-                          });
-                        }}
+                    <Grid item>
+                      <Popup
+                        trigger={(open) => (<SubmitButton className="RateAndSubmit__tribalBeta" />)}
+                        // position="center center"
+                        closeOnDocumentClick>
+                        <SubmitFilmButton />
+                      </Popup>
+
+                    </Grid>
+                  </Grid>
+                </div>
+                <div className="film-lists">
+                  <div className="filter-buttons">
+                    <button
+                      className="filtering-btn1"
+                      onClick={() => {
+                        this.sortByRating(this.state.filmGroups, "highest");
+                        let btn = document.querySelector(".filtering-btn1");
+                        btn.classList.add("active-filtered-button");
+                        btn = document.querySelector(".filtering-btn2");
+                        btn.classList.remove("active-filtered-button");
+                      }}
+                    >
+                      <img src="/starForFilmOrdering.svg" alt="rate" />
+                      <ExpandMoreRoundedIcon
+                        fontSize="large"
+                        style={{ color: "white" }}
                       />
-                    ))}
-                    {
-                      
+                    </button>
+                    <button
+                      className="filtering-btn2"
+                      onClick={() => {
+                        this.sortByRating(this.state.filmGroups, "lowest");
+                        let btn = document.querySelector(".filtering-btn2");
+                        btn.classList.add("active-filtered-button");
+                        btn = document.querySelector(".filtering-btn1");
+                        btn.classList.remove("active-filtered-button");
+                      }}
+                    >
+                      <img src="/starForFilmOrdering.svg" alt="rate" />
+                      <ExpandLessRoundedIcon
+                        fontSize="large"
+                        style={{ color: "white" }}
+                      />
+                    </button>
+                  </div>
+                  {filmGroups.map((group, index) => (
+                    <FilmCat
+                      title={group.genre}
+                      films={group.films}
+                      key={index}
+                      setName={this.setName.bind(this)}
+                      findFilm={this.findFilm.bind(this)}
+                      handleClick={() => {
+                        let element = filmGroups[index];
+                        const myList = filmGroups.filter(
+                          (_, filterIndex) => index !== filterIndex
+                        );
+                        // console.log(myList)
+                        myList.unshift(element);
+                        this.setState({
+                          filmGroups: myList,
+                        });
+                      }}
+                    />
+                  ))}
+                  {
+
                     //My history category
                     /*
                     <div className="trendy-wrapper">
@@ -403,20 +401,20 @@ export default class Home extends React.Component {
                     </div>
                     */
                   }
-                  </div>
                 </div>
-              ) : (
-                <div>
-                  <>
-                    <h1>Free Trial Ended</h1>
-                    <p>Your 5 hour free trial has ended.</p>
-                    <Link to="/getaccess" style={styles.link}>
-                      <Button title="Get Full Access" />
-                    </Link>
-                  </>
-                </div>
-              )
-            ) : /*(
+              </div>
+            ) : (
+              <div>
+                <>
+                  <h1>Free Trial Ended</h1>
+                  <p>Your 5 hour free trial has ended.</p>
+                  <Link to="/getaccess" style={styles.link}>
+                    <Button title="Get Full Access" />
+                  </Link>
+                </>
+              </div>
+            )
+          ) : /*(
               <div style={{ padding: '2rem' }}>
                 <h1 style={{ textAlign: "center", marginBottom: "0rem", fontSize: "42px", fontWeight: "500", lineHeight: "41px", letterSpacing: "0.364px" }}>Tribal Network</h1>
                 <h1 style={{ textAlign: "center", margin: "0px", fontSize: "42px", fontWeight: "500", lineHeight: "41px", letterSpacing: "0.364px" }}>Beta</h1>
