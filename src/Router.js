@@ -13,10 +13,11 @@ import Watch from './Watch'
 /*import { Upload } from './Upload';
 import Landing from './landing/landing-home.js'*/
 import Submit from './landing/submit'
-/*import Live from './Live'
-import { Stream } from './TribalPage/Stream'
+/*import Live from './Live'*/
+import NewStream from './TribalPage/NewStream'
+import Player from './TribalPage/react-node-video-streaming/client/Player'
 import Profile from './SocialPage/Profile'
-import GetAccess from './GetAccess'
+/*import GetAccess from './GetAccess'
 import Pending from './Pending'
 import { MyLive } from './MyLive'*/
 import BottomNavBar from './components/bottomNavBar'
@@ -211,11 +212,12 @@ const Routes = () => {
           <Route path="/myStudio/myFolder" exact component={FeatureComingSoon} />
           <Route path="/myStudio/toDoList" exact component={FeatureComingSoon} />
           <PrivateRoute path="/upload" exact component={FeatureComingSoon} />
-          <PrivateRoute path="/streams" component={FeatureComingSoon} />
+          <PrivateRoute path="/NewStream" component={NewStream} />
+          <Route path="/player/:id" component={Player}></Route>
           <PrivateRoute path="/watch" component={Watch} />
 
           <PrivateRoute path="/live" component={FeatureComingSoon} />
-          <PrivateRoute path="/profile" component={FeatureComingSoon} />
+          <PrivateRoute path="/profile" component={Profile} />
           <PrivateRoute path="/myprofile" component={FeatureComingSoon} />
           <PrivateRoute path="/getaccess" component={FeatureComingSoon} />
           <PrivateRoute path="/pending" component={FeatureComingSoon} />

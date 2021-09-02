@@ -1,0 +1,130 @@
+/*.currentStreams {
+
+	background-color: transparent;
+	position: absolute;
+	top: '-160px';
+	margin: '0';
+
+}*/
+
+.App-header {
+    min-height: 10vh;
+    color: white;
+}
+/*header, footer {
+    background-color: #374153;
+    text-align: center;
+    color: white;
+    padding: 10px 0;
+}
+header {
+    margin-bottom: 50px;
+    font-size: 28px;
+}
+footer {
+    margin-top: 50px;
+    font-size: 14px;
+}*/
+.card {
+    margin: 10px 0;
+}
+a, a:hover {
+    color: #282c34;
+    text-decoration: none;
+}
+video {
+    width: 100%;
+    height: 25vh;
+}
+img {
+    height: 250px;
+    object-fit: cover;
+    object-position: center top;
+}
+p {
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+
+.wrapper {
+	width: 100vw;
+	height: 20vh;
+	text-align: left;
+}
+
+.wrapper-first {
+	width: 60vw;
+	height: 100vh;
+	text-align: left;
+}
+
+.item {
+	width: 31vw;
+	height: 50vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.item-first {
+	width: 31vw;
+	height: 50vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.FriendImg {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	object-fit: cover;
+	margin-right: 10px;
+}
+
+.Friend {
+	width: 20vw;
+	height: 20vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+
+
+/*.wrapper {
+    overflow-x: auto;
+    
+    height: 320px;
+    border: 1px solid #ddd;
+    display: flex;
+}
+
+.wrapper::-webkit-scrollbar {
+	width: 0;
+}
+  
+.wrapper .item {
+    
+    min-width: 110px;
+    height: 110px;
+    line-height: 40px;
+    text-align: center;
+    margin-right: 10px;
+}*/
+/* Decorations */
+  
+/*.col-xs-4 {
+    color: white;
+    font-size: 24px;
+    padding-bottom: 20px;
+    padding-top: 18px;
+}*/
+  
+/*.col-xs-4:nth-child(2n+1) {
+    background: green;
+}
+  
+.col-xs-4:nth-child(2n+2) {
+    background: black;
+}*/
