@@ -1,281 +1,357 @@
-body{
-overflow: auto;
-overflow-x: hidden;
+body {
+	overflow: auto;
+	overflow-x: hidden;
+}
+
+.bodycontainer {
+	width: 100%;
+	height: auto;
+	display: flex;
+	flex-direction: column;
+	/*background-color: red;*/
+}
+.container {
+	background-color: #15161b;
+	width: 100%;
+	height: 478px;
+	border-radius: 30px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border: 2px solid #887d3b;
+}
+
+.profileimagecontainer {
+	flex-direction: row;
+	width: 100%;
+	height: 210px;
+	margin: 0 auto;
+	justify-content: center;
+	align-items: center;
+}
+
+.profileimage {
+	max-width: 210px;
+	max-height: 210px;
+	border-radius: 50%;
+	margin-top: 10px;
+	border: 2px solid #887d3b;
+}
+
+.arrownavigation {
+	color: grey;
+	margin-bottom: 105px;
+	margin-left: 8%;
+	margin-right: 8%;
+}
+
+/* Making sure font-size for h1.welcomText will remain: 30px */
+.welcomeText {
+	color: #ffffff;
+	font-family: Roboto;
+	font-style: normal;
+	font-weight: normal;
+	/* adding !important */
+	font-size: 25px !important;
+	line-height: 35px;
 }
 
 
-.bodycontainer
-{
-    width:100%;
-   height: auto;
-    display: flex;
-    flex-direction: column;
-    /*background-color: red;*/
-
- 
-   
-   
-}
-.container{
-    background-color:#15161B ;
-    width:100%;
-    height: 478px;
-    border-radius: 15px;
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-     justify-content: center;
-     border: 2px solid #887d3b; 
- 
-}
-
-
-.profileimagecontainer{
-   flex-direction: row;
-   width: 100%;
-   height: 210px;
-    margin: 0 auto;
-    justify-content: center;
-    align-items: center;
-}
-
-.profileimage{
-
- max-width: 210px;
- max-height:210px;
- border-radius: 50%;
- margin-top:10px;
- border: 2px solid #887d3b;
-}
-
-.arrownavigation{
-    color: grey;
-    margin-bottom: 105px;
-    margin-left: 8%;
-    margin-right: 8%;
-   
-
-     
-}
-
-.welcomeText{
-
-color: #ffffff;
-font-family: Roboto;
-font-style: normal;
-font-weight: normal;
-font-size: 30px;
-line-height: 35px;
-}
-
-.username{
-
- color: #ffffff;
- font-family: Roboto;
-font-style: normal;
-font-weight: normal;
-font-size: 20px;
-line-height: 23px;
-text-align: center;
-}
-
-
-
-.iconcontainer{
-
-    display: flex;
-    flex-direction: row;
-    
-
-}
-
-.icon
-{
-width: 60px;
-height: 60px;
-left: 37px;
-top: 352px;
-border-radius: 50%;
-border: 2px solid #887d3b; 
-margin-right: 2vw;
-margin-left: 2vw;
-}
-
-.iconButton{
- width:100%;
- height: 100%;
- border-radius: 50%;
- background-color:#15161B;
- border: 1px solid #15161B;
- cursor: pointer;
- position: relative;
- outline: none;
- 
- 
-}
-
-.iconButton:active{
-    border:2px solid #76772b;
-
+.welcomeLocation {
+	color: #ffffff;
+	font-family: Roboto;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 20px !important;
+	line-height: 35px;
 }
 
 
 
 
+.username {
+	color: #ffffff;
+	font-family: Roboto;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 20px;
+	line-height: 23px;
+	text-align: center;
+}
 
-.iconlogo{
+.iconcontainer {
+	display: flex;
+	flex-direction: row;
+}
 
- color: #ffffff; 
+.icon {
+	width: 60px;
+	height: 60px;
+	left: 37px;
+	top: 352px;
+	border-radius: 50%;
+	border: 2px solid #887d3b;
+	margin-right: 20px;
+	margin-left: 20px;
+}
+
+.iconButton {
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	background-color: #15161b;
+	border: 1px solid #15161b;
+	cursor: pointer;
+	position: relative;
+	outline: none;
+}
+
+.iconButton:active {
+	border: 2px solid #76772b;
+}
+
+.iconlogo {
+	color: #ffffff;
 }
 
 /*middle button icon*/
-#middle
-{
-margin-top: 20px;
+#middle {
+	margin-top: 20px;
+}
+
+.tribeinfoContainer {
+	width: 100%;
+	height: 150px;
+	/*background-color: blue;*/
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.tribeInfo {
+	color: #ffffff;
+	font: 'Roboto';
+	font-weight: 500;
+	font-style: normal;
+	/* font is 20pt and centered */
+	font-size: 20px;
+	text-align: center;
+}
+
+.line {
+	width: 95%;
+	height: 2px;
+	border: 1px solid #757575;
+	margin-top: 5px;
+	margin-bottom: 10px;
+	align-self: center;
+}
+
+.contentcontainer {
+	margin-top: 50px;
+	display: flex;
+	flex-direction: row;
+	width: 100vw;
+	height: 100%;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.moviecontainer {
+	width: 33%;
+}
+
+.poster {
+	height: 75%;
+	width: 100%;
+	border-radius: 10px;
+}
+
+.addcontainer {
+	background-color: black;
+	width: 100%;
+	height: 25%;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	padding-right: 5%;
+}
+
+.addbutton {
+	height: 30px;
+	align-self: center;
+	background-color: #000000;
+	outline: none;
+	border: none;
+}
+
+.addbutton :active :only-child {
+	color: blue;
+}
+
+.addIcon {
+	color: #ffffff;
+}
+
+.iconAndText {
+	margin-top: 0;
+	height: fit-content !important;
+}
+
+.location {
+	margin: 5px;
 }
 
 
-.tribeinfoContainer
-{
-    width:100%;
-    height: 150px;
-    /*background-color: blue;*/
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
+.bio-ctn {
+	display: flex;
+	align-items: center;
+	height: 40px;
+	padding: 10px;
+	margin-top: 10px;
 }
 
-.tribeInfo{
-
-    color:#ffffff; 
-    font: "Roboto";
-    font-weight: 500;
-    font-style: normal;
-    font-size: 20px;
-
-
-    
-}
-
-.line{
-    width: 95%;
-    height: 2px;
-    border: 1px solid #757575;
-    margin-top: 5px;
-    margin-bottom: 10px;
-     align-self: center;
-    }
-    
-
-.contentcontainer{
-  margin-top: 50px;
-  display: flex;
-  flex-direction: row;
-  width: 100vw;
-  height: 100%;
-  flex-wrap: wrap;
-  justify-content: center;
- 
- 
+.bio-content {
+	padding: 10px;
+	color: white;
+	margin-top: -5px;
+	text-align: justify;
 }
 
 
-.moviecontainer{
-   
-    width: 33%;
-  
-
-  
-
+.bio-division {
+	width: 98%;
+	margin-top: 10px;
+	height: 1px;
+	border: none;
+	background-color: rgb(155, 152, 152);
 }
 
 
-.poster{
-    height: 75%;
-     width:100%;
-     border-radius: 10px;
-  
-    
-     
+.line {
+	width: 65%;
+	margin-top: 10px;
+	height: 3px;
+	background-color: #ffff;
+	
 }
 
-.addcontainer{
-    background-color:black ;
-    width: 100%;
-    height: 25%;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    padding-right: 5%;
+.bio-heading,
+.resumeAndPortfolio-heading,
+.verifiedSkills-heading {
+	font-size: 20px;
+	letter-spacing: 2px;
+	font-weight: 600;
+	color: #ffffff;
 }
 
+.resume-content {
+	border: 1px solid rgb(22, 19, 19);
+	border-radius: 8px;
+	background: rgb(22, 19, 19);
+	padding: 10px;
+	width: 90%;
+	margin: 0 auto;
+	margin-top: 8px;
+	color: white;
+	background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 98.9%);
+	height: 45px;
 
-
-.addbutton{
-    height: 30px;
-    align-self: center;
-    background-color: #000000;
-    outline: none;
-    border: none;
 }
 
-.addbutton :active :only-child
-{
-  color: blue;
-    
+.second {
+	margin-top: 15px;
+
+	
 }
 
-.addIcon{
-  
-    color: #ffffff; 
+.skills-content {
+	width: 50%;
+	margin: 0 auto;
+	display: grid;
+	justify-content: space-between;
+	padding: 10px;
+	grid-template-columns: auto auto auto;
+	column-gap: .5rem;
 }
 
+.skills {
+	border: 3px solid #887d3b;
+	border-radius: 50%;
+	width: 90px;
+	height: 90px;
+	color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.black-box{
+	border-radius: 8px;
+	background: rgb(22, 19, 19);
+	padding: 10px;
+	width: 95%;
+	height: auto;
+	margin: 0 auto;
+	margin-top: 8px;
+	background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 98.9%);
+	
+}
 
 /* media queries */
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
-    .profileimage
-    {
-       max-width: 50vw;
-        max-height:210px;
-        border-radius: 50%;
-        margin-top:10px;
-        border: 2px solid #887d3b;
-       }
+	.profileimage {
+		max-width: 50vw;
+		max-height: 210px;
+		border-radius: 50%;
+		margin-top: 10px;
+		border: 2px solid #887d3b;
+	}
 
-       .arrownavigation
-       {
-        color: grey;
-        margin-bottom: 105px;
-        margin-left: 2px;
-        margin-right: 2px;
-       }
+	.bio-division {
+		width: 95%;
+	}
 
-       .tribeInfo
-       {
+	.arrownavigation {
+		color: grey;
+		margin-bottom: 105px;
+		margin-left: 2px;
+		margin-right: 2px;
+	}
 
-        color:#ffffff; 
-        font: "Roboto";
-        font-weight: 500;
-        font-style: normal;
-        font-size: 3vw;   
-       }
+	.tribeInfo {
+		color: #ffffff;
+		font: 'Roboto';
+		font-weight: 500;
+		font-style: normal;
+		font-size: 3vw;
+	}
 
- 
+	.skills-content {
+		width: 90%;
+	}
+
+	.skills {
+		width: 80px;
+		height: 80px;
+	}
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {}
+@media only screen and (min-width: 600px) {
+}
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
-    
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {}
+@media only screen and (min-width: 992px) {
+}
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {}
+@media only screen and (min-width: 1200px) {
+}

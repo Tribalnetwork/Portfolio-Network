@@ -1,11 +1,14 @@
 import React, { Component } from 'react'
-import { Auth, Hub } from 'aws-amplify'
+import Amplify, { Auth, Hub } from 'aws-amplify'
 import { API, graphqlOperation } from 'aws-amplify'
 import { getUser } from './graphql/queries'
 
 import './App.css'
-import Router from './Router'
-import UserContext from './UserContext'
+import Router from './OnePager/Router'
+import UserContext from './components/UserContext'
+
+import awsconfig from './aws-exports'
+Amplify.configure(awsconfig)
 
 class App extends Component {
   state = {
@@ -43,7 +46,8 @@ class App extends Component {
       remainingVODTime: usr.data.getUser.remainingVODTime,
       remainingLiveTime: usr.data.getUser.remainingLiveTime})
     } catch (err) {
-      this.setState({ currentUser: null, isLoaded: true })
+      const user = await Auth.currentAuthenticatedUser()
+      this.setState({ currentUser: user, isLoaded: true })
     }
   }
   render() {

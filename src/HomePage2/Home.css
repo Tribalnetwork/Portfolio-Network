@@ -1,0 +1,34 @@
+.player-wrapper {
+  width: auto;
+  height: auto;
+}
+/* 
+  .react-player {
+    position: relative;
+  }
+  
+  .react-player > div {
+    position: absolute;
+  } */
+
+/* Large devices (laptops/desktops, 992px and up) */
+/* @media only screen and (min-width: 992px) {
+    .videoContentAndMenu {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+      }
+    .player-wrapper {
+        grid-column: 1/4;
+    }
+    .videoPlayerMenu {
+        grid-column: 1/4;
+    }
+    .toolbar {
+        position: absolute;
+        bottom: 0;
+    }
+} */
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+}

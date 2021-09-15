@@ -1,0 +1,79 @@
+.section {
+  margin: 20px;
+}
+
+h2 {
+  text-align: left
+}
+
+h3 {
+  text-align: left
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+}
+.player-wrapper {
+  position: relative;
+  padding-top: 56.25% /* Player ratio: 100 / (1280 / 720) */
+}
+ 
+.react-player {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.trending-now-wrapper{
+  margin:10px;
+  color: white;
+}
+.up-next-wrapper{
+  margin:10px;
+  color:white
+}
+.author-text{
+  color:white
+}
+.player-wrapper {
+  width: auto;
+  height: auto;
+}
+/* 
+  .react-player {
+    position: relative;
+  }
+  
+  .react-player > div {
+    position: absolute;
+  } */
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .watchVideoContentAndMenu {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+      }
+    .player-wrapper {
+        grid-column: 1/4;
+    }
+    .videoPlayerMenu {
+        grid-column: 1/4;
+    }
+    .toolbar {
+        position: absolute;
+        bottom: 0;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+}
+.MuiGrid-container {
+  display: flex;
+  align-items: center;
+}
+
+.ratingStars{
+  margin-top: 0.185rem;
+}

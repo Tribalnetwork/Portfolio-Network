@@ -1,0 +1,88 @@
+.test {
+
+    height: 168px;
+    width: 120px;
+  
+    }
+   
+    .redirect{
+      
+      font-weight: bold;
+      float: right;
+      padding-bottom: 5px;
+    }
+    
+    a:link {
+   
+      color: white;
+  
+       
+    }
+  
+    a:visited {
+      color: white;
+       
+       
+    }
+    
+    a:hover {
+      color: white;
+       
+       
+    }
+    
+    a:active {
+      color: white;
+       
+       
+    }
+  
+  /* 
+    @media only screen and (max-width: 600px) {
+      .test {
+        height: 105;
+        width: 55px;
+      }
+    } */
+  
+    
+  /* Extra small devices (phones, 600px and down) */
+  /* @media only screen and (max-width: 600px) {
+    .test {
+      height: 140px;
+      width: 100px;
+    }
+  
+    
+  } */
+  
+  /* Small devices (portrait tablets and large phones, 600px and up) */
+  /* @media only screen and (min-width: 600px) {
+    .test {
+      height: 160px;
+      width: 120px;
+    
+    }
+  
+  } */
+  
+  /* Medium devices (landscape tablets, 768px and up) */
+  /* @media only screen and (min-width: 768px) {
+    .test {
+      height: 160px;
+      width: 120px;
+    
+    }
+  
+    
+  } */
+  
+  /* Extra large devices (large laptops and desktops, 1200px and up) */
+  /* @media only screen and (min-width: 1200px) {
+   
+  
+    
+  } */
+     
+  
+  

@@ -1,281 +1,282 @@
-body{
-overflow: auto;
-overflow-x: hidden;
+body {
+  overflow: auto;
+  overflow-x: hidden;
+}
+
+.bodycontainer {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  /*background-color: red;*/
+}
+
+.container {
+  background-color: #15161b;
+  width: 100%;
+  /* height: 478px; */
+  height: fit-content !important;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #887d3b;
+}
+
+.profileimagecontainer {
+  flex-direction: row;
+  width: 100%;
+  height: fit-content !important;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.profileimage {
+  max-width: 210px;
+  /* max-height: 210px; */
+  max-height: 140px !important;
+  border-radius: 50%;
+  margin-top: 20px !important;
+  border: 2px solid #887d3b;
 }
 
 
-.bodycontainer
-{
-    width:100%;
-   height: auto;
-    display: flex;
-    flex-direction: column;
-    /*background-color: red;*/
-
- 
-   
-   
-}
-.container{
-    background-color:#15161B ;
-    width:100%;
-    height: 478px;
-    border-radius: 15px;
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-     justify-content: center;
-     border: 2px solid #887d3b; 
- 
+.arrownavigation {
+  color: grey;
+  margin-bottom: 105px;
+  margin-left: 8%;
+  margin-right: 8%;
 }
 
-
-.profileimagecontainer{
-   flex-direction: row;
-   width: 100%;
-   height: 210px;
-    margin: 0 auto;
-    justify-content: center;
-    align-items: center;
+.welcomeText {
+  color: #ffffff;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  /* adding !important to override other size styling */
+  font-size: 30px !important;
+  line-height: 35px;
+  margin-top: 10px !important;
+  margin-bottom: 10px;
 }
 
-.profileimage{
-
- max-width: 210px;
- max-height:210px;
- border-radius: 50%;
- margin-top:10px;
- border: 2px solid #887d3b;
+.username {
+  color: #ffffff;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 23px;
+  text-align: center;
+  margin: 5px !important
 }
 
-.arrownavigation{
-    color: grey;
-    margin-bottom: 105px;
-    margin-left: 8%;
-    margin-right: 8%;
-   
-
-     
+.iconcontainer {
+  display: flex;
+  flex-direction: row;
 }
 
-.welcomeText{
-
-color: #ffffff;
-font-family: Roboto;
-font-style: normal;
-font-weight: normal;
-font-size: 30px;
-line-height: 35px;
+.icon {
+  width: 60px;
+  height: 60px;
+  left: 37px;
+  top: 352px;
+  border-radius: 50%;
+  border: 2px solid #887d3b;
+  margin-right: 2vw;
+  margin-left: 2vw;
 }
 
-.username{
-
- color: #ffffff;
- font-family: Roboto;
-font-style: normal;
-font-weight: normal;
-font-size: 20px;
-line-height: 23px;
-text-align: center;
+.iconButton {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #15161b;
+  border: 1px solid #15161b;
+  cursor: pointer;
+  position: relative;
+  outline: none;
+  left: -20px;
 }
 
-
-
-.iconcontainer{
-
-    display: flex;
-    flex-direction: row;
-    
-
+.iconButton:active {
+  border: 2px solid #76772b;
 }
 
-.icon
-{
-width: 60px;
-height: 60px;
-left: 37px;
-top: 352px;
-border-radius: 50%;
-border: 2px solid #887d3b; 
-margin-right: 2vw;
-margin-left: 2vw;
-}
-
-.iconButton{
- width:100%;
- height: 100%;
- border-radius: 50%;
- background-color:#15161B;
- border: 1px solid #15161B;
- cursor: pointer;
- position: relative;
- outline: none;
- 
- 
-}
-
-.iconButton:active{
-    border:2px solid #76772b;
-
-}
-
-
-
-
-
-.iconlogo{
-
- color: #ffffff; 
+.iconlogo {
+  color: #ffffff;
 }
 
 /*middle button icon*/
-#middle
-{
-margin-top: 20px;
+#middle {
+  margin-top: 20px;
+}
+
+.iconAndText {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 5px;
+  margin-bottom:10px;
+}
+
+.iconText {
+  color: #f1d744;
+  font-family: serif;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.profileTribeInfoContainer {
+  width: 100%;
+  height: 53px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  font: 'Roboto';
+  font-weight: 500;
+  font-style: normal;
+  font-size: 19px;
 }
 
 
-.tribeinfoContainer
-{
-    width:100%;
-    height: 150px;
-    /*background-color: blue;*/
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
+.line {
+  width: 100%;
+  height: -1px;
+  border: 1px solid #757575;
+  align-self: center;
 }
 
-.tribeInfo{
+ .tribeInfo {
+  color: #ffffff;
+  font: 'Roboto';
+  font-weight: 500;
+  font-style: normal;
+  font-size: 20px;
+} */
 
-    color:#ffffff; 
-    font: "Roboto";
-    font-weight: 500;
-    font-style: normal;
-    font-size: 20px;
 
 
-    
-}
-
-.line{
-    width: 95%;
-    height: 2px;
-    border: 1px solid #757575;
-    margin-top: 5px;
-    margin-bottom: 10px;
-     align-self: center;
-    }
-    
-
-.contentcontainer{
-  margin-top: 50px;
+.contentcontainer {
+  margin-top: 20px;
   display: flex;
   flex-direction: row;
   width: 100vw;
   height: 100%;
   flex-wrap: wrap;
   justify-content: center;
+}
+
  
- 
+
+
+ /* .profileContentContainer {
+  display: grid;
+  grid-gap: 5px; 
+  grid-template-columns: 1fr 1fr 1fr; 
+  grid-row-gap: 120px; 
+  margin-left: 16rem;
+  margin-top: 0;
+}  */
+
+
+.profileContentContainer {
+  display: grid;
+  grid-gap: 5px; 
+  grid-template-columns: 1fr 1fr 1fr; 
+  grid-row-gap: 15px; 
+  margin-left: 1rem;
+  margin-top: 0px;
+
 }
 
-
-.moviecontainer{
-   
-    width: 33%;
-  
-
-  
-
+.moviecontainer {
+  width: 33%;
 }
 
-
-.poster{
-    height: 75%;
-     width:100%;
-     border-radius: 10px;
-  
-    
-     
+.poster {
+  height: 75%;
+  width: 100%;
+  border-radius: 10px;
 }
 
-.addcontainer{
-    background-color:black ;
-    width: 100%;
-    height: 25%;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    padding-right: 5%;
+.addcontainer {
+  background-color: black;
+  width: 100%;
+  height: 25%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding-right: 5%;
 }
 
-
-
-.addbutton{
-    height: 30px;
-    align-self: center;
-    background-color: #000000;
-    outline: none;
-    border: none;
+.addbutton {
+  height: 30px;
+  align-self: center;
+  background-color: #000000;
+  outline: none;
+  border: none;
 }
 
-.addbutton :active :only-child
-{
+.addbutton :active :only-child {
   color: blue;
-    
 }
 
-.addIcon{
-  
-    color: #ffffff; 
+.addIcon {
+  color: #ffffff;
 }
-
 
 /* media queries */
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
-    .profileimage
-    {
-       max-width: 50vw;
-        max-height:210px;
-        border-radius: 50%;
-        margin-top:10px;
-        border: 2px solid #887d3b;
-       }
+  .profileimage {
+    max-width: 50vw;
+    max-height: 210px;
+    border-radius: 50%;
+    margin-top: 10px;
+    border: 2px solid #887d3b;
+  }
 
-       .arrownavigation
-       {
-        color: grey;
-        margin-bottom: 105px;
-        margin-left: 2px;
-        margin-right: 2px;
-       }
+  .arrownavigation {
+    color: grey;
+    margin-bottom: 105px;
+    margin-left: 2px;
+    margin-right: 2px;
+  }
 
-       .tribeInfo
-       {
+  .tribeInfo {
+    color: #ffffff;
+    font: 'Roboto';
+    font-weight: 500;
+    font-style: normal;
+    font-size: 3vw;
+  }
 
-        color:#ffffff; 
-        font: "Roboto";
-        font-weight: 500;
-        font-style: normal;
-        font-size: 3vw;   
-       }
+  /* .profileContentContainer {
+    grid-gap: 0; 
+    grid-row-gap: 20px; 
+    margin-left: 30px;
+  
+  } */
 
- 
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {}
+@media only screen and (min-width: 600px) {
+}
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
-    
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {}
+@media only screen and (min-width: 992px) {
+}
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {}
+@media only screen and (min-width: 1200px) {
+}

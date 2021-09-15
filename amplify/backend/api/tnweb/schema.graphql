@@ -17,6 +17,8 @@ type LiveStream @model {
   IDforThumbnail: String
   status: String
   streamerName: String
+  createdAt: String
+  updatedAt: String
 }
 
 type PlayList @model{
