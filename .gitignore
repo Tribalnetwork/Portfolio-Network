@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 node_modules
-=======
->>>>>>> f5b5085... search function, and skeleton of bottom nav bar
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
@@ -26,7 +23,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-#amplify
+#amplify-do-not-edit-begin
 amplify/\#current-cloud-backend
 amplify/.config/local-*
 amplify/logs
@@ -40,7 +37,12 @@ node_modules/
 aws-exports.js
 awsconfiguration.json
 amplifyconfiguration.json
+amplifyconfiguration.dart
 amplify-build-config.json
 amplify-gradle-config.json
 amplifytools.xcconfig
+
 .secret-*
+**.sample
+#amplify-do-not-edit-end
+
