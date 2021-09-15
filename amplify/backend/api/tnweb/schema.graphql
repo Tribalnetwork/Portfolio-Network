@@ -48,7 +48,8 @@ type User @model {
   remainingLiveTime: Int
   myList:PlayList@connection(name: "UsermyList")
   ImgUrl:String
-  myGigs:[Gig]@connection(name: "UserGig")
+  MyGigs:[Gig!]@connection(name:"UserGig")
+  InvitedGig:[UserInviteByGig!]@connection(keyName: "byUser", fields: ["id"])
 }
 
 type ConnectItem {
