@@ -27,16 +27,7 @@ function Support() {
                         <KeyboardArrowRightIcon fontSize="large" className="rightIcon" />
                     </Link>
                 </div>
-                <div className="button__withArrow">
-                    <Link
-                        className="button__link"
-                        to={"/settings/tipsandsupport"}
-                        style={{ textDecoration: "none" }}
-                    >
-                        <Button className="settings__Button">Tips &amp; Support</Button>
-                        <KeyboardArrowRightIcon fontSize="large" className="rightIcon" />
-                    </Link>
-                </div>
+                
             </div>
         </body>
     );
