@@ -195,30 +195,7 @@ export const NavigationBar = () => {
               <ListItemText primary={'Home'}> </ListItemText>
 
             </ListItem>
-            <ListItem
-              button
-              component={Link} to={"/search"}
-            >
-              <img src={Search}></img>
-              <ListItemText primary={'Search'}> </ListItemText>
-
-            </ListItem>
-            <ListItem
-              button
-              component={Link} to={"/streams"}
-            >
-              <img src={Tribal}></img>
-              <ListItemText primary={'Tribal'}> </ListItemText>
-
-            </ListItem>
-            <ListItem
-              button
-              component={Link} to={"/profile"}
-            >
-              <img src={Social}></img>
-              <ListItemText primary={'Social'}> </ListItemText>
-
-            </ListItem>
+            
             <ListItem
               button
               component={Link} to={"/settings"}
