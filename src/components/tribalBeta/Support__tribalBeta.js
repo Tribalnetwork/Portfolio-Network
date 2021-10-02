@@ -29,17 +29,6 @@ function Support() {
 
                     </Link>
                 </div>
-                {/* 2- Tips & Support */}
-                <div className="button__withArrow buttonArrow__tribalBeta">
-                    <Link className="button__link" to={"/settings/tipsandsupport"} style={{ textDecoration: "none" }}>
-
-                        <Button className="settings__Button settingsButton__tribalBeta">
-                            Tips &amp; Support
-                        </Button>
-                        <ArrowIcon fontSize="large" className="settingsRightIcon__tribalBeta" />
-
-                    </Link>
-                </div>
             </div>
         </div>
     );
