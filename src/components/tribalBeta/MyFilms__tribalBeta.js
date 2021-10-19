@@ -14,7 +14,7 @@ function MyFilms(){
                 <IconButton edge="end" color="white" onClick={() => history.goBack()}>
                     <ArrowBackIosIcon className="backIcon" style={{color: "white"}} />
                 </IconButton>
-                <h2 className="text settingText__tribalBeta">My Films</h2>
+                <h2 className="text settingText__tribalBeta">My Portfolio</h2>
             </div>
             {/*
             <div style={{display: "flex"}}>
