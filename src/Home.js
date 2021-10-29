@@ -295,40 +295,6 @@ export default class Home extends React.Component {
                   <p>{this.state.sponsorshipLabel}</p>
                 </div>
                 <div className="film-lists">
-                  <div className="filter-buttons">
-                    <button
-                      className="filtering-btn1"
-                      onClick={() => {
-                        this.sortByRating(this.state.filmGroups, "highest");
-                        let btn = document.querySelector(".filtering-btn1");
-                        btn.classList.add("active-filtered-button");
-                        btn = document.querySelector(".filtering-btn2");
-                        btn.classList.remove("active-filtered-button");
-                      }}
-                    >
-                      <img src="/starForFilmOrdering.svg" alt="rate" />
-                      <ExpandMoreRoundedIcon
-                        fontSize="large"
-                        style={{ color: "white" }}
-                      />
-                    </button>
-                    <button
-                      className="filtering-btn2"
-                      onClick={() => {
-                        this.sortByRating(this.state.filmGroups, "lowest");
-                        let btn = document.querySelector(".filtering-btn2");
-                        btn.classList.add("active-filtered-button");
-                        btn = document.querySelector(".filtering-btn1");
-                        btn.classList.remove("active-filtered-button");
-                      }}
-                    >
-                      <img src="/starForFilmOrdering.svg" alt="rate" />
-                      <ExpandLessRoundedIcon
-                        fontSize="large"
-                        style={{ color: "white" }}
-                      />
-                    </button>
-                  </div>
                   {filmGroups.map((group, index) => (
                     <FilmCat
                       title={group.genre}
@@ -342,6 +308,7 @@ export default class Home extends React.Component {
                           (_, filterIndex) => index !== filterIndex
                         );
                         // console.log(myList)
+                        window.scrollTo({ top: 0, behavior: 'smooth' }); // scrolling to top with smooth transition
                         myList.unshift(element);
                         this.setState({
                           filmGroups: myList,

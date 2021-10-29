@@ -21,7 +21,7 @@ div.menu-item-wrapper {
 } */
 
 div.menu-item-wrapper:last-child{
-  width: 240px;
+  /*width: 240px; - who did this and why? - deleting this for better OnClick accuracy*/
   box-shadow: none;
 }
 
