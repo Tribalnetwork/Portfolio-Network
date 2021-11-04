@@ -10,6 +10,10 @@ import awsconfig from '../aws-exports';
 import VolumeUpOutlinedIcon from '@material-ui/icons/VolumeUpOutlined';
 import VolumeOffOutlinedIcon from '@material-ui/icons/VolumeOffOutlined';
 import UserContext from "../UserContext";
+
+import ProgressBar from 'react-bootstrap/ProgressBar';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 Amplify.configure(awsconfig);
 
 
@@ -81,7 +85,10 @@ class Submit extends React.Component {
        film_year:"",
        film_length:""*/
       muteVideo: false, // true means mute the video and false means don't mute the video
-      listGenres: []
+      listGenres: [],
+      uploadPercentage: 0,
+      checked: false,
+      New_film_id: ""
     };
 
     this.Next = this.Next.bind(this);
@@ -137,6 +144,8 @@ class Submit extends React.Component {
 
   Submit = () => {
     // console.log(this.context.user.attributes.sub )
+    //reset the upload percentage to 0 before moving to the next page
+    this.setState({uploadPercentage: 0})
     this.Next();
     setTimeout(() => {
       if (this.state.readyToSubmit === true) {
@@ -163,6 +172,9 @@ class Submit extends React.Component {
           console.log(res.config.data)
           console.log(res)
           console.log(res.data)
+          this.setState({
+            New_film_id: res.data.body.New_film_id
+          });
           let newurl = res.data.body.url
 
           // if cover are is not empty then add presigned url to imgaeUrl
@@ -184,12 +196,24 @@ class Submit extends React.Component {
               data: this.state.FilmInput,
               headers: {
                 'Content-Type': this.state.FilmInput.type
+              },
+              onUploadProgress: (progressEvent) => {
+                const {loaded, total} = progressEvent;
+                let percent = Math.floor( (loaded * 100) / total );
+                console.log( `${loaded}kb of ${total}kb | ${percent}%` );
+                this.setState({ uploadPercentage: percent });
               }
             })
+              .then(res =>
+                axios({ url: "https://2ajlr7txqa.execute-api.us-east-1.amazonaws.com/default/Get_Film_From_S3", method: "post", data: JSON.stringify({id: this.state.New_film_id})})
+              )
               .then(res => {
+                if (!res.data.body.exist) {
+                  throw "Uh-Oh! There was a problem submitting your film, please try again and if the problem persist, contact customer support."
+                }
                 console.log("Film Submited Successfuly")
                 console.log(res)
-                this.setState({ confirmation: "Thanks for submitting your film. The Tribal film council will make a determination within 21 days." })
+                this.setState({ checked: true, confirmation: "Thanks for submitting your film. The Tribal film council will make a determination within 21 days." })
               })
               .catch(err => {
                 console.log("ERROR" + err)
@@ -294,7 +318,6 @@ class Submit extends React.Component {
     return (
 
       <div className={"submitcontainer"}>
-
         <VideoComponent mute={this.state.muteVideo} />
 
         <div className={"overlayercontainer"}>
@@ -383,7 +406,7 @@ class Submit extends React.Component {
             }
 
             {/* upload film */}
-            {
+            {//
               this.state.index === 3 &&
               <div className={"uploadcontainer"}>
                 <label for="film">Upload Your Film</label>
@@ -501,12 +524,18 @@ class Submit extends React.Component {
             </div>
 
             {
-              this.state.index === (maxinput) &&
-              <div className="thanks">
-                <p>{this.state.confirmation}</p>
-                {/* reload another film */}
-                <Reload />
-              </div>
+              this.state.index === (maxinput) && 
+              (this.state.uploadPercentage === 100 && this.state.checked ? (
+                  <div className="thanks">
+                    <p>{this.state.confirmation}</p>
+                    {/* reload another film */}
+                    <Reload />
+                  </div> 
+                ) : <div className="progressbar-container">
+                      <p>Submitting Your Film...</p>
+                      <ProgressBar animated now={this.state.uploadPercentage} label={`${this.state.uploadPercentage}%`} variant="warning" /> 
+                    </div>
+              )
             }
 
             <div className={"computerscreenrequire"}>
