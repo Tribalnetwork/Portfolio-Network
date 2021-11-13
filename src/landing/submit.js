@@ -595,6 +595,7 @@ const customStyles = {
 
   control: (_, { selectProps: { width } }) => ({
     backgroundColor: "transparent",
+    height: 35,
     borderRadius: 15,
     border: "2px solid gold"
 
