@@ -449,7 +449,8 @@ class Submit extends React.Component {
                   options={this.state.listGenres}
                   placeholder={"Select Genre"}
                   styles={customStyles}
-                  onChange={this.handleChange} />
+                  onChange={this.handleChange} 
+                  isMulti />
               </div>
             }
 
@@ -594,7 +595,6 @@ const customStyles = {
 
   control: (_, { selectProps: { width } }) => ({
     backgroundColor: "transparent",
-    height: 35,
     borderRadius: 15,
     border: "2px solid gold"
 
