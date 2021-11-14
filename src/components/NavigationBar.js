@@ -184,27 +184,12 @@ export const NavigationBar = () => {
               <img src={Home} alt="Home" />
               <ListItemText primary={'Home'}></ListItemText>
             </ListItem>
-            {/* 2: Search */}
-            <ListItem button component={Link} to={"/search"} >
-              <img src={Search} alt='Search' />
-              <ListItemText primary={'Search'}></ListItemText>
-            </ListItem>
-            {/* 3: Streams */}
-            <ListItem button component={Link} to={"/streams"} >
-              <img src={Tribal} alt='Tribal' />
-              <ListItemText primary={'Tribal'}></ListItemText>
-            </ListItem>
-            {/* 4: Social */}
-            <ListItem button component={Link} to={"/profile"} >
-              <img src={Social} alt='Social' />
-              <ListItemText primary={'Social'}> </ListItemText>
-            </ListItem>
-            {/* 5: Settings */}
+            {/* 2: Settings */}
             <ListItem button component={Link} to={"/settings"} >
               <img src={Settings} alt='Settings' />
               <ListItemText primary={'Settings'}> </ListItemText>
             </ListItem>
-            {/* 6: Submit */}
+            {/* 3: Submit */}
             <ListItem button component={Link} to={"/submit"} >
               <img src={Submit} alt='Submit' style={{ width: '38px', marginLeft: '19px', marginRight: '19px' }} />
               <ListItemText primary={"Submit"} ></ListItemText>
