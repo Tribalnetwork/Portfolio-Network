@@ -123,11 +123,15 @@ git commit -m "Enter your description of your changes."
 git push origin my_feature_branch_name_here
 ```
 
-6.  Use your GitHub page to create a pull request from your feature branch to master.
+6.  Use your GitHub page to create a pull request from your feature branch to the beta branch.
 
-7.  One of the admins will then merge your changes into the main branch.
+------For admins ----------
+
+7.  One of the admins will then merge your changes into the beta branch.
 
 8.  To publish changes to [tribalnetwork.org](https://www.tribalnetwork.org), run `amplify publish`.
+
+----------------------------
 
 9.  Return to step 1 and repeat: fetch/pull, edit, push, merge branch, publish!
 
