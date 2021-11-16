@@ -123,11 +123,11 @@ git commit -m "Enter your description of your changes."
 git push origin my_feature_branch_name_here
 ```
 
-6.  Use your GitHub page to create a pull request from your feature branch to the beta branch.
+6.  Push changes to your origin (forked) repository by running $git push origin your_branch_name. Then go to Tribalnetwork/TNWeb repository, select **beta** branch, and make Pull Request (PR). Make sure you select the **beta** branch, not the master branch in the TNWeb repo. 
 
 ------For admins ----------
 
-7.  One of the admins will then merge your changes into the beta branch.
+7.  One of the admins will review your pull request. If it is all good, your changes will be merged into the beta branch.
 
 8.  To publish changes to [tribalnetwork.org](https://www.tribalnetwork.org), run `amplify publish`.
 
