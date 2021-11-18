@@ -308,6 +308,7 @@ export default class Home extends React.Component {
                           (_, filterIndex) => index !== filterIndex
                         );
                         // console.log(myList)
+                        window.scrollTo({ top: 0, behavior: 'smooth' }); // scrolling to top with smooth transition
                         myList.unshift(element);
                         this.setState({
                           filmGroups: myList,
