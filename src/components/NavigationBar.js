@@ -15,10 +15,10 @@ import ListItemText from '@material-ui/core/ListItemText';
 
 import './NavigationBar.css';
 import Home from "../bottomNavBarImg/home.svg"
-import Tribal from "../bottomNavBarImg/tribal.svg"
+// import Tribal from "../bottomNavBarImg/tribal.svg"
 import Settings from "../bottomNavBarImg/settings.svg"
-import Social from "../bottomNavBarImg/social.svg"
-import Search from "../bottomNavBarImg/search.svg"
+// import Social from "../bottomNavBarImg/social.svg"
+// import Search from "../bottomNavBarImg/search.svg"
 import Bell from "../bottomNavBarImg/bell.svg"
 import Book from "../bottomNavBarImg/book.svg"
 import People from "../bottomNavBarImg/people.png"
