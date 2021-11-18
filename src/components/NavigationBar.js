@@ -121,8 +121,8 @@ export const NavigationBar = () => {
             isLoaded ? isAuthenticated ? (
               <div >
                 <button
-                  style={{ display: "inline-block" }}
-                  className={"profileimage2"} onClick={handleDrawerOpen2} variant='contained' style={{ background: 'black', textTransform: 'none' }}>
+                  style={{ display: "inline-block", background: 'black', textTransform: 'none' }}
+                  className={"profileimage2"} onClick={handleDrawerOpen2} variant='contained'>
                   <img className={"profileimage2"} src="https://d202tggnzywgd9.cloudfront.net/public/photos/avatar.png" alt='' />
                 </button>
                 {/* right navigation */}

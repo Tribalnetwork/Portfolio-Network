@@ -6,15 +6,15 @@ import Amplify from "aws-amplify";
 // import { listFilms, listLiveStreams } from "./graphql/queries";
 import awsconfig from "./aws-exports";
 import "@aws-amplify/ui/dist/style.css";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import UserContext from "./UserContext";
 import { Helmet } from "react-helmet";
 import ReactPlayer from "react-player";
 import Button from "./Button";
-import ExpandLessRoundedIcon from "@material-ui/icons/ExpandLessRounded";
-import ExpandMoreRoundedIcon from "@material-ui/icons/ExpandMoreRounded";
+// import ExpandLessRoundedIcon from "@material-ui/icons/ExpandLessRounded";
+// import ExpandMoreRoundedIcon from "@material-ui/icons/ExpandMoreRounded";
 // import Typography from "@material-ui/core/Typography";
-import Grid from "@material-ui/core/Grid";
+// import Grid from "@material-ui/core/Grid";
 import HorizontalScrollerCircular from "./components/HorizontalScrollerCircular";
 // import HorizontalScroller from "./components/HorizontalScroller";
 
@@ -24,14 +24,14 @@ import HorizontalScrollerCircular from "./components/HorizontalScrollerCircular"
 //import { ReactComponent as ExploreLogo } from './icons/Explore.svg';
 //import { ReactComponent as MyStudioLogo } from './icons/myStudio.svg';
 //import { ReactComponent as StarRating } from './icons/Rate.svg'
-import { ReactComponent as RatingButton } from "./icons/RateButton_tribalBeta.svg";
-import { ReactComponent as SubmitButton } from "./icons/SubmitButton_tribalBeta.svg";
-import { ReactComponent as StarRatingIcon } from "./icons/starRating__tribalBeta.svg";
+// import { ReactComponent as RatingButton } from "./icons/RateButton_tribalBeta.svg";
+// import { ReactComponent as SubmitButton } from "./icons/SubmitButton_tribalBeta.svg";
+// import { ReactComponent as StarRatingIcon } from "./icons/starRating__tribalBeta.svg";
 // import Gigs from "./Gigs/Gigs";
 // import { Button as MaterialUiButton } from "@material-ui/core";
-import { useTheme } from "@material-ui/core/styles";
-import { useMediaQuery } from "@material-ui/core";
-import Popup from "reactjs-popup";
+// import { useTheme } from "@material-ui/core/styles";
+// import { useMediaQuery } from "@material-ui/core";
+// import Popup from "reactjs-popup";
 // import "reactjs-popup/dist/index.css";
 import "./Home.css";
 Amplify.configure(awsconfig);
@@ -248,8 +248,8 @@ export default class Home extends React.Component {
     if (this.context.isLoaded && this.state.user.requests === 0) {
       this.cognitoUserToUserTable()
     }
-    const isAuthenticated =
-      this.context.user && this.context.user.username ? true : false;
+    // const isAuthenticated =
+    //   this.context.user && this.context.user.username ? true : false;
     const isLoaded = this.context.isLoaded;
     const hasAccess =
       this.context.hasAccess || this.context.remainingVODTime > 0;
@@ -383,27 +383,27 @@ function FilmCat(Props) {
   );
 }
 
-function SubmitFilmButton() {
-  let history = useHistory();
-  const theme = useTheme();
-  const breakPointQuery = useMediaQuery(theme.breakpoints.up(1024))
-  // if break point is larger than 1024 then direct user to submit page
-  if (breakPointQuery) {
-    history.push('/submit')
-    return null
-  } else {
-    return (
-      <div className="ratingPopup__tribalBetaHome">
-        <div className="overall__tribalBetaHome">
-          <span className="submit__tribalBetaHome">
-            Please Log in on Desktop to Submit your film.
-          </span>
-        </div>
-      </div>
-    )
-  }
+// function SubmitFilmButton() {
+//   let history = useHistory();
+//   const theme = useTheme();
+//   const breakPointQuery = useMediaQuery(theme.breakpoints.up(1024))
+//   // if break point is larger than 1024 then direct user to submit page
+//   if (breakPointQuery) {
+//     history.push('/submit')
+//     return null
+//   } else {
+//     return (
+//       <div className="ratingPopup__tribalBetaHome">
+//         <div className="overall__tribalBetaHome">
+//           <span className="submit__tribalBetaHome">
+//             Please Log in on Desktop to Submit your film.
+//           </span>
+//         </div>
+//       </div>
+//     )
+//   }
 
-}
+// }
 
 const styles = {
   main: {
