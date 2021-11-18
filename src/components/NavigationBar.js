@@ -15,10 +15,10 @@ import ListItemText from '@material-ui/core/ListItemText';
 
 import './NavigationBar.css';
 import Home from "../bottomNavBarImg/home.svg"
-import Tribal from "../bottomNavBarImg/tribal.svg"
+// import Tribal from "../bottomNavBarImg/tribal.svg"
 import Settings from "../bottomNavBarImg/settings.svg"
-import Social from "../bottomNavBarImg/social.svg"
-import Search from "../bottomNavBarImg/search.svg"
+// import Social from "../bottomNavBarImg/social.svg"
+// import Search from "../bottomNavBarImg/search.svg"
 import Bell from "../bottomNavBarImg/bell.svg"
 import Book from "../bottomNavBarImg/book.svg"
 import People from "../bottomNavBarImg/people.png"
@@ -121,8 +121,8 @@ export const NavigationBar = () => {
             isLoaded ? isAuthenticated ? (
               <div >
                 <button
-                  style={{ display: "inline-block" }}
-                  className={"profileimage2"} onClick={handleDrawerOpen2} variant='contained' style={{ background: 'black', textTransform: 'none' }}>
+                  style={{ display: "inline-block", background: 'black', textTransform: 'none' }}
+                  className={"profileimage2"} onClick={handleDrawerOpen2} variant='contained'>
                   <img className={"profileimage2"} src="https://d202tggnzywgd9.cloudfront.net/public/photos/avatar.png" alt='' />
                 </button>
                 {/* right navigation */}

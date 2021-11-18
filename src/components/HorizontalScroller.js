@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import ScrollMenu from "react-horizontal-scrolling-menu";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";

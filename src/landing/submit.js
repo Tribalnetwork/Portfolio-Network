@@ -51,7 +51,7 @@ const maxinput = 8;
 
 class Submit extends React.Component {
   static contextType = UserContext;
-  
+
   constructor(props) {
     super(props);
 
@@ -145,7 +145,7 @@ class Submit extends React.Component {
   Submit = () => {
     // console.log(this.context.user.attributes.sub )
     //reset the upload percentage to 0 before moving to the next page
-    this.setState({uploadPercentage: 0})
+    this.setState({ uploadPercentage: 0 })
     this.Next();
     setTimeout(() => {
       if (this.state.readyToSubmit === true) {
@@ -198,21 +198,21 @@ class Submit extends React.Component {
                 'Content-Type': this.state.FilmInput.type
               },
               onUploadProgress: (progressEvent) => {
-                const {loaded, total} = progressEvent;
-                let percent = Math.floor( (loaded * 100) / total );
-                console.log( `${loaded}kb of ${total}kb | ${percent}%` );
+                const { loaded, total } = progressEvent;
+                let percent = Math.floor((loaded * 100) / total);
+                console.log(`${loaded}kb of ${total}kb | ${percent}%`);
                 this.setState({ uploadPercentage: percent });
               }
             })
               .then(res =>
-                axios({ url: "https://2ajlr7txqa.execute-api.us-east-1.amazonaws.com/default/Get_Film_From_S3", method: "post", data: JSON.stringify({id: this.state.New_film_id})})
+                axios({ url: "https://2ajlr7txqa.execute-api.us-east-1.amazonaws.com/default/Get_Film_From_S3", method: "post", data: JSON.stringify({ id: this.state.New_film_id }) })
               )
               .then(res => {
                 if (!res.data.body.exist) {
-                  throw "Uh-Oh! There was a problem submitting your film, please try again and if the problem persist, contact customer support."
+                  throw new Error("Uh-Oh! There was a problem submitting your film, please try again and if the problem persist, contact customer support.")
                 }
-                console.log("Film Submited Successfuly")
-                console.log(res)
+                // console.log("Film Submited Successfuly")
+                // console.log(res)
                 this.setState({ checked: true, confirmation: "Thanks for submitting your film. The Tribal film council will make a determination within 21 days." })
               })
               .catch(err => {
@@ -525,17 +525,17 @@ class Submit extends React.Component {
             </div>
 
             {
-              this.state.index === (maxinput) && 
+              this.state.index === (maxinput) &&
               (this.state.uploadPercentage === 100 && this.state.checked ? (
-                  <div className="thanks">
-                    <p>{this.state.confirmation}</p>
-                    {/* reload another film */}
-                    <Reload />
-                  </div> 
-                ) : <div className="progressbar-container">
-                      <p>Submitting Your Film...</p>
-                      <ProgressBar animated now={this.state.uploadPercentage} label={`${this.state.uploadPercentage}%`} variant="warning" /> 
-                    </div>
+                <div className="thanks">
+                  <p>{this.state.confirmation}</p>
+                  {/* reload another film */}
+                  <Reload />
+                </div>
+              ) : <div className="progressbar-container">
+                <p>Submitting Your Film...</p>
+                <ProgressBar animated now={this.state.uploadPercentage} label={`${this.state.uploadPercentage}%`} variant="warning" />
+              </div>
               )
             }
 

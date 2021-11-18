@@ -23,7 +23,7 @@ import BottomNavBar from './components/bottomNavBar'
 /*import SearchQueries from "./components/searchQueries"
 import ViewProfile from "./ViewProfile"
 import MyList from "./MyList"*/
-import MyStudio from "./MyStudio/MyStudio";
+// import MyStudio from "./MyStudio/MyStudio";
 /*import Settings, { Wifi, Support, TermsOfService, PrivacyPolicy, Account, Notifications, DownloadOptions, Logout } from "./SettingsPage/Settings";
 import Explore, { SportsPage, TalksPage, DramaPage, RomancePage, HorrorPage, FamilyPage, AnimationPage, ExperimentalPage, ThrillerPage, SciFiPage, ActionPage, ComedyPage, MusicalPage, DocumentaryPage, WatchRandom } from "./ExplorePage/Explore"
 import Gigs from "./Gigs/Gigs";
@@ -96,13 +96,13 @@ class PrivateRoute extends React.Component {
   }
 }
 
-const NoMatch = ({ location }) => (
-  <div>
-    <h3>
-      No match for <code>{location.pathname}</code>
-    </h3>
-  </div>
-);
+// const NoMatch = ({ location }) => (
+//   <div>
+//     <h3>
+//       No match for <code>{location.pathname}</code>
+//     </h3>
+//   </div>
+// );
 
 PrivateRoute = withRouter(PrivateRoute);
 
