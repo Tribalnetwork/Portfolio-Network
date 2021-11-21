@@ -17,7 +17,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 Amplify.configure(awsconfig);
 
 
-// It easy to add new benefit the page should be able to adjust to accordingly . 
+// It easy to add new benefit the page should be able to adjust to accordingly. 
 const benefitbullets = [
   "Get feedback from peers and supporters.",
   "Get discounted access.",
