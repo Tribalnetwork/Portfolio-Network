@@ -17,7 +17,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 Amplify.configure(awsconfig);
 
 
-// It easy to add new benefit the page should be able to adjust to accordingly . 
+// It easy to add new benefit the page should be able to adjust to accordingly. 
 const benefitbullets = [
   "Get feedback from peers and supporters.",
   "Get discounted access.",
@@ -65,7 +65,7 @@ class Submit extends React.Component {
       FilmInput: "",      //The Film user is uploading 
       FilmTrailerInput: "",  //Film Trailer user uploading Currently optional 
       film_cover_art: "",
-      film_genre: "",
+      film_genre: [],
       film_status: 1,
       film_synopsis: "",
       film_title: "",
@@ -449,7 +449,7 @@ class Submit extends React.Component {
                   options={this.state.listGenres}
                   placeholder={"Select Genre"}
                   styles={customStyles}
-                  onChange={this.handleChange} 
+                  onChange={this.handleChange}
                   isMulti />
               </div>
             }
@@ -595,7 +595,7 @@ const customStyles = {
 
   control: (_, { selectProps: { width } }) => ({
     backgroundColor: "transparent",
-    height: 35,
+    //height: 35,
     borderRadius: 15,
     border: "2px solid gold"
 
