@@ -77,7 +77,7 @@ export const Settings__tribalBeta = () => {
             to={"/settings/myfilms"}
             style={{ textDecoration: "none" }}
           >
-            <Button className="settings__Button settingsButton__tribalBeta">My Films</Button>
+            <Button className="settings__Button settingsButton__tribalBeta">My Portfolio</Button>
             {/*<KeyboardArrowRightIcon fontSize="large" className="rightIcon" />*/}
             <ArrowIcon fontSize="large" className="settingsRightIcon__tribalBeta" />
           </Link>

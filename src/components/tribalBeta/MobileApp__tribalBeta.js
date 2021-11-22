@@ -1,11 +1,17 @@
 import React from "react";
-import { Link, useHistory } from "react-router-dom";
+import {
+    // Link, 
+    useHistory
+} from "react-router-dom";
 import './settings__tribalBeta.css';
-import KeyboardArrowRightIcon from "@material-ui/icons/KeyboardArrowRight";
-import { Button, IconButton } from "@material-ui/core";
+// import KeyboardArrowRightIcon from "@material-ui/icons/KeyboardArrowRight";
+import {
+    // Button, 
+    IconButton
+} from "@material-ui/core";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 
-function MobileApp(){
+function MobileApp() {
     let history = useHistory();
     return (
         <div className='settingBody__tribalBeta'>
