@@ -274,7 +274,7 @@ class Submit extends React.Component {
         Required = Required + " Title,  "
       }
 
-      if (this.state.film_genre === "") {
+      if (this.state.film_genre === []) {
         Required = Required + " Genre,  "
       }
 
