@@ -15,10 +15,10 @@ import ListItemText from '@material-ui/core/ListItemText';
 
 import './NavigationBar.css';
 import Home from "../bottomNavBarImg/home.svg"
-import Tribal from "../bottomNavBarImg/tribal.svg"
+// import Tribal from "../bottomNavBarImg/tribal.svg"
 import Settings from "../bottomNavBarImg/settings.svg"
-import Social from "../bottomNavBarImg/social.svg"
-import Search from "../bottomNavBarImg/search.svg"
+// import Social from "../bottomNavBarImg/social.svg"
+// import Search from "../bottomNavBarImg/search.svg"
 import Bell from "../bottomNavBarImg/bell.svg"
 import Book from "../bottomNavBarImg/book.svg"
 import People from "../bottomNavBarImg/people.png"
@@ -121,8 +121,8 @@ export const NavigationBar = () => {
             isLoaded ? isAuthenticated ? (
               <div >
                 <button
-                  style={{ display: "inline-block" }}
-                  className={"profileimage2"} onClick={handleDrawerOpen2} variant='contained' style={{ background: 'black', textTransform: 'none' }}>
+                  style={{ display: "inline-block", background: 'black', textTransform: 'none' }}
+                  className={"profileimage2"} onClick={handleDrawerOpen2} variant='contained'>
                   <img className={"profileimage2"} src="https://d202tggnzywgd9.cloudfront.net/public/photos/avatar.png" alt='' />
                 </button>
                 {/* right navigation */}
@@ -184,27 +184,12 @@ export const NavigationBar = () => {
               <img src={Home} alt="Home" />
               <ListItemText primary={'Home'}></ListItemText>
             </ListItem>
-            {/* 2: Search */}
-            <ListItem button component={Link} to={"/search"} >
-              <img src={Search} alt='Search' />
-              <ListItemText primary={'Search'}></ListItemText>
-            </ListItem>
-            {/* 3: Streams */}
-            <ListItem button component={Link} to={"/streams"} >
-              <img src={Tribal} alt='Tribal' />
-              <ListItemText primary={'Tribal'}></ListItemText>
-            </ListItem>
-            {/* 4: Social */}
-            <ListItem button component={Link} to={"/profile"} >
-              <img src={Social} alt='Social' />
-              <ListItemText primary={'Social'}> </ListItemText>
-            </ListItem>
-            {/* 5: Settings */}
+            {/* 2: Settings */}
             <ListItem button component={Link} to={"/settings"} >
               <img src={Settings} alt='Settings' />
               <ListItemText primary={'Settings'}> </ListItemText>
             </ListItem>
-            {/* 6: Submit */}
+            {/* 3: Submit */}
             <ListItem button component={Link} to={"/submit"} >
               <img src={Submit} alt='Submit' style={{ width: '38px', marginLeft: '19px', marginRight: '19px' }} />
               <ListItemText primary={"Submit"} ></ListItemText>

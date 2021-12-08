@@ -6,15 +6,15 @@ import Amplify from "aws-amplify";
 // import { listFilms, listLiveStreams } from "./graphql/queries";
 import awsconfig from "./aws-exports";
 import "@aws-amplify/ui/dist/style.css";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import UserContext from "./UserContext";
 import { Helmet } from "react-helmet";
 import ReactPlayer from "react-player";
 import Button from "./Button";
-import ExpandLessRoundedIcon from "@material-ui/icons/ExpandLessRounded";
-import ExpandMoreRoundedIcon from "@material-ui/icons/ExpandMoreRounded";
+// import ExpandLessRoundedIcon from "@material-ui/icons/ExpandLessRounded";
+// import ExpandMoreRoundedIcon from "@material-ui/icons/ExpandMoreRounded";
 // import Typography from "@material-ui/core/Typography";
-import Grid from "@material-ui/core/Grid";
+// import Grid from "@material-ui/core/Grid";
 import HorizontalScrollerCircular from "./components/HorizontalScrollerCircular";
 // import HorizontalScroller from "./components/HorizontalScroller";
 
@@ -24,14 +24,14 @@ import HorizontalScrollerCircular from "./components/HorizontalScrollerCircular"
 //import { ReactComponent as ExploreLogo } from './icons/Explore.svg';
 //import { ReactComponent as MyStudioLogo } from './icons/myStudio.svg';
 //import { ReactComponent as StarRating } from './icons/Rate.svg'
-import { ReactComponent as RatingButton } from "./icons/RateButton_tribalBeta.svg";
-import { ReactComponent as SubmitButton } from "./icons/SubmitButton_tribalBeta.svg";
-import { ReactComponent as StarRatingIcon } from "./icons/starRating__tribalBeta.svg";
+// import { ReactComponent as RatingButton } from "./icons/RateButton_tribalBeta.svg";
+// import { ReactComponent as SubmitButton } from "./icons/SubmitButton_tribalBeta.svg";
+// import { ReactComponent as StarRatingIcon } from "./icons/starRating__tribalBeta.svg";
 // import Gigs from "./Gigs/Gigs";
 // import { Button as MaterialUiButton } from "@material-ui/core";
-import { useTheme } from "@material-ui/core/styles";
-import { useMediaQuery } from "@material-ui/core";
-import Popup from "reactjs-popup";
+// import { useTheme } from "@material-ui/core/styles";
+// import { useMediaQuery } from "@material-ui/core";
+// import Popup from "reactjs-popup";
 // import "reactjs-popup/dist/index.css";
 import "./Home.css";
 Amplify.configure(awsconfig);
@@ -248,8 +248,8 @@ export default class Home extends React.Component {
     if (this.context.isLoaded && this.state.user.requests === 0) {
       this.cognitoUserToUserTable()
     }
-    const isAuthenticated =
-      this.context.user && this.context.user.username ? true : false;
+    // const isAuthenticated =
+    //   this.context.user && this.context.user.username ? true : false;
     const isLoaded = this.context.isLoaded;
     const hasAccess =
       this.context.hasAccess || this.context.remainingVODTime > 0;
@@ -294,80 +294,7 @@ export default class Home extends React.Component {
                   </p><br />
                   <p>{this.state.sponsorshipLabel}</p>
                 </div>
-                <div className="functionbar-wrapper">
-                  <Grid container justify="center" style={{ height: '87px', alignItems: 'center' }}>
-                    <Grid item>
-                      <Popup
-                        trigger={(open) => (<RatingButton className="RateAndSubmit__tribalBeta" />)}
-                        // position="center center"
-                        closeOnDocumentClick>
-                        <div className="ratingPopup__tribalBetaHome">
-                          <h3 className="titlePopup__tribalBetaHome">Rate This Film</h3>
-                          <div className="overall__tribalBetaHome">
-                            <span className="overallStar__tribalBetaHome">Overall</span>
-                            {/* rated stars */}
-                            {
-                              this.state.filmRatedStars.filmId !== undefined ?
-                                <span>
-                                  {this.state.filmRatedStars.stars > 0 ? <img src="/starForFilmOrdering.svg" alt="rate" onClick={() => this.updateRatingStars(1)} /> : <StarRatingIcon onClick={() => this.updateRatingStars(1)} />}
-                                  {this.state.filmRatedStars.stars > 1 ? <img src="/starForFilmOrdering.svg" alt="rate" onClick={() => this.updateRatingStars(2)} /> : <StarRatingIcon onClick={() => this.updateRatingStars(2)} />}
-                                  {this.state.filmRatedStars.stars > 2 ? <img src="/starForFilmOrdering.svg" alt="rate" onClick={() => this.updateRatingStars(3)} /> : <StarRatingIcon onClick={() => this.updateRatingStars(3)} />}
-                                  {this.state.filmRatedStars.stars > 3 ? <img src="/starForFilmOrdering.svg" alt="rate" onClick={() => this.updateRatingStars(4)} /> : <StarRatingIcon onClick={() => this.updateRatingStars(4)} />}
-                                  {this.state.filmRatedStars.stars > 4 ? <img src="/starForFilmOrdering.svg" alt="rate" onClick={() => this.updateRatingStars(5)} /> : <StarRatingIcon onClick={() => this.updateRatingStars(5)} />}
-                                </span>
-                                : null
-                            }
-                          </div>
-                        </div>
-                      </Popup>
-
-                    </Grid>
-                    <Grid item>
-                      <Popup
-                        trigger={(open) => (<SubmitButton className="RateAndSubmit__tribalBeta" />)}
-                        // position="center center"
-                        closeOnDocumentClick>
-                        <SubmitFilmButton />
-                      </Popup>
-
-                    </Grid>
-                  </Grid>
-                </div>
                 <div className="film-lists">
-                  <div className="filter-buttons">
-                    <button
-                      className="filtering-btn1"
-                      onClick={() => {
-                        this.sortByRating(this.state.filmGroups, "highest");
-                        let btn = document.querySelector(".filtering-btn1");
-                        btn.classList.add("active-filtered-button");
-                        btn = document.querySelector(".filtering-btn2");
-                        btn.classList.remove("active-filtered-button");
-                      }}
-                    >
-                      <img src="/starForFilmOrdering.svg" alt="rate" />
-                      <ExpandMoreRoundedIcon
-                        fontSize="large"
-                        style={{ color: "white" }}
-                      />
-                    </button>
-                    <button
-                      className="filtering-btn2"
-                      onClick={() => {
-                        this.sortByRating(this.state.filmGroups, "lowest");
-                        let btn = document.querySelector(".filtering-btn2");
-                        btn.classList.add("active-filtered-button");
-                        btn = document.querySelector(".filtering-btn1");
-                        btn.classList.remove("active-filtered-button");
-                      }}
-                    >
-                      <img src="/starForFilmOrdering.svg" alt="rate" />
-                      <ExpandLessRoundedIcon
-                        fontSize="large"
-                        style={{ color: "white" }}
-                      />
-                    </button>
-                  </div>
                   {filmGroups.map((group, index) => (
                     <FilmCat
                       title={group.genre}
@@ -381,6 +308,7 @@ export default class Home extends React.Component {
                           (_, filterIndex) => index !== filterIndex
                         );
                         // console.log(myList)
+                        window.scrollTo({ top: 0, behavior: 'smooth' }); // scrolling to top with smooth transition
                         myList.unshift(element);
                         this.setState({
                           filmGroups: myList,
@@ -456,27 +384,27 @@ function FilmCat(Props) {
   );
 }
 
-function SubmitFilmButton() {
-  let history = useHistory();
-  const theme = useTheme();
-  const breakPointQuery = useMediaQuery(theme.breakpoints.up(1024))
-  // if break point is larger than 1024 then direct user to submit page
-  if (breakPointQuery) {
-    history.push('/submit')
-    return null
-  } else {
-    return (
-      <div className="ratingPopup__tribalBetaHome">
-        <div className="overall__tribalBetaHome">
-          <span className="submit__tribalBetaHome">
-            Please Log in on Desktop to Submit your film.
-          </span>
-        </div>
-      </div>
-    )
-  }
+// function SubmitFilmButton() {
+//   let history = useHistory();
+//   const theme = useTheme();
+//   const breakPointQuery = useMediaQuery(theme.breakpoints.up(1024))
+//   // if break point is larger than 1024 then direct user to submit page
+//   if (breakPointQuery) {
+//     history.push('/submit')
+//     return null
+//   } else {
+//     return (
+//       <div className="ratingPopup__tribalBetaHome">
+//         <div className="overall__tribalBetaHome">
+//           <span className="submit__tribalBetaHome">
+//             Please Log in on Desktop to Submit your film.
+//           </span>
+//         </div>
+//       </div>
+//     )
+//   }
 
-}
+// }
 
 const styles = {
   main: {

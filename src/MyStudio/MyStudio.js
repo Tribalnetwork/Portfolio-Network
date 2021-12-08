@@ -1,9 +1,9 @@
 import React from "react";
 import {
-    withRouter,
+    // withRouter,
     Switch,
     Route,
-    Redirect,
+    // Redirect,
     BrowserRouter as Router,
     Link,
 } from "react-router-dom";
@@ -121,7 +121,7 @@ export default class MyStudio extends React.Component {
 
                             {/* additional divs to show up as a bottom border to selected tab */}
                             <div style={myFolderState === true ? styles.tabLine : { "width": '100%', "height": '1px' }}></div>
-                            <div style={todoState ? styles.tabLine : { "width": '100%', "height": '1px'}}></div>
+                            <div style={todoState ? styles.tabLine : { "width": '100%', "height": '1px' }}></div>
 
                         </div>
                     </header>
