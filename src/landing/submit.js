@@ -128,7 +128,8 @@ class Submit extends React.Component {
   }
 
   handleChange(event) {
-    this.setState({ film_genre: event.value })
+    this.setState({ film_genre: [...this.state.film_genre,event[event.length-1].value]})
+    console.log(event)
   }
 
   handleCheckBox = () => {
@@ -150,23 +151,30 @@ class Submit extends React.Component {
     setTimeout(() => {
       if (this.state.readyToSubmit === true) {
         let formData = {
-          "user_id": this.context.user.attributes.sub,
-          "film_submitted_date": this.state.date,
-          "film_status": this.state.status,
-          "film_title": this.state.film_title,
-          "film_genre_id": this.state.film_genre,
-          "film_synopsis": this.state.film_synopsis,
-          "film_link": "",
-          "film_trailer": "",
-          "film_cover_art": this.state.film_cover_art.name,
-          "film_cover_art_type": this.state.film_cover_art.type,
-          "film_cover_thumb": "",
-          "film_credits": "film credits here",
-          "film_year": "1998",
-          "film_length": "106",
-          "film_file": this.state.FilmInput,
-          "content_type": this.state.FilmInput.type
-        }
+            "user_id": this.context.user.attributes.sub,
+            "film_status": this.state.status,
+            "content_type": this.state.FilmInput.type,
+            "film_title": this.state.film_title,
+            "film_genre": "testing",
+            "film_synopsis": this.state.film_synopsis,
+            "film_link": "testing",
+            "film_trailer": "testing",
+            "film_cover_art_type": this.state.film_cover_art.type,
+            "film_cover_art": this.state.film_cover_art.name,
+            "film_cover_thumb": "testing",
+            "film_credits": "film credits here",
+            "film_year": "1998",
+            "film_length": "106",
+            "stars_overall": "testing",
+            "stars_acting": "testing",
+            "stars_lighting": "testing",
+            "stars_sound": "testing",
+            "stars_music": "testing",
+            "stars_editing": "testing",
+            "film_genre_id": this.state.film_genre,
+            "film_file": this.state.FilmInput
+          }
+          console.log(formData)
         let dataAsJson = JSON.stringify(formData);
         axios.post("https://j9j2n6zof3.execute-api.us-east-1.amazonaws.com/dev", dataAsJson).then(res => {
           console.log(res.config.data)
@@ -181,7 +189,7 @@ class Submit extends React.Component {
           this.state.film_cover_art ?
             this.setState({
               url: newurl,
-              imageUrl: res.data.body.url_for_image
+              imageUrl: res.data.url_for_image
             })
             :
             this.setState({
