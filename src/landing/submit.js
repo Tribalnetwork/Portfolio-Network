@@ -128,8 +128,14 @@ class Submit extends React.Component {
   }
 
   handleChange(event) {
+    if (event===null){
+      event=[];
+    }
+    else if (typeof event[event.length-1]==='undefined'){
+      event=[];
+    }
     this.setState({ film_genre: [...this.state.film_genre,event[event.length-1].value]})
-    console.log(event)
+    console.log(event[event.length-1])
   }
 
   handleCheckBox = () => {
@@ -174,7 +180,7 @@ class Submit extends React.Component {
             "film_genre_id": this.state.film_genre,
             "film_file": this.state.FilmInput
           }
-          console.log(formData)
+          //console.log(formData)
         let dataAsJson = JSON.stringify(formData);
         axios.post("https://j9j2n6zof3.execute-api.us-east-1.amazonaws.com/dev", dataAsJson).then(res => {
           console.log(res.config.data)
