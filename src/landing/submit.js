@@ -133,6 +133,11 @@ class Submit extends React.Component {
     }
     this.setState({ film_genre: [...this.state.film_genre,event[event.length-1].value]})
     //console.log(event[event.length-1])
+    else if (typeof event[event.length-1]==='undefined'){
+      event=[];
+    }
+    this.setState({ film_genre: [...this.state.film_genre,event[event.length-1].value]})
+    console.log(event[event.length-1])
   }
 
   handleCheckBox = () => {
