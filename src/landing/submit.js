@@ -150,6 +150,8 @@ class Submit extends React.Component {
 
 
   Submit = () => {
+    let filmURL = "";
+    let coverURL = "";
     // console.log(this.context.user.attributes.sub )
     //reset the upload percentage to 0 before moving to the next page
     this.setState({ uploadPercentage: 0 })
@@ -157,40 +159,50 @@ class Submit extends React.Component {
     setTimeout(() => {
       if (this.state.readyToSubmit === true) {
         let formData = {
-            "user_id": this.context.user.attributes.sub,
-            "film_status": this.state.status,
-            "content_type": this.state.FilmInput.type,
-            "film_title": this.state.film_title,
-            "film_genre": "testing",
-            "film_synopsis": this.state.film_synopsis,
-            "film_link": "testing",
-            "film_trailer": "testing",
-            "film_cover_art_type": this.state.film_cover_art.type,
-            "film_cover_art": this.state.film_cover_art.name,
-            "film_cover_thumb": "testing",
-            "film_credits": "film credits here",
-            "film_year": "1998",
-            "film_length": "106",
-            "stars_overall": "testing",
-            "stars_acting": "testing",
-            "stars_lighting": "testing",
-            "stars_sound": "testing",
-            "stars_music": "testing",
-            "stars_editing": "testing",
-            "film_genre_id": this.state.film_genre,
-            "film_file": this.state.FilmInput
-          }
-          //console.log(formData)
-        let dataAsJson = JSON.stringify(formData);
-        axios.post("https://j9j2n6zof3.execute-api.us-east-1.amazonaws.com/dev", dataAsJson).then(res => {
-          console.log(res.config.data)
-          console.log(res)
-          console.log(res.data)
+          "user_id": this.context.user.attributes.sub,
+          "film_status": this.state.status,
+          //"content_type": this.state.FilmInput.type,
+          "film_title": this.state.film_title,
+          "film_genre": "testing",
+          "film_synopsis": this.state.film_synopsis,
+          "film_link": "testing",
+          "film_trailer": "testing",
+          //"film_cover_art_type": this.state.film_cover_art.type,
+          "film_cover_art": this.state.film_cover_art.name,
+          "film_cover_thumb": "testing",
+          "film_credits": "film credits here",
+          "film_year": "1998",
+          "film_length": "106",
+          "stars_overall": "testing",
+          "stars_acting": "testing",
+          "stars_lighting": "testing",
+          "stars_sound": "testing",
+          "stars_music": "testing",
+          "stars_editing": "testing",
+          "film_genre_id": this.state.film_genre,
+          "film_file": this.state.FilmInput
+        }
+        //this is the data for generating url for storing into S3
+        let dataForGeneratingURLs = {
+          "content_type": this.state.FilmInput.type,
+          "film_cover_art": this.state.film_cover_art.name,
+          "film_cover_art_type": this.state.film_cover_art.type
+        }
+        let dataForGeneratingURLsJson = JSON.stringify(dataForGeneratingURLs);
+        axios.post("https://wtukhmryu1.execute-api.us-east-1.amazonaws.com/default/generatingURLsForNewFilm", dataForGeneratingURLsJson)
+        .then(res => {
+          //console.log(res.config.data)
+          //console.log(res)
+          //console.log(res.data)
           this.setState({
             New_film_id: res.data.body.New_film_id
           });
+          //include the new film id to the data for database insertion
+          formData.film_id = this.state.New_film_id
+          filmURL = res.data.body.url
+          coverURL = res.data.body.url_for_image
+          /*
           let newurl = res.data.body.url
-
           // if cover are is not empty then add presigned url to imgaeUrl
           this.state.film_cover_art ?
             this.setState({
@@ -201,11 +213,12 @@ class Submit extends React.Component {
             this.setState({
               url: newurl
             })
+          */
         })
           .then(() => {
             // submitting film
             axios({
-              url: this.state.url,
+              url: filmURL,
               method: 'put',
               data: this.state.FilmInput,
               headers: {
@@ -228,29 +241,34 @@ class Submit extends React.Component {
                 // console.log("Film Submited Successfuly")
                 // console.log(res)
                 this.setState({ checked: true, confirmation: "Thanks for submitting your film. The Tribal film council will make a determination within 21 days." })
+                
+              })
+              .then(res => 
+                axios({ url: "https://j348sqkzha.execute-api.us-east-1.amazonaws.com/default/addingFilmsDataToRDS", method: "post", data: JSON.stringify(formData)})
+              )
+              .then(res => {
+                console.log(res)
               })
               .catch(err => {
                 console.log("ERROR" + err)
                 this.setState({ confirmation: "Uh-Oh! There was a problem submitting your film, please try again and if the problem persist, contact customer support." })
               });
             // submitting cover art
-            if (this.state.imageUrl) {
-              axios({
-                url: this.state.imageUrl,
-                method: 'put',
-                data: this.state.film_cover_art,
-                headers: {
-                  'Content-Type': this.state.film_cover_art.type
-                }
+            axios({
+              url: coverURL,
+              method: 'put',
+              data: this.state.film_cover_art,
+              headers: {
+                'Content-Type': this.state.film_cover_art.type
+              }
+            })
+              .then(res => {
+                console.log("COVER IMAGE HAS BEEN ADDED SUCCESSFUL")
+                console.log(res)
               })
-                .then(res => {
-                  console.log("COVER IMAGE HAS BEEN ADDED SUCCESSFUL")
-                  console.log(res)
-                })
-                .catch(err => {
-                  console.log("ERROR WHILE UPLOADING COVER IMAGE" + err)
-                })
-            }
+              .catch(err => {
+                console.log("ERROR WHILE UPLOADING COVER IMAGE" + err)
+              })
           })
       }
 
