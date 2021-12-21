@@ -87,8 +87,7 @@ class Submit extends React.Component {
       muteVideo: false, // true means mute the video and false means don't mute the video
       listGenres: [],
       uploadPercentage: 0,
-      checked: false,
-      New_film_id: ""
+      checked: false
     };
 
     this.Next = this.Next.bind(this);
@@ -152,7 +151,6 @@ class Submit extends React.Component {
   Submit = () => {
     let filmURL = "";
     let coverURL = "";
-    // console.log(this.context.user.attributes.sub )
     //reset the upload percentage to 0 before moving to the next page
     this.setState({ uploadPercentage: 0 })
     this.Next();
@@ -191,14 +189,8 @@ class Submit extends React.Component {
         let dataForGeneratingURLsJson = JSON.stringify(dataForGeneratingURLs);
         axios.post("https://wtukhmryu1.execute-api.us-east-1.amazonaws.com/default/generatingURLsForNewFilm", dataForGeneratingURLsJson)
         .then(res => {
-          //console.log(res.config.data)
-          //console.log(res)
-          //console.log(res.data)
-          this.setState({
-            New_film_id: res.data.body.New_film_id
-          });
           //include the new film id to the data for database insertion
-          formData.film_id = this.state.New_film_id
+          formData.film_id = res.data.body.New_film_id
           filmURL = res.data.body.url
           coverURL = res.data.body.url_for_image
           /*
@@ -232,18 +224,17 @@ class Submit extends React.Component {
               }
             })
               .then(res =>
-                axios({ url: "https://2ajlr7txqa.execute-api.us-east-1.amazonaws.com/default/Get_Film_From_S3", method: "post", data: JSON.stringify({ id: this.state.New_film_id }) })
+                axios({ url: "https://2ajlr7txqa.execute-api.us-east-1.amazonaws.com/default/Get_Film_From_S3", method: "post", data: JSON.stringify({ id: formData.film_id}) })
               )
               .then(res => {
                 if (!res.data.body.exist) {
                   throw new Error("Uh-Oh! There was a problem submitting your film, please try again and if the problem persist, contact customer support.")
                 }
-                // console.log("Film Submited Successfuly")
-                // console.log(res)
                 this.setState({ checked: true, confirmation: "Thanks for submitting your film. The Tribal film council will make a determination within 21 days." })
                 
               })
               .then(res => 
+                //the film has been successfully stored in S3, now store the film data into the database
                 axios({ url: "https://j348sqkzha.execute-api.us-east-1.amazonaws.com/default/addingFilmsDataToRDS", method: "post", data: JSON.stringify(formData)})
               )
               .then(res => {
