@@ -128,13 +128,14 @@ class Submit extends React.Component {
   }
   handleChange(event) {
     if ((event) && (event.length>0)) {
-        this.setState({ film_genre: [...this.state.film_genre,event[event.length-1].value]})
+        this.setState({ film_genre: [event.map(a=>a.value)]})
       }
     if ((event===null) || (event.length===0)){
       this.setState({film_genre: []});
     }
+    //console.log(event)
     console.log(this.state.film_genre)
-    //console.log(event[event.length-1])
+    //console.log(event)
     //console.log(this.setState({ film_genre: [...this.state.film_genre,event[event.length-1].value]}))
   }
 
