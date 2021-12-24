@@ -126,16 +126,13 @@ class Submit extends React.Component {
         console.log(err)
       })
   }
-
   handleChange(event) {
-    if (event===null){
-      event=[];
+    if ((event) && (event.length>0)) {
+        this.setState({ film_genre: [...event.map(a=>a.value)]})
+      }
+    if ((event===null) || (event.length===0)){
+      this.setState({film_genre: []});
     }
-    else if (typeof event[event.length-1]==='undefined'){
-      event=[];
-    }
-    this.setState({ film_genre: [...this.state.film_genre,event[event.length-1].value]})
-    console.log(event[event.length-1])
   }
 
   handleCheckBox = () => {
@@ -464,7 +461,8 @@ class Submit extends React.Component {
                   placeholder={"Select Genre"}
                   styles={customStyles}
                   onChange={this.handleChange}
-                  isMulti />
+                  isMulti
+                  />
               </div>
             }
 
