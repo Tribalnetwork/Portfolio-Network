@@ -211,7 +211,7 @@ class Submit extends React.Component {
             // submitting film
             axios({
               url: filmURL,
-              method: 'put',
+              method: 'PUT',
               data: this.state.FilmInput,
               headers: {
                 'Content-Type': this.state.FilmInput.type
@@ -219,18 +219,18 @@ class Submit extends React.Component {
               onUploadProgress: (progressEvent) => {
                 const { loaded, total } = progressEvent;
                 let percent = Math.floor((loaded * 100) / total);
-                console.log(`${loaded}kb of ${total}kb | ${percent}%`);
                 this.setState({ uploadPercentage: percent });
               }
             })
               .then(res =>
+                //check if the film submission was successful by checking if it can be foind in S3
                 axios({ url: "https://2ajlr7txqa.execute-api.us-east-1.amazonaws.com/default/Get_Film_From_S3", method: "post", data: JSON.stringify({ id: formData.film_id}) })
               )
               .then(res => {
+                //throw an error if the film submission was no successful
                 if (!res.data.body.exist) {
                   throw new Error("Uh-Oh! There was a problem submitting your film, please try again and if the problem persist, contact customer support.")
                 }
-                this.setState({ checked: true, confirmation: "Thanks for submitting your film. The Tribal film council will make a determination within 21 days." })
                 
               })
               .then(res => 
@@ -238,10 +238,10 @@ class Submit extends React.Component {
                 axios({ url: "https://j348sqkzha.execute-api.us-east-1.amazonaws.com/default/addingFilmsDataToRDS", method: "post", data: JSON.stringify(formData)})
               )
               .then(res => {
-                console.log(res)
+                this.setState({ checked: true, confirmation: "Thanks for submitting your film. The Tribal film council will make a determination within 21 days." })
               })
               .catch(err => {
-                console.log("ERROR" + err)
+                console.log("Submitting film error: ", err)
                 this.setState({ confirmation: "Uh-Oh! There was a problem submitting your film, please try again and if the problem persist, contact customer support." })
               });
             // submitting cover art
@@ -253,10 +253,6 @@ class Submit extends React.Component {
                 'Content-Type': this.state.film_cover_art.type
               }
             })
-              .then(res => {
-                console.log("COVER IMAGE HAS BEEN ADDED SUCCESSFUL")
-                console.log(res)
-              })
               .catch(err => {
                 console.log("ERROR WHILE UPLOADING COVER IMAGE" + err)
               })
