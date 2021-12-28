@@ -1,7 +1,7 @@
 ## Description
 Please include a summary of the changes and which issue is fixed. List any dependencies that are required for the changes.
 
-**Fixes # (issue)** _(please type the issue number after #symbol, for example "fixes #213")_
+**Fixes #(issue)**
 
 
 ## Changes proposed in this pull request
