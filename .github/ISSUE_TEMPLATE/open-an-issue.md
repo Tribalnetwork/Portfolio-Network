@@ -1,5 +1,5 @@
 ---
-name: Open an issue
+name: Open custom issue
 about: Opening custom issue
 title: ''
 labels: ''
@@ -14,5 +14,5 @@ A clear and concise description of what the issue is about.
 Please state clearly what is the expected output or result
 
 **Resources**
-- [ ] add links for other to follow and learn more about the issue
-- [ ] add links for other to follow and learn more about the issue
+- [ ] add links for others to follow and learn more about the issue
+- [ ] add links for others to follow and learn more about the issue
