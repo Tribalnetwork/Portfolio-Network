@@ -1,134 +1,23 @@
-# Tribal Network - React Web App
+<h1 align='center'><img src='https://avatars.githubusercontent.com/u/63391280?v=4' alt='Tribal Network' style='border-radius: 3px' width='200px'><p>TRIBAL NETWORK</p><a href='https://tribalnetwork.org/' target='_blank' style='font-size: 12px; border: 1px solid gold; padding: 0.4rem; border-radius: 4px; color: gold; margin: 4px'>Website</a></h1>
 
-A [Tribal Studio](https://www.tribaliii.com/) app for filmmakers. Deployed [here](https://www.tribalnetwork.org/).
+## Tribal Organization
 
-## What is this repo?
+Non-profit charitable organizations often rely on volunteers to perform a variety of tasks that are critical to the non-profit’s mission.
 
-This repo serves as the entire Tribal Network web app codebase.
+## Tribal Network Web Project (TNWeb)
 
-If you're looking for the repo for the mobile app, head on over to the [mobile repo](https://github.com/Tribalnetwork/TribalNetworkRN).
+---
+Is a web app aimed to serve film makers and artists.
 
-If you would like to work on the backend, visit [additional guides](https://github.com/Tribalnetwork/Additional-Guides#summary-of-not-yet-implemented-features-that-need-backend-work).
+## How You Can Contribute
 
-**NOTE BEFORE YOU GO FURTHER:** This README is still a work in progress. If there is anything that's missing, doesn't make sense, or doesn't work, let us know! Or better yet, make a pull request with updated information. We want to make this README as robust as possible.
-Here's how to get started:
+---
+To contribute the project first off please read the contribtion guidlines [here]("#") then go to this figma [file](https://www.figma.com/file/h0j3Qvvvng6H6YFN3g56wb/Fork%2C-Clone%2C-and-Configure-Amplify?node-id=0%3A1) for setting up the project locally and configure AWS amplify.
 
-## Get a copy of this repo
+# Contributors ✨
 
-1.  Fork this respository by [clicking here](https://github.com/Tribalnetwork/TNWeb/fork).
+<table border='1px'><tr><td><a href="https://github.com/tribalteams" target="_blank"><img src='https://avatars.githubusercontent.com/u/66889079?v=4' alt='' width='100px'><p align='center'>Tyron Jackson</p></a></td><td><a href="https://github.com/jreid2454" target="_blank"><img src='https://github.com/jreid2454.png' alt='' width='100px'><p align='center'>Joshua Reid</p></a></td><td><a href="https://github.com/twillisdev" target="_blank"><img src='https://avatars.githubusercontent.com/u/73906599?v=4' alt='' width='100px'><p align='center'>Tallah</p></a></td><td><a href="https://github.com/Osong-Michael" target="_blank"><img src='https://avatars.githubusercontent.com/u/38656549?v=4' alt='' width='100px'><p align='center'>Osong</p></a></td></tr><!-- 2 --><tr><td><a href="https://github.com/LeoXu1" target="_blank"><img src='https://avatars.githubusercontent.com/u/15039674?v=4' alt='' width='100px'><p align='center'>LeoXu1</p></a></td><td><a href="https://github.com/Nechir-89" target="_blank"><img src='https://avatars.githubusercontent.com/u/66407817?v=4' alt='' width='100px'><p align='center'>Neck</p></a></td><td><a href="https://github.com/linjing-wen" target="_blank"><img src='https://avatars.githubusercontent.com/u/84493509?v=4' alt='' width='100px'><p align='center'>linjing-wen</p></a></td><td><a href="https://github.com/tmalik8" target="_blank"><img src='https://avatars.githubusercontent.com/u/67351502?v=4' alt='' width='100px'><p align='center'>Tanya Malik</p></a></td></tr><!-- 3 --><tr><td><a href="https://github.com/ZhongweiL" target="_blank"><img src='https://avatars.githubusercontent.com/u/43942535?v=4' alt='' width='100px'><p align='center'>Zhongwei Li</p></a></td></tr></table>
 
-2.  Clone the forked copy to your computer.
+---
 
-3.  Add an upstream to the shared repo:
-
-```
-cd TNWeb
-git remote add upstream https://github.com/Tribalnetwork/TNWeb.git
-```
-
-You can also set the upstream remote with SSH if you have that set up.
-
-## AWS Credentials
-
-To get access to Tribal's AWS account, ask your lead or manager for IAM user cridentials. Then sign in with this information:
-
-_Account ID:_ 427025378311 or tribalnetwork
-
-_IAM User Name & Password:_ Get from your Admin
-
-## Set up Amplify on your machine
-
-Our app uses [AWS Amplify](https://docs.amplify.aws/). You may come across some old team files that reference AWS Mobile, but please note that we are no longer using AWS Mobile.
-
-1.  Globally install the Amplify CLI if you haven't already. [more info](https://docs.amplify.aws/cli/start/install#install-the-amplify-cli)
-
-```
-npm install -g @aws-amplify/cli
-```
-
-2.  [Configure the Amplify CLI.](https://docs.amplify.aws/cli/start/install#configure-the-amplify-cli) You will need the above credentials for this part. Stop before you reach "Work within your frontend project." You will not be running `amplify init`. Instead...
-
-3.  After the configuration, navigate to the project root and run `amplify pull`. You may or may not be asked a series of questions, depending on if the Amplify config files you cloned already take care of it. We as a team are still trying to figure that out. Anyway, if the questions appear, answer them like this:
-
-- `Do you want to use an AWS profile?` Choose "Yes"
-- `Please choose the profile you want to use` Choose "default"
-- `Which app are you working on?` Choose "TNWeb"
-- `Choose your default editor` Up to you!
-- `Choose the type of app that you're building` Choose "javascript"
-- `What javascript framework are you using` Choose "react"
-- `Source Directory Path` Hit Enter
-- `Distribution Directory Path` Hit Enter
-- `Build Command` Hit Enter
-- `Start Command` npm start
-- `Do you plan on modifying this backend?` Choose "Yes"
-
-4. Run `amplify pull` again to sync the changes.
-
-## Run the app locally
-
-### Prerequisites
-
-(You only have to do these when you are running the app for the first time.)
-
-1. [Set up Amplify](https://github.com/Tribalnetwork/TNWeb#set-up-amplify-on-your-machine)
-
-2. Install dependencies: `npm install`.
-
-### Start
-
-Start the local development server : `npm start`. 
-
-The app should viewable by typing `localhost:3000` into the address bar of any web browser.
-
-Any saved changes that you make to the files while the local development server is running will be automatically reflected in the app running at `localhost:3000` thanks to React's "hot reloading" feature.
-
-When you want to close the local development server, return to your terminal and type `Ctrl + C` and then `y`.
-
-## Make a contribution
-
-1. Always start off by fetching and merging the latest changes:
-
-```
-git checkout master
-git fetch --all
-git merge upstream/master
-```
-
-2. Install/update dependencies
-
-```
-npm install
-```
-
-2. Create a feature branch based off master:
-
-```
-git checkout -B my_feature_branch_name_here
-```
-
-3. Start the local development server:
-
-```
-npm start
-```
-
-
-4. Make your edits, fix a bug, implement a feature, etc. If you're looking for something to work on, check out our [Issues](https://github.com/Tribalnetwork/TNWeb/issues) page. Check out [Additional Guides](https://github.com/Tribalnetwork/Additional-Guides#how-to-use-the-api-within-the-app) if you haven't already. If you have changed the GraphQL Schema, you must run `amplify push` to apply changes.
-
-5. Add, commit, and push your feature branch to your Github:
-
-```
-git add .
-git commit -m "Enter your description of your changes."
-git push origin my_feature_branch_name_here
-```
-
-6.  Use your GitHub page to create a pull request from your feature branch to master.
-
-7.  One of the admins will then merge your changes into the main branch.
-
-8.  To publish changes to [tribalnetwork.org](https://www.tribalnetwork.org), run `amplify publish`.
-
-9.  Return to step 1 and repeat: fetch/pull, edit, push, merge branch, publish!
-
-You can also refer to the [additional guides](https://github.com/Tribalnetwork/Additional-Guides#summary-of-not-yet-implemented-features-that-need-backend-work) Repo for more help.
+**NOTE** This README is still a work in progress. If there is anything that's missing, doesn't make sense, or doesn't work, let us know! Or better yet, make a pull request with updated information. We want to make this README as robust as possible.
