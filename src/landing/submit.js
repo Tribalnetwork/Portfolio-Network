@@ -221,7 +221,7 @@ class Submit extends React.Component {
             })
               .then(res =>
                 //check if the film submission was successful by checking if it can be foind in S3
-                axios({ url: "https://a0riwbhrpk.execute-api.us-east-1.amazonaws.com/dev/", method: "post", data: JSON.stringify({ id: formData.film_id}) })
+                axios({ url: "https://a0riwbhrpk.execute-api.us-east-1.amazonaws.com/dev", method: "post", data: JSON.stringify({ id: formData.film_id}) })
               )
               .then(res => {
                 //throw an error if the film submission was no successful

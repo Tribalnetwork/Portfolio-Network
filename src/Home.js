@@ -71,7 +71,7 @@ export default class Home extends React.Component {
     };
     let theData = JSON.stringify(FilmKey);
 
-    const response = await axios({ url: "https://blwpdoh31d.execute-api.us-east-1.amazonaws.com/dev/", method: "post", data: theData, });
+    const response = await axios({ url: "https://blwpdoh31d.execute-api.us-east-1.amazonaws.com/dev", method: "post", data: theData, });
     this.setState({ url: response.data.body.url });
     // Two: get the stars for playing film for current user
     if (this.context.user) {
