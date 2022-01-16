@@ -87,8 +87,7 @@ class Submit extends React.Component {
       muteVideo: false, // true means mute the video and false means don't mute the video
       listGenres: [],
       uploadPercentage: 0,
-      checked: false,
-      New_film_id: ""
+      checked: false
     };
 
     this.Next = this.Next.bind(this);
@@ -126,16 +125,13 @@ class Submit extends React.Component {
         console.log(err)
       })
   }
-
   handleChange(event) {
-    if (event===null){
-      event=[];
+    if ((event) && (event.length>0)) {
+        this.setState({ film_genre: [...event.map(a=>a.value)]})
+      }
+    if ((event===null) || (event.length===0)){
+      this.setState({film_genre: []});
     }
-    else if (typeof event[event.length-1]==='undefined'){
-      event=[];
-    }
-    this.setState({ film_genre: [...this.state.film_genre,event[event.length-1].value]})
-    console.log(event[event.length-1])
   }
 
   handleCheckBox = () => {
@@ -150,47 +146,52 @@ class Submit extends React.Component {
 
 
   Submit = () => {
-    // console.log(this.context.user.attributes.sub )
+    let filmURL = "";
+    let coverURL = "";
     //reset the upload percentage to 0 before moving to the next page
     this.setState({ uploadPercentage: 0 })
     this.Next();
     setTimeout(() => {
       if (this.state.readyToSubmit === true) {
         let formData = {
-            "user_id": this.context.user.attributes.sub,
-            "film_status": this.state.status,
-            "content_type": this.state.FilmInput.type,
-            "film_title": this.state.film_title,
-            "film_genre": "testing",
-            "film_synopsis": this.state.film_synopsis,
-            "film_link": "testing",
-            "film_trailer": "testing",
-            "film_cover_art_type": this.state.film_cover_art.type,
-            "film_cover_art": this.state.film_cover_art.name,
-            "film_cover_thumb": "testing",
-            "film_credits": "film credits here",
-            "film_year": "1998",
-            "film_length": "106",
-            "stars_overall": "testing",
-            "stars_acting": "testing",
-            "stars_lighting": "testing",
-            "stars_sound": "testing",
-            "stars_music": "testing",
-            "stars_editing": "testing",
-            "film_genre_id": this.state.film_genre,
-            "film_file": this.state.FilmInput
-          }
-          //console.log(formData)
-        let dataAsJson = JSON.stringify(formData);
-        axios.post("https://j9j2n6zof3.execute-api.us-east-1.amazonaws.com/dev", dataAsJson).then(res => {
-          console.log(res.config.data)
-          console.log(res)
-          console.log(res.data)
-          this.setState({
-            New_film_id: res.data.body.New_film_id
-          });
+          "user_id": this.context.user.attributes.sub,
+          "film_status": this.state.status,
+          //"content_type": this.state.FilmInput.type,
+          "film_title": this.state.film_title,
+          "film_genre": "testing",
+          "film_synopsis": this.state.film_synopsis,
+          "film_link": "testing",
+          "film_trailer": "testing",
+          //"film_cover_art_type": this.state.film_cover_art.type,
+          "film_cover_art": this.state.film_cover_art.name,
+          "film_cover_thumb": "testing",
+          "film_credits": "film credits here",
+          "film_year": "1998",
+          "film_length": "106",
+          "stars_overall": "testing",
+          "stars_acting": "testing",
+          "stars_lighting": "testing",
+          "stars_sound": "testing",
+          "stars_music": "testing",
+          "stars_editing": "testing",
+          "film_genre_id": this.state.film_genre,
+          "film_file": this.state.FilmInput
+        }
+        //this is the data for generating url for storing into S3
+        let dataForGeneratingURLs = {
+          "content_type": this.state.FilmInput.type,
+          "film_cover_art": this.state.film_cover_art.name,
+          "film_cover_art_type": this.state.film_cover_art.type
+        }
+        let dataForGeneratingURLsJson = JSON.stringify(dataForGeneratingURLs);
+        axios.post("https://wtukhmryu1.execute-api.us-east-1.amazonaws.com/default/generatingURLsForNewFilm", dataForGeneratingURLsJson)
+        .then(res => {
+          //include the new film id to the data for database insertion
+          formData.film_id = res.data.body.New_film_id
+          filmURL = res.data.body.url
+          coverURL = res.data.body.url_for_image
+          /*
           let newurl = res.data.body.url
-
           // if cover are is not empty then add presigned url to imgaeUrl
           this.state.film_cover_art ?
             this.setState({
@@ -201,12 +202,13 @@ class Submit extends React.Component {
             this.setState({
               url: newurl
             })
+          */
         })
           .then(() => {
             // submitting film
             axios({
-              url: this.state.url,
-              method: 'put',
+              url: filmURL,
+              method: 'PUT',
               data: this.state.FilmInput,
               headers: {
                 'Content-Type': this.state.FilmInput.type
@@ -214,43 +216,43 @@ class Submit extends React.Component {
               onUploadProgress: (progressEvent) => {
                 const { loaded, total } = progressEvent;
                 let percent = Math.floor((loaded * 100) / total);
-                console.log(`${loaded}kb of ${total}kb | ${percent}%`);
                 this.setState({ uploadPercentage: percent });
               }
             })
               .then(res =>
-                axios({ url: "https://2ajlr7txqa.execute-api.us-east-1.amazonaws.com/default/Get_Film_From_S3", method: "post", data: JSON.stringify({ id: this.state.New_film_id }) })
+                //check if the film submission was successful by checking if it can be foind in S3
+                axios({ url: "https://2ajlr7txqa.execute-api.us-east-1.amazonaws.com/default/Get_Film_From_S3", method: "post", data: JSON.stringify({ id: formData.film_id}) })
               )
               .then(res => {
+                //throw an error if the film submission was no successful
                 if (!res.data.body.exist) {
                   throw new Error("Uh-Oh! There was a problem submitting your film, please try again and if the problem persist, contact customer support.")
                 }
-                // console.log("Film Submited Successfuly")
-                // console.log(res)
+                
+              })
+              .then(res => 
+                //the film has been successfully stored in S3, now store the film data into the database
+                axios({ url: "https://j348sqkzha.execute-api.us-east-1.amazonaws.com/default/addingFilmsDataToRDS", method: "post", data: JSON.stringify(formData)})
+              )
+              .then(res => {
                 this.setState({ checked: true, confirmation: "Thanks for submitting your film. The Tribal film council will make a determination within 21 days." })
               })
               .catch(err => {
-                console.log("ERROR" + err)
+                console.log("Submitting film error: ", err)
                 this.setState({ confirmation: "Uh-Oh! There was a problem submitting your film, please try again and if the problem persist, contact customer support." })
               });
             // submitting cover art
-            if (this.state.imageUrl) {
-              axios({
-                url: this.state.imageUrl,
-                method: 'put',
-                data: this.state.film_cover_art,
-                headers: {
-                  'Content-Type': this.state.film_cover_art.type
-                }
+            axios({
+              url: coverURL,
+              method: 'put',
+              data: this.state.film_cover_art,
+              headers: {
+                'Content-Type': this.state.film_cover_art.type
+              }
+            })
+              .catch(err => {
+                console.log("ERROR WHILE UPLOADING COVER IMAGE" + err)
               })
-                .then(res => {
-                  console.log("COVER IMAGE HAS BEEN ADDED SUCCESSFUL")
-                  console.log(res)
-                })
-                .catch(err => {
-                  console.log("ERROR WHILE UPLOADING COVER IMAGE" + err)
-                })
-            }
           })
       }
 
@@ -464,7 +466,8 @@ class Submit extends React.Component {
                   placeholder={"Select Genre"}
                   styles={customStyles}
                   onChange={this.handleChange}
-                  isMulti />
+                  isMulti
+                  />
               </div>
             }
 
