@@ -1,7 +1,6 @@
 import React from 'react'
 import Amplify from 'aws-amplify';
 import { API, graphqlOperation } from 'aws-amplify'
-import { listGigs } from '../graphql/queries'
 import awsconfig from '../aws-exports';
 import '@aws-amplify/ui/dist/style.css';
 import { Link } from "react-router-dom";
@@ -67,11 +66,6 @@ export default class Event extends React.Component {
     this.setState({events: eventsData});
   }
 
- /* componentDidMount() {
-    this.fetchGigs();
-  }*/
-
-
   event_card=(event)=>{
     console.log(event)
     return (
@@ -103,17 +97,6 @@ export default class Event extends React.Component {
     )
   }
 
- /* async fetchEvents() {
-    try {
-      const gigs = await API.graphql(graphqlOperation(listGigs, {
-        
-      }));
-      //console.log(streams.data.listLiveStreams.items)
-      this.setState({ gigs: gigs.data.listGigs.items })
-      console.log(this.state.gigs);
-    } catch (err) { console.log(err) }
-  }*/
-
   render() {
  
     return (
@@ -131,7 +114,6 @@ export default class Event extends React.Component {
                     <div> 
                       <div className="tribalButton">
                         <div className='action'><Link to="/submit"><button>Submit Film</button></Link></div>
-                        <div className='action'><Link to="/Gigs"><button>Gig Board</button></Link></div>
                         <div className='action'><Link to="/streams"><button>Live</button></Link></div>
                         <div className='action'><Link to="/events"><button>Events</button></Link></div>
                         <div className='action'><Link to="/MyStudio"><button>Our Studio</button></Link></div>

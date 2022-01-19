@@ -254,8 +254,8 @@ function TermsOfService() {
         to support their future careers.<br></br>
         <br></br>
         <strong>● Products/Features:</strong> The Tribal Network App features
-        include Streaming Video, Live streaming, Social Networking, Post and
-        snag Gigs. To find out more about Tribal Network products and services,
+        include Streaming Video, Live streaming, Social Networking, and Post. 
+        To find out more about Tribal Network products and services,
         please refer to the Tribal Network App or the Site.<br></br>
         <br></br>
         <strong>● Sole discretion.</strong> We reserve the right to

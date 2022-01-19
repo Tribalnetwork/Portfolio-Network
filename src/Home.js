@@ -27,7 +27,6 @@ import HorizontalScrollerCircular from "./components/HorizontalScrollerCircular"
 // import { ReactComponent as RatingButton } from "./icons/RateButton_tribalBeta.svg";
 // import { ReactComponent as SubmitButton } from "./icons/SubmitButton_tribalBeta.svg";
 // import { ReactComponent as StarRatingIcon } from "./icons/starRating__tribalBeta.svg";
-// import Gigs from "./Gigs/Gigs";
 // import { Button as MaterialUiButton } from "@material-ui/core";
 // import { useTheme } from "@material-ui/core/styles";
 // import { useMediaQuery } from "@material-ui/core";

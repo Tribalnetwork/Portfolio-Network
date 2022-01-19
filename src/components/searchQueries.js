@@ -21,12 +21,11 @@ import SearchIcon from '../icons/search-icon.svg';
     it groups the list appropiatley, if not it groups all list into one big list (i.e. global list). After this is passes the list and the value
     of the input tag into the search function.
 - The search function uses the built in javascript filter method to return all results that include the value of input. After this it maps through
-    that list and uses a switch function to determine what kind of result it is (i.e. users, films, ect.). This is also somewhere that would need
-    updating if we decide to include more kinds of results in the search funtion like gigs or events.
+    that list and uses a switch function to determine what kind of result it is (i.e. users, films, ect.). 
 - Upon completion of the search function, it sets that filterd list to the global state variable. And that makes up the overall logic of the 
     search component. There are also filter functions, which set the state variable filter objects respective values to true or false, which is
     used to deterine if there is a filter or not.
-- If your goal is to update this function to include more search results such as gigs or events, what you will want to do is add
+- If your goal is to update this function to include more search results such as events, what you will want to do is add
     another get(What you want) fucntion that saves the list into a new state variable, and call that function on component did mount.
     Then in get global add it to the global list that is passed to search, and in search add a new option in the switch statement.
     If you use the other components as a template, everything should flow smoothly. :)
@@ -44,7 +43,6 @@ export default class SearchQueries extends React.Component {
             users: [],
             films: [],
             liveStreams: [],
-            gigs: [],
             events: [],
             filter: {
                 hasFilter: false,
@@ -113,23 +111,8 @@ export default class SearchQueries extends React.Component {
       })
         }
 
-        //Gigs and events need to be added to the search query
-       /* getGigs = () => {
-            API.graphql(graphqlOperation(queries.listGigs))
-        .then((result) => { return result.data.listGigs.items})
-        .then((result) => { 
-            let list = [];
-            result.forEach((gig) =>{
-                let namesObj = {
-                    name: gig.title.toUpperCase(),
-                    id: gig.id,
-                    type: "Gig"
-                }
-                list.push(namesObj);
-            })
-            this.setState({gigs: list})
-      })
-        }
+        //Events need to be added to the search query
+       /* 
         getEvents = () => {
             API.graphql(graphqlOperation(queries.listEvents))
         .then((result) => { return result.data.listEvents.items})

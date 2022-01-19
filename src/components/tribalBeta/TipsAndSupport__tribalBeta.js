@@ -54,7 +54,6 @@ function TipsAndSupport() {
                     - Submit to get feedback and donations on your work.<br />
                     - Watch live-streams.<br />
                     - Livestream, run ads, cash out.<br />
-                    - Post and join gigs/ events.<br />
                     - Build connections and collaborate with other artists.<br />
                     - Auction. (Coming soon)<br />
                     - Discuss topics on the app. (Coming soon)
@@ -68,7 +67,7 @@ function TipsAndSupport() {
                 {/* support */}
                 <h3 className='tips-and-support-heading'>Support</h3>
                 <h4 className='tips-and-support-subheading'>Why can’t I post or stream?</h4>
-                <h4 className='tips-and-support-subheading'>Why can’t I see gigs or events?</h4>
+                <h4 className='tips-and-support-subheading'>Why can’t I see events?</h4>
                 <p className='tips-and-support-para'>
                     You may have been flagged too many times by other users. We are assessing your account
                     activity because of this and you will regain permissions or be permanently suspended or

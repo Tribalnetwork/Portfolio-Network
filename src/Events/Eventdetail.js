@@ -2,7 +2,6 @@ import React from 'react'
 import Amplify from 'aws-amplify';
 import queryString from 'query-string';
 import { API, graphqlOperation } from 'aws-amplify'
-import { getGig } from '../graphql/queries'
 import awsconfig from '../aws-exports';
 import '@aws-amplify/ui/dist/style.css';
 import { Link } from "react-router-dom";
