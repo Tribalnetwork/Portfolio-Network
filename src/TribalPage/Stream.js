@@ -92,7 +92,6 @@ export const Stream = () => {
                   <div className='action'><Link to="/submit"><button>Submit Film</button></Link></div>
                   <div className='action'><Link to="/Gigs"><button>Gig Board</button></Link></div>
                   <div className='action'><Link to="/streams"><button>Live</button></Link></div>
-                  <div className='action'><Link to="/events"><button>Events</button></Link></div>
                   <div className='action'><Link to="/MyStudio"><button>Our Studio</button></Link></div>
                </div>
               

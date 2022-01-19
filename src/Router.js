@@ -29,9 +29,6 @@ import Explore, { SportsPage, TalksPage, DramaPage, RomancePage, HorrorPage, Fam
 import Gigs from "./Gigs/Gigs";
 import PostGig from "./Gigs/PostGig";
 import Gigdetail from "./Gigs/Gigdetail"
-import Events from "./Events/Events"
-import PostEvent from "./Events/PostEvent"
-import Eventdetail from "./Events/Eventdetail"
 import MyProfile from "./ProfilePage/Profile.js"*/
 // import Main from "./components/pages/home/Main"
 import Home from "./Home"
@@ -229,9 +226,6 @@ const Routes = () => {
           <PrivateRoute path="/gigs" component={FeatureComingSoon} />
           <PrivateRoute path="/postagig" component={FeatureComingSoon} />
           <PrivateRoute path="/gigdetail" component={FeatureComingSoon} />
-          <PrivateRoute path="/events" component={FeatureComingSoon} />
-          <PrivateRoute path="/postanevent" component={FeatureComingSoon} />
-          <PrivateRoute path="/eventdetail" component={FeatureComingSoon} />
           <Route component={FeatureComingSoon} />
         </Switch>
         {

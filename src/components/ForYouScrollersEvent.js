@@ -13,22 +13,7 @@ import './ForYouScrollersEvent.css';
 const MenuItem = ({prop}) => {
   return (
     <div>
-    
-       <Grid item>
-            <Card style={styles.root2}>
-              <Link to={`/eventdetail?id=${prop.id}`} style={styles.link}>
-                <CardActionArea>
-                  <div style={styles.wrk}>{prop.Title}</div>
-                    <CardMedia
-                      title= {prop.Title}
-                      style={styles.media1}
-                      image={prop.imageUrl}
-                    />
-                </CardActionArea>
-              </Link>
-            </Card>
-        </Grid>      
-        
+      {prop}
     </div>
     );
 };

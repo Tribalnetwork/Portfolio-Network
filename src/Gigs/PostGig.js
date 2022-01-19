@@ -64,22 +64,7 @@ export default class PostGig extends React.Component {
     else{this.setState({[class_name]:'active_class'});}
   }
 async addPhoto(evt) {
-  const uuidv4 = require("uuid/v4");
-    const newId=uuidv4();
-  const name="events_n_gigs/"+newId+".png";
-  Storage.put(name, evt.target.files[0], {
-        contentType: 'image/png',
-        ACL: 'public-read',
-        visibility: 'public',
-        level: 'public'
-    })
-    .then (result=> {
-        console.log(result);
-        this.setState({
-            imgUrl:"https://d202tggnzywgd9.cloudfront.net/public/"+name
-        })
-    })
-    .catch(err => console.log(err));
+  console.log(evt)
 }
 async submitPost(){
   const uuidv4 = require("uuid/v4");

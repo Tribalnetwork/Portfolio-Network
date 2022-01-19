@@ -54,7 +54,7 @@ function TipsAndSupport() {
                     - Submit to get feedback and donations on your work.<br />
                     - Watch live-streams.<br />
                     - Livestream, run ads, cash out.<br />
-                    - Post and join gigs/ events.<br />
+                    - Post and join gigs.<br />
                     - Build connections and collaborate with other artists.<br />
                     - Auction. (Coming soon)<br />
                     - Discuss topics on the app. (Coming soon)
@@ -68,7 +68,7 @@ function TipsAndSupport() {
                 {/* support */}
                 <h3 className='tips-and-support-heading'>Support</h3>
                 <h4 className='tips-and-support-subheading'>Why can’t I post or stream?</h4>
-                <h4 className='tips-and-support-subheading'>Why can’t I see gigs or events?</h4>
+                <h4 className='tips-and-support-subheading'>Why can’t I see gigs?</h4>
                 <p className='tips-and-support-para'>
                     You may have been flagged too many times by other users. We are assessing your account
                     activity because of this and you will regain permissions or be permanently suspended or
@@ -83,7 +83,7 @@ function TipsAndSupport() {
                 </p>
                 <h4 className='tips-and-support-subheading'>Why can’t I see certain content or users?</h4>
                 <p className='tips-and-support-para'>
-                    You may be under the age limit required to see certain events or content.<br />
+                    You may be under the age limit required to see certain content.<br />
                     Check to make sure that these users and content aren’t hidden in ‘Settings/Myaccount’.<br />
                     Films added to our database need up to 21 days to be reviewed by the TFC.<br />
                     You can contact us at ops@tribaliii.org.
