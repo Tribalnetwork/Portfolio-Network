@@ -12,7 +12,7 @@ import Authenticator from './Authenticator'
 import Watch from './Watch'
 /*import { Upload } from './Upload';
 import Landing from './landing/landing-home.js'*/
-import Submit from './landing/submit'
+import Submit from './SubmitFilm/Submit'
 /*import Live from './Live'
 import { Stream } from './TribalPage/Stream'
 import Profile from './SocialPage/Profile'
