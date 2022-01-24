@@ -26,9 +26,6 @@ import MyList from "./MyList"*/
 // import MyStudio from "./MyStudio/MyStudio";
 /*import Settings, { Wifi, Support, TermsOfService, PrivacyPolicy, Account, Notifications, DownloadOptions, Logout } from "./SettingsPage/Settings";
 import Explore, { SportsPage, TalksPage, DramaPage, RomancePage, HorrorPage, FamilyPage, AnimationPage, ExperimentalPage, ThrillerPage, SciFiPage, ActionPage, ComedyPage, MusicalPage, DocumentaryPage, WatchRandom } from "./ExplorePage/Explore"
-import Gigs from "./Gigs/Gigs";
-import PostGig from "./Gigs/PostGig";
-import Gigdetail from "./Gigs/Gigdetail"
 import Events from "./Events/Events"
 import PostEvent from "./Events/PostEvent"
 import Eventdetail from "./Events/Eventdetail"
@@ -226,9 +223,6 @@ const Routes = () => {
           <PrivateRoute path="/pending" component={FeatureComingSoon} />
           <PrivateRoute path="/mylive" component={FeatureComingSoon} />
           <PrivateRoute path="/mylist" component={FeatureComingSoon} />
-          <PrivateRoute path="/gigs" component={FeatureComingSoon} />
-          <PrivateRoute path="/postagig" component={FeatureComingSoon} />
-          <PrivateRoute path="/gigdetail" component={FeatureComingSoon} />
           <PrivateRoute path="/events" component={FeatureComingSoon} />
           <PrivateRoute path="/postanevent" component={FeatureComingSoon} />
           <PrivateRoute path="/eventdetail" component={FeatureComingSoon} />

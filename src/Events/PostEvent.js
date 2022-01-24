@@ -2,7 +2,7 @@ import React from 'react'
 import {Amplify,Storage } from 'aws-amplify';
 import { API, graphqlOperation } from 'aws-amplify'
 import { getUser} from '../graphql/queries'
-import { createGig,UpdateUser } from '../graphql/mutations'
+import { UpdateUser } from '../graphql/mutations'
 import awsconfig from '../aws-exports';
 import '@aws-amplify/ui/dist/style.css';
 import UserContext from '../UserContext'
