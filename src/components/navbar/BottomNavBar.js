@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Home from "../bottomNavBarImg/home.jpg";
-import Tribal from "../bottomNavBarImg/tribal.jpg";
-import Settings from "../bottomNavBarImg/settings.jpg";
-import Social from "../bottomNavBarImg/social.jpg";
-import Search from "../bottomNavBarImg/search.jpg";
+import Home from "../navbarIcons/home.jpg";
+import Tribal from "../navbarIcons/tribal.jpg";
+import Settings from "../navbarIcons/settings.jpg";
+import Social from "../navbarIcons/social.jpg";
+import Search from "../navbarIcons/search.jpg";
 import "./bottomNavBar.css";
 export default class BottomNavBar extends React.Component {
 
