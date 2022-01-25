@@ -6,10 +6,10 @@ import "./submit.css";
 import Select from 'react-select'
 import axios from 'axios';
 import Amplify from 'aws-amplify';
-import awsconfig from '../aws-exports';
+import awsconfig from '../../aws-exports';
 import VolumeUpOutlinedIcon from '@material-ui/icons/VolumeUpOutlined';
 import VolumeOffOutlinedIcon from '@material-ui/icons/VolumeOffOutlined';
-import UserContext from "../UserContext";
+import UserContext from "../../UserContext";
 
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -126,11 +126,11 @@ class Submit extends React.Component {
       })
   }
   handleChange(event) {
-    if ((event) && (event.length>0)) {
-        this.setState({ film_genre: [...event.map(a=>a.value)]})
-      }
-    if ((event===null) || (event.length===0)){
-      this.setState({film_genre: []});
+    if ((event) && (event.length > 0)) {
+      this.setState({ film_genre: [...event.map(a => a.value)] })
+    }
+    if ((event === null) || (event.length === 0)) {
+      this.setState({ film_genre: [] });
     }
   }
 
@@ -185,25 +185,25 @@ class Submit extends React.Component {
         }
         let dataForGeneratingURLsJson = JSON.stringify(dataForGeneratingURLs);
         axios.post("https://wtukhmryu1.execute-api.us-east-1.amazonaws.com/default/generatingURLsForNewFilm", dataForGeneratingURLsJson)
-        .then(res => {
-          //include the new film id to the data for database insertion
-          formData.film_id = res.data.body.New_film_id
-          filmURL = res.data.body.url
-          coverURL = res.data.body.url_for_image
-          /*
-          let newurl = res.data.body.url
-          // if cover are is not empty then add presigned url to imgaeUrl
-          this.state.film_cover_art ?
-            this.setState({
-              url: newurl,
-              imageUrl: res.data.url_for_image
-            })
-            :
-            this.setState({
-              url: newurl
-            })
-          */
-        })
+          .then(res => {
+            //include the new film id to the data for database insertion
+            formData.film_id = res.data.body.New_film_id
+            filmURL = res.data.body.url
+            coverURL = res.data.body.url_for_image
+            /*
+            let newurl = res.data.body.url
+            // if cover are is not empty then add presigned url to imgaeUrl
+            this.state.film_cover_art ?
+              this.setState({
+                url: newurl,
+                imageUrl: res.data.url_for_image
+              })
+              :
+              this.setState({
+                url: newurl
+              })
+            */
+          })
           .then(() => {
             // submitting film
             axios({
@@ -221,18 +221,18 @@ class Submit extends React.Component {
             })
               .then(res =>
                 //check if the film submission was successful by checking if it can be foind in S3
-                axios({ url: "https://2ajlr7txqa.execute-api.us-east-1.amazonaws.com/default/Get_Film_From_S3", method: "post", data: JSON.stringify({ id: formData.film_id}) })
+                axios({ url: "https://2ajlr7txqa.execute-api.us-east-1.amazonaws.com/default/Get_Film_From_S3", method: "post", data: JSON.stringify({ id: formData.film_id }) })
               )
               .then(res => {
                 //throw an error if the film submission was no successful
                 if (!res.data.body.exist) {
                   throw new Error("Uh-Oh! There was a problem submitting your film, please try again and if the problem persist, contact customer support.")
                 }
-                
+
               })
-              .then(res => 
+              .then(res =>
                 //the film has been successfully stored in S3, now store the film data into the database
-                axios({ url: "https://j348sqkzha.execute-api.us-east-1.amazonaws.com/default/addingFilmsDataToRDS", method: "post", data: JSON.stringify(formData)})
+                axios({ url: "https://j348sqkzha.execute-api.us-east-1.amazonaws.com/default/addingFilmsDataToRDS", method: "post", data: JSON.stringify(formData) })
               )
               .then(res => {
                 this.setState({ checked: true, confirmation: "Thanks for submitting your film. The Tribal film council will make a determination within 21 days." })
@@ -467,7 +467,7 @@ class Submit extends React.Component {
                   styles={customStyles}
                   onChange={this.handleChange}
                   isMulti
-                  />
+                />
               </div>
             }
 
