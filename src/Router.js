@@ -10,8 +10,8 @@ import UserContext from "./UserContext";
 import { NavigationBar } from "./components/NavigationBar";
 import Authenticator from './Authenticator'
 import Watch from './Watch'
-/*import { Upload } from './Upload';
-import Landing from './landing/landing-home.js'*/
+// import { Upload } from './Upload';
+// import Landing from './landing/landing-home.js'
 import Submit from './pages/submit/Submit'
 /*import Live from './Live'
 import { Stream } from './TribalPage/Stream'
@@ -201,7 +201,7 @@ const Routes = () => {
           <Route path="/auth" exact component={Authenticator} />
           <Route path="/" exact component={Home} />
           <Route path="/home" exact component={Home} />
-          <Route path="/landing/landing-home" exact component={FeatureComingSoon} />
+          {/* <Route path="/landing/landing-home" exact component={Landing} /> */}
           {/* Submit */}
           <Route path="/submit" exact component={isThereSignedUser ? Submit : Authenticator} />
           {/* search */}
