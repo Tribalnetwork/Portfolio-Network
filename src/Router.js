@@ -223,9 +223,6 @@ const Routes = () => {
           <PrivateRoute path="/pending" component={FeatureComingSoon} />
           <PrivateRoute path="/mylive" component={FeatureComingSoon} />
           <PrivateRoute path="/mylist" component={FeatureComingSoon} />
-          <PrivateRoute path="/events" component={FeatureComingSoon} />
-          <PrivateRoute path="/postanevent" component={FeatureComingSoon} />
-          <PrivateRoute path="/eventdetail" component={FeatureComingSoon} />
           <Route component={FeatureComingSoon} />
         </Switch>
         {
