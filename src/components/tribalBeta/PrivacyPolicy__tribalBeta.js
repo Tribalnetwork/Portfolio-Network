@@ -73,7 +73,7 @@ function PrivacyPolicy() {
                         <br></br>
                         <strong>• Marketing data,</strong> such as the email address or contact
                         details that we use to send marketing communications and your
-                        preferences for receiving communications about our activities, events,
+                        preferences for receiving communications about our activities,
                         sweepstakes and contests.<br></br>
                         <br></br>
                         <strong>• Purchase data,</strong> including your order history and

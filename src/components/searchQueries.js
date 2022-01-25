@@ -25,7 +25,7 @@ import SearchIcon from '../icons/search-icon.svg';
 - Upon completion of the search function, it sets that filterd list to the global state variable. And that makes up the overall logic of the 
     search component. There are also filter functions, which set the state variable filter objects respective values to true or false, which is
     used to deterine if there is a filter or not.
-- If your goal is to update this function to include more search results such as events, what you will want to do is add
+- If your goal is to update this function to include more search results, what you will want to do is add
     another get(What you want) fucntion that saves the list into a new state variable, and call that function on component did mount.
     Then in get global add it to the global list that is passed to search, and in search add a new option in the switch statement.
     If you use the other components as a template, everything should flow smoothly. :)
@@ -43,7 +43,6 @@ export default class SearchQueries extends React.Component {
             users: [],
             films: [],
             liveStreams: [],
-            events: [],
             filter: {
                 hasFilter: false,
                 users: false,
@@ -110,25 +109,6 @@ export default class SearchQueries extends React.Component {
             this.setState({liveStreams: list})
       })
         }
-
-        //Events need to be added to the search query
-       /* 
-        getEvents = () => {
-            API.graphql(graphqlOperation(queries.listEvents))
-        .then((result) => { return result.data.listEvents.items})
-        .then((result) => { 
-            let list = [];
-            result.forEach((event) =>{
-                let namesObj = {
-                    name: event.title.toUpperCase(),
-                    id: event.id,
-                    type: "Event"
-                }
-                list.push(namesObj);
-            })
-            this.setState({events: list})
-      })
-        }*/
 
 
         search = (input, global, recents) => {
