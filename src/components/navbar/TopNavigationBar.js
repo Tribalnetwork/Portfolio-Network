@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react'
 import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
-import UserContext from '../UserContext'
+import UserContext from '../../UserContext'
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -13,16 +13,16 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 
-import './NavigationBar.css';
-import Home from "../bottomNavBarImg/home.svg"
+import './TopNavigationBar.css';
+import Home from "../../bottomNavBarImg/home.svg"
 // import Tribal from "../bottomNavBarImg/tribal.svg"
-import Settings from "../bottomNavBarImg/settings.svg"
+import Settings from "../../bottomNavBarImg/settings.svg"
 // import Social from "../bottomNavBarImg/social.svg"
 // import Search from "../bottomNavBarImg/search.svg"
-import Bell from "../bottomNavBarImg/bell.svg"
-import Book from "../bottomNavBarImg/book.svg"
-import People from "../bottomNavBarImg/people.png"
-import Submit from "../bottomNavBarImg/Submit.svg"
+import Bell from "../../bottomNavBarImg/bell.svg"
+import Book from "../../bottomNavBarImg/book.svg"
+import People from "../../bottomNavBarImg/people.png"
+import Submit from "../../bottomNavBarImg/Submit.svg"
 
 const useStyles = makeStyles((theme) => ({
   menuButton: {

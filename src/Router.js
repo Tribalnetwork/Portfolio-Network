@@ -7,7 +7,7 @@ import {
   BrowserRouter as Router,
 } from "react-router-dom";
 import UserContext from "./UserContext";
-import { NavigationBar } from "./components/NavigationBar";
+import { NavigationBar } from "./components/navbar/TopNavigationBar";
 import Authenticator from './Authenticator'
 import Watch from './Watch'
 // import { Upload } from './Upload';
@@ -19,7 +19,7 @@ import Profile from './SocialPage/Profile'
 import GetAccess from './GetAccess'
 import Pending from './Pending'
 import { MyLive } from './MyLive'*/
-import BottomNavBar from './components/bottomNavBar'
+import BottomNavBar from './components/navbar/BottomNavBar'
 /*import SearchQueries from "./components/searchQueries"
 import ViewProfile from "./ViewProfile"
 import MyList from "./MyList"*/
