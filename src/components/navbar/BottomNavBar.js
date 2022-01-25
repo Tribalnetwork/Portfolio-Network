@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Home from "../bottomNavBarImg/home.jpg";
-import Tribal from "../bottomNavBarImg/tribal.jpg";
-import Settings from "../bottomNavBarImg/settings.jpg";
-import Social from "../bottomNavBarImg/social.jpg";
-import Search from "../bottomNavBarImg/search.jpg";
+import Home from "../navbarIcons/home.jpg";
+import Tribal from "../navbarIcons/tribal.jpg";
+import Settings from "../navbarIcons/settings.jpg";
+import Social from "../navbarIcons/social.jpg";
+import Search from "../navbarIcons/search.jpg";
 import "./bottomNavBar.css";
 export default class BottomNavBar extends React.Component {
 
@@ -44,7 +44,7 @@ export default class BottomNavBar extends React.Component {
     maxMarginBottom: "1vh",
     minMarginBottom: "0",
     width: "100%",
-    padding:"0"
+    padding: "0"
   };
 
   imgStyle = {
@@ -61,27 +61,27 @@ export default class BottomNavBar extends React.Component {
           <ul style={this.ulStyle}>
             <li style={this.liStyle}>
               <Link to={"/home"}>
-                <img style={this.imgStyle} src={Home} alt=''/>
+                <img style={this.imgStyle} src={Home} alt='' />
               </Link>
             </li>
             <li style={this.liStyle}>
               <Link to={"/search"}>
-                <img style={this.imgStyle} src={Search} alt=''/>
+                <img style={this.imgStyle} src={Search} alt='' />
               </Link>
             </li>
             <li style={this.liStyle}>
               <Link to={"/streams"}>
-                <img style={this.imgStyle} src={Tribal} alt=''/>
+                <img style={this.imgStyle} src={Tribal} alt='' />
               </Link>
             </li>
             <li style={this.liStyle}>
               <Link to={"/profile"}>
-                <img style={this.imgStyle} src={Social} alt=''/>
+                <img style={this.imgStyle} src={Social} alt='' />
               </Link>
             </li>
             <li style={this.liStyle}>
               <Link to={"/settings"}>
-                <img style={this.imgStyle} src={Settings} alt=''/>
+                <img style={this.imgStyle} src={Settings} alt='' />
               </Link>
             </li>
           </ul>

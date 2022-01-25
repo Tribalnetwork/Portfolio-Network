@@ -6,7 +6,7 @@
 
 
 import React from "react"
-import { getAllFilms } from '../../services/homeService'
+import { getAllFilms } from '../components/services/homeServiceeService'
 export default class Main extends React.Component {
 
     state = {

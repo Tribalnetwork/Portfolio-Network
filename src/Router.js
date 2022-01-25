@@ -7,32 +7,12 @@ import {
   BrowserRouter as Router,
 } from "react-router-dom";
 import UserContext from "./UserContext";
-import { NavigationBar } from "./components/NavigationBar";
+import { NavigationBar } from "./components/navbar/TopNavigationBar";
 import Authenticator from './Authenticator'
 import Watch from './Watch'
-/*import { Upload } from './Upload';
-import Landing from './landing/landing-home.js'*/
-import Submit from './SubmitFilm/Submit'
-/*import Live from './Live'
-import { Stream } from './TribalPage/Stream'
-import Profile from './SocialPage/Profile'
-import GetAccess from './GetAccess'
-import Pending from './Pending'
-import { MyLive } from './MyLive'*/
-import BottomNavBar from './components/bottomNavBar'
-/*import SearchQueries from "./components/searchQueries"
-import ViewProfile from "./ViewProfile"
-import MyList from "./MyList"*/
-// import MyStudio from "./MyStudio/MyStudio";
-/*import Settings, { Wifi, Support, TermsOfService, PrivacyPolicy, Account, Notifications, DownloadOptions, Logout } from "./SettingsPage/Settings";
-import Explore, { SportsPage, TalksPage, DramaPage, RomancePage, HorrorPage, FamilyPage, AnimationPage, ExperimentalPage, ThrillerPage, SciFiPage, ActionPage, ComedyPage, MusicalPage, DocumentaryPage, WatchRandom } from "./ExplorePage/Explore"
-import Events from "./Events/Events"
-import PostEvent from "./Events/PostEvent"
-import Eventdetail from "./Events/Eventdetail"
-import MyProfile from "./ProfilePage/Profile.js"*/
-// import Main from "./components/pages/home/Main"
+import Submit from './pages/submit/Submit'
+import BottomNavBar from './components/navbar/BottomNavBar'
 import Home from "./Home"
-//import ConnectList from "./SocialPage/ConnectList"
 import { FeatureComingSoon } from "./components/FeatureComingSoon";
 import { Settings__tribalBeta as SettingsTribalBeta } from "./components/tribalBeta/Settings__tribalBeta";
 import MobileAppTribalBeta from "./components/tribalBeta/MobileApp__tribalBeta";
@@ -44,7 +24,6 @@ import ContactUsTribalBeta from "./components/tribalBeta/ContactUs__tribalBeta";
 import MyFilms from "./components/tribalBeta/MyFilms__tribalBeta";
 import Signin from './SignIn'
 import GetFilmList from "./components/GetFilmList"
-// import SportsPage from "./ExplorePage/SportsPage";
 
 import { useTheme } from "@material-ui/core/styles";
 import { useMediaQuery } from "@material-ui/core";
@@ -92,14 +71,6 @@ class PrivateRoute extends React.Component {
     );
   }
 }
-
-// const NoMatch = ({ location }) => (
-//   <div>
-//     <h3>
-//       No match for <code>{location.pathname}</code>
-//     </h3>
-//   </div>
-// );
 
 PrivateRoute = withRouter(PrivateRoute);
 
@@ -201,7 +172,7 @@ const Routes = () => {
           <Route path="/auth" exact component={Authenticator} />
           <Route path="/" exact component={Home} />
           <Route path="/home" exact component={Home} />
-          <Route path="/landing/landing-home" exact component={FeatureComingSoon} />
+          {/* <Route path="/landing/landing-home" exact component={Landing} /> */}
           {/* Submit */}
           <Route path="/submit" exact component={isThereSignedUser ? Submit : Authenticator} />
           {/* search */}
