@@ -10,7 +10,6 @@ import { Link } from "react-router-dom";
 import UserContext from "./UserContext";
 import { Helmet } from "react-helmet";
 import ReactPlayer from "react-player";
-import Button from "./Button";
 // import ExpandLessRoundedIcon from "@material-ui/icons/ExpandLessRounded";
 // import ExpandMoreRoundedIcon from "@material-ui/icons/ExpandMoreRounded";
 // import Typography from "@material-ui/core/Typography";
@@ -337,9 +336,6 @@ export default class Home extends React.Component {
                 <>
                   <h1>Free Trial Ended</h1>
                   <p>Your 5 hour free trial has ended.</p>
-                  <Link to="/getaccess" style={styles.link}>
-                    <Button title="Get Full Access" />
-                  </Link>
                 </>
               </div>
             )
