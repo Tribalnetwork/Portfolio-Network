@@ -90,7 +90,7 @@ class WatchPage extends React.Component {
     }
     let theData = JSON.stringify(FilmKey);
     axios({
-      url: "https://2ajlr7txqa.execute-api.us-east-1.amazonaws.com/default/Get_Film_From_S3",
+      url: "https://blwpdoh31d.execute-api.us-east-1.amazonaws.com/dev",
       method: "post",
       data: theData
     })
