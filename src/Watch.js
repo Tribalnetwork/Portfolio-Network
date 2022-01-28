@@ -18,7 +18,6 @@ import {
   deleteFilmInList
 } from './graphql/mutations'
 import UserContext from './UserContext'
-import Button from './Button'
 import './Watch.css'
 import Grid from '@material-ui/core/Grid';
 import { ReactComponent as Ratelogo } from './icons/Rate.svg';
@@ -28,8 +27,6 @@ import { ReactComponent as Sharelogo } from './icons/Share.svg';
 import { ReactComponent as AddToListlogo } from './icons/AddtoList.svg';
 import { ReactComponent as AuthorPhotoLogo } from './icons/Ellipse.svg';
 import { ReactComponent as SubscribeLogo } from './icons/subscribe.svg';
-import UpNext from "./UpNext";
-import TrendingNow from "./TrendingNow";
 // import { StylesProvider } from '@material-ui/core';
 import { ReactComponent as AddToListSelectedLogo } from './icons/AddToList-Selected.svg';
 import axios from "axios"
@@ -224,23 +221,6 @@ class WatchPage extends React.Component {
           </div>
 
           <h2>{this.state.title}</h2>
-          <div className="buttons">
-            {
-              isAdmin ? this.state.approved ? (
-                <Button
-                  title="Reject"
-                  onClick={this.reject.bind(this)}
-                />
-              ) : (
-                <Button
-                  title="Approve"
-                  onClick={this.approve.bind(this)}
-                />
-              ) : (
-                null
-              )
-            }
-          </div>
           <div className="functionTabs">
             <Grid container justify="space-between">
               <Grid item><Ratelogo></Ratelogo></Grid>
@@ -252,8 +232,6 @@ class WatchPage extends React.Component {
           </div>
           <AuthorSection author={this.state.artist}></AuthorSection>
         </section>
-        <UpNext></UpNext>
-        <TrendingNow></TrendingNow>
       </div>
     )
 
