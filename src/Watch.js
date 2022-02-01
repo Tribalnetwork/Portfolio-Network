@@ -10,11 +10,7 @@ import {
   filmInListByListByFilm
 } from './graphql/queries'
 import {
-  // updateFilm, 
   updateUser,
-  // createPlayList,
-  // updatePlayList,
-  // createFilmInList,
   deleteFilmInList
 } from './graphql/mutations'
 import UserContext from './UserContext'
@@ -27,7 +23,6 @@ import { ReactComponent as Sharelogo } from './icons/Share.svg';
 import { ReactComponent as AddToListlogo } from './icons/AddtoList.svg';
 import { ReactComponent as AuthorPhotoLogo } from './icons/Ellipse.svg';
 import { ReactComponent as SubscribeLogo } from './icons/subscribe.svg';
-// import { StylesProvider } from '@material-ui/core';
 import { ReactComponent as AddToListSelectedLogo } from './icons/AddToList-Selected.svg';
 import axios from "axios"
 
@@ -100,11 +95,6 @@ class WatchPage extends React.Component {
 
   async componentWillUnmount() {
     clearInterval(this.interval)
-    // const data = {
-    //   id: this.context.user.attributes.sub,
-    //   remainingVODTime: this.context.remainingVODTime - parseInt(this.state.watchTime/60, 10)
-    // }
-    // const updatedUser = await API.graphql(graphqlOperation(updateUser, { input: data }))
     this.context.updateCurrentUser()
   }
 
@@ -123,12 +113,6 @@ class WatchPage extends React.Component {
     const uuidv4 = require("uuid/v4");
     if (list1 === null) {
       const newId = uuidv4();
-      // const listCreate={
-      //   id:newId,
-      //   name:user1.data.getUser.name+"'s list",
-      //   playListUserId:user1.data.getUser.id
-      // };
-      // const newlist=await API.graphql(graphqlOperation(createPlayList,{input:listCreate}));
       console.log("new list created!");
       const userUpdate = {
         id: user1.data.getUser.id,
@@ -153,17 +137,7 @@ class WatchPage extends React.Component {
   }
 
   async approve() {
-    // const updateData = {
-    //   id: this.id,
-    //   available: true
-    // }
-    // const film = await API.graphql(graphqlOperation(updateFilm, { input: updateData }))
     this.setState({ approved: true });
-    // const userUpdate = {
-    //   id: this.state.artist.id,
-    //   fullAccess: true
-    // }
-    // const updatedUser = await API.graphql(graphqlOperation(updateUser, { input: userUpdate }))
     this.context.updateCurrentUser()
   }
   async toggleList() {
@@ -176,12 +150,6 @@ class WatchPage extends React.Component {
     else {
       const uuidv4 = require("uuid/v4");
       const newFilmInListId = uuidv4();
-      // const newFilmInListCreate={
-      //   id:newFilmInListId,
-      //   filmId:this.id,
-      //   listId:this.state.listId
-      // }
-      // const filmInListCreated=await API.graphql(graphqlOperation(createFilmInList,{input:newFilmInListCreate}));
       this.setState({ filminlistId: newFilmInListId });
     }
     this.setState({ inlist: !this.state.inlist });
@@ -189,16 +157,11 @@ class WatchPage extends React.Component {
 
 
   async reject() {
-    // const updateData = {
-    //   id: this.id,
-    //   available: false
-    // }
-    // const film = await API.graphql(graphqlOperation(updateFilm, { input: updateData }))
     this.setState({ approved: false });
   }
 
   render() {
-    const isAdmin = this.context.admin
+    // const isAdmin = this.context.admin
 
     return (
       <div style={styles.container}>

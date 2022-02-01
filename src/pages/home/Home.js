@@ -2,35 +2,13 @@ import React from "react";
 import AdSense from 'react-adsense';
 import axios from "axios";
 import Amplify from "aws-amplify";
-// import { API, graphqlOperation } from "aws-amplify";
-// import { listFilms, listLiveStreams } from "./graphql/queries";
-import awsconfig from "./aws-exports";
+import awsconfig from "../../aws-exports";
 import "@aws-amplify/ui/dist/style.css";
-import { Link } from "react-router-dom";
-import UserContext from "./UserContext";
+import UserContext from "../../UserContext";
 import { Helmet } from "react-helmet";
 import ReactPlayer from "react-player";
-// import ExpandLessRoundedIcon from "@material-ui/icons/ExpandLessRounded";
-// import ExpandMoreRoundedIcon from "@material-ui/icons/ExpandMoreRounded";
-// import Typography from "@material-ui/core/Typography";
-// import Grid from "@material-ui/core/Grid";
-import HorizontalScrollerCircular from "./components/HorizontalScrollerCircular";
-// import HorizontalScroller from "./components/HorizontalScroller";
+import HorizontalScrollerCircular from "../../components/HorizontalScrollerCircular";
 
-// import TrendingNow from "./TrendingNow";
-// import ContinueWatching from "./ContinueWatching";
-// import MyList from "./MyList";
-//import { ReactComponent as ExploreLogo } from './icons/Explore.svg';
-//import { ReactComponent as MyStudioLogo } from './icons/myStudio.svg';
-//import { ReactComponent as StarRating } from './icons/Rate.svg'
-// import { ReactComponent as RatingButton } from "./icons/RateButton_tribalBeta.svg";
-// import { ReactComponent as SubmitButton } from "./icons/SubmitButton_tribalBeta.svg";
-// import { ReactComponent as StarRatingIcon } from "./icons/starRating__tribalBeta.svg";
-// import { Button as MaterialUiButton } from "@material-ui/core";
-// import { useTheme } from "@material-ui/core/styles";
-// import { useMediaQuery } from "@material-ui/core";
-// import Popup from "reactjs-popup";
-// import "reactjs-popup/dist/index.css";
 import "./Home.css";
 Amplify.configure(awsconfig);
 
@@ -282,9 +260,6 @@ export default class Home extends React.Component {
                     width="100%"
                     height="100%"
                   />
-                  {/*<div className="video-name-wrapper">
-                    <p className="video-name videoName__tribalBetaHome">{this.state.videoName}</p>
-                  </div>*/}
                 </div>
                 <div className="video-name-wrapper">
                   <p className="video-name title__tribalBetaHome">
@@ -314,21 +289,6 @@ export default class Home extends React.Component {
                       }}
                     />
                   ))}
-                  {
-
-                    //My history category
-                    /*
-                    <div className="trendy-wrapper">
-                      <p className="title__tribalBetaHome">My History</p>
-                        <HorizontalScrollerCircular
-                          list={filmGroups[0].films}
-                          findFilm={this.findFilm.bind(this)}
-                          setName={this.setName.bind(this)}
-                          handleClick={() => {}}
-                        />
-                    </div>
-                    */
-                  }
                 </div>
               </div>
             ) : (
@@ -339,17 +299,7 @@ export default class Home extends React.Component {
                 </>
               </div>
             )
-          ) : /*(
-              <div style={{ padding: '2rem' }}>
-                <h1 style={{ textAlign: "center", marginBottom: "0rem", fontSize: "42px", fontWeight: "500", lineHeight: "41px", letterSpacing: "0.364px" }}>Tribal Network</h1>
-                <h1 style={{ textAlign: "center", margin: "0px", fontSize: "42px", fontWeight: "500", lineHeight: "41px", letterSpacing: "0.364px" }}>Beta</h1>
-                <p style={{ textAlign: "center", marginLeft: "0px", marginRight: "0px", marginTop: "2rem", fontWeight: "500", letterSpacing: "0.364px" }}>The Social Streaming Platform for Indie Filmmakers </p>
-                <p style={{ textAlign: "center", marginTop: "5rem", marginLeft: "2rem", marginRight: "2rem", fontWeight: "500", letterSpacing: "0.364px" }}>
-                  <Link to='/auth' style={{ color: "white" }}>Sign in</Link> or <Link to='/auth' style={{ color: "white" }}>create a free account</Link> to get started.
-                </p>
-              </div>
-            )
-          ) :*/ null}
+          ) : null}
         </div>
         <div> <AdSense.Google
           client='ca-pub-9377248146857874'

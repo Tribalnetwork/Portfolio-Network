@@ -12,7 +12,7 @@ import Authenticator from './Authenticator'
 import Watch from './Watch'
 import Submit from './pages/submit/Submit'
 import BottomNavBar from './components/navbar/BottomNavBar'
-import Home from "./Home"
+import Home from "./pages/home/Home"
 import { FeatureComingSoon } from "./components/FeatureComingSoon";
 import { Settings__tribalBeta as SettingsTribalBeta } from "./components/tribalBeta/Settings__tribalBeta";
 import MobileAppTribalBeta from "./components/tribalBeta/MobileApp__tribalBeta";
