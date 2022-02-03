@@ -14,15 +14,15 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 
 import './TopNavigationBar.css';
-import Home from "../navbarIcons/home.svg"
+import Home from "../../assets/images/navbarIcons/home.svg"
 // import Tribal from "../bottomNavBarImg/tribal.svg"
-import Settings from "../navbarIcons/settings.svg"
+import Settings from "../../assets/images/navbarIcons/settings.svg"
 // import Social from "../social.svg"
 // import Search from "../bottomNavBarImg/search.svg"
-import Bell from "../navbarIcons/bell.svg"
-import Book from "../navbarIcons/book.svg"
-import People from "../navbarIcons/people.png"
-import Submit from "../navbarIcons/Submit.svg"
+import Bell from "../../assets/images/navbarIcons/bell.svg"
+import Book from "../../assets/images/navbarIcons/book.svg"
+import People from "../../assets/images/navbarIcons/people.png"
+import Submit from "../../assets/images/navbarIcons/Submit.svg"
 
 const useStyles = makeStyles((theme) => ({
   menuButton: {
