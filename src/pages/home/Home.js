@@ -9,7 +9,7 @@ import { Helmet } from "react-helmet";
 import ReactPlayer from "react-player";
 import HorizontalScrollerCircular from "../../components/HorizontalScrollerCircular";
 
-import "./Home.css";
+import "../../assets/styles/Home.css";
 Amplify.configure(awsconfig);
 
 
