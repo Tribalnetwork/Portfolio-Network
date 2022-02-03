@@ -22,8 +22,9 @@ import TermsOfServiceTribalBeta from "./components/tribalBeta/TermsOfService__tr
 import TipsAndSupportTribalBeta from "./components/tribalBeta/TipsAndSupport__tribalBeta";
 import ContactUsTribalBeta from "./components/tribalBeta/ContactUs__tribalBeta";
 import MyFilms from "./components/tribalBeta/MyFilms__tribalBeta";
-import Signin from './SignIn'
-import GetFilmList from "./components/GetFilmList"
+import Signin from './SignIn';
+import GetFilmList from "./components/GetFilmList";
+import PageNotFound from "./pages/PageNotFound";
 
 import { useTheme } from "@material-ui/core/styles";
 import { useMediaQuery } from "@material-ui/core";
@@ -194,7 +195,7 @@ const Routes = () => {
           <PrivateRoute path="/pending" component={FeatureComingSoon} />
           <PrivateRoute path="/mylive" component={FeatureComingSoon} />
           <PrivateRoute path="/mylist" component={FeatureComingSoon} />
-          <Route component={FeatureComingSoon} />
+          <Route component={PageNotFound} />
         </Switch>
         {
           breakPointQuery ? <BottomNavBar /> : null
