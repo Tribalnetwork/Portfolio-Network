@@ -2,10 +2,10 @@ import React from 'react'
 import { css } from 'glamor'
 import { Helmet } from 'react-helmet'
 import "./SignUp.css"
-import Amazon from './icons/amazon.svg';
-import Facebook from './icons/facebook.svg';
-import LinkedIn from './icons/linkedIn.svg';
-import Google from './icons/Google.svg';
+import Amazon from './assets/images/icons/amazon.svg';
+import Facebook from './assets/images/icons/facebook.svg';
+import LinkedIn from './assets/images/icons/linkedIn.svg';
+import Google from './assets/images/icons/Google.svg';
 
 import { Auth } from 'aws-amplify'
 

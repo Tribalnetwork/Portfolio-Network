@@ -4,7 +4,7 @@ import './settings__tribalBeta.css';
 import { Button, IconButton } from "@material-ui/core";
 import { Link, useHistory } from "react-router-dom";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
-import { ReactComponent as ArrowIcon } from '../../icons/tribalBeta__settings__arrow.svg';
+import { ReactComponent as ArrowIcon } from '../../assets/images/icons/tribalBeta__settings__arrow.svg';
 
 // 
 // using react context to get user data
