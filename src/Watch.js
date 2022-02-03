@@ -16,14 +16,14 @@ import {
 import UserContext from './UserContext'
 import './Watch.css'
 import Grid from '@material-ui/core/Grid';
-import { ReactComponent as Ratelogo } from './icons/Rate.svg';
-import { ReactComponent as Donatelogo } from './icons/Donate.svg';
-import { ReactComponent as Downloadlogo } from './icons/Download.svg';
-import { ReactComponent as Sharelogo } from './icons/Share.svg';
-import { ReactComponent as AddToListlogo } from './icons/AddtoList.svg';
-import { ReactComponent as AuthorPhotoLogo } from './icons/Ellipse.svg';
-import { ReactComponent as SubscribeLogo } from './icons/subscribe.svg';
-import { ReactComponent as AddToListSelectedLogo } from './icons/AddToList-Selected.svg';
+import { ReactComponent as Ratelogo } from './assets/images/icons/Rate.svg';
+import { ReactComponent as Donatelogo } from './assets/images/icons/Donate.svg';
+import { ReactComponent as Downloadlogo } from './assets/images/icons/Download.svg';
+import { ReactComponent as Sharelogo } from './assets/images/icons/Share.svg';
+import { ReactComponent as AddToListlogo } from './assets/images/icons/AddtoList.svg';
+import { ReactComponent as AuthorPhotoLogo } from './assets/images/icons/Ellipse.svg';
+import { ReactComponent as SubscribeLogo } from './assets/images/icons/subscribe.svg';
+import { ReactComponent as AddToListSelectedLogo } from './assets/images/icons/AddToList-Selected.svg';
 import axios from "axios"
 
 const AuthorSection = ({ author }) => {
