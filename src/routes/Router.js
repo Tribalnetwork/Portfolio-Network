@@ -6,22 +6,22 @@ import {
   Redirect,
   BrowserRouter as Router,
 } from "react-router-dom";
-import UserContext from "./UserContext";
-import { NavigationBar } from "./components/navbar/TopNavigationBar";
-import Authenticator from './Authenticator'
-import Watch from './Watch'
-import Submit from './pages/submit/Submit'
-import BottomNavBar from './components/navbar/BottomNavBar'
-import Home from "./pages/home/Home"
-import { FeatureComingSoon } from "./components/FeatureComingSoon";
-import Settings from "./pages/settings/Settings";
-import PrivacyPolicyTribalBeta from "./pages/settings/PrivacyPolicy";
-import SupportTribalBeta from "./pages/settings/Support";
-import TermsOfServiceTribalBeta from "./pages/settings/TermsOfService";
-import TipsAndSupportTribalBeta from "./pages/settings/TipsAndSupport";
-import ContactUsTribalBeta from "./pages/settings/ContactUs";
+import UserContext from "../UserContext";
+import { NavigationBar } from "../components/navbar/TopNavigationBar";
+import Authenticator from '../Authenticator'
+import Watch from '../Watch'
+import Submit from '../pages/submit/Submit'
+import BottomNavBar from '../components/navbar/BottomNavBar'
+import Home from "../pages/home/Home"
+import { FeatureComingSoon } from "../components/FeatureComingSoon";
+import Settings from "../pages/settings/Settings";
+import PrivacyPolicyTribalBeta from "../pages/settings/PrivacyPolicy";
+import SupportTribalBeta from "../pages/settings/Support";
+import TermsOfServiceTribalBeta from "../pages/settings/TermsOfService";
+import TipsAndSupportTribalBeta from "../pages/settings/TipsAndSupport";
+import ContactUsTribalBeta from "../pages/settings/ContactUs";
 
-import Signin from './SignIn'
+import Signin from '../SignIn'
 
 
 import { useTheme } from "@material-ui/core/styles";
