@@ -23,7 +23,7 @@ import TipsAndSupportTribalBeta from "./components/tribalBeta/TipsAndSupport__tr
 import ContactUsTribalBeta from "./components/tribalBeta/ContactUs__tribalBeta";
 import MyFilms from "./components/tribalBeta/MyFilms__tribalBeta";
 import Signin from './SignIn'
-import GetFilmList from "./components/GetFilmList"
+
 
 import { useTheme } from "@material-ui/core/styles";
 import { useMediaQuery } from "@material-ui/core";
@@ -87,7 +87,7 @@ const Routes = () => {
       <div>
         <NavigationBar />
         <Switch>
-          <Route path="/getFilmList" exact component={GetFilmList} />
+
           <Route path="/settings/myfilms" exact component={PrivacyPolicyTribalBeta}>
             <MyFilms />
           </Route>
