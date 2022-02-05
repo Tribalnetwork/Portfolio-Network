@@ -14,16 +14,15 @@ import Submit from './pages/submit/Submit'
 import BottomNavBar from './components/navbar/BottomNavBar'
 import Home from "./pages/home/Home"
 import { FeatureComingSoon } from "./components/FeatureComingSoon";
-import { Settings__tribalBeta as SettingsTribalBeta } from "./components/tribalBeta/Settings__tribalBeta";
-import MobileAppTribalBeta from "./components/tribalBeta/MobileApp__tribalBeta";
-import PrivacyPolicyTribalBeta from "./components/tribalBeta/PrivacyPolicy__tribalBeta";
-import SupportTribalBeta from "./components/tribalBeta/Support__tribalBeta";
-import TermsOfServiceTribalBeta from "./components/tribalBeta/TermsOfService__tribalBeta";
-import TipsAndSupportTribalBeta from "./components/tribalBeta/TipsAndSupport__tribalBeta";
-import ContactUsTribalBeta from "./components/tribalBeta/ContactUs__tribalBeta";
-import MyFilms from "./components/tribalBeta/MyFilms__tribalBeta";
-import Signin from './SignIn';
-import PageNotFound from "./pages/PageNotFound";
+import Settings from "./pages/settings/Settings";
+import PrivacyPolicyTribalBeta from "./pages/settings/PrivacyPolicy";
+import SupportTribalBeta from "./pages/settings/Support";
+import TermsOfServiceTribalBeta from "./pages/settings/TermsOfService";
+import TipsAndSupportTribalBeta from "./pages/settings/TipsAndSupport";
+import ContactUsTribalBeta from "./pages/settings/ContactUs";
+
+import Signin from './SignIn'
+
 
 import { useTheme } from "@material-ui/core/styles";
 import { useMediaQuery } from "@material-ui/core";
@@ -87,14 +86,6 @@ const Routes = () => {
       <div>
         <NavigationBar />
         <Switch>
-
-          <Route path="/settings/myfilms" exact component={PrivacyPolicyTribalBeta}>
-            <MyFilms />
-          </Route>
-          <Route path="/settings/mobileapp" exact component={MobileAppTribalBeta}>
-            {/* <MobileApp__tribalBeta /> */}
-            <FeatureComingSoon />
-          </Route>
           <Route path="/settings/privacypolicy" exact component={PrivacyPolicyTribalBeta}>
             <PrivacyPolicyTribalBeta />
           </Route>
@@ -111,9 +102,7 @@ const Routes = () => {
             <ContactUsTribalBeta />
           </Route>
           {/* Setting */}
-          <Route path="/settings" exact component={SettingsTribalBeta}>
-            <SettingsTribalBeta />
-          </Route>
+          <Route path="/settings" exact component={Settings}></Route>
           {/* Sign in */}
           <Route path="/signin" exact component={Signin}>
             <Signin />
@@ -194,7 +183,7 @@ const Routes = () => {
           <PrivateRoute path="/pending" component={FeatureComingSoon} />
           <PrivateRoute path="/mylive" component={FeatureComingSoon} />
           <PrivateRoute path="/mylist" component={FeatureComingSoon} />
-          <Route component={PageNotFound} />
+          <Route component={FeatureComingSoon} />
         </Switch>
         {
           breakPointQuery ? <BottomNavBar /> : null

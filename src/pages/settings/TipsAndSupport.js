@@ -1,6 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import './settings__tribalBeta.css';
+import './settings.css';
 import { IconButton } from "@material-ui/core";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 
@@ -13,7 +13,7 @@ function TipsAndSupport() {
             {/* Header */}
             <div className="pageTitle setting__tribalBeta">
                 <IconButton edge="end" color="white" onClick={() => history.goBack()}>
-                    <ArrowBackIosIcon className="backIcon" style={{color: "white"}}/>
+                    <ArrowBackIosIcon className="backIcon" style={{ color: "white" }} />
                 </IconButton>
                 <h2 className="text settingText__tribalBeta">Tips &amp; Support</h2>
             </div>
@@ -31,7 +31,7 @@ function TipsAndSupport() {
                 </p>
                 <h4 className='tips-and-support-subheading'>Report a bug or glitch:</h4>
                 <p className='tips-and-support-para'>
-                    Take a screenshot or print screen and send your bug report to <a href='mailto: ops@tribaliii.org?subject=Reporting a Bug' style={{color: 'white'}}>ops@tribaliii.org</a>
+                    Take a screenshot or print screen and send your bug report to <a href='mailto: ops@tribaliii.org?subject=Reporting a Bug' style={{ color: 'white' }}>ops@tribaliii.org</a>
                 </p>
                 <h4 className='tips-and-support-subheading'>Fair use:</h4>
                 <p className='tips-and-support-para'>

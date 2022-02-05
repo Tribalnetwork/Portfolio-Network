@@ -1,5 +1,57 @@
-.body {
-  background-color: #2c2c2e;
+
+body{
+  font-family: "Roboto";
+  color:white;
+ 
+}
+h3 {
+  text-align: center;
+  text-emphasis-style: bold ;
+  color: white;
+}
+p{
+  margin-left:1em;
+  margin-right:1em;
+}
+/*div.settingBody__tribalBeta {
+  
+}*/
+
+div.setting__tribalBeta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background-color: #121212;
+  box-shadow: 0px 4px 30px #1c1c1e;
+  padding: 0px;
+  height: 50px;
+  line-height: 20px;
+  position: relative;
+  margin: 0px;
+}
+
+div.setting__tribalBeta button {
+  position: absolute;
+  left: 1.1rem;
+  top: 1rem;
+  padding: 0px;
+  text-align: left;
+}
+
+h2.settingText__tribalBeta {
+  font-family: "Roboto";
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 41px;
+  letter-spacing: 0.364px;
+  padding: 0px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  background-color: rgba(44, 44, 46, 0.25);
+  width: 100%;
+  justify-content: center;
 }
 
 .settings {
@@ -7,112 +59,120 @@
   flex-direction: column;
   align-content: space-between;
   background-color: #2c2c2e;
-  overflow-y: scroll;
   color: white;
-  text-align: center;
   padding-bottom: 4rem;
+  padding-top: 52px;
+  width: 100%;
+  border: 0px;
 }
 
-.Button {
-  color: white;
-}
-
-.backbutton {
-  left: 0;
-}
-
-.backIcon {
-  color: white;
-}
-.pageTitle {
+.settingsButton__tribalBeta.MuiButtonBase-root {
   display: flex;
-  /* justify-content: space-between; */
+  justify-content: flex-start;
+  background-color: rgba(30, 30, 30, 0.75);
+}
+
+div.buttonArrow__tribalBeta {
+  height: 55px;
+  margin: 0px 0px 11px 0px !important;
+  background-color: rgba(30, 30, 30, 0.75) !important;
+  display: flex;
   align-items: center;
-  color: white;
-  /* background-color: rgb(26, 22, 22); */
-  background-color: rgba(17, 17, 18, 0.6);
+  padding-left: 13px !important;
+  padding-right: 17.91px !important;
+}
+
+a.button__link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  /* background-color: rgba(30, 30, 30, 0.75) !important */
+}
+
+a.button__link button.settingsButton__tribalBeta{
   padding: 0px;
-  line-height: 20px;
-  margin-bottom: 3px;
-  margin-left: 3px;
+  background-color: transparent !important;
 }
 
-.text {
-  margin: 0 auto;
-  text-align: center;
-  /* position: relative; */
-  padding-right: 60px;
+.settingsButton__tribalBeta > .MuiButton-label {
+  color: white;
+  font-size: 17px;
+  line-height: 22px;
+  letter-spacing: 0.364px;
+  /* background-color: rgba(30, 30, 30, 0.75) !important */
+  background-color: transparent;
+
 }
 
-.button__withArrow {
-  padding: 1px 0px;
-  margin: 3px;
-  background-color: #252323;
-}
+/*.settingsRightIcon__tribalBeta {
+  /* margin-right: 1rem; 
+}*/
 
-.button__link {
-  display: flex;
-  align-items: center;
-}
-
-.rightIcon {
-  color: darkgrey;
-  background-color: #252323;
-  /* margin-right: 3px; */
-}
-
-.settings__Button {
-  width: 100%;
-  /* padding: 8px 0px !important; */
-  margin: 1.5px 0px !important;
-  background-color: #222222 !important;
-  color: white !important;
-  font-size: 15px !important;
-  border: none;
-  text-transform: none !important;
-  text-align: center;
-}
-
-.headertext {
-  margin: 0 auto;
+h3.headertext {
+  padding: 0px;
+  padding-top: 1rem;
   text-align: center;
   color: white;
-  padding-right: 20px;
+  padding-right: 0px;
+  background-color: #2c2c2e;
 }
 
-.termsBody {
-  display: inline-block;
-  margin-bottom: 60px;
-  margin-left: 10px;
-  margin-right: 10px;
+p.termsBody, p.policyBody {
+  font-family: 'Roboto';
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 22px;
+  letter-spacing: 0.36px;
   text-align: left;
+  padding: 43px;
+  background-color: #2c2c2e;
   color: white;
+  margin: 0px
 }
 
-.not-entry {
-  border-bottom: 1px solid black;
-  border-top: 1px solid black;
-  /* color: white; */
-  font-size: 15px;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-
-.not-entry:nth-child(1) {
-  width: 5%;
-}
-.not-entry:nth-child(2) {
-  width: 10%;
-}
-.not-entry:nth-child(3) {
+/* contact us / tips and support */
+div.settings h3.contact-us-heading{
   text-align: left;
-  width: 40%;
+  padding-left: 43px;
+  padding-right: 43px;
+  margin-bottom: 0px;
 }
 
-.not-table {
-  width: 100%;
-  border-collapse: collapse;
-  table-layout: fixed;
-  /* word-break: break-all; */
+div.settings p.contact-us-para{
+
+  padding-left: 43px;
+  padding-right: 43px;
+  margin-top: 5px;
+  font-family: 'Roboto';
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 22px;
+  letter-spacing: 0.36px;
+  text-align: left;
+}
+
+div.settings h3.tips-and-support-heading{
+  text-align: left;
+  padding-left: 43px;
+  padding-right: 43px;
+  margin-bottom: 0px;
+}
+div.settings h4.tips-and-support-subheading{
+  text-align: left;
+  padding-left: 43px;
+  padding-right: 43px;
+}
+
+div.settings p.tips-and-support-para{
+  padding-left: 43px;
+  padding-right: 43px;
+  font-family: 'Roboto';
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 22px;
+  letter-spacing: 0.36px;
+  text-align: left;
+  margin: 0px
 }

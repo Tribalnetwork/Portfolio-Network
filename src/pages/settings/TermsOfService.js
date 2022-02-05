@@ -1,6 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import './settings__tribalBeta.css';
+import './settings.css';
 import { IconButton } from "@material-ui/core";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 // import { CenterFocusStrongSharp } from "@material-ui/icons";

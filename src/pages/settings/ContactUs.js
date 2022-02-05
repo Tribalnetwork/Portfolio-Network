@@ -1,6 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import './settings__tribalBeta.css';
+import './settings.css';
 import { IconButton } from "@material-ui/core";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 
@@ -13,7 +13,7 @@ function ContactUs() {
             {/* Header */}
             <div className="pageTitle setting__tribalBeta">
                 <IconButton edge="end" color="white" onClick={() => history.goBack()}>
-                    <ArrowBackIosIcon className="backIcon" style={{color: "white"}}/>
+                    <ArrowBackIosIcon className="backIcon" style={{ color: "white" }} />
                 </IconButton>
                 <h2 className="text settingText__tribalBeta">Contact Us</h2>
             </div>

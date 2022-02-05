@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useHistory } from "react-router-dom";
-import './settings__tribalBeta.css';
+import './settings.css';
 import { Button, IconButton } from "@material-ui/core";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 import { ReactComponent as ArrowIcon } from '../../assets/images/icons/tribalBeta__settings__arrow.svg';
@@ -13,7 +13,7 @@ function Support() {
             {/* Header */}
             <div className="pageTitle setting__tribalBeta">
                 <IconButton edge="end" color="white" onClick={() => history.goBack()}>
-                    <ArrowBackIosIcon className="backIcon" style={{color: "white"}}/>
+                    <ArrowBackIosIcon className="backIcon" style={{ color: "white" }} />
                 </IconButton>
                 <h2 className="text settingText__tribalBeta">Support</h2>
             </div>
