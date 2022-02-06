@@ -8,11 +8,11 @@ import {
   getFilm, getUser,
   // getPlayList,
   filmInListByListByFilm
-} from './graphql/queries'
+} from './middleware/graphql/queries'
 import {
   updateUser,
   deleteFilmInList
-} from './graphql/mutations'
+} from './middleware/graphql/mutations'
 import UserContext from './UserContext'
 import './Watch.css'
 import Grid from '@material-ui/core/Grid';

@@ -1,6 +1,6 @@
 import React from 'react'
 import { API, graphqlOperation } from 'aws-amplify'
-import { updateUser } from './graphql/mutations'
+import { updateUser } from './middleware/graphql/mutations'
 import Container from './Container'
 import UserContext from './UserContext'
 import Button from './Button'
@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import { Helmet } from 'react-helmet'
 
 
-export default class GetAccess extends React.Component{
+export default class GetAccess extends React.Component {
   static contextType = UserContext
   state = {
     currentUser: {},
@@ -22,7 +22,7 @@ export default class GetAccess extends React.Component{
       id: this.state.currentUser.attributes.sub,
       fullAccess: true
     }
-    const updatedUser = await API.graphql(graphqlOperation(updateUser, {input: data}));
+    const updatedUser = await API.graphql(graphqlOperation(updateUser, { input: data }));
     this.context.updateCurrentUser()
     this.setState({ access: true })
   }
@@ -34,33 +34,33 @@ export default class GetAccess extends React.Component{
           <title>Get Full Access</title>
         </Helmet>
         <Container>
-        {
-          this.state.access ? (
-            <>
-              <h1>You have full access.</h1>
-              <Link to='/' style={styles.link}>
+          {
+            this.state.access ? (
+              <>
+                <h1>You have full access.</h1>
+                <Link to='/' style={styles.link}>
+                  <Button
+                    title="Go Home"
+                  />
+                </Link>
+              </>
+            ) : (
+              <>
+                <h1>Get Full Access</h1>
+                <h2>(Payment has not been implemented yet.)</h2>
                 <Button
-                  title="Go Home"
+                  title="Get Access"
+                  onClick={this.updateAccess.bind(this)}
                 />
-              </Link>
-            </>
-          ) : (
-            <>
-              <h1>Get Full Access</h1>
-              <h2>(Payment has not been implemented yet.)</h2>
-              <Button
-                title="Get Access"
-                onClick={this.updateAccess.bind(this)}
-                />
-              <h2>An approved submission will also grant full access</h2>
-              <Link to='/upload' style={styles.link}>
-                <Button
-                  title="Go to Submit page"
-                />
-              </Link>
-            </>
-          )
-        }
+                <h2>An approved submission will also grant full access</h2>
+                <Link to='/upload' style={styles.link}>
+                  <Button
+                    title="Go to Submit page"
+                  />
+                </Link>
+              </>
+            )
+          }
 
         </Container>
       </div>

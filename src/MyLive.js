@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { API, graphqlOperation } from 'aws-amplify'
-import { getUser } from './graphql/queries'
+import { getUser } from './middleware/graphql/queries'
 import UserContext from './UserContext'
 import { Helmet } from 'react-helmet'
 
@@ -25,7 +25,7 @@ export const MyLive = () => {
     setFormState({ ...formState, [key]: value })
   }
 
-  async function getInfo () {
+  async function getInfo() {
     const user = await API.graphql(graphqlOperation(getUser, { id: context.user.attributes.sub }))
     setID(user.data.getUser.liveStreamID)
   }
@@ -33,7 +33,7 @@ export const MyLive = () => {
   async function getStreamInfo() {
 
     var request = new XMLHttpRequest();
-    request.onreadystatechange = async function() {
+    request.onreadystatechange = async function () {
       if (this.readyState === 4 && this.status === 200) {
         var responseJSON = JSON.parse(request.responseText)
         setStreamKey(responseJSON.data.stream_key)
@@ -42,8 +42,8 @@ export const MyLive = () => {
         }
       }
     };
-    request.open("GET", "https://cors-anywhere.herokuapp.com/https://api.mux.com/video/v1/live-streams/"+id);
-    request.setRequestHeader("Authorization", "Basic "+btoa("58622fd8-5911-44c2-8696-3ac63c8ea1d5:Fr1el5KCOkIM0CRrejK2Z88522WaFRTEu/zIO4wRSTVIORt1If3U6na2TMGqotZngrVaRup28Va"));
+    request.open("GET", "https://cors-anywhere.herokuapp.com/https://api.mux.com/video/v1/live-streams/" + id);
+    request.setRequestHeader("Authorization", "Basic " + btoa("58622fd8-5911-44c2-8696-3ac63c8ea1d5:Fr1el5KCOkIM0CRrejK2Z88522WaFRTEu/zIO4wRSTVIORt1If3U6na2TMGqotZngrVaRup28Va"));
     request.send()
 
   }
@@ -60,7 +60,7 @@ export const MyLive = () => {
       "passthrough": formState.target
     }
     var request = new XMLHttpRequest();
-    request.onreadystatechange = async function() {
+    request.onreadystatechange = async function () {
       if (this.readyState === 4 && this.status === 200) {
         var responseJSON = JSON.parse(request.responseText)
         setTargets([...targets, responseJSON.passthrough])
@@ -83,9 +83,9 @@ export const MyLive = () => {
         <label>
           Select social media platform:
           <select
-          value={formState.target}
-          onChange={event => setInput('target', event.target.value)}
-          style={styles.select}
+            value={formState.target}
+            onChange={event => setInput('target', event.target.value)}
+            style={styles.select}
           >
             <option value="Facebook">Facebook</option>
             <option value="Youtube">Youtube</option>
@@ -120,7 +120,7 @@ export const MyLive = () => {
 const styles = {
   container: { width: 400, margin: '0 auto', display: 'flex', flex: 1, flexDirection: 'column', justifyContent: 'center', padding: 20 },
   player: { width: 600, margin: '0 auto', justifyContent: 'center', padding: 20 },
-  film: {  marginBottom: 15 },
+  film: { marginBottom: 15 },
   input: { border: 'none', backgroundColor: '#ddd', marginBottom: 10, padding: 8, fontSize: 18 },
   select: { border: 'none', backgroundColor: '#ddd', marginLeft: 30, marginBottom: 10, padding: 8, fontSize: 18 },
   filmTitle: { fontSize: 20, fontWeight: 'bold' },

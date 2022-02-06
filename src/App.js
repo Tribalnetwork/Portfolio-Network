@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Auth, Hub } from 'aws-amplify'
 import { API, graphqlOperation } from 'aws-amplify'
-import { getUser } from './graphql/queries'
+import { getUser } from './middleware/graphql/queries'
 
 import './App.css'
 import Router from './routes/Router'
