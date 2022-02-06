@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 import UserContext from "../UserContext";
 import { NavigationBar } from "../layouts/navbar/TopNavigationBar";
-import Authenticator from '../Authenticator'
+import Authenticator from '../pages/authentication/Authenticator'
 import Watch from '../pages/watch/Watch'
 import Submit from '../pages/submit/Submit'
 import BottomNavBar from '../layouts/navbar/BottomNavBar'
@@ -21,7 +21,7 @@ import TermsOfServiceTribalBeta from "../pages/settings/TermsOfService";
 import TipsAndSupportTribalBeta from "../pages/settings/TipsAndSupport";
 import ContactUsTribalBeta from "../pages/settings/ContactUs";
 
-import Signin from '../SignIn'
+import Signin from '../pages/authentication/SignIn'
 
 
 import { useTheme } from "@material-ui/core/styles";
