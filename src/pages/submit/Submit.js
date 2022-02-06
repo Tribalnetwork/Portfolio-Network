@@ -6,7 +6,7 @@ import "./submit.css";
 import Select from 'react-select'
 import axios from 'axios';
 import Amplify from 'aws-amplify';
-import awsconfig from '../../aws-exports';
+import awsconfig from '../authentication/aws-exports';
 import VolumeUpOutlinedIcon from '@material-ui/icons/VolumeUpOutlined';
 import VolumeOffOutlinedIcon from '@material-ui/icons/VolumeOffOutlined';
 import UserContext from "../../UserContext";

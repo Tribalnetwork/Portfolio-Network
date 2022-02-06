@@ -2,14 +2,14 @@ import React from "react";
 import AdSense from 'react-adsense';
 import axios from "axios";
 import Amplify from "aws-amplify";
-import awsconfig from "../../aws-exports";
+import awsconfig from "../authentication/aws-exports";
 import "@aws-amplify/ui/dist/style.css";
 import UserContext from "../../UserContext";
 import { Helmet } from "react-helmet";
 import ReactPlayer from "react-player";
 import HorizontalScrollerCircular from "../../components/HorizontalScrollerCircular";
 
-import "./Home.css";
+import "../../assets/styles/Home.css";
 Amplify.configure(awsconfig);
 
 
