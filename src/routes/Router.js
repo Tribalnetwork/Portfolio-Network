@@ -9,7 +9,7 @@ import {
 import UserContext from "../UserContext";
 import { NavigationBar } from "../layouts/navbar/TopNavigationBar";
 import Authenticator from '../Authenticator'
-import Watch from '../Watch'
+import Watch from '../pages/watch/Watch'
 import Submit from '../pages/submit/Submit'
 import BottomNavBar from '../layouts/navbar/BottomNavBar'
 import Home from "../pages/home/Home"
