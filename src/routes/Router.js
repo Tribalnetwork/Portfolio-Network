@@ -7,11 +7,11 @@ import {
   BrowserRouter as Router,
 } from "react-router-dom";
 import UserContext from "../UserContext";
-import { NavigationBar } from "../components/navbar/TopNavigationBar";
+import { NavigationBar } from "../layouts/navbar/TopNavigationBar";
 import Authenticator from '../Authenticator'
 import Watch from '../Watch'
 import Submit from '../pages/submit/Submit'
-import BottomNavBar from '../components/navbar/BottomNavBar'
+import BottomNavBar from '../layouts/navbar/BottomNavBar'
 import Home from "../pages/home/Home"
 import { FeatureComingSoon } from "../components/FeatureComingSoon";
 import Settings from "../pages/settings/Settings";
@@ -138,26 +138,7 @@ const Routes = () => {
           {/* wifiandcellular */}
           <Route path="/settings/wifiandcellular" >
           </Route>
-          {/* Explore */}
-          <Route path="/explore" component={FeatureComingSoon} />
 
-          {/* <Route path="/explore"><Explore /></Route> */}
-          <Route path="/explore/sports" exact component={FeatureComingSoon} />
-          <Route path="/explore/talks"><FeatureComingSoon /></Route>
-          <Route path="/explore/drama"><FeatureComingSoon /></Route>
-          <Route path="/explore/romance"><FeatureComingSoon /></Route>
-          <Route path="/explore/horror"><FeatureComingSoon /></Route>
-          <Route path="/explore/family"><FeatureComingSoon /></Route>
-          <Route path="/explore/animation"><FeatureComingSoon /></Route>
-          <Route path="/explore/experimental"><FeatureComingSoon /></Route>
-          <Route path="/explore/thriller"><FeatureComingSoon /></Route>
-          <Route path="/explore/family"><FeatureComingSoon /></Route>
-          <Route path="/explore/scifi"><FeatureComingSoon /></Route>
-          <Route path="/explore/action"><FeatureComingSoon /></Route>
-          <Route path="/explore/comedy"><FeatureComingSoon /></Route>
-          <Route path="/explore/musical"><FeatureComingSoon /></Route>
-          <Route path="/explore/documentary"><FeatureComingSoon /></Route>
-          <Route path="/explore/watchrandom"><FeatureComingSoon /></Route>
           <Route path="/auth" exact component={Authenticator} />
           <Route path="/" exact component={Home} />
           <Route path="/home" exact component={Home} />
