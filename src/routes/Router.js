@@ -23,6 +23,7 @@ import ContactUsTribalBeta from "../pages/settings/ContactUs";
 
 import Signin from '../pages/authentication/SignIn'
 
+import Explore from '../pages/explore/Explore'
 
 import { useTheme } from "@material-ui/core/styles";
 import { useMediaQuery } from "@material-ui/core";
