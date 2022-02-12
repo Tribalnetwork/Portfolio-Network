@@ -23,6 +23,7 @@ import ContactUsTribalBeta from "../pages/settings/ContactUs";
 
 import Signin from '../pages/authentication/SignIn'
 
+import Explore from '../pages/explore/Explore'
 
 import { useTheme } from "@material-ui/core/styles";
 import { useMediaQuery } from "@material-ui/core";
@@ -153,6 +154,7 @@ const Routes = () => {
           <Route path="/myStudio" exact component={FeatureComingSoon} />
           <Route path="/myStudio/myFolder" exact component={FeatureComingSoon} />
           <Route path="/myStudio/toDoList" exact component={FeatureComingSoon} />
+          <Route path="/explore" exact component={Explore} />
           <PrivateRoute path="/upload" exact component={FeatureComingSoon} />
           <PrivateRoute path="/streams" component={FeatureComingSoon} />
           <PrivateRoute path="/watch" component={Watch} />
