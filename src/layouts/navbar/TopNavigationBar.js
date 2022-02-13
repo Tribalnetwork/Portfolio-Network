@@ -183,9 +183,6 @@ export const NavigationBar = () => {
                     }, 2000);
                   }
                    }>
-                        <img className={classes.svgStyle} src={Home} alt='' />
-                        <ListItemText primary={'Sign Out'}> </ListItemText>
-                      </ListItem>
                       <Modal
                 open={open}
                 onClose={handleClose}
@@ -194,6 +191,8 @@ export const NavigationBar = () => {
               >
                 {body}
               </Modal>
+                        <ListItemText primary={'Sign Out'}> </ListItemText>
+                      </ListItem>
                     </List>
                   </div>
                 </Drawer>
@@ -201,7 +200,7 @@ export const NavigationBar = () => {
             ) : (
               <Link to='/auth' style={{ textDecoration: 'none' }}>
                 <Button color="inherit" style={{ color: '#d4af37' }}>
-                  Login/Register
+                  Sign In/SignUp
                 </Button>
               </Link>
             ) : null
