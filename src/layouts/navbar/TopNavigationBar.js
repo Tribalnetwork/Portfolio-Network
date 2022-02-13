@@ -183,7 +183,7 @@ export const NavigationBar = () => {
                     }, 2000);
                   }
                    }>
-                      <Modal
+                     <Modal
                 open={open}
                 onClose={handleClose}
                 aria-labelledby="simple-modal-title"
