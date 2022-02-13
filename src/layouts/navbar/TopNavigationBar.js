@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react'
-import { Link } from 'react-router-dom';
+import { Link,useHistory } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import UserContext from '../../UserContext'
 import AppBar from '@material-ui/core/AppBar';
@@ -12,6 +12,8 @@ import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
+import { Auth } from 'aws-amplify';
+import Modal from '@material-ui/core/Modal';
 
 import './TopNavigationBar.css';
 import Home from "../../assets/images/navbarIcons/home.svg"
@@ -81,7 +83,13 @@ export const NavigationBar = () => {
   // const handleListItemClick = (event, index) => {
   //   setSelectedIndex(index);
   // };
-
+  let history = useHistory();
+  const handleOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -95,6 +103,20 @@ export const NavigationBar = () => {
   const handleDrawerClose2 = () => {
     setOpen2(false);
   };
+  const body = (
+    <div style={{ width: '100%', height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+      <h2 id="simple-modal-title" style={logoutStyle.h2}>Good bye for now!</h2>
+    </div>
+  );
+
+  // sign out user
+  async function signOut() {
+    try {
+      await Auth.signOut();
+    } catch (error) {
+      console.log('error signing out: ', error);
+    }
+  }
 
   return (
     <div className={"navcontainer"}>
@@ -151,6 +173,26 @@ export const NavigationBar = () => {
                         <img className={classes.svgStyle} src={People} alt='' />
                         <ListItemText primary={'Connections'}> </ListItemText>
                       </ListItem>
+                      <ListItem button component={Link} to={"/auth"} onClick={  () =>{
+                   handleOpen();
+                    setTimeout(() => {
+                      signOut();
+                      handleClose();
+                      history.push('/auth');
+                    }, 2000);
+                  }
+                   }>
+                        <img className={classes.svgStyle} src={Home} alt='' />
+                        <ListItemText primary={'Sign Out'}> </ListItemText>
+                      </ListItem>
+                      <Modal
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="simple-modal-title"
+                aria-describedby="simple-modal-description"
+              >
+                {body}
+              </Modal>
                     </List>
                   </div>
                 </Drawer>
@@ -200,3 +242,17 @@ export const NavigationBar = () => {
     </div>
   )
 }
+const logoutStyle = {
+          h2: {
+            fontFamily: 'Roboto',
+            fontSize: '30px',
+            color: 'white',
+            background: 'repeating-linear-gradient(30deg, #121215, #2c2c2e )',
+            // lineHeight: '18px',
+            letterSpacing: '-0.08px',
+            textAlign: 'center',
+            padding: '4rem',
+            boxShadow: '0px 0px 30px 2px #1c1c1e',
+            borderRadius: '4px'
+          }
+        }
