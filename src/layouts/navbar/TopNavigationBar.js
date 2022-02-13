@@ -173,7 +173,6 @@ export const NavigationBar = () => {
                         <img className={classes.svgStyle} src={People} alt='' />
                         <ListItemText primary={'Connections'}> </ListItemText>
                       </ListItem>
-                       {/* 4: Logout */}
                       <ListItem button component={Link} to={"/auth"} onClick={  () =>{
                    handleOpen();
                     setTimeout(() => {
