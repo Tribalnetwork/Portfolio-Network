@@ -10,6 +10,7 @@ import { ReactComponent as ArrowIcon } from '../../assets/images/icons/tribalBet
 // if user.name is not empty object or null then he can have access 
 // to all options listed in setting page.
 // step 1:
+
 import { useContext } from 'react'
 import UserContext from "../../UserContext";
 
