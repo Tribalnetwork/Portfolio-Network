@@ -28,7 +28,7 @@ import { useTheme } from "@material-ui/core/styles";
 import { useMediaQuery } from "@material-ui/core";
 
 import { useContext } from 'react'
-
+import Explore from '../pages/explore/Explore'
 
 class PrivateRoute extends React.Component {
   // PrivateRoutes require authentication to access
@@ -153,6 +153,7 @@ const Routes = () => {
           <Route path="/myStudio" exact component={FeatureComingSoon} />
           <Route path="/myStudio/myFolder" exact component={FeatureComingSoon} />
           <Route path="/myStudio/toDoList" exact component={FeatureComingSoon} />
+          <Route path="/explore" exact component={Explore} />
           <PrivateRoute path="/upload" exact component={FeatureComingSoon} />
           <PrivateRoute path="/streams" component={FeatureComingSoon} />
           <PrivateRoute path="/watch" component={Watch} />
