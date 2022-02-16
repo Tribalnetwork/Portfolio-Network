@@ -29,7 +29,7 @@ import { useTheme } from "@material-ui/core/styles";
 import { useMediaQuery } from "@material-ui/core";
 
 import { useContext } from 'react'
-
+import Explore from '../pages/explore/Explore'
 
 class PrivateRoute extends React.Component {
   // PrivateRoutes require authentication to access
