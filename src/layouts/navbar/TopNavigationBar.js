@@ -114,7 +114,7 @@ export const NavigationBar = () => {
           </IconButton>
           <span className={classes.title}>
             <Typography variant="h6" >
-              Tribal Beta
+              Tribal
             </Typography>
           </span>
           {
