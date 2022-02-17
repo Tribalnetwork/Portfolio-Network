@@ -267,6 +267,9 @@ export default class Home extends React.Component {
                   </p><br />
                   <p>{this.state.sponsorshipLabel}</p>
                 </div>
+                <div> 
+                  <a href="/explore">Explore</a>
+                </div>
                 <div className="film-lists">
                   {filmGroups.map((group, index) => (
                     <FilmCat
