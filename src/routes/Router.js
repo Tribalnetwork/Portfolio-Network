@@ -27,9 +27,10 @@ import Explore from '../pages/explore/Explore'
 
 import { useTheme } from "@material-ui/core/styles";
 import { useMediaQuery } from "@material-ui/core";
+import PageNotFound from "../pages/PageNotFound";
 
 import { useContext } from 'react'
-import Explore from '../pages/explore/Explore'
+
 
 class PrivateRoute extends React.Component {
   // PrivateRoutes require authentication to access
@@ -166,7 +167,7 @@ const Routes = () => {
           <PrivateRoute path="/pending" component={FeatureComingSoon} />
           <PrivateRoute path="/mylive" component={FeatureComingSoon} />
           <PrivateRoute path="/mylist" component={FeatureComingSoon} />
-          <Route component={FeatureComingSoon} />
+          <Route component={PageNotFound} />
         </Switch>
         {
           breakPointQuery ? <BottomNavBar /> : null

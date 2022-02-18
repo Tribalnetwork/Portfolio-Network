@@ -15,7 +15,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import { Auth } from 'aws-amplify';
 import Modal from '@material-ui/core/Modal';
 
-import './TopNavigationBar.css';
+//import './TopNavigationBar.css';
 import Home from "../../assets/images/navbarIcons/home.svg"
 // import Tribal from "../bottomNavBarImg/tribal.svg"
 import Settings from "../../assets/images/navbarIcons/settings.svg"
@@ -257,3 +257,4 @@ const logoutStyle = {
             borderRadius: '4px'
           }
         }
+export default Settings;
