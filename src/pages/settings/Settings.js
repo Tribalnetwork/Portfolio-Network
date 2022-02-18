@@ -13,7 +13,6 @@ import { ReactComponent as ArrowIcon } from '../../assets/images/icons/tribalBet
 import { useContext } from 'react'
 import UserContext from "../../UserContext";
 
-import Modal from '@material-ui/core/Modal';
 
 
 export default function Settings() {
@@ -30,14 +29,6 @@ export default function Settings() {
 
   let history = useHistory();
 
-  // for modal
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => {
-    setOpen(true);
-  };
-  const handleClose = () => {
-    setOpen(false);
-  };
 
  
   return (

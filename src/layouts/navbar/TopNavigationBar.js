@@ -73,7 +73,7 @@ export const NavigationBar = () => {
 
   const context = useContext(UserContext)
   const classes = useStyles();
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = React.useState(false);
   const [open2, setOpen2] = useState(false);
   const isAuthenticated = context.user && context.user.username ? true : false
   const isLoaded = context.isLoaded
