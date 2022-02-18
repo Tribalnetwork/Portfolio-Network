@@ -257,4 +257,4 @@ const logoutStyle = {
             borderRadius: '4px'
           }
         }
-export default Settings;
+export {Settings};
