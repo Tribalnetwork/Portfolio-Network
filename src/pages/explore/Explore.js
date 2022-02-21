@@ -1,10 +1,10 @@
 import React from "react";
-import ExploreHeader from './ExploreHeader'
+import Genres from './Genres'
 function Explore() {
 
     return (
         <div>
-            <ExploreHeader />
+            <Genres />
         </div>
     )
 }
