@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 
-export default function ExploreHeader() {
+export default function Genres() {
   const [genres, setGenres] = useState([])
 
   const getGenreList = () => {
