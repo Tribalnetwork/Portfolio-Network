@@ -20,7 +20,7 @@ import SupportTribalBeta from "../pages/settings/Support";
 import TermsOfServiceTribalBeta from "../pages/settings/TermsOfService";
 import TipsAndSupportTribalBeta from "../pages/settings/TipsAndSupport";
 import ContactUsTribalBeta from "../pages/settings/ContactUs";
-
+import PageNotFound from "../pages/PageNotFound";
 import Signin from '../pages/authentication/SignIn'
 
 
@@ -165,7 +165,7 @@ const Routes = () => {
           <PrivateRoute path="/pending" component={FeatureComingSoon} />
           <PrivateRoute path="/mylive" component={FeatureComingSoon} />
           <PrivateRoute path="/mylist" component={FeatureComingSoon} />
-          <Route component={FeatureComingSoon} />
+          <Route component={PageNotFound} />
         </Switch>
         {
           breakPointQuery ? <BottomNavBar /> : null
