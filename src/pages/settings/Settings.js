@@ -1,5 +1,4 @@
 import React from 'react';
-import { Auth } from 'aws-amplify';
 import './settings.css';
 import { Button, IconButton } from "@material-ui/core";
 import { Link, useHistory } from "react-router-dom";
@@ -13,8 +12,6 @@ import { ReactComponent as ArrowIcon } from '../../assets/images/icons/tribalBet
 // step 1:
 import { useContext } from 'react'
 import UserContext from "../../UserContext";
-
-import Modal from '@material-ui/core/Modal';
 
 
 export default function Settings() {
@@ -31,29 +28,8 @@ export default function Settings() {
 
   let history = useHistory();
 
-  // for modal
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => {
-    setOpen(true);
-  };
-  const handleClose = () => {
-    setOpen(false);
-  };
+ 
 
-  const body = (
-    <div style={{ width: '100%', height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-      <h2 id="simple-modal-title" style={logoutStyle.h2}>Good bye for now!</h2>
-    </div>
-  );
-
-  // sign out user
-  async function signOut() {
-    try {
-      await Auth.signOut();
-    } catch (error) {
-      console.log('error signing out: ', error);
-    }
-  }
   return (
     <div className='settingBody__tribalBeta'>
 
@@ -128,62 +104,10 @@ export default function Settings() {
                 <ArrowIcon fontSize="large" className="settingsRightIcon__tribalBeta" />
               </Link>
             </div>
-            : null
-        }
-
-        {/* Logout */}
-        {
-          // step 4:
-          userCheck ?
-            <div className="button__withArrow buttonArrow__tribalBeta">
-
-              <Modal
-                open={open}
-                onClose={handleClose}
-                aria-labelledby="simple-modal-title"
-                aria-describedby="simple-modal-description"
-              >
-                {body}
-              </Modal>
-              <Link
-                onClick={
-                  () => {
-                    handleOpen();
-
-                    setTimeout(() => {
-                      signOut();
-                      handleClose();
-                      history.push('/auth');
-                    }, 2000);
-
-                  }
-                }
-                className="button__link"
-                // to={"/settings/logout"}
-                style={{ textDecoration: "none" }}
-              >
-                <Button className="settings__Button settingsButton__tribalBeta">Log out</Button>
-                <ArrowIcon fontSize="large" className="settingsRightIcon__tribalBeta" />
-              </Link>
-            </div>
             : null}
-      </div>
-    </div>
+            </div>
+            </div>
   )
 }
 
-
-const logoutStyle = {
-  h2: {
-    fontFamily: 'Roboto',
-    fontSize: '30px',
-    color: 'white',
-    background: 'repeating-linear-gradient(30deg, #121215, #2c2c2e )',
-    // lineHeight: '18px',
-    letterSpacing: '-0.08px',
-    textAlign: 'center',
-    padding: '4rem',
-    boxShadow: '0px 0px 30px 2px #1c1c1e',
-    borderRadius: '4px'
-  }
-}
+export {Settings}
