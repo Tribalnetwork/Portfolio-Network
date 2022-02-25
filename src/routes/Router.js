@@ -153,7 +153,7 @@ const Routes = () => {
           <Route path="/myStudio" exact component={FeatureComingSoon} />
           <Route path="/myStudio/myFolder" exact component={FeatureComingSoon} />
           <Route path="/myStudio/toDoList" exact component={FeatureComingSoon} />
-          <Route path="/explore" exact component={Explore} />
+          <Route path="/explore" exact component={isThereSignedUser ? Explore : Authenticator} />
           <PrivateRoute path="/upload" exact component={FeatureComingSoon} />
           <PrivateRoute path="/streams" component={FeatureComingSoon} />
           <PrivateRoute path="/watch" component={Watch} />
