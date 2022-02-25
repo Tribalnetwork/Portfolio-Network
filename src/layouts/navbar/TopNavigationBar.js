@@ -200,7 +200,7 @@ export const NavigationBar = () => {
             ) : (
               <Link to='/auth' style={{ textDecoration: 'none' }}>
                 <Button color="inherit" style={{ color: '#d4af37' }}>
-                  Login/Register
+                  Sign In/SignUp
                 </Button>
               </Link>
             ) : null
