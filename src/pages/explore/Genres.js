@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
+import './explore.css';
 
 export default function Genres() {
   const [genres, setGenres] = useState([])
@@ -21,8 +22,8 @@ export default function Genres() {
 
 
   return (
-    <div>
-      {genres.map(genre => <div>{genre.label}</div>)}
+    <div className="genreContainer">
+      {genres.map(genre => <div class="genre">{genre.label}</div>)}
     </div>
   )
 }

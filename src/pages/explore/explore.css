@@ -1,0 +1,13 @@
+.genreContainer {
+    display: grid;
+    grid-template-columns: repeat(8, auto);
+    width: 95%;
+    margin: auto;
+}
+
+.genre {
+    border: 1px solid gold;
+    margin: 5px;
+    width: auto;
+    border-radius: 5px;
+}
