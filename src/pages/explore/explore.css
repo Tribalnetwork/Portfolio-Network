@@ -1,13 +1,18 @@
+.explorePageContainer {
+    max-width: 1000px;
+    margin: auto;
+}
+
 .genreContainer {
     display: grid;
     grid-template-columns: repeat(8, auto);
-    width: 95%;
     margin: auto;
 }
 
 .genre {
     border: 1px solid gold;
-    margin: 5px;
+    margin: 5%;
     width: auto;
     border-radius: 5px;
+    font-size: 15px;
 }
