@@ -1,18 +1,31 @@
+
 .explorePageContainer {
-    max-width: 1000px;
+    max-width: 1366px;
     margin: auto;
 }
 
 .genreContainer {
     display: grid;
-    grid-template-columns: repeat(8, auto);
-    margin: auto;
+    grid-template-columns: repeat(auto-fill, 157px);
+    gap: 1rem;
+    margin: 0 1rem;
+    justify-content: center;
 }
 
-.genre {
-    border: 1px solid gold;
-    margin: 5%;
-    width: auto;
-    border-radius: 5px;
+.exploreGenre {
+    border: 2px solid gold;
+    border-radius: 10px;
     font-size: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 150px;
+    width: 157px;
 }
+
+@media only screen and (min-width: 1366px) {
+    .genreContainer {
+        margin: 0;
+    }
+  }
