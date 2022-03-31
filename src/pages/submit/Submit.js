@@ -6,18 +6,20 @@ import "./submit.css";
 import Select from 'react-select'
 import axios from 'axios';
 import Amplify from 'aws-amplify';
-import awsconfig from '../../aws-exports';
+import awsconfig from '../aws-exports';
 import VolumeUpOutlinedIcon from '@material-ui/icons/VolumeUpOutlined';
 import VolumeOffOutlinedIcon from '@material-ui/icons/VolumeOffOutlined';
-import UserContext from "../../UserContext";
+import UserContext from "UserContext";
 
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {Form,Field,Formik} from 'formik';
+import * as Yup from 'yup';
 
 Amplify.configure(awsconfig);
 
 
-// It easy to add new benefit the page should be able to adjust to accordingly. 
+// It easy to add new benefit the page should be able to adjust to accordingly . 
 const benefitbullets = [
   "Get feedback from peers and supporters.",
   "Get discounted access.",
@@ -51,7 +53,7 @@ const maxinput = 8;
 
 class Submit extends React.Component {
   static contextType = UserContext;
-
+  
   constructor(props) {
     super(props);
 
@@ -65,7 +67,7 @@ class Submit extends React.Component {
       FilmInput: "",      //The Film user is uploading 
       FilmTrailerInput: "",  //Film Trailer user uploading Currently optional 
       film_cover_art: "",
-      film_genre: [],
+      film_genre: "",
       film_status: 1,
       film_synopsis: "",
       film_title: "",
@@ -87,7 +89,8 @@ class Submit extends React.Component {
       muteVideo: false, // true means mute the video and false means don't mute the video
       listGenres: [],
       uploadPercentage: 0,
-      checked: false
+      checked: false,
+      New_film_id: ""
     };
 
     this.Next = this.Next.bind(this);
@@ -125,13 +128,9 @@ class Submit extends React.Component {
         console.log(err)
       })
   }
+
   handleChange(event) {
-    if ((event) && (event.length > 0)) {
-      this.setState({ film_genre: [...event.map(a => a.value)] })
-    }
-    if ((event === null) || (event.length === 0)) {
-      this.setState({ film_genre: [] });
-    }
+    this.setState({ film_genre: event.value })
   }
 
   handleCheckBox = () => {
@@ -146,113 +145,100 @@ class Submit extends React.Component {
 
 
   Submit = () => {
-    let filmURL = "";
-    let coverURL = "";
+    // console.log(this.context.user.attributes.sub )
     //reset the upload percentage to 0 before moving to the next page
-    this.setState({ uploadPercentage: 0 })
+    this.setState({uploadPercentage: 0})
     this.Next();
     setTimeout(() => {
       if (this.state.readyToSubmit === true) {
         let formData = {
           "user_id": this.context.user.attributes.sub,
+          "film_submitted_date": this.state.date,
           "film_status": this.state.status,
-          //"content_type": this.state.FilmInput.type,
           "film_title": this.state.film_title,
-          "film_genre": "testing",
+          "film_genre_id": this.state.film_genre,
           "film_synopsis": this.state.film_synopsis,
-          "film_link": "testing",
-          "film_trailer": "testing",
-          //"film_cover_art_type": this.state.film_cover_art.type,
+          "film_link": "",
+          "film_trailer": "",
           "film_cover_art": this.state.film_cover_art.name,
-          "film_cover_thumb": "testing",
+          "film_cover_art_type": this.state.film_cover_art.type,
+          "film_cover_thumb": "",
           "film_credits": "film credits here",
           "film_year": "1998",
           "film_length": "106",
-          "stars_overall": "testing",
-          "stars_acting": "testing",
-          "stars_lighting": "testing",
-          "stars_sound": "testing",
-          "stars_music": "testing",
-          "stars_editing": "testing",
-          "film_genre_id": this.state.film_genre,
-          "film_file": this.state.FilmInput
+          "film_file": this.state.FilmInput,
+          "content_type": this.state.FilmInput.type
         }
-        //this is the data for generating url for storing into S3
-        let dataForGeneratingURLs = {
-          "content_type": this.state.FilmInput.type,
-          "film_cover_art": this.state.film_cover_art.name,
-          "film_cover_art_type": this.state.film_cover_art.type
-        }
-        let dataForGeneratingURLsJson = JSON.stringify(dataForGeneratingURLs);
-        axios.post("https://wtukhmryu1.execute-api.us-east-1.amazonaws.com/default/generatingURLsForNewFilm", dataForGeneratingURLsJson)
-          .then(res => {
-            //include the new film id to the data for database insertion
-            formData.film_id = res.data.body.New_film_id
-            filmURL = res.data.body.url
-            coverURL = res.data.body.url_for_image
-            /*
-            let newurl = res.data.body.url
-            // if cover are is not empty then add presigned url to imgaeUrl
-            this.state.film_cover_art ?
-              this.setState({
-                url: newurl,
-                imageUrl: res.data.url_for_image
-              })
-              :
-              this.setState({
-                url: newurl
-              })
-            */
-          })
+        let dataAsJson = JSON.stringify(formData);
+        axios.post("https://j9j2n6zof3.execute-api.us-east-1.amazonaws.com/dev", dataAsJson).then(res => {
+          console.log(res.config.data)
+          console.log(res)
+          console.log(res.data)
+          this.setState({
+            New_film_id: res.data.body.New_film_id
+          });
+          let newurl = res.data.body.url
+
+          // if cover are is not empty then add presigned url to imgaeUrl
+          this.state.film_cover_art ?
+            this.setState({
+              url: newurl,
+              imageUrl: res.data.body.url_for_image
+            })
+            :
+            this.setState({
+              url: newurl
+            })
+        })
           .then(() => {
             // submitting film
             axios({
-              url: filmURL,
-              method: 'PUT',
+              url: this.state.url,
+              method: 'put',
               data: this.state.FilmInput,
               headers: {
                 'Content-Type': this.state.FilmInput.type
               },
               onUploadProgress: (progressEvent) => {
-                const { loaded, total } = progressEvent;
-                let percent = Math.floor((loaded * 100) / total);
+                const {loaded, total} = progressEvent;
+                let percent = Math.floor( (loaded * 100) / total );
+                console.log( `${loaded}kb of ${total}kb | ${percent}%` );
                 this.setState({ uploadPercentage: percent });
               }
             })
               .then(res =>
-                //check if the film submission was successful by checking if it can be foind in S3
-                axios({ url: "https://a0riwbhrpk.execute-api.us-east-1.amazonaws.com/dev", method: "post", data: JSON.stringify({ id: formData.film_id }) })
+                axios({ url: "https://2ajlr7txqa.execute-api.us-east-1.amazonaws.com/default/Get_Film_From_S3", method: "post", data: JSON.stringify({id: this.state.New_film_id})})
               )
               .then(res => {
-                //throw an error if the film submission was no successful
                 if (!res.data.body.exist) {
-                  throw new Error("Uh-Oh! There was a problem submitting your film, please try again and if the problem persist, contact customer support.")
+                  throw "Uh-Oh! There was a problem submitting your film, please try again and if the problem persist, contact customer support."
                 }
-
-              })
-              .then(res =>
-                //the film has been successfully stored in S3, now store the film data into the database
-                axios({ url: "https://j348sqkzha.execute-api.us-east-1.amazonaws.com/default/addingFilmsDataToRDS", method: "post", data: JSON.stringify(formData) })
-              )
-              .then(res => {
+                console.log("Film Submited Successfuly")
+                console.log(res)
                 this.setState({ checked: true, confirmation: "Thanks for submitting your film. The Tribal film council will make a determination within 21 days." })
               })
               .catch(err => {
-                console.log("Submitting film error: ", err)
+                console.log("ERROR" + err)
                 this.setState({ confirmation: "Uh-Oh! There was a problem submitting your film, please try again and if the problem persist, contact customer support." })
               });
             // submitting cover art
-            axios({
-              url: coverURL,
-              method: 'put',
-              data: this.state.film_cover_art,
-              headers: {
-                'Content-Type': this.state.film_cover_art.type
-              }
-            })
-              .catch(err => {
-                console.log("ERROR WHILE UPLOADING COVER IMAGE" + err)
+            if (this.state.imageUrl) {
+              axios({
+                url: this.state.imageUrl,
+                method: 'put',
+                data: this.state.film_cover_art,
+                headers: {
+                  'Content-Type': this.state.film_cover_art.type
+                }
               })
+                .then(res => {
+                  console.log("COVER IMAGE HAS BEEN ADDED SUCCESSFUL")
+                  console.log(res)
+                })
+                .catch(err => {
+                  console.log("ERROR WHILE UPLOADING COVER IMAGE" + err)
+                })
+            }
           })
       }
 
@@ -290,7 +276,7 @@ class Submit extends React.Component {
         Required = Required + " Title,  "
       }
 
-      if (this.state.film_genre === []) {
+      if (this.state.film_genre === "") {
         Required = Required + " Genre,  "
       }
 
@@ -326,9 +312,31 @@ class Submit extends React.Component {
     this.setState({ index: ((this.state.index % maxinput) - 1) });
   }
 
-
-
   render() {
+    const SignUpSchema = Yup.object().shape({
+      firstName: Yup.string()
+        .min(2, "Too Short!")
+        .max(50, "Too Long!")
+        .required("Firstname is required"),
+    
+      lastName: Yup.string()
+        .min(2, "Too Short!")
+        .max(50, "Too Long!")
+        .required("Lastname is required"),
+    
+      phoneNumber: Yup.string()
+        .required("Phone number is required")
+        .matches(
+    /^([0]{1}|\+?[234]{3})([7-9]{1})([0|1]{1})([\d]{1})([\d]{7})$/g,
+          "Invalid phone number"
+        ),
+    
+      email: Yup.string().email().required("Email is required"),
+    
+      password: Yup.string()
+        .required("Password is required")
+        .min(6, "Password is too short - should be 6 chars minimum"),
+    });
     // const hasAccess = this.context.hasAccess;
     const listName = this.state.list ? "listcontainer1" : "listcontainer2";
     return (
@@ -377,16 +385,22 @@ class Submit extends React.Component {
             {/*Email address ?*/}
             {
               this.state.index === 0 &&
-              <form className={"inputcontainer"}>
+              <Formik
+        initialValues={{email:'',}}
+        >
+              <Form>
                 <label for="email">Enter your Email</label>
-                <input
+                <Field
+                  name = "email"
                   type="email"
                   placeholder="example@email.com"
                   required
-                  pattern="\A[\w!#$%&'*+/=?`{|}~^-]+(?:\.[\w!#$%&'*+/=?`{|}~^-]+)*@↵(?:[A-Z0-9-]+\.)+[A-Z]{2,6}\Z"
-                  onChange={(value) => this.setState({ Email: value.target.value })}
-                ></input>
-              </form>
+                  className="inputcontainer"
+                  onChange = {(value) => this.setState({ Email: value.target.value })}
+                 // pattern="\A[\w!#$%&'*+/=?`{|}~^-]+(?:\.[\w!#$%&'*+/=?`{|}~^-]+)*@↵(?:[A-Z0-9-]+\.)+[A-Z]{2,6}\Z"
+                ></Field>
+              </Form>
+              </Formik>
             }
             {/* phone number */}
             {
@@ -465,9 +479,8 @@ class Submit extends React.Component {
                   options={this.state.listGenres}
                   placeholder={"Select Genre"}
                   styles={customStyles}
-                  onChange={this.handleChange}
-                  isMulti
-                />
+                  onChange={this.handleChange} 
+                  isMulti />
               </div>
             }
 
@@ -540,19 +553,20 @@ class Submit extends React.Component {
               }
 
             </div>
+            
 
             {
-              this.state.index === (maxinput) &&
+              this.state.index === (maxinput) && 
               (this.state.uploadPercentage === 100 && this.state.checked ? (
-                <div className="thanks">
-                  <p>{this.state.confirmation}</p>
-                  {/* reload another film */}
-                  <Reload />
-                </div>
-              ) : <div className="progressbar-container">
-                <p>Submitting Your Film...</p>
-                <ProgressBar animated now={this.state.uploadPercentage} label={`${this.state.uploadPercentage}%`} variant="warning" />
-              </div>
+                  <div className="thanks">
+                    <p>{this.state.confirmation}</p>
+                    {/* reload another film */}
+                    <Reload />
+                  </div> 
+                ) : <div className="progressbar-container">
+                      <p>Submitting Your Film...</p>
+                      <ProgressBar animated now={this.state.uploadPercentage} label={`${this.state.uploadPercentage}%`} variant="warning" /> 
+                    </div>
               )
             }
 
@@ -612,7 +626,7 @@ const customStyles = {
 
   control: (_, { selectProps: { width } }) => ({
     backgroundColor: "transparent",
-    //height: 35,
+    height: 35,
     borderRadius: 15,
     border: "2px solid gold"
 
