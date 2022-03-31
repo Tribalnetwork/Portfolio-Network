@@ -1,10 +1,13 @@
 import React from "react";
-import Genres from './Genres'
+import Genres from './Genres';
+
 function Explore() {
 
     return (
         <div>
-            <Genres />
+            <div className="explorePageContainer">
+                <Genres />
+            </div>
         </div>
     )
 }
