@@ -6,15 +6,16 @@ import "./submit.css";
 import Select from 'react-select'
 import axios from 'axios';
 import Amplify from 'aws-amplify';
-import awsconfig from '../aws-exports';
+import awsconfig from '../../aws-exports';
 import VolumeUpOutlinedIcon from '@material-ui/icons/VolumeUpOutlined';
 import VolumeOffOutlinedIcon from '@material-ui/icons/VolumeOffOutlined';
-import UserContext from "UserContext";
+import UserContext from "../../UserContext";
 
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Form,Field,Formik} from 'formik';
 import * as Yup from 'yup';
+import { disabled } from "glamor";
 
 Amplify.configure(awsconfig);
 
@@ -314,16 +315,6 @@ class Submit extends React.Component {
 
   render() {
     const SignUpSchema = Yup.object().shape({
-      firstName: Yup.string()
-        .min(2, "Too Short!")
-        .max(50, "Too Long!")
-        .required("Firstname is required"),
-    
-      lastName: Yup.string()
-        .min(2, "Too Short!")
-        .max(50, "Too Long!")
-        .required("Lastname is required"),
-    
       phoneNumber: Yup.string()
         .required("Phone number is required")
         .matches(
@@ -333,9 +324,6 @@ class Submit extends React.Component {
     
       email: Yup.string().email().required("Email is required"),
     
-      password: Yup.string()
-        .required("Password is required")
-        .min(6, "Password is too short - should be 6 chars minimum"),
     });
     // const hasAccess = this.context.hasAccess;
     const listName = this.state.list ? "listcontainer1" : "listcontainer2";
@@ -387,36 +375,44 @@ class Submit extends React.Component {
               this.state.index === 0 &&
               <Formik
         initialValues={{email:'',}}
+        validationSchema = {SignUpSchema}
         >
+          <div className = "inputcontainer">
               <Form>
                 <label for="email">Enter your Email</label>
                 <Field
-                  name = "email"
-                  type="email"
+                  name ="email"
                   placeholder="example@email.com"
                   required
-                  className="inputcontainer"
+                  value={this.state.Email}
                   onChange = {(value) => this.setState({ Email: value.target.value })}
-                 // pattern="\A[\w!#$%&'*+/=?`{|}~^-]+(?:\.[\w!#$%&'*+/=?`{|}~^-]+)*@↵(?:[A-Z0-9-]+\.)+[A-Z]{2,6}\Z"
-                ></Field>
+               />
               </Form>
+              </div>
               </Formik>
             }
             {/* phone number */}
             {
               this.state.index === 1 &&
-              <form className={"inputcontainer"}>
+              <Formik
+        phoneNumber={{phoneNumber:'',}}
+        validationSchema = {SignUpSchema}
+        >
+              <div className={"inputcontainer"}>
+                <Form>
                 <label for="telephone">Enter phone number</label>
-                <input type="tel"
+                <Field
+                  name='phoneNumber'
+                  type="tel"
                   placeholder="xxx-xxx-xxxx"
                   required
                   pattern="^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$"
                   onChange={(value) => this.setState({ Phone: value.target.value })}
                   value={this.state.Phone}
-
-                >
-                </input>
-              </form>
+                />
+                </Form>
+                </div>
+                </Formik>
             }
 
             {/* terms and conditions */}
