@@ -10,6 +10,7 @@ import awsconfig from '../../aws-exports';
 import VolumeUpOutlinedIcon from '@material-ui/icons/VolumeUpOutlined';
 import VolumeOffOutlinedIcon from '@material-ui/icons/VolumeOffOutlined';
 import UserContext from "../../UserContext";
+import {getGenreList} from '../../middleware/APIs';
 
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -93,7 +94,6 @@ class Submit extends React.Component {
     this.Next = this.Next.bind(this);
     this.Previous = this.Previous.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    this.getGenreList = this.getGenreList.bind(this);
   }
 
   componentDidMount() {
@@ -109,22 +109,14 @@ class Submit extends React.Component {
     this.setState({ date: newdate })
     this.setState({ status: 0 });
 
-    // set genre list
-    this.getGenreList()
+    // set genre list by getting it from backend
+    const genreList = getGenreList();
+    genreList.then(dataBody => {
+        let options = dataBody.map(item => { return { value: item.genre_id, label: item.genre_desc } })
+        this.setState({ listGenres: options })
+    });
   }
 
-  // getGenreList from backend
-  getGenreList() {
-    // 1: get genre list from back end
-    axios.get('https://6evel85j84.execute-api.us-east-1.amazonaws.com/default/getGenresList')
-      .then(resp => {
-        let options = resp.data.body.map(item => { return { value: item.genre_id, label: item.genre_desc } })
-        // 2: set genres to select input
-        this.setState({ listGenres: options })
-      }).catch(err => {
-        console.log(err)
-      })
-  }
   handleChange(event) {
     if ((event) && (event.length > 0)) {
       this.setState({ film_genre: [...event.map(a => a.value)] })

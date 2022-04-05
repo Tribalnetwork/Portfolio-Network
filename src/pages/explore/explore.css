@@ -2,6 +2,7 @@
 .explorePageContainer {
     max-width: 1366px;
     margin: auto;
+    background-color: black;
 }
 
 .genreContainer {
