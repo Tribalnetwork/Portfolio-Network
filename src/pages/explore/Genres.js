@@ -31,6 +31,8 @@ export default function Genres() {
     genreList.then(dataBody => {
         let options = dataBody.map(item => { return { value: item.genre_id, label: item.genre_desc } })
         setGenres(options)
+    }).catch(e => {
+        console.error(e);
     });
   }, [])
 

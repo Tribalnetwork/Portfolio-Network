@@ -114,6 +114,8 @@ class Submit extends React.Component {
     genreList.then(dataBody => {
         let options = dataBody.map(item => { return { value: item.genre_id, label: item.genre_desc } })
         this.setState({ listGenres: options })
+    }).catch(e => {
+        console.error(e);
     });
   }
 
