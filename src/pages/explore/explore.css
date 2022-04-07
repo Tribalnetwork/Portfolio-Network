@@ -24,6 +24,14 @@
     width: 157px;
 }
 
+.explorePageHeader {
+    display: flex;
+}
+
+.explorePageHeader > .title > *{
+    margin-left: 20px;
+}
+
 @media only screen and (min-width: 1366px) {
     .genreContainer {
         margin: 0;
