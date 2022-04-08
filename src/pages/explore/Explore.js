@@ -1,7 +1,21 @@
 import React from "react";
 import Genres from './Genres';
 
+import { Link } from "react-router-dom";
+
 function Explore() {
+
+    const linkStyle = {
+        height: '44px',
+        width: '169px',
+        border: '2px solid #D3C095',
+        borderRadius: '22px',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        textDecoration: 'none',
+        color: '#D3C095'
+    };
 
     return (
         <div>
@@ -11,7 +25,9 @@ function Explore() {
                         <h1>Explore</h1>
                         <p>Discover all the fun things</p>
                     </div>
-                    <button> Watch Random</button>
+                    <div className="watchRandomBtn">
+                        <Link to="/watch" style={linkStyle}>Watch Random</Link>
+                    </div>
                 </header>
                 <Genres />
             </div>
