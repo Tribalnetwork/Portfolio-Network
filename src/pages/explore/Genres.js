@@ -39,11 +39,15 @@ export default function Genres() {
     getGenreList();
   }, [])
 
+  const handleGenreClick = (genre) => {
+    alert(genre);
+  }
+
   return (
     <div className="genreContainer">
       {genres.map(genre => {
         return (
-          <div className="exploreGenre">
+          <div className="exploreGenre" onClick={() => handleGenreClick(genre.label)}>
             <img src={Action} alt="genre"></img>
             <p>{genre.label}</p>
           </div>
