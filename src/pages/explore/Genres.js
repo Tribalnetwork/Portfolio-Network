@@ -3,6 +3,7 @@ import axios from 'axios';
 import './explore.css';
 
 import Action from '../../assets/images/genresIcons/actionsi.svg';
+import { Link } from "react-router-dom";
 /*
 import Horror from '../../assets/images/genresIcons/horror.svg';
 import Suspense from '../../assets/images/genresIcons/actionsi.svg';
@@ -22,7 +23,8 @@ import Trailer from '../../assets/images/genresIcons/actionsi.svg';
 import Experimental from '../../assets/images/genresIcons/actionsi.svg';
 */
 export default function Genres() {
-  const [genres, setGenres] = useState([])
+  const [genres, setGenres] = useState([]);
+  const [redirect, setRedirect] = useState(false);
 
   const getGenreList = () => {
     const endpoint = 'https://6evel85j84.execute-api.us-east-1.amazonaws.com/default/getGenresList'
@@ -40,20 +42,22 @@ export default function Genres() {
   }, [])
 
   const handleGenreClick = (genre) => {
-    alert(genre);
+    
   }
 
   return (
     <div className="genreContainer">
       {genres.map(genre => {
         return (
-          <div className="exploreGenre" onClick={() => handleGenreClick(genre.label)}>
-            <img src={Action} alt="genre"></img>
-            <p>{genre.label}</p>
-          </div>
+          <Link to={`/explore/${genre.label}`}>
+            <div className="exploreGenre" onClick={() => handleGenreClick(genre.label)}>
+              <img src={Action} alt="genre"></img>
+              <p>{genre.label}</p>
+            </div>
+          </Link>
         )
-      })
-      }
+      })}
     </div>
+  
   )
 }

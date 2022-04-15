@@ -2,10 +2,10 @@ import React from "react";
 import { useParams } from "react-router-dom";
 
 function Explore() {
-    const params = useParams();
+    const { genre } = useParams();
     return (
         <div>
-            {params.genre};
+            {genre}
         </div>
     )
 }
