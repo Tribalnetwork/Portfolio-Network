@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import axios from 'axios';
 import './explore.css';
 
 import {getGenreList} from '../../middleware/APIs';

@@ -311,7 +311,7 @@ class Submit extends React.Component {
 
   render() {
     // const hasAccess = this.context.hasAccess;
-    const listName = this.state.list ? "listcontainer1" : "listcontainer2";
+    // const listName = this.state.list ? "listcontainer1" : "listcontainer2";
     return (
 
           <div className={"InfoSection"}>

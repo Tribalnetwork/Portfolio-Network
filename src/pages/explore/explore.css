@@ -28,20 +28,47 @@
 .explorePageHeader {
     display: flex;
     justify-content: space-between;
+    margin: 0 1rem;
 }
 
 .explorePageHeader > .title > * {
-    margin-left: 50px;
+    margin-left: 0px;
+}
+
+.explorePageHeader > .title > h1 {
+    margin-bottom: 0;
+    font-size: var(--title-large-font-size);
+    padding-top: 30px;
+}
+
+.explorePageHeader > .title > p {
+    font-size: 16px;
 }
 
 .explorePageHeader > .watchRandomBtn {
-    margin-right: 67px;
+    margin-left: auto;
     display: flex;
     align-items: center;
+}
+
+.explorePageHeader > .watchRandomBtn > .watchRandomLink {
+    height: 44px;
+    width: 169px;
+    border: 2px solid #A07923;
+    border-radius: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: #A07923;
 }
 
 @media only screen and (min-width: 1366px) {
     .genreContainer {
         margin: 0;
+    }
+
+    .explorePageHeader {
+        margin: 0 67px;
     }
   }
