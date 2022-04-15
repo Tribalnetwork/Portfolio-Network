@@ -1,5 +1,6 @@
 :root {
   --dark: #121212;
+  --title-large-font-size: 28px; 
 }
 
 *, *::before, *::after {
