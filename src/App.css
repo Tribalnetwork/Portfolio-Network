@@ -3,11 +3,6 @@
   src: url('/assets/Lato-Regular.ttf') format('ttf');
 } */
 
-* {
-  box-sizing: border-box;
-  font-family: Roboto;
-}
-
 .App {
   text-align: center;
 }

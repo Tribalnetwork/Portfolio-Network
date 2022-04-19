@@ -1,15 +1,12 @@
 import React from "react";
 import { useHistory } from 'react-router-dom'
-import { useTheme } from "@material-ui/core/styles";
-import { useMediaQuery } from "@material-ui/core";
 import "./submit.css";
 import Select from 'react-select'
 import axios from 'axios';
 import Amplify from 'aws-amplify';
 import awsconfig from '../../aws-exports';
-import VolumeUpOutlinedIcon from '@material-ui/icons/VolumeUpOutlined';
-import VolumeOffOutlinedIcon from '@material-ui/icons/VolumeOffOutlined';
 import UserContext from "../../UserContext";
+import {getGenreList} from '../../middleware/APIs';
 
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -18,15 +15,6 @@ Amplify.configure(awsconfig);
 
 
 // It easy to add new benefit the page should be able to adjust to accordingly. 
-const benefitbullets = [
-  "Get feedback from peers and supporters.",
-  "Get discounted access.",
-  "Get Donations",
-  "Get new viewership.",
-  "Get reviews from the TFC (Tribal Film Council).",
-  "Get help finding and submitting to film festivals.",
-  " Create your portfolio right on the app.",
-];
 
 //  gets the user id of the user logged in
 // const requestingName = localStorage.getItem('CognitoIdentityServiceProvider.1t8oqsg1kvuja9u9rvd2r1a6o4.LastAuthUser');
@@ -93,7 +81,6 @@ class Submit extends React.Component {
     this.Next = this.Next.bind(this);
     this.Previous = this.Previous.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    this.getGenreList = this.getGenreList.bind(this);
   }
 
   componentDidMount() {
@@ -109,22 +96,16 @@ class Submit extends React.Component {
     this.setState({ date: newdate })
     this.setState({ status: 0 });
 
-    // set genre list
-    this.getGenreList()
+    // set genre list by getting it from backend
+    const genreList = getGenreList();
+    genreList.then(dataBody => {
+        let options = dataBody.map(item => { return { value: item.genre_id, label: item.genre_desc } })
+        this.setState({ listGenres: options })
+    }).catch(e => {
+        console.error(e);
+    });
   }
 
-  // getGenreList from backend
-  getGenreList() {
-    // 1: get genre list from back end
-    axios.get('https://6evel85j84.execute-api.us-east-1.amazonaws.com/default/getGenresList')
-      .then(resp => {
-        let options = resp.data.body.map(item => { return { value: item.genre_id, label: item.genre_desc } })
-        // 2: set genres to select input
-        this.setState({ listGenres: options })
-      }).catch(err => {
-        console.log(err)
-      })
-  }
   handleChange(event) {
     if ((event) && (event.length > 0)) {
       this.setState({ film_genre: [...event.map(a => a.value)] })
@@ -330,48 +311,8 @@ class Submit extends React.Component {
 
   render() {
     // const hasAccess = this.context.hasAccess;
-    const listName = this.state.list ? "listcontainer1" : "listcontainer2";
+    // const listName = this.state.list ? "listcontainer1" : "listcontainer2";
     return (
-
-      <div className={"submitcontainer"}>
-        <VideoComponent mute={this.state.muteVideo} />
-
-        <div className={"overlayercontainer"}>
-
-          {/* background video: volume controlling buttons */}
-          <div className="backgroundVideoVolumeControlButtons">
-            {
-              // Toggle background video between mute/unmute state
-              this.state.muteVideo ?
-                <VolumeOffOutlinedIcon onClick={() => this.setState({ muteVideo: false })} />
-                :
-                <VolumeUpOutlinedIcon onClick={() => this.setState({ muteVideo: true })} />
-            }
-          </div>
-
-          {
-            this.state.index !== 2 && this.state.index !== 5 &&
-            <div className={listName}>
-              <button onClick={() => this.setState({ list: !this.state.list })} className={"infobutton"}>
-                {" "}
-                Why Submit your Film ?{" "}
-              </button>
-
-              {
-                this.state.list === true && (
-                  <div className="bullets">
-                    {
-                      benefitbullets.map((benefit) => (
-                        <div className={"Benefitlist"} key={benefit}>
-                          <ul>
-                            <li> {benefit}</li>
-                          </ul>
-                        </div>
-                      ))}
-                  </div>
-                )}
-            </div>
-          }
 
           <div className={"InfoSection"}>
             {/*Email address ?*/}
@@ -561,16 +502,11 @@ class Submit extends React.Component {
             </div>
 
           </div>
-
-        </div>
-        {/*wrapper overlay container end */}
-      </div>
-    );
-  }
+);
+}
 }
 
-
-function VideoComponent(Props) {
+/*(Props) {
   const theme = useTheme();
   const breakPointQuery = useMediaQuery(theme.breakpoints.up(1024))
   // document.getElementsByTagName('video')[0].volume = 0.5;
@@ -590,7 +526,7 @@ function VideoComponent(Props) {
     return null
   }
 
-}
+}*/
 export default Submit;
 
 const Reload = () => {
