@@ -1,6 +1,8 @@
 :root {
-  --dark: #121212;
-  --title-large-font-size: 28px; 
+  --dark-color: #121212;
+  --title-large-font-size: 28px;
+  --white-color: #EFEFEF;
+  --error-color: #D0021B;
 }
 
 *, *::before, *::after {
