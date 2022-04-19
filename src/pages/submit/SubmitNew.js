@@ -33,6 +33,7 @@ export default function Submit() {
       phone: Yup.string()
         .max(16, 'Must be less than 16 digits')
         .required('Phone number is required')
+
     }),
     onSubmit: (values) => {
       console.log(values)
