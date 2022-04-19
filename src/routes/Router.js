@@ -11,6 +11,7 @@ import { NavigationBar } from "../layouts/navbar/TopNavigationBar";
 import Authenticator from '../pages/authentication/Authenticator'
 import Watch from '../pages/watch/Watch'
 import Submit from '../pages/submit/Submit'
+import SubmitNew from '../pages/submit/SubmitNew'
 import BottomNavBar from '../layouts/navbar/BottomNavBar'
 import Home from "../pages/home/Home"
 import { FeatureComingSoon } from "../components/FeatureComingSoon";
@@ -145,6 +146,7 @@ const Routes = () => {
           {/* <Route path="/landing/landing-home" exact component={Landing} /> */}
           {/* Submit */}
           <Route path="/submit" exact component={isThereSignedUser ? Submit : Authenticator} />
+          <Route path="/submitNew" exact component={isThereSignedUser ? SubmitNew : Authenticator} />
           {/* search */}
           {/* if user is signed in then show component else direct him to auth component */}
           <Route path="/search" exact component={isThereSignedUser ? FeatureComingSoon : Authenticator} />
