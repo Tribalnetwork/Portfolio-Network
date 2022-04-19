@@ -29,15 +29,19 @@ export default function Submit() {
     validationSchema: Yup.object({
       email: Yup.string()
         .email('Input valid email')
-        .required('Required')
+        .required('Email is required'),
+      phone: Yup.string()
+        .max(16, 'Must be less than 16 digits')
+        .required('Phone number is required')
+
     }),
     onSubmit: (values) => {
       console.log(values)
     }
   })
+  // console.log(formik.touched)
   return (
-    <main>
-      Submit Page
+    <main className='submit-page-main-section'>
       {/* 
       inputs:
         email
@@ -55,27 +59,32 @@ export default function Submit() {
 
       */}
       <form onSubmit={formik.handleSubmit}>
-        <div>
-          {/* <input
-            type='email'
-            name='email'
-            placeholder='Input Email'
-
-          /> */}
+        <div className='text-input'>
           <TextField
-            id="outlined-input"
+            id="outlined-input-email"
             label="Email"
             variant="outlined"
             type="email"
             name='email'
-            autoComplete="current-password"
             value={formik.values.email}
             onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
             className='text-input'
+            helperText={formik.touched.email && formik.errors.email && <span className='errorElement'>{formik.errors.email}</span>}
           />
-          {
-            formik.errors.email && <p>{formik.errors.email}</p>
-          }
+        </div>
+        <div className='text-input'>
+          <TextField
+            id="outlined-input-phone"
+            label="phone"
+            variant="outlined"
+            type="phone"
+            name='phone'
+            value={formik.values.phone}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            helperText={formik.touched.phone && formik.errors.phone && <span className='errorElement'>{formik.errors.phone}</span>}
+          />
         </div>
         <button type='submit'>Submit</button>
       </form>
