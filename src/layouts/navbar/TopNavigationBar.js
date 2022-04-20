@@ -236,6 +236,10 @@ export const NavigationBar = () => {
               <img src={Submit} alt='Submit' style={{ width: '38px', marginLeft: '19px', marginRight: '19px' }} />
               <ListItemText primary={"Submit"} ></ListItemText>
             </ListItem>
+            <ListItem button component={Link} to={"/submitNew"} >
+              <img src={Submit} alt='Submit' style={{ width: '38px', marginLeft: '19px', marginRight: '19px' }} />
+              <ListItemText primary={"Submit New"} ></ListItemText>
+            </ListItem>
           </List>
         </div>
       </Drawer>
