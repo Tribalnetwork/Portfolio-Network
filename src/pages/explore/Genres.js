@@ -45,11 +45,9 @@ export default function Genres() {
     <div className="genreContainer">
       {genres.map(genre => {
         return (
-          <Link to={`/explore/${genre.label}`}>
-            <div className="exploreGenre" onClick={() => handleGenreClick(genre.label)}>
-              <img src={Action} alt="genre"></img>
-              <p>{genre.label}</p>
-            </div>
+          <Link className="exploreGenre" to={`/explore/${genre.label}`}>
+            <img src={Action} alt="genre"></img>
+            <p>{genre.label}</p>
           </Link>
         )
       })}

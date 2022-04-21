@@ -23,7 +23,10 @@
     justify-content: center;
     height: 150px;
     width: 157px;
+    color: white !important;
+    text-decoration: none !important;
 }
+
 
 .explorePageHeader {
     display: flex;
