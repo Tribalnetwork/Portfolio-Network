@@ -24,7 +24,6 @@ import Experimental from '../../assets/images/genresIcons/actionsi.svg';
 */
 export default function Genres() {
   const [genres, setGenres] = useState([]);
-  const [redirect, setRedirect] = useState(false);
 
   useEffect(() => {
     // getGenreList from backend
@@ -36,10 +35,6 @@ export default function Genres() {
         console.error(e);
     });
   }, [])
-
-  const handleGenreClick = (genre) => {
-    
-  }
 
   return (
     <div className="genreContainer">
