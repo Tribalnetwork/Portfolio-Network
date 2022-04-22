@@ -3,6 +3,7 @@
     max-width: 1366px;
     margin: auto;
     background-color: var(--dark-color);
+    min-height: 100vh;
 }
 
 .genreContainer {
