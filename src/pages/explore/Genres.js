@@ -3,6 +3,7 @@ import './explore.css';
 
 import {getGenreList} from '../../middleware/APIs';
 import Action from '../../assets/images/genresIcons/actionsi.svg';
+import { Link } from "react-router-dom";
 /*
 import Horror from '../../assets/images/genresIcons/horror.svg';
 import Suspense from '../../assets/images/genresIcons/actionsi.svg';
@@ -22,7 +23,7 @@ import Trailer from '../../assets/images/genresIcons/actionsi.svg';
 import Experimental from '../../assets/images/genresIcons/actionsi.svg';
 */
 export default function Genres() {
-  const [genres, setGenres] = useState([])
+  const [genres, setGenres] = useState([]);
 
   useEffect(() => {
     // getGenreList from backend
@@ -39,13 +40,13 @@ export default function Genres() {
     <div className="genreContainer">
       {genres.map(genre => {
         return (
-          <div className="exploreGenre">
+          <Link className="exploreGenre" to={`/explore/${genre.label}`}>
             <img src={Action} alt="genre"></img>
             <p>{genre.label}</p>
-          </div>
+          </Link>
         )
-      })
-      }
+      })}
     </div>
+  
   )
 }
