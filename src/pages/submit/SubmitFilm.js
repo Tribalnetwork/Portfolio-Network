@@ -19,19 +19,17 @@ import './submitFilm.css'
 // 3- Only JPG and PNG cover images are accepted
 
 Amplify.configure(awsconfig);
-const phoneRegExp = /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/g
+// const phoneRegExp = /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/g
 const termsConditionsDocumentUrl = 'https://drive.google.com/file/d/1gI65dx69IBCAzFRvAgZ4Kl0EAUt9pxxm/view'
 
 export default function SubmitFilm() {
   const formik = useFormik({
     initialValues: {
-      email: '',
-      phone: '',
       filmFile: '',
-      filmTitle: '',
-      genres: '',
-      synopsis: '',
       filmCoverFile: '',
+      filmTitle: '',
+      genres: [],
+      synopsis: '',
     },
     validationSchema: Yup.object({
       // email: Yup.string()
@@ -47,11 +45,11 @@ export default function SubmitFilm() {
       filmCoverFile: Yup.mixed()
         .required('Please select a film cover'),
       filmTitle: Yup.string()
-        .max(80, 'Must be less than 80 letters')
+        .max(50, 'Must be 50 characters or less')
         .required('Required!'),
       synopsis: Yup.string()
-        .min(50, 'Must be more than 50 letters')
-        .max(500, 'Must be less than 500 letters')
+        .min(50, 'Must be 50 characters or more')
+        .max(500, 'Must be 500 characters or less')
         .required('Required!')
     }),
     onSubmit: (values) => {
