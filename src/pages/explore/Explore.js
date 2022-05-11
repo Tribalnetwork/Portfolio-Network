@@ -1,10 +1,13 @@
 import React from "react";
 import Genres from './Genres';
+import SearchBar from './SearchBar';
 
 import { Link, useHistory } from "react-router-dom";
 
 import { IconButton } from "@material-ui/core";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
+
+import { Search } from "@material-ui/icons";
 
 function Explore() {
     let history = useHistory();
@@ -23,6 +26,7 @@ function Explore() {
                 </div>
             </header>
             <Genres />
+            <SearchBar />
         </div>
     )
 }
