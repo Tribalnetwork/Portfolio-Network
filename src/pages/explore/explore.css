@@ -67,37 +67,6 @@
     color: #A07923;
 }
 
-/* Search bar*/
-
-
-.searchBackground {
-    width: 869px;
-    height: 90px;
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-}
-
-.searchBarWrapper {
-    height: 36px;
-    width: 837px;
-    margin-bottom: 10px;
-    background: rgba(58, 58, 60, 0.8);
-    border-radius: 10px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-}
-
-.searchBar {
-    height: 22px;
-    font-size: 17px;
-    color: white;
-    background-color: rgba(58, 58, 60, 0.8);
-    border: none;
-}
-
 @media only screen and (min-width: 1366px) {
     .genreContainer {
         margin: 0;
