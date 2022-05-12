@@ -1,5 +1,6 @@
 import React from "react";
 import Genres from './Genres';
+import SearchBar from './SearchBar';
 
 import { Link, useHistory } from "react-router-dom";
 
@@ -23,6 +24,7 @@ function Explore() {
                 </div>
             </header>
             <Genres />
+            <SearchBar />
         </div>
     )
 }
