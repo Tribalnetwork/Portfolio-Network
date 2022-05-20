@@ -45,3 +45,12 @@
 .errorElement{
   color: var(--error-color);
 }
+
+#demo-multiple-chip-label{
+  border-color: var(--white-color);
+  color: var(--white-color);
+}
+#demo-multiple-chip{
+  border-color: var(--white-color);
+  color: var(--white-color);
+}
