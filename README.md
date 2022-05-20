@@ -5,21 +5,26 @@
   </a>
 </div>
 
-### Tribal Organization
-Tribal organization is Non-profit charitable organizations often rely on volunteers to perform a variety of tasks that are critical to the non-profit’s mission.
 
-### Tribal Network
+### Tribal Portfolio Network App
+Tribal Network Web Project (TNWeb) is a web app that connects Artists, Tribal members, and Sponsors. The product contains an indie film streaming service that required donations for access.
 
-Tribal Network Web Project (TNWeb) is a web app aimed to serve film makers and artists.
+**Enter hours weekly**
+Through the Specialist Portal
+
+### Design and Front-end
+1. [Figma Mobile Design](https://www.figma.com/file/P39zDQNgkqnCd1yzceMJe9/Tribal-Network-%7C-Hi-Fi-7%2F23-(Copy)-(Copy)?node-id=0%3A1)
+2. [Figma Web Design](https://www.figma.com/file/rqP6rKi7vfVszgm0OH1sEm/MVP%3A-Hi-Fi?node-id=0%3A1)
 
 ### How You Can Contribute
 To contribute the project first off please read the contribtion guidlines [here]("#") to learn about contribution rules and guidlines. <br />
 To learn how to setup and run the project localy please follow steps in this figma [file](https://www.figma.com/file/h0j3Qvvvng6H6YFN3g56wb/Fork%2C-Clone%2C-and-Configure-Amplify?node-id=0%3A1) to get right directions and configure AWS amplify.
 
-**Project Design (Figma)**
-Please find the figma files here
-1. [Mobile Design](https://www.figma.com/file/P39zDQNgkqnCd1yzceMJe9/Tribal-Network-%7C-Hi-Fi-7%2F23-(Copy)-(Copy)?node-id=0%3A1)
-2. [Web Design for MVP](https://www.figma.com/file/rqP6rKi7vfVszgm0OH1sEm/MVP%3A-Hi-Fi?node-id=0%3A1)
+### Database Guide
+1. [Database Admin guide- By Justin H.](https://docs.google.com/document/d/1D6ZB8L26JTNkClofHMqeTfbY3tI42xeGZxeq4k47wAM/edit?usp=sharing)
+
+
+
 
 ### Contributors ✨
 
