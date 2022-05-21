@@ -19,8 +19,8 @@ Through the Specialist Portal
 4. Design Resources: https://docs.google.com/document/d/1nYnTdHjuO2bejNhLG1hWU6wblm9Twq3h/edit?usp=sharing&ouid=115223206571185626008&rtpof=true&sd=true
 
 ### How You Can Contribute
-To learn about React, start [here]"(https://github.com/Tribalnetwork/React-Guide)" to learn about contribution rules and guidlines. <br />
-To contribute the project, start [here]("https://github.com/facebook/create-react-app/blob/main/CONTRIBUTING.md") to learn about contribution rules and guidlines. <br />
+To learn about React, start [here]"(https://github.com/Tribalnetwork/React-Guide)". <br />
+To contribute the project, start [here]("https://github.com/facebook/create-react-app/blob/main/CONTRIBUTING.md"). <br />
 To learn how to setup and run the project localy please follow steps in this figma [file](https://www.figma.com/file/h0j3Qvvvng6H6YFN3g56wb/Fork%2C-Clone%2C-and-Configure-Amplify?node-id=0%3A1) to get right directions and configure AWS amplify.
 
 ### Database Guide
