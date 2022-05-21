@@ -15,8 +15,8 @@ Through the Specialist Portal
 ### Design and Front-end
 1. [Figma Mobile Design](https://www.figma.com/file/P39zDQNgkqnCd1yzceMJe9/Tribal-Network-%7C-Hi-Fi-7%2F23-(Copy)-(Copy)?node-id=0%3A1)
 2. [Figma Web Design](https://www.figma.com/file/rqP6rKi7vfVszgm0OH1sEm/MVP%3A-Hi-Fi?node-id=0%3A1)
-3. [Example tasks (Conception to Prototype)]https://drive.google.com/drive/folders/10I2b-pMYGlP3bN_0dKU7BXKt7knwrp_4?usp=sharing 
-4. [Design Resources]https://docs.google.com/document/d/1nYnTdHjuO2bejNhLG1hWU6wblm9Twq3h/edit?usp=sharing&ouid=115223206571185626008&rtpof=true&sd=true
+3. [Example tasks (Conception to Prototype)](https://drive.google.com/drive/folders/10I2b-pMYGlP3bN_0dKU7BXKt7knwrp_4?usp=sharing)
+4. [Design Resources](https://docs.google.com/document/d/1nYnTdHjuO2bejNhLG1hWU6wblm9Twq3h/edit?usp=sharing&ouid=115223206571185626008&rtpof=true&sd=true)
 
 ### How You Can Contribute
 To learn about React, start [here](https://github.com/Tribalnetwork/React-Guide).<br />
