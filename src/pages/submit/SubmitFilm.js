@@ -11,6 +11,13 @@ import * as Yup from 'yup'
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
+import Box from '@mui/material/Box';
+import OutlinedInput from '@mui/material/OutlinedInput';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+import Chip from '@mui/material/Chip';
 import './submitFilm.css'
 
 // film submiting restirections
@@ -19,7 +26,7 @@ import './submitFilm.css'
 // 3- Only JPG and PNG cover images are accepted
 
 Amplify.configure(awsconfig);
-// const phoneRegExp = /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/g
+ const phoneRegExp = /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/g
 const termsConditionsDocumentUrl = 'https://drive.google.com/file/d/1gI65dx69IBCAzFRvAgZ4Kl0EAUt9pxxm/view'
 
 export default function SubmitFilm() {
@@ -32,14 +39,12 @@ export default function SubmitFilm() {
       synopsis: '',
     },
     validationSchema: Yup.object({
-      // email: Yup.string()
-      //   .email('Email is not valid')
-      //   .required('Required!'),
-      // phone: Yup.string()
-      //   .matches(phoneRegExp, 'Phone number is not valid')
-      //   .min(8, 'Phone number is not valid')
-      //   .max(20, 'Phone number is not valid')
-      //   .required('Required!'),
+     /*  email: Yup.string()
+         .email('Email is not valid'),
+       phone: Yup.string()
+         .matches(phoneRegExp, 'Phone number is not valid')
+         .min(8, 'Phone number is not valid')
+         .max(20, 'Phone number is not valid'),*/
       filmFile: Yup.mixed()
         .required('Please select a film'),
       filmCoverFile: Yup.mixed()
@@ -56,6 +61,35 @@ export default function SubmitFilm() {
       console.log(values)
     }
   })
+  const [genreName, setGenreName] = React.useState([]);
+  const handleChange = (event) => {
+    const {
+      target: { value },
+    } = event;
+    setGenreName(
+      // On autofill we get a stringified value.
+      typeof value === 'string' ? value.split(',') : value,
+    );
+  };
+
+  const names = [
+    'Horror',
+    'Suspense',
+    'Drama',
+    'Comedy',
+    'Thriller',
+    'Fantasy',
+    'Mystery',
+    'Sci-Fi',
+    'Adventure',
+    'Crime',
+    'Action',
+    'Documentary',
+    'Romance',
+    'Animated',
+    'Thriller',
+    'Experimental'
+  ];
   // console.log(formik.touched)
   return (
     <main className='submit-page-main-section'>
@@ -64,8 +98,8 @@ export default function SubmitFilm() {
         upload film (file)
         film cover art
 
-        email (don't needed)
-        phone number (don't needed)
+        email (don't need)
+        phone number (don't need)
 
         film title
         Synopsis
@@ -73,8 +107,8 @@ export default function SubmitFilm() {
         terms and conditions
         submit
       
-        next button (don't needed)
-        prev button (don't needed)
+        next button (don't need)
+        prev button (don't need)
 
         progressbar for submitting film and cover
 
@@ -126,6 +160,37 @@ export default function SubmitFilm() {
           </Button>
           <span style={{ margin: '1rem' }}>{formik.values.filmCoverFile.replace(/^.*[\\\/]/, '')}</span>
         </div>
+          {/* email }
+      <div className='text-input'>
+          <TextField
+            id="outlined-input-email"
+            label="Email"
+            variant="outlined"
+            type="email"
+            name='email'
+            value={formik.values.email}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            className='text-input'
+            helperText={formik.touched.email && formik.errors.email && <span className='errorElement'>{formik.errors.email}</span>}
+          />
+       </div>
+       {/* phone number }
+       <div className='text-input'>
+          <TextField
+            id="outlined-input-email"
+            label="Phone"
+            variant="outlined"
+            type="phone"
+            name='phone'
+            value={formik.values.phone}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            className='text-input'
+            helperText={formik.touched.phone && formik.errors.phone && <span className='errorElement'>{formik.errors.phone}</span>}
+          />
+        </div>
+        {/*Film Title*/}
         <div className='text-input'>
           <TextField
             id="outlined-input-email"
@@ -159,7 +224,36 @@ export default function SubmitFilm() {
             helperText={formik.touched.synopsis && formik.errors.synopsis && <span className='errorElement'>{formik.errors.synopsis}</span>}
           />
         </div>
-        <p>By submiting your film you agree on Tribal &nbsp;
+        <div>
+        <FormControl sx={{ m: 0, width: 300 }} style={{borderColor:'white'}}>
+        <InputLabel id="demo-multiple-chip-label">Genre</InputLabel>
+        <Select
+          labelId="demo-multiple-chip-label"
+          id="demo-multiple-chip"
+          multiple
+          value={genreName}
+          onChange={handleChange}
+          input={<OutlinedInput id="select-multiple-chip" label="Chip" />}
+          renderValue={(selected) => (
+            <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }} >
+              {selected.map((value) => (
+                <Chip key={value} label={value} style={{backgroundColor:'white'}}/>
+              ))}
+            </Box>
+          )}
+        >
+          {names.map((name) => (
+            <MenuItem
+              key={name}
+              value={name}
+            >
+              {name}
+            </MenuItem>
+          ))}
+        </Select>
+      </FormControl>
+        </div>
+        <p>By submitting your film you agree on Tribal &nbsp;
           <a href={termsConditionsDocumentUrl}
             target='_blank' rel='noopener noreferrer'>
             terms and conditions
