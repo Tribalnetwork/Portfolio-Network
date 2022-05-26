@@ -5,21 +5,29 @@
   </a>
 </div>
 
-### Tribal Organization
-Tribal organization is Non-profit charitable organizations often rely on volunteers to perform a variety of tasks that are critical to the non-profit’s mission.
 
-### Tribal Network
+### Tribal Portfolio Network App
+Tribal Network Web Project (TNWeb) is a web app that connects Artists, Tribal members, and Sponsors. The product contains an indie film streaming service that required donations for access.
 
-Tribal Network Web Project (TNWeb) is a web app aimed to serve film makers and artists.
+**Enter hours weekly**
+Through the Specialist Portal
+
+### Design and Front-end
+1. [Figma Mobile Design](https://www.figma.com/file/P39zDQNgkqnCd1yzceMJe9/Tribal-Network-%7C-Hi-Fi-7%2F23-(Copy)-(Copy)?node-id=0%3A1)
+2. [Figma Web Design](https://www.figma.com/file/rqP6rKi7vfVszgm0OH1sEm/MVP%3A-Hi-Fi?node-id=0%3A1)
+3. [Example tasks (Conception to Prototype)](https://drive.google.com/drive/folders/10I2b-pMYGlP3bN_0dKU7BXKt7knwrp_4?usp=sharing)
+4. [Design Resources](https://docs.google.com/document/d/1nYnTdHjuO2bejNhLG1hWU6wblm9Twq3h/edit?usp=sharing&ouid=115223206571185626008&rtpof=true&sd=true)
 
 ### How You Can Contribute
-To contribute the project first off please read the contribtion guidlines [here]("#") to learn about contribution rules and guidlines. <br />
+To learn about React, start [here](https://github.com/Tribalnetwork/React-Guide).<br />
+To contribute the project, start [here](https://github.com/facebook/create-react-app/blob/main/CONTRIBUTING.md).<br />
 To learn how to setup and run the project localy please follow steps in this figma [file](https://www.figma.com/file/h0j3Qvvvng6H6YFN3g56wb/Fork%2C-Clone%2C-and-Configure-Amplify?node-id=0%3A1) to get right directions and configure AWS amplify.
 
-**Project Design (Figma)**
-Please find the figma files here
-1. [Mobile Design](https://www.figma.com/file/P39zDQNgkqnCd1yzceMJe9/Tribal-Network-%7C-Hi-Fi-7%2F23-(Copy)-(Copy)?node-id=0%3A1)
-2. [Web Design for MVP](https://www.figma.com/file/rqP6rKi7vfVszgm0OH1sEm/MVP%3A-Hi-Fi?node-id=0%3A1)
+### Database Guide
+1. [Database Admin guide- By Justin H.](https://docs.google.com/document/d/1D6ZB8L26JTNkClofHMqeTfbY3tI42xeGZxeq4k47wAM/edit?usp=sharing)
+
+
+
 
 ### Contributors ✨
 
@@ -28,7 +36,7 @@ Please find the figma files here
     <td>
       <a href="https://github.com/tribalteams" target="_blank">
         <img src='https://avatars.githubusercontent.com/u/66889079?v=4' alt='' width='100px'>
-        <p align='center'>Tyron Jackson</p>
+        <p align='center'>Tyrone Jackson</p>
       </a>
     </td>
     <td>
@@ -87,28 +95,4 @@ Please find the figma files here
 
 
 
-<<<<<<< HEAD
-5. Add, commit, and push your feature branch to your Github:
-
-```
-git add .
-git commit -m "Enter your description of your changes."
-git push origin my_feature_branch_name_here
-```
-
-6.  Push changes to your origin (forked) repository by running $git push origin your_branch_name. Then go to Tribalnetwork/TNWeb repository, select **beta** branch, and make Pull Request (PR). Make sure you select the **beta** branch, not the master branch in the TNWeb repo. 
-
-------For admins ----------
-
-7.  One of the admins will review your pull request. If it is all good, your changes will be merged into the beta branch.
-
-8.  To publish changes to [tribalnetwork.org](https://www.tribalnetwork.org), run `amplify publish`.
-
-----------------------------
-
-9.  Return to step 1 and repeat: fetch/pull, edit, push, merge branch, publish!
-
-You can also refer to the [additional guides](https://github.com/Tribalnetwork/Additional-Guides#summary-of-not-yet-implemented-features-that-need-backend-work) Repo for more help.
-=======
 **NOTE** This README is still a work in progress. If there is anything that's missing, doesn't make sense, or doesn't work, let us know! Or better yet, make a pull request with updated information. We want to make this README as robust as possible.
->>>>>>> 1612ad7ff371f25de09bc3e0f3efac70f4535cad
