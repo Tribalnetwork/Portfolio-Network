@@ -41,7 +41,8 @@ Amplify.configure(awsconfig);
 
 
 export default class Home extends React.Component {
-  
+ 
+
   static contextType = UserContext;
 
   state = {

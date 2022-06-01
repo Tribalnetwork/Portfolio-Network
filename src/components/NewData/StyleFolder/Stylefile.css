@@ -27,13 +27,15 @@ display: none;
     align-items: center;
     padding-left: 30px;
   }
+  .header_nav_list a {
+    margin: 0px 20px 0px 0px;
+  }
   .header_nav_list a span{
     padding-bottom: 20px;
     font-size: 16px;
     color: rgb(212, 175, 55);
     font-weight: 600;
     margin: 0px;
-    padding: 0px 20px 0px 0px;
   }
   .limited_watch_time{
     display: flex;
@@ -521,6 +523,10 @@ margin: 0px 0px 30px 0px;
   }
   
   @media (max-width: 1024px) {
+    .header_custom_search_bar {
+      max-width: 230px;
+      width: unset !important;
+  }
     .product_category_list {
       width: 100%;
       padding: 0px;

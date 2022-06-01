@@ -56,6 +56,7 @@ import { useTheme } from "@material-ui/core/styles";
 import { useMediaQuery } from "@material-ui/core";
 
 import { useContext } from 'react'
+import ListPage from "./components/NewData/ListPage/ListPage";
 
 
 class PrivateRoute extends React.Component {
@@ -125,6 +126,11 @@ const Routes = () => {
        {/* <NewHeader /> */}
        
         <Switch>
+        <Route path="/ListPage">
+        <div class="video_listing_page_body">
+            <ListPage />
+            </div>
+          </Route>
           <Route path="/getFilmList" exact component={GetFilmList} />
           <Route path="/settings/myfilms" exact component={PrivacyPolicyTribalBeta}>
             <MyFilms />
