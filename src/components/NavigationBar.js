@@ -24,7 +24,7 @@ import Book from "../bottomNavBarImg/book.svg"
 import People from "../bottomNavBarImg/people.png"
 import Submit from "../bottomNavBarImg/Submit.svg"
 import "./NewData/StyleFolder/Stylefile.css";
-
+import $ from "jquery";
 
 const useStyles = makeStyles((theme) => ({
   menuButton: {
@@ -98,7 +98,30 @@ export const NavigationBar = () => {
     setOpen2(false);
   };
 
+  React.useEffect(() => {
+  $(function ($) {
+    var $question_two = $(".header_active_nav");
+    var $answer_two = $(".inner-content-list");
+
+    $question_two.click(function () {
+      // Hide all answers
+
+      // Check if this answer is already open
+      if ($(this).hasClass("open")) {
+        // If already open, remove 'open' class and hide answer
+        $(this).removeClass("open");
+        // If it is not open...
+      } else {
+        // Remove 'open' class from all other questions
+        $question_two.removeClass("open");
+        // Open this answer and add 'open' class
+        $(this).addClass("open");
+      }
+    });
+  });
+},[])
   return (
+    <>
     <header>
     <div className="custom_container">
 
@@ -118,13 +141,13 @@ export const NavigationBar = () => {
 
           </IconButton>
           </div>
-          <Link to="/Home" class="web_header_logo"> <h4>Portfolio Network</h4></Link>
+          <Link to="/Home" class="web_header_logo header_active_nav"> <h4>Portfolio Network</h4></Link>
           <div class="header_nav_list">
-            <Link ><span>Films</span></Link>
-            <Link ><span>Post</span></Link>
-            <Link ><span>Lists</span></Link>
-            <Link ><span>Portfolio</span></Link>
-            <Link ><span>Settings</span></Link>
+            <Link class=" header_active_nav"><span>Films</span></Link>
+            <Link class=" header_active_nav"><span>Post</span></Link>
+            <Link to="/ListPage" class=" header_active_nav"><span>Lists</span></Link>
+            <Link class=" header_active_nav"><span>Portfolio</span></Link>
+            <Link class=" header_active_nav"><span>Settings</span></Link>
           </div> 
           </div>
 
@@ -171,7 +194,7 @@ export const NavigationBar = () => {
  
             ) : (
               <div class="nav_bar">
-                <ul><form><div class="header_custom_search_bar"><input type="search" placeholder="Search here " /><i class="fal fa-search"></i></div></form></ul>
+                 <ul><form><div class="header_custom_search_bar"><input type="search" placeholder="Search here " /><i class="fal fa-search"></i></div></form></ul> 
               <div class="call_us">
               <Link to='/auth' style={{ textDecoration: 'none' }}>
                 <Button color="inherit" style={{ color: '#d4af37' }}>
@@ -216,7 +239,7 @@ export const NavigationBar = () => {
               <ListItemText primary={'Post'}> </ListItemText>
             </ListItem>
             {/* 5: Settings */}
-           <ListItem button component={Link} >
+           <ListItem button component={Link} to={"/ListPage"} >
               {/* <img src={Settings} alt='Settings' /> */}
               <ListItemText primary={'Lists'}> </ListItemText>
             </ListItem> 
@@ -235,5 +258,7 @@ export const NavigationBar = () => {
       <div class="header_responsive_search_bar"><form><div class="res_header_custom_search_bar"><input type="search" placeholder="Search here " /><i class="fal fa-search"></i></div></form></div>
     </div>
     </header>
+    
+    </>
   )
 }
