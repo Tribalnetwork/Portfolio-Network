@@ -14,17 +14,18 @@ Through the Specialist Portal
 
 ### Design and Front-end
 1. [Figma Mobile Design](https://www.figma.com/file/P39zDQNgkqnCd1yzceMJe9/Tribal-Network-%7C-Hi-Fi-7%2F23-(Copy)-(Copy)?node-id=0%3A1)
-2. [Figma Web Design](https://www.figma.com/file/rqP6rKi7vfVszgm0OH1sEm/MVP%3A-Hi-Fi?node-id=0%3A1)
-3. [Example tasks (Conception to Prototype)](https://drive.google.com/drive/folders/10I2b-pMYGlP3bN_0dKU7BXKt7knwrp_4?usp=sharing)
-4. [Design Resources](https://docs.google.com/document/d/1nYnTdHjuO2bejNhLG1hWU6wblm9Twq3h/edit?usp=sharing&ouid=115223206571185626008&rtpof=true&sd=true)
+2. [Research] (https://drive.google.com/drive/folders/1SjmA7z2_8dvLFe7P_Vb7TgECIpsIZ1Gw?usp=sharing)
+3. [Figma Web Design](https://www.figma.com/file/rqP6rKi7vfVszgm0OH1sEm/MVP%3A-Hi-Fi?node-id=0%3A1)
+4. [Example tasks (Conception to Prototype)](https://drive.google.com/drive/folders/10I2b-pMYGlP3bN_0dKU7BXKt7knwrp_4?usp=sharing)
+5. [Design Resources](https://docs.google.com/document/d/1nYnTdHjuO2bejNhLG1hWU6wblm9Twq3h/edit?usp=sharing&ouid=115223206571185626008&rtpof=true&sd=true)
 
 ### How You Can Contribute
 To learn about React, start [here](https://github.com/Tribalnetwork/React-Guide).<br />
 To contribute the project, start [here](https://github.com/facebook/create-react-app/blob/main/CONTRIBUTING.md).<br />
 To learn how to setup and run the project localy please follow steps in this figma [file](https://www.figma.com/file/h0j3Qvvvng6H6YFN3g56wb/Fork%2C-Clone%2C-and-Configure-Amplify?node-id=0%3A1) to get right directions and configure AWS amplify.
 
-### Database Guide
-1. [Database Admin guide- By Justin H.](https://docs.google.com/document/d/1D6ZB8L26JTNkClofHMqeTfbY3tI42xeGZxeq4k47wAM/edit?usp=sharing)
+### Database
+1. [Notes]([https://docs.google.com/document/d/1D6ZB8L26JTNkClofHMqeTfbY3tI42xeGZxeq4k47wAM/edit?usp=sharing](https://docs.google.com/document/d/1R-UKLMSs3p1KZQg_RnNJJLTZQrZuWjMaMcu23Fra9dg/edit?usp=sharing))
 
 
 
