@@ -25,7 +25,7 @@ To contribute the project, start [here](https://github.com/facebook/create-react
 To learn how to setup and run the project localy please follow steps in this figma [file](https://www.figma.com/file/h0j3Qvvvng6H6YFN3g56wb/Fork%2C-Clone%2C-and-Configure-Amplify?node-id=0%3A1) to get right directions and configure AWS amplify.
 
 ### Database
-1. [Notes]([https://docs.google.com/document/d/1D6ZB8L26JTNkClofHMqeTfbY3tI42xeGZxeq4k47wAM/edit?usp=sharing](https://docs.google.com/document/d/1R-UKLMSs3p1KZQg_RnNJJLTZQrZuWjMaMcu23Fra9dg/edit?usp=sharing))
+1. [Notes and links](https://docs.google.com/document/d/1R-UKLMSs3p1KZQg_RnNJJLTZQrZuWjMaMcu23Fra9dg/edit?usp=sharing)
 
 
 
