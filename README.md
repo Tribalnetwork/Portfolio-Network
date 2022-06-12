@@ -7,7 +7,9 @@
 
 
 # Tribal Portfolio Network App
-Tribal Network Web Project (TNWeb) is a web app that connects Artists, Tribal members, and Sponsors. The product contains an indie film streaming service that required donations for access.
+Tribal Network Web Project (TNWeb) is a web app that connects Artists, Tribal members, and Sponsors. The product contains an indie film streaming service that requires donations for access.
+
+**Feature branch projects will last 4-12 weeks**
 
 **Enter hours weekly**
 Through the Specialist Portal
@@ -21,7 +23,7 @@ Through the Specialist Portal
 ### `How You Can Contribute`
 1. To learn about React, start [here](https://github.com/Tribalnetwork/React-Guide).<br />
 2. To contribute the project, start [here](https://github.com/facebook/create-react-app/blob/main/CONTRIBUTING.md).<br />
-3. To learn how to setup and run the project localy please follow steps in this figma [file](https://www.figma.com/file/h0j3Qvvvng6H6YFN3g56wb/Fork%2C-Clone%2C-and-Configure-Amplify?node-id=0%3A1) to get right directions and configure AWS amplify.
+3. To learn how to setup and run the project localy and configure with AWS Amplify, please follow steps in this figma [file](https://www.figma.com/file/h0j3Qvvvng6H6YFN3g56wb/Fork%2C-Clone%2C-and-Configure-Amplify?node-id=0%3A1).
 
 ### `Back end and DB`
 1. [Notes and links](https://docs.google.com/document/d/1R-UKLMSs3p1KZQg_RnNJJLTZQrZuWjMaMcu23Fra9dg/edit?usp=sharing)
