@@ -143,11 +143,11 @@ export const NavigationBar = () => {
           </div>
           <Link to="/Home" class="web_header_logo header_active_nav"> <h4>Portfolio Network</h4></Link>
           <div class="header_nav_list">
-            <Link class=" header_active_nav"><span>Films</span></Link>
-            <Link class=" header_active_nav"><span>Post</span></Link>
-            <Link to="/ListPage" class=" header_active_nav"><span>Lists</span></Link>
+            <Link to="/Home" class=" header_active_nav"><span>Films</span></Link>
+            {/* <Link class=" header_active_nav"><span>Post</span></Link> */}
+            <Link to="/ListPage" class=" header_active_nav"><span>Lists</span></Link> 
             <Link class=" header_active_nav"><span>Portfolio</span></Link>
-            <Link class=" header_active_nav"><span>Settings</span></Link>
+            <Link to="/Setting" class=" header_active_nav"><span>Settings</span></Link>
           </div> 
           </div>
 
@@ -222,33 +222,33 @@ export const NavigationBar = () => {
 
            <List component="nav" > 
             {/* 1: HOME */}
-            <ListItem button component={Link} to={"/home"}>
+            {/* <ListItem button component={Link} to={"/home"}> */}
               {/* <img src={Home} alt="Home" /> */}
-              <ListItemText primary={'Home'}></ListItemText>
-            </ListItem> 
+              {/* <ListItemText primary={'Home'}></ListItemText>
+            </ListItem>  */}
            
         
             {/* 3: Streams */}
-            <ListItem button component={Link}  >
+            <ListItem button component={Link} to={"/home"} >
               {/* <img src={Tribal} alt='Tribal' /> */}
               <ListItemText primary={'Films'}></ListItemText>
             </ListItem> 
             {/* 4: Social */}
-           <ListItem button component={Link}>
+           {/* <ListItem button component={Link}> */}
               {/* <img src={Social} alt='Social' /> */}
-              <ListItemText primary={'Post'}> </ListItemText>
-            </ListItem>
+              {/* <ListItemText primary={'Post'}> </ListItemText>
+            </ListItem> */}
             {/* 5: Settings */}
-           <ListItem button component={Link} to={"/ListPage"} >
+            <ListItem button component={Link} to={"/ListPage"} > 
               {/* <img src={Settings} alt='Settings' /> */}
               <ListItemText primary={'Lists'}> </ListItemText>
-            </ListItem> 
+            </ListItem>  
             {/* 6: Submit */}
              <ListItem button component={Link}>
               {/* <img src={Submit} alt='Submit' style={{ width: '38px', marginLeft: '19px', marginRight: '19px' }} /> */}
               <ListItemText primary={"Portfolio"} ></ListItemText>
             </ListItem>
-            <ListItem button component={Link}>
+            <ListItem button component={Link} to={"/Setting"}>
               {/* <img src={Submit} alt='Submit' style={{ width: '38px', marginLeft: '19px', marginRight: '19px' }} /> */}
               <ListItemText primary={"Settings"} ></ListItemText>
             </ListItem> 

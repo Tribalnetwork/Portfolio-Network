@@ -9,6 +9,9 @@
 html {
   scroll-behavior: smooth;
 }
+.App{
+  text-align: unset !important; 
+}
 body {
   float: left;
   width: 100%;
@@ -19,6 +22,7 @@ body {
   max-width: 1170px;
   margin: 0px auto;
 }
+
 
 /* Header style start */
 header {

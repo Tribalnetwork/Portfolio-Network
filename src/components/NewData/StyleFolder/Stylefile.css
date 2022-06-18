@@ -13,8 +13,40 @@
     float: left;
     width: 100%;
     margin: 0px;
-    background-color: #000000 !important;
+    background-color: #2C2C2E !important;
   }
+  .video_listing_page_product_figure_tag_parent_link{
+
+    cursor: context-menu;
+  }
+  .video_listing_page_product_figure_tag_parent_link.home_page_video_listing object a{
+    cursor: pointer;
+  }
+  .check_out_option_form_box_two_google_signin_btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.check_out_option_form_box_two_google_signin_btn a {
+  background: #ffffff;
+  box-shadow: 0px 4px 24px rgb(0 0 0 / 12%);
+  border-radius: 4px;
+  height: 42px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.check_out_option_form_box_two_google_signin_btn a span {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 16px;
+  text-transform: capitalize;
+  color: #000000;
+  padding-left: 12px;
+}
   .home_toogle_btn{
 display: none;
   }
@@ -29,6 +61,7 @@ display: none;
   }
   .header_nav_list a {
     margin: 0px 20px 0px 0px;
+    text-decoration: none !important;
   }
   .header_nav_list a span{
     padding-bottom: 20px;
@@ -89,6 +122,7 @@ display: none;
   .home_page_parent {
    display: block;
     width: 100%;
+    background-color: #2C2C2E !important;
 }
 .films_categories_list{
 display: block;
@@ -106,6 +140,7 @@ margin: 0px 0px 30px 0px;
     width: 100%;
     padding: 30px 10px 30px 10px;
     position: relative;
+    background-color: #000 !important;
   }
   .header_bar {
     display: flex;
