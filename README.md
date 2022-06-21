@@ -9,10 +9,12 @@
 ### Tribal Portfolio Network App
 Tribal Network Web Project (TNWeb) is a web app that connects Artists, Tribal members, and Sponsors. The product contains an indie film streaming service that required donations for access.
 
+
 **Enter hours weekly**
 Through the Specialist Portal
 
 ### Design and Front-end
+For Portfolio Page, reference: https://www.behance.net/ and https://www.artstation.com/?sort_by=community
 1. [Figma Mobile Design](https://www.figma.com/file/P39zDQNgkqnCd1yzceMJe9/Tribal-Network-%7C-Hi-Fi-7%2F23-(Copy)-(Copy)?node-id=0%3A1)
 2. [Figma Web Design](https://www.figma.com/file/rqP6rKi7vfVszgm0OH1sEm/MVP%3A-Hi-Fi?node-id=0%3A1)
 3. [Example tasks (Conception to Prototype)](https://drive.google.com/drive/folders/10I2b-pMYGlP3bN_0dKU7BXKt7knwrp_4?usp=sharing)
