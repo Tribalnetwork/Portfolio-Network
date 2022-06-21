@@ -15,6 +15,7 @@ const MenuItem = (film) => {
   const { film_id, film_cover_art, film_title } = film.film;
 
   return (
+    <>
     <div>
       <Grid item>
         <Card style={styles.root}>
@@ -40,6 +41,8 @@ const MenuItem = (film) => {
         </Card>
       </Grid>
     </div>
+     
+      </>
   );
 };
 

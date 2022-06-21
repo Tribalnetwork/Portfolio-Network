@@ -1,0 +1,1266 @@
+* {
+  -web-kit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+  font-family: "Poppins", sans-serif;
+}
+html {
+  scroll-behavior: smooth;
+}
+.App{
+  text-align: unset !important; 
+}
+body {
+  float: left;
+  width: 100%;
+  margin: 0px;
+  font-size: unset !important;
+  font-weight: unset !important;
+  line-height: unset !important;
+}
+.page_parent {
+  display: block;
+  width: 100%;
+  float: left;
+    
+}
+/* top header style start */
+.top_header {
+  display: flex;
+justify-content: space-between;
+align-items: center;
+
+
+}
+.top_header_parent{
+  background: #ffffff;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+  padding: 5px 20px;
+  position: relative;
+  z-index: 99999;
+}
+.top_header .logo{
+  margin: 0px;
+}
+.top_header a{
+  padding: 0px 10px;
+}
+.top_header a i{
+  font-size: 18px;
+}
+.top_header .top_header_setting_btn{
+    background-color: #B18FB6;
+    border-radius: 20px;
+    font-family: 'Roboto';
+font-style: normal;
+font-weight: 100;
+font-size: 18px;
+line-height: 21px;
+display: flex;
+align-items: center;
+padding: 6px 10px 5px 10px;
+color: #000000;
+  }
+.top_header .top_header_setting_btn i{
+  color: #1F1F1F;
+  padding-right: 7px;
+}
+.top_header_responsive_hamburger{
+  display: none;
+}
+.top_responsive_header{
+  position: fixed;
+  height: 100%;
+  left: 0px;
+  top: 0px;
+  transform: translate(-100%);
+  transition: 0.3s ease-in-out;
+  z-index: 999;
+}
+.top_responsive_header.active{
+  transform: translate(0%);
+  transition: 0.3s ease-in-out;
+}
+.top_responsive_header_main{
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
+  background-color: #ffffff;
+  padding: 85px 10px 15px 10px;
+  height: 100%;
+  align-items: center;
+}
+.top_responsive_header_main a{
+  padding-bottom: 25px;
+  font-size: 20px;
+}
+.top_responsive_header_main a i{
+  font-size: 20px;
+}
+.top_header_res_setting_btn{
+  background-color: #B18FB6;
+    border-radius: 20px;
+    font-family: 'Roboto';
+font-style: normal;
+font-weight: 100;
+font-size: 18px;
+line-height: 21px;
+display: flex;
+align-items: center;
+padding: 6px 10px 5px 10px !important;
+color: #000000;
+}
+.top_header_res_setting_btn i{
+  padding-right: 5px;
+}
+@media(max-width:540px){
+  .top_header_responsive_hamburger{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .top_header{
+   display: none;
+  }
+
+}
+/* top header style end */
+.profile_page_section {
+  float: left;
+  width: 100%;
+  margin-top: 70px;
+  margin-bottom: 70px;
+  padding: 0px 10px;
+}
+.profile_page_section_main {
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.6);
+  background-color: #000000;
+  width: 100%;
+  padding: 50px 32px;
+}
+.custom_container {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+.profile_page_main_heading {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  border-bottom: 1px solid #bfbfbf;
+  margin-bottom: 74px;
+}
+.profile_page_main_heading h6 {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  padding-bottom: 4px;
+  font-weight: 500;
+  font-family: "Roboto";
+  font-size: 24px;
+  line-height: 28px;
+  color: #bfbfbf;
+  margin: 0px;
+}
+.inner_container {
+  max-width: 850px;
+  margin: 0 auto;
+}
+.pofile_page_main_box {
+  display: grid;
+  grid-template-columns: 212px 1fr;
+  gap: 15px 20px;
+  width: 100%;
+  grid-template-rows: auto;
+  grid-template-areas: "..";
+}
+.pofile_list_section {
+  mix-blend-mode: normal;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+  border-radius: 4px;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.pofile_list_details {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.pofile_list_details_main {
+  display: grid;
+  width: 100%;
+  padding-bottom: 25px;
+  gap: 20px;
+}
+.single_pofile_tab_heading {
+  display: flex;
+  width: 100%;
+}
+.single_pofile_tab_heading small {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  text-transform: capitalize;
+  color: #ffffff;
+}
+.single_pofile_tab {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.single_pofile_tab small {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 21px;
+  color: #a4a4a4;
+  text-transform: capitalize;
+  margin: 0px;
+  padding-bottom: 8px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.single_pofile_tab.active small {
+  color: #FFC0CB;
+  border-bottom: 1px solid #FFC0CB;
+}
+
+.profile_tabs_data_section {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/*   personal info tab data css */
+#personal_info_tab_content {
+  display: block;
+}
+
+.personal_info_tab_content_box {
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+  border-radius: 4px;
+  width: 100%;
+}
+.personal_info_tab_header {
+  width: 100%;
+  border-radius: 2px;
+  padding-bottom: 25px;
+}
+.personal_info_tab_header span {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 30px;
+  text-transform: capitalize;
+  color: #ffffff;
+  margin: 0px;
+}
+.personal_info_tab_content {
+  width: 100%;
+}
+.personal_info_tab_content_list {
+  display: grid;
+  width: 100%;
+  gap: 30px;
+}
+.personal_info_tab_fields_list {
+  display: grid;
+  width: 100%;
+  gap: 16px;
+}
+.single_personal_info_tab_field {
+  display: grid;
+  width: 100%;
+  gap: 14px;
+}
+.single_personal_info_inner_tab_field {
+  display: grid;
+  width: 100%;
+  grid-template-rows: auto;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px 14px;
+}
+.single_personal_info_tab_field label {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 21px;
+
+  color: #a4a4a4;
+  text-transform: capitalize;
+  margin: 0px;
+}
+.single_personal_info_tab_input_field {
+  height: 39px;
+  max-width: 100%;
+}
+.single_personal_info_tab_input_field input {
+  background: #000000;
+  border: 0.5px solid rgba(164, 164, 164, 0.7);
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  text-transform: capitalize;
+  color: #cecece;
+  padding: 0px 15px;
+}
+.single_personal_info_tab_input_field select {
+  background: #000000;
+  border: 0.5px solid rgba(164, 164, 164, 0.7);
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  text-transform: capitalize;
+  color: #cecece;
+  padding: 0px 15px;
+}
+.single_personal_info_textarea_field {
+  height: 80px;
+}
+.single_personal_info_tab_input_field textarea {
+  background: #000000;
+  border: 0.5px solid rgba(164, 164, 164, 0.7);
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  text-transform: capitalize;
+  color: #cecece;
+  padding: 0px 15px;
+}
+
+.personal_info_tab_content_edit_btn {
+  width: 51px;
+  height: 36px;
+}
+.personal_info_tab_content_edit_btn button {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  text-transform: capitalize;
+  color: #ffffff;
+  background: #490eaa;
+  box-shadow: -2px 5px 8px -3px rgba(255, 255, 255, 0.25);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border: unset;
+}
+
+/*   loyalty points tab data css */
+#loyalty_points_tab_content {
+  display: none;
+}
+
+.loyalty_points_tab_content_box {
+  width: 100%;
+}
+.email_info_tab_header {
+  width: 100%;
+border-radius: 2px;
+padding-bottom: 25px;
+}
+.email_info_tab_header span {
+  font-family: "Roboto";
+font-style: normal;
+font-weight: 500;
+font-size: 22px;
+line-height: 30px;
+text-transform: capitalize;
+color: #ffffff;
+margin: 0px;
+}
+.email_tab_content_main {
+  display: grid;
+  width: 100%;
+  gap: 60px;
+}
+.email_tab_content_part_one {
+  display: grid;
+  width: 100%;
+  gap: 20px;
+}
+.email_setting_content_main{
+  display: grid;
+  width: 100%;
+  gap: 10px;
+}
+.email_setting_content {
+display: flex;
+align-items: center;
+}
+.email_setting_content_main span{
+  font-family: 'Roboto';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 26px;
+padding-right:10px;
+color: #A4A4A4;
+}
+
+.email_setting_content_main p{
+  font-family: 'Roboto';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 26px;
+margin: 0px;
+color: #FFFFFF;
+}
+.email_verification_status{
+  color: #FFC0CB !important;
+  
+}
+.email_tab_content_part_one span {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 21px;
+  color: #a4a4a4;
+}
+
+.email_tab_content_part_one a {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 16px;
+  text-decoration-line: underline !important;
+  color: #cecece !important;
+}
+.email_tab_content_part_two {
+  display: grid;
+  width: 100%;
+  gap: 20px;
+}
+
+.email_tab_content_part_two h5 {
+  margin: 0px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 21px;
+
+  color: #a4a4a4;
+}
+.email_tab_content_part_two p {
+  margin: 0px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 26px;
+
+  color: #ffffff;
+}
+.change_code_email span {
+  background: #490EAA;
+box-shadow: -2px 5px 8px -3px rgba(255, 255, 255, 0.25);
+border-radius: 12px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+
+  color: #ffffff;
+  padding: 10px;
+}
+.email_tab_content_part_two a {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 16px;
+  text-decoration-line: underline !important;
+
+  color:#CECECE !important;
+  padding-top: 15px;
+}
+.email_tab_content_part_three {
+  display: grid;
+  width: 100%;
+  gap: 20px;
+}
+.email_tab_content_part_three h4 {
+  margin: 0px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 21px;
+  color: #a4a4a4;
+}
+.email_tab_content_part_three form {
+  display: grid;
+  width: 100%;
+  gap: 20px;
+}
+.email_tab_content_input_field_main {
+  display: grid;
+  width: 100%;
+  gap: 10px;
+  max-width: 65%;
+}
+.email_tab_content_input_field {
+  display: flex;
+width: 100%;
+justify-content: space-between;
+align-items: center;
+}
+.email_tab_content_input_field .email_tab_content_input_field_data{
+  display: grid;
+  gap: 5px;
+}
+.email_tab_content_input_field span {
+  font-family: 'Roboto';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 26px;
+padding-right: 10px;
+
+color: #FFFFFF;
+  margin: 0px;
+}
+.email_tab_content_input_field .email_tab_content_input_field_data span {
+  font-family: 'Roboto';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 26px;
+padding-right: 10px;
+
+color: #FFFFFF;
+  margin: 0px;
+}
+.email_tab_content_input_field .email_tab_content_input_field_data small {
+  font-family: 'Roboto';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+color: #A4A4A4;
+  margin: 0px;
+padding-left: 10px;
+padding-right: 40px;
+}
+.email_tab_content_input_field input {
+  background: #000000;
+  border: 0.5px solid rgba(164, 164, 164, 0.7);
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  text-transform: capitalize;
+  color: #cecece;
+  padding: 0px 15px;
+}
+.email_tab_content_submit_btn {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+}
+.email_tab_content_submit_btn button {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  text-transform: capitalize;
+  color: #ffffff;
+  background: #490eaa;
+  box-shadow: -2px 5px 8px -3px rgba(255, 255, 255, 0.25);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 36px;
+  border: unset;
+}
+
+
+/* Activity logs tab data  */
+#activity_logs_tab_content {
+  display: none;
+}
+
+.activity_logs_tab_content_box {
+  width: 100%;
+}
+.credit_card_tab_header{
+  width: 100%;
+border-radius: 2px;
+padding-bottom: 25px;
+}
+.credit_card_tab_header span {
+  font-family: "Roboto";
+font-style: normal;
+font-weight: 500;
+font-size: 22px;
+line-height: 30px;
+text-transform: capitalize;
+color: #ffffff;
+margin: 0px;
+}
+.credit_card_input_fields{
+  display: grid;
+width: 100%;
+gap: 25px;
+}
+.credit_card_input_fields span{
+
+  font-family: 'Roboto';
+font-style: normal;
+font-weight: 300;
+font-size: 18px;
+line-height: 21px;
+margin: 0px;
+color: #A4A4A4;
+}
+.credit_card_input_fields_two{
+  display: grid;
+width: 100%;
+gap: 25px;
+max-width: 50%;
+}
+.credit_card_input_fields_two_header{
+  display: flex;
+  justify-content: space-between;
+ align-items: center;
+}
+.credit_card_input_fields_two_header span{
+  font-family: 'Roboto';
+font-style: normal;
+font-weight: 300;
+font-size: 18px;
+line-height: 21px;
+
+color: #FFFFFF;
+}
+.credit_card_input_fields_two_header a{
+  font-family: 'Roboto';
+font-style: normal;
+font-weight: 300;
+font-size: 18px;
+line-height: 21px;
+
+color: #FFFFFF !important;
+}
+.credit_card_input_inner_fields_two{
+  display: grid;
+width: 100%;
+grid-template-rows: auto;
+grid-template-columns: 1fr 1fr 1fr;
+gap: 14px 14px;
+}
+.credit_card_tab_content_edit_btn{
+  display: flex;
+  justify-content: flex-end;
+ width: 100%;
+}
+.credit_card_tab_content_edit_btn button{
+  font-family: "Roboto";
+font-style: normal;
+font-weight: 600;
+font-size: 14px;
+line-height: 17px;
+text-transform: capitalize;
+color: #ffffff;
+background: #490eaa;
+box-shadow: -2px 5px 8px -3px rgb(255 255 255 / 25%);
+border-radius: 12px;
+display: flex;
+align-items: center;
+justify-content: center;
+width: 156px;
+height:36px;
+border: unset;
+}
+
+/* change password tab data css */
+#change_password_tab_content {
+  display: none;
+}
+
+/* view order tab css */
+#view_order_tab_content {
+  display: none;
+}
+
+.view_order_tab_content_box {
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+  border-radius: 4px;
+  width: 100%;
+  overflow: hidden;
+}
+.view_order_tab_header {
+  width: 100%;
+  width: 100%;
+  border-radius: 2px;
+  padding-bottom: 25px;
+}
+.view_order_tab_header span {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 30px;
+  text-transform: capitalize;
+  color: #ffffff;
+  margin: 0px;
+}
+.view_order_tab_content {
+  width: 100%;
+  display: block;
+  float: left;
+}
+.password_tab_content_main {
+  display: grid;
+  width: 100%;
+  gap: 60px;
+}
+.password_tab_content_part_one {
+  display: grid;
+  width: 100%;
+  gap: 20px;
+}
+.password_tab_content_part_one span {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 21px;
+
+  color: #a4a4a4;
+}
+.password_tab_content_part_one p {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 26px;
+  color: #ffffff;
+  margin: 0px;
+}
+.password_tab_content_part_one a {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 16px;
+  text-decoration-line: underline !important;
+  color: #cecece !important;
+}
+.password_tab_content_part_two {
+  display: grid;
+  width: 100%;
+  gap: 20px;
+}
+.password_tab_content_part_two h5 {
+  margin: 0px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 21px;
+
+  color: #a4a4a4;
+}
+.password_tab_content_part_two p {
+  margin: 0px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 26px;
+
+  color: #ffffff;
+}
+.verify_code_email span {
+  background: #757575;
+  box-shadow: -2px 5px 8px -3px rgba(255, 255, 255, 0.25);
+  border-radius: 12px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+
+  color: #ffffff;
+  padding: 10px;
+}
+.password_tab_content_part_two a {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 16px;
+  text-decoration-line: underline !important;
+
+  color: #e75300 !important;
+  padding-top: 15px;
+}
+.password_tab_content_part_three {
+  display: grid;
+  width: 100%;
+  gap: 20px;
+}
+.password_tab_content_part_three h4 {
+  margin: 0px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 21px;
+  color: #a4a4a4;
+}
+.password_tab_content_part_three form {
+  display: grid;
+  width: 100%;
+  gap: 20px;
+}
+.password_tab_content_input_field_main {
+  display: grid;
+  width: 100%;
+  gap: 25px;
+}
+.password_tab_content_input_field {
+  display: grid;
+  width: 100%;
+  gap: 8px;
+}
+.password_tab_content_input_field span {
+  font-family: "Roboto";
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 21px;
+
+  color: #ffffff;
+  text-transform: capitalize;
+  margin: 0px;
+}
+.password_tab_content_input_field input {
+  background: #000000;
+  border: 0.5px solid rgba(164, 164, 164, 0.7);
+  box-sizing: border-box;
+  width: 100%;
+  height: 39px;
+  display: flex;
+  align-items: center;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  text-transform: capitalize;
+  color: #cecece;
+  padding: 0px 15px;
+}
+.password_tab_content_submit_btn {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+}
+.password_tab_content_submit_btn button {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  text-transform: capitalize;
+  color: #ffffff;
+  background: #490eaa;
+  box-shadow: -2px 5px 8px -3px rgba(255, 255, 255, 0.25);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 36px;
+  border: unset;
+}
+/*  */
+/* polices tab css */
+.policies_tab_content_main{
+  display: grid;
+  width: 100%;
+  gap: 30px;
+}
+.policies_tab_content_data{
+  display: grid;
+  width: 100%;
+  gap: 15px;
+}
+.policies_tab_content_data h4{
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 21px;
+  margin: 0px;
+  color: #A4A4A4;
+}
+.policies_tab_content_des{
+  display: grid;
+  width: 100%;
+  gap: 15px;
+}
+.policies_tab_content_des p{
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 26px;
+  margin: 0px;
+  color: #FFFFFF;
+}
+#policies_tab_content{
+display: none;
+}
+/* billing tab css */
+.billing_detail_section{
+  display: grid;
+  width: 100%;
+  gap: 20px;
+ padding-bottom: 50px;
+}
+
+.billing_detail_section p{
+  
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 300;
+font-size: 18px;
+line-height: 21px;
+margin: 0px;
+color: #A4A4A4;
+}
+.billing_detail_section_box{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  
+background: #D6D6D6;
+box-shadow: -5px 5px 8px rgba(111, 71, 177, 0.52);
+border-radius: 4px;
+padding: 17px 21px;
+}
+.billing_detail_section_box h6{
+  font-family: 'Roboto';
+  font-style: italic;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+margin: 0px;
+  color: #490EAA;
+  padding-bottom: 20px;
+}
+.billing_detail_section_box a{
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  text-decoration-line: underline;  
+color: #490EAA !important;
+padding-top: 20px;
+ 
+}
+.billing_detail_section_box_main{
+display: flex;
+width: 100%;
+justify-content: space-between;
+align-items: center;
+}
+.billing_detail_section_box_card_detail{
+  display: grid;
+  gap: 20px;
+}
+.billing_detail_section_box_data{
+display: flex;
+align-items: center;
+}
+.billing_detail_section_box_data span{
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 21px;
+  padding-right: 15px;
+  color: #000000;
+}
+.billing_detail_section_box_data small{
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 26px;
+  color: #000000;
+}
+.billing_edit_payment_method{
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+}
+.billing_address_box{
+  display: grid;
+  gap: 15px;
+}
+.billing_address_box span{
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 21px;
+  
+  color: #000000;
+}
+.billing_address_box small{
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 26px;
+  color: #000000;
+}
+.billing_transaction_history{
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+.billing_transaction_history h5{
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 21px;
+  color: #A4A4A4;
+}
+.billing_transaction_history p{
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 26px;
+  
+  color: #FFFFFF;
+}
+.view_order_tab_content table {
+  margin: 0px !important;
+}
+.view_order_tab_content .table-responsive {
+  scrollbar-width: thin;
+  border: unset !important;
+}
+.view_order_tab_content .table-responsive::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 3px;
+  background-color: #f5f5f5;
+  height: 4px;
+}
+
+.view_order_tab_content .table-responsive::-webkit-scrollbar {
+  width: 5px;
+  background-color: #f5f5f5;
+  height: 4px;
+}
+
+.view_order_tab_content .table-responsive::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: rgba(15, 153, 75, 0.1);
+}
+
+.view_order_tab_content thead {
+
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+.view_order_tab_content thead tr{
+  background-color: #000000;
+}
+.view_order_tab_content thead tr th {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 16px;
+  color: #FFFFFF;
+    border: unset !important;
+  padding: 15px 10px !important;
+  vertical-align: middle;
+  min-width: 120px;
+}
+.view_order_tab_content tbody tr td {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 16px;
+  color: #FFFFFF;
+    border: unset !important;
+  padding: 15px 10px !important;
+  vertical-align: middle;
+  min-width: 120px;
+}
+.view_order_tab_content tbody {
+  border: 0.5px solid #FFFFFF;
+  border-radius: 4px;
+}
+.view_order_tab_content tbody tr {
+  border-radius: 4px;
+}
+.view_order_tab_content table tbody tr {
+  background-color: #000000 !important;
+}
+
+
+.view_order_action_td p {
+  margin: 0px;
+  display: grid;
+  gap: 4px;
+}
+
+#billing_tab_content{
+  display: none;
+}
+
+.responsive_selector_text {
+  display: none;
+}
+.responsive_selector_icon {
+  display: none;
+}
+@media (max-width: 450px) {
+  .profile_tabs_data_header {
+    flex-direction: column;
+  }
+  .profile_tabs_data_heading h2 {
+    padding-bottom: 15px;
+  }
+ 
+
+}
+
+@media (max-width: 767px) {
+  .pofile_page_main_box {
+    grid-template-columns: 1fr;
+    gap: 25px 35px;
+    grid-template-areas: ".";
+  }
+  .pofile_list_section {
+    position: relative;
+    display:flex;
+  
+  }
+
+  .pofile_list_details {
+    position: fixed;
+    top: 0px;
+    visibility: hidden;
+    left: 0px;
+    padding: 20px 15px;
+    z-index: 99999;
+    -webkit-box-shadow: 0 6px 12px rgb(0 0 0 / 18%);
+    box-shadow: 0 6px 12px rgb(0 0 0 / 18%);
+    height: 100vh;
+    max-width: 300px;
+    overflow: auto;
+    background-color: #ffffff;
+  }
+  .single_pofile_tab_heading small{
+    color: #000000;
+  }
+  .pofile_list_section:hover .pofile_list_details {
+    visibility: visible;
+  }
+  /* .pofile_list_section .single_pofile_tab {
+    -webkit-transition: all 0.5s ease-in-out;
+  }
+  .pofile_list_section .single_pofile_tab:nth-child(odd) {
+    -webkit-transform-origin: top;
+    -webkit-transform: perspective(350px) rotateX(-90deg);
+  }
+
+  .pofile_list_section .single_pofile_tab:nth-child(even) {
+    margin-top: -65px;
+    -webkit-transform-origin: bottom;
+    -webkit-transform: perspective(350px) rotateX(90deg);
+  }
+  .pofile_list_section:hover .single_pofile_tab:nth-child(odd) {
+    -webkit-transform-origin: top;
+    -webkit-transform: perspective(350px) rotateX(0deg);
+    margin-top: 0;
+  }
+
+  .pofile_list_section:hover .single_pofile_tab:nth-child(even) {
+    -webkit-transform-origin: bottom;
+    -webkit-transform: perspective(350px) rotateX(0deg);
+    margin-top: 0;
+  } */
+
+  .responsive_selector_text {
+    display: block;
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    text-transform: capitalize;
+    color: #ffffff;
+    margin: 0px;
+  }
+  .responsive_selector_text a i{
+    font-size: 33px;
+    color: #ffffff;
+  }
+  .responsive_selector_icon {
+    display: block;
+    font-size: 14px;
+    line-height: 18px;
+    color: #000000;
+  }
+}

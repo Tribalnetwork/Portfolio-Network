@@ -55,8 +55,8 @@ export default class BottomNavBar extends React.Component {
   };
 
   render() {
-    return (
-      <div className="outside-div">
+    return (<>
+      {/* <div className="outside-div">
         <div style={this.divStyle} className={"navbardiv"}>
           <ul style={this.ulStyle}>
             <li style={this.liStyle}>
@@ -86,7 +86,8 @@ export default class BottomNavBar extends React.Component {
             </li>
           </ul>
         </div>
-      </div>
+      </div> */}
+      </>
     );
   }
 }

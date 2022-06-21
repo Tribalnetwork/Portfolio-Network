@@ -7,7 +7,9 @@ import {
   BrowserRouter as Router,
 } from "react-router-dom";
 import UserContext from "./UserContext";
-import { NavigationBar } from "./components/NavigationBar";
+ import { NavigationBar } from "./components/NavigationBar";
+// import NewHeader from "./components/NewData/NewHeader/NewHeader";
+import NewBottomNavBar from "./components/NewData/BottomNavBar/NewBottomNavBar";
 import Authenticator from './Authenticator'
 import Watch from './Watch'
 /*import { Upload } from './Upload';
@@ -47,12 +49,15 @@ import ContactUsTribalBeta from "./components/tribalBeta/ContactUs__tribalBeta";
 import MyFilms from "./components/tribalBeta/MyFilms__tribalBeta";
 import Signin from './SignIn'
 import GetFilmList from "./components/GetFilmList"
+
 // import SportsPage from "./ExplorePage/SportsPage";
 
 import { useTheme } from "@material-ui/core/styles";
 import { useMediaQuery } from "@material-ui/core";
 
 import { useContext } from 'react'
+import ListPage from "./components/NewData/ListPage/ListPage";
+import Setting from "./components/NewData/SettingPage/Setting";
 
 
 class PrivateRoute extends React.Component {
@@ -117,8 +122,23 @@ const Routes = () => {
   return (
     <Router>
       <div>
-        <NavigationBar />
+         <NavigationBar /> 
+       
+       {/* <NewHeader /> */}
+       
         <Switch>
+        <Route path="/ListPage">
+        <div class="video_listing_page_body">
+            <ListPage />
+            </div>
+          </Route>
+
+          <Route path="/Setting">
+        
+           <Setting />
+           
+          </Route>
+
           <Route path="/getFilmList" exact component={GetFilmList} />
           <Route path="/settings/myfilms" exact component={PrivacyPolicyTribalBeta}>
             <MyFilms />
@@ -234,6 +254,8 @@ const Routes = () => {
           <PrivateRoute path="/eventdetail" component={FeatureComingSoon} />
           <Route component={FeatureComingSoon} />
         </Switch>
+        {/* <NewBottomNavBar /> */}
+        
         {
           breakPointQuery ? <BottomNavBar /> : null
         }

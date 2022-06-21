@@ -152,7 +152,6 @@ p.video-name{
 
 .react-player{
   z-index: 9;
-  background-color: black;
 }
 
 .player-wrapper video{

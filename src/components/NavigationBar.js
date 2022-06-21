@@ -23,6 +23,8 @@ import Bell from "../bottomNavBarImg/bell.svg"
 import Book from "../bottomNavBarImg/book.svg"
 import People from "../bottomNavBarImg/people.png"
 import Submit from "../bottomNavBarImg/Submit.svg"
+import "./NewData/StyleFolder/Stylefile.css";
+import $ from "jquery";
 
 const useStyles = makeStyles((theme) => ({
   menuButton: {
@@ -96,12 +98,38 @@ export const NavigationBar = () => {
     setOpen2(false);
   };
 
+  React.useEffect(() => {
+  $(function ($) {
+    var $question_two = $(".header_active_nav");
+    var $answer_two = $(".inner-content-list");
+
+    $question_two.click(function () {
+      // Hide all answers
+
+      // Check if this answer is already open
+      if ($(this).hasClass("open")) {
+        // If already open, remove 'open' class and hide answer
+        $(this).removeClass("open");
+        // If it is not open...
+      } else {
+        // Remove 'open' class from all other questions
+        $question_two.removeClass("open");
+        // Open this answer and add 'open' class
+        $(this).addClass("open");
+      }
+    });
+  });
+},[])
   return (
-    <div className={"navcontainer"}>
+    <>
+    <header>
+    <div className="custom_container">
 
 
-      <AppBar position="sticky" style={{ background: 'black' }}>
+      <AppBar style={{ background: 'black' }}>
         <Toolbar>
+        <div class="header_nav_list_main">
+          <div class="home_toogle_btn">
           <IconButton
             edge="start"
             className={classes.menuButton}
@@ -112,20 +140,28 @@ export const NavigationBar = () => {
             <MenuIcon />
 
           </IconButton>
-          <span className={classes.title}>
-            <Typography variant="h6" >
-              Tribal Beta
-            </Typography>
-          </span>
+          </div>
+          <Link to="/Home" class="web_header_logo header_active_nav"> <h4>Portfolio Network</h4></Link>
+          <div class="header_nav_list">
+            <Link to="/Home" class=" header_active_nav"><span>Films</span></Link>
+            {/* <Link class=" header_active_nav"><span>Post</span></Link> */}
+            <Link to="/ListPage" class=" header_active_nav"><span>Lists</span></Link> 
+            <Link class=" header_active_nav"><span>Portfolio</span></Link>
+            <Link to="/Setting" class=" header_active_nav"><span>Settings</span></Link>
+          </div> 
+          </div>
+
+
           {
             isLoaded ? isAuthenticated ? (
               <div >
                 <button
                   style={{ display: "inline-block" }}
-                  className={"profileimage2"} onClick={handleDrawerOpen2} variant='contained' style={{ background: 'black', textTransform: 'none' }}>
+                  className={"profileimage2"} onClick={handleDrawerOpen2} variant='contained' >
                   <img className={"profileimage2"} src="https://d202tggnzywgd9.cloudfront.net/public/photos/avatar.png" alt='' />
                 </button>
                 {/* right navigation */}
+                
                 <Drawer
                   anchor="right"
                   open={open2}
@@ -154,13 +190,19 @@ export const NavigationBar = () => {
                     </List>
                   </div>
                 </Drawer>
-              </div>
+                </div>
+ 
             ) : (
+              <div class="nav_bar">
+                 <ul><form><div class="header_custom_search_bar"><input type="search" placeholder="Search here " /><i class="fal fa-search"></i></div></form></ul> 
+              <div class="call_us">
               <Link to='/auth' style={{ textDecoration: 'none' }}>
                 <Button color="inherit" style={{ color: '#d4af37' }}>
-                  Login/Register
+                  Login/Logout
                 </Button>
               </Link>
+              </div>
+              </div>
             ) : null
           }
         </Toolbar>
@@ -178,40 +220,45 @@ export const NavigationBar = () => {
           onClick={handleDrawerClose}
           onKeyDown={handleDrawerClose}>
 
-          <List component="nav" >
+           <List component="nav" > 
             {/* 1: HOME */}
-            <ListItem button component={Link} to={"/home"}>
-              <img src={Home} alt="Home" />
-              <ListItemText primary={'Home'}></ListItemText>
-            </ListItem>
-            {/* 2: Search */}
-            <ListItem button component={Link} to={"/search"} >
-              <img src={Search} alt='Search' />
-              <ListItemText primary={'Search'}></ListItemText>
-            </ListItem>
+            {/* <ListItem button component={Link} to={"/home"}> */}
+              {/* <img src={Home} alt="Home" /> */}
+              {/* <ListItemText primary={'Home'}></ListItemText>
+            </ListItem>  */}
+           
+        
             {/* 3: Streams */}
-            <ListItem button component={Link} to={"/streams"} >
-              <img src={Tribal} alt='Tribal' />
-              <ListItemText primary={'Tribal'}></ListItemText>
-            </ListItem>
+            <ListItem button component={Link} to={"/home"} >
+              {/* <img src={Tribal} alt='Tribal' /> */}
+              <ListItemText primary={'Films'}></ListItemText>
+            </ListItem> 
             {/* 4: Social */}
-            <ListItem button component={Link} to={"/profile"} >
-              <img src={Social} alt='Social' />
-              <ListItemText primary={'Social'}> </ListItemText>
-            </ListItem>
+           {/* <ListItem button component={Link}> */}
+              {/* <img src={Social} alt='Social' /> */}
+              {/* <ListItemText primary={'Post'}> </ListItemText>
+            </ListItem> */}
             {/* 5: Settings */}
-            <ListItem button component={Link} to={"/settings"} >
-              <img src={Settings} alt='Settings' />
-              <ListItemText primary={'Settings'}> </ListItemText>
-            </ListItem>
+            <ListItem button component={Link} to={"/ListPage"} > 
+              {/* <img src={Settings} alt='Settings' /> */}
+              <ListItemText primary={'Lists'}> </ListItemText>
+            </ListItem>  
             {/* 6: Submit */}
-            <ListItem button component={Link} to={"/submit"} >
-              <img src={Submit} alt='Submit' style={{ width: '38px', marginLeft: '19px', marginRight: '19px' }} />
-              <ListItemText primary={"Submit"} ></ListItemText>
+             <ListItem button component={Link}>
+              {/* <img src={Submit} alt='Submit' style={{ width: '38px', marginLeft: '19px', marginRight: '19px' }} /> */}
+              <ListItemText primary={"Portfolio"} ></ListItemText>
             </ListItem>
-          </List>
+            <ListItem button component={Link} to={"/Setting"}>
+              {/* <img src={Submit} alt='Submit' style={{ width: '38px', marginLeft: '19px', marginRight: '19px' }} /> */}
+              <ListItemText primary={"Settings"} ></ListItemText>
+            </ListItem> 
+         </List> 
         </div>
       </Drawer>
+      <div class="header_responsive_search_bar"><form><div class="res_header_custom_search_bar"><input type="search" placeholder="Search here " /><i class="fal fa-search"></i></div></form></div>
     </div>
+    </header>
+    
+    </>
   )
 }

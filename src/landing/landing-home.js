@@ -4,7 +4,6 @@ import './landing-home.css';
 import './responsive-styles.css'
 import { Link } from 'react-router-dom';
 
-
 const Home = () => {
   return (
 
@@ -33,6 +32,7 @@ const Home = () => {
     </div>
         
       </div>
+
   </div>
     
 

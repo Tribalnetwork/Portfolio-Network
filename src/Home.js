@@ -2,6 +2,7 @@ import React from "react";
 import AdSense from 'react-adsense';
 import axios from "axios";
 import Amplify from "aws-amplify";
+import "./components/NewData/StyleFolder/Stylefile.css";
 // import { API, graphqlOperation } from "aws-amplify";
 // import { listFilms, listLiveStreams } from "./graphql/queries";
 import awsconfig from "./aws-exports";
@@ -34,15 +35,19 @@ import { useMediaQuery } from "@material-ui/core";
 import Popup from "reactjs-popup";
 // import "reactjs-popup/dist/index.css";
 import "./Home.css";
+import TimeCounter from "./components/NewData/TimeCounter";
+
 Amplify.configure(awsconfig);
 
 
 export default class Home extends React.Component {
+ 
+
   static contextType = UserContext;
 
   state = {
     films: [],
-    url: "",
+    url: "https://film-in.s3.amazonaws.com/12060614656222298386?AWSAccessKeyId=ASIAWG3FSFQDVYPZE2UR&Signature=pRLJiieuudNnT35BKWhlNbfb8aA%3D&x-amz-security-token=IQoJb3JpZ2luX2VjEGEaCXVzLWVhc3QtMSJHMEUCIQD2nLplUfGDLTqLBECUARcVn%2Bi%2Bs8Y5077JZWc8tGsLPQIgNBZRq69FZTC4ObQZjV8f2599LeWqDCTbHc3v%2FLqo1FYqlQIISRABGgw0MjcwMjUzNzgzMTEiDOtKWS4n8g0WHZdw%2ByryAce0KvQJay8BrGSCxlGNWSH1zJB80ZSPO52%2Fe7Ej4MA20frXORhmCUviNYHZm%2BoTYrq756LaYZM1c9ZJVqcUtuQjudBK4CzYOPq8cEM1BBwkvGENJ9c9dxiXry1lEZrBf17KcaTm57PV%2BsXqmXgvlgbyRhmg9JwnEJ2v3A%2FqWt9lGdfGpA2i4UJAJhYuEu3CPUHaHzfBojeIWNDYaogttWo0FHYCRQPksYB9NVWZIfGs6xgePUEs%2B1Wt7srxo6a1nTvUTjOEeGGIArj9W97X4ZiPVF9OW3b38wzQFP6UEQk8PR3rZPnhNCKRNtMhHJR88v1OMJK%2FqZQGOpoBrCH0tOg4t4WtWIfkJQ2Cevl44h5jTDxbG5HR0TkTeX7cBO6rbDsuBq59INmN6LsBHJBaognbBIlul4XldtRFxXvLRIs%2Ba4Jt9LK5rMSQcdmaWdF122jAGZmN%2BraX5POA8ICR5IQ0UPXU4zn2xqJ72vMnLVG2jzEYBa2GA69TDff%2FTnrgbMVleCjDuWYehTOJcpIbASTv5bR03A%3D%3D&Expires=1653253858",
     videoName: "",
     livestreams: [],
     filmGroups: [],
@@ -256,6 +261,8 @@ export default class Home extends React.Component {
 
     let filmGroups = this.state.filmGroups;
     return (
+      <div className="home_page_parent">
+     <div className="custom_container">
       <div className="home__tribalBeta" style={styles.main}>
         <Helmet>
           <meta charSet="utf-8" />
@@ -266,7 +273,7 @@ export default class Home extends React.Component {
             //isAuthenticated ? (
             hasAccess ? (
               <div>
-                <div className="player-wrapper">
+                <div className="banner_video">
                   <ReactPlayer
                     className="react-player"
                     ref={(p) => {
@@ -288,24 +295,41 @@ export default class Home extends React.Component {
                     <p className="video-name videoName__tribalBetaHome">{this.state.videoName}</p>
                   </div>*/}
                 </div>
+                <div class="add_container">
                 <div className="video-name-wrapper">
+                  
                   <p className="video-name title__tribalBetaHome">
                     {this.state.videoName}
                   </p><br />
                   <p>{this.state.sponsorshipLabel}</p>
                 </div>
-                <div className="functionbar-wrapper">
+                <div class="inner_faq_accordian">
+<div class="accordion" id="accordionExample">
+<div class="card">
+<div class="card-header "><button class="accordian_parent" data-toggle="collapse" data-target="#collapseOne"> <span>AD</span></button></div>
+<div class="collapse" id="collapseOne" data-parent="#accordionExample">
+<div class="card-body_result"><div class="video_adds_message_alert"><p>This Film is or may contain Ad,Sponsorship, or endorsement.</p></div></div>
+</div>
+</div>
+
+</div>
+</div>
+                </div>
+                
+                <TimeCounter />
+
+                {/* <div className="functionbar-wrapper">
                   <Grid container justify="center" style={{ height: '87px', alignItems: 'center' }}>
                     <Grid item>
                       <Popup
                         trigger={(open) => (<RatingButton className="RateAndSubmit__tribalBeta" />)}
-                        // position="center center"
+                 
                         closeOnDocumentClick>
                         <div className="ratingPopup__tribalBetaHome">
                           <h3 className="titlePopup__tribalBetaHome">Rate This Film</h3>
                           <div className="overall__tribalBetaHome">
                             <span className="overallStar__tribalBetaHome">Overall</span>
-                            {/* rated stars */}
+                            
                             {
                               this.state.filmRatedStars.filmId !== undefined ?
                                 <span>
@@ -325,16 +349,16 @@ export default class Home extends React.Component {
                     <Grid item>
                       <Popup
                         trigger={(open) => (<SubmitButton className="RateAndSubmit__tribalBeta" />)}
-                        // position="center center"
+                       
                         closeOnDocumentClick>
                         <SubmitFilmButton />
                       </Popup>
 
                     </Grid>
                   </Grid>
-                </div>
-                <div className="film-lists">
-                  <div className="filter-buttons">
+                </div> */}
+                <div className="film-lists films_categories_list">
+                  {/* <div className="filter-buttons">
                     <button
                       className="filtering-btn1"
                       onClick={() => {
@@ -367,7 +391,7 @@ export default class Home extends React.Component {
                         style={{ color: "white" }}
                       />
                     </button>
-                  </div>
+                  </div> */}
                   {filmGroups.map((group, index) => (
                     <FilmCat
                       title={group.genre}
@@ -380,7 +404,7 @@ export default class Home extends React.Component {
                         const myList = filmGroups.filter(
                           (_, filterIndex) => index !== filterIndex
                         );
-                        // console.log(myList)
+                      
                         myList.unshift(element);
                         this.setState({
                           filmGroups: myList,
@@ -390,18 +414,7 @@ export default class Home extends React.Component {
                   ))}
                   {
 
-                    //My history category
-                    /*
-                    <div className="trendy-wrapper">
-                      <p className="title__tribalBetaHome">My History</p>
-                        <HorizontalScrollerCircular
-                          list={filmGroups[0].films}
-                          findFilm={this.findFilm.bind(this)}
-                          setName={this.setName.bind(this)}
-                          handleClick={() => {}}
-                        />
-                    </div>
-                    */
+                  
                   }
                 </div>
               </div>
@@ -436,6 +449,8 @@ export default class Home extends React.Component {
         />
         </div>
       </div>
+      </div>
+      </div>
     );
   }
 }
@@ -444,8 +459,10 @@ export default class Home extends React.Component {
 function FilmCat(Props) {
   const { title, films, findFilm, setName, handleClick } = Props;
   return (
-    <div className="trendy-wrapper">
-      <p className="title__tribalBetaHome">{title}</p>
+    <div className="trendy-wrapper common_playlists_main">
+      <div class="common_slider_heading">
+      <h3 >{title}</h3>
+      </div>
       <HorizontalScrollerCircular
         list={films}
         findFilm={findFilm}
@@ -479,9 +496,7 @@ function SubmitFilmButton() {
 }
 
 const styles = {
-  main: {
-    paddingBottom: "20vh"
-  },
+
   root: {
     width: 200,
   },
@@ -520,4 +535,5 @@ const styles = {
   },
   //MaterialUiButton: {backgroundImage: 'linear-gradient(to right, #CAAA65,#A07923)', color: 'white', padding: '9px 59px', fontSize: '1.05rem', textTransform: 'inherit', borderRadius: '12px', marginRight: "10px" },
   //buttonLink: {textDecoration: 'none' }
+
 };

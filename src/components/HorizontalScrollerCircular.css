@@ -1,3 +1,63 @@
+.menu-wrapper--inner {
+  transition: unset !important;
+  transform: unset !important;
+  width: 100% !important;
+  display: flex;
+  justify-content: flex-start;
+  overflow-x: scroll;
+  padding-bottom: 20px;
+}
+p.pTitle {
+  text-align: center !important;
+  font-size: 14px !important;
+  padding-top: 5px !important;
+  -webkit-box-orient: vertical;
+  width: 100% !important;
+  max-width: 100% !important;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: unset !important;
+}
+.menu-item-wrapper {
+  padding: 0px 20px !important;
+  margin: 0px !important;
+  max-width: 25%;
+  flex: 0 0 25% !important;
+  width: 25% !important;
+}
+.profile-img {
+  border-radius: 0px !important;
+  width: 100%;
+  height: 200px !important;
+  object-fit:cover !important;
+}
+.profile-wrapper {
+  width: 100% !important;
+  background: #212121 !important;
+  border-radius: 4px !important;
+}
+.menu-wrapper--inner::-webkit-scrollbar-track {
+  border: 1px solid #000;
+  padding: 2px 0;
+  background-color: #1a1a1a;
+}
+.menu-wrapper--inner::-webkit-scrollbar {
+  width: 10px;
+}
+.menu-wrapper--inner::-webkit-scrollbar-thumb {
+  border-radius: 2px;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-color: #737272;
+  border: 1px solid #000;
+}
+.scroll-menu-arrow {
+  display: none !important;
+}
+.menu-wrapper {
+  display: block;
+  width: 100%;
+  padding: 0px !important;
+}
 .menu-item {
   padding: 0 40px;
   margin: 5px 10px;
@@ -6,12 +66,66 @@
   border: none;
   width: 120px;
 }
+@media(max-width:768px){
+
+  .menu-item-wrapper {
+    max-width: 33.33%;
+    flex: 0 0 33.33% !important;
+    width: 33.33% !important;
+}
+}
+@media(max-width:540px){
+  p.video-name.title__tribalBetaHome{
+    font-size: 20px !important;
+  }
+  .menu-item-wrapper {
+    max-width: 50%;
+    flex: 0 0 50% !important;
+    width: 50% !important;
+    padding: 0px 10px !important;
+}
+.menu-wrapper--inner {
+  margin: 0px -10px;
+}
+ 
+}
 div.menu-item-wrapper {
   margin: 0px 8px 0px 0px;
   width: 120px;
   border-radius: 10px;
   box-shadow: 0px 0px 20px rgb(0, 0, 0 , 0.25);
   vertical-align: top;
+}
+.MuiGrid-root.MuiGrid-item {
+  padding: 10px 0px;
+}
+p.video-name.title__tribalBetaHome{
+  font-size: 26px !important;
+}
+.add_container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding-top: 15px;
+}
+.inner_faq_accordian .card {
+  padding: 0px !important;
+  background: unset !important;
+  display: flex !important;
+  align-items: flex-end;
+}
+.inner_faq_accordian .card .card-header {
+  padding: 0px !important;
+  border: unset !important;
+  background: unset !important;
+}
+.inner_faq_accordian .card .card-header button {
+  border: unset;
+  background: unset !important;
+}
+.inner_faq_accordian .card .card-header button span{
+  color: #ffffff;
+  font-size: 16px;
 }
 .trendy-wrapper{
   margin-bottom: 1rem;
@@ -57,7 +171,7 @@ div.horizontal-menu div.scroll-menu-arrow:first-child{
 .profile-img {
   /* border-radius: 50%; */
   /* width: 100px; */
-  width: 120px;
+  width:100%;
   height: 136px;
   object-fit: cover;
 }
@@ -68,6 +182,7 @@ div.horizontal-menu div.scroll-menu-arrow:first-child{
   text-align: center;
   background: #000000;
   border-radius: 10px;
+  box-shadow: 0px 1px 11px 2px #3b3b3b;
 }
 
 div.film-box{
@@ -102,3 +217,21 @@ div.film-box{
   align-items: center;
 }
 
+.menu-item {
+  padding: 0 40px;
+  margin: 5px 10px;
+  user-select: none;
+  cursor: pointer;
+  border: none;
+}
+.menu-item-wrapper.active {
+  border: 1px blue solid;
+}
+.menu-item.active {
+  border: 1px green solid;
+}
+
+.scroll-menu-arrow {
+  padding: 20px;
+  cursor: pointer;
+}

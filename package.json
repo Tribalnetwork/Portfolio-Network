@@ -20,6 +20,7 @@
     "glamor": "^2.20.40",
     "graphql-tag": "^2.11.0",
     "internal": "^2.0.27",
+    "jquery": "^3.6.0",
     "main": "^1000.0.1",
     "masonry-layout": "^4.2.2",
     "query-string": "^6.13.7",
@@ -35,6 +36,7 @@
     "react-router-dom": "^5.0.1",
     "react-scripts": "^3.4.4",
     "react-select": "^3.1.1",
+    "react-slick": "^0.29.0",
     "reactjs-popup": "^2.0.4",
     "redux": "^4.0.5",
     "rsuite": "^4.8.8"

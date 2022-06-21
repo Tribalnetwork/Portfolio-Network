@@ -29,6 +29,11 @@ class Authenticator extends React.Component {
           {
             currentState === 'showSignIn' ? (
               <div {...css(styles.linkContainer)}>
+              <div class="check_out_option_form_box_two_google_signin_btn">
+                    <a>
+                      <img src="https://tossdown.site/images/da735dea22fd7d2bad4c36e8ef40a1d0_1640333204.png" />
+                        <span>Sign in with Google</span></a>                  
+                </div>
                 <p
                   onClick={() => this.switchState('showSignUp')}
                   {...css(styles.toggle)}

@@ -56,9 +56,12 @@ class MenuItem extends React.Component {
               className="profile-img"
             />
             <div>
-              <p className="pTitle">{this.props.film.film_title}</p>
+            <div class="video_listing_page_product_figure_tag_parent_link home_page_video_listing">
+              <span className="pTitle"><strong>{this.props.film.film_title}</strong><small>view count</small></span>
               {/* <p className="pTitle">Season {Item.Season}</p>
             <p className="pTitle">Episode {Item.Episode}</p> */}
+              <object><a><i class="fal fa-plus"></i></a></object></div>
+
             </div>
           </div>
         </Grid>
