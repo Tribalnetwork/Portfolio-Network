@@ -6,8 +6,8 @@
 </div>
 
 
-### Tribal Portfolio Network App
-Tribal Network Web Project (TNWeb) is a web app that connects Artists, Tribal members, and Sponsors. The product contains an indie film streaming service that required donations for access.
+### Portfolio Network App
+Tribal Portfolio Network Web Project (TNWeb) is a web app that connects Artists, Tribal members, and Sponsors. The product contains an Indie Film streaming service that required donations for access.
 
 **Feature Branch Projects will last 4-12 weeks**
 
@@ -20,13 +20,11 @@ Through the Specialist Portal
 
 
 ### `Research and Design`
-1. [Notes and Links](https://drive.google.com/drive/folders/1tYQoi6_NQvnKW7vSjiKrByHtQhpVTcuY?usp=sharing)
+1. [Notes and Links](https://drive.google.com/drive/folders/116N4nhq2Mma0sObxS7GnCmXF2QhwTMYq)
 2. [Design Example tasks (Conception to Prototype)](https://drive.google.com/drive/folders/10I2b-pMYGlP3bN_0dKU7BXKt7knwrp_4?usp=sharing)
 3. [Design Resources](https://docs.google.com/document/d/1nYnTdHjuO2bejNhLG1hWU6wblm9Twq3h/edit?usp=sharing&ouid=115223206571185626008&rtpof=true&sd=true)
 
 ### `Front end and Testing`
-1. [Example tasks (Conception to Prototype)](https://drive.google.com/drive/folders/10I2b-pMYGlP3bN_0dKU7BXKt7knwrp_4?usp=sharing)
-2. [Design Resources](https://docs.google.com/document/d/1nYnTdHjuO2bejNhLG1hWU6wblm9Twq3h/edit?usp=sharing&ouid=115223206571185626008&rtpof=true&sd=true)
 
 ### How You Can Contribute
 To learn about React, start [here](https://github.com/Tribalnetwork/React-Guide).<br />
