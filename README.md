@@ -14,6 +14,8 @@ Tribal Network Web Project (TNWeb) is a web app that connects Artists, Tribal me
 **Enter hours weekly**
 Through the Specialist Portal
 
+**Use Company Emails for Company work**
+
 **[Team File](https://drive.google.com/drive/folders/116N4nhq2Mma0sObxS7GnCmXF2QhwTMYq?usp=sharing)**
 
 
