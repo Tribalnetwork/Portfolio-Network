@@ -108,4 +108,4 @@ Through the Specialist Portal
 
 
 
-**NOTE**
+**NOTE** This README is still a work in progress. If there is anything that's missing, doesn't make sense, or doesn't work, let us know! Or better yet, make a pull request with updated information. We want to make this README as robust as possible.
