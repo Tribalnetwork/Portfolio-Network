@@ -16,7 +16,10 @@ Through the Specialist Portal
 
 **Use Company Emails for Company work**
 
-**[Team File](https://drive.google.com/drive/folders/116N4nhq2Mma0sObxS7GnCmXF2QhwTMYq?usp=sharing)**
+
+### `Everyone`
+1. [Team Folder](https://drive.google.com/drive/folders/116N4nhq2Mma0sObxS7GnCmXF2QhwTMYq?usp=sharing)
+2. [Send recordings](https://www.loom.com/?utm_term=loom_b&utm_campaign=US_GS_Brand_Phrase_Exact&utm_source=adwords&utm_medium=ppc&utm_content=&hsa_acc=4481576800&hsa_cam=15507659439&hsa_grp=134743398910&hsa_ad=567960631368&hsa_src=g&hsa_tgt=kwd-23006411&hsa_kw=loom&hsa_mt=b&hsa_net=adwords&hsa_ver=3&gclid=Cj0KCQjwxveXBhDDARIsAI0Q0x2Y3RIMytr8Fml4ZWaOTnMMSG6JggKhhceiSkQsxrTMiD7-E4HVNQoaAh2IEALw_wcB)
 
 
 ### `Research and Design`
@@ -24,17 +27,19 @@ Through the Specialist Portal
 2. [Design Example tasks (Conception to Prototype)](https://drive.google.com/drive/folders/10I2b-pMYGlP3bN_0dKU7BXKt7knwrp_4?usp=sharing)
 3. [Design Resources](https://docs.google.com/document/d/1nYnTdHjuO2bejNhLG1hWU6wblm9Twq3h/edit?usp=sharing&ouid=115223206571185626008&rtpof=true&sd=true)
 
-### `Front end and Testing`
 
-### How You Can Contribute
-To learn about React, start [here](https://github.com/Tribalnetwork/React-Guide).<br />
-To contribute the project, start [here](https://github.com/facebook/create-react-app/blob/main/CONTRIBUTING.md).<br />
-To learn how to setup and run the project localy please follow steps in this figma [file](https://www.figma.com/file/h0j3Qvvvng6H6YFN3g56wb/Fork%2C-Clone%2C-and-Configure-Amplify?node-id=0%3A1) to get right directions and configure AWS amplify.)
+### `Front end and Testing`
+1. To learn more about React, start [here](https://github.com/Tribalnetwork/React-Guide).<br />
+2. To learn how to setup and run the project localy please follow steps in this figma [file](https://www.figma.com/file/h0j3Qvvvng6H6YFN3g56wb/Fork%2C-Clone%2C-and-Configure-Amplify?node-id=0%3A1) to get right directions and configure AWS amplify.)
+3. To contribute the project, start [here](https://github.com/facebook/create-react-app/blob/main/CONTRIBUTING.md).<br />
+4. [Format all Code](https://prettier.io/)
+
 
 ### `Back end and DB`
-1. [Notes and Links](https://drive.google.com/drive/folders/1vVJH4lSYI0T5B1Bnfu-OGU6Wbx1btSul?usp=sharing)
+1. [Notes and Links](https://drive.google.com/drive/folders/1sEy7-mp_mvEdSxJfbjTTBqGyQPeIHWf5?usp=sharing)
 
 
+![My Meetings](https://github.com/TribaliiiGameDevelopment/CreationGame/blob/332411e80d3af030df61c89f5550b48b9f72de4d/My%20Meetings%20Infographic.png)
 
 
 ### Contributors ✨
