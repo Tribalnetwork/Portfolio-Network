@@ -12,7 +12,7 @@ Tribal Portfolio Network Web Project (TNWeb) is a web app that connects Artists,
 **Feature Branch Projects will last 4-12 weeks**
 
 **Enter hours weekly**
-Through the Specialist Portal
+Through the [Specialist Portal](https://sites.google.com/view/specialistportal/specialist-portal)
 
 **Use Company Emails for Company work**
 
