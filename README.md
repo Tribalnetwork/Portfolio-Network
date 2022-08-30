@@ -7,7 +7,7 @@
 
 
 ### Portfolio Network App
-Tribal Portfolio Network Web Project (TNWeb) is a web app that connects Artists, Tribal members, and Sponsors. The product contains an Indie Film streaming service that required donations for access.
+Tribal Portfolio Network Web Project (TNWeb) is a web app that connects Artists, Tribal members, and Sponsors. The product contains an Indie Film streaming service that requires donations for access.
 
 **Feature Branch Projects will last 4-12 weeks**
 
