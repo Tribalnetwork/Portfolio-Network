@@ -26,7 +26,8 @@ Through the [Specialist Portal](https://sites.google.com/view/specialistportal/s
 ### `UX/ UI`
 1. [Docs](https://drive.google.com/drive/folders/1SjmA7z2_8dvLFe7P_Vb7TgECIpsIZ1Gw?usp=share_link)
 2. [Sprint Tasks 1-6](https://drive.google.com/drive/folders/10I2b-pMYGlP3bN_0dKU7BXKt7knwrp_4?usp=sharing)
-3. [Practices](https://docs.google.com/document/d/1nYnTdHjuO2bejNhLG1hWU6wblm9Twq3h/edit?usp=sharing&ouid=115223206571185626008&rtpof=true&sd=true)
+3. [Usability testing](https://usabilityhub.com/)
+4. [Practices](https://docs.google.com/document/d/1nYnTdHjuO2bejNhLG1hWU6wblm9Twq3h/edit?usp=sharing&ouid=115223206571185626008&rtpof=true&sd=true)
 
 
 ### `Frontend`
