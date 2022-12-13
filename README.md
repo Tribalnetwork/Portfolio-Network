@@ -7,7 +7,7 @@
 
 
 ### Portfolio Network App
-Tribal Portfolio Network Web Project (TNWeb) is a web app that connects Artists, Tribal members, and Sponsors. The product contains an Indie Film streaming service that requires donations for access.
+Tribal Portfolio Network Web Project (TNWeb) is a web app that connects Artists, Tribal members, and Sponsors. The product contains an Indie Film streaming service.
 
 **Feature Branch Projects will last 4-12 weeks**
 
@@ -18,29 +18,36 @@ Through the [Specialist Portal](https://sites.google.com/view/specialistportal/s
 
 
 ### `Everyone`
-1. [Team Folder](https://drive.google.com/drive/folders/116N4nhq2Mma0sObxS7GnCmXF2QhwTMYq?usp=sharing)
+1. Find Solutions: [Medium](https://github.com/Tribalnetwork/Portfolio-Network), [Stack Overflow](https://stackoverflow.com/)
 2. [Send recordings](https://www.loom.com/?utm_term=loom_b&utm_campaign=US_GS_Brand_Phrase_Exact&utm_source=adwords&utm_medium=ppc&utm_content=&hsa_acc=4481576800&hsa_cam=15507659439&hsa_grp=134743398910&hsa_ad=567960631368&hsa_src=g&hsa_tgt=kwd-23006411&hsa_kw=loom&hsa_mt=b&hsa_net=adwords&hsa_ver=3&gclid=Cj0KCQjwxveXBhDDARIsAI0Q0x2Y3RIMytr8Fml4ZWaOTnMMSG6JggKhhceiSkQsxrTMiD7-E4HVNQoaAh2IEALw_wcB)
-3. Find Solutions: [Medium](https://github.com/Tribalnetwork/Portfolio-Network), [Stack Overflow](https://stackoverflow.com/)
 
 
-### `Research and Design`
-1. [Notes and Links](https://drive.google.com/drive/folders/116N4nhq2Mma0sObxS7GnCmXF2QhwTMYq)
-2. [Design Example tasks (Conception to Prototype)](https://drive.google.com/drive/folders/10I2b-pMYGlP3bN_0dKU7BXKt7knwrp_4?usp=sharing)
-3. [Design Resources](https://docs.google.com/document/d/1nYnTdHjuO2bejNhLG1hWU6wblm9Twq3h/edit?usp=sharing&ouid=115223206571185626008&rtpof=true&sd=true)
+
+### `UX/ UI`
+1. [Docs](https://drive.google.com/drive/folders/1SjmA7z2_8dvLFe7P_Vb7TgECIpsIZ1Gw?usp=share_link)
+2. [Sprint Tasks 1-6](https://drive.google.com/drive/folders/10I2b-pMYGlP3bN_0dKU7BXKt7knwrp_4?usp=sharing)
+3. [Practices](https://docs.google.com/document/d/1nYnTdHjuO2bejNhLG1hWU6wblm9Twq3h/edit?usp=sharing&ouid=115223206571185626008&rtpof=true&sd=true)
 
 
-### `Front end and Testing`
-1. To learn more about React, start [here](https://github.com/Tribalnetwork/React-Guide).<br />
-2. To learn how to setup and run the project localy please follow steps in this figma [file](https://www.figma.com/file/h0j3Qvvvng6H6YFN3g56wb/Fork%2C-Clone%2C-and-Configure-Amplify?node-id=0%3A1) to get right directions and configure AWS amplify.)
-3. To contribute the project, start [here](https://github.com/facebook/create-react-app/blob/main/CONTRIBUTING.md).<br />
+### `Frontend`
+1. [Docs](https://drive.google.com/drive/folders/1hcC5wbYyYrnkmzQPrzmtRaqpN99xo7uN?usp=share_link)
+2. [Configure Amplify & run the Product locally](https://www.figma.com/file/h0j3Qvvvng6H6YFN3g56wb/Fork%2C-Clone%2C-and-Configure-Amplify?node-id=0%3A1)
+3. [Learn more about React](https://github.com/Tribalnetwork/React-Guide) [Learn more](https://github.com/facebook/create-react-app/blob/main/CONTRIBUTING.md)
 4. [Format all Code](https://prettier.io/)
 
 
-### `Back end and DB`
-1. [Notes and Links](https://drive.google.com/drive/folders/1sEy7-mp_mvEdSxJfbjTTBqGyQPeIHWf5?usp=sharing)
+### `Backend`
+1. [Docs](https://drive.google.com/drive/folders/1vVJH4lSYI0T5B1Bnfu-OGU6Wbx1btSul?usp=share_link)
+2. [Set up](https://drive.google.com/drive/folders/1sEy7-mp_mvEdSxJfbjTTBqGyQPeIHWf5?usp=sharing)
+3. [Configure Amplify & run the Product locally](https://www.figma.com/file/h0j3Qvvvng6H6YFN3g56wb/Fork%2C-Clone%2C-and-Configure-Amplify?node-id=0%3A1)
+
 
 
 ![My Meetings](https://github.com/TribaliiiGameDevelopment/CreationGame/blob/332411e80d3af030df61c89f5550b48b9f72de4d/My%20Meetings%20Infographic.png)
+
+![My Meetings](https://github.com/TribaliiiGameDevelopment/CreationGame/blob/dfbcc40383da13f5235be6bdb9337d27b069f492/My%20Team%20Infographic.png)
+
+![My Meetings](https://github.com/TribaliiiGameDevelopment/CreationGame/blob/dfbcc40383da13f5235be6bdb9337d27b069f492/My%20Project%20Roadmap.png)
 
 
 ### Contributors ✨
@@ -109,4 +116,4 @@ Through the [Specialist Portal](https://sites.google.com/view/specialistportal/s
 
 
 
-**NOTE** This README is still a work in progress. If there is anything that's missing, doesn't make sense, or doesn't work, let us know! Or better yet, make a pull request with updated information. We want to make this README as robust as possible.
+
