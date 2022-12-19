@@ -63,7 +63,30 @@ p {
   background-color: #007bff;
   transition: width 0.6s ease;
 }
+.searchPortfolio {
+  background: #000000;
+  border-radius: 10px;
+  border: none;
+  width: 712px;
+  height: 36px;
+  margin: auto;
+  display: flex;
+  color: white;
+  margin-top: 100px;
+  width: 712px;
+}
+.searchPortfolio::placeholder {
+  margin-left: 30px !important;
+}
 
+@media (max-width: 750px) {
+  .searchPortfolio {
+    width: auto !important;
+  }
+  .outerwidthP {
+    width: 300px !important;
+  }
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

@@ -7,21 +7,21 @@ import {
   BrowserRouter as Router,
 } from "react-router-dom";
 import UserContext from "./UserContext";
- import { NavigationBar } from "./components/NavigationBar";
+import { NavigationBar } from "./components/NavigationBar";
 // import NewHeader from "./components/NewData/NewHeader/NewHeader";
 import NewBottomNavBar from "./components/NewData/BottomNavBar/NewBottomNavBar";
-import Authenticator from './Authenticator'
-import Watch from './Watch'
+import Authenticator from "./Authenticator";
+import Watch from "./Watch";
 /*import { Upload } from './Upload';
 import Landing from './landing/landing-home.js'*/
-import Submit from './landing/submit'
+import Submit from "./landing/submit";
 /*import Live from './Live'
 import { Stream } from './TribalPage/Stream'
 import Profile from './SocialPage/Profile'
 import GetAccess from './GetAccess'
 import Pending from './Pending'
 import { MyLive } from './MyLive'*/
-import BottomNavBar from './components/bottomNavBar'
+import BottomNavBar from "./components/bottomNavBar";
 /*import SearchQueries from "./components/searchQueries"
 import ViewProfile from "./ViewProfile"
 import MyList from "./MyList"*/
@@ -36,7 +36,7 @@ import PostEvent from "./Events/PostEvent"
 import Eventdetail from "./Events/Eventdetail"
 import MyProfile from "./ProfilePage/Profile.js"*/
 // import Main from "./components/pages/home/Main"
-import Home from "./Home"
+import Home from "./Home";
 //import ConnectList from "./SocialPage/ConnectList"
 import { FeatureComingSoon } from "./components/FeatureComingSoon";
 import { Settings__tribalBeta as SettingsTribalBeta } from "./components/tribalBeta/Settings__tribalBeta";
@@ -47,18 +47,18 @@ import TermsOfServiceTribalBeta from "./components/tribalBeta/TermsOfService__tr
 import TipsAndSupportTribalBeta from "./components/tribalBeta/TipsAndSupport__tribalBeta";
 import ContactUsTribalBeta from "./components/tribalBeta/ContactUs__tribalBeta";
 import MyFilms from "./components/tribalBeta/MyFilms__tribalBeta";
-import Signin from './SignIn'
-import GetFilmList from "./components/GetFilmList"
+import Signin from "./SignIn";
+import GetFilmList from "./components/GetFilmList";
 
 // import SportsPage from "./ExplorePage/SportsPage";
 
 import { useTheme } from "@material-ui/core/styles";
 import { useMediaQuery } from "@material-ui/core";
 
-import { useContext } from 'react'
+import { useContext } from "react";
 import ListPage from "./components/NewData/ListPage/ListPage";
 import Setting from "./components/NewData/SettingPage/Setting";
-
+import PortfolioPage from "./PortfolioPage/PortfolioPage";
 
 class PrivateRoute extends React.Component {
   // PrivateRoutes require authentication to access
@@ -111,55 +111,75 @@ const NoMatch = ({ location }) => (
 
 PrivateRoute = withRouter(PrivateRoute);
 
-
-
 const Routes = () => {
   let signedUser = useContext(UserContext);
   // check if there is signed user
   let isThereSignedUser = signedUser.user ? true : false;
   const theme = useTheme();
-  const breakPointQuery = useMediaQuery(theme.breakpoints.down(768))
+  const breakPointQuery = useMediaQuery(theme.breakpoints.down(768));
   return (
     <Router>
       <div>
-         <NavigationBar /> 
-       
-       {/* <NewHeader /> */}
-       
+        <NavigationBar />
+
+        {/* <NewHeader /> */}
+
         <Switch>
-        <Route path="/ListPage">
-        <div class="video_listing_page_body">
-            <ListPage />
+          <Route path="/ListPage">
+            <div class="video_listing_page_body">
+              <ListPage />
             </div>
           </Route>
 
           <Route path="/Setting">
-        
-           <Setting />
-           
+            <Setting />
           </Route>
 
           <Route path="/getFilmList" exact component={GetFilmList} />
-          <Route path="/settings/myfilms" exact component={PrivacyPolicyTribalBeta}>
+          <Route
+            path="/settings/myfilms"
+            exact
+            component={PrivacyPolicyTribalBeta}
+          >
             <MyFilms />
           </Route>
-          <Route path="/settings/mobileapp" exact component={MobileAppTribalBeta}>
+          <Route
+            path="/settings/mobileapp"
+            exact
+            component={MobileAppTribalBeta}
+          >
             {/* <MobileApp__tribalBeta /> */}
             <FeatureComingSoon />
           </Route>
-          <Route path="/settings/privacypolicy" exact component={PrivacyPolicyTribalBeta}>
+          <Route
+            path="/settings/privacypolicy"
+            exact
+            component={PrivacyPolicyTribalBeta}
+          >
             <PrivacyPolicyTribalBeta />
           </Route>
           <Route path="/settings/support" exact component={SupportTribalBeta}>
             <SupportTribalBeta />
           </Route>
-          <Route path="/settings/termsofservice" exact component={TermsOfServiceTribalBeta}>
+          <Route
+            path="/settings/termsofservice"
+            exact
+            component={TermsOfServiceTribalBeta}
+          >
             <TermsOfServiceTribalBeta />
           </Route>
-          <Route path="/settings/tipsandsupport" exact component={TipsAndSupportTribalBeta}>
+          <Route
+            path="/settings/tipsandsupport"
+            exact
+            component={TipsAndSupportTribalBeta}
+          >
             <TipsAndSupportTribalBeta />
           </Route>
-          <Route path="/settings/contactus" exact component={ContactUsTribalBeta}>
+          <Route
+            path="/settings/contactus"
+            exact
+            component={ContactUsTribalBeta}
+          >
             <ContactUsTribalBeta />
           </Route>
           {/* Setting */}
@@ -175,66 +195,117 @@ const Routes = () => {
             <FeatureComingSoon />
           </Route>
           {/* Support */}
-          <Route path="/settings/support" >
+          <Route path="/settings/support">
             <FeatureComingSoon />
           </Route>
           {/* Terms of Service */}
-          <Route path="/settings/termsofservice" >
+          <Route path="/settings/termsofservice">
             <FeatureComingSoon />
           </Route>
           {/* Privacy Policy */}
-          <Route path="/settings/privacypolicy" >
+          <Route path="/settings/privacypolicy">
             <FeatureComingSoon />
           </Route>
           {/* Account */}
-          <Route path="/settings/account" >
+          <Route path="/settings/account">
             <FeatureComingSoon />
           </Route>
           {/* Notifications */}
-          <Route path="/settings/notifications" >
+          <Route path="/settings/notifications">
             <FeatureComingSoon />
           </Route>
           {/* Download Options */}
-          <Route path="/settings/downloadoptions" >
+          <Route path="/settings/downloadoptions">
             <FeatureComingSoon />
           </Route>
           {/* wifiandcellular */}
-          <Route path="/settings/wifiandcellular" >
-          </Route>
+          <Route path="/settings/wifiandcellular"></Route>
           {/* Explore */}
           <Route path="/explore" component={FeatureComingSoon} />
-
+          <Route path="/Portfolio">
+            <PortfolioPage />
+          </Route>
           {/* <Route path="/explore"><Explore /></Route> */}
           <Route path="/explore/sports" exact component={FeatureComingSoon} />
-          <Route path="/explore/talks"><FeatureComingSoon /></Route>
-          <Route path="/explore/drama"><FeatureComingSoon /></Route>
-          <Route path="/explore/romance"><FeatureComingSoon /></Route>
-          <Route path="/explore/horror"><FeatureComingSoon /></Route>
-          <Route path="/explore/family"><FeatureComingSoon /></Route>
-          <Route path="/explore/animation"><FeatureComingSoon /></Route>
-          <Route path="/explore/experimental"><FeatureComingSoon /></Route>
-          <Route path="/explore/thriller"><FeatureComingSoon /></Route>
-          <Route path="/explore/family"><FeatureComingSoon /></Route>
-          <Route path="/explore/scifi"><FeatureComingSoon /></Route>
-          <Route path="/explore/action"><FeatureComingSoon /></Route>
-          <Route path="/explore/comedy"><FeatureComingSoon /></Route>
-          <Route path="/explore/musical"><FeatureComingSoon /></Route>
-          <Route path="/explore/documentary"><FeatureComingSoon /></Route>
-          <Route path="/explore/watchrandom"><FeatureComingSoon /></Route>
+          <Route path="/explore/talks">
+            <FeatureComingSoon />
+          </Route>
+          <Route path="/explore/drama">
+            <FeatureComingSoon />
+          </Route>
+          <Route path="/explore/romance">
+            <FeatureComingSoon />
+          </Route>
+          <Route path="/explore/horror">
+            <FeatureComingSoon />
+          </Route>
+          <Route path="/explore/family">
+            <FeatureComingSoon />
+          </Route>
+          <Route path="/explore/animation">
+            <FeatureComingSoon />
+          </Route>
+          <Route path="/explore/experimental">
+            <FeatureComingSoon />
+          </Route>
+          <Route path="/explore/thriller">
+            <FeatureComingSoon />
+          </Route>
+          <Route path="/explore/family">
+            <FeatureComingSoon />
+          </Route>
+          <Route path="/explore/scifi">
+            <FeatureComingSoon />
+          </Route>
+          <Route path="/explore/action">
+            <FeatureComingSoon />
+          </Route>
+          <Route path="/explore/comedy">
+            <FeatureComingSoon />
+          </Route>
+          <Route path="/explore/musical">
+            <FeatureComingSoon />
+          </Route>
+          <Route path="/explore/documentary">
+            <FeatureComingSoon />
+          </Route>
+          <Route path="/explore/watchrandom">
+            <FeatureComingSoon />
+          </Route>
           <Route path="/auth" exact component={Authenticator} />
           <Route path="/" exact component={Home} />
           <Route path="/home" exact component={Home} />
-          <Route path="/landing/landing-home" exact component={FeatureComingSoon} />
+          <Route
+            path="/landing/landing-home"
+            exact
+            component={FeatureComingSoon}
+          />
           {/* Submit */}
-          <Route path="/submit" exact component={isThereSignedUser ? Submit : Authenticator} />
+          <Route
+            path="/submit"
+            exact
+            component={isThereSignedUser ? Submit : Authenticator}
+          />
           {/* search */}
           {/* if user is signed in then show component else direct him to auth component */}
-          <Route path="/search" exact component={isThereSignedUser ? FeatureComingSoon : Authenticator} />
+          <Route
+            path="/search"
+            exact
+            component={isThereSignedUser ? FeatureComingSoon : Authenticator}
+          />
 
           <Route path="/viewProfile" exact component={FeatureComingSoon} />
           <Route path="/myStudio" exact component={FeatureComingSoon} />
-          <Route path="/myStudio/myFolder" exact component={FeatureComingSoon} />
-          <Route path="/myStudio/toDoList" exact component={FeatureComingSoon} />
+          <Route
+            path="/myStudio/myFolder"
+            exact
+            component={FeatureComingSoon}
+          />
+          <Route
+            path="/myStudio/toDoList"
+            exact
+            component={FeatureComingSoon}
+          />
           <PrivateRoute path="/upload" exact component={FeatureComingSoon} />
           <PrivateRoute path="/streams" component={FeatureComingSoon} />
           <PrivateRoute path="/watch" component={Watch} />
@@ -255,14 +326,10 @@ const Routes = () => {
           <Route component={FeatureComingSoon} />
         </Switch>
         {/* <NewBottomNavBar /> */}
-        
-        {
-          breakPointQuery ? <BottomNavBar /> : null
-        }
 
+        {breakPointQuery ? <BottomNavBar /> : null}
       </div>
     </Router>
   );
-}
+};
 export default Routes;
-
