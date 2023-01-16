@@ -48,7 +48,7 @@ Through the [Specialist Portal](https://sites.google.com/view/specialistportal/s
 
 ![My Team](https://github.com/Tribalnetwork/Portfolio-Network/blob/0ae1c64eb1da3986bd96a12865088e3ea542ff48/My%20Team%20Infographic.png)
 
-![My Projects](https://github.com/TribaliiiGameDevelopment/CreationGame/blob/dfbcc40383da13f5235be6bdb9337d27b069f492/My%20Project%20Roadmap.png)
+![My Project](https://github.com/Tribalnetwork/Portfolio-Network/blob/d49fbc2db65b3b2b346f14a4d548ba5863454a34/My%20Project%20Roadmap.png)
 
 
 ### Contributors ✨
