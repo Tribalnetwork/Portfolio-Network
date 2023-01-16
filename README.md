@@ -44,11 +44,11 @@ Through the [Specialist Portal](https://sites.google.com/view/specialistportal/s
 
 
 
-![My Meetings](https://github.com/TribaliiiGameDevelopment/CreationGame/blob/332411e80d3af030df61c89f5550b48b9f72de4d/My%20Meetings%20Infographic.png)
+![My Meetings](https://github.com/Tribalnetwork/Portfolio-Network/blob/0ae1c64eb1da3986bd96a12865088e3ea542ff48/My%20Meetings%20Infographic.png)
 
-![My Meetings](https://github.com/TribaliiiGameDevelopment/CreationGame/blob/dfbcc40383da13f5235be6bdb9337d27b069f492/My%20Team%20Infographic.png)
+![My Team](https://github.com/Tribalnetwork/Portfolio-Network/blob/0ae1c64eb1da3986bd96a12865088e3ea542ff48/My%20Team%20Infographic.png)
 
-![My Meetings](https://github.com/TribaliiiGameDevelopment/CreationGame/blob/dfbcc40383da13f5235be6bdb9337d27b069f492/My%20Project%20Roadmap.png)
+![My Projects](https://github.com/TribaliiiGameDevelopment/CreationGame/blob/dfbcc40383da13f5235be6bdb9337d27b069f492/My%20Project%20Roadmap.png)
 
 
 ### Contributors ✨
