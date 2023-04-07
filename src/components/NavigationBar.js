@@ -73,12 +73,6 @@ export const NavigationBar = () => {
   const isAuthenticated = context.user && context.user.username ? true : false;
   const isLoaded = context.isLoaded;
 
-  // const [selectedIndex, setSelectedIndex] = React.useState(1);
-
-  // const handleListItemClick = (event, index) => {
-  //   setSelectedIndex(index);
-  // };
-
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -141,7 +135,6 @@ export const NavigationBar = () => {
                   <Link to="/Home" class=" header_active_nav">
                     <span>Films</span>
                   </Link>
-                  {/* <Link class=" header_active_nav"><span>Post</span></Link> */}
                   <Link to="/ListPage" class=" header_active_nav">
                     <span>Lists</span>
                   </Link>
@@ -254,34 +247,19 @@ export const NavigationBar = () => {
               onKeyDown={handleDrawerClose}
             >
               <List component="nav">
-                {/* 1: HOME */}
-                {/* <ListItem button component={Link} to={"/home"}> */}
-                {/* <img src={Home} alt="Home" /> */}
-                {/* <ListItemText primary={'Home'}></ListItemText>
-            </ListItem>  */}
-
-                {/* 3: Streams */}
                 <ListItem button component={Link} to={"/home"}>
-                  {/* <img src={Tribal} alt='Tribal' /> */}
                   <ListItemText primary={"Films"}></ListItemText>
                 </ListItem>
-                {/* 4: Social */}
-                {/* <ListItem button component={Link}> */}
-                {/* <img src={Social} alt='Social' /> */}
-                {/* <ListItemText primary={'Post'}> </ListItemText>
-            </ListItem> */}
+
                 {/* 5: Settings */}
                 <ListItem button component={Link} to={"/ListPage"}>
-                  {/* <img src={Settings} alt='Settings' /> */}
                   <ListItemText primary={"Lists"}> </ListItemText>
                 </ListItem>
                 {/* 6: Submit */}
                 <ListItem button component={Link} to={"/Portfolio"}>
-                  {/* <img src={Submit} alt='Submit' style={{ width: '38px', marginLeft: '19px', marginRight: '19px' }} /> */}
                   <ListItemText primary={"Portfolio"}></ListItemText>
                 </ListItem>
                 <ListItem button component={Link} to={"/Setting"}>
-                  {/* <img src={Submit} alt='Submit' style={{ width: '38px', marginLeft: '19px', marginRight: '19px' }} /> */}
                   <ListItemText primary={"Settings"}></ListItemText>
                 </ListItem>
               </List>

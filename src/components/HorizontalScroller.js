@@ -16,33 +16,30 @@ const MenuItem = (film) => {
 
   return (
     <>
-    <div>
-      <Grid item>
-        <Card style={styles.root}>
-          <Link to={`/watch?id=${film_id}`} style={styles.link}>
-            <CardActionArea>
-              <CardMedia
-                style={styles.media}
-                image={film_cover_art || "https://m.media-amazon.com/images/M/MV5BMTAyN2JmZmEtNjAyMy00NzYwLThmY2MtYWQ3OGNhNjExMmM4XkEyXkFqcGdeQXVyNDk3NzU2MTQ@._V1_UX182_CR0,0,182,268_AL_.jpg"}
-                title={film_title}
-              />
-              <CardContent>
-                <Typography gutterBottom variant="h5">
-                  {film_title}
-                </Typography>
-                {/* <Typography variant="body2" color="textSecondary" component="p">
-                                    {(film.duration > 3600) ?
-                                      new Date(film.duration * 1000).toISOString().substr(11, 8) :
-                                      new Date(film.duration * 1000).toISOString().substr(14, 5) }
-                                  </Typography> */}
-              </CardContent>
-            </CardActionArea>
-          </Link>
-        </Card>
-      </Grid>
-    </div>
-     
-      </>
+      <div>
+        <Grid item>
+          <Card style={styles.root}>
+            <Link to={`/watch?id=${film_id}`} style={styles.link}>
+              <CardActionArea>
+                <CardMedia
+                  style={styles.media}
+                  image={
+                    film_cover_art ||
+                    "https://m.media-amazon.com/images/M/MV5BMTAyN2JmZmEtNjAyMy00NzYwLThmY2MtYWQ3OGNhNjExMmM4XkEyXkFqcGdeQXVyNDk3NzU2MTQ@._V1_UX182_CR0,0,182,268_AL_.jpg"
+                  }
+                  title={film_title}
+                />
+                <CardContent>
+                  <Typography gutterBottom variant="h5">
+                    {film_title}
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+            </Link>
+          </Card>
+        </Grid>
+      </div>
+    </>
   );
 };
 

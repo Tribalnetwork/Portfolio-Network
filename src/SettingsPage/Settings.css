@@ -26,10 +26,8 @@
 }
 .pageTitle {
   display: flex;
-  /* justify-content: space-between; */
   align-items: center;
   color: white;
-  /* background-color: rgb(26, 22, 22); */
   background-color: rgba(17, 17, 18, 0.6);
   padding: 0px;
   line-height: 20px;
@@ -40,7 +38,6 @@
 .text {
   margin: 0 auto;
   text-align: center;
-  /* position: relative; */
   padding-right: 60px;
 }
 
@@ -58,12 +55,10 @@
 .rightIcon {
   color: darkgrey;
   background-color: #252323;
-  /* margin-right: 3px; */
 }
 
 .settings__Button {
   width: 100%;
-  /* padding: 8px 0px !important; */
   margin: 1.5px 0px !important;
   background-color: #222222 !important;
   color: white !important;
@@ -92,7 +87,6 @@
 .not-entry {
   border-bottom: 1px solid black;
   border-top: 1px solid black;
-  /* color: white; */
   font-size: 15px;
   overflow: hidden;
   white-space: nowrap;
@@ -114,5 +108,4 @@
   width: 100%;
   border-collapse: collapse;
   table-layout: fixed;
-  /* word-break: break-all; */
 }

@@ -8,36 +8,13 @@ import {
 } from "react-router-dom";
 import UserContext from "./UserContext";
 import { NavigationBar } from "./components/NavigationBar";
-// import NewHeader from "./components/NewData/NewHeader/NewHeader";
 import NewBottomNavBar from "./components/NewData/BottomNavBar/NewBottomNavBar";
 import Authenticator from "./Authenticator";
 import Watch from "./Watch";
-/*import { Upload } from './Upload';
-import Landing from './landing/landing-home.js'*/
 import Submit from "./landing/submit";
-/*import Live from './Live'
-import { Stream } from './TribalPage/Stream'
-import Profile from './SocialPage/Profile'
-import GetAccess from './GetAccess'
-import Pending from './Pending'
-import { MyLive } from './MyLive'*/
 import BottomNavBar from "./components/bottomNavBar";
-/*import SearchQueries from "./components/searchQueries"
-import ViewProfile from "./ViewProfile"
-import MyList from "./MyList"*/
 import MyStudio from "./MyStudio/MyStudio";
-/*import Settings, { Wifi, Support, TermsOfService, PrivacyPolicy, Account, Notifications, DownloadOptions, Logout } from "./SettingsPage/Settings";
-import Explore, { SportsPage, TalksPage, DramaPage, RomancePage, HorrorPage, FamilyPage, AnimationPage, ExperimentalPage, ThrillerPage, SciFiPage, ActionPage, ComedyPage, MusicalPage, DocumentaryPage, WatchRandom } from "./ExplorePage/Explore"
-import Gigs from "./Gigs/Gigs";
-import PostGig from "./Gigs/PostGig";
-import Gigdetail from "./Gigs/Gigdetail"
-import Events from "./Events/Events"
-import PostEvent from "./Events/PostEvent"
-import Eventdetail from "./Events/Eventdetail"
-import MyProfile from "./ProfilePage/Profile.js"*/
-// import Main from "./components/pages/home/Main"
 import Home from "./Home";
-//import ConnectList from "./SocialPage/ConnectList"
 import { FeatureComingSoon } from "./components/FeatureComingSoon";
 import { Settings__tribalBeta as SettingsTribalBeta } from "./components/tribalBeta/Settings__tribalBeta";
 import MobileAppTribalBeta from "./components/tribalBeta/MobileApp__tribalBeta";
@@ -50,8 +27,6 @@ import MyFilms from "./components/tribalBeta/MyFilms__tribalBeta";
 import Signin from "./SignIn";
 import GetFilmList from "./components/GetFilmList";
 
-// import SportsPage from "./ExplorePage/SportsPage";
-
 import { useTheme } from "@material-ui/core/styles";
 import { useMediaQuery } from "@material-ui/core";
 
@@ -61,7 +36,6 @@ import Setting from "./components/NewData/SettingPage/Setting";
 import PortfolioPage from "./PortfolioPage/PortfolioPage";
 
 class PrivateRoute extends React.Component {
-  // PrivateRoutes require authentication to access
   state = {
     loaded: false,
     isAuthenticated: false,
@@ -121,9 +95,6 @@ const Routes = () => {
     <Router>
       <div>
         <NavigationBar />
-
-        {/* <NewHeader /> */}
-
         <Switch>
           <Route path="/ListPage">
             <div class="video_listing_page_body">
@@ -148,7 +119,6 @@ const Routes = () => {
             exact
             component={MobileAppTribalBeta}
           >
-            {/* <MobileApp__tribalBeta /> */}
             <FeatureComingSoon />
           </Route>
           <Route
@@ -286,8 +256,6 @@ const Routes = () => {
             exact
             component={isThereSignedUser ? Submit : Authenticator}
           />
-          {/* search */}
-          {/* if user is signed in then show component else direct him to auth component */}
           <Route
             path="/search"
             exact
@@ -325,7 +293,6 @@ const Routes = () => {
           <PrivateRoute path="/eventdetail" component={FeatureComingSoon} />
           <Route component={FeatureComingSoon} />
         </Switch>
-        {/* <NewBottomNavBar /> */}
 
         {breakPointQuery ? <BottomNavBar /> : null}
       </div>

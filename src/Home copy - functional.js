@@ -90,9 +90,6 @@ export const Home = () => {
                   width="100%"
                   height="100%"
                 />
-                {/*<div className="video-name-wrapper">
-                    <p className="video-name videoName__tribalBetaHome">{this.state.videoName}</p>
-                  </div>*/}
               </div>
               <div className="video-name-wrapper">
                 <p className="video-name title__tribalBetaHome">{this.state.videoName}</p>
@@ -100,9 +97,6 @@ export const Home = () => {
               <div className="functionbar-wrapper">
                 <Grid container justify="space-between" alignItems="center">
                   <Grid item>
-                    {/*<Link to={'/explore'}><ExploreLogo></ExploreLogo></Link>*/}
-                    {/*<StarRating></StarRating>*/}
-                    {/*<Link to={'/sub'} style={styles.buttonLink}>*/}
                     <RatingButton className="RateAndSubmit__tribalBeta" />
 
                     {/*</Link>*/}

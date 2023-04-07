@@ -1,21 +1,16 @@
-
-body{
+body {
   font-family: "Roboto";
-  color:white;
- 
+  color: white;
 }
 h3 {
   text-align: center;
-  text-emphasis-style: bold ;
+  text-emphasis-style: bold;
   color: white;
 }
-p{
-  margin-left:1em;
-  margin-right:1em;
+p {
+  margin-left: 1em;
+  margin-right: 1em;
 }
-/*div.settingBody__tribalBeta {
-  
-}*/
 
 div.setting__tribalBeta {
   display: flex;
@@ -88,10 +83,9 @@ a.button__link {
   justify-content: space-between;
   width: 100%;
   height: 100%;
-  /* background-color: rgba(30, 30, 30, 0.75) !important */
 }
 
-a.button__link button.settingsButton__tribalBeta{
+a.button__link button.settingsButton__tribalBeta {
   padding: 0px;
   background-color: transparent !important;
 }
@@ -101,14 +95,8 @@ a.button__link button.settingsButton__tribalBeta{
   font-size: 17px;
   line-height: 22px;
   letter-spacing: 0.364px;
-  /* background-color: rgba(30, 30, 30, 0.75) !important */
   background-color: transparent;
-
 }
-
-/*.settingsRightIcon__tribalBeta {
-  /* margin-right: 1rem; 
-}*/
 
 h3.headertext {
   padding: 0px;
@@ -119,8 +107,9 @@ h3.headertext {
   background-color: #2c2c2e;
 }
 
-p.termsBody, p.policyBody {
-  font-family: 'Roboto';
+p.termsBody,
+p.policyBody {
+  font-family: "Roboto";
   font-weight: 400;
   font-size: 17px;
   line-height: 22px;
@@ -129,23 +118,21 @@ p.termsBody, p.policyBody {
   padding: 43px;
   background-color: #2c2c2e;
   color: white;
-  margin: 0px
+  margin: 0px;
 }
 
-/* contact us / tips and support */
-div.settings h3.contact-us-heading{
+div.settings h3.contact-us-heading {
   text-align: left;
   padding-left: 43px;
   padding-right: 43px;
   margin-bottom: 0px;
 }
 
-div.settings p.contact-us-para{
-
+div.settings p.contact-us-para {
   padding-left: 43px;
   padding-right: 43px;
   margin-top: 5px;
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-weight: 400;
   font-size: 17px;
   line-height: 22px;
@@ -153,26 +140,26 @@ div.settings p.contact-us-para{
   text-align: left;
 }
 
-div.settings h3.tips-and-support-heading{
+div.settings h3.tips-and-support-heading {
   text-align: left;
   padding-left: 43px;
   padding-right: 43px;
   margin-bottom: 0px;
 }
-div.settings h4.tips-and-support-subheading{
+div.settings h4.tips-and-support-subheading {
   text-align: left;
   padding-left: 43px;
   padding-right: 43px;
 }
 
-div.settings p.tips-and-support-para{
+div.settings p.tips-and-support-para {
   padding-left: 43px;
   padding-right: 43px;
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-weight: 400;
   font-size: 17px;
   line-height: 22px;
   letter-spacing: 0.36px;
   text-align: left;
-  margin: 0px
+  margin: 0px;
 }

@@ -7,14 +7,6 @@ import BlurOverlay from "../images/BlurOverlay.png";
 const NewHeader = () => {
   return (
     <>
-      {/* <div class="web_view_search_bar_main">
-    <div class="web_view_search_bar">
-  <form>
-    <div class="web_view_search_bar_field"><input type="search" placeholder="Search here " /></div>
-  </form>
-
-</div>
-</div> */}
       <section class="page-title-section">
         <img src={BlurOverlay} />
         <div class="page-title">

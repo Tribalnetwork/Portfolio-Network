@@ -14,7 +14,6 @@
   color: #ffffff;
   font-size: 18px;
   height: 32px;
-  /* width: 100vw; */
   padding-left: 13px;
   padding-bottom: 10px;
   line-height: 22px;
@@ -93,7 +92,6 @@
   justify-content: space-evenly;
 }
 
-
 .submit__tribalBetaHome {
   font-size: 17px;
   padding: auto 1rem;
@@ -106,10 +104,7 @@ svg.popup-arrow {
 
 div.film-lists div.filter-buttons {
   display: flex;
-  /* padding-left: 7.3rem;
-  position: absolute; */
   justify-content: center;
-  
 }
 div.film-lists div.filter-buttons button {
   display: flex;
@@ -124,14 +119,14 @@ div.film-lists div.filter-buttons button {
   margin-right: 0.5rem;
 }
 
-.active-filtered-button{
+.active-filtered-button {
   background: linear-gradient(180deg, #797979 0%, rgba(77, 77, 77, 0) 100%);
 }
-div.video-name-wrapper{
+div.video-name-wrapper {
   position: relative;
 }
-div.video-name-wrapper::before{
-  content: '';
+div.video-name-wrapper::before {
+  content: "";
   display: block;
   height: 282px;
   width: 100%;
@@ -141,7 +136,7 @@ div.video-name-wrapper::before{
   left: 0px;
   z-index: -100;
 }
-p.video-name{
+p.video-name {
   margin: 0px;
   font-size: 21px;
   font-weight: 700;
@@ -150,11 +145,11 @@ p.video-name{
   background-color: black;
 }
 
-.react-player{
+.react-player {
   z-index: 9;
 }
 
-.player-wrapper video{
+.player-wrapper video {
   outline: none;
   border: 0;
 }
@@ -187,40 +182,10 @@ p.video-name{
 }
 
 @media (min-width: 992px) {
-  .player-wrapper{
+  .player-wrapper {
     position: relative;
     padding: 0;
-    background-color: #15161B;
+    background-color: #15161b;
     height: 65vh;
   }
-
-  /* SHOWS THE CONTROLS??? */
-  /* .player-wrapper {
-    background-color: #15161B;
-    position: relative;
-    padding-top: 56.25%;
-      width: 100vw;
-      height: 75vh;
-      left: 50%;
-      transform: translateX(-50%);
-      overflow: hidden;
-  } */
-/* 
-    .player-wrapper {
-    background-color: #15161B;
-    position: relative;
-    padding-top: 56.25%;
-      width: 100vw;
-      height: 75vh;
-      left: 50%;
-      transform: translateX(-50%);
-      overflow: hidden;
-  }
-
-  .react-player{
-    height:967px;
-    width: 544px;
-  } */
-
-
 }

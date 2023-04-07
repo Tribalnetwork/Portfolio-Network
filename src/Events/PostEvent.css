@@ -1,133 +1,124 @@
 .body {
-    background-color: white;
+  background-color: white;
 }
-  
+
 .PostanEvent {
-    display: flex;
-    flex-direction: column;
-    align-content: space-between;
-    background-color: white;
-    overflow-y: scroll;
-    color: white;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  background-color: white;
+  overflow-y: scroll;
+  color: white;
+  text-align: center;
 }
-.hidden_class{
-    display: none;
+.hidden_class {
+  display: none;
 }
-.active_class{
-    display: block;
-    width:100%;
-    background:black;
-    color:white;
+.active_class {
+  display: block;
+  width: 100%;
+  background: black;
+  color: white;
 }
-.submit{
-    margin-top:20px
+.submit {
+  margin-top: 20px;
 }
-.item-wrapper{
-    display: flex;
+.item-wrapper {
+  display: flex;
 }
-.event-pic-div{
-    width:100%;
-    height:213px;
-    border:1px solid black
+.event-pic-div {
+  width: 100%;
+  height: 213px;
+  border: 1px solid black;
 }
-.event-pic{
-    width:100%;
-    height:213px;
-    object-fit: cover;
+.event-pic {
+  width: 100%;
+  height: 213px;
+  object-fit: cover;
 }
 
 .Button {
-    color: white;
+  color: white;
 }
 
 .backbutton {
-    left: 0;
+  left: 0;
 }
 
 .backIcon {
-    color: white;
+  color: white;
 }
 .forwardbutton {
-    margin-left: auto;
-    margin-right: auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .forwardIcon {
-    color: white;
+  color: white;
 }
-.input-button{
-    
+.input-button {
 }
 .pageTitle {
-    display: flex;
-    /* justify-content: space-between; */
-    align-items: center;
-    color: white;
-    /* background-color: rgb(26, 22, 22); */
-    background-color: rgba(17,17,18,.6);
-    padding: 0px;
-    line-height: 20px;
-    margin-bottom: 3px;
-    margin-left: 3px;
+  display: flex;
+  align-items: center;
+  color: white;
+  background-color: rgba(17, 17, 18, 0.6);
+  padding: 0px;
+  line-height: 20px;
+  margin-bottom: 3px;
+  margin-left: 3px;
 }
 
 .text {
-    margin: 0 auto;
-    text-align: center;
-    /* position: relative; */
-    padding-right: 60px;
+  margin: 0 auto;
+  text-align: center;
+  padding-right: 60px;
 }
-h2.text{
-    color:white;
-    font-size:20px;
-    letter-spacing:0;
+h2.text {
+  color: white;
+  font-size: 20px;
+  letter-spacing: 0;
 }
 
 .button__withArrow {
-    padding: 1px 0px;
-    margin: 3px;
-    background-color: #252323;
+  padding: 1px 0px;
+  margin: 3px;
+  background-color: #252323;
 }
 
-.button__link{
-    display: flex;
-    align-items: center;
+.button__link {
+  display: flex;
+  align-items: center;
 }
 
 .rightIcon {
-    color: darkgrey;
-    background-color: #252323;
-    /* margin-right: 3px; */
+  color: darkgrey;
+  background-color: #252323;
 }
 
-  
 .settings__Button {
-    width: 100%;
-    /* padding: 8px 0px !important; */
-    margin: 1.5px 0px !important;
-    background-color: #222222 !important;
-    color: white !important;
-    font-size: 15px !important;
-    border: none;
-    text-transform: none !important;
-    text-align: center;
+  width: 100%;
+  margin: 1.5px 0px !important;
+  background-color: #222222 !important;
+  color: white !important;
+  font-size: 15px !important;
+  border: none;
+  text-transform: none !important;
+  text-align: center;
 }
 
 .headertext {
-    margin: 0 auto;
-    text-align: center;
-    color: white;
-    padding-right: 20px;
+  margin: 0 auto;
+  text-align: center;
+  color: white;
+  padding-right: 20px;
 }
 
 .termsBody {
-    display: inline-block;
-    margin-bottom: 60px;
-    margin-left: 10px;
-    margin-right: 10px;
-    text-align: left;
-    color: white;
-    
+  display: inline-block;
+  margin-bottom: 60px;
+  margin-left: 10px;
+  margin-right: 10px;
+  text-align: left;
+  color: white;
 }
-

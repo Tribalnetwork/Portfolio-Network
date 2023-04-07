@@ -1,577 +1,549 @@
 .progressbar-container {
-	width: 450px;
-	height: 120px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-	border: 1px solid gold;
-	border-radius: 8px;
+  width: 450px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border: 1px solid gold;
+  border-radius: 8px;
 }
 
 .progressbar-container > * {
-	width: 400px;
-	text-align: center;
-	margin: 4px;
+  width: 400px;
+  text-align: center;
+  margin: 4px;
 }
 
 .submitcontainer * {
-	text-shadow: 1px 1px 1px #000000;
+  text-shadow: 1px 1px 1px #000000;
 }
 
 .submitcontainer {
-	width: 100%;
-	display: flex;
-	align-self: center;
-	background-color: transparent !important;
-	margin: 0 auto;
-	height: 90vh;
-	overflow: hidden;
-	position: relative;
-	box-sizing: border-box;
-	font-family: "Roboto";
+  width: 100%;
+  display: flex;
+  align-self: center;
+  background-color: transparent !important;
+  margin: 0 auto;
+  height: 90vh;
+  overflow: hidden;
+  position: relative;
+  box-sizing: border-box;
+  font-family: "Roboto";
 }
 
 video {
-	min-width: 100%;
-	min-height: 100%;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translateX(-50%) translateY(-50%);
-	z-index: -1;
-	opacity: 0.60;
+  min-width: 100%;
+  min-height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  z-index: -1;
+  opacity: 0.6;
 }
 
 .overlayercontainer {
-	width: 100vw;
-	height: 100%;
-	z-index: 4;
-	background-color: transparent;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
+  width: 100vw;
+  height: 100%;
+  z-index: 4;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .backVideo {
-	object-fit: cover;
+  object-fit: cover;
 }
 
 .infobutton {
-	padding: 10px;
-	background-color: transparent;
-	border-bottom: 1px solid #d4af37;
-	border-top: none;
-	border-left: none;
-	border-right: none;
-	color: white;
-	font-size: 20px;
-	outline: none;
-	z-index: 5;
-	cursor: pointer;
+  padding: 10px;
+  background-color: transparent;
+  border-bottom: 1px solid #d4af37;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  color: white;
+  font-size: 20px;
+  outline: none;
+  z-index: 5;
+  cursor: pointer;
 }
 
 .listcontainer2 {
-	justify-content: center;
-	align-items: center;
-	position: absolute;
-	top: 10px;
-	left: 10px;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 10px;
+  left: 10px;
 }
 
 .listcontainer1 {
-	justify-content: center;
-	align-items: center;
-	position: absolute;
-	top: 10px;
-	left: 10px;
-	padding: 10px;
-	box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048),
-		0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
-		0 100px 80px rgba(0, 0, 0, 0.12);
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 10px;
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
 }
 
 .bullets {
-	width: 100%;
+  width: 100%;
 }
 .Benefitlist {
-	align-self: center;
+  align-self: center;
 }
 .Benefitlist ul {
-	list-style-type: none;
-	text-align: center;
+  list-style-type: none;
+  text-align: center;
 }
 
 .Benefitlist ul li {
-	color: white;
-	font-family: Roboto;
-	font-size: 18px;
+  color: white;
+  font-family: Roboto;
+  font-size: 18px;
 }
 
 .InfoSection {
-	width: 100%;
-	height: 100%;
-	margin: 0 auto;
-	justify-content: center;
-	align-items: center;
-	display: flex;
-	flex-direction: column;
-	margin-top: 5rem;
-	margin-bottom: 100px;
-	background-color: transparent;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: 5rem;
+  margin-bottom: 100px;
+  background-color: transparent;
 }
 
 .termcontainer,
 .inputcontainer,
 .uploadcontainer,
 .genre {
-	position: relative;
-	right: -100px;
-	/* transform: translateX(50%); */
-	-webkit-animation: slide-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-	animation: slide-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  position: relative;
+  right: -100px;
+  -webkit-animation: slide-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: slide-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
 .inputcontainer {
-	width: 400px;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	justify-items: center;
-	padding: 10px;
-	background-color: transparent;
-	border-radius: 15px;
-	margin-top: 40px;
-	margin-bottom: 2px;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
+  padding: 10px;
+  background-color: transparent;
+  border-radius: 15px;
+  margin-top: 40px;
+  margin-bottom: 2px;
 }
 .inputcontainer input {
-	width: 70%;
-	padding: 10px;
-	margin: 0 auto;
-	color: white;
-	background-color: transparent;
-	border: 1px solid #d4af37;
-	border-radius: 10px;
-	text-align: center;
-	cursor: none;
+  width: 70%;
+  padding: 10px;
+  margin: 0 auto;
+  color: white;
+  background-color: transparent;
+  border: 1px solid #d4af37;
+  border-radius: 10px;
+  text-align: center;
+  cursor: none;
 }
 
 .inputcontainer input::placeholder {
-	font-size: 14px;
-	font-weight: lighter;
-	color: white;
+  font-size: 14px;
+  font-weight: lighter;
+  color: white;
 }
 
 .inputcontainer input:focus {
-	outline: none;
+  outline: none;
 }
 
 .inputcontainer label {
-	color: white;
-	margin-bottom: 6px;
-	font-size: 19px;
+  color: white;
+  margin-bottom: 6px;
+  font-size: 19px;
 }
 
 .inputcontainer ::placeholder {
-	color: white;
-	font-family: Roboto;
+  color: white;
+  font-family: Roboto;
 }
 
 .termcontainer {
-	width: 400px;
-	/* height: 300px; */
-	padding: 15px;
-	/* overflow-y: scroll; */
-	box-sizing: border-box;
-	-ms-overflow-style: none;
-	/* scrollbar-width: none; */
-	/* background-color: transparent; */
-	/* margin-top: 10%; */
-	background-color: rgba(0, 0, 0, 0.2);
+  width: 400px;
+  padding: 15px;
+  box-sizing: border-box;
+  -ms-overflow-style: none;
+  background-color: rgba(0, 0, 0, 0.2);
 
-	border-radius: 0.24rem;
+  border-radius: 0.24rem;
 }
 
 .termcontainer::-webkit-scrollbar {
-	display: none;
+  display: none;
 }
 
 .termcontainer p,
 .termcontainer a {
-	/* text-align: center; */
-	color: rgb(220, 220, 220);
-	font-family: "Roboto";
+  color: rgb(220, 220, 220);
+  font-family: "Roboto";
 }
 
 .termcontainer p div {
-	margin-top: 1rem;
-	text-align: center;
+  margin-top: 1rem;
+  text-align: center;
 }
 
 .uploadcontainer {
-	width: 400px;
-	display: flex;
-	flex-direction: column;
-	margin-top: 40px;
-	background-color: transparent;
-	border-radius: 15px;
-	padding: 10px;
-	/* adding animation to input fields */
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+  background-color: transparent;
+  border-radius: 15px;
+  padding: 10px;
+  /* adding animation to input fields */
 }
 
 @-webkit-keyframes slide-left {
-	0% {
-		-webkit-transform: translateX(0);
-		transform: translateX(0);
-	}
-	100% {
-		-webkit-transform: translateX(-100px);
-		transform: translateX(-100px);
-	}
+  0% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(-100px);
+    transform: translateX(-100px);
+  }
 }
 @keyframes slide-left {
-	0% {
-		-webkit-transform: translateX(0);
-		transform: translateX(0);
-	}
-	100% {
-		-webkit-transform: translateX(-100px);
-		transform: translateX(-100px);
-	}
+  0% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(-100px);
+    transform: translateX(-100px);
+  }
 }
 
 /* Synopsis */
 div.uploadcontainer div.agreement {
-	display: flex;
-	column-gap: 0.5rem;
-	margin-top: 1rem;
-	padding: 0.85rem 0.6rem;
-	background-color: rgba(0, 0, 0, 0.55);
-	color: rgb(220, 220, 220);
-	border-radius: 0.24rem;
+  display: flex;
+  column-gap: 0.5rem;
+  margin-top: 1rem;
+  padding: 0.85rem 0.6rem;
+  background-color: rgba(0, 0, 0, 0.55);
+  color: rgb(220, 220, 220);
+  border-radius: 0.24rem;
 }
 div.uploadcontainer div.agreement input[type="checkbox"] {
-	margin-top: 0.2rem;
+  margin-top: 0.2rem;
 }
 /* Agreement Box */
 div.uploadcontainer div.agreement p {
-	margin: 0px;
-	padding: 0px;
-	font-family: "Roboto";
+  margin: 0px;
+  padding: 0px;
+  font-family: "Roboto";
 }
 .uploadcontainer label {
-	color: white;
-	margin-bottom: 10px;
-	font-size: 19px;
+  color: white;
+  margin-bottom: 10px;
+  font-size: 19px;
 }
 
 .uploadcontainer input {
-	font-family: "Roboto";
-	text-align: center;
-	color: white;
-	background-color: transparent;
-	border: 1px solid #d4af37;
-	border-radius: 10px;
-	margin: 0 auto;
-	font-size: 16px;
-	padding: 3px;
+  font-family: "Roboto";
+  text-align: center;
+  color: white;
+  background-color: transparent;
+  border: 1px solid #d4af37;
+  border-radius: 10px;
+  margin: 0 auto;
+  font-size: 16px;
+  padding: 3px;
 }
 
 .uploadcontainer input::placeholder {
-	color: white;
-	font-size: 14px;
-	text-align: center;
+  color: white;
+  font-size: 14px;
+  text-align: center;
 }
 
 .uploadcontainer input:focus {
-	outline: none;
+  outline: none;
 }
 
 .uploadcontainer textarea {
-	font-family: "Roboto";
-	color: white;
-	background-color: transparent;
-	border: 1px solid #d4af37;
-	outline: none;
-	font-size: 16px;
-	width: 100%;
-	height: 200px;
-	padding: 10px;
+  font-family: "Roboto";
+  color: white;
+  background-color: transparent;
+  border: 1px solid #d4af37;
+  outline: none;
+  font-size: 16px;
+  width: 100%;
+  height: 200px;
+  padding: 10px;
 }
 
 .uploadcontainer textarea::placeholder {
-	color: white;
-	font-size: 14px;
+  color: white;
+  font-size: 14px;
 }
 
 .genre {
-	/* width: 60%; */
-	width: 400px;
-	padding: 10px;
+  width: 400px;
+  padding: 10px;
 }
 
 .lastinput {
-	width: 40%;
-	margin: 0 auto;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+  width: 40%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .lastinput button {
-	width: 120px;
-	padding: 5px 10px;
-	/*
-	background-color: #d4af37;
-	*/
-	background: linear-gradient(180deg, #CAAA65 8.3%, #A07923 91.19%);
-	border-radius: 15px;
-	border: 1px solid #d4af37;
-	outline: none;
-	margin-right: 4px;
-	margin-left: 4px;
-	color: white;
-	font-family: "Roboto";
-	margin-top: 15px;
+  width: 120px;
+  padding: 5px 10px;
+  background: linear-gradient(180deg, #caaa65 8.3%, #a07923 91.19%);
+  border-radius: 15px;
+  border: 1px solid #d4af37;
+  outline: none;
+  margin-right: 4px;
+  margin-left: 4px;
+  color: white;
+  font-family: "Roboto";
+  margin-top: 15px;
 }
 .lastinput button:active {
-	background-color: goldenrod;
+  background-color: goldenrod;
 }
-.thanks{
-	
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-
+.thanks {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .thanks p {
-	width: 600px;
-	color: white;
-	font-size: 18px;
-	font-family: "roboto";
+  width: 600px;
+  color: white;
+  font-size: 18px;
+  font-family: "roboto";
 }
 .thanks div.submitAnotherFilmButton {
-	/*
-	background-color: goldenrod;
-	*/
-	background: linear-gradient(180deg, #CAAA65 8.3%, #A07923 91.19%);
-	padding: 0.6rem 0.8rem;
-	border-radius: 0.5rem;
+  background: linear-gradient(180deg, #caaa65 8.3%, #a07923 91.19%);
+  padding: 0.6rem 0.8rem;
+  border-radius: 0.5rem;
 }
 
 .computerscreenrequire {
-	display: none;
-	margin-bottom: 10px;
-	font-size: 1.5rem;
-	text-align: center;
-	color: white;
+  display: none;
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+  text-align: center;
+  color: white;
 }
 
 .RequiredFields {
-	padding: 2px;
+  padding: 2px;
 }
 .RequiredFields p {
-	color: white;
+  color: white;
 }
 
 .check-container {
-	display: block;
-	position: relative;
-	padding-left: 35px;
-	padding: 5px;
-	margin-top: 12px;
-	margin-bottom: 12px;
-	cursor: pointer;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  padding: 5px;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .label-text {
-	font-size: 16px;
+  font-size: 16px;
 }
 
 .check-container input {
-	position: absolute;
-	opacity: 0;
-	cursor: pointer;
-	height: 0;
-	width: 0;
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
 }
 
 .checkmark {
-	position: absolute;
-	top: 9px;
-	left: 9px;
-	height: 16px;
-	width: 16px;
-	background-color: #d4af37;
+  position: absolute;
+  top: 9px;
+  left: 9px;
+  height: 16px;
+  width: 16px;
+  background-color: #d4af37;
 }
 
 .check-container:hover input ~ .checkmark {
-	background-color: rgb(250, 243, 243);
+  background-color: rgb(250, 243, 243);
 }
 
 .check-container input:checked ~ .checkmark {
-	background-color: #705b15;
+  background-color: #705b15;
 }
 
 .checkmark:after {
-	content: "";
-	position: absolute;
-	display: none;
+  content: "";
+  position: absolute;
+  display: none;
 }
 
 .check-container input:checked ~ .checkmark:after {
-	display: block;
+  display: block;
 }
 
 .check-container .checkmark:after {
-	left: 4px;
-	top: 0;
-	width: 5px;
-	height: 10px;
-	border: solid white;
-	border-width: 0 2px 2px 0;
-	-webkit-transform: rotate(45deg);
-	-ms-transform: rotate(45deg);
-	transform: rotate(45deg);
+  left: 4px;
+  top: 0;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 
 input[type="file"]::-webkit-file-upload-button {
-	border: 1px solid #d4af37;
-	padding: 0.2em 0.4em;
-	border-radius: 0.2em;
-	background-color: #d4af37;
-	transition: 1s;
-	cursor: pointer;
+  border: 1px solid #d4af37;
+  padding: 0.2em 0.4em;
+  border-radius: 0.2em;
+  background-color: #d4af37;
+  transition: 1s;
+  cursor: pointer;
 }
 
 input[type="file"]::file-selector-button {
-	border: 2px solid #d4af37;
-	padding: 0.2em 0.4em;
-	border-radius: 0.2em;
-	background-color: #d4af37;
-	transition: 1s;
-	cursor: pointer;
+  border: 2px solid #d4af37;
+  padding: 0.2em 0.4em;
+  border-radius: 0.2em;
+  background-color: #d4af37;
+  transition: 1s;
+  cursor: pointer;
 }
 
 input[type="file"]::-webkit-file-upload-button:hover {
-	background-color: #c29f2c;
-	border: 2px solid #a8881d;
+  background-color: #c29f2c;
+  border: 2px solid #a8881d;
 }
 
 input[type="file"]::file-selector-button:hover {
-	background-color: #d4af37;
-	border: 2px solid #d4af37;
+  background-color: #d4af37;
+  border: 2px solid #d4af37;
 }
 
 input[type="file"]::-webkit-file-upload-button:focus {
-	outline: none;
+  outline: none;
 }
 
 input[type="file"]::file-selector-button:focus {
-	outline: none;
+  outline: none;
 }
 
 .backgroundVideoVolumeControlButtons {
-	display: none;
+  display: none;
 }
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
-	.videosubmit,
-	.backVideo,
-	.lastinput,
-	.inputcontainer,
-	.uploadcontainer,
-	.termcontainer,
-	.thanks {
-		display: none;
-	}
+  .videosubmit,
+  .backVideo,
+  .lastinput,
+  .inputcontainer,
+  .uploadcontainer,
+  .termcontainer,
+  .thanks {
+    display: none;
+  }
 
-	.Benefitlist ul li {
-		font-size: 1rem;
-	}
+  .Benefitlist ul li {
+    font-size: 1rem;
+  }
 
-	.computerscreenrequire {
-		display: block;
-		/* font-size: 3rem; */
-	}
+  .computerscreenrequire {
+    display: block;
+  }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
-	.videosubmit,
-	.backVideo,
-	.lastinput,
-	.inputcontainer,
-	.uploadcontainer,
-	.termcontainer,
-	.thanks {
-		display: none;
-	}
+  .videosubmit,
+  .backVideo,
+  .lastinput,
+  .inputcontainer,
+  .uploadcontainer,
+  .termcontainer,
+  .thanks {
+    display: none;
+  }
 
-	.Benefitlist ul li {
-		/* font-size: 4vw; */
-	}
-
-	.computerscreenrequire {
-		display: block;
-		/* font-size: 3.5vw; */
-	}
+  .computerscreenrequire {
+    display: block;
+  }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
-	.videosubmit,
-	.backVideo,
-	.lastinput,
-	.inputcontainer,
-	.uploadcontainer,
-	.termcontainer .thanks {
-		display: none;
-	}
+  .videosubmit,
+  .backVideo,
+  .lastinput,
+  .inputcontainer,
+  .uploadcontainer,
+  .termcontainer .thanks {
+    display: none;
+  }
 
-	.computerscreenrequire {
-		display: block;
-		/* font-size: 3.5vw; */
-	}
+  .computerscreenrequire {
+    display: block;
+  }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 1024px) {
-	.videosubmit,
-	.backVideo,
-	.lastinput,
-	.inputcontainer,
-	.uploadcontainer,
-	.termcontainer,
-	.thanks {
-		display: inherit;
-	}
+  .videosubmit,
+  .backVideo,
+  .lastinput,
+  .inputcontainer,
+  .uploadcontainer,
+  .termcontainer,
+  .thanks {
+    display: inherit;
+  }
 
-	/* .infobutton {
-		width: 25vw;
-		font-size: 18px;
-		height: 8vh;
-	} */
+  .Benefitlist ul li {
+    font-size: 18px;
+  }
 
-	.Benefitlist ul li {
-		font-size: 18px;
-	}
+  .computerscreenrequire {
+    display: none;
+  }
 
-	.computerscreenrequire {
-		display: none;
-	}
-
-	.backgroundVideoVolumeControlButtons {
-		display: inline-block;
-		position: absolute;
-		top: 1.75rem;
-		right: 2rem;
-	}
+  .backgroundVideoVolumeControlButtons {
+    display: inline-block;
+    position: absolute;
+    top: 1.75rem;
+    right: 2rem;
+  }
 }

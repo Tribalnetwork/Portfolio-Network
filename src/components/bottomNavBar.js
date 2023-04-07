@@ -7,7 +7,6 @@ import Social from "../bottomNavBarImg/social.jpg";
 import Search from "../bottomNavBarImg/search.jpg";
 import "./bottomNavBar.css";
 export default class BottomNavBar extends React.Component {
-
   divStyle = {
     display: "grid",
     gridTemplateRow: "1fr",
@@ -44,7 +43,7 @@ export default class BottomNavBar extends React.Component {
     maxMarginBottom: "1vh",
     minMarginBottom: "0",
     width: "100%",
-    padding:"0"
+    padding: "0",
   };
 
   imgStyle = {
@@ -55,39 +54,6 @@ export default class BottomNavBar extends React.Component {
   };
 
   render() {
-    return (<>
-      {/* <div className="outside-div">
-        <div style={this.divStyle} className={"navbardiv"}>
-          <ul style={this.ulStyle}>
-            <li style={this.liStyle}>
-              <Link to={"/home"}>
-                <img style={this.imgStyle} src={Home} alt=''/>
-              </Link>
-            </li>
-            <li style={this.liStyle}>
-              <Link to={"/search"}>
-                <img style={this.imgStyle} src={Search} alt=''/>
-              </Link>
-            </li>
-            <li style={this.liStyle}>
-              <Link to={"/streams"}>
-                <img style={this.imgStyle} src={Tribal} alt=''/>
-              </Link>
-            </li>
-            <li style={this.liStyle}>
-              <Link to={"/profile"}>
-                <img style={this.imgStyle} src={Social} alt=''/>
-              </Link>
-            </li>
-            <li style={this.liStyle}>
-              <Link to={"/settings"}>
-                <img style={this.imgStyle} src={Settings} alt=''/>
-              </Link>
-            </li>
-          </ul>
-        </div>
-      </div> */}
-      </>
-    );
+    return <></>;
   }
 }

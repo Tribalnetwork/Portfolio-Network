@@ -205,11 +205,8 @@ function TermsOfService() {
         </IconButton>
         <h2 className="text">Terms of Service</h2>
       </div>
-
-      {/* <h3 className="headertext">TERMS AND CONDITIONS</h3><br></br> */}
       <h3 className="headertext">www.Tribalnetwork.org </h3>
       <br></br>
-      {/* <h3 className="headertext">Effective date: __October 2020</h3><br></br> */}
 
       <p className="termsBody">
         The Tribal Network Mobile Application (“App”) available on Apple App
@@ -1371,110 +1368,173 @@ export { Account };
 // }
 
 function Notifications() {
-  function generatenotify(_from, _subject, _body, _time,_read=false){
-    return {from:_from, subject:_subject, body:_body, time:_time, read:_read}
+  function generatenotify(_from, _subject, _body, _time, _read = false) {
+    return {
+      from: _from,
+      subject: _subject,
+      body: _body,
+      time: _time,
+      read: _read,
+    };
   }
-  let testdata=[
-    generatenotify("From1", "Subject1", "Body1",  new Date(2020, 11, 9, 2, 3, 4))
-    ,generatenotify("From6", "Subject6 LOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO OIJDASOI DJASDIAJ OISADJOAIS DJ", "Body6",  new Date(2020, 16, 9, 2, 3, 4))
-    ,generatenotify("From2", "Subject2", "Body2",  new Date(2020, 12, 9, 2, 3, 4), true)
-    ,generatenotify("From4", "Subject4", "Body4",  new Date(2020, 14, 9, 2, 3, 4))
-    ,generatenotify("From5", "Subject5", "Body5",  new Date(2020, 15, 9, 2, 3, 4), true)
-
-
-  ]
+  let testdata = [
+    generatenotify(
+      "From1",
+      "Subject1",
+      "Body1",
+      new Date(2020, 11, 9, 2, 3, 4)
+    ),
+    generatenotify(
+      "From6",
+      "Subject6 LOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO OIJDASOI DJASDIAJ OISADJOAIS DJ",
+      "Body6",
+      new Date(2020, 16, 9, 2, 3, 4)
+    ),
+    generatenotify(
+      "From2",
+      "Subject2",
+      "Body2",
+      new Date(2020, 12, 9, 2, 3, 4),
+      true
+    ),
+    generatenotify(
+      "From4",
+      "Subject4",
+      "Body4",
+      new Date(2020, 14, 9, 2, 3, 4)
+    ),
+    generatenotify(
+      "From5",
+      "Subject5",
+      "Body5",
+      new Date(2020, 15, 9, 2, 3, 4),
+      true
+    ),
+  ];
   let history = useHistory();
-  const [id, setid] = useState(-1); 
-  const [read, setread] = useState(false); 
-  const [data, setdata] = useState(testdata.sort((a,b)=>a.time > b.time ? -1 : 1)); 
+  const [id, setid] = useState(-1);
+  const [read, setread] = useState(false);
+  const [data, setdata] = useState(
+    testdata.sort((a, b) => (a.time > b.time ? -1 : 1))
+  );
 
-
-  var header=(
-
+  var header = (
     <div className="pageTitle">
-      <IconButton edge="end" color="white" onClick={() => history.goBack()}><ArrowBackIosIcon className="backIcon" /></IconButton>
+      <IconButton edge="end" color="white" onClick={() => history.goBack()}>
+        <ArrowBackIosIcon className="backIcon" />
+      </IconButton>
       <h2 className="text">Notifications</h2>
     </div>
-  )
-  console.log(read)
-  if(!read || id == -1){
-    return(<body>
-      {header}
-      <table className="not-table">
-        {data.map((notify, index) =>{
-          if(notify.read==true)
-            return(
-              <tr className="not" style={{backgroundColor: 'grey'}}> 
-                <td className="not-entry" > <input type="radio" id={index} onClick={() => setid(index)} checked={index==id}/>  </td>
-                <td className="not-entry"  >  {notify.from} </td> 
+  );
+  console.log(read);
+  if (!read || id == -1) {
+    return (
+      <body>
+        {header}
+        <table className="not-table">
+          {data.map((notify, index) => {
+            if (notify.read == true)
+              return (
+                <tr className="not" style={{ backgroundColor: "grey" }}>
+                  <td className="not-entry">
+                    {" "}
+                    <input
+                      type="radio"
+                      id={index}
+                      onClick={() => setid(index)}
+                      checked={index == id}
+                    />{" "}
+                  </td>
+                  <td className="not-entry"> {notify.from} </td>
 
-                <td className="not-entry">  {notify.subject}  </td>
-              </tr>
-            )
-          else
-            return(
-              <tr className="not" > 
-                <td className="not-entry" > <input type="radio" id={index} onClick={() => setid(index)} checked={index==id}/>  </td>
-                <td className="not-entry">  {notify.from} </td> 
+                  <td className="not-entry"> {notify.subject} </td>
+                </tr>
+              );
+            else
+              return (
+                <tr className="not">
+                  <td className="not-entry">
+                    {" "}
+                    <input
+                      type="radio"
+                      id={index}
+                      onClick={() => setid(index)}
+                      checked={index == id}
+                    />{" "}
+                  </td>
+                  <td className="not-entry"> {notify.from} </td>
 
-                <td className="not-entry">  {notify.subject}  </td>
-              </tr>
-            )
-        }
-        )}
-      </table>
-      <div >
-        <button onClick={() =>{
-          if(id!=-1){
-            let tmp = data
-            tmp.splice(id,1)
-            setdata(tmp)
-            setid(-1)
-            setread(false)
+                  <td className="not-entry"> {notify.subject} </td>
+                </tr>
+              );
+          })}
+        </table>
+        <div>
+          <button
+            onClick={() => {
+              if (id != -1) {
+                let tmp = data;
+                tmp.splice(id, 1);
+                setdata(tmp);
+                setid(-1);
+                setread(false);
+              }
+            }}
+          >
+            {" "}
+            Trash{" "}
+          </button>
+          <button
+            onClick={() => {
+              if (id != -1) setread(true);
+            }}
+          >
+            {" "}
+            Read currently selected notification{" "}
+          </button>
+        </div>
+      </body>
+    );
+  } else {
+    let entry = data[id];
+    return (
+      <body>
+        {header}
+        <h1> From: {entry.from} </h1>
+        <p> {entry.body} </p>
 
-          }
-        }}> Trash </button>
-        <button onClick={() => {
-          if(id!=-1)
-            setread(true)
-
-        }}> Read currently selected notification </button>
-      </div>
-    </body>)
+        <div>
+          <button
+            onClick={() => {
+              if (id != -1) {
+                let tmp = data;
+                tmp.splice(id, 1);
+                setdata(tmp);
+                setid(-1);
+                setread(false);
+              }
+            }}
+          >
+            {" "}
+            Trash current notification
+          </button>
+          <button
+            onClick={() => {
+              setid(-1);
+              setread(false);
+              let tmp = data;
+              tmp[id].read = true;
+              setdata(tmp);
+            }}
+          >
+            {" "}
+            Check rest of notifications{" "}
+          </button>
+        </div>
+      </body>
+    );
   }
-  else{
-    let entry = data[id]
-    return(<body>
-      {header}
-      <h1> From: {entry.from} </h1>
-      <p> {entry.body} </p>
-
-      <div >
-        <button onClick={() =>{
-          if(id!=-1){
-            let tmp = data
-            tmp.splice(id,1)
-            setdata(tmp)
-            setid(-1)
-            setread(false)
-
-          }
-        }}> Trash current notification</button>
-        <button onClick={() => {
-          setid(-1)
-          setread(false)
-          let tmp = data;
-          tmp[id].read=true
-          setdata(tmp)
-        } }> Check rest of notifications </button>
-      </div>
-    </body>)
-
-  }
-
 }
-
-
 
 export { Notifications };
 
