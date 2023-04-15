@@ -11,11 +11,12 @@ import { Auth } from "aws-amplify";
 
 class SignUp extends React.Component {
   state = {
-    username: "",
+    firstname: "",
+    lastname: "",
     password: "",
     uniqueID: new Date().getTime(),
     email: "",
-    given_name: "",
+    bio: "",
     // phone_number: '',
     authCode: "",
     showConfirmation: false,
@@ -60,24 +61,29 @@ class SignUp extends React.Component {
             <h2 {...css(styles.signUpHeader)}>Sign Up</h2>
             <input
               {...css(styles.input)}
-              placeholder="Username"
-              onChange={(evt) => this.onChange("username", evt.target.value)}
+              placeholder=" First Name"
+              onChange={(evt) => this.onChange("firstname", evt.target.value)}
             />
             <input
               {...css(styles.input)}
-              placeholder="Password"
+              placeholder=" Last Name"
+              onChange={(evt) => this.onChange("lastname", evt.target.value)}
+            />
+            <input
+              {...css(styles.input)}
+              placeholder=" Password"
               type="password"
               onChange={(evt) => this.onChange("password", evt.target.value)}
             />
             <input
               {...css(styles.input)}
-              placeholder="Email"
+              placeholder=" Email"
               onChange={(evt) => this.onChange("email", evt.target.value)}
             />
             <input
               {...css(styles.input)}
-              placeholder="Given Name"
-              onChange={(evt) => this.onChange("given_name", evt.target.value)}
+              placeholder=" Bio"
+              onChange={(evt) => this.onChange("Bio", evt.target.value)}
             />
             <div {...css(styles.button)} onClick={this.signUp}>
               <p {...css(styles.buttonText)}>Sign Up</p>
