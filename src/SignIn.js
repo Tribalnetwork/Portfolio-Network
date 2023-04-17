@@ -3,7 +3,7 @@ import { css } from "glamor";
 import { Auth } from "aws-amplify";
 import UserContext from "./UserContext";
 import { Helmet } from "react-helmet";
-
+import logo from "../src/icons/logo.png";
 class SignIn extends React.Component {
   state = {
     username: "",
@@ -57,6 +57,7 @@ class SignIn extends React.Component {
         </Helmet>
         {!this.state.showConfirmation && (
           <div {...css(styles.formContainer)}>
+            <img src={logo} className="logo" />
             <h2 {...css(styles.signInHeader)}>Sign In</h2>
             <p>
               Build trust with community work credits. Indie film streaming,
