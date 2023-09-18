@@ -143,6 +143,7 @@ const UserRegistration = () => {
                   onChange={(e) => setProfileImage(e.target.files[0])}
                 />
               </div>
+
               <div className="form-check">
                 <input
                   type="checkbox"
@@ -157,6 +158,33 @@ const UserRegistration = () => {
                   htmlFor="displayEmail"
                 >
                   Display Email
+                </label>
+              </div>
+              <div className="form-check">
+                <input
+                  type="checkbox"
+                  className="form-check-input"
+                  id="displayEmail"
+                  checked={displayEmail}
+                  onChange={() => setDisplayEmail(!displayEmail)}
+                />
+                <label
+                  className="form-check-label"
+                  style={{ color: "black" }}
+                  htmlFor="displayEmail"
+                >
+                  I am above the age of 14 and I accept and agree to the{" "}
+                  <a
+                    style={{
+                      display: "unset",
+                      height: "unset",
+                      width: "unset",
+                      color: "blue",
+                      fontWeight: "700",
+                    }}
+                  >
+                    terms and conditions.
+                  </a>
                 </label>
               </div>
             </div>
