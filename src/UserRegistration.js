@@ -49,7 +49,7 @@ const UserRegistration = () => {
           <form onSubmit={handleSubmit}>
             <div className="modal-header">
               <h5 className="modal-title text-black" style={{ color: "black" }}>
-                User Registration
+                Sign Up
               </h5>
               <button
                 type="button"
@@ -86,6 +86,7 @@ const UserRegistration = () => {
                 <label style={{ color: "black" }}>Bio</label>
                 <textarea
                   className="form-control"
+                  placeholder="#AddHashtag"
                   value={bio}
                   onChange={(e) => setBio(e.target.value)}
                 />
@@ -168,7 +169,7 @@ const UserRegistration = () => {
                 Close
               </button>
               <button type="submit" className="btn btn-primary">
-                Register
+                Continue
               </button>
             </div>
           </form>
