@@ -182,6 +182,8 @@ const UserRegistration = () => {
                       color: "blue",
                       fontWeight: "700",
                     }}
+                    href="https://docs.google.com/document/d/1GTnjohGtbqz3zDPNYM3AunoHUPpsiSjP/edit?usp=drivesdk&ouid=114539425425751391175&rtpof=true&sd=true"
+                    target="_blank"
                   >
                     terms and conditions.
                   </a>
