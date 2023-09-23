@@ -10,6 +10,16 @@ const UserRegistration = () => {
   const [profileImage, setProfileImage] = useState(""); // New state for profile image
   const [pinnedSocialLinks, setPinnedSocialLinks] = useState([]); // New state for pinned social media links
   const [displayEmail, setDisplayEmail] = useState(false); // New state for display email checkbox
+  let Image = profileImage && profileImage.name;
+  let userData = {
+    name,
+    Lname,
+    bio,
+    description,
+    resumeLink,
+    pinnedSocialLinks,
+    Image,
+  };
 
   // Handle adding pinned social media links
   const addPinnedSocialLink = () => {
@@ -28,13 +38,40 @@ const UserRegistration = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Perform registration logic here, e.g., send data to server
+    // Create an object to store the entered values
 
-    // After registration is successful, close the modal
-    const modal = new window.bootstrap.Modal(
-      document.getElementById("userRegistrationModal")
-    );
-    modal.hide();
+    // Log the userData object to the console
+    console.log(userData);
+
+    // Perform registration logic here, e.g., send data to the server
+    fetch("https://your-api-endpoint.com/user-profile", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userData),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        // Handle the response as needed here
+        return response.json(); // Assuming the server returns JSON
+      })
+      .then((data) => {
+        // Handle the data from the server's response
+        console.log("Server response:", data);
+        // Close the modal or perform other actions as needed
+        const modal = new window.bootstrap.Modal(
+          document.getElementById("userRegistrationModal")
+        );
+        modal.hide();
+      })
+      .catch((error) => {
+        // Handle any errors that occurred during the fetch
+        console.error("Fetch error:", error);
+        // You can display an error message to the user here if needed
+      });
   };
 
   return (
@@ -95,6 +132,7 @@ const UserRegistration = () => {
                 <label style={{ color: "black" }}>Description</label>
                 <textarea
                   className="form-control"
+                  placeholder="Optional"
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
                 />
@@ -124,7 +162,7 @@ const UserRegistration = () => {
                     Add
                   </button>
                 </div>
-                <div>
+                <div className="mt-4">
                   <strong style={{ color: "black" }}>
                     Pinned Social Links:
                   </strong>
