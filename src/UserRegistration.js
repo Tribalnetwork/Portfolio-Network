@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { useRef } from "react";
+import { useHistory } from "react-router-dom";
 
-const UserRegistration = () => {
+const UserRegistration = ({ email, setIsGoogleSignedIn }) => {
+  const history = useHistory();
+
   const [name, setName] = useState("");
   const [Lname, setLName] = useState("");
   const [bio, setBio] = useState("");
@@ -10,6 +14,8 @@ const UserRegistration = () => {
   const [profileImage, setProfileImage] = useState(""); // New state for profile image
   const [pinnedSocialLinks, setPinnedSocialLinks] = useState([]); // New state for pinned social media links
   const [displayEmail, setDisplayEmail] = useState(false); // New state for display email checkbox
+  const [error, setError] = useState(null);
+  const modalRef = useRef(null);
   let Image = profileImage && profileImage.name;
   let userData = {
     name,
@@ -19,6 +25,7 @@ const UserRegistration = () => {
     resumeLink,
     pinnedSocialLinks,
     Image,
+    email,
   };
 
   // Handle adding pinned social media links
@@ -34,7 +41,10 @@ const UserRegistration = () => {
     );
     modal.show();
   }, []);
-
+  const closeButton = document.getElementById("closeButton");
+  function addDataDismiss() {
+    closeButton.setAttribute("data-dismiss", "close");
+  }
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -44,7 +54,7 @@ const UserRegistration = () => {
     console.log(userData);
 
     // Perform registration logic here, e.g., send data to the server
-    fetch("https://your-api-endpoint.com/user-profile", {
+    fetch("http://localhost:3001/api/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -52,7 +62,15 @@ const UserRegistration = () => {
       body: JSON.stringify(userData),
     })
       .then((response) => {
+        console.log(response);
+
         if (!response.ok) {
+          setError("Email already exist or please try again");
+          history.push(`/Portfolio?email=${email}`);
+          setTimeout(() => {
+            window.location.reload();
+          }, 1000);
+          // Display the error message
           throw new Error("Network response was not ok");
         }
         // Handle the response as needed here
@@ -60,12 +78,22 @@ const UserRegistration = () => {
       })
       .then((data) => {
         // Handle the data from the server's response
+        if (data.error) {
+          setError(data.error); // Display the error message
+        }
         console.log("Server response:", data);
         // Close the modal or perform other actions as needed
         const modal = new window.bootstrap.Modal(
           document.getElementById("userRegistrationModal")
         );
         modal.hide();
+
+        setIsGoogleSignedIn(false);
+        history.push(`/Portfolio?email=${email}`);
+        setTimeout(() => {
+          window.location.reload();
+        }, 1000);
+        addDataDismiss();
       })
       .catch((error) => {
         // Handle any errors that occurred during the fetch
@@ -80,6 +108,8 @@ const UserRegistration = () => {
       className="modal"
       tabIndex="-1"
       role="dialog"
+      data-backdrop="false"
+      backdrop="false"
     >
       <div className="modal-dialog" role="document">
         <div className="modal-content">
@@ -98,6 +128,7 @@ const UserRegistration = () => {
               </button>
             </div>
             <div className="modal-body">
+              {error && <p style={{ color: "red" }}>{error}</p>}
               <div className="d-flex justify-content-between gap-4">
                 <div className="form-group">
                   <label style={{ color: "black" }}>First Name</label>
@@ -236,7 +267,7 @@ const UserRegistration = () => {
               >
                 Close
               </button>
-              <button type="submit" className="btn btn-primary">
+              <button className="btn btn-primary" onClick={handleSubmit}>
                 Continue
               </button>
             </div>

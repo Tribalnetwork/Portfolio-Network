@@ -10,8 +10,9 @@ import UserRegistration from "./UserRegistration";
 const Authenticator = (props) => {
   const [errorMessage, setErrorMessage] = useState(null);
   const [currentState, setCurrentState] = useState("showSignIn");
-
+  const { email, setEmail } = props;
   const [isGoogleSignedIn, setIsGoogleSignedIn] = useState(false);
+
   const clientId =
     "315314071570-a113onja6vv3lvhj8t4va3697tsr4e36.apps.googleusercontent.com";
   useEffect(() => {
@@ -31,14 +32,14 @@ const Authenticator = (props) => {
     setErrorMessage(errorMsg);
   };
   const handleLoginSuccess = (response) => {
-    console.log("Google Sign-In Success 2323232", response);
+    console.log("Google Sign-In Success 2323232", response?.profileObj?.email);
+    setEmail(response?.profileObj?.email);
     setIsGoogleSignedIn(true);
     // Handle successful sign-in here, e.g., set user data in state
   };
 
   const handleLoginFailure = (error) => {
-    setIsGoogleSignedIn(true);
-
+    setIsGoogleSignedIn(false);
     console.error("Google Sign-In Error", error);
     // Handle sign-in error here
   };
@@ -74,7 +75,12 @@ const Authenticator = (props) => {
                 cookiePolicy={"single_host_origin"}
                 // isSignedIn={true/}
               />
-              {isGoogleSignedIn && <UserRegistration />}
+              {isGoogleSignedIn && (
+                <UserRegistration
+                  setIsGoogleSignedIn={setIsGoogleSignedIn}
+                  email={email}
+                />
+              )}
             </div>
             <p
               onClick={() => switchState("showSignUp")}

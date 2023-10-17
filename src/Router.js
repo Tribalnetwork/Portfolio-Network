@@ -34,6 +34,7 @@ import { useContext } from "react";
 import ListPage from "./components/NewData/ListPage/ListPage";
 import Setting from "./components/NewData/SettingPage/Setting";
 import PortfolioPage from "./PortfolioPage/PortfolioPage";
+import { useState } from "react";
 
 class PrivateRoute extends React.Component {
   state = {
@@ -86,6 +87,7 @@ const NoMatch = ({ location }) => (
 PrivateRoute = withRouter(PrivateRoute);
 
 const Routes = () => {
+  const [email, setEmail] = useState(false);
   let signedUser = useContext(UserContext);
   // check if there is signed user
   let isThereSignedUser = signedUser.user ? true : false;
@@ -94,7 +96,7 @@ const Routes = () => {
   return (
     <Router>
       <div>
-        <NavigationBar />
+        <NavigationBar email={email} />
         <Switch>
           <Route path="/ListPage">
             <div class="video_listing_page_body">
@@ -193,7 +195,7 @@ const Routes = () => {
           {/* Explore */}
           <Route path="/explore" component={FeatureComingSoon} />
           <Route path="/Portfolio">
-            <PortfolioPage />
+            <PortfolioPage setEmail={setEmail} />
           </Route>
           {/* <Route path="/explore"><Explore /></Route> */}
           <Route path="/explore/sports" exact component={FeatureComingSoon} />
@@ -242,7 +244,13 @@ const Routes = () => {
           <Route path="/explore/watchrandom">
             <FeatureComingSoon />
           </Route>
-          <Route path="/auth" exact component={Authenticator} />
+          <Route
+            path="/auth"
+            exact
+            render={(props) => (
+              <Authenticator {...props} email={email} setEmail={setEmail} />
+            )}
+          />
           <Route path="/" exact component={Home} />
           <Route path="/home" exact component={Home} />
           <Route

@@ -25,6 +25,7 @@ import People from "../bottomNavBarImg/people.png";
 import Submit from "../bottomNavBarImg/Submit.svg";
 import "./NewData/StyleFolder/Stylefile.css";
 import $ from "jquery";
+import VideoUpload from "../VideoUpload";
 
 const useStyles = makeStyles((theme) => ({
   menuButton: {
@@ -65,7 +66,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const NavigationBar = () => {
+export const NavigationBar = ({ email }) => {
   const context = useContext(UserContext);
   const classes = useStyles();
   const [open, setOpen] = useState(false);
@@ -109,6 +110,17 @@ export const NavigationBar = () => {
       });
     });
   }, []);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    console.log(email, "sdas");
+    if (email) {
+      setIsModalOpen(true);
+    } else {
+      // Handle login/logout logic or any other action
+      // when the user doesn't have an email
+    }
+  };
   return (
     <>
       <header>
@@ -226,11 +238,30 @@ export const NavigationBar = () => {
                       </form>
                     </ul>
                     <div class="call_us">
-                      <Link to="/auth" style={{ textDecoration: "none" }}>
-                        <Button color="inherit" style={{ color: "#d4af37" }}>
-                          Login/Logout
+                      {email ? (
+                        <Button
+                          color="inherit"
+                          style={{ color: "#d4af37" }}
+                          onClick={openModal}
+                        >
+                          {email ? "Upload video" : "Login/Logout"}
                         </Button>
-                      </Link>
+                      ) : (
+                        <Link to="/auth" style={{ textDecoration: "none" }}>
+                          <Button
+                            color="inherit"
+                            style={{ color: "#d4af37" }}
+                            onClick={openModal}
+                          >
+                            {email ? "Upload video" : "Login/Logout"}
+                          </Button>
+                        </Link>
+                      )}
+
+                      {isModalOpen && (
+                        // Render your modal component here
+                        <VideoUpload onClose={() => setIsModalOpen(false)} />
+                      )}
                     </div>
                   </div>
                 )
