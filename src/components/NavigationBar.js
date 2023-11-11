@@ -30,6 +30,7 @@ import VideoUpload from "../VideoUpload";
 const useStyles = makeStyles((theme) => ({
   menuButton: {
     marginRight: theme.spacing(2),
+    border: "2px solid #d4af37",
   },
   title: {
     flexGrow: 1,
@@ -131,6 +132,7 @@ export const NavigationBar = ({ email }) => {
                 <div class="home_toogle_btn">
                   <IconButton
                     edge="start"
+                    style={{ border: "2px solid #d4af37" }}
                     className={classes.menuButton}
                     color="inherit"
                     aria-label="menu"
@@ -144,6 +146,9 @@ export const NavigationBar = ({ email }) => {
                   <h4>Portfolio Network</h4>
                 </Link>
                 <div class="header_nav_list">
+                  <Link to="/Home" class=" header_active_nav">
+                    <span>Films</span>
+                  </Link>
                   <Link to="/Home" class=" header_active_nav">
                     <span>Films</span>
                   </Link>
@@ -238,29 +243,37 @@ export const NavigationBar = ({ email }) => {
                       </form>
                     </ul>
                     <div class="call_us">
-                      {email ? (
-                        <Button
-                          color="inherit"
-                          style={{ color: "#d4af37" }}
+                      {true ? (
+                        <button
                           onClick={openModal}
+                          className="btn btn-dark "
+                          style={{ border: "2px solid rgb(212, 175, 55)" }}
                         >
-                          {email ? "Upload video" : "Login/Logout"}
-                        </Button>
+                          {true ? "Publish video" : "Login/Logout"}
+                        </button>
                       ) : (
                         <Link to="/auth" style={{ textDecoration: "none" }}>
-                          <Button
+                          <button
                             color="inherit"
-                            style={{ color: "#d4af37" }}
+                            style={{
+                              color: "#fff",
+                              backgroundColor: "#343a40",
+                              borderColor: "#343a40",
+                            }}
                             onClick={openModal}
+                            className="btn btn-dark "
                           >
                             {email ? "Upload video" : "Login/Logout"}
-                          </Button>
+                          </button>
                         </Link>
                       )}
 
                       {isModalOpen && (
                         // Render your modal component here
-                        <VideoUpload onClose={() => setIsModalOpen(false)} />
+                        <VideoUpload
+                          email={email}
+                          onClose={() => setIsModalOpen(false)}
+                        />
                       )}
                     </div>
                   </div>
@@ -278,21 +291,35 @@ export const NavigationBar = ({ email }) => {
               onKeyDown={handleDrawerClose}
             >
               <List component="nav">
-                <ListItem button component={Link} to={"/home"}>
-                  <ListItemText primary={"Films"}></ListItemText>
+                <ListItem button component={Link} to={"/auth"}>
+                  <ListItemText primary={"Sign In/Sign Out"}></ListItemText>
                 </ListItem>
+                <ListItem button component={Link} to={"/auth"}>
+                  <ListItemText
+                    primary={"Terms of use and privacy policy"}
+                  ></ListItemText>
+                </ListItem>
+                <ListItem button component={Link} to={"/auth"}>
+                  <ListItemText primary={"Accessability"}></ListItemText>
+                </ListItem>
+                <ListItem button component={Link} to={"/auth"}>
+                  <ListItemText primary={"Tribaliii.org"}></ListItemText>
+                </ListItem>
+                {/* <ListItem button component={Link} to={"/home"}>
+                  <ListItemText primary={"Films"}></ListItemText>
+                </ListItem> */}
 
                 {/* 5: Settings */}
-                <ListItem button component={Link} to={"/ListPage"}>
+                {/* <ListItem button component={Link} to={"/ListPage"}>
                   <ListItemText primary={"Lists"}> </ListItemText>
-                </ListItem>
+                </ListItem> */}
                 {/* 6: Submit */}
-                <ListItem button component={Link} to={"/Portfolio"}>
+                {/* <ListItem button component={Link} to={"/Portfolio"}>
                   <ListItemText primary={"Portfolio"}></ListItemText>
                 </ListItem>
                 <ListItem button component={Link} to={"/Setting"}>
                   <ListItemText primary={"Settings"}></ListItemText>
-                </ListItem>
+                </ListItem> */}
               </List>
             </div>
           </Drawer>

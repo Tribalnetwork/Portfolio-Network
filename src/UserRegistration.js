@@ -29,7 +29,8 @@ const UserRegistration = ({ email, setIsGoogleSignedIn }) => {
   };
 
   // Handle adding pinned social media links
-  const addPinnedSocialLink = () => {
+  const addPinnedSocialLink = (e) => {
+    e.preventDefault();
     if (socialLinks.trim() !== "") {
       setPinnedSocialLinks([...pinnedSocialLinks, socialLinks]);
       setSocialLinks(""); // Clear the input field after adding
@@ -54,7 +55,7 @@ const UserRegistration = ({ email, setIsGoogleSignedIn }) => {
     console.log(userData);
 
     // Perform registration logic here, e.g., send data to the server
-    fetch("http://localhost:3001/api/users", {
+    fetch("https://shy-blue-mussel-robe.cyclic.app/api/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -113,7 +114,7 @@ const UserRegistration = ({ email, setIsGoogleSignedIn }) => {
     >
       <div className="modal-dialog" role="document">
         <div className="modal-content">
-          <form onSubmit={handleSubmit}>
+          <form>
             <div className="modal-header">
               <h5 className="modal-title text-black" style={{ color: "black" }}>
                 Sign Up
@@ -213,22 +214,6 @@ const UserRegistration = ({ email, setIsGoogleSignedIn }) => {
                 />
               </div>
 
-              <div className="form-check">
-                <input
-                  type="checkbox"
-                  className="form-check-input"
-                  id="displayEmail"
-                  checked={displayEmail}
-                  onChange={() => setDisplayEmail(!displayEmail)}
-                />
-                <label
-                  className="form-check-label"
-                  style={{ color: "black" }}
-                  htmlFor="displayEmail"
-                >
-                  Display Email
-                </label>
-              </div>
               <div className="form-check">
                 <input
                   type="checkbox"

@@ -9,26 +9,29 @@
 html {
   scroll-behavior: smooth;
 }
-.App{
-  text-align: unset !important; 
+.App {
+  text-align: unset !important;
 }
 body {
   float: left;
   width: 100%;
   margin: 0px;
-  background-color: #000000 !important;
+  background-color: white !important;
 }
 .custom_container {
   max-width: 1170px;
   margin: 0px auto;
 }
-
-
+@media only screen and (min-width: 768px) {
+  .mobileAdjust {
+    display: block !important;
+  }
+}
 /* Header style start */
 header {
   float: left;
   width: 100%;
-  padding: 30px 10px 30px 10px;
+  padding: 30px 10px 0px 10px;
   position: relative;
 }
 .header_bar {
@@ -251,32 +254,32 @@ a.open_close_nav i {
     height: 100%;
   }
 }
-.watch_time_counter{
-    display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    padding-bottom: 20px;
+.watch_time_counter {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding-bottom: 20px;
 }
-.free_watch_time{
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px;
+.free_watch_time {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
 }
-.free_watch_time span{
-color: #ffffff;
-font-size: 16px;
-padding-right: 10px;
+.free_watch_time span {
+  color: #ffffff;
+  font-size: 16px;
+  padding-right: 10px;
 }
-.free_watch_time p{
-    color: #ffffff;
-    font-size: 12px;
-    margin: 0px;
+.free_watch_time p {
+  color: #ffffff;
+  font-size: 12px;
+  margin: 0px;
 }
-.get_new_watch_time a{
-    color: #ffffff !important;
-    font-size: 16px;
+.get_new_watch_time a {
+  color: #ffffff !important;
+  font-size: 16px;
 }
 /* home_Section_ten style */
 .home_Section_ten {
@@ -451,6 +454,9 @@ padding-right: 10px;
   }
 }
 @media (max-width: 767px) {
+  .mobileAdjust {
+    display: block !important;
+  }
   .product_category_section {
     margin-bottom: 25px;
   }
@@ -805,51 +811,49 @@ padding-right: 10px;
   }
 }
 
-footer{
-    display: block;
-    float: left;
-    width: 100%;
-    padding: 0px 15px;
-    background: #121212;
-border-radius: 10px;
-position: sticky;
-bottom: 0px;
-z-index: 9999;
+footer {
+  display: block;
+  float: left;
+  width: 100%;
+  padding: 0px 15px;
+  background: #121212;
+  border-radius: 10px;
+  position: sticky;
+  bottom: 0px;
+  z-index: 9999;
 }
-.footer_list{
-    display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-    padding: 20px 0px;
+.footer_list {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0px;
 }
-.footer_list a{
-    display: flex;
-    flex-direction: column;
- padding-right: 55px;
- text-decoration: unset !important;
- align-items: center;
+.footer_list a {
+  display: flex;
+  flex-direction: column;
+  padding-right: 55px;
+  text-decoration: unset !important;
+  align-items: center;
 }
-.footer_list a:last-child{
-    padding-right: 0px;
+.footer_list a:last-child {
+  padding-right: 0px;
+}
 
-}
-
-.footer_list a i{
-    color: #A07923;
-    font-size: 20px;
-    
+.footer_list a i {
+  color: #a07923;
+  font-size: 20px;
 }
 i.fal.fa-bars {
-    transform: rotate(90deg);
+  transform: rotate(90deg);
 }
 
-.footer_list a span{
-    padding-top: 11px;
-    font-size: 16px;
-line-height: 12px;
-letter-spacing: -0.24px;
-color: #A07923;
+.footer_list a span {
+  padding-top: 11px;
+  font-size: 16px;
+  line-height: 12px;
+  letter-spacing: -0.24px;
+  color: #a07923;
 }
 
 /*RESPONSIVE*/
@@ -880,34 +884,33 @@ color: #A07923;
   }
 }
 @media (max-width: 540px) {
-.footer_list {
+  .footer_list {
     justify-content: space-between;
-}
-.footer_list a{
+  }
+  .footer_list a {
     padding-right: 0px;
-}
-
+  }
 }
 @media (max-width: 450px) {
-    .header_bar .call_us a {
-        font-size: 14px;
-    }
-    .header_bar .logo a h4 {
-        font-size: 20px;
-    }
-    .header_bar .nav_btn {
-        width: 30px;
-        height: 30px;
-    }
-    .header_bar .nav_btn i {
-        font-size: 13px;
-    }
-    .footer_list a span {
-        padding-top: 7px;
-        font-size: 12px;
-    }
-    .footer_list a i {
-        color: #A07923;
-        font-size: 18px;
-    }
-    }
+  .header_bar .call_us a {
+    font-size: 14px;
+  }
+  .header_bar .logo a h4 {
+    font-size: 20px;
+  }
+  .header_bar .nav_btn {
+    width: 30px;
+    height: 30px;
+  }
+  .header_bar .nav_btn i {
+    font-size: 13px;
+  }
+  .footer_list a span {
+    padding-top: 7px;
+    font-size: 12px;
+  }
+  .footer_list a i {
+    color: #a07923;
+    font-size: 18px;
+  }
+}

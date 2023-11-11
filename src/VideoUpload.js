@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 
-const VideoUpload = ({ onClose }) => {
+const VideoUpload = ({ onClose, email }) => {
   const history = useHistory();
   const [name, setName] = useState("");
   const [thumbnail, setThumbnail] = useState("");
@@ -17,16 +17,19 @@ const VideoUpload = ({ onClose }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const videoData = { name, thumbnail, link, description };
+    const videoData = { name, thumbnail, link, description, email };
 
     try {
-      const response = await fetch("http://localhost:3001/api/videos", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(videoData),
-      });
+      const response = await fetch(
+        "https://shy-blue-mussel-robe.cyclic.app/api/videos",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(videoData),
+        }
+      );
 
       if (response.ok) {
         const video = await response.json();

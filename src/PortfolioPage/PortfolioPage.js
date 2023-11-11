@@ -6,6 +6,7 @@ import right from "./images/RightV.svg";
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
+import SocialLinks from "../components/SocialLinks";
 
 const PortfolioPage = ({ setEmail }) => {
   const [userData, setUserData] = useState(null);
@@ -17,7 +18,7 @@ const PortfolioPage = ({ setEmail }) => {
 
   const [videos, setVideos] = useState([]);
   const fetchUserData = () => {
-    const apiEndpoint = `http://localhost:3001/api/users?email=${email}`;
+    const apiEndpoint = `https://shy-blue-mussel-robe.cyclic.app/api/users?email=${email}`;
 
     fetch(apiEndpoint)
       .then((response) => {
@@ -38,7 +39,7 @@ const PortfolioPage = ({ setEmail }) => {
   };
 
   const fetchVideos = () => {
-    const apiEndpoint = "http://localhost:3001/api/videos";
+    const apiEndpoint = `https://shy-blue-mussel-robe.cyclic.app/api/videos?email=${email}`;
 
     fetch(apiEndpoint)
       .then((response) => {
@@ -75,8 +76,9 @@ const PortfolioPage = ({ setEmail }) => {
                 justifyContent: "center",
               }}
             >
-              <img src={left} className="mr-2" /> <img src={profile} />
-              <img src={right} className="ml-2" />{" "}
+              {/* <img src={left} className="mr-2" /> */}
+              <img src={profile} />
+              {/* <img src={right} className="ml-2" />{" "} */}
             </div>
           </div>
           <div className="col-md-8">
@@ -84,45 +86,23 @@ const PortfolioPage = ({ setEmail }) => {
             {userData ? (
               <>
                 {" "}
-                <h1
-                  style={{
-                    fontFamily: "Roboto",
-                    fontStyle: "normal",
-                    fontWeight: " 400",
-                    fontSize: "30px",
-                    marginTop: "70px",
-                    marginBottom: "40px",
-                  }}
-                >
-                  {userData.name}
-                </h1>
-                <h5
-                  style={{
-                    fontFamily: "Roboto",
-                    fontStyle: "normal",
-                    fontWeight: " 400",
-                    fontSize: "20px",
-                    marginTop: "20px",
-                    marginBottom: "20px",
-                  }}
-                >
-                  {userData.bio}
-                </h5>
-                <p
-                  style={{
-                    fontFamily: "Roboto",
-                    fontStyle: "normal",
-                    fontWeight: " 400",
-                    fontSize: "16px",
-                    marginTop: "20px",
-                    marginBottom: "20px",
-                    marginLeft: "0px",
-                  }}
-                >
+                <h1 className="portfolioHeading">{userData.name}</h1>
+                <h5 className="portfolioHeadingsub">{userData.bio}</h5>
+                <p className="portfolioHeadingsubP">
                   {userData.description}
                 </p>{" "}
                 <div className="video_listing_page_list_single_tabs_data">
-                  <span>{userData.resumeLink}</span>
+                  <button
+                    className="btn btn-dark centeerrbtn"
+                    style={{ borderRadius: "20px" }}
+                  >
+                    <a href={userData.resumeLink} target="_blank">
+                      Resume
+                    </a>
+                  </button>
+                </div>
+                <div>
+                  <SocialLinks userData={userData} />
                 </div>
               </>
             ) : (
@@ -130,9 +110,9 @@ const PortfolioPage = ({ setEmail }) => {
             )}
           </div>
         </div>
-        <input type="search" className="searchPortfolio" placeholder="Search" />
+        {/* <input type="search" className="searchPortfolio" placeholder="Search" /> */}
       </div>
-      <ul className="d-flex flex-wrap  gap-5 flex-row ">
+      <ul className=" flex-wrap justify-content-center mt-5 gap-5 flex-row mobileAdjust">
         {videos.map((video) => (
           <li key={video._id}>
             <div className="video_listing_page_product_figure_box">
@@ -147,13 +127,13 @@ const PortfolioPage = ({ setEmail }) => {
               >
                 <span>
                   <strong>{video.name}</strong>
-                  <small>8,964 views</small>
+                  {/* <small>8,964 views</small> */}
                 </span>
-                <object>
+                {/* <object>
                   <a>
                     <i className="fal fa-plus"></i>
                   </a>
-                </object>
+                </object> */}
               </a>
             </div>
           </li>

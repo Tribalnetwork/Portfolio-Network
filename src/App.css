@@ -73,8 +73,53 @@ p {
 .searchPortfolio::placeholder {
   margin-left: 30px !important;
 }
+.mobileAdjust {
+  display: flex !important;
+}
+.portfolioHeading {
+  font-family: "Roboto";
+  font-style: "normal";
+  font-weight: 400;
+  font-size: 30px;
+  margin-top: 70px;
+  margin-bottom: 20px;
+}
+.portfolioHeadingsub {
+  font-family: "Roboto";
+  font-style: "normal";
+  font-weight: 400;
+  font-size: 20px;
+  margin-top: 0px;
+  margin-bottom: 20px;
+}
+.portfolioHeadingsubP {
+  font-family: "Roboto";
+  font-style: "normal";
+  margin-left: 0px !important;
 
+  font-weight: 400;
+  font-size: 16px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 @media (max-width: 750px) {
+  .centeerrbtn {
+    margin: auto;
+  }
+  .portfolioHeadingsubP {
+    text-align: center !important;
+  }
+  .portfolioHeading {
+    text-align: center !important;
+    margin-bottom: 20px;
+  }
+  .portfolioHeadingsub {
+    text-align: center !important;
+  }
+  .mobileAdjust {
+    display: block !important;
+    padding: 0px 15%;
+  }
   .searchPortfolio {
     width: auto !important;
   }
