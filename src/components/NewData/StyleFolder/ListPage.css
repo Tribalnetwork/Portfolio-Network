@@ -78,7 +78,6 @@ div.video-name-wrapper::before {
 .video_listing_page_list_single_tabs_data {
   display: flex;
   align-items: center;
-  padding-right: 20px;
 }
 .video_listing_page_list_single_tabs_data a {
   font-style: normal;
@@ -177,7 +176,7 @@ div.video-name-wrapper::before {
   width: 100%;
   text-overflow: ellipsis;
   overflow: hidden;
-  white-space: nowrap;
+  /* white-space: nowrap; */
   text-align: left;
 }
 .video_listing_page_product_figure_tag_parent_link span small {

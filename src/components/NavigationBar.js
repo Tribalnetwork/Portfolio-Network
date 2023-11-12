@@ -12,7 +12,7 @@ import Drawer from "@material-ui/core/Drawer";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
-
+import { useHistory } from "react-router-dom";
 import "./NavigationBar.css";
 import Home from "../bottomNavBarImg/home.svg";
 import Tribal from "../bottomNavBarImg/tribal.svg";
@@ -39,13 +39,13 @@ const useStyles = makeStyles((theme) => ({
     textDecoration: "none",
   },
   list: {
-    width: 250,
+    width: 265,
     height: "100%",
     backgroundColor: "#000",
     color: "#DAA520",
   },
   list2: {
-    width: 250,
+    width: 265,
     height: "100%",
     backgroundColor: "#000",
     color: "#fff",
@@ -74,7 +74,7 @@ export const NavigationBar = ({ email }) => {
   const [open2, setOpen2] = useState(false);
   const isAuthenticated = context.user && context.user.username ? true : false;
   const isLoaded = context.isLoaded;
-
+  const history = useHistory();
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -114,12 +114,22 @@ export const NavigationBar = ({ email }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => {
-    console.log(email, "sdas");
     if (email) {
       setIsModalOpen(true);
     } else {
+      console.log(email, "email");
+      history.push("/auth");
       // Handle login/logout logic or any other action
       // when the user doesn't have an email
+    }
+  };
+  const handlePortfolioClick = () => {
+    if (email) {
+      // Redirect to the portfolio page with the email query parameter
+      history.push(`/portfolio?email=${email}`);
+    } else {
+      // Redirect to the "/auth" page if there is no email
+      history.push("/auth");
     }
   };
   return (
@@ -249,7 +259,7 @@ export const NavigationBar = ({ email }) => {
                           className="btn btn-dark "
                           style={{ border: "2px solid rgb(212, 175, 55)" }}
                         >
-                          {true ? "Publish video" : "Login/Logout"}
+                          {true ? "Publish" : "Login/Logout"}
                         </button>
                       ) : (
                         <Link to="/auth" style={{ textDecoration: "none" }}>
@@ -291,35 +301,48 @@ export const NavigationBar = ({ email }) => {
               onKeyDown={handleDrawerClose}
             >
               <List component="nav">
+                <ListItem button onClick={handlePortfolioClick}>
+                  <ListItemText primary="My Portfolio" />
+                </ListItem>
                 <ListItem button component={Link} to={"/auth"}>
                   <ListItemText primary={"Sign In/Sign Out"}></ListItemText>
                 </ListItem>
-                <ListItem button component={Link} to={"/auth"}>
+                <a
+                  // button
+                  // component={Link}
+                  className="navText"
+                  target="_blank"
+                  href="https://docs.google.com/document/d/1kB7e-z9TBEfz8cYh02oVbfqnC7XwGlgI/edit?usp=drivesdk&ouid=116055892995468547553&rtpof=true&sd=true"
+                >
                   <ListItemText
+                    style={{ marginLeft: "16px" }}
                     primary={"Terms of use and privacy policy"}
                   ></ListItemText>
-                </ListItem>
-                <ListItem button component={Link} to={"/auth"}>
-                  <ListItemText primary={"Accessability"}></ListItemText>
-                </ListItem>
-                <ListItem button component={Link} to={"/auth"}>
-                  <ListItemText primary={"Tribaliii.org"}></ListItemText>
-                </ListItem>
-                {/* <ListItem button component={Link} to={"/home"}>
-                  <ListItemText primary={"Films"}></ListItemText>
-                </ListItem> */}
-
-                {/* 5: Settings */}
-                {/* <ListItem button component={Link} to={"/ListPage"}>
-                  <ListItemText primary={"Lists"}> </ListItemText>
-                </ListItem> */}
-                {/* 6: Submit */}
-                {/* <ListItem button component={Link} to={"/Portfolio"}>
-                  <ListItemText primary={"Portfolio"}></ListItemText>
-                </ListItem>
-                <ListItem button component={Link} to={"/Setting"}>
-                  <ListItemText primary={"Settings"}></ListItemText>
-                </ListItem> */}
+                </a>
+                <a
+                  // button
+                  // component={Link}
+                  className="navText"
+                  target="_blank"
+                  href="https://docs.google.com/document/d/1kB7e-z9TBEfz8cYh02oVbfqnC7XwGlgI/edit?usp=drivesdk&ouid=116055892995468547553&rtpof=true&sd=true"
+                >
+                  <ListItemText
+                    style={{ marginLeft: "16px" }}
+                    primary={"Accessability"}
+                  ></ListItemText>
+                </a>
+                <a
+                  // button
+                  // component={Link}
+                  className="navText"
+                  target="_blank"
+                  href="https://Tribaliii.org"
+                >
+                  <ListItemText
+                    style={{ marginLeft: "16px" }}
+                    primary={"Tribaliii.org"}
+                  ></ListItemText>
+                </a>
               </List>
             </div>
           </Drawer>

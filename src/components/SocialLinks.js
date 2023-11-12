@@ -2,7 +2,7 @@ import React from "react";
 
 const SocialLinks = ({ userData }) => {
   return (
-    <div className="d-flex align-items-center ">
+    <div className="d-flex align-items-center mobileJustify">
       {userData?.pinnedSocialLinks?.map((link, index) => (
         <div key={index}>
           {link.includes("facebook") && (
