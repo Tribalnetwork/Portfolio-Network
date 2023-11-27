@@ -15,7 +15,12 @@ const PortfolioPage = ({ setEmail }) => {
   const email = new URLSearchParams(search).get("email");
 
   const [loading, setLoading] = useState(true);
+  const [acceptedCookies, setAcceptedCookies] = useState(false);
 
+  const acceptCookies = () => {
+    // Update the state to mark cookies as accepted
+    setAcceptedCookies(true);
+  };
   const [videos, setVideos] = useState([]);
   const fetchUserData = () => {
     const apiEndpoint = `https://shy-blue-mussel-robe.cyclic.app/api/users?email=${email}`;
@@ -85,7 +90,15 @@ const PortfolioPage = ({ setEmail }) => {
             {" "}
             {userData ? (
               <>
-                {" "}
+                <h1 className="-mb-2">
+                  Fund us through this link:{" "}
+                  <a
+                    href="https://www.gofundme.com/f/new-link-in-bio-tool-with-purpose?utm_campaign=p_lico+share-sheet-first-launch&utm_medium=copy_link&utm_source=customer"
+                    target="_blank"
+                  >
+                    Fund Us{" "}
+                  </a>
+                </h1>{" "}
                 <h1 className="portfolioHeading">{userData.name}</h1>
                 <h5 className="portfolioHeadingsub">{userData.bio}</h5>
                 <p className="portfolioHeadingsubP">
@@ -139,6 +152,20 @@ const PortfolioPage = ({ setEmail }) => {
           </li>
         ))}
       </ul>
+      {!acceptedCookies && (
+        <footer className="footer mt-auto py-1 bg-light">
+          <div className="container d-flex justify-content-between align-items-center">
+            <span className="text-muted">
+              {" "}
+              This website uses cookies to enhance your experience and provide
+              personalized services.
+            </span>
+            <button className="btn btn-dark" onClick={acceptCookies}>
+              Accept
+            </button>
+          </div>
+        </footer>
+      )}
     </div>
   );
 };

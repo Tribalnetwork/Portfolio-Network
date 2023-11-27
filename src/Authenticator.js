@@ -66,13 +66,17 @@ const Authenticator = (props) => {
       <div {...css(styles.buttonContainer)}>
         {currentState === "showSignIn" ? (
           <div {...css(styles.linkContainer)}>
-            <div className="check_out_option_form_box_two_google_signin_btn">
+            <div
+              className="check_out_option_form_box_two_google_signin_btn"
+              style={{ marginBottom: "20px" }}
+            >
               <GoogleLogin
                 clientId={clientId}
-                buttonText="Sign in with Google"
+                buttonText="Click to Sign in/ Sign up"
                 onSuccess={handleLoginSuccess}
                 onFailure={handleLoginFailure}
                 cookiePolicy={"single_host_origin"}
+                style={{ fontSize: "20px" }}
                 // isSignedIn={true/}
               />
               {isGoogleSignedIn && (
@@ -83,17 +87,14 @@ const Authenticator = (props) => {
               )}
             </div>
             <p
+              style={{ textAlign: "center" }}
               onClick={() => switchState("showSignUp")}
               {...css(styles.toggle)}
             >
               Need an account? Sign Up
             </p>
-            <p
-              onClick={() => switchState("showForgotPassword")}
-              {...css(styles.toggle)}
-            >
-              Forgot your password?
-            </p>
+
+            <b>Can't sign in? Try refreshing cookies in your browser.</b>
           </div>
         ) : (
           <div {...css(styles.linkContainer)}>

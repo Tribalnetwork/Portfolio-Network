@@ -3,7 +3,7 @@ import { css } from "glamor";
 import { Auth } from "aws-amplify";
 import UserContext from "./UserContext";
 import { Helmet } from "react-helmet";
-import logo from "../src/icons/logo.png";
+import logo from "../src/icons/uplogo.png";
 class SignIn extends React.Component {
   state = {
     username: "",
@@ -56,29 +56,15 @@ class SignIn extends React.Component {
           <title>Sign In</title>
         </Helmet>
         {!this.state.showConfirmation && (
-          <div {...css(styles.formContainer)}>
+          <div>
             <img src={logo} className="logo" />
-            <h2 {...css(styles.signInHeader)}>Sign In</h2>
-            <p>
-              Build trust with community work credits. Indie film streaming,
-              freelance talent scouting.
-            </p>
-            <input
-              onChange={(evt) => this.onChange("username", evt.target.value)}
-              {...css(styles.input)}
-              placeholder=" Email"
-            />
-            <input
-              type="password"
-              onChange={(evt) => this.onChange("password", evt.target.value)}
-              {...css(styles.input)}
-              placeholder=" Password"
-            />
-            <div {...css(styles.button)} onClick={this.signIn}>
-              <p {...css(styles.buttonText)}>Sign In</p>
-            </div>
+            <h2 style={{ color: "black" }}>
+              Sign up/ sign in free with google
+            </h2>
+            <h3 style={{ color: "black" }}> Link in bio tool</h3>{" "}
           </div>
         )}
+
         {this.state.showConfirmation && (
           <div {...css(styles.formContainer)}>
             <input
